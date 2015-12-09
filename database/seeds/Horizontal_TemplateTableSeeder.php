@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class DisplaySettingTableSeeder extends Seeder
+class Horizontal_TemplateTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,15 +11,14 @@ class DisplaySettingTableSeeder extends Seeder
      */
     public function run()
     {
-      $table = DB::table('displaySetting');
+      $table = DB::table('Horizontal_Template');
 
       //Empty table
       $table->delete();
 
       //Populate table
       $table->insert([
-        'verticleTemplate' => 1,
-        'horizontalTemplate' => 1
+        'Template_ID' => 1,
       ]);
     }
 }

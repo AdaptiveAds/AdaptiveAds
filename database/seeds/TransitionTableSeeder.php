@@ -11,14 +11,14 @@ class TransitionTableSeeder extends Seeder
      */
     public function run()
     {
-        $table = DB::table('transition');
+        $table = DB::table('Transition');
 
         //Empty table
         $table->delete();
 
         //Populate table
         $table->insert([
-          'name' => 'fade'
+          'Transition_Name' => 'fade'
         ]);
     }
 }

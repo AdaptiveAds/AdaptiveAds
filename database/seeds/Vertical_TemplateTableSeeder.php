@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class PageTableSeeder extends Seeder
+class Vertical_TemplateTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,19 +11,14 @@ class PageTableSeeder extends Seeder
      */
     public function run()
     {
-      $table = DB::table('Page');
+      $table = DB::table('Vertical_Template');
 
       //Empty table
       $table->delete();
 
       //Populate table
       $table->insert([
-        'Page_Data_ID' => 1,
-        'Page_Index' => 1,
-        'Advert_ID' => 1,
-        'Vertical_ID' => 1,
-        'Horizontal_ID' => 1,
-		'Deleted' => 0
+        'Template_ID' => 1,
       ]);
     }
 }

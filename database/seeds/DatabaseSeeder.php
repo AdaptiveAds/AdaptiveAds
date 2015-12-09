@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
         $this->call(TemplateTableSeeder::class);
         $this->call(AdvertTableSeeder::class);
         $this->call(PageDataTableSeeder::class);
-        $this->call(DisplaySettingTableSeeder::class);
+        $this->call(Horizontal_TemplateTableSeeder::class);
+        $this->call(Vertical_TemplateTableSeeder::class);
         $this->call(PageTableSeeder::class);
 
         Model::reguard();
