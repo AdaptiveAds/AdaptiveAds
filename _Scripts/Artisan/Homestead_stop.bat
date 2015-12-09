@@ -1,0 +1,2 @@
+homestead destroy
+pause
