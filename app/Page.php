@@ -13,7 +13,7 @@ class Page extends Model
    */
   protected $table = 'page';
 
-  public function pageData() {
-    return $this->hasOne('App\PageData');
+  public function PageData() {
+    return $this->hasOne(PageData::class, 'id');
   }
 }
