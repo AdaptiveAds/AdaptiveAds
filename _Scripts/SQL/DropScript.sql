@@ -6,7 +6,6 @@ SET SQL_MODE='ALLOW_INVALID_DATES';
 #CREATE DATABASE IF NOT EXISTS `adaptive_adaptiveads`;
 
 #USE adaptive_adaptiveads;
-CREATE DATABASE IF NOT EXISTS `adaptive_adaptiveads`;
 USE adaptive_adaptiveads;
 
 DROP TABLE IF EXISTS `Page`;
