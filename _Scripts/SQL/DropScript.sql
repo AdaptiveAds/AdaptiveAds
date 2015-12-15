@@ -1,12 +1,8 @@
 # Author: Josh Preece
-# Summary: Restore script to allow easy restoration of the database structure.
+# Summary: Drop script to quickly reset the database
 
 SET SQL_MODE='ALLOW_INVALID_DATES';
 
-#CREATE DATABASE IF NOT EXISTS `adaptive_adaptiveads`;
-
-#USE adaptive_adaptiveads;
-CREATE DATABASE IF NOT EXISTS `adaptive_adaptiveads`;
 USE adaptive_adaptiveads;
 
 DROP TABLE IF EXISTS `Page`;
@@ -26,4 +22,5 @@ DROP TABLE IF EXISTS `Page_Data`;
 DROP TABLE IF EXISTS `Display_Timing`;
 DROP TABLE IF EXISTS `Skin`;
 DROP TABLE IF EXISTS `Playlist`;
+DROP TABLE IF EXISTS `password_resets`;
 DROP TABLE IF EXISTS `migrations`;
