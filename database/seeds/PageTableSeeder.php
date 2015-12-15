@@ -23,7 +23,7 @@ class PageTableSeeder extends Seeder
         'Advert_ID' => 1,
         'Vertical_ID' => 1,
         'Horizontal_ID' => 1,
-		'Deleted' => 0
+		    'Deleted' => 0
       ]);
     }
 }
