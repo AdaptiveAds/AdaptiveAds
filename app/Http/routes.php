@@ -15,9 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('dashboard', ['middleware' => 'auth', function() {
+Route::get('dashboard', ['middleware' => 'auth', 'uses' => 'DashboardController@index']);
+/*Route::get('dashboard', ['middleware' => 'auth', function() {
     echo 'Welcome ' . Auth::user()->username;
-}]);
+}]);*/
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');

@@ -2,11 +2,22 @@
 
 @section('content')
 
-<form id="clientlogin" name="login" action="login" method="get" accept-charset="utf-8">
+@if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+<form id="clientlogin" name="login" action="login" method="POST" accept-charset="utf-8">
+	{!! csrf_field() !!}
 	<ul>
 		<li>
-			<label for="usermail">Email</label>
-			<input type="email" name="usermail" placeholder="Email or Username" required>
+			<label for="usermail">Username</label>
+			<input type="username" name="username" placeholder="Email or Username" required>
 		</li>
 		<li>
 			<label for="password">Password</label>
