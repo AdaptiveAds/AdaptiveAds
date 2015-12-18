@@ -25,6 +25,7 @@ class AuthController extends Controller
 
     //protected $loginPath = 'auth/login';
     protected $redirectPath = 'dashboard';
+    protected $username = 'username';
 
     /**
      * Create a new authentication controller instance.
@@ -66,7 +67,13 @@ class AuthController extends Controller
         ]);
     }
 
-    /*public function getLogin() {
-      return view('pages/')
-    }*/
+    public function getLogin()
+    {
+      return view('pages/login');
+    }
+
+    public function getRegister()
+    {
+      return view('pages/register');
+    }
 }
