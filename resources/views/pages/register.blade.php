@@ -12,7 +12,7 @@
     </div>
 @endif
 
-<form id="register" name="register" action="register" method="get" accept-charset="utf-8">
+<form id="register" name="register" action="register" method="POST" accept-charset="utf-8">
 	{!! csrf_field() !!}
 	<ul>
 		<li>
@@ -29,7 +29,7 @@
 		</li>
 		<li>
 			<label for="passwordvalidation">Re-type Password</label>
-			<input type="passwordvalidation" name="passwordvalidation" placeholder="Re-type Password" required>
+			<input type="password" name="password_confirmation" placeholder="Re-type Password" required>
 		</li>
 
 		<li><input class="submit" type="submit" value="Login"></li>
