@@ -19,7 +19,7 @@
 	<link rel="stylesheet" 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 <!-- preferred plan would be to compile the css from scss prior to uploading using propos -->
-	<link rel="stylesheet" 	href="{{ URL::asset('css/theme.css') }}" type="text/css">
+	<link rel="stylesheet" 	href="{{ URL::asset('css/default.css') }}" type="text/css">
 
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/jquery-migrate-1.2.1.min.js"></script>
