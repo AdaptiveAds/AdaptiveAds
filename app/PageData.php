@@ -6,10 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class PageData extends Model
 {
-  /**
-   * The database table used by the model.
-   *
-   * @var string
-   */
-  protected $table = 'pageData';
+    protected $table = 'page_data';
+
+    public function Page() {
+      return $this->belongsTo(Page::class);
+    }
 }
