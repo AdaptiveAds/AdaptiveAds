@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Page as Page;
+//use App\PageData as PageData;
 
 class PageController extends Controller
 {
@@ -50,9 +51,13 @@ class PageController extends Controller
      */
     public function show($id)
     {
-        $page = Page::find($id)->pageData;
+        $page = Page::find($id)->PageData;
+        //var_dump($page);
+        //$page = PageData::find($id)->Page;
+        //dd($page);
         $data = array(
-          'data' => $page
+          'data' => $page,
+          'id'=> $id
         );
         return view('page', $data);
     }
