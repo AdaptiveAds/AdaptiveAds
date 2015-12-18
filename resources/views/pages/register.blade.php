@@ -2,7 +2,18 @@
 
 @section('content')
 
+@if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <form id="register" name="register" action="register" method="get" accept-charset="utf-8">
+	{!! csrf_field() !!}
 	<ul>
 		<li>
 			<label for="email">Email</label>

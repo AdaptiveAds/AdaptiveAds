@@ -69,11 +69,19 @@ class AuthController extends Controller
 
     public function getLogin()
     {
-      return view('pages/login');
+      $data = array(
+        'pageName' => 'login'
+      );
+
+      return view('pages/login', $data);
     }
 
     public function getRegister()
     {
-      return view('pages/register');
+      $data = array(
+        'pageName' => 'login'
+      );
+
+      return view('pages/register', $data);
     }
 }
