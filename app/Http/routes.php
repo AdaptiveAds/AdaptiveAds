@@ -15,10 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('dashboard', ['middleware' => 'auth', 'uses' => 'DashboardController@index']);
-/*Route::get('dashboard', ['middleware' => 'auth', function() {
-    echo 'Welcome ' . Auth::user()->username;
-}]);*/
+Route::get('contact', ['middleware' => 'auth', 'uses' => 'ContactController@index']);
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
@@ -28,5 +25,17 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+Route::get('dashboard', ['middleware' => 'auth', 'uses' => 'DashboardController@index']);
+Route::get('dashboard/advert', ['middleware' => 'auth', 'uses' => 'AdvertController@index']);
+Route::get('dashboard/advert/{id}', ['middleware' => 'auth', 'uses' => 'AdvertController@index']);
+Route::get('dashboard/page', ['middleware' => 'auth', 'uses' => 'PageController@index']);
+Route::get('dashboard/page/{id}', ['middleware' => 'auth', 'uses' => 'PageController@index']);
+Route::get('dashboard/playlist', ['middleware' => 'auth', 'uses' => 'PlaylistController@index']);
+Route::get('dashboard/playlist/{id}', ['middleware' => 'auth', 'uses' => 'PlaylistController@index']);
+
+/*Route::get('dashboard', ['middleware' => 'auth', function() {
+    echo 'Welcome ' . Auth::user()->username;
+}]);*/
 
 Route::get('page/{id}', ['middleware' => 'auth', 'uses' => 'PageController@show']);
