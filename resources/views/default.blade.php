@@ -38,7 +38,7 @@
 
 </head>
 
-<body id="{{ $pageName }}">
+<body id="{{ $pageID }}">
 <div id="wrapper">
 		<header id="header">
 			<!-- IF statement for anchor: If the user has not logged in, prompt for login before accessing the dashboard -->

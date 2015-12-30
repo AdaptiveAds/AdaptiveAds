@@ -3,23 +3,28 @@
 @section('content')
 
 <h3>Adverts</h3>
-<h3>Page Title</h3>
 
 <div id="left">
-	<div class="pagecontainer"></div>
+	<div class="pagecontainer">
+		<ul>
+			@foreach($adverts as $advert)
+				<li><a href="{{ URL::to('dashboard/advert/' . $advert->id . '/edit')}}">{{ $advert->advert_name }}</a></li>
+			@endforeach
+		</ul>
+
+	</div>
 </div>
 <div id="right">
 
 	<!-- PHP Driven self updating ?? -->
-	<form name="advertlist" action="index_submit" method="get" accept-charset="utf-8">
+	{!! Form::open(['url' => 'dashboard/advert', 'method' => 'POST']) !!}
 		<ul>
-			<li><button type="button">New</button></li>
-			<li><button type="button">Edit</button></li>
-			<li><button type="button">Preview</button></li>
-			<li><button type="button">Details</button></li>
-			<!-- ensures form fills parent div w3c validation compliant -->
+			<li><input type="text" name="advertName" placeholder="Advert Name..."/>
+			<!--<li><button type="button" onclick="location.href='{{ URL::to('dashboard/advert/create') }}';">New</button></li>-->
+			<li><button type="submit">New</button></li>
 			<div class="clear"></div>
 		</ul>
-	</form>
+	{!! Form::close() !!}
+
 </div>
 @endsection
