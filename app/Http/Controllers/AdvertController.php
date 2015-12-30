@@ -11,6 +11,13 @@ use App\Advert as Advert;
 
 class AdvertController extends Controller
 {
+
+    public function __construct()
+    {
+        // Auth required
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +25,14 @@ class AdvertController extends Controller
      */
     public function index()
     {
-        //
+        $adverts = Advert::get();
+
+        $data = array(
+          'pageID' => '',
+          'adverts' => $adverts
+        );
+
+        return view('pages/adverts', $data);
     }
 
     /**
@@ -28,7 +42,15 @@ class AdvertController extends Controller
      */
     public function create()
     {
-        //
+        $advert = new Advert;
+        //$advert->save();
+
+        $data = array(
+          'pageID' => 'adverteditor',
+          'advert' => $advert
+        );
+
+        return view('pages/advertEditor', $data);
     }
 
     /**
@@ -39,7 +61,22 @@ class AdvertController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validation
+        $this->validate($request, [
+            'advertName' => 'required|max:255',
+        ]);
+
+        // Was validation successful?
+        $advert = new Advert;
+        $advert->advert_name = $request->input('advertName');
+        $advert->save();
+
+        $data = array(
+          'pageID' => 'adverteditor',
+          'advert' => $advert
+        );
+
+        return view('pages/advertEditor', $data);
     }
 
     /**
@@ -52,9 +89,11 @@ class AdvertController extends Controller
     {
         $advert = Advert::find($id);
         $data = array(
+          'pageID' => '',
           'advert' => $advert
         );
-        return view('advert', $data);
+
+        return view('pages/advertEditor', $data);
     }
 
     /**
@@ -65,7 +104,14 @@ class AdvertController extends Controller
      */
     public function edit($id)
     {
-        //
+        $advert = Advert::find($id);
+
+        $data = array(
+          'pageID' => 'adverteditor',
+          'advert' => $advert
+        );
+
+        return view('pages/advertEditor', $data);
     }
 
     /**
@@ -77,7 +123,11 @@ class AdvertController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $advert = Advert::find($id);
+
+        $advert->name = $request->name;
+
+        $advert->save();
     }
 
     /**
@@ -88,6 +138,10 @@ class AdvertController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $advert = Advert::find($id);
+
+      $advert->deleted = 1;
+
+      $advert->save();
     }
 }

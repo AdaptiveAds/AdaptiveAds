@@ -12,6 +12,13 @@ use App\Page as Page;
 
 class PageController extends Controller
 {
+
+    public function __construct()
+    {
+        // Auth required
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +26,14 @@ class PageController extends Controller
      */
     public function index()
     {
-        //
+        $pages = Page::get();
+
+        $data = array(
+          'pageID' => '',
+          'pages' => $pages
+        );
+
+        return view('pages/pages')
     }
 
     /**
@@ -82,7 +96,7 @@ class PageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //$page->
     }
 
     /**
@@ -93,6 +107,9 @@ class PageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $page = Page::find($id);
+
+        $page->deleted = 1;
+        $page->save();
     }
 }

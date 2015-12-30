@@ -12,6 +12,7 @@ class Advert extends Model
    * @var string
    */
   protected $table = 'advert';
+  public $timestamps = false;
 
   /**
    * The attributes that are mass assignable.
