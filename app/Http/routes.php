@@ -30,12 +30,10 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 Route::get('dashboard', ['middleware' => 'auth', 'uses' => 'DashboardController@index']);
 
 // Advert pages
-Route::get('dashboard/advert', ['middleware' => 'auth', 'uses' => 'AdvertController@index']);
-Route::get('dashboard/advert/{id}', ['middleware' => 'auth', 'uses' => 'AdvertController@index']);
+Route::resource('dashboard/advert', 'AdvertController');
 
 // Page pages
-Route::get('dashboard/page', ['middleware' => 'auth', 'uses' => 'PageController@index']);
-Route::get('dashboard/page/{id}', ['middleware' => 'auth', 'uses' => 'PageController@index']);
+Route::resource('dashboard/page', 'PageController');
 
 // Playlist pages
 Route::get('dashboard/playlist', ['middleware' => 'auth', 'uses' => 'PlaylistController@index']);
