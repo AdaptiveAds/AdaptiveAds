@@ -14,9 +14,9 @@
 		<li><button type="button">Preview</button></li>
 		<li><button type="button">Delete Page</button></li>
 		<li><button type="button">Ad Name</button></li>
-		<form name="delete_advert" action="{{ URL::to('dashboard/advert/')}}" method="DELETE">
+		{!! Form::open(['route' => ['dashboard.advert.destroy', $advert->id], 'method' => 'delete']) !!}
 			<li><button type="submit">Delete Ad</button></li>
-		</form>
+		{!! Form::close() !!}
 	</div>
 </div>
 <div id="right">
