@@ -17,7 +17,7 @@ class DashboardController extends Controller
     public function index()
     {
       $data = array(
-        'pageName' => 'dashboard'
+        'pageID' => 'dashboard'
       );
       return view('pages/dashboard', $data);
     }
