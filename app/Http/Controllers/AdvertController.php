@@ -25,7 +25,7 @@ class AdvertController extends Controller
      */
     public function index()
     {
-        $adverts = Advert::get();
+        $adverts = Advert::where('advert_deleted', 0)->get();
 
         $data = array(
           'pageID' => '',
@@ -140,8 +140,10 @@ class AdvertController extends Controller
     {
       $advert = Advert::find($id);
 
-      $advert->deleted = 1;
+      $advert->advert_deleted = 1;
 
       $advert->save();
+
+      return redirect('dashboard/advert');
     }
 }
