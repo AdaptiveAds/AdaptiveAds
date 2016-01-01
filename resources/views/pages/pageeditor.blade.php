@@ -29,7 +29,7 @@
 	<form name="pageEditor" action="index_submit" method="get" accept-charset="utf-8"> -->
 		<ul>
 		@if (isset($pageData))
-			{!! Form::open(['route' => ['dashboard.advert.{adID}.page.update', $page->id], 'method' => 'PUT']) !!}
+			{!! Form::open(['route' => ['dashboard.advert.{adID}.page.update', $page->advert_id, $page->id], 'method' => 'PUT']) !!}
 		@else
 			{!! Form::open(['route' => ['dashboard.advert.{adID}.page.store',  $page->advert_id], 'method' => 'POST']) !!}
 		@endif
@@ -62,7 +62,7 @@
 			</li>
 			<li><button type"submit" class"submit">Save</button></li>
 			{!! Form::close() !!}
-			{!! Form::open(['route' => ['dashboard.advert.{adID}.page.destroy', $page->id], 'method' => 'DELETE']) !!}
+			{!! Form::open(['route' => ['dashboard.advert.{adID}.page.destroy', $page->advert_id, $page->id], 'method' => 'DELETE']) !!}
 			<li><button type="submit" class="submit">Delete</button></li>
 			{!! Form::close() !!}
 			<!-- ensures form fills parent div w3c validation compliant -->
