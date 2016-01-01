@@ -40,25 +40,26 @@
 			</li>
 			<li>
 				<label>Title</label>
-				<input type="text" placeholder="Page Name...." name="pageName"/>
+				<input type="text" placeholder="Page Name...." name="pageName" value="{{ $pageData->page_data_name or '' }}"/>
 			</li>
 			<li>
 				<label>Image:</label>
-				<input type="text" name="pageImage" placeholder="Image path..."><br>
+				<input type="text" name="pageImage" placeholder="Image path..." value="{{ $pageData->page_image or '' }}"><br>
 			</li>
 			<li><textarea title="content" type="text" name="imageMeta" placeholder="Image Meta..." required></textarea></li>
 			<li>
 				<label>Video:</label>
-				<input type="text" name="pageVideo" placeholder="Video path..."><br>
+				<input type="text" name="pageVideo" placeholder="Video path..." value="{{ $pageData->page_video or '' }}"><br>
 			</li>
 			<li><textarea title="content" type="text" name="videoMeta" placeholder="Video Meta..." required></textarea></li>
 			<li>
 				<label>Page Index: </label>
-				<input type="number" name="pageIndex" value="0"/>
+				<input type="number" name="pageIndex" value="{{ $page->page_index or 0}}"/>
 			</li>
 			<li>
 				<label>Content</label>
-				<textarea title="content" type="text" name="pageContent" placeholder="Enter Content..." required></textarea>
+				<textarea title="content" type="text" name="pageContent" placeholder="Enter Content..." required>{{ $pageData->page_content or '' }}
+				</textarea>
 			</li>
 			<li><button type"submit" class"submit">Save</button></li>
 			{!! Form::close() !!}
