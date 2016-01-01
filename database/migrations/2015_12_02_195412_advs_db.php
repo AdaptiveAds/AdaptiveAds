@@ -13,19 +13,19 @@ class AdvsDb extends Migration
     public function up()
     {
         //
-        Schema::create('Transition', function (Blueprint $table) {
+        Schema::create('transition', function (Blueprint $table) {
 				$table->engine = 'InnoDB';
         		$table->increments('id');
         		$table->string('transition_name', 20);
         	});
 
-        Schema::create('Duration', function (Blueprint $table) {
+        Schema::create('duration', function (Blueprint $table) {
 				$table->engine = 'InnoDB';
         		$table->increments('id');
         		$table->integer('duration_time');
         	});
 
-        Schema::create('Template', function (Blueprint $table) {
+        Schema::create('template', function (Blueprint $table) {
 				    $table->engine = 'InnoDB';
         		$table->increments('id');
         		$table->string('template_name', 20);
@@ -45,7 +45,7 @@ class AdvsDb extends Migration
         			  	->onDelete('cascade');
         	});
 
-        Schema::create('Horizontal_Template', function (Blueprint $table) {
+        Schema::create('horizontal_template', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('template_id')->unsigned();
@@ -56,7 +56,7 @@ class AdvsDb extends Migration
         			  	->onDelete('cascade');
           });
 
-        Schema::create('Vertical_Template', function (Blueprint $table) {
+        Schema::create('vertical_template', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('template_id')->unsigned();
@@ -67,14 +67,14 @@ class AdvsDb extends Migration
           		  	->onDelete('cascade');
           });
 
-        Schema::create('Advert', function (Blueprint $table) {
+        Schema::create('advert', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('advert_name', 20);
             $table->boolean('advert_deleted');
           });
 
-        Schema::create('Page_Data', function (Blueprint $table) {
+        Schema::create('page_data', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('page_data_name', 20);
@@ -83,7 +83,7 @@ class AdvsDb extends Migration
             $table->string('page_content');
           });
 
-        Schema::create('Page', function (Blueprint $table) {
+        Schema::create('page', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
 			      $table->increments('id');
 			      $table->integer('page_data_id')->unsigned();
@@ -114,21 +114,21 @@ class AdvsDb extends Migration
                 	->onDelete('cascade');
         	});
 
-        Schema::create('Display_Timing', function (Blueprint $table) {
+        Schema::create('display_timing', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
             $table->increments('id');
             $table->DateTime('start_date');
             $table->DateTime('end_date');
           });
 
-        Schema::create('Playlist', function (Blueprint $table) {
+        Schema::create('playlist', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
             $table->increments('id');
             $table->DateTime('playlist_name');
             $table->DateTime('deleted');
           });
 
-        Schema::create('Playlist_Advert', function (Blueprint $table) {
+        Schema::create('playlist_advert', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
 			      $table->integer('playlist_id')->unsigned();
 			      $table->integer('advert_id')->unsigned();
@@ -152,13 +152,13 @@ class AdvsDb extends Migration
                 	->onDelete('cascade');
           });
 
-        Schema::create('Skin', function (Blueprint $table) {
+        Schema::create('skin', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
             $table->increments('ID');
             $table->string('skin_name', 20);
           });
 
-        Schema::create('Location', function (Blueprint $table) {
+        Schema::create('location', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
             $table->increments('id');
           	$table->string('location_name', 20);
@@ -177,7 +177,7 @@ class AdvsDb extends Migration
                 	->onDelete('cascade');
           });
 
-        Schema::create('Screen', function (Blueprint $table) {
+        Schema::create('screen', function (Blueprint $table) {
 			        $table->engine = 'InnoDB';
               $table->increments('id');
               $table->boolean('is_vertical');
@@ -189,7 +189,7 @@ class AdvsDb extends Migration
               	  	->onDelete('cascade');
           });
 
-        Schema::create('User', function (Blueprint $table) {
+        Schema::create('user', function (Blueprint $table) {
 			       $table->engine = 'InnoDB';
              $table->increments('id');
              $table->string('username', 40)->unique();
@@ -198,13 +198,13 @@ class AdvsDb extends Migration
              $table->timestamps();
           });
 
-        Schema::create('Privilage', function (Blueprint $table) {
+        Schema::create('privilage', function (Blueprint $table) {
 			       $table->engine = 'InnoDB';
 			       $table->increments('id');
 			       $table->string('privilage_level', 20);
           });
 
-        Schema::create('User_Location', function (Blueprint $table) {
+        Schema::create('user_location', function (Blueprint $table) {
       			$table->engine = 'InnoDB';
       			$table->integer('user_id')->unsigned();
       			$table->integer('location_id')->unsigned();
@@ -227,7 +227,7 @@ class AdvsDb extends Migration
                   ->onDelete('cascade');
           });
 
-        Schema::create('Password_Resets', function(Blueprint $table) {
+        Schema::create('password_resets', function(Blueprint $table) {
             $table->string('email')->index();
             $table->string('token')->index();
             $table->timestamp('created_at');
@@ -241,10 +241,10 @@ class AdvsDb extends Migration
      */
     public function down()
     {
-        Schema::drop('Transition', 'Duration', 'Template',
-                     'Horizontal_Template', 'Vertical_Template',
-                     'Advert', 'Page_Data', 'Page', 'Display_Timing',
-                     'Playlist', 'Playlist_Advert', 'Skin', 'Location',
-                     'Screen', 'User', 'Privilage', 'User_Location');
+        Schema::drop('transition', 'duration', 'template',
+                     'horizontal_template', 'vertical_template',
+                     'advert', 'page_data', 'page', 'display_timing',
+                     'playlist', 'playlist_advert', 'skin', 'location',
+                     'screen', 'user', 'privilage', 'user_location', 'password_resets');
     }
 }

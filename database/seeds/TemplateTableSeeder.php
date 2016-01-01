@@ -11,18 +11,18 @@ class TemplateTableSeeder extends Seeder
      */
     public function run()
     {
-      $table = DB::table('Template');
+      $table = DB::table('template');
 
       //Empty table
       $table->delete();
 
       //Populate table
       $table->insert([
-        'Template_Name' => 'firstTemplate',
-        'Template_Overrides_Skin' => 0,
-        'Duration_ID' => 1,
-        'Transition_ID' => 1,
-		    'Is_Vertical' => 0
+        'template_name' => 'firstTemplate',
+        'template_overrides_skin' => 0,
+        'duration_id' => 1,
+        'transition_id' => 1,
+		    'is_vertical' => 0
       ]);
     }
 }
