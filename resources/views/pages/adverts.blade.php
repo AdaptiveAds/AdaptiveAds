@@ -6,12 +6,7 @@
 
 <div id="left">
 	<div class="pagecontainer">
-		<ul>
-			@foreach($adverts as $advert)
-				<li><a href="{{ URL::to('dashboard/advert/' . $advert->id . '/edit')}}">{{ $advert->advert_name }}</a></li>
-			@endforeach
-		</ul>
-
+			@include('objects/advertItem')
 	</div>
 </div>
 <div id="right">
