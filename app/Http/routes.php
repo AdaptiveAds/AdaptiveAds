@@ -33,7 +33,7 @@ Route::get('dashboard', ['middleware' => 'auth', 'uses' => 'DashboardController@
 Route::resource('dashboard/advert', 'AdvertController');
 
 // Page pages
-Route::resource('dashboard/page', 'PageController');
+Route::resource('dashboard/advert/{adID}/page', 'PageController', ['except' => ['index']]);
 
 // Playlist pages
 Route::get('dashboard/playlist', ['middleware' => 'auth', 'uses' => 'PlaylistController@index']);
@@ -46,3 +46,8 @@ Route::get('dashboard/settings/locations', ['middleware' => 'auth', 'uses' => 'L
 Route::get('dashboard/settings/screens', ['middleware' => 'auth', 'uses' => 'ScreensController@index']);
 
 Route::get('serve/{id}', ['middleware' => 'auth', 'uses' => 'PageController@show']);
+
+Event::listen('illuminate.query', function($query)
+{
+    //var_dump($query);
+});
