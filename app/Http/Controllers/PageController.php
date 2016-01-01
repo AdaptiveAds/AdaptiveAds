@@ -26,14 +26,7 @@ class PageController extends Controller
      */
     public function index()
     {
-        $pages = Page::where('deleted', 0)->get();
-
-        $data = array(
-          'pageID' => '',
-          'pages' => $pages
-        );
-
-        return view('pages/advertEditor', $data);
+        // NOTE not used
     }
 
     /**
@@ -124,16 +117,7 @@ class PageController extends Controller
      */
     public function edit($id)
     {
-      $page = Page::find($id);
-      $pageData = $page->PageData;
-
-      $data = array(
-        'pageID' => 'pageeditor',
-        'page' => $page,
-        'pageData' => $pageData
-      );
-
-      return view('pages/pageeditor', $data);
+      // NOTE not used
     }
 
     /**
@@ -143,9 +127,32 @@ class PageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $adID, $id)
     {
-        //$page->
+
+      // Validation
+      $this->validate($request, [
+          'pageName' => 'required|max:255',
+          'pageImage' => 'max:255',
+          'pageVideo' => 'max:255',
+          'pageContent' => 'max:255',
+          //'pageIndex' => 'unique:page'
+      ]);
+
+      $page = Page::find($id);
+      $page->page_index = $request->input('pageIndex');
+      $page->vertical_id = 1;
+      $page->horizontal_id = 1;
+      $page->save();
+
+      $pageData = $page->PageData;
+      $pageData->page_data_name = $request->input('pageName');
+      $pageData->page_image = $request->input('pageImage');
+      $pageData->page_video = $request->input('pageVideo');
+      $pageData->page_content = $request->input('pageContent');
+      $pageData->save();
+
+      return redirect()->route('dashboard.advert.{adID}.page.show', [$adID, $page->id]);
     }
 
     /**
@@ -154,14 +161,13 @@ class PageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($adID, $id)
     {
         $page = Page::find($id);
-        $advert = $page->advert_id;
 
         $page->deleted = 1;
         $page->save();
 
-        return redirect('dashboard/advert/' . $advert);
+        return redirect()->route('dashboard.advert.show', [$adID]);
     }
 }
