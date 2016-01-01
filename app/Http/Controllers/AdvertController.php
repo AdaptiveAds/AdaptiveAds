@@ -87,13 +87,16 @@ class AdvertController extends Controller
      */
     public function show($id)
     {
-        $advert = Advert::find($id);
-        $data = array(
-          'pageID' => '',
-          'advert' => $advert
-        );
+      $advert = Advert::find($id);
+      $pages = $advert->Page->where('deleted', 0);
 
-        return view('pages/advertEditor', $data);
+      $data = array(
+        'pageID' => '',
+        'advert' => $advert,
+        'pages' => $pages
+      );
+
+      return view('pages/advertEditor', $data);
     }
 
     /**
