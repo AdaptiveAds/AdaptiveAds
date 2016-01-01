@@ -70,7 +70,7 @@ class AuthController extends Controller
     public function getLogin()
     {
       $data = array(
-        'pageName' => 'login'
+        'pageID' => 'login'
       );
 
       return view('pages/login', $data);
@@ -79,7 +79,7 @@ class AuthController extends Controller
     public function getRegister()
     {
       $data = array(
-        'pageName' => 'login'
+        'pageID' => 'register'
       );
 
       return view('pages/register', $data);

@@ -26,16 +26,28 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
+// Landing page
 Route::get('dashboard', ['middleware' => 'auth', 'uses' => 'DashboardController@index']);
-Route::get('dashboard/advert', ['middleware' => 'auth', 'uses' => 'AdvertController@index']);
-Route::get('dashboard/advert/{id}', ['middleware' => 'auth', 'uses' => 'AdvertController@index']);
-Route::get('dashboard/page', ['middleware' => 'auth', 'uses' => 'PageController@index']);
-Route::get('dashboard/page/{id}', ['middleware' => 'auth', 'uses' => 'PageController@index']);
+
+// Advert pages
+Route::resource('dashboard/advert', 'AdvertController');
+
+// Page pages
+Route::resource('dashboard/advert/{adID}/page', 'PageController', ['except' => ['index', 'edit']]);
+
+// Playlist pages
 Route::get('dashboard/playlist', ['middleware' => 'auth', 'uses' => 'PlaylistController@index']);
 Route::get('dashboard/playlist/{id}', ['middleware' => 'auth', 'uses' => 'PlaylistController@index']);
 
-/*Route::get('dashboard', ['middleware' => 'auth', function() {
-    echo 'Welcome ' . Auth::user()->username;
-}]);*/
+// Settings
+Route::get('dashboard/settings', ['middleware' => 'auth', 'uses' => 'PlaylistController@index']);
+Route::get('dashboard/settings/users', ['middleware' => 'auth', 'uses' => 'UsersController@index']);
+Route::get('dashboard/settings/locations', ['middleware' => 'auth', 'uses' => 'LocationsController@index']);
+Route::get('dashboard/settings/screens', ['middleware' => 'auth', 'uses' => 'ScreensController@index']);
 
-Route::get('page/{id}', ['middleware' => 'auth', 'uses' => 'PageController@show']);
+Route::get('serve/{id}', ['middleware' => 'auth', 'uses' => 'PageController@show']);
+
+Event::listen('illuminate.query', function($query)
+{
+    //var_dump($query);
+});
