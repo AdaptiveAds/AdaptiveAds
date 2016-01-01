@@ -33,7 +33,7 @@ Route::get('dashboard', ['middleware' => 'auth', 'uses' => 'DashboardController@
 Route::resource('dashboard/advert', 'AdvertController');
 
 // Page pages
-Route::resource('dashboard/advert/{adID}/page', 'PageController', ['except' => ['index']]);
+Route::resource('dashboard/advert/{adID}/page', 'PageController', ['except' => ['index', 'edit']]);
 
 // Playlist pages
 Route::get('dashboard/playlist', ['middleware' => 'auth', 'uses' => 'PlaylistController@index']);
