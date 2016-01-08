@@ -60,7 +60,7 @@ class PlaylistController extends Controller
 
       // Was validation successful?
       $playlist = new Playlist;
-      $playlist->playlist_name = $request->input('playlistName');
+      $playlist->playlist_name = $request->input('txtPlaylistName');
       $playlist->save();
 
       $data = array(
