@@ -7,15 +7,15 @@
 		<form name="dashboardUserDetails" action="index_submit" method="get" accept-charset="utf-8">
 		<h3>User Settings</h3>
 			<ul>
-				<li><input title="username" type="name" name="username" placeholder="Username" required></li>
+				<li><input title="username" type="name" name="txtUsername" placeholder="Username" required></li>
 				<li>
-					<input title="First Name" type="name" name="firstname" placeholder="Joe" required>
-					<input title="Surname"  type="name" name="surname" placeholder="Blogs" required>
+					<input title="First Name" type="name" name="txtFirstname" placeholder="Joe" required>
+					<input title="Surname"  type="name" name="txtSurname" placeholder="Blogs" required>
 				</li>
-				<li><input title="Enter Email" type="name" name="email" placeholder="Enter Email Address" required></li>
-				<li><input title="Confirm Email" type="name" name="emailVal" placeholder="Confirm Email Address" required></li>
-				<li><input title="Password"  type="name" name="password" placeholder="Enter Password" required></li>
-				<li><input title="Confirm Password"  type="name" name="passwordVal" placeholder="Confirm Email" required></li>
+				<li><input title="Enter Email" type="name" name="txtEmail" placeholder="Enter Email Address" required></li>
+				<li><input title="Confirm Email" type="name" name="txtEmailConfirm" placeholder="Confirm Email Address" required></li>
+				<li><input title="Password"  type="name" name="txtPassword" placeholder="Enter Password" required></li>
+				<li><input title="Confirm Password"  type="name" name="txtPasswordConfirm" placeholder="Confirm Email" required></li>
 				<li>
 					<input title="Tick to accept"  type="checkbox" name="AdsNews" value="signup"> Sign up to Ads News
 					<button type="button">Edit</button>

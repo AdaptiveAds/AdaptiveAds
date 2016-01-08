@@ -63,12 +63,12 @@ class AdvertController extends Controller
     {
         // Validation
         $this->validate($request, [
-            'advertName' => 'required|max:255',
+            'txtAdvertName' => 'required|max:255',
         ]);
 
         // Was validation successful?
         $advert = new Advert;
-        $advert->advert_name = $request->input('advertName');
+        $advert->advert_name = $request->input('txtAdvertName');
         $advert->save();
 
         $data = array(

@@ -55,7 +55,7 @@ class PlaylistController extends Controller
     {
       // Validation
       $this->validate($request, [
-          'playlistName' => 'required|max:255',
+          'txtPlaylistName' => 'required|max:255',
       ]);
 
       // Was validation successful?

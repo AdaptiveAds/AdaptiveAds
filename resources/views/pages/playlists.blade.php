@@ -14,8 +14,8 @@
 	<!-- PHP Driven self updating ?? -->
 	{!! Form::open(['url' => 'dashboard/playlist', 'method' => 'POST']) !!}
 		<ul>
-			<li><input type="text" name="playlistName" placeholder="Playlist name..."/></li>
-			<li><button type="submit">New</button></li>
+			<li><input type="text" name="txtPlaylistName" placeholder="Playlist name..."/></li>
+			<li><button type="submit" name="btnNewPlaylist">New</button></li>
 			<!--<li><button type="button">Edit</button></li>
 			<li><button type="button">Preview</button></li>
 			<li><button type="button">Details</button></li>-->

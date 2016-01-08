@@ -57,25 +57,25 @@ class PageController extends Controller
     {
       // Validation
       $this->validate($request, [
-          'pageName' => 'required|max:255',
-          'pageImage' => 'max:255',
-          'pageVideo' => 'max:255',
-          'pageContent' => 'max:255',
+          'txtPageName' => 'required|max:255',
+          'txtPageImage' => 'max:255',
+          'txtPageVideo' => 'max:255',
+          'txtPageContent' => 'max:255',
           //'pageIndex' => 'unique:page'
       ]);
 
       // Was validation successful?
       $pageData = new PageData;
 
-      $pageData->page_data_name = $request->input('pageName');
-      $pageData->page_image = $request->input('pageImage');
-      $pageData->page_video = $request->input('pageVideo');
-      $pageData->page_content = $request->input('pageContent');
+      $pageData->page_data_name = $request->input('txtPageName');
+      $pageData->page_image = $request->input('txtPageImage');
+      $pageData->page_video = $request->input('txtPageVideo');
+      $pageData->page_content = $request->input('txtPageContent');
       $pageData->save();
 
       $page = new Page;
       $page->page_data_id = $pageData->id;
-      $page->page_index = $request->input('pageIndex');
+      $page->page_index = $request->input('NumPageIndex');
       $page->advert_id = $adID;
       $page->vertical_id = 2;
       $page->horizontal_id = 2;
@@ -132,24 +132,24 @@ class PageController extends Controller
 
       // Validation
       $this->validate($request, [
-          'pageName' => 'required|max:255',
-          'pageImage' => 'max:255',
-          'pageVideo' => 'max:255',
-          'pageContent' => 'max:255',
+          'txtPageName' => 'required|max:255',
+          'txtPageImage' => 'max:255',
+          'txtPageVideo' => 'max:255',
+          'txtPageContent' => 'max:255',
           //'pageIndex' => 'unique:page'
       ]);
 
       $page = Page::find($id);
-      $page->page_index = $request->input('pageIndex');
+      $page->page_index = $request->input('txtPageIndex');
       $page->vertical_id = 1;
       $page->horizontal_id = 1;
       $page->save();
 
       $pageData = $page->PageData;
-      $pageData->page_data_name = $request->input('pageName');
-      $pageData->page_image = $request->input('pageImage');
-      $pageData->page_video = $request->input('pageVideo');
-      $pageData->page_content = $request->input('pageContent');
+      $pageData->page_data_name = $request->input('txtPageName');
+      $pageData->page_image = $request->input('txtPageImage');
+      $pageData->page_video = $request->input('txtPageVideo');
+      $pageData->page_content = $request->input('txtPageContent');
       $pageData->save();
 
       return redirect()->route('dashboard.advert.{adID}.page.show', [$adID, $page->id]);
