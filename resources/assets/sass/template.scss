@@ -1,35 +1,101 @@
 #ad_container {
 	width:100%;
+
 	#header {
-		height:60px;
-		background:white;
-		margin-top:2%;
-		margin-bottom:2%;
+	height:60px; background: white; margin-top: 2%; margin-bottom: 2%;
 
 		h1 {
-		padding: 2%;
-		}//u1
-
-	}//close header
+		line-height:80%; margin-left:2%;
+		}//h1
+	}//header
 
 	.row1 {
 		clear:both;
+
 		.quad{
 		float:left;
 
 		}//close quad
-
 	}//close row1
 
 	.row2 {
 		clear:both;
+
 		.quad{
 		float:left;
 		}//close quad
-		
-	}//close row2	
+	}//close row2
 
-}//close ad_container
+	.fourbyfour {
+
+		:last-child {
+
+		}//:last-child
+	}//fourbyfour
+}//ad_container
+
+
+.fourbyfour {}
+.ad_container.fourbyfour .row:last-child {margin-top:1%;}
+.ad_container.fourbyfour .row {clear: both; display:block; min-height:250px;}
+.ad_container.fourbyfour .row .quad {float: left; display:block; width:46%;  text-align:center; padding:2%; background:orange;}
+.ad_container.fourbyfour .row .quad p{text-align:justify;}
+.ad_container.fourbyfour .row .quad img{width:80%; max-height:200px;}
+
+.fourbyfourReverse {}
+.fourbyfourReverse .ad_container .row:last-child {margin-top:1%;}
+.fourbyfourReverse .ad_container .row {clear: both; display:block; min-height:250px;}
+/* THE ONLY CHANGE IS FLOAT:LEFT --> FLOAT:RIGHT */
+.fourbyfourReverse .ad_container .row .quad {float: right; display:block; width:46%;  text-align:center; padding:2%; background:orange;}
+.fourbyfourReverse .ad_container .row .quad p{text-align:justify;}
+.fourbyfourReverse .ad_container .row .quad img{width:80%; max-height:200px;}
+
+.twobytwo {}
+.twobytwo.ad_container .row:last-child {margin-top:0%; display:none;}
+.twobytwo.ad_container .row {clear: both; display:block; min-height:250px;}
+.twobytwo.ad_container .row .quad {float: left; display:block; width:46%;  text-align:center; padding:2%; background:orange;}
+.twobytwo.ad_container .row .quad p{text-align:justify;}
+.twobytwo.ad_container .row .quad img{width:80%; max-height:200px;}
+
+.twobytwoReverse{}
+.twobytwoReverse.ad_container .row:last-child {margin-top:0%; display:none;}
+.twobytwoReverse.ad_container .row {clear: both; display:block; min-height:250px;}
+/* THE ONLY CHANGE IS FLOAT:LEFT --> FLOAT:RIGHT */
+.twobytwoReverse.ad_container .row .quad {float: right; display:block; width:46%;  text-align:center; padding:2%; background:orange;}
+.twobytwoReverse.ad_container .row .quad p{text-align:justify;}
+.twobytwoReverse.ad_container .row .quad img{width:80%; max-height:200px;}
+
+.oneVideo {}
+.oneVideo.ad_container .row:last-child {margin-top:0%; display:none;}
+.oneVideo.ad_container .row {clear: both; display:block; min-height:250px;}
+.oneVideo.ad_container .row .quad:first-child {display:block; float: left; width:96%;  text-align:center; padding:2%; background:orange;}
+.oneVideo.ad_container .row .quad p{text-align:justify;}
+/* test max-heights */
+.oneVideo.ad_container .row .quad img{width:one00%; max-height:200px;}
+.oneVideo.ad_container .row .quad video{width:one00%; max-height:650px;}
+
+
+.oneImages {}
+.oneImages.ad_container .row:last-child {margin-top:0%; display:none;}
+.oneImages.ad_container .row {clear: both; display:block; min-height:250px;}
+.oneImages.ad_container .row .quad:first-child {display:block; float: left; width:96%;  text-align:center; padding:2%; background:orange;}
+.oneImages.ad_container .row .quad p{text-align:justify;}
+/* test max-heights */
+.oneImages.ad_container .row .quad img{width:one00%; max-height:200px;}
+.oneImages.ad_container .row .quad video{width:one00%; max-height:650px;}
+
+.twoImages {}
+.twoImages.ad_container .row:last-child {margin-top:0%; display:none;}
+.twoImages.ad_container .row {clear: both; display:block; min-height:250px;}
+/* THE ONLY CHANGE IS FLOAT:LEFT --> FLOAT:RIGHT */
+.twoImages.ad_container .row .quad {float: right; display:block; width:46%;  text-align:center; padding:2%; background:orange;}
+.twoImages.ad_container .row .quad p{text-align:justify;}
+.twoImages.ad_container .row .quad img{width:80%; max-height:500px;}
+
+
+
+
+
 
 #footer {
 
