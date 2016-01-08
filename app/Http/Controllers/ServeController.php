@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class DashboardController extends Controller
+class ServeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +16,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-      $data = array(
-        'pageID' => 'dashboard'
-      );
-      return view('pages/dashboard', $data);
+        //
     }
 
     /**
@@ -51,7 +48,7 @@ class DashboardController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
     /**

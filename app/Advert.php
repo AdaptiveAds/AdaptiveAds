@@ -12,6 +12,7 @@ class Advert extends Model
    * @var string
    */
   protected $table = 'advert';
+  public $timestamps = false;
 
   /**
    * The attributes that are mass assignable.
@@ -20,8 +21,9 @@ class Advert extends Model
    */
   protected $fillable = ['name', 'deleted'];
 
-  public function page() {
-    return $this->belongsTo('App\Page');
+  public function Page() {
+    //return $this->belongsTo(Page::class, 'advert_id');
+    return $this->hasMany(Page::class, 'advert_id', 'id');
   }
 
 }

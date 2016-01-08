@@ -80,7 +80,7 @@
 	<section>
 		<article>
 			<ul>
-				<li>
+				<!--<li>
 					<a href="../index.php?action=users">
 						<i class="fa fa-users"></i>
 						<p>Users</p>
@@ -101,24 +101,24 @@
 				<li>
 					<a href="../index.php?action=pageeditorHor">
 						<i class="fa fa-pencil-square-o"></i>
-						<!-- temp name ofc -->
+						<!-- temp name ofc
 						<p>Page Editor</p>
 					</a>
-				</li>
+				</li>-->
 				<li>
-					<a href="../index.php?action=adverts">
+					<a href="{{ URL::to('dashboard/advert')}}">
 						<i class="fa fa-list-ul"></i>
 						<!-- temp name ofc -->
 						<p>Adverts</p>
 					</a>
 				</li>
-				<li>
+				<!--<li>
 					<a href="../index.php?action=advertEditor">
 						<i class="fa fa-pencil-square-o"></i>
-						<!-- temp name ofc -->
+						<!-- temp name ofc -
 						<p>Advert Editor</p>
 					</a>
-				</li>
+				</li>-->
 
 			</ul>
 
