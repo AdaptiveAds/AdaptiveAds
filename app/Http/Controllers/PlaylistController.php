@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Playlist as Playlist;
+
 class PlaylistController extends Controller
 {
 
@@ -23,7 +25,14 @@ class PlaylistController extends Controller
      */
     public function index()
     {
-        //
+      $playlists = Playlist::where('deleted', 0)->get();
+
+      $data = array(
+        'pageID' => '',
+        'playlists' => $playlists
+      );
+
+      return view('pages/playlists', $data);
     }
 
     /**
@@ -44,7 +53,22 @@ class PlaylistController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      // Validation
+      $this->validate($request, [
+          'playlistName' => 'required|max:255',
+      ]);
+
+      // Was validation successful?
+      $playlist = new Playlist;
+      $playlist->playlist_name = $request->input('playlistName');
+      $playlist->save();
+
+      $data = array(
+        'pageID' => 'playlisteditor',
+        'playlist' => $playlist
+      );
+
+      return view('pages/playlistEditor', $data);
     }
 
     /**
@@ -55,7 +79,16 @@ class PlaylistController extends Controller
      */
     public function show($id)
     {
-        //
+      $playlist = Playlist::find($id);
+      $adverts = $playlist->Adverts;
+
+      $data = array(
+        'pageID' => 'playlisteditor',
+        'playlist' => $playlist,
+        'adverts' => $adverts
+      );
+
+      return view('pages/playlistEditor', $data);
     }
 
     /**
@@ -89,6 +122,11 @@ class PlaylistController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $playlist = Playlist::find($id);
+
+      $playlist->deleted = 0;
+      $playlist->save();
+
+      return redirect()->route('');
     }
 }
