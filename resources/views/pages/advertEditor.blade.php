@@ -20,7 +20,7 @@
 		<!-- <li><button type="button">Ad Name</button></li> NOTE just delete and recreate under a new name -->
 		@if (isset($advert))
 		{!! Form::open(['route' => ['dashboard.advert.destroy', $advert->id], 'method' => 'DELETE']) !!}
-			<li><button type="submit">Delete Ad</button></li>
+			<li><button name="btnDeleteAd" type="submit">Delete Ad</button></li>
 		{!! Form::close() !!}
 		@endif
 	</div>
