@@ -77,8 +77,8 @@ class PageController extends Controller
       $page->page_data_id = $pageData->id;
       $page->page_index = $request->input('pageIndex');
       $page->advert_id = $adID;
-      $page->vertical_id = 1;
-      $page->horizontal_id = 1;
+      $page->vertical_id = 2;
+      $page->horizontal_id = 2;
       $page->save();
 
       $data = array(
