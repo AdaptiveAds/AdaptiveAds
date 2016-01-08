@@ -124,8 +124,8 @@ class AdvsDb extends Migration
         Schema::create('playlist', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->DateTime('playlist_name');
-            $table->DateTime('deleted');
+            $table->string('playlist_name');
+            $table->boolean('deleted');
           });
 
         Schema::create('playlist_advert', function (Blueprint $table) {
