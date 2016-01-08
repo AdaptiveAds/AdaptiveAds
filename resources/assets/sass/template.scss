@@ -1,0 +1,36 @@
+#ad_container {
+	width:100%;
+	#header {
+		height:60px;
+		background:white;
+		margin-top:2%;
+		margin-bottom:2%;
+
+		h1 {
+		padding: 2%;
+		}//u1
+
+	}//close header
+
+	.row1 {
+		clear:both;
+		.quad{
+		float:left;
+
+		}//close quad
+
+	}//close row1
+
+	.row2 {
+		clear:both;
+		.quad{
+		float:left;
+		}//close quad
+		
+	}//close row2	
+
+}//close ad_container
+
+#footer {
+
+}//footer
