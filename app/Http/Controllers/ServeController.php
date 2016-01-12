@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Screen as Screen;
+use App\Playlist as Playlist;
+
 class ServeController extends Controller
 {
     /**
@@ -48,7 +51,17 @@ class ServeController extends Controller
      */
     public function show($id)
     {
-        //
+        $screen = Screen::find($id);
+        $playlist = $screen->Location->Playlist;
+        $adverts = Playlist::with('adverts.page.pageData')->get();
+
+        $data = array(
+          'pageTitle' => '',
+          'playlist' => $playlist,
+          'adverts' => $adverts
+        );
+
+        return view('templateDefault', $data);
     }
 
     /**

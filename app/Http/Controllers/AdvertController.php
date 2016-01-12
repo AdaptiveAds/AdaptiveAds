@@ -28,12 +28,9 @@ class AdvertController extends Controller
     {
         $adverts = Advert::where('advert_deleted', 0)->get();
 
-        $data = array(
-          'pageID' => '',
-          'adverts' => $adverts
-        );
+        Session::put('adverts', $adverts);
 
-        return view('pages/adverts', $data);
+        return view('pages/adverts');
     }
 
     /**

@@ -19,4 +19,8 @@ class Page extends Model
   public function PageData() {
     return $this->hasOne(PageData::class, 'id', 'page_data_id');
   }
+
+  public function Horizontal_template() {
+    return $this->hasOne(HorizontalTemplate::class, 'horizontal_id');
+  }
 }
