@@ -10,12 +10,8 @@
 		@include('objects/advertItem')
 	</div>
 	<div class="pagecontainer">
-		{!! Form::open(['route' => ['dashboard.playlist.update', $playlist->id], 'method' => 'PUT']) !!}
-			<li><button type="submit" name="btnNewAdvert">New Ad</button></li>
-		{!! Form::close() !!}
-
 		{!! Form::open(['route' => ['dashboard.advert.select', $playlist->id], 'method' => 'POST']) !!}
-			<li><button type="submit" name="btnAddExisting">Add Existing Ad</button></li>
+			<li><button type="submit" name="btnAddAdvert">Add Advert</button></li>
 		{!! Form::close() !!}
 
 		{!! Form:: open(['route' => ['dashboard.playlist.removeMode', $playlist->id], 'method' => 'POST']) !!}

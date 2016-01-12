@@ -18,7 +18,6 @@
 					<li><input type="text" name="txtAdvertName" placeholder="Advert Name..."/>
 					<li><button name="btnNewAdvert" type="submit">New</button></li>
 				{!! Form::close() !!}
-
 			<div class="clear"></div>
 		</ul>
 
