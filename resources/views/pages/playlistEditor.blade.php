@@ -10,17 +10,25 @@
 		@include('objects/advertItem')
 	</div>
 	<div class="pagecontainer">
-		{!! Form::open('route' => ['', ''], 'method') !!}
-		<li><button type="button" name="btnNewAdvert">New Ad</button></li>
+		{!! Form::open(['route' => ['dashboard.playlist.update', $playlist->id], 'method' => 'PUT']) !!}
+			<li><button type="submit" name="btnNewAdvert">New Ad</button></li>
 		{!! Form::close() !!}
-		<li><button type="button">Existing Ad</button></li> <!-- TODO what the hell is this!?!?
-		<li><button type="button">Edit Ad</button></li>
-		<li><button type="button">Ad Details</button></li> -- >
+
+		{!! Form::open(['route' => ['dashboard.advert.select', $playlist->id], 'method' => 'POST']) !!}
+			<li><button type="submit" name="btnAddExisting">Add Existing Ad</button></li>
+		{!! Form::close() !!}
+
+		{!! Form:: open(['route' => ['dashboard.playlist.removeMode', $playlist->id], 'method' => 'POST']) !!}
+			<li><button type="submit" name="btnRemoveAdvert">Remove Mode</button></li>
+		{!! Form::close() !!}
+
+		<!--<li><button type="button">Edit Ad</button></li>
+		<li><button type="button">Ad Details</button></li>-->
 		<li><button type="button">Edit Timings</button></li>
 		<!--<li><button type="button">Remove Ad</button></li> -->
 		<!--<li><button type="button">Playlist Name</button></li>-->
-		{!! Form::open(['url' => '', 'method' => 'DELETE']) !!}
-		<li><button type="button" name="btnDeletePlaylist">Delete Playlist</button></li>
+		{!! Form::open(['url' => 'localhost/dashboard', 'method' => 'DELETE']) !!}
+			<li><button type="button" name="btnDeletePlaylist">Delete Playlist</button></li>
 		{!! Form::close() !!}
 	</div>
 </div>
