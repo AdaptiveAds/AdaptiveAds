@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Advert as Advert;
+use App\PLaylist as Playlist;
 
 class AdvertController extends Controller
 {
@@ -148,5 +149,18 @@ class AdvertController extends Controller
       $advert->save();
 
       return redirect('dashboard/advert');
+    }
+
+    public function selectForPlaylist($playlistID)
+    {
+      $adverts = Advert::where('advert_deleted', 0)->get();
+
+      $data = array(
+        'pageID' => '',
+        'adverts' => $adverts,
+        'selectedPlaylist' => $playlistID
+      );
+
+      return view('pages/adverts', $data);
     }
 }
