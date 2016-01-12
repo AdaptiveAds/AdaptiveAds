@@ -56,6 +56,13 @@
 					</a>
 				</li>-->
 				<li>
+					<a href="{{ URL::to('dashboard/playlist')}}">
+						<i class="fa fa-list-ul"></i>
+						<!-- temp name ofc -->
+						<p>Playlists</p>
+					</a>
+				</li>
+				<li>
 					<a href="{{ URL::to('dashboard/advert')}}">
 						<i class="fa fa-list-ul"></i>
 						<!-- temp name ofc -->
