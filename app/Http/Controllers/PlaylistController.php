@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Playlist as Playlist;
+use App\Advert as Advert;
 
 class PlaylistController extends Controller
 {
@@ -111,7 +112,10 @@ class PlaylistController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $playlist = Playlist::find($id);
+        //$advert = Advert::find($id,);
+
+        dd($advert);
     }
 
     /**
@@ -123,10 +127,43 @@ class PlaylistController extends Controller
     public function destroy($id)
     {
       $playlist = Playlist::find($id);
+      // $playlist->Adverts()->detach(); // TODO Remove all associated adverts??
 
       $playlist->deleted = 0;
       $playlist->save();
 
       return redirect()->route('');
+    }
+
+    public function addExistingAdvert($playlistID, $advertID)
+    {
+        $playlist = Playlist::find($playlistID);
+        // TODO advert inde and display timing (GUI??)
+        $playlist->Adverts()->attach($advertID, ['advert_index' => '1', 'display_timing_id' => '1']);
+
+        return redirect()->route('dashboard.playlist.show', $playlistID);
+    }
+
+    public function removeMode($playlistID)
+    {
+      $playlist = Playlist::find($playlistID);
+      $adverts = $playlist->Adverts;
+
+      $data = array(
+        'pageID' => 'playlisteditor',
+        'playlist' => $playlist,
+        'adverts' => $adverts,
+        'deleteMode' => true
+      );
+
+      return view('pages/playlistEditor', $data);
+    }
+
+    public function removeAdvert($playlistID, $advertID)
+    {
+        $playlist = Playlist::find($playlistID);
+        $playlist->Adverts()->detach($advertID);
+
+        return redirect()->route('dashboard.playlist.show', $playlistID);
     }
 }
