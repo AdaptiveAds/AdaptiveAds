@@ -11,14 +11,14 @@ class DurationTableSeeder extends Seeder
      */
     public function run()
     {
-      $table = DB::table('Duration');
+      $table = DB::table('duration');
 
       //Empty table
       $table->delete();
 
       //Populate table
       $table->insert([
-        'Duration_Time' => 1,
+        'duration_time' => 1,
       ]);
     }
 }

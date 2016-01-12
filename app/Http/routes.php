@@ -29,15 +29,18 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 // Landing page
 Route::get('dashboard', ['middleware' => 'auth', 'uses' => 'DashboardController@index']);
 
+// Playlist pages
+Route::get('dashboard/playlist/{playlistID}/{advertID}', ['as' => 'dashboard.playlist.add', 'uses' => 'PlaylistController@addExistingAdvert']);
+Route::get('dashboard/playlist/{playlistID}/{advertID}/remove', ['as' => 'dashboard.playlist.remove', 'uses' => 'PlaylistController@removeAdvert']);
+Route::post('dashboard/playlist/{playlistID}/remove', ['as' => 'dashboard.playlist.removeMode', 'uses' => 'PlaylistController@removeMode']);
+Route::resource('dashboard/playlist', 'PlaylistController');
+
 // Advert pages
-Route::resource('dashboard/advert', 'AdvertController');
+Route::post('dashboard/advert/{playlistID}', ['as' => 'dashboard.advert.select', 'uses' => 'AdvertController@selectForPlaylist']);
+Route::resource('dashboard/advert', 'AdvertController', ['except' => ['edit', 'update']]);
 
 // Page pages
 Route::resource('dashboard/advert/{adID}/page', 'PageController', ['except' => ['index', 'edit']]);
-
-// Playlist pages
-Route::get('dashboard/playlist', ['middleware' => 'auth', 'uses' => 'PlaylistController@index']);
-Route::get('dashboard/playlist/{id}', ['middleware' => 'auth', 'uses' => 'PlaylistController@index']);
 
 // Settings
 Route::get('dashboard/settings', ['middleware' => 'auth', 'uses' => 'PlaylistController@index']);
@@ -45,7 +48,7 @@ Route::get('dashboard/settings/users', ['middleware' => 'auth', 'uses' => 'Users
 Route::get('dashboard/settings/locations', ['middleware' => 'auth', 'uses' => 'LocationsController@index']);
 Route::get('dashboard/settings/screens', ['middleware' => 'auth', 'uses' => 'ScreensController@index']);
 
-Route::get('serve/{id}', ['middleware' => 'auth', 'uses' => 'PageController@show']);
+Route::get('serve/{screenId}', ['middleware' => 'auth', 'uses' => 'PageController@show']);
 
 Event::listen('illuminate.query', function($query)
 {

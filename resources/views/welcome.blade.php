@@ -38,7 +38,8 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Laravel 5</div>
+                <div class="title">Adaptive Ads</div>
+                <h3>Come back mid 2016</h3>
             </div>
         </div>
     </body>

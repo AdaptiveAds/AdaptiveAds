@@ -12,7 +12,7 @@
 
 	</div>
 	<div class="pagecontainer">
-		<li><button type="button" onclick="location.href='{{ URL::route('dashboard.advert.{adID}.page.create', $advert->id) }}';">+ New Page</button></li>
+		<li><button type="button" name="btnNewPage" onclick="location.href='{{ URL::route('dashboard.advert.{adID}.page.create', $advert->id) }}';">+ New Page</button></li>
 		<!--<li><button type="button">Edit Page</button></li>
 		<li><button type="button">Page Details</button></li>
 		<li><button type="button">Preview</button></li>
@@ -20,7 +20,7 @@
 		<!-- <li><button type="button">Ad Name</button></li> NOTE just delete and recreate under a new name -->
 		@if (isset($advert))
 		{!! Form::open(['route' => ['dashboard.advert.destroy', $advert->id], 'method' => 'DELETE']) !!}
-			<li><button type="submit">Delete Ad</button></li>
+			<li><button name="btnDeleteAdvert" type="submit">Delete Ad</button></li>
 		{!! Form::close() !!}
 		@endif
 	</div>

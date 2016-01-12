@@ -11,19 +11,19 @@ class PageTableSeeder extends Seeder
      */
     public function run()
     {
-      $table = DB::table('Page');
+      $table = DB::table('page');
 
       //Empty table
       $table->delete();
 
       //Populate table
       $table->insert([
-        'Page_Data_ID' => 1,
-        'Page_Index' => 1,
-        'Advert_ID' => 1,
-        'Vertical_ID' => 1,
-        'Horizontal_ID' => 1,
-		    'Deleted' => 0
+        'page_data_id' => 1,
+        'page_index' => 1,
+        'advert_id' => 1,
+        'vertical_id' => 1,
+        'horizontal_id' => 1,
+		    'deleted' => 0
       ]);
     }
 }

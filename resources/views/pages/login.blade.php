@@ -16,7 +16,7 @@
 		<li><input class="submit" type="submit" value="Login"></li>
 	</ul>
 	<ul>
-		<li><a href="../index.php?action=register">Register</a></li>
+		<li><a href="{{ URL::to('auth/register') }}">Register</a></li>
 		<li><a href="*RunScript for reset">Forgot Password</a></li>
 	</ul>
 </form>

@@ -11,14 +11,14 @@ class Vertical_TemplateTableSeeder extends Seeder
      */
     public function run()
     {
-      $table = DB::table('Vertical_Template');
+      $table = DB::table('vertical_template');
 
       //Empty table
       $table->delete();
 
       //Populate table
       $table->insert([
-        'Template_ID' => 1,
+        'template_id' => 1,
       ]);
     }
 }

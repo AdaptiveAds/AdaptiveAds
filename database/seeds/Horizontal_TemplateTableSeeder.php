@@ -11,14 +11,14 @@ class Horizontal_TemplateTableSeeder extends Seeder
      */
     public function run()
     {
-      $table = DB::table('Horizontal_Template');
+      $table = DB::table('horizontal_template');
 
       //Empty table
       $table->delete();
 
       //Populate table
       $table->insert([
-        'Template_ID' => 1,
+        'template_id' => 1,
       ]);
     }
 }

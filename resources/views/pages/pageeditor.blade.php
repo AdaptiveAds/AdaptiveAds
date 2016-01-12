@@ -40,31 +40,31 @@
 			</li>
 			<li>
 				<label>Title</label>
-				<input type="text" placeholder="Page Name...." name="pageName" value="{{ $pageData->page_data_name or '' }}"/>
+				<input type="text" placeholder="Page Name...." name="txtPageName" value="{{ $pageData->page_data_name or '' }}"/>
 			</li>
 			<li>
 				<label>Image:</label>
-				<input type="text" name="pageImage" placeholder="Image path..." value="{{ $pageData->page_image or '' }}"><br>
+				<input type="text" name="txtPageImage" placeholder="Image path..." value="{{ $pageData->page_image or '' }}"><br>
 			</li>
-			<li><textarea title="content" type="text" name="imageMeta" placeholder="Image Meta..." required></textarea></li>
+			<li><textarea title="content" type="text" name="txtImageMeta" placeholder="Image Meta..." required></textarea></li>
 			<li>
 				<label>Video:</label>
-				<input type="text" name="pageVideo" placeholder="Video path..." value="{{ $pageData->page_video or '' }}"><br>
+				<input type="text" name="txtPageVideo" placeholder="Video path..." value="{{ $pageData->page_video or '' }}"><br>
 			</li>
-			<li><textarea title="content" type="text" name="videoMeta" placeholder="Video Meta..." required></textarea></li>
+			<li><textarea title="content" type="text" name="txtVideoMeta" placeholder="Video Meta..." required></textarea></li>
 			<li>
 				<label>Page Index: </label>
-				<input type="number" name="pageIndex" value="{{ $page->page_index or 0}}"/>
+				<input type="number" name="NumPageIndex" value="{{ $page->page_index or 0}}"/>
 			</li>
 			<li>
 				<label>Content</label>
-				<textarea title="content" type="text" name="pageContent" placeholder="Enter Content..." required>{{ $pageData->page_content or '' }}
+				<textarea title="content" type="text" name="txtPageContent" placeholder="Enter Content..." required>{{ $pageData->page_content or '' }}
 				</textarea>
 			</li>
-			<li><button type"submit" class"submit">Save</button></li>
+			<li><button type="submit" class="submit" name="btnSavePage">Save</button></li>
 			{!! Form::close() !!}
 			{!! Form::open(['route' => ['dashboard.advert.{adID}.page.destroy', $page->advert_id, $page->id], 'method' => 'DELETE']) !!}
-			<li><button type="submit" class="submit">Delete</button></li>
+			<li><button type="submit" class="submit" name="btnDeletePage">Delete</button></li>
 			{!! Form::close() !!}
 			<!-- ensures form fills parent div w3c validation compliant -->
 			<div class="clear"></div>

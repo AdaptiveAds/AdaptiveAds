@@ -11,15 +11,15 @@ class AdvertTableSeeder extends Seeder
      */
     public function run()
     {
-      $table = DB::table('Advert');
+      $table = DB::table('advert');
 
       //Empty table
       $table->delete();
 
       //Populate table
       $table->insert([
-        'Advert_Name' => 'myAdvert',
-        'Advert_Deleted' => 0
+        'advert_name' => 'myAdvert',
+        'advert_deleted' => 0
       ]);
     }
 }
