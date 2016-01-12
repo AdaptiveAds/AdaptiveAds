@@ -7,11 +7,7 @@
 
 <div id="left" class="landscape">
 	<div class="pagecontainer">
-		<ul>
-			<li></li>
-			<li></li>
-			<li></li>
-		</ul>
+		@include('templateStructure')
 	</div>
 	<div class="pagecontainer">
 		<ul>
