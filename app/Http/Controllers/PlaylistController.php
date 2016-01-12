@@ -129,10 +129,10 @@ class PlaylistController extends Controller
       $playlist = Playlist::find($id);
       // $playlist->Adverts()->detach(); // TODO Remove all associated adverts??
 
-      $playlist->deleted = 0;
+      $playlist->deleted = 1;
       $playlist->save();
 
-      return redirect()->route('');
+      return redirect()->action('DashboardController@index');
     }
 
     public function addExistingAdvert($playlistID, $advertID)

@@ -23,8 +23,8 @@
 		<li><button type="button">Edit Timings</button></li>
 		<!--<li><button type="button">Remove Ad</button></li> -->
 		<!--<li><button type="button">Playlist Name</button></li>-->
-		{!! Form::open(['url' => 'localhost/dashboard', 'method' => 'DELETE']) !!}
-			<li><button type="button" name="btnDeletePlaylist">Delete Playlist</button></li>
+		{!! Form::open(['route' => ['dashboard.playlist.destroy', $playlist->id], 'method' => 'DELETE']) !!}
+			<li><button type="submit" name="btnDeletePlaylist">Delete Playlist</button></li>
 		{!! Form::close() !!}
 	</div>
 </div>
