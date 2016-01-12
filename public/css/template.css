@@ -1,0 +1,24 @@
+/* line 1, ../../resources/assets/sass/template.scss */
+#ad_container {
+  width: 100%; }
+  /* line 3, ../../resources/assets/sass/template.scss */
+  #ad_container #header {
+    height: 60px;
+    background: white;
+    margin-top: 2%;
+    margin-bottom: 2%; }
+    /* line 9, ../../resources/assets/sass/template.scss */
+    #ad_container #header h1 {
+      padding: 2%; }
+  /* line 15, ../../resources/assets/sass/template.scss */
+  #ad_container .row1 {
+    clear: both; }
+    /* line 17, ../../resources/assets/sass/template.scss */
+    #ad_container .row1 .quad {
+      float: left; }
+  /* line 24, ../../resources/assets/sass/template.scss */
+  #ad_container .row2 {
+    clear: both; }
+    /* line 26, ../../resources/assets/sass/template.scss */
+    #ad_container .row2 .quad {
+      float: left; }

@@ -25,6 +25,56 @@
 		</form>
 	</div>
 
+<h4>Options</h4>
+	<section>
+		<article>
+			<ul>
+				<li>
+					<a href="../index.php?action=users">
+						<i class="fa fa-users"></i>
+						<p>Users</p>
+					</a>
+				</li>
+				<li>
+					<a href="../index.php?action=locations">
+						<i class="fa fa-map-marker"></i>
+						<p>Locations</p>
+					</a>
+				</li>
+				<li>
+					<a href="../index.php?action=screens">
+						<i class="fa fa-desktop"></i>
+						<p>Screens</p>
+					</a>
+				</li>
+				<li>
+					<a href="../index.php?action=pageeditorHor">
+						<i class="fa fa-pencil-square-o"></i>
+						<!-- temp name ofc -->
+						<p>Page Editor</p>
+					</a>
+				</li>
+				<li>
+					<a href="../index.php?action=adverts">
+						<i class="fa fa-list-ul"></i>
+						<!-- temp name ofc -->
+						<p>Adverts</p>
+					</a>
+				</li>
+				<li>
+					<a href="../index.php?action=advertEditor">
+						<i class="fa fa-pencil-square-o"></i>
+						<!-- temp name ofc -->
+						<p>Advert Editor</p>
+					</a>
+				</li>
+
+			</ul>
+
+			<div class="clear"></div>
+		</article>
+	</section>
+
 <hr></hr>
 <h4>Admin Settings</h4>
 	<section>
