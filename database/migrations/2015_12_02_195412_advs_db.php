@@ -128,7 +128,7 @@ class AdvsDb extends Migration
             $table->boolean('deleted');
           });
 
-        Schema::create('playlist_advert', function (Blueprint $table) {
+        Schema::create('advert_playlist', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
 			      $table->integer('playlist_id')->unsigned();
 			      $table->integer('advert_id')->unsigned();
