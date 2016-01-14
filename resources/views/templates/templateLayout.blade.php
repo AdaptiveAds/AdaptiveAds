@@ -3,11 +3,19 @@
 
 @section('content')
 
+<script>
+	// Do sync and AJAX here.... TODO
+	$('document').ready(function() {
+		Page.serve.setup_interval();
+		Page.serve.template.register_eventhandlers();
+	});
+</script>
+
 <div id="ad_container">
 
 	<div id="header">
 
-		<h1>Template</h1>
+		<h1>{{ $playlist[0]->adverts[0]->page[0]->pageData->page_data_name }}</h1>
 	</div>
 
     <div class="row1">
