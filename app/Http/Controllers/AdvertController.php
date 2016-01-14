@@ -26,7 +26,7 @@ class AdvertController extends Controller
      */
     public function index()
     {
-        $adverts = Advert::where('advert_deleted', 0)->get();
+        $adverts = Advert::where('advert_deleted', 0)->orderBy('advert_index', 'ASC')->get();
 
         $data = array(
           'pageID' => '',
@@ -89,7 +89,7 @@ class AdvertController extends Controller
     public function show($id)
     {
       $advert = Advert::find($id);
-      $pages = $advert->Page->where('deleted', 0);
+      $pages = $advert->Page->where('deleted', 0); // Ordered by page index
 
       $data = array(
         'pageID' => '',
@@ -153,7 +153,7 @@ class AdvertController extends Controller
 
     public function selectForPlaylist($playlistID)
     {
-      $adverts = Advert::where('advert_deleted', 0)->get();
+      $adverts = Advert::where('advert_deleted', 0)->orderBy('advert_name', 'ASC')->get();
 
       $data = array(
         'pageID' => '',
