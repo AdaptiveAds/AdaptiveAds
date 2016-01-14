@@ -1,70 +1,45 @@
 // MODULE PATTERN - http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html
 
-var Page = {};
-var Settings = {};
-var IntervalManager = {};
-
-// Define (global) settings here
-Settings.debug = false;
-Settings.syncInterval = 10000;
-Settings.syncAction = "";
-Settings.syncToken = "";
-Settings.syncScreen = 1;
-
-// Interval manager to create, store and remove window intervals
-IntervalManager = (function() {
-
-  var Intervals = [];
-
-  // Add a new interval to the manager
-  function add(delayInterval, callback) {
-
-    // Grab an additional param used for passing data to the callback
-    var callbackData = (arguments[2] !== undefined) ? arguments[2] : undefined;
-
-    var newInterval = window.setInterval(function() {
-        callback(callbackData); // pass data back works for functions without params
-    }, delayInterval);
-
-    // Save the interval handle
-    Intervals.push(newInterval);
-
-    if (Settings.debug == true) console.log('Stored intervals = ' + Intervals);
-
-    // Return the handle just incase we want to stop a specific one later
-    return newInterval;
-  }
-
-  // Stop a specific interval
-  function stop(intervalHandle) {
-    clearInterval(intervalHandle);
-  }
-
-  // Stop all intervals
-  function stop_all() {
-    for (index = 0; index < Intervals.index; count++) {
-      clearInterval(Intervals[index])
-    }
-  }
-
-  return {
-    add: add,
-    stop: stop,
-    stop_all: stop_all
-  };
-
-} ());
-
-Page.serve = (function() {
-
-  var syncIntervalHandle;
+// Page master class (inherit from this 'class' for every page)
+var Page = (function() {
 
   function init() {
-    sync_with_server();
+    register_eventhandlers();
+    AppDebug.print("Page init...");
   }
 
   function dispose() {
     IntervalManager.stop_all();
+    AppDebug.print("Page disposed...");
+  }
+
+  // Register any event handlers for the page here!
+  function register_eventhandlers() {
+    window.onbeforeunload = dispose;
+    AppDebug.print("Page events registered...");
+  }
+
+  return {
+    init: init,
+    dispose: dispose,
+    register_eventhandlers: register_eventhandlers
+  };
+
+} (Page || {}));
+
+var Serve = (function(Page) {
+
+  var syncIntervalHandle;
+
+  var syncInterval = 10000;
+  var syncAction = "";
+  var syncToken = "";
+  var syncScreen = 1;
+
+  // Override init
+  Page.init = function () {
+    Page.register_eventhandlers(); // register required handlers
+    sync_with_server(); // Sync!
   }
 
   //  Make AJAX request to server
@@ -75,28 +50,26 @@ Page.serve = (function() {
     // Required to prevent server 500 error
     $.ajaxSetup({
       headers: {
-        'X-CSRF-Token': Settings.syncToken
+        'X-CSRF-Token': Serve.syncToken
       }
     });
 
     $.ajax({
       type: "POST",
-      url : Settings.syncAction,
-      data : {id: Settings.syncScreen},
+      url : Serve.syncAction,
+      data : {id: Serve.syncScreen},
       success : function(data){
-        if (Settings.debug == true) console.log(data)
         process_data(data);
       },
       error : function(xhr, textStatus, errorThrown) {
-        alert(textStatus + " == " + errorThrown);
+        console.log(textStatus + " ------ " + errorThrown);
       }
     },"JSON");
   }
 
   // Data recieved process it
   function process_data(data) {
-
-    if (Settings.debug == true) console.log("Processing data...");
+    AppDebug.print("Processing data...");
 
     // Get lower and upper indexes
     var current_advert_index = 0;// data[0].adverts[0].pivot.advert_index;
@@ -121,7 +94,7 @@ Page.serve = (function() {
   // Data received update content
   function update_page_content(data) {
 
-    if (Settings.debug == true) console.log("Updating page");
+    AppDebug.print("Updating page");
 
     var current_advert_index = localStorage.getItem('current_advert_index');
     var current_page_index = localStorage.getItem('current_page_index');
@@ -144,29 +117,6 @@ Page.serve = (function() {
     localStorage.setItem('current_page_index', current_page_index);
   }
 
-  return {
-    init: init,
-    dispose: dispose,
-		sync_with_server: sync_with_server
-  };
+  return Page;
 
-} ());
-
-Page.serve.template = (function() {
-
-  function register_eventhandlers() {
-
-    window.onbeforeunload = cleanupBeforeExit;
-
-  }
-
-  function cleanupBeforeExit()
-  {
-    Page.serve.dispose();
-  }
-
-  return {
-    register_eventhandlers: register_eventhandlers,
-  };
-
-} ());
+} (Page || {}));
