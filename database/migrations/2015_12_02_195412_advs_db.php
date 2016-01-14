@@ -12,7 +12,7 @@ class AdvsDb extends Migration
      */
     public function up()
     {
-        //
+        /*
         Schema::create('transition', function (Blueprint $table) {
 				$table->engine = 'InnoDB';
         		$table->increments('id');
@@ -65,12 +65,20 @@ class AdvsDb extends Migration
           	  		->on('template')
           		  	->onUpdate('cascade')
           		  	->onDelete('cascade');
-          });
+          });*/
+          Schema::create('template', function (Blueprint $table) {
+  				    $table->engine = 'InnoDB';
+          		$table->increments('id');
+          		$table->string('template_name', 20);
+          		$table->string('class', 50);
+          		$table->integer('duration');
+          	});
 
         Schema::create('advert', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('advert_name', 20);
+            $table->int('advert_index');
             $table->boolean('advert_deleted');
           });
 
@@ -89,8 +97,7 @@ class AdvsDb extends Migration
 			      $table->integer('page_data_id')->unsigned();
 			      $table->integer('page_index');
 			      $table->integer('advert_id')->unsigned();
-            $table->integer('vertical_id')->unsigned();
-            $table->integer('horizontal_id')->unsigned();
+            $table->integer('template_id')->unsigned();
             $table->boolean('deleted');
             $table->foreign('page_data_id')
           	      ->references('id')
@@ -102,14 +109,9 @@ class AdvsDb extends Migration
                 	->on('advert')
                 	->onUpdate('cascade')
                 	->onDelete('cascade');
-            $table->foreign('vertical_id')
-                  ->references('id')
-                  ->on('vertical_template')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreign('horizontal_id')
+            $table->foreign('template_id')
                 	->references('id')
-                	->on('horizontal_template')
+                	->on('template')
                 	->onUpdate('cascade')
                 	->onDelete('cascade');
         	});
