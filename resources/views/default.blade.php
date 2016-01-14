@@ -37,9 +37,7 @@
 
 	<script src="{{ URL::asset('js/modules.js') }}"></script>
 	<script src="{{ URL::asset('js/pages.js') }}"></script>
-	<script>
-		Page.serve.steup_interval();
-	</script>
+
 	<script src="https://js.pusher.com/3.0/pusher.min.js"></script>
 	  <script>
 	    // Enable pusher logging - don't include this in production
