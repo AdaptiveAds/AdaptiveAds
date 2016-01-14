@@ -23,7 +23,7 @@ class Advert extends Model
 
   public function Page() {
     //return $this->belongsTo(Page::class, 'advert_id');
-    return $this->hasMany(Page::class, 'advert_id', 'id');
+    return $this->hasMany(Page::class, 'advert_id', 'id')->orderBy('page_index', 'ASC');
   }
 
 }
