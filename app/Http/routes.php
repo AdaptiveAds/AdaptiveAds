@@ -49,6 +49,7 @@ Route::get('dashboard/settings/locations', ['middleware' => 'auth', 'uses' => 'L
 Route::get('dashboard/settings/screens', ['middleware' => 'auth', 'uses' => 'ScreensController@index']);
 
 Route::get('serve/{screenId}', ['middleware' => 'auth', 'uses' => 'ServeController@show']);
+Route::post('serve/{screenID}', 'ServeController@sync');
 
 Event::listen('illuminate.query', function($query)
 {
