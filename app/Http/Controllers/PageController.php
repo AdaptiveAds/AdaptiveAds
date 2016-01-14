@@ -77,8 +77,7 @@ class PageController extends Controller
       $page->page_data_id = $pageData->id;
       $page->page_index = $request->input('NumPageIndex');
       $page->advert_id = $adID;
-      $page->vertical_id = 2;
-      $page->horizontal_id = 2;
+      $page->template_id = 1;
       $page->save();
 
       $data = array(
@@ -97,8 +96,11 @@ class PageController extends Controller
      */
     public function show($adID, $id)
     {
-      $page = Page::find($id);
-      $pageData = $page->PageData;
+      $match = ['id' => $id, 'deleted' => 0];
+      $page = Page::where($match)->first(); // one to one only return 1
+      $pageData = $page->PageData->where('id', $page->page_data_id)->orderBy('page_data_name', 'ASC')->first();
+
+      //dd($pageData);
 
       $data = array(
         'pageID' => 'pageeditor',
@@ -141,8 +143,7 @@ class PageController extends Controller
 
       $page = Page::find($id);
       $page->page_index = $request->input('txtPageIndex');
-      $page->vertical_id = 1;
-      $page->horizontal_id = 1;
+      $page->template_id = 1;
       $page->save();
 
       $pageData = $page->PageData;
