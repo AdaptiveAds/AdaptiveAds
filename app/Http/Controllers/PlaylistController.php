@@ -26,7 +26,7 @@ class PlaylistController extends Controller
      */
     public function index()
     {
-      $playlists = Playlist::where('deleted', 0)->get();
+      $playlists = Playlist::where('deleted', 0)->orderBy('playlist_name', 'ASC')->get();
 
       $data = array(
         'pageID' => '',
@@ -81,7 +81,7 @@ class PlaylistController extends Controller
     public function show($id)
     {
       $playlist = Playlist::find($id);
-      $adverts = $playlist->Adverts;
+      $adverts = $playlist->Adverts->where('advert_deleted', 0);
 
       $data = array(
         'pageID' => 'playlisteditor',
@@ -147,7 +147,7 @@ class PlaylistController extends Controller
     public function removeMode($playlistID)
     {
       $playlist = Playlist::find($playlistID);
-      $adverts = $playlist->Adverts;
+      $adverts = $playlist->Adverts->where('advert_deleted', 0);
 
       $data = array(
         'pageID' => 'playlisteditor',
