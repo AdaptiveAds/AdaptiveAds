@@ -19,10 +19,8 @@ class TemplateTableSeeder extends Seeder
       //Populate table
       $table->insert([
         'template_name' => 'firstTemplate',
-        'template_overrides_skin' => 0,
-        'duration_id' => 1,
-        'transition_id' => 1,
-		    'is_vertical' => 0
+        'class' => 'something',
+        'duration' => 5
       ]);
     }
 }

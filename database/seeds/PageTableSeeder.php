@@ -21,8 +21,7 @@ class PageTableSeeder extends Seeder
         'page_data_id' => 1,
         'page_index' => 1,
         'advert_id' => 1,
-        'vertical_id' => 1,
-        'horizontal_id' => 1,
+        'template_id' => 1,
 		    'deleted' => 0
       ]);
     }
