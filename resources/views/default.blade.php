@@ -25,12 +25,17 @@
 	<script type="text/javascript">
 	$('document').ready(function(){
 		$('.btn-orientationHor').click(function() {
+			// Writing the code like this will allow SCSS to be added to the button to show which is active
 			$('#left').removeClass('portrait');
 			$('#left').addClass('landscape');
+			$('.btn-orientationHor').addClass('active');
+			$('.btn-orientationVert').removeClass('active');
 		});
 		$('.btn-orientationVert').click(function() {
 			$('#left').removeClass('landscape');
 			$('#left').addClass('portrait');
+			$('.btn-orientationHor').removeClass('active');
+			$('.btn-orientationVert').addClass('active');
 		});
 	});
 	</script>
