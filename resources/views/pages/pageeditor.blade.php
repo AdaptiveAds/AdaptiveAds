@@ -5,22 +5,23 @@
 <h3>Page Editor</h3>
 <h3>Title: {{ $pageData->page_data_name or 'New Page'}}</h3>
 
-<div id="left" class="landscape">
+<div id="left" class="landscape theme_oneImages">
 	<div class="pagecontainer">
-		<ul>
-			<li></li>
-			<li></li>
-			<li></li>
-		</ul>
+
+		@yield('content')
+
 	</div>
 	<div class="pagecontainer">
-		<ul>
-			<li><a href="#">Theme</a></li>
-			<li><a href="#">Theme</a></li>
-			<li><a href="#">Theme</a></li>
-			<li><a href="#">Theme</a></li>
-			<li><a href="#">Theme</a></li>
+		<ul class="theme_select">
+			<li class="select_oneImages"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
+			<li class="select_twoImages"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
+			<li class="select_oneVideo"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
+			<li class="select_twobytwo"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
+			<li class="select_twobytwoReverse"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
+			<li class="select_fourbyfour"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
+			<li class="select_fourbyfourReverse"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
 		</ul>
+
 	</div>
 </div>
 <div id="right">
@@ -44,21 +45,31 @@
 				<input type="text" placeholder="Page Name...." name="pageName" value="{{ $pageData->page_data_name or '' }}"/>
 			</li>
 			<li>
-				<label>Image:</label>
+				<label>Image 1:</label>
 				<input type="text" name="pageImage" placeholder="Image path..." value="{{ $pageData->page_image or '' }}"><br>
 			</li>
-			<li><textarea title="content" type="text" name="imageMeta" placeholder="Image Meta..." required></textarea></li>
+			<li><textarea title="content" type="text" name="imageMeta" placeholder="Example: Rabit on Chair..." required></textarea></li>
+			<li>
+				<label>Image 2:</label>
+				<input type="text" name="pageImage" placeholder="Image path..." value="{{ $pageData->page_image or '' }}"><br>
+			</li>
+			<li><textarea title="content" type="text" name="imageMeta" placeholder="Example: Dog playing violin..." required></textarea></li>
 			<li>
 				<label>Video:</label>
 				<input type="text" name="pageVideo" placeholder="Video path..." value="{{ $pageData->page_video or '' }}"><br>
 			</li>
-			<li><textarea title="content" type="text" name="videoMeta" placeholder="Video Meta..." required></textarea></li>
+			<li><textarea title="content" type="text" name="videoMeta" placeholder="Example: Rabit and Dog playing music..." required></textarea></li>
 			<li>
 				<label>Page Index: </label>
 				<input type="number" name="pageIndex" value="{{ $page->page_index or 0}}"/>
 			</li>
 			<li>
-				<label>Content</label>
+				<label>Content 1:</label>
+				<textarea title="content" type="text" name="pageContent" placeholder="Enter Content..." required>{{ $pageData->page_content or '' }}
+				</textarea>
+			</li>
+			<li>
+				<label>Content 2:</label>
 				<textarea title="content" type="text" name="pageContent" placeholder="Enter Content..." required>{{ $pageData->page_content or '' }}
 				</textarea>
 			</li>

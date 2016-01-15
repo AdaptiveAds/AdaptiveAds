@@ -1,71 +1,196 @@
-/*
-Syntax error: Invalid CSS after "	.": expected class name, was "2by2{"
-        on line 69 of C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/template.scss
-
-Backtrace:
-C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/template.scss:69
-C:/Program Files (x86)/Scout/vendor/gems/gems/sass-3.2.1/lib/sass/../sass/scss/parser.rb:1129:in `expected'
-C:/Program Files (x86)/Scout/vendor/gems/gems/sass-3.2.1/lib/sass/../sass/scss/parser.rb:1066:in `expected'
-C:/Program Files (x86)/Scout/vendor/gems/gems/sass-3.2.1/lib/sass/../sass/scss/parser.rb:1048:in `expr!'
-C:/Program Files (x86)/Scout/vendor/gems/gems/sass-3.2.1/lib/sass/../sass/scss/parser.rb:693:in `class_selector'
-C:/Program Files (x86)/Scout/vendor/gems/gems/sass-3.2.1/lib/sass/../sass/scss/parser.rb:654:in `simple_selector_sequence'
-C:/Program Files (x86)/Scout/vendor/gems/gems/sass-3.2.1/lib/sass/../sass/scss/parser.rb:623:in `_selector'
-C:/Program Files (x86)/Scout/vendor/gems/gems/sass-3.2.1/lib/sass/../sass/scss/parser.rb:602:in `selector'
-C:/Program Files (x86)/Scout/vendor/gems/gems/sass-3.2.1/lib/sass/../sass/scss/parser.rb:586:in `selector_sequence'
-C:/Program Files (x86)/Scout/vendor/gems/gems/sass-3.2.1/lib/sass/../sass/scss/parser.rb:511:in `ruleset'
-C:/Program Files (x86)/Scout/vendor/gems/gems/sass-3.2.1/lib/sass/../sass/scss/parser.rb:574:in `declaration_or_ruleset'
-org/jruby/RubyProc.java:268:in `call'
-org/jruby/RubyProc.java:228:in `call'
-C:/Program Files (x86)/Scout/vendor/gems/gems/sass-3.2.1/lib/sass/../sass/scss/parser.rb:1104:in `rethrow'
-C:/Program Files (x86)/Scout/vendor/gems/gems/sass-3.2.1/lib/sass/../sass/scss/parser.rb:575:in `declaration_or_ruleset'
-C:/Program Files (x86)/Scout/vendor/gems/gems/sass-3.2.1/lib/sass/../sass/scss/parser.rb:537:in `block_child'
-C:/Program Files (x86)/Scout/vendor/gems/gems/sass-3.2.1/lib/sass/../sass/scss/parser.rb:529:in `block_contents'
-C:/Program Files (x86)/Scout/vendor/gems/gems/sass-3.2.1/lib/sass/../sass/scss/parser.rb:518:in `block'
-C:/Program Files (x86)/Scout/vendor/gems/gems/sass-3.2.1/lib/sass/../sass/scss/parser.rb:512:in `ruleset'
-C:/Program Files (x86)/Scout/vendor/gems/gems/sass-3.2.1/lib/sass/../sass/scss/parser.rb:536:in `block_child'
-C:/Program Files (x86)/Scout/vendor/gems/gems/sass-3.2.1/lib/sass/../sass/scss/parser.rb:526:in `block_contents'
-C:/Program Files (x86)/Scout/vendor/gems/gems/sass-3.2.1/lib/sass/../sass/scss/parser.rb:70:in `stylesheet'
-C:/Program Files (x86)/Scout/vendor/gems/gems/sass-3.2.1/lib/sass/../sass/scss/parser.rb:27:in `parse'
-C:/Program Files (x86)/Scout/vendor/gems/gems/sass-3.2.1/lib/sass/../sass/engine.rb:342:in `_to_tree'
-C:/Program Files (x86)/Scout/vendor/gems/gems/sass-3.2.1/lib/sass/../sass/engine.rb:315:in `_render'
-C:/Program Files (x86)/Scout/vendor/gems/gems/sass-3.2.1/lib/sass/../sass/engine.rb:262:in `render'
-C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/lib/compass/compiler.rb:140:in `compile'
-C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/lib/compass/compiler.rb:126:in `timed'
-C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/lib/compass/compiler.rb:139:in `compile'
-C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/lib/compass/logger.rb:45:in `red'
-C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/lib/compass/compiler.rb:138:in `compile'
-C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/lib/compass/compiler.rb:118:in `compile_if_required'
-C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/lib/compass/compiler.rb:103:in `run'
-org/jruby/RubyArray.java:1603:in `each'
-C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/lib/compass/compiler.rb:101:in `run'
-C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/lib/compass/compiler.rb:126:in `timed'
-C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/lib/compass/compiler.rb:100:in `run'
-C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/lib/compass/commands/watch_project.rb:147:in `recompile'
-org/jruby/RubyMethod.java:133:in `call'
-org/jruby/RubyProc.java:268:in `call'
-org/jruby/RubyProc.java:228:in `call'
-C:/Program Files (x86)/Scout/vendor/gems/gems/fssm-0.2.9/lib/fssm/path.rb:73:in `run_callback'
-C:/Program Files (x86)/Scout/vendor/gems/gems/fssm-0.2.9/lib/fssm/path.rb:55:in `callback_action'
-C:/Program Files (x86)/Scout/vendor/gems/gems/fssm-0.2.9/lib/fssm/path.rb:35:in `update'
-C:/Program Files (x86)/Scout/vendor/gems/gems/fssm-0.2.9/lib/fssm/state/directory.rb:39:in `modified'
-org/jruby/RubyArray.java:1603:in `each'
-C:/Program Files (x86)/Scout/vendor/gems/gems/fssm-0.2.9/lib/fssm/state/directory.rb:37:in `modified'
-C:/Program Files (x86)/Scout/vendor/gems/gems/fssm-0.2.9/lib/fssm/state/directory.rb:18:in `refresh'
-C:/Program Files (x86)/Scout/vendor/gems/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:17:in `run'
-org/jruby/RubyArray.java:1603:in `each'
-C:/Program Files (x86)/Scout/vendor/gems/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:17:in `run'
-org/jruby/RubyKernel.java:1419:in `loop'
-C:/Program Files (x86)/Scout/vendor/gems/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:15:in `run'
-C:/Program Files (x86)/Scout/vendor/gems/gems/fssm-0.2.9/lib/fssm/monitor.rb:26:in `run'
-C:/Program Files (x86)/Scout/vendor/gems/gems/fssm-0.2.9/lib/fssm.rb:70:in `monitor'
-C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/lib/compass/commands/watch_project.rb:87:in `perform'
-C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/lib/compass/commands/base.rb:18:in `execute'
-C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/lib/compass/commands/project_base.rb:19:in `execute'
-C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
-C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/lib/compass/exec/sub_command_ui.rb:15:in `run!'
-C:\Program Files (x86)\Scout\bin\compass:12:in `(root)'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: Invalid CSS after \"	.\": expected class name, was \"2by2{\"\A         on line 69 of C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/template.scss"; }
+/**/
+/* line 2, ../../resources/assets/sass/template.scss */
+#plus_container {
+  width: 100%; }
+  /* line 5, ../../resources/assets/sass/template.scss */
+  #plus_container #header {
+    height: 60px;
+    background: white;
+    margin-top: 2%;
+    margin-bottom: 2%; }
+    /* line 8, ../../resources/assets/sass/template.scss */
+    #plus_container #header h1 {
+      line-height: 80%;
+      margin-left: 2%; }
+  /* line 13, ../../resources/assets/sass/template.scss */
+  #plus_container .row1 {
+    clear: both; }
+    /* line 16, ../../resources/assets/sass/template.scss */
+    #plus_container .row1 .quad {
+      float: left; }
+  /* line 22, ../../resources/assets/sass/template.scss */
+  #plus_container .row2 {
+    clear: both; }
+    /* line 25, ../../resources/assets/sass/template.scss */
+    #plus_container .row2 .quad {
+      float: left; }
+  /* line 31, ../../resources/assets/sass/template.scss */
+  #plus_container .theme_fourbyfour .row {
+    clear: both;
+    display: block;
+    min-height: 250px; }
+    /* line 34, ../../resources/assets/sass/template.scss */
+    #plus_container .theme_fourbyfour .row :last-child {
+      margin-top: 1%; }
+    /* line 37, ../../resources/assets/sass/template.scss */
+    #plus_container .theme_fourbyfour .row .quad {
+      float: left;
+      display: block;
+      width: 46%;
+      text-align: center;
+      padding: 2%;
+      background: orange; }
+      /* line 39, ../../resources/assets/sass/template.scss */
+      #plus_container .theme_fourbyfour .row .quad p {
+        text-align: justify; }
+      /* line 43, ../../resources/assets/sass/template.scss */
+      #plus_container .theme_fourbyfour .row .quad img {
+        width: 80%;
+        max-height: 200px; }
+  /* line 51, ../../resources/assets/sass/template.scss */
+  #plus_container .theme_fourbyfourReverse .row {
+    clear: both;
+    display: block;
+    min-height: 250px; }
+    /* line 53, ../../resources/assets/sass/template.scss */
+    #plus_container .theme_fourbyfourReverse .row :last-child {
+      margin-top: 1%; }
+    /* line 56, ../../resources/assets/sass/template.scss */
+    #plus_container .theme_fourbyfourReverse .row .quad {
+      float: right;
+      display: block;
+      width: 46%;
+      text-align: center;
+      padding: 2%;
+      background: orange; }
+      /* line 58, ../../resources/assets/sass/template.scss */
+      #plus_container .theme_fourbyfourReverse .row .quad p {
+        text-align: justify; }
+      /* line 62, ../../resources/assets/sass/template.scss */
+      #plus_container .theme_fourbyfourReverse .row .quad img {
+        width: 80%;
+        max-height: 200px; }
+  /* line 70, ../../resources/assets/sass/template.scss */
+  #plus_container .theme_twobytwo .row {
+    clear: both;
+    display: block;
+    min-height: 250px; }
+    /* line 72, ../../resources/assets/sass/template.scss */
+    #plus_container .theme_twobytwo .row :last-child {
+      margin-top: 0%;
+      display: none; }
+    /* line 75, ../../resources/assets/sass/template.scss */
+    #plus_container .theme_twobytwo .row .quad {
+      float: left;
+      display: block;
+      width: 46%;
+      text-align: center;
+      padding: 2%;
+      background: orange; }
+      /* line 77, ../../resources/assets/sass/template.scss */
+      #plus_container .theme_twobytwo .row .quad p {
+        text-align: justify; }
+      /* line 81, ../../resources/assets/sass/template.scss */
+      #plus_container .theme_twobytwo .row .quad img {
+        width: 80%;
+        max-height: 200px; }
+  /* line 89, ../../resources/assets/sass/template.scss */
+  #plus_container .theme_twobytwoReverse .row {
+    clear: both;
+    display: block;
+    min-height: 250px; }
+    /* line 91, ../../resources/assets/sass/template.scss */
+    #plus_container .theme_twobytwoReverse .row :last-child {
+      margin-top: 0%;
+      display: none; }
+    /* line 94, ../../resources/assets/sass/template.scss */
+    #plus_container .theme_twobytwoReverse .row .quad {
+      float: right;
+      display: block;
+      width: 46%;
+      text-align: center;
+      padding: 2%;
+      background: orange; }
+      /* line 96, ../../resources/assets/sass/template.scss */
+      #plus_container .theme_twobytwoReverse .row .quad p {
+        text-align: justify; }
+      /* line 100, ../../resources/assets/sass/template.scss */
+      #plus_container .theme_twobytwoReverse .row .quad img {
+        width: 80%;
+        max-height: 200px; }
+  /* line 108, ../../resources/assets/sass/template.scss */
+  #plus_container .theme_oneVideo .row {
+    clear: both;
+    display: block;
+    min-height: 250px; }
+    /* line 110, ../../resources/assets/sass/template.scss */
+    #plus_container .theme_oneVideo .row :last-child {
+      margin-top: 0%;
+      display: none; }
+    /* line 113, ../../resources/assets/sass/template.scss */
+    #plus_container .theme_oneVideo .row .quad {
+      display: block;
+      float: left;
+      width: 96%;
+      text-align: center;
+      padding: 2%;
+      background: orange; }
+      /* line 115, ../../resources/assets/sass/template.scss */
+      #plus_container .theme_oneVideo .row .quad p {
+        text-align: justify; }
+      /* line 119, ../../resources/assets/sass/template.scss */
+      #plus_container .theme_oneVideo .row .quad img {
+        width: 100%;
+        max-height: 200px; }
+      /* line 122, ../../resources/assets/sass/template.scss */
+      #plus_container .theme_oneVideo .row .quad video {
+        width: 100%;
+        max-height: 650px; }
+  /* line 131, ../../resources/assets/sass/template.scss */
+  #plus_container .theme_oneImages .row {
+    clear: both;
+    display: block;
+    min-height: 250px; }
+    /* line 136, ../../resources/assets/sass/template.scss */
+    #plus_container .theme_oneImages .row .quad :first-child {
+      display: block;
+      float: left;
+      width: 96%;
+      text-align: center;
+      padding: 2%;
+      background: orange; }
+      /* line 139, ../../resources/assets/sass/template.scss */
+      #plus_container .theme_oneImages .row .quad :first-child p {
+        text-align: justify; }
+      /* line 143, ../../resources/assets/sass/template.scss */
+      #plus_container .theme_oneImages .row .quad :first-child img {
+        width: 100%;
+        max-height: 200px; }
+    /* line 148, ../../resources/assets/sass/template.scss */
+    #plus_container .theme_oneImages .row .quad :last-child {
+      margin-top: 0%;
+      display: none; }
+  /* line 156, ../../resources/assets/sass/template.scss */
+  #plus_container .theme_twoImages .row {
+    clear: both;
+    display: block;
+    min-height: 250px; }
+    /* line 158, ../../resources/assets/sass/template.scss */
+    #plus_container .theme_twoImages .row :last-child {
+      margin-top: 0%;
+      display: none; }
+    /* line 161, ../../resources/assets/sass/template.scss */
+    #plus_container .theme_twoImages .row .quad {
+      float: right;
+      display: block;
+      width: 46%;
+      text-align: center;
+      padding: 2%;
+      background: orange; }
+      /* line 163, ../../resources/assets/sass/template.scss */
+      #plus_container .theme_twoImages .row .quad p {
+        text-align: justify; }
+      /* line 167, ../../resources/assets/sass/template.scss */
+      #plus_container .theme_twoImages .row .quad img {
+        width: 80%;
+        max-height: 500px; }
