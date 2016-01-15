@@ -78,7 +78,7 @@ class AdvsDb extends Migration
 			      $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('advert_name', 20);
-            $table->int('advert_index');
+            $table->integer('advert_index');
             $table->boolean('advert_deleted');
           });
 
