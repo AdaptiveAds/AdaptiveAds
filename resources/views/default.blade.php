@@ -50,6 +50,8 @@
 						<li><a href="{{ URL::to('dashboard')}}"><i class="fa fa-home"></i></a></li>
 						<li><a href="../index.php?action=team"><i class="fa fa-users"></i></a></li>
 						<li><a href="../index.php?action=contact"><i class="fa fa-envelope"></i></a></li>
+						<!-- Logout Functionality required -->
+						<li><a href="#">Sign Out</i></a></li>
 					</ul>
 				</nav>
 			</div>
