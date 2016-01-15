@@ -13,7 +13,8 @@
 			<label for="password">Password</label>
 			<input type="password" name="password" placeholder="password" required>
 		</li>
-		<li><input class="submit" type="submit" value="Login"></li>
+		<!-- submit button should not be inside <li> tag for formatting resasons -->
+		<input class="submit" type="submit" value="Login">
 	</ul>
 	<ul>
 		<li><a href="../index.php?action=register">Register</a></li>

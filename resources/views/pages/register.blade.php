@@ -22,7 +22,7 @@
 			<input type="password" name="password_confirmation" placeholder="Re-type Password" required>
 		</li>
 
-		<li><input class="submit" type="submit" value="Login"></li>
+		<input class="submit" type="submit" value="Login">
 	</ul>
 	<ul>
 		<li><a href="../index.php?action=registration">Register</a></li>
