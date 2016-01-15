@@ -9,7 +9,7 @@
 
 <body id="{{ $pageName }}">
 <div id="wrapper">
-		
+
 	<div id="content">
     	@yield('content')
     	<div class="clear"></div>
