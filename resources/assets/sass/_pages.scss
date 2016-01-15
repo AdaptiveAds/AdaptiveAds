@@ -78,7 +78,10 @@ body #wrapper #content .settings .row form ul li button	{float:right;}
 	body #right ul li#orientation button {background:#ffffff; color:#000000; width:50%; border:1px #000000 solid; float:left; padding:5px; overflow:hidden; }
 	body #right ul li#orientation button:first-child {margin-left:0px;}
 	body #right ul li#orientation button:active,
-	body #right ul li#orientation button:hover {background:transparent; cursor:pointer;}
+	body #right ul li#orientation button:hover {background:#ffffff; cursor:pointer;}
+	body #right ul li#orientation button.active {background:pink;}
+
+
 	body #right ul li textarea,
 	body #right ul li input {width:90%; margin:0 auto;}
 	body #right ul li label {display:block;}

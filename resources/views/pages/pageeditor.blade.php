@@ -33,8 +33,9 @@
 		@else
 			{!! Form::open(['route' => ['dashboard.advert.{adID}.page.store',  $page->advert_id], 'method' => 'POST']) !!}
 		@endif
+			<!-- ADDED class=landscape as default for SCSS targeting:: This will enable active button formatting -->
 			<li id="orientation">
-				<button class="btn-orientationHor" type="button">Landscape</button>
+				<button class="btn-orientationHor active" type="button">Landscape</button>
 				<button class="btn-orientationVert" type="button">Portrait</button>
 				<div class="clear"></div>
 			</li>
