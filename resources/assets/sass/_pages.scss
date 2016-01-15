@@ -1,14 +1,23 @@
 /* Login */
 /**/
 
+body#login form#clientlogin,
+body#register form#register {width:20%; margin:0 auto; padding:2%; color:#ffffff;}
 
+body#login form#clientlogin ul,
+body#register form#register ul {padding-left:0;list-style:none;}
 
-body#login form#clientlogin {width:100px; margin:0 auto; padding:2%; color:#ffffff;}
-body#login form#clientlogin ul {padding-left:0;list-style:none;}
-body#login form#clientlogin ul li {width:100%;}
-body#login form#clientlogin ul li label {display:block; padding:5px}
-body#login form#clientlogin ul li input {padding:5px}
-body form input.submit {margin-top:10px; border:none; background:#7a8aff;}
+body#login form#clientlogin ul li,
+body#register form#register ul li {width:100%; margin:0; padding:0;}
+
+body#login form#clientlogin ul li label,
+body#register form#register ul li label {display:block; padding:5px 0px;}
+
+body#login form#clientlogin ul li input,
+body#register form#register ul li input {width:100%;; margin:0 auto; padding:5px 5px;}
+
+body form input.submit {margin-top:10px; border:none; background:#7a8aff; padding:5px 10px;}
+
 
 /* Team Page - Public */
 body#team #content section {text-align:center; clear:both;}
