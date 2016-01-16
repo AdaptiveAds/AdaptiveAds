@@ -9,7 +9,7 @@ class Location extends Model
   protected $table = 'location';
   public $timestamps = false;
 
-  public function Playlist() {
-    return $this->belongsTo(Playlist::class, 'playlist_id');
+  public function Departments() {
+    return $this->hasMany(Department::class);
   }
 }

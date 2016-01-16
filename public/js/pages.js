@@ -71,11 +71,13 @@ var Serve = (function(Page) {
   function process_data(data) {
     AppDebug.print("Processing data...");
 
+    //AppDebug.print(data.department.playlists[0].adverts.length);
+
     // Get lower and upper indexes TODO Fill in
     var current_advert_index = 0;// data[0].adverts[0].pivot.advert_index;
     var current_page_index = 0;// data[0].adverts[0].page[0].page_index;
-    var max_advert_index = data[0].adverts.length - 1;
-    var duration = data[0].adverts[current_advert_index].page[current_page_index].template.duration;
+    var max_advert_index = data.department.playlists[0].adverts.length - 1;
+    var duration = data.department.playlists[0].adverts[current_advert_index].pages[current_page_index].template.duration;
 
     // Save data to session
     localStorage.setItem('playlist', JSON.stringify(data));
@@ -109,21 +111,21 @@ var Serve = (function(Page) {
     // keep doing so if we get undefined returned possible skip in the index
     do {
       //current_advert_index++; REVIEW need this??
-    } while (data[0].adverts[current_advert_index] === undefined && current_advert_index < max_advert_index);
+    } while (data.department.playlists[0].adverts[current_advert_index] === undefined && current_advert_index < max_advert_index);
 
-    var max_page_index = data[0].adverts[current_advert_index].page.length - 1;
+    var max_page_index = data.department.playlists[0].adverts[current_advert_index].pages.length - 1;
 
     do {
       current_page_index++;
-    } while (data[0].adverts[current_advert_index].page[current_page_index] === undefined && current_page_index < max_page_index);
+    } while (data.department.playlists[0].adverts[current_advert_index].pages[current_page_index] === undefined && current_page_index < max_page_index);
 
     // Have we reached the end of the
     if (current_advert_index > max_advert_index) {current_advert_index = 0;}
     if (current_page_index > max_page_index) {current_page_index = 0;}
 
     // Update page
-    $('h1').html(data[0].adverts[current_advert_index].page[current_page_index].page_data.page_data_name);
-    $('#page_content').html(data[0].adverts[current_advert_index].page[current_page_index].page_data.page_content);
+    $('h1').html(data.department.playlists[0].adverts[current_advert_index].pages[current_page_index].page_data.page_data_name);
+    $('#page_content').html(data.department.playlists[0].adverts[current_advert_index].pages[current_page_index].page_data.page_content);
 
     // Update current indexes
     localStorage.setItem('current_advert_index', current_advert_index);
