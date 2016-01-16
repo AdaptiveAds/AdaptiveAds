@@ -56,34 +56,31 @@ class ServeController extends Controller
     public function show($id)
     {
         $screen = Screen::find($id);
-        $playlist = $screen->Location->Playlist;
+        //$screen_playlists = $screen->with('department.playlists.adverts')->get();
 
-        $playlist = $this->loadPlaylist($playlist);
+        //dd($screen_playlists);
+        $loaded_screen = $this->loadPlaylists($screen);
+
+        //dd($loaded_screen);
 
         $data = array(
           'pageTitle' => '',
-          'screen' => $screen,
-          'playlist' => $playlist
+          'screen' => $loaded_screen
         );
 
         return view('templates/templateLayout', $data);
     }
 
-    public function loadPlaylist($playlistID)
+    public function loadPlaylists($screen)
     {
-      $current_advert_index = Session::get('current_advert_index', 1);
-      $current_page_index = Session::get('current_page_index', 1);
+      //$current_advert_index = Session::get('current_advert_index', 1);
+      //$current_page_index = Session::get('current_page_index', 1);
 
-      return $playlist = Playlist::with(['adverts'=>function($query) use ($current_advert_index) {
-            //$query->where('advert_index', '=', $current_advert_index);
-        }])
-        ->with(['adverts.page'=>function($query) use ($current_page_index) {
-            //$query->where('page_index', '=', $current_page_index);
-        }])
-        ->with('adverts.page.pageData')
-        ->with('adverts.page.template')
-        ->where('id', '=', $playlistID->id)
-        ->get();
+      return $playlist = $screen->with('department.playlists.adverts.pages')
+        //->with('adverts.page')
+        ->with('department.playlists.adverts.pages.pageData')
+        ->with('department.playlists.adverts.pages.template')
+        ->first();
 
       /*return $playlist = Playlist::with(['adverts'=>function($query) use ($current_advert_index) {
             $query->where('advert_index', '=', $current_advert_index);
@@ -100,9 +97,9 @@ class ServeController extends Controller
     public function sync($id)
     {
         $screen = Screen::find($id);
-        $playlist = $screen->Location->Playlist;
+        //$playlist = $screen->Location->Playlist;
 
-        return $this->loadPlaylist($playlist);
+        return $this->loadPlaylists($screen);
     }
 
     /**

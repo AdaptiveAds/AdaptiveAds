@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+Use Session;
+
+use App\Events\DurationEvent;
+
 class DashboardController extends Controller
 {
     /**
@@ -16,9 +20,22 @@ class DashboardController extends Controller
      */
     public function index()
     {
+
+      $allowed_departments = Session::get('allowed_departments');
+      $selected_department = 1;
+
+      if (in_array($selected_department, $allowed_departments)) {
+        Session::put('current_department', 1);
+      } else {
+        Session::put('current_department', 2);
+      }
+
       $data = array(
         'pageID' => 'dashboard'
       );
+
+      event(new DurationEvent("Send this over to client"));
+
       return view('pages/dashboard', $data);
     }
 

@@ -7,8 +7,11 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Session;
+
 use App\Advert as Advert;
-use App\PLaylist as Playlist;
+use App\Playlist as Playlist;
+use App\Department as Department;
 
 class AdvertController extends Controller
 {
@@ -26,7 +29,11 @@ class AdvertController extends Controller
      */
     public function index()
     {
-        $adverts = Advert::where('advert_deleted', 0)->orderBy('advert_index', 'ASC')->get();
+        $allowed_departments = Session::get('allowed_departments');
+
+        $adverts = Advert::where('deleted', 0)->whereIn('department_id', $allowed_departments)->get();
+
+        //dd($adverts);
 
         $data = array(
           'pageID' => '',
@@ -44,7 +51,6 @@ class AdvertController extends Controller
     public function create()
     {
         $advert = new Advert;
-        //$advert->save();
 
         $data = array(
           'pageID' => 'adverteditor',
@@ -69,7 +75,8 @@ class AdvertController extends Controller
 
         // Was validation successful?
         $advert = new Advert;
-        $advert->advert_name = $request->input('txtAdvertName');
+        $advert->name = $request->input('txtAdvertName');
+        $advert->department_id = Session::get('current_department');
         $advert->save();
 
         $data = array(
@@ -88,8 +95,14 @@ class AdvertController extends Controller
      */
     public function show($id)
     {
-      $advert = Advert::find($id);
-      $pages = $advert->Page->where('deleted', 0); // Ordered by page index
+      $allowed_departments = Session::get('allowed_departments');
+      $advert = Advert::find($id)->whereIn('department_id', $allowed_departments)->get();
+
+      if ($advert->isEmpty()) {
+        return response('Unauthorized.', 401); // User does not have access to this adverts' location
+      }
+
+      $pages = $advert->Pages->where('deleted', 0); // Ordered by page index
 
       $data = array(
         'pageID' => '',
@@ -108,7 +121,12 @@ class AdvertController extends Controller
      */
     public function edit($id)
     {
-        $advert = Advert::find($id);
+        $allowed_departments = Session::get('allowed_departments');
+        $advert = Advert::find($id)->whereIn('department_id', $allowed_departments)->get();
+
+        if ($advert->isEmpty()) {
+          return response('Not found.', 404); // User does not have access to this adverts' location
+        }
 
         $data = array(
           'pageID' => 'adverteditor',
@@ -127,7 +145,12 @@ class AdvertController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $advert = Advert::find($id);
+        $allowed_departments = Session::get('allowed_departments');
+        $advert = Advert::find($id)->whereIn('department_id', $allowed_departments)->get();
+
+        if ($advert->isEmpty()) {
+          return response('Not found.', 404); // Advert does not exist or un authorised
+        }
 
         $advert->name = $request->name;
 
@@ -142,9 +165,14 @@ class AdvertController extends Controller
      */
     public function destroy($id)
     {
-      $advert = Advert::find($id);
+      $allowed_departments = Session::get('allowed_departments');
+      $advert = Advert::find($id)->whereIn('department_id', $allowed_departments)->get();
 
-      $advert->advert_deleted = 1;
+      if ($advert->isEmpty()) {
+        return response('Not found.', 404); // Advert does not exist or un authorised
+      }
+
+      $advert->deleted = 1;
 
       $advert->save();
 
@@ -153,7 +181,12 @@ class AdvertController extends Controller
 
     public function selectForPlaylist($playlistID)
     {
-      $adverts = Advert::where('advert_deleted', 0)->orderBy('advert_name', 'ASC')->get();
+      $allowed_departments = Session::get('allowed_departments');
+      $adverts = Advert::where('deleted', 0)->whereIn('department_id', $allowed_departments)->orderBy('name', 'ASC')->get();
+
+      if ($adverts->isEmpty()) {
+        return response('Not found.', 404); // Advert does not exist or un authorised
+      }
 
       $data = array(
         'pageID' => '',

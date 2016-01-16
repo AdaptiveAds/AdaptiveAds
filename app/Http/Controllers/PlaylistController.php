@@ -7,8 +7,11 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Session;
+
 use App\Playlist as Playlist;
 use App\Advert as Advert;
+use App\Department as Department;
 
 class PlaylistController extends Controller
 {
@@ -26,7 +29,8 @@ class PlaylistController extends Controller
      */
     public function index()
     {
-      $playlists = Playlist::where('deleted', 0)->orderBy('name', 'ASC')->get();
+      $current_department = Session::get('current_department');
+      $playlists = Playlist::where('deleted', 0)->where('department_id', $current_department)->orderBy('name', 'ASC')->get();
 
       $data = array(
         'pageID' => '',
@@ -54,6 +58,13 @@ class PlaylistController extends Controller
      */
     public function store(Request $request)
     {
+      $current_department = Session::get('current_department');
+      $allowed_departments = Session::get('allowed_departments');
+
+      if (in_array($current_department, $allowed_departments) == false) {
+        return response('Unauthorized', 401);
+      }
+
       // Validation
       $this->validate($request, [
           'txtPlaylistName' => 'required|max:255',
@@ -62,6 +73,7 @@ class PlaylistController extends Controller
       // Was validation successful?
       $playlist = new Playlist;
       $playlist->name = $request->input('txtPlaylistName');
+      $playlist->departent_id = $current_department;
       $playlist->save();
 
       $data = array(
@@ -80,8 +92,10 @@ class PlaylistController extends Controller
      */
     public function show($id)
     {
+      $current_department = Session::get('current_department');
+
       $playlist = Playlist::find($id);
-      $adverts = $playlist->Adverts->where('deleted', 0);
+      $adverts = $playlist->Adverts->where('deleted', 0)->where('department_id', $current_department);
 
       $data = array(
         'pageID' => 'playlisteditor',
@@ -126,6 +140,14 @@ class PlaylistController extends Controller
      */
     public function destroy($id)
     {
+
+      $current_department = Session::get('current_department');
+      $allowed_departments = Session::get('allowed_departments');
+
+      if (in_array($current_department, $allowed_departments) == false) {
+        return response('Unauthorized', 401);
+      }
+
       $playlist = Playlist::find($id);
       // $playlist->Adverts()->detach(); // TODO Remove all associated adverts??
 
@@ -136,7 +158,7 @@ class PlaylistController extends Controller
     }
 
     public function addExistingAdvert($playlistID, $advertID)
-    {
+    {    
         $playlist = Playlist::find($playlistID);
         // TODO advert inde and display timing (GUI??)
         $playlist->Adverts()->attach($advertID, ['advert_index' => '1', 'display_schedule_id' => '1']);
@@ -146,8 +168,10 @@ class PlaylistController extends Controller
 
     public function removeMode($playlistID)
     {
+      $allowed_departments = Session::get('allowed_departments');
+
       $playlist = Playlist::find($playlistID);
-      $adverts = $playlist->Adverts->where('deleted', 0);
+      $adverts = $playlist->Adverts->where('deleted', 0)->whereIn('department_id', $allowed_departments);
 
       $data = array(
         'pageID' => 'playlisteditor',
