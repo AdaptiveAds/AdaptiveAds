@@ -19,7 +19,8 @@ class AdvertTableSeeder extends Seeder
       //Populate table
       $table->insert([
         'name' => 'myAdvert',
-        'deleted' => 0
+        'deleted' => 0,
+        'department_id' => 1
       ]);
     }
 }

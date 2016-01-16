@@ -19,7 +19,8 @@ class PlaylistTableSeeder extends Seeder
       //Populate table
       $table->insert([
         'name' => 'Libray Playlist',
-        'deleted' => 0
+        'deleted' => 0,
+        'department_id' => 1
       ]);
     }
 }
