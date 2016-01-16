@@ -25,12 +25,17 @@
 	<script type="text/javascript">
 	$('document').ready(function(){
 		$('.btn-orientationHor').click(function() {
+			// Writing the code like this will allow SCSS to be added to the button to show which is active
 			$('#left').removeClass('portrait');
 			$('#left').addClass('landscape');
+			$('.btn-orientationHor').addClass('active');
+			$('.btn-orientationVert').removeClass('active');
 		});
 		$('.btn-orientationVert').click(function() {
 			$('#left').removeClass('landscape');
 			$('#left').addClass('portrait');
+			$('.btn-orientationHor').removeClass('active');
+			$('.btn-orientationVert').addClass('active');
 		});
 	});
 	</script>
@@ -72,6 +77,8 @@
 						<li><a href="{{ URL::to('dashboard')}}"><i class="fa fa-home"></i></a></li>
 						<li><a href="../index.php?action=team"><i class="fa fa-users"></i></a></li>
 						<li><a href="../index.php?action=contact"><i class="fa fa-envelope"></i></a></li>
+						<!-- Logout Functionality required -->
+						<li><a href="#">Sign Out</i></a></li>
 					</ul>
 				</nav>
 			</div>
