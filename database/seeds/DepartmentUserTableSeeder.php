@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class PageTableSeeder extends Seeder
+class DepartmentUserTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,18 +11,16 @@ class PageTableSeeder extends Seeder
      */
     public function run()
     {
-      $table = DB::table('page');
+      $table = DB::table('department_user');
 
       //Empty table
       $table->delete();
 
       //Populate table
       $table->insert([
-        'page_data_id' => 1,
-        'advert_id' => 1,
-        'template_id' => 1,
-        'page_index' => 1,
-		    'deleted' => 0
+        'user_id' => 1,
+        'department_id' => 1,
+        'privilage_id' => 1
       ]);
     }
 }
