@@ -10,7 +10,7 @@ class Department extends Model
   public $timestamps = false;
 
   public function Playlists() {
-    return $this->belongsToMany(Playlist::class)->withPivot('playlist_id', 'department_id');
+    return $this->hasMany(Playlist::class, 'department_id', 'id');
   }
 
   public function Location() {
