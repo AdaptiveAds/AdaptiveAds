@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Screen as Screen;
+use App\Playlist as Playlist;
+
+use App\Events\DurationEvent;
+
+use Session;
+
 class ServeController extends Controller
 {
     /**
@@ -48,7 +55,51 @@ class ServeController extends Controller
      */
     public function show($id)
     {
-        //
+        $screen = Screen::find($id);
+        //$screen_playlists = $screen->with('department.playlists.adverts')->get();
+
+        //dd($screen_playlists);
+        $loaded_screen = $this->loadPlaylists($screen);
+
+        //dd($loaded_screen);
+
+        $data = array(
+          'pageTitle' => '',
+          'screen' => $loaded_screen
+        );
+
+        return view('templates/templateLayout', $data);
+    }
+
+    public function loadPlaylists($screen)
+    {
+      //$current_advert_index = Session::get('current_advert_index', 1);
+      //$current_page_index = Session::get('current_page_index', 1);
+
+      return $playlist = $screen->with('department.playlists.adverts.pages')
+        //->with('adverts.page')
+        ->with('department.playlists.adverts.pages.pageData')
+        ->with('department.playlists.adverts.pages.template')
+        ->first();
+
+      /*return $playlist = Playlist::with(['adverts'=>function($query) use ($current_advert_index) {
+            $query->where('advert_index', '=', $current_advert_index);
+        }])
+        ->with(['adverts.page'=>function($query) use ($current_page_index) {
+            //$query->where('page_index', '=', $current_page_index);
+        }])
+        ->with('adverts.page.pageData')
+        ->with('adverts.page.template')
+        ->where('id', '=', $playlistID->id)
+        ->get();*/
+    }
+
+    public function sync($id)
+    {
+        $screen = Screen::find($id);
+        //$playlist = $screen->Location->Playlist;
+
+        return $this->loadPlaylists($screen);
     }
 
     /**
@@ -84,4 +135,6 @@ class ServeController extends Controller
     {
         //
     }
+
+
 }

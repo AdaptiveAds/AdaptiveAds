@@ -2,12 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-	<title>"{{ $pageName }}"</title>
+	<title>Playlist: {{ $screen->department->playlists[0]->name }} </title>
 	<link rel="stylesheet" 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" 	href="{{ URL::asset('css/template.css') }}" type="text/css">
+	<script src="{{ URL::asset('js/jquery-2.1.4.js') }}"></script>
+	<script src="{{ URL::asset('js/modules.js') }}"></script>
+	<script src="{{ URL::asset('js/pages.js') }}"></script>
 </head>
 
-<body id="{{ $pageName }}">
+<body id="">
 <div id="wrapper">
 
 	<div id="content">

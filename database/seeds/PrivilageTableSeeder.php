@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class DurationTableSeeder extends Seeder
+class PrivilageTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,14 +11,15 @@ class DurationTableSeeder extends Seeder
      */
     public function run()
     {
-      $table = DB::table('Duration');
+      $table = DB::table('privilage');
 
       //Empty table
       $table->delete();
 
       //Populate table
       $table->insert([
-        'Duration_Time' => 1,
+        'name' => 'Admin',
+        'level' => 0
       ]);
     }
 }

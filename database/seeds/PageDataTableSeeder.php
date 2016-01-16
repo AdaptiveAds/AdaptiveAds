@@ -11,17 +11,21 @@ class PageDataTableSeeder extends Seeder
      */
     public function run()
     {
-      $table = DB::table('Page_Data');
+      $table = DB::table('page_data');
 
       //Empty table
       $table->delete();
 
       //Populate table
       $table->insert([
-        'Page_Data_Name' => 'Library',
-        'Page_Image' => 'a',
-        'Page_Video' => 'a',
-        'Page_Content' => 'Read books here... maybe... zzzz.'
+        'heading' => 'Library',
+        'image_path' => 'D:\test.png',
+        'image_meta' => 'something',
+        'video_path' => 'D:\test.mp4',
+        'video_meta' => 'something',
+        'content_1' => 'Read books here... maybe... zzzz.',
+        'content_2' => 'Read books here... maybe... zzzz.',
+        'deleted' => 0
       ]);
     }
 }
