@@ -17,8 +17,7 @@
 <div id="ad_container">
 
 	<div id="header">
-
-		<h1>{{ $playlist[0]->adverts[0]->page[0]->pageData->heading }}</h1>
+		<h1>{{ $screen->department->playlists[0]->adverts[0]->pages[0]->pageData->heading }}</h1>
 	</div>
 
     <div class="row1">
@@ -28,7 +27,7 @@
     	</div>
 
 	    <div class="quad" id="page_content">
-	    	<p>{{ $playlist[0]->adverts[0]->page[0]->pageData->content_1 }}</p>
+	    	<p>{{ $screen->department->playlists[0]->adverts[0]->pages[0]->pageData->content_1 }}</p>
 		</div>
 	</div>
 
