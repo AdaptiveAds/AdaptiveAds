@@ -67,10 +67,10 @@ class PageController extends Controller
       // Was validation successful?
       $pageData = new PageData;
 
-      $pageData->page_data_name = $request->input('txtPageName');
-      $pageData->page_image = $request->input('txtPageImage');
-      $pageData->page_video = $request->input('txtPageVideo');
-      $pageData->page_content = $request->input('txtPageContent');
+      $pageData->heading = $request->input('txtPageName');
+      $pageData->image_path = $request->input('txtPageImage');
+      $pageData->video_path = $request->input('txtPageVideo');
+      $pageData->content_1 = $request->input('txtPageContent');
       $pageData->save();
 
       $page = new Page;
@@ -98,7 +98,7 @@ class PageController extends Controller
     {
       $match = ['id' => $id, 'deleted' => 0];
       $page = Page::where($match)->first(); // one to one only return 1
-      $pageData = $page->PageData->where('id', $page->page_data_id)->orderBy('page_data_name', 'ASC')->first();
+      $pageData = $page->PageData->where('id', $page->page_data_id)->orderBy('heading', 'ASC')->first();
 
       //dd($pageData);
 
@@ -147,10 +147,10 @@ class PageController extends Controller
       $page->save();
 
       $pageData = $page->PageData;
-      $pageData->page_data_name = $request->input('txtPageName');
-      $pageData->page_image = $request->input('txtPageImage');
-      $pageData->page_video = $request->input('txtPageVideo');
-      $pageData->page_content = $request->input('txtPageContent');
+      $pageData->heading = $request->input('txtPageName');
+      $pageData->image_path = $request->input('txtPageImage');
+      $pageData->video_path = $request->input('txtPageVideo');
+      $pageData->content_1 = $request->input('txtPageContent');
       $pageData->save();
 
       return redirect()->route('dashboard.advert.{adID}.page.show', [$adID, $page->id]);

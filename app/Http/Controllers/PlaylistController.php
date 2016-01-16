@@ -26,7 +26,7 @@ class PlaylistController extends Controller
      */
     public function index()
     {
-      $playlists = Playlist::where('deleted', 0)->orderBy('playlist_name', 'ASC')->get();
+      $playlists = Playlist::where('deleted', 0)->orderBy('name', 'ASC')->get();
 
       $data = array(
         'pageID' => '',
@@ -61,7 +61,7 @@ class PlaylistController extends Controller
 
       // Was validation successful?
       $playlist = new Playlist;
-      $playlist->playlist_name = $request->input('txtPlaylistName');
+      $playlist->name = $request->input('txtPlaylistName');
       $playlist->save();
 
       $data = array(
@@ -81,7 +81,7 @@ class PlaylistController extends Controller
     public function show($id)
     {
       $playlist = Playlist::find($id);
-      $adverts = $playlist->Adverts->where('advert_deleted', 0);
+      $adverts = $playlist->Adverts->where('deleted', 0);
 
       $data = array(
         'pageID' => 'playlisteditor',
@@ -139,7 +139,7 @@ class PlaylistController extends Controller
     {
         $playlist = Playlist::find($playlistID);
         // TODO advert inde and display timing (GUI??)
-        $playlist->Adverts()->attach($advertID, ['advert_index' => '1', 'display_timing_id' => '1']);
+        $playlist->Adverts()->attach($advertID, ['advert_index' => '1', 'display_schedule_id' => '1']);
 
         return redirect()->route('dashboard.playlist.show', $playlistID);
     }
@@ -147,7 +147,7 @@ class PlaylistController extends Controller
     public function removeMode($playlistID)
     {
       $playlist = Playlist::find($playlistID);
-      $adverts = $playlist->Adverts->where('advert_deleted', 0);
+      $adverts = $playlist->Adverts->where('deleted', 0);
 
       $data = array(
         'pageID' => 'playlisteditor',

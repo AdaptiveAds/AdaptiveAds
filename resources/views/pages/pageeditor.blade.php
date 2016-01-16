@@ -3,7 +3,7 @@
 @section('content')
 
 <h3>Page Editor</h3>
-<h3>Title: {{ $pageData->page_data_name or 'New Page'}}</h3>
+<h3>Title: {{ $pageData->heading or 'New Page'}}</h3>
 
 <div id="left" class="landscape">
 	<div class="pagecontainer">
@@ -36,25 +36,25 @@
 			</li>
 			<li>
 				<label>Title</label>
-				<input type="text" placeholder="Page Name...." name="txtPageName" value="{{ $pageData->page_data_name or '' }}"/>
+				<input type="text" placeholder="Page Name...." name="txtPageName" value="{{ $pageData->heading or '' }}"/>
 			</li>
 			<li>
 				<label>Image:</label>
-				<input type="text" name="txtPageImage" placeholder="Image path..." value="{{ $pageData->page_image or '' }}"><br>
+				<input type="text" name="txtPageImage" placeholder="Image path..." value="{{ $pageData->image_path or '' }}"><br>
 			</li>
-			<li><textarea title="content" type="text" name="txtImageMeta" placeholder="Image Meta..." required></textarea></li>
+			<li><textarea title="content" type="text" name="txtImageMeta" placeholder="Image Meta..." required>{{ $pageData->image_meta or '' }}</textarea></li>
 			<li>
 				<label>Video:</label>
-				<input type="text" name="txtPageVideo" placeholder="Video path..." value="{{ $pageData->page_video or '' }}"><br>
+				<input type="text" name="txtPageVideo" placeholder="Video path..." value="{{ $pageData->video_path or '' }}"><br>
 			</li>
-			<li><textarea title="content" type="text" name="txtVideoMeta" placeholder="Video Meta..." required></textarea></li>
+			<li><textarea title="content" type="text" name="txtVideoMeta" placeholder="Video Meta..." required>{{ $pageData->video_meta or '' }}</textarea></li>
 			<li>
 				<label>Page Index: </label>
 				<input type="number" name="NumPageIndex" value="{{ $page->page_index or 0}}"/>
 			</li>
 			<li>
 				<label>Content</label>
-				<textarea title="content" type="text" name="txtPageContent" placeholder="Enter Content..." required>{{ $pageData->page_content or '' }}
+				<textarea title="content" type="text" name="txtPageContent" placeholder="Enter Content..." required>{{ $pageData->content_1 or '' }}
 				</textarea>
 			</li>
 			<li><button type="submit" class="submit" name="btnSavePage">Save</button></li>
