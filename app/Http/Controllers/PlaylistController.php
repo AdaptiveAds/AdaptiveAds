@@ -73,7 +73,7 @@ class PlaylistController extends Controller
       // Was validation successful?
       $playlist = new Playlist;
       $playlist->name = $request->input('txtPlaylistName');
-      $playlist->departent_id = $current_department;
+      $playlist->department_id = $current_department;
       $playlist->save();
 
       $data = array(
@@ -158,7 +158,7 @@ class PlaylistController extends Controller
     }
 
     public function addExistingAdvert($playlistID, $advertID)
-    {    
+    {
         $playlist = Playlist::find($playlistID);
         // TODO advert inde and display timing (GUI??)
         $playlist->Adverts()->attach($advertID, ['advert_index' => '1', 'display_schedule_id' => '1']);
