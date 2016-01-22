@@ -9,8 +9,6 @@ use App\Http\Controllers\Controller;
 
 Use Session;
 
-use App\Events\DurationEvent;
-
 class DashboardController extends Controller
 {
     /**
@@ -33,8 +31,6 @@ class DashboardController extends Controller
       $data = array(
         'pageID' => 'dashboard'
       );
-
-      event(new DurationEvent("Send this over to client"));
 
       return view('pages/dashboard', $data);
     }
