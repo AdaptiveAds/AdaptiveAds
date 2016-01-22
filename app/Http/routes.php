@@ -45,7 +45,6 @@ Route::resource('dashboard/advert/{adID}/page', 'PageController', ['except' => [
 // Settings
 Route::get('dashboard/settings', ['middleware' => 'auth', 'uses' => 'PlaylistController@index']);
 Route::get('dashboard/settings/users', ['middleware' => 'auth', 'uses' => 'UserController@index']);
-Route::get('dashboard/settings/admins', ['middleware' => 'auth', 'uses' => 'AdminController@index']); // TODO remove
 Route::get('dashboard/settings/locations', ['middleware' => 'auth', 'uses' => 'LocationController@index']);
 Route::get('dashboard/settings/screens', ['middleware' => 'auth', 'uses' => 'ScreenController@index']);
 
