@@ -50,91 +50,6 @@
 			<article>
 				<ul>
 					<li>
-						<a href="../index.php?action=users">
-							<i class="fa fa-users">
-								<span>Users</span>
-							</i>
-						</a>
-					</li>
-					<li>
-						<a href="../index.php?action=locations">
-							<i class="fa fa-map-marker">
-								<span>Locations</span>
-							</i>
-						</a>
-					</li>
-					<li>
-						<a href="../index.php?action=screens">
-							<i class="fa fa-desktop">
-								<span>Screens</span>
-							</i>
-						</a>
-					</li>
-					<li>
-						<a href="../index.php?action=pageeditorHor">
-							<i class="fa fa-pencil-square-o">
-							<!-- temp name ofc -->
-								<span>Page Editor</span>
-							</i>
-						</a>
-					</li>
-					<li>
-						<a href="../index.php?action=adverts">
-							<i class="fa fa-list-ul">
-							<!-- temp name ofc -->
-								<span>Adverts</span>
-							</i>
-						</a>
-					</li>
-					<li>
-						<a href="../index.php?action=advertEditor">
-							<i class="fa fa-pencil-square-o">
-							<!-- temp name ofc -->
-								<span>Advert Editor</span>
-							</i>
-						</a>
-					</li>
-
-				</ul>
-
-				<div class="clear"></div>
-			</article>
-		</section>
-
-		<section>
-			<h4>Admin Settings</h4>
-			<article>
-				<ul>
-					<!--<li>
-						<a href="../index.php?action=users">
-							<i class="fa fa-users">
-								<span>Users</span>
-							</i>
-						</a>
-					</li>
-					<li>
-						<a href="../index.php?action=locations">
-							<i class="fa fa-map-marker">
-								<span>Locations</span>
-							</i>
-						</a>
-					</li>
-					<li>
-						<a href="../index.php?action=screens">
-							<i class="fa fa-desktop">
-								<span>Screens</span>
-							</i>
-						</a>
-					</li>
-					<li>
-						<a href="../index.php?action=pageeditorHor">
-							<i class="fa fa-pencil-square-o">
-							<!-- temp name ofc
-								<span>Page Editor</span>
-							</i>
-						</a>
-					</li>-->
-					<li>
 						<a href="{{ URL::to('dashboard/playlist')}}">
 							<i class="fa fa-list-ul">
 							<!-- temp name ofc -->
@@ -143,6 +58,15 @@
 						</a>
 					</li>
 					<li>
+						<a href="{{ URL::to('dashboard/playlist/create')}}">
+							<i class="fa fa-list-ul">
+							<!-- temp name ofc -->
+								<span>Create Playlist</span>
+							</i>
+						</a>
+					</li>
+
+					<li>
 						<a href="{{ URL::to('dashboard/advert')}}">
 							<i class="fa fa-list-ul">
 							<!-- temp name ofc -->
@@ -150,17 +74,46 @@
 							</i>
 						</a>
 					</li>
-					<!--<li>
-						<a href="../index.php?action=advertEditor">
-							<i class="fa fa-pencil-square-o">
-							<!-- temp name ofc -
-							<span>Advert Editor</span>
+					<li>
+						<a href="{{ URL::to('dashboard/advert/create')}}">
+							<i class="fa fa-list-ul">
+							<!-- temp name ofc -->
+								<span>Create Advert</span>
 							</i>
 						</a>
-					</li>-->
-
+					</li>
 				</ul>
+				<div class="clear"></div>
+			</article>
+		</section>
 
+		<section>
+			<h4>Admin Settings</h4>
+			<article>
+				<ul>
+
+					<li>
+						<a href="{{ URL::to('dashboard/settings/locations/')}}">
+							<i class="fa fa-map-marker">
+								<span>Locations</span>
+							</i>
+						</a>
+					</li>
+					<li>
+						<a href="{{ URL::to('dashboard/settings/screens')}}">
+							<i class="fa fa-desktop">
+								<span>Screens</span>
+							</i>
+						</a>
+					</li>
+					<li>
+						<a href="{{ URL::to('dashboard/settings/users')}}">
+							<i class="fa fa-users">
+								<span>Users</span>
+							</i>
+						</a>
+					</li>
+				</ul>
 				<div class="clear"></div>
 			</article>
 		</section>
@@ -170,22 +123,28 @@
 			<article>
 				<ul>
 					<li>
-						<a href="../index.php?action=admins.htm">
-							<i class="fa fa-users">
-								<span>Admins</span>
-							</i>
-						</a>
-					</li>
-					<li>
-						<a href="../index.php?action=locations.htm">
+						<a href="{{ URL::to('dashboard/settings/locations/')}}">
 							<i class="fa fa-map-marker">
 								<span>Locations</span>
 							</i>
 						</a>
 					</li>
+					<li>
+						<a href="{{ URL::to(dashboard/'settings/screens')}}">
+							<i class="fa fa-desktop">
+								<span>Screens</span>
+							</i>
+						</a>
+					</li>
 
+					<li>
+						<a href="{{ URL::to('dashboard/settings/users')}}">
+							<i class="fa fa-users">
+								<span>Admins</span>
+							</i>
+						</a>
+					</li>
 				</ul>
-
 				<div class="clear"></div>
 			</article>
 		</section>
