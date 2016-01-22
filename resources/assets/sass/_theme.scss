@@ -24,6 +24,7 @@ background:$buttongrey;
 color:#ffffff;
 font-weight:bold;
 border:$border1;
+margin:0.2%;
 }
 
 button:hover {background:$logoblue;}
@@ -47,7 +48,11 @@ body {
   background-size: 10px 10px;
 
   #wrapper {
-    height:auto; display:block; width:100%; margin:0 auto;
+  height:auto;
+  display:block;
+  width:100%;
+  margin:0 auto;
+  min-width:1325px;
 
     a, img, button, button:hover {
     -o-transition:.5s;

@@ -30,7 +30,7 @@
 					<input title="Password"  type="name" name="txtPassword" placeholder="mypassword" required>
 				</li>
 				<li>
-					<label>Pe-type Password:</label>
+					<label>Re-type Pass:</label>
 					<input title="Confirm Password"  type="password" name="txtPasswordConfirm" placeholder="mypassword" required>
 				</li>
 				<li>
@@ -38,6 +38,7 @@
 				</li>
 				<li>
 					<button type="button">Edit</button>
+					<button type="button">Save</button>
 				</li>
 			</ul>
 		</form>
