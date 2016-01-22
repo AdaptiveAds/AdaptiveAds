@@ -66,33 +66,32 @@
 
 <body id="{{ $pageID }}">
 <div id="wrapper">
-		<header id="header">
-			<!-- IF statement for anchor: If the user has not logged in, prompt for login before accessing the dashboard -->
-			<div class="head">
-				<a href="../index.php?action=dashboard"><img src="{{ URL::asset('images/logo.png') }}" alt="php input" title="php input"></a>
-			</div>
-			<div class="head">
-				<nav>
-					<ul>
-						<li><a href="{{ URL::to('dashboard')}}"><i class="fa fa-home"></i></a></li>
-						<li><a href="{{ URL::to('team')}}"><i class="fa fa-users"></i></a></li>
-						<li><a href="{{ URL::to('contact')}}"><i class="fa fa-envelope"></i></a></li>
-						<!-- Logout Functionality required -->
-						<li><a href="#">Sign Out</i></a></li>
-					</ul>
-				</nav>
-			</div>
-		</header>
+	<div id="signedin">Signed in: <span id="signinName">Kane Whelan</span> | <span id="signinLocation">Cafe</span> | <span id="signinPriv">User</span> | <button id="signout">Sign out</button></div>
+	<header id="header">
+		<div class="head">
+			<a href="../index.php?action=dashboard"><img src="{{ URL::asset('images/logo.png') }}" alt="php input" title="php input"></a>
+		</div>
+		<div class="head">
+			<nav>
+				<ul>
+					<li><a href="{{ URL::to('dashboard')}}"><i class="fa fa-home"></i></a></li>
+					<li><a href="{{ URL::to('team')}}"><i class="fa fa-users"></i></a></li>
+					<li><a href="{{ URL::to('contact')}}"><i class="fa fa-envelope"></i></a></li>
+					<!-- Logout Functionality required -->
+				</ul>
+			</nav>
+		</div>
+	</header>
 
-		<div id="content">
-      @yield('content')
-      <div class="clear"></div>
-    <!-- close content -->
-    </div>
-    <footer>
-      &copy; <?php echo date('Y'); ?>. AdaptiveAds. All Rights Reserved.
-    </footer>
-  <!-- close wrapper -->
+	<div id="content">
+    @yield('content')
+    <div class="clear"></div>
+  <!-- close content -->
+  </div>
+  <footer>
+    &copy; <?php echo date('Y'); ?>. AdaptiveAds. All Rights Reserved.
+  </footer>
+<!-- close wrapper -->
   </div>
 </body>
 </html>
