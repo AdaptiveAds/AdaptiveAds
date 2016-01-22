@@ -7,154 +7,188 @@
 		<form name="dashboardUserDetails" action="index_submit" method="get" accept-charset="utf-8">
 		<h3>User Settings</h3>
 			<ul>
-				<li><input title="username" type="name" name="txtUsername" placeholder="Username" required></li>
 				<li>
-					<input title="First Name" type="name" name="txtFirstname" placeholder="Joe" required>
-					<input title="Surname"  type="name" name="txtSurname" placeholder="Blogs" required>
+					<label>Username:</label>
+					<input title="username" type="username" name="txtUsername" placeholder="johnsmith" required>
 				</li>
-				<li><input title="Enter Email" type="name" name="txtEmail" placeholder="Enter Email Address" required></li>
-				<li><input title="Confirm Email" type="name" name="txtEmailConfirm" placeholder="Confirm Email Address" required></li>
-				<li><input title="Password"  type="name" name="txtPassword" placeholder="Enter Password" required></li>
-				<li><input title="Confirm Password"  type="name" name="txtPasswordConfirm" placeholder="Confirm Email" required></li>
+				<li class="twoinputs">
+					<label>Firstname:</label>
+					<input title="First Name" type="name" name="txtFirstname" placeholder="John" required>
+					<label class="smalllabel">Surname:</label>
+					<input title="Surname"  type="name" name="txtSurname" placeholder="Smith" required>
+				</li>
 				<li>
-					<input title="Tick to accept"  type="checkbox" name="AdsNews" value="signup"> Sign up to Ads News
+					<label>Email:</label>
+					<input title="Enter Email" type="email" name="txtEmail" placeholder="johnsmith@domain.com" required>
+				</li>
+				<li>
+					<label>Re-type Emai:</label>
+					<input title="Confirm Email" type="email" name="txtEmailConfirm" placeholder="johnsmith@domain.com" required>
+				</li>
+				<li>
+					<label>Password:</label>
+					<input title="Password"  type="name" name="txtPassword" placeholder="mypassword" required>
+				</li>
+				<li>
+					<label>Re-type Pass:</label>
+					<input title="Confirm Password"  type="password" name="txtPasswordConfirm" placeholder="mypassword" required>
+				</li>
+				<li>
+					<input title="Tick to accept"  type="checkbox" name="AdsNews" value="signup"><span>Sign up to Ads News</span>
+				</li>
+				<li>
 					<button type="button">Edit</button>
-
+					<button type="button">Save</button>
 				</li>
 			</ul>
 		</form>
 	</div>
 
-<h4>Options</h4>
-	<section>
-		<article>
-			<ul>
-				<li>
-					<a href="../index.php?action=users">
-						<i class="fa fa-users"></i>
-						<p>Users</p>
-					</a>
-				</li>
-				<li>
-					<a href="../index.php?action=locations">
-						<i class="fa fa-map-marker"></i>
-						<p>Locations</p>
-					</a>
-				</li>
-				<li>
-					<a href="../index.php?action=screens">
-						<i class="fa fa-desktop"></i>
-						<p>Screens</p>
-					</a>
-				</li>
-				<li>
-					<a href="../index.php?action=pageeditorHor">
-						<i class="fa fa-pencil-square-o"></i>
-						<!-- temp name ofc -->
-						<p>Page Editor</p>
-					</a>
-				</li>
-				<li>
-					<a href="../index.php?action=adverts">
-						<i class="fa fa-list-ul"></i>
-						<!-- temp name ofc -->
-						<p>Adverts</p>
-					</a>
-				</li>
-				<li>
-					<a href="../index.php?action=advertEditor">
-						<i class="fa fa-pencil-square-o"></i>
-						<!-- temp name ofc -->
-						<p>Advert Editor</p>
-					</a>
-				</li>
+	<div class="row">
+		<section>
+			<h4 class="indent">Options</h4>
+			<article>
+				<ul>
+					<li>
+						<a href="../index.php?action=users">
+							<i class="fa fa-users">
+								<span>Users</span>
+							</i>
+						</a>
+					</li>
+					<li>
+						<a href="../index.php?action=locations">
+							<i class="fa fa-map-marker">
+								<span>Locations</span>
+							</i>
+						</a>
+					</li>
+					<li>
+						<a href="../index.php?action=screens">
+							<i class="fa fa-desktop">
+								<span>Screens</span>
+							</i>
+						</a>
+					</li>
+					<li>
+						<a href="../index.php?action=pageeditorHor">
+							<i class="fa fa-pencil-square-o">
+							<!-- temp name ofc -->
+								<span>Page Editor</span>
+							</i>
+						</a>
+					</li>
+					<li>
+						<a href="../index.php?action=adverts">
+							<i class="fa fa-list-ul">
+							<!-- temp name ofc -->
+								<span>Adverts</span>
+							</i>
+						</a>
+					</li>
+					<li>
+						<a href="../index.php?action=advertEditor">
+							<i class="fa fa-pencil-square-o">
+							<!-- temp name ofc -->
+								<span>Advert Editor</span>
+							</i>
+						</a>
+					</li>
 
-			</ul>
+				</ul>
 
-			<div class="clear"></div>
-		</article>
-	</section>
+				<div class="clear"></div>
+			</article>
+		</section>
 
-<hr></hr>
-<h4>Admin Settings</h4>
-	<section>
-		<article>
-			<ul>
-				<!--<li>
-					<a href="../index.php?action=users">
-						<i class="fa fa-users"></i>
-						<p>Users</p>
-					</a>
-				</li>
-				<li>
-					<a href="../index.php?action=locations">
-						<i class="fa fa-map-marker"></i>
-						<p>Locations</p>
-					</a>
-				</li>
-				<li>
-					<a href="../index.php?action=screens">
-						<i class="fa fa-desktop"></i>
-						<p>Screens</p>
-					</a>
-				</li>
-				<li>
-					<a href="../index.php?action=pageeditorHor">
-						<i class="fa fa-pencil-square-o"></i>
-						<!-- temp name ofc
-						<p>Page Editor</p>
-					</a>
-				</li>-->
-				<li>
-					<a href="{{ URL::to('dashboard/playlist')}}">
-						<i class="fa fa-list-ul"></i>
-						<!-- temp name ofc -->
-						<p>Playlists</p>
-					</a>
-				</li>
-				<li>
-					<a href="{{ URL::to('dashboard/advert')}}">
-						<i class="fa fa-list-ul"></i>
-						<!-- temp name ofc -->
-						<p>Adverts</p>
-					</a>
-				</li>
-				<!--<li>
-					<a href="../index.php?action=advertEditor">
-						<i class="fa fa-pencil-square-o"></i>
-						<!-- temp name ofc -
-						<p>Advert Editor</p>
-					</a>
-				</li>-->
+		<section>
+			<h4>Admin Settings</h4>
+			<article>
+				<ul>
+					<!--<li>
+						<a href="../index.php?action=users">
+							<i class="fa fa-users">
+								<span>Users</span>
+							</i>
+						</a>
+					</li>
+					<li>
+						<a href="../index.php?action=locations">
+							<i class="fa fa-map-marker">
+								<span>Locations</span>
+							</i>
+						</a>
+					</li>
+					<li>
+						<a href="../index.php?action=screens">
+							<i class="fa fa-desktop">
+								<span>Screens</span>
+							</i>
+						</a>
+					</li>
+					<li>
+						<a href="../index.php?action=pageeditorHor">
+							<i class="fa fa-pencil-square-o">
+							<!-- temp name ofc
+								<span>Page Editor</span>
+							</i>
+						</a>
+					</li>-->
+					<li>
+						<a href="{{ URL::to('dashboard/playlist')}}">
+							<i class="fa fa-list-ul">
+							<!-- temp name ofc -->
+								<span>Playlists</span>
+							</i>
+						</a>
+					</li>
+					<li>
+						<a href="{{ URL::to('dashboard/advert')}}">
+							<i class="fa fa-list-ul">
+							<!-- temp name ofc -->
+								<span>Adverts</span>
+							</i>
+						</a>
+					</li>
+					<!--<li>
+						<a href="../index.php?action=advertEditor">
+							<i class="fa fa-pencil-square-o">
+							<!-- temp name ofc -
+							<span>Advert Editor</span>
+							</i>
+						</a>
+					</li>-->
 
-			</ul>
+				</ul>
 
-			<div class="clear"></div>
-		</article>
-	</section>
+				<div class="clear"></div>
+			</article>
+		</section>
 
-<hr></hr>
-<h4>Super User Settings</h4>
-	<section>
-		<article>
-			<ul>
-				<li>
-					<a href="../index.php?action=admins.htm">
-						<i class="fa fa-users"></i>
-						<p>Admins</p>
-					</a>
-				</li>
-				<li>
-					<a href="../index.php?action=locations.htm">
-						<i class="fa fa-map-marker"></i>
-						<p>Locations</p>
-					</a>
-				</li>
+		<section>
+			<h4>Super User Settings</h4>
+			<article>
+				<ul>
+					<li>
+						<a href="../index.php?action=admins.htm">
+							<i class="fa fa-users">
+								<span>Admins</span>
+							</i>
+						</a>
+					</li>
+					<li>
+						<a href="../index.php?action=locations.htm">
+							<i class="fa fa-map-marker">
+								<span>Locations</span>
+							</i>
+						</a>
+					</li>
 
-			</ul>
+				</ul>
 
-			<div class="clear"></div>
-		</article>
-	</section>
+				<div class="clear"></div>
+			</article>
+		</section>
+	</div><!-- row-->
 </div>
 @endsection
