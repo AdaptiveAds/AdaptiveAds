@@ -130,7 +130,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="{{ URL::to(dashboard/'settings/screens')}}">
+						<a href="{{ URL::to('dashboard/settings/screens')}}">
 							<i class="fa fa-desktop">
 								<span>Screens</span>
 							</i>
