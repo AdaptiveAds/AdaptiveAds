@@ -13,14 +13,20 @@ form {
 form h3 {
   padding-bottom:8px;}
 
-form input {
-  border-radius:5px;}
-
 article {
   margin:10px 0;}
 
 button {
-  padding:10px;}
+padding:10px;
+border:none;
+box-shadow:none;
+background:$buttongrey;
+color:#ffffff;
+font-weight:bold;
+border:$border1;
+}
+
+button:hover {background:$logoblue;}
 
 hr {
   clear:both;}
@@ -43,30 +49,24 @@ body {
   #wrapper {
     height:auto; display:block; width:100%; margin:0 auto;
 
-    a {
+    a, img, button, button:hover {
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition:.5s;
+    }
+      a {
       color:#009632;
       text-decoration:none;
-      -o-transition:.5s;
-      -ms-transition:.5s;
-      -moz-transition:.5s;
-      -webkit-transition:.5s;
-      transition:.5s;
-
-        :hover {
-          color:red}
 
       img {
-        -o-transition:.5s;
-        -ms-transition:.5s;
-        -moz-transition:.5s;
-        -webkit-transition:.5s;
-        transition:.5s;
-        border: 0;
-        opacity: 0.8;
-        filter: alpha(opacity=80); /* For IE8 and earlier */
+      border: 0;
+      opacity: 0.8;
+      filter: alpha(opacity=80); /* For IE8 and earlier */
 
-          :hover {
-            opacity: 1.0; filter: alpha(opacity=100); /* For IE8 and earlier */
+        :hover {
+        opacity: 1.0; filter: alpha(opacity=100); /* For IE8 and earlier */
           }//end :hover
         }//end img
       }//end 'a'
@@ -122,47 +122,51 @@ header#header {
     }//close header
 
 #content {
-  min-width:1024px;
-  width:98%;
-  margin:2% auto;
-  clear:both;
-  display:block;
+min-width:1024px;
+width:98%;
+margin:2% auto;
+clear:both;
+display:block;
 
   a {
     //empty
 
     #largeArea {
-      width:100%;
-      height:500px;
-      margin:0 auto;
-      display:block;
+    width:100%;
+    height:500px;
+    margin:0 auto;
+    display:block;
     }// close largeArea
   }// close 'a'
 }//close content
 
 .settings {
-  width:100%;
-  margin:0 auto;
-  background:transparent;
+width:100%;
+margin:0 auto;
+background:transparent;
 
     h4 {
-      font-size:20px;
-    }
+    font-size:20px;
+
+      .indent {
+
+      }//indent
+    }//h4
 
     .row {
-      width:100%;
+    width:100%;
 
       form {
-        margin-bottom:5px;
+      margin-bottom:5px;
 
         :first-child {
-            //empty
+        //empty
 
           ul {
-            //empty
+          //empty
 
             li {
-              border:none;
+            border:none;
             }//close :first-child li
           }//close :first-child ul
         }//close :first-child
