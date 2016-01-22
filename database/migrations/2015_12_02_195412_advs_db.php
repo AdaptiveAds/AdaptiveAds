@@ -12,162 +12,83 @@ class AdvsDb extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('transition', function (Blueprint $table) {
-				$table->engine = 'InnoDB';
-        		$table->increments('id');
-        		$table->string('transition_name', 20);
-        	});
-
-        Schema::create('duration', function (Blueprint $table) {
-				$table->engine = 'InnoDB';
-        		$table->increments('id');
-        		$table->integer('duration_time');
-        	});
-
         Schema::create('template', function (Blueprint $table) {
 				    $table->engine = 'InnoDB';
         		$table->increments('id');
-        		$table->string('template_name', 20);
-        		$table->boolean('template_overrides_Skin');
-        		$table->integer('duration_id')->unsigned();
-        		$table->integer('transition_id')->unsigned();
-				    $table->boolean('is_vertical');
-        		$table->foreign('duration_id')
-        			  	->references('id')
-        				  ->on('duration')
-        			  	->onUpdate('cascade')
-        			  	->onDelete('cascade');
-        		$table->foreign('transition_ID')
-        		  		->references('id')
-        		  		->on('transition')
-        			  	->onUpdate('cascade')
-        			  	->onDelete('cascade');
+        		$table->string('name', 20);
+        		$table->string('class', 50);
+        		$table->integer('duration');
         	});
-
-        Schema::create('horizontal_template', function (Blueprint $table) {
-			      $table->engine = 'InnoDB';
-            $table->increments('id');
-            $table->integer('template_id')->unsigned();
-            $table->foreign('template_id')
-        		  		->references('id')
-        		  		->on('template')
-        			  	->onUpdate('cascade')
-        			  	->onDelete('cascade');
-          });
-
-        Schema::create('vertical_template', function (Blueprint $table) {
-			      $table->engine = 'InnoDB';
-            $table->increments('id');
-            $table->integer('template_id')->unsigned();
-            $table->foreign('template_id')
-          	  		->references('id')
-          	  		->on('template')
-          		  	->onUpdate('cascade')
-          		  	->onDelete('cascade');
-          });
-
-        Schema::create('advert', function (Blueprint $table) {
-			      $table->engine = 'InnoDB';
-            $table->increments('id');
-            $table->string('advert_name', 20);
-            $table->boolean('advert_deleted');
-          });
 
         Schema::create('page_data', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('page_data_name', 20);
-            $table->string('page_image');
-            $table->string('page_video');
-            $table->string('page_content');
+            $table->string('heading', 20);
+            $table->string('content_1');
+            $table->string('content_2');
+            $table->string('image_path');
+            $table->string('image_meta');
+            $table->string('video_path');
+            $table->string('video_meta');
+            $table->boolean('deleted');
           });
 
-        Schema::create('page', function (Blueprint $table) {
-			      $table->engine = 'InnoDB';
-			      $table->increments('id');
-			      $table->integer('page_data_id')->unsigned();
-			      $table->integer('page_index');
-			      $table->integer('advert_id')->unsigned();
-            $table->integer('vertical_id')->unsigned();
-            $table->integer('horizontal_id')->unsigned();
-            $table->boolean('deleted');
-            $table->foreign('page_data_id')
-          	      ->references('id')
-          			  ->on('page_data')
-          		  	->onUpdate('cascade')
-          		  	->onDelete('cascade');
-            $table->foreign('advert_id')
-                	->references('id')
-                	->on('advert')
-                	->onUpdate('cascade')
-                	->onDelete('cascade');
-            $table->foreign('vertical_id')
-                  ->references('id')
-                  ->on('vertical_template')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreign('horizontal_id')
-                	->references('id')
-                	->on('horizontal_template')
-                	->onUpdate('cascade')
-                	->onDelete('cascade');
-        	});
-
-        Schema::create('display_timing', function (Blueprint $table) {
+        Schema::create('display_schedule', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
             $table->increments('id');
             $table->DateTime('start_date');
             $table->DateTime('end_date');
           });
 
-        Schema::create('playlist', function (Blueprint $table) {
-			      $table->engine = 'InnoDB';
-            $table->increments('id');
-            $table->string('playlist_name');
-            $table->boolean('deleted');
-          });
-
-        Schema::create('playlist_advert', function (Blueprint $table) {
-			      $table->engine = 'InnoDB';
-			      $table->integer('playlist_id')->unsigned();
-			      $table->integer('advert_id')->unsigned();
-            $table->primary(array('playlist_id','advert_id'));
-          	$table->integer('advert_index');
-          	$table->integer('display_timing_id')->unsigned();
-            $table->foreign('playlist_id')
-            	  	->references('id')
-            			->on('playlist')
-            	  	->onUpdate('cascade')
-            	  	->onDelete('cascade');
-            $table->foreign('advert_id')
-                	->references('id')
-                	->on('advert')
-                	->onUpdate('cascade')
-                	->onDelete('cascade');
-            $table->foreign('display_timing_id')
-                	->references('id')
-                	->on('display_timing')
-                	->onUpdate('cascade')
-                	->onDelete('cascade');
-          });
-
         Schema::create('skin', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
-            $table->increments('ID');
-            $table->string('skin_name', 20);
+            $table->increments('id');
+            $table->string('name', 20);
+            $table->string('image_path', 20);
           });
 
         Schema::create('location', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
             $table->increments('id');
-          	$table->string('location_name', 20);
-          	$table->integer('parent_location');
-          	$table->integer('skin_id')->unsigned();
-            $table->integer('playlist_id')->unsigned();
-            $table->foreign('playlist_id')
+            $table->string('name', 20);
+          });
+
+        Schema::create('privilage', function (Blueprint $table) {
+			       $table->engine = 'InnoDB';
+			       $table->increments('id');
+			       $table->integer('level');
+             $table->string('name', 20);
+          });
+
+        Schema::create('user', function (Blueprint $table) {
+			       $table->engine = 'InnoDB';
+             $table->increments('id');
+             $table->string('username', 40)->unique();
+             $table->string('password', 60);
+             $table->rememberToken();
+          });
+
+        Schema::create('display_timing', function (Blueprint $table) {
+			      $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->time('display_time');
+            $table->integer('display_schedule_id')->unsigned();
+            $table->foreign('display_schedule_id')
                 	->references('id')
-            			->on('playlist')
+                	->on('display_schedule')
+                	->onUpdate('cascade')
+                	->onDelete('cascade');
+          });
+
+        Schema::create('department', function (Blueprint $table) {
+			      $table->engine = 'InnoDB';
+            $table->increments('id');
+          	$table->string('name', 20);
+          	$table->integer('location_id')->unsigned();
+            $table->integer('skin_id')->unsigned();
+            $table->foreign('location_id')
+                	->references('id')
+            			->on('location')
             	  	->onUpdate('cascade')
             	  	->onDelete('cascade');
             $table->foreign('skin_id')
@@ -180,39 +101,99 @@ class AdvsDb extends Migration
         Schema::create('screen', function (Blueprint $table) {
 			        $table->engine = 'InnoDB';
               $table->increments('id');
-              $table->boolean('is_vertical');
-              $table->integer('location_id')->unsigned();
-              $table->foreign('location_id')
+              $table->integer('department_id')->unsigned();
+              $table->foreign('department_id')
                   	->references('id')
-              			->on('location')
+              			->on('department')
               	  	->onUpdate('cascade')
               	  	->onDelete('cascade');
           });
 
-        Schema::create('user', function (Blueprint $table) {
-			       $table->engine = 'InnoDB';
-             $table->increments('id');
-             $table->string('username', 40)->unique();
-             $table->string('password', 60);
-             $table->rememberToken();
-             $table->timestamps();
+        Schema::create('advert', function (Blueprint $table) {
+			      $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->string('name', 20);
+            $table->integer('index');
+            $table->boolean('deleted');
+            $table->integer('department_id')->unsigned();
+            $table->foreign('department_id')
+          	      ->references('id')
+          			  ->on('department')
+          		  	->onUpdate('cascade')
+          		  	->onDelete('cascade');
           });
 
-        Schema::create('privilage', function (Blueprint $table) {
-			       $table->engine = 'InnoDB';
-			       $table->increments('id');
-			       $table->string('privilage_level', 20);
+        Schema::create('playlist', function (Blueprint $table) {
+			      $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->string('name');
+            $table->boolean('deleted');
+            $table->integer('department_id')->unsigned();
+            $table->foreign('department_id')
+          	      ->references('id')
+          			  ->on('department')
+          		  	->onUpdate('cascade')
+          		  	->onDelete('cascade');
           });
 
-        Schema::create('user_location', function (Blueprint $table) {
+        Schema::create('advert_playlist', function (Blueprint $table) {
+			      $table->engine = 'InnoDB';
+			      $table->integer('playlist_id')->unsigned();
+			      $table->integer('advert_id')->unsigned();
+            $table->primary(array('playlist_id','advert_id'));
+          	$table->integer('display_schedule_id')->unsigned();
+            $table->integer('advert_index');
+            $table->foreign('playlist_id')
+            	  	->references('id')
+            			->on('playlist')
+            	  	->onUpdate('cascade')
+            	  	->onDelete('cascade');
+            $table->foreign('advert_id')
+                	->references('id')
+                	->on('advert')
+                	->onUpdate('cascade')
+                	->onDelete('cascade');
+            $table->foreign('display_schedule_id')
+                	->references('id')
+                	->on('display_schedule')
+                	->onUpdate('cascade')
+                	->onDelete('cascade');
+          });
+
+        Schema::create('page', function (Blueprint $table) {
+			      $table->engine = 'InnoDB';
+			      $table->increments('id');
+			      $table->integer('page_data_id')->unsigned();
+			      $table->integer('advert_id')->unsigned();
+            $table->integer('template_id')->unsigned();
+            $table->integer('page_index');
+            $table->boolean('deleted');
+            $table->foreign('page_data_id')
+          	      ->references('id')
+          			  ->on('page_data')
+          		  	->onUpdate('cascade')
+          		  	->onDelete('cascade');
+            $table->foreign('advert_id')
+                	->references('id')
+                	->on('advert')
+                	->onUpdate('cascade')
+                	->onDelete('cascade');
+            $table->foreign('template_id')
+                	->references('id')
+                	->on('template')
+                	->onUpdate('cascade')
+                	->onDelete('cascade');
+        	});
+
+        Schema::create('department_user', function (Blueprint $table) {
       			$table->engine = 'InnoDB';
       			$table->integer('user_id')->unsigned();
-      			$table->integer('location_id')->unsigned();
-      			$table->primary(array('user_id','location_id'));
+      			$table->integer('department_id')->unsigned();
+      			$table->primary(array('user_id','department_id'));
       			$table->integer('privilage_id')->unsigned();
-      			$table->foreign('location_id')
+      			$table->foreign('department_id')
                   ->references('id')
-                  ->on('location')
+                  ->on('department')
                   ->onUpdate('cascade')
                   ->onDelete('cascade');
       			$table->foreign('user_id')

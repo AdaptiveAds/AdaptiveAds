@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class Vertical_TemplateTableSeeder extends Seeder
+class PlaylistTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,14 +11,16 @@ class Vertical_TemplateTableSeeder extends Seeder
      */
     public function run()
     {
-      $table = DB::table('vertical_template');
+      $table = DB::table('playlist');
 
       //Empty table
       $table->delete();
 
       //Populate table
       $table->insert([
-        'template_id' => 1,
+        'name' => 'Libray Playlist',
+        'deleted' => 0,
+        'department_id' => 1
       ]);
     }
 }

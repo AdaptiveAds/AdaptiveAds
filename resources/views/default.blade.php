@@ -25,15 +25,42 @@
 	<script type="text/javascript">
 	$('document').ready(function(){
 		$('.btn-orientationHor').click(function() {
+			// Writing the code like this will allow SCSS to be added to the button to show which is active
 			$('#left').removeClass('portrait');
 			$('#left').addClass('landscape');
+			$('.btn-orientationHor').addClass('active');
+			$('.btn-orientationVert').removeClass('active');
 		});
 		$('.btn-orientationVert').click(function() {
 			$('#left').removeClass('landscape');
 			$('#left').addClass('portrait');
+			$('.btn-orientationHor').removeClass('active');
+			$('.btn-orientationVert').addClass('active');
 		});
 	});
 	</script>
+
+	<script src="{{ URL::asset('js/modules.js') }}"></script>
+	<script src="{{ URL::asset('js/pages.js') }}"></script>
+
+	<script src="https://js.pusher.com/3.0/pusher.min.js"></script>
+	  <script>
+	    // Enable pusher logging - don't include this in production
+	    Pusher.log = function(message) {
+	      if (window.console && window.console.log) {
+	        window.console.log(message);
+	      }
+	    };
+
+	    /*var pusher = new Pusher('51ff72234733df1bcfdb', {
+	      encrypted: true
+	    });
+	    var channel = pusher.subscribe('duration');
+	    channel.bind('App\\Events\\DurationEvent', function(data) {
+	      alert(data.text);
+				console.print(data);
+	    });*/
+	  </script>
 
 </head>
 
@@ -50,6 +77,8 @@
 						<li><a href="{{ URL::to('dashboard')}}"><i class="fa fa-home"></i></a></li>
 						<li><a href="../index.php?action=team"><i class="fa fa-users"></i></a></li>
 						<li><a href="../index.php?action=contact"><i class="fa fa-envelope"></i></a></li>
+						<!-- Logout Functionality required -->
+						<li><a href="#">Sign Out</i></a></li>
 					</ul>
 				</nav>
 			</div>

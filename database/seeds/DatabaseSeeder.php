@@ -14,15 +14,21 @@ class DatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        // $this->call(UserTableSeeder::class);
-        $this->call(TransitionTableSeeder::class);
-        $this->call(DurationTableSeeder::class);
         $this->call(TemplateTableSeeder::class);
-        $this->call(AdvertTableSeeder::class);
         $this->call(PageDataTableSeeder::class);
-        $this->call(Horizontal_TemplateTableSeeder::class);
-        $this->call(Vertical_TemplateTableSeeder::class);
+        $this->call(DisplayScheduleTableSeeder::class);
+        $this->call(SkinTableSeeder::class);
+        $this->call(LocationTableSeeder::class);
+        $this->call(PrivilageTableSeeder::class);
+        $this->call(UserTableSeeder::class);
+        // TODO display timing
+        $this->call(DepartmentTableSeeder::class);
+        $this->call(ScreenTableSeeder::class);
+        $this->call(AdvertTableSeeder::class);
+        $this->call(PlaylistTableSeeder::class);
         $this->call(PageTableSeeder::class);
+        $this->call(AdvertPlaylistTableSeeder::class);
+        $this->call(DepartmentUserTableSeeder::class);
 
         Model::reguard();
     }

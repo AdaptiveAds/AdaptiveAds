@@ -23,6 +23,7 @@ class User extends Model implements AuthenticatableContract,
    * @var string
    */
   protected $table = 'user';
+  public $timestamps = false;
 
   /**
    * The attributes that are mass assignable.
@@ -37,4 +38,15 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
   protected $hidden = ['password', 'remember_token'];
+
+  public function Departments() {
+    return $this->belongsToMany(Department::class)->withPivot('privilage_id');
+  }
+
+  public function newPivot(Model $parent, array $attributes, $table, $exists) {
+      if ($parent instanceof Department) {
+          return new DepartmentUser($parent, $attributes, $table, $exists);
+      }
+      return parent::newPivot($parent, $attributes, $table, $exists);
+  }
 }

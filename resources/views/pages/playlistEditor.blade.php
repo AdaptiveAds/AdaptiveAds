@@ -3,7 +3,7 @@
 @section('content')
 
 <h3>Advert Editor</h3>
-<h3>Title: {{ $playlist->playlist_name or 'New Playlist' }}</h3>
+<h3>Title: {{ $playlist->name or 'New Playlist' }}</h3>
 
 <div id="left">
 	<div class="pagecontainer">

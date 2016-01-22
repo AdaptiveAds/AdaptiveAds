@@ -3,24 +3,23 @@
 @section('content')
 
 <h3>Page Editor</h3>
-<h3>Title: {{ $pageData->page_data_name or 'New Page'}}</h3>
+<h3>Title: {{ $pageData->heading or 'New Page'}}</h3>
 
-<div id="left" class="landscape">
+<div id="left" class="landscape theme_oneImages">
 	<div class="pagecontainer">
-		<ul>
-			<li></li>
-			<li></li>
-			<li></li>
-		</ul>
+		@include('templateStructure')
 	</div>
 	<div class="pagecontainer">
-		<ul>
-			<li><a href="#">Theme</a></li>
-			<li><a href="#">Theme</a></li>
-			<li><a href="#">Theme</a></li>
-			<li><a href="#">Theme</a></li>
-			<li><a href="#">Theme</a></li>
+		<ul class="theme_select">
+			<li class="select_oneImages"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
+			<li class="select_twoImages"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
+			<li class="select_oneVideo"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
+			<li class="select_twobytwo"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
+			<li class="select_twobytwoReverse"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
+			<li class="select_fourbyfour"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
+			<li class="select_fourbyfourReverse"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
 		</ul>
+
 	</div>
 </div>
 <div id="right">
@@ -33,32 +32,43 @@
 		@else
 			{!! Form::open(['route' => ['dashboard.advert.{adID}.page.store',  $page->advert_id], 'method' => 'POST']) !!}
 		@endif
+			<!-- ADDED class=landscape as default for SCSS targeting:: This will enable active button formatting -->
 			<li id="orientation">
-				<button class="btn-orientationHor" type="button">Landscape</button>
+				<button class="btn-orientationHor active" type="button">Landscape</button>
 				<button class="btn-orientationVert" type="button">Portrait</button>
 				<div class="clear"></div>
 			</li>
 			<li>
 				<label>Title</label>
-				<input type="text" placeholder="Page Name...." name="txtPageName" value="{{ $pageData->page_data_name or '' }}"/>
+				<input type="text" placeholder="Page Name...." name="txtPageName" value="{{ $pageData->heading or '' }}"/>
 			</li>
 			<li>
-				<label>Image:</label>
-				<input type="text" name="txtPageImage" placeholder="Image path..." value="{{ $pageData->page_image or '' }}"><br>
+				<label>Image 1:</label>
+				<input type="text" name="txtPageImage" placeholder="Image path..." value="{{ $pageData->image_path or '' }}"><br>
 			</li>
-			<li><textarea title="content" type="text" name="txtImageMeta" placeholder="Image Meta..." required></textarea></li>
+			<li><textarea title="content" type="text" name="imageMeta" placeholder="Example: Rabit on Chair..." required>{{ $pageData->image_meta or '' }}</textarea></li>
+			<li>
+				<label>Image 2:</label>
+				<input type="text" name="pageImage" placeholder="Image path..." value="{{ $pageData->page_image or '' }}"><br>
+			</li>
+			<li><textarea title="content" type="text" name="imageMeta" placeholder="Example: Dog playing violin..." required></textarea></li>
 			<li>
 				<label>Video:</label>
-				<input type="text" name="txtPageVideo" placeholder="Video path..." value="{{ $pageData->page_video or '' }}"><br>
+				<input type="text" name="txtPageVideo" placeholder="Video path..." value="{{ $pageData->video_path or '' }}"><br>
 			</li>
-			<li><textarea title="content" type="text" name="txtVideoMeta" placeholder="Video Meta..." required></textarea></li>
+			<li><textarea title="content" type="text" name="txtVideoMeta" placeholder="Example: Rabit and Dog playing music..." required>{{ $pageData->video_meta or '' }}</textarea></li>
 			<li>
 				<label>Page Index: </label>
 				<input type="number" name="NumPageIndex" value="{{ $page->page_index or 0}}"/>
 			</li>
 			<li>
-				<label>Content</label>
-				<textarea title="content" type="text" name="txtPageContent" placeholder="Enter Content..." required>{{ $pageData->page_content or '' }}
+				<label>Content 1:</label>
+				<textarea title="content" type="text" name="pageContent" placeholder="Enter Content..." required>{{ $pageData->content_1 or '' }}
+				</textarea>
+			</li>
+			<li>
+				<label>Content 2:</label>
+				<textarea title="content" type="text" name="pageContent" placeholder="Enter Content..." required>{{ $pageData->content_2 or '' }}
 				</textarea>
 			</li>
 			<li><button type="submit" class="submit" name="btnSavePage">Save</button></li>

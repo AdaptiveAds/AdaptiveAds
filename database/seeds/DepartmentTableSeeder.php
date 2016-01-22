@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class Horizontal_TemplateTableSeeder extends Seeder
+class DepartmentTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,14 +11,16 @@ class Horizontal_TemplateTableSeeder extends Seeder
      */
     public function run()
     {
-      $table = DB::table('horizontal_template');
+      $table = DB::table('department');
 
       //Empty table
       $table->delete();
 
       //Populate table
       $table->insert([
-        'template_id' => 1,
+        'name' => 'Library',
+        'location_id' => 1,
+        'skin_id' => 1
       ]);
     }
 }

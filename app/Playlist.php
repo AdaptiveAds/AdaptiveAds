@@ -15,7 +15,8 @@ class Playlist extends Model
   public $timestamps = false;
 
   public function Adverts() {
-    return $this->belongsToMany(Advert::class)->withPivot('playlist_id', 'advert_id', 'advert_index', 'display_timing_id');
+    return $this->belongsToMany(Advert::class)->withPivot('playlist_id', 'advert_id', 'advert_index', 'display_schedule_id')
+                ->orderBy('advert_index', 'ASC');;
   }
 
 }

@@ -21,9 +21,13 @@ class Advert extends Model
    */
   protected $fillable = ['name', 'deleted'];
 
-  public function Page() {
+  public function Pages() {
     //return $this->belongsTo(Page::class, 'advert_id');
-    return $this->hasMany(Page::class, 'advert_id', 'id');
+    return $this->hasMany(Page::class, 'advert_id', 'id')->orderBy('page_index', 'ASC');
+  }
+
+  public function Department() {
+    return $this->belongsToOne(Department::class)->withPivot('advert_id', 'department_id');
   }
 
 }

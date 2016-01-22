@@ -67,18 +67,17 @@ class PageController extends Controller
       // Was validation successful?
       $pageData = new PageData;
 
-      $pageData->page_data_name = $request->input('txtPageName');
-      $pageData->page_image = $request->input('txtPageImage');
-      $pageData->page_video = $request->input('txtPageVideo');
-      $pageData->page_content = $request->input('txtPageContent');
+      $pageData->heading = $request->input('txtPageName');
+      $pageData->image_path = $request->input('txtPageImage');
+      $pageData->video_path = $request->input('txtPageVideo');
+      $pageData->content_1 = $request->input('txtPageContent');
       $pageData->save();
 
       $page = new Page;
       $page->page_data_id = $pageData->id;
       $page->page_index = $request->input('NumPageIndex');
       $page->advert_id = $adID;
-      $page->vertical_id = 2;
-      $page->horizontal_id = 2;
+      $page->template_id = 1;
       $page->save();
 
       $data = array(
@@ -97,8 +96,11 @@ class PageController extends Controller
      */
     public function show($adID, $id)
     {
-      $page = Page::find($id);
-      $pageData = $page->PageData;
+      $match = ['id' => $id, 'deleted' => 0];
+      $page = Page::where($match)->first(); // one to one only return 1
+      $pageData = $page->PageData->where('id', $page->page_data_id)->orderBy('heading', 'ASC')->first();
+
+      //dd($pageData);
 
       $data = array(
         'pageID' => 'pageeditor',
@@ -141,15 +143,14 @@ class PageController extends Controller
 
       $page = Page::find($id);
       $page->page_index = $request->input('txtPageIndex');
-      $page->vertical_id = 1;
-      $page->horizontal_id = 1;
+      $page->template_id = 1;
       $page->save();
 
       $pageData = $page->PageData;
-      $pageData->page_data_name = $request->input('txtPageName');
-      $pageData->page_image = $request->input('txtPageImage');
-      $pageData->page_video = $request->input('txtPageVideo');
-      $pageData->page_content = $request->input('txtPageContent');
+      $pageData->heading = $request->input('txtPageName');
+      $pageData->image_path = $request->input('txtPageImage');
+      $pageData->video_path = $request->input('txtPageVideo');
+      $pageData->content_1 = $request->input('txtPageContent');
       $pageData->save();
 
       return redirect()->route('dashboard.advert.{adID}.page.show', [$adID, $page->id]);

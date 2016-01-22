@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
-<head>	
+<head>
 	<meta name="geo.region" 	content="GB" />
 	<meta name="geo.placename" 	content="Quedgeley" />
 	<meta name="geo.position" 	content="51.8249770;-2.2693960" />
@@ -15,26 +15,26 @@
 	<link rel="privacy" 	href="/privacy-policy.htm" />
 	<link rel="copyright" 	href="index.php?action=copyright" />
 	<link rel="author" 		href="https://plus.google.com/1159196980071151217" />
-	<link rel="publisher" 	href="https://plus.google.com/115919698007115121732" /> 
+	<link rel="publisher" 	href="https://plus.google.com/115919698007115121732" />
 	<link rel="stylesheet" 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-	
+
 	<link rel="stylesheet" 	href="css/theme.css" type="text/css">
-			
+
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/jquery-migrate-1.2.1.min.js"></script>
 	<script type="text/javascript">
-	$('document').ready(function(){	
+	$('document').ready(function(){
 		$('.btn-orientationHor').click(function() {
 		$('#left').removeClass('portrait');
 		$('#left').addClass('landscape');
-		});		
+		});
 		$('.btn-orientationVert').click(function() {
 		$('#left').removeClass('landscape');
 		$('#left').addClass('portrait');
-		});	
-	});	
+		});
+	});
 	</script>
-	
+
 </head>
 
 <body id="<?php echo $_GET['action']; ?>">
@@ -48,9 +48,11 @@
 						<li><a href="../index.php?action=dashboard"><i class="fa fa-home"></i></a></li>
 						<li><a href="../index.php?action=team"><i class="fa fa-users"></i></a></li>
 						<li><a href="../index.php?action=contact"><i class="fa fa-envelope"></i></a></li>
+						<!-- Logout Functionality required -->
+						<li><a href="#">Logout<i class="fa fa-envelope"></i></a></li>
 					</ul>
-				</nav>	
+				</nav>
 			</div>
 		</header>
-	
+
 		<div id="content">

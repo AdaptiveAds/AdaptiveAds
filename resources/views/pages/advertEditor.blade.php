@@ -3,7 +3,7 @@
 @section('content')
 
 <h3>Advert Editor</h3>
-<h3>Title: {{ $advert->advert_name or "Advert Page Title"}}</h3>
+<h3>Title: {{ $advert->name or "Advert Page Title"}}</h3>
 
 <div id="left">
 	<div class="pagecontainer">
