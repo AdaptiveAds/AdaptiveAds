@@ -2,7 +2,7 @@
   <div>
     <a href="#close" class="close">X</a>
     <h4>Create new {{$object or 'object'}}</h4>
-    {!! Form::open(['url' => 'dashboard', 'method' => 'GET']) !!}
+    {!! Form::open(['route' => $route, 'method' => 'POST']) !!}
       <div class="modalDialogLeft">
         <label>{{$object or 'object'}} Name</label>
         <br/>

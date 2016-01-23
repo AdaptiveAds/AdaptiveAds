@@ -58,12 +58,6 @@ class PlaylistController extends Controller
      */
     public function store(Request $request)
     {
-      $current_department = Session::get('current_department');
-      $allowed_departments = Session::get('allowed_departments');
-
-      if (in_array($current_department, $allowed_departments) == false) {
-        return response('Unauthorized', 401);
-      }
 
       // Validation
       $this->validate($request, [
@@ -73,7 +67,7 @@ class PlaylistController extends Controller
       // Was validation successful?
       $playlist = new Playlist;
       $playlist->name = $request->input('txtPlaylistName');
-      $playlist->department_id = $current_department;
+      $playlist->department_id = $request->input('drpDepartments');
       $playlist->save();
 
       $data = array(

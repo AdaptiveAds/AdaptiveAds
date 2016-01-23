@@ -76,7 +76,7 @@ class AdvertController extends Controller
         // Was validation successful?
         $advert = new Advert;
         $advert->name = $request->input('txtAdvertName');
-        $advert->department_id = Session::get('current_department');
+        $advert->department_id = $request->input('drpDepartments');
         $advert->save();
 
         $data = array(

@@ -2,8 +2,12 @@
 
 @section('content')
 
-@include('objects/model_create', array('object' => 'Advert', 'allowed_departments' => $allowed_departments))
-@include('objects/model_create', array('object' => 'Playlist', 'allowed_departments' => $allowed_departments))
+@include('objects/model_create', array('object' => 'Advert',
+																			 'allowed_departments' => $allowed_departments,
+																			 'route' => 'dashboard.advert.store'))
+@include('objects/model_create', array('object' => 'Playlist',
+																			 'allowed_departments' => $allowed_departments,
+																			 'route' => 'dashboard.playlist.store'))
 
 <div class="settings">
 	<div class="row">
