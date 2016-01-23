@@ -30,8 +30,12 @@ class AdvertController extends Controller
     public function index()
     {
         $allowed_departments = Session::get('allowed_departments');
+        $match = array();
+        foreach ($allowed_departments as $department) {
+          array_push($match, $department->id);
+        }
 
-        $adverts = Advert::where('deleted', 0)->whereIn('department_id', $allowed_departments)->get();
+        $adverts = Advert::where('deleted', 0)->whereIn('department_id', $match)->get();
 
         //dd($adverts);
 
