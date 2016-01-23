@@ -58,7 +58,7 @@ class Authenticate
         $user_departments = $user->Departments;
         $allowed_departments = [];
         foreach ($user_departments as $department) {
-          array_push($allowed_departments, $department->id);
+          array_push($allowed_departments, $department);
         }
 
         // Save until next request
