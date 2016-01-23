@@ -37,7 +37,8 @@ class AdvertController extends Controller
 
         $data = array(
           'pageID' => '',
-          'adverts' => $adverts
+          'adverts' => $adverts,
+          'allowed_departments' => $allowed_departments
         );
 
         return view('pages/adverts', $data);
@@ -50,14 +51,14 @@ class AdvertController extends Controller
      */
     public function create()
     {
-        $advert = new Advert;
+        /*$advert = new Advert;
 
         $data = array(
           'pageID' => 'adverteditor',
           'advert' => $advert
         );
 
-        return view('pages/advertEditor', $data);
+        return view('pages/advertEditor', $data);*/
     }
 
     /**
