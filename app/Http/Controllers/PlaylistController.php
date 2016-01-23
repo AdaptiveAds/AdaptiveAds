@@ -29,12 +29,18 @@ class PlaylistController extends Controller
      */
     public function index()
     {
-      $current_department = Session::get('current_department');
-      $playlists = Playlist::where('deleted', 0)->where('department_id', $current_department)->orderBy('name', 'ASC')->get();
+      $allowed_departments = Session::get('allowed_departments');
+      $match = array();
+      foreach ($allowed_departments as $department) {
+        array_push($match, $department->id);
+      }
+
+      $playlists = Playlist::where('deleted', 0)->whereIn('department_id', $match)->orderBy('name', 'ASC')->get();
 
       $data = array(
         'pageID' => '',
-        'playlists' => $playlists
+        'playlists' => $playlists,
+        'allowed_departments' => $allowed_departments
       );
 
       return view('pages/playlists', $data);
