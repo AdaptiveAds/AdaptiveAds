@@ -20,16 +20,28 @@
 }
 
 .modalDialog > div {
-	width: 400px;
+	width: 500px;
 	position: relative;
 	margin: 10% auto;
 	padding: 20px 20px 20px 20px;
 	border-radius: 10px;
 	background: $background;
+  border: 4px;
+  border-color: #fff;
+  border-style: solid;
 }
 
-.modalDialog > div > form > select {
-  width: 200px;
+.modalDialogLeft {
+  float: left;
+	padding: 20px 40px 10px 0px;
+}
+
+.modalDialog > div > form > input.submit {
+	cursor: pointer;
+}
+
+.modalDialog > div > form > div > select {
+  width: 220px;
 }
 
 .modalDialog > div > form > input {
