@@ -61,9 +61,15 @@ class Authenticate
           array_push($allowed_departments, $department);
         }
 
+        $match_departments = [];
+        foreach ($allowed_departments as $department) {
+          array_push($match_departments, $department->id);
+        }
+
         // Save until next request
         Session::flash('user', $user);
         Session::flash('allowed_departments', $allowed_departments);
+        Session::flash('match_departments', $match_departments);
         //dd($user);
 
         return $next($request);
