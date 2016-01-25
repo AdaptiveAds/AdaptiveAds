@@ -172,18 +172,17 @@ class AdvertController extends Controller
      */
     public function destroy($id)
     {
-      $allowed_departments = Session::get('allowed_departments');
-      $advert = Advert::find($id)->whereIn('department_id', $allowed_departments)->get();
+      $match_departments = Session::get('match_departments');
+      $advert = Advert::where('id', $id)->whereIn('department_id', $match_departments)->first();
 
-      if ($advert->isEmpty()) {
-        return response('Not found.', 404); // Advert does not exist or un authorised
+      if (isset($advert) == false) {
+        return response('Un-authorised.', 401); // Advert does not exist or un authorised
       }
 
       $advert->deleted = 1;
-
       $advert->save();
 
-      return redirect('dashboard/advert');
+      return redirect()->route('dashboard.advert.index');
     }
 
     public function selectForPlaylist($playlistID)

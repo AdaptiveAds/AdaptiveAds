@@ -145,20 +145,18 @@ class PlaylistController extends Controller
     public function destroy($id)
     {
 
-      $current_department = Session::get('current_department');
-      $allowed_departments = Session::get('allowed_departments');
+      $match_departments = Session::get('match_departments');
+      $playlist = Playlist::where('id', $id)->whereIn('department_id', $match_departments)->first();
 
-      if (in_array($current_department, $allowed_departments) == false) {
-        return response('Unauthorized', 401);
+      if (isset($playlist) == false) {
+        return response('Un-authorised', 401);
       }
-
-      $playlist = Playlist::find($id);
       // $playlist->Adverts()->detach(); // TODO Remove all associated adverts??
 
       $playlist->deleted = 1;
       $playlist->save();
 
-      return redirect()->action('DashboardController@index');
+      return redirect()->route('dashboard.playlist.index');
     }
 
     public function addExistingAdvert($playlistID, $advertID)
