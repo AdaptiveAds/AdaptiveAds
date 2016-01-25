@@ -78,7 +78,7 @@
 						<li><a href="{{ URL::to('team')}}"><i class="fa fa-users"></i></a></li>
 						<li><a href="{{ URL::to('contact')}}"><i class="fa fa-envelope"></i></a></li>
 						<!-- Logout Functionality required -->
-						<li><a href="#">Sign Out</i></a></li>
+						<li><a href="{{ URL::to('auth/logout') }}">Sign Out</i></a></li>
 					</ul>
 				</nav>
 			</div>
