@@ -30,12 +30,9 @@ class PlaylistController extends Controller
     public function index()
     {
       $allowed_departments = Session::get('allowed_departments');
-      $match = array();
-      foreach ($allowed_departments as $department) {
-        array_push($match, $department->id);
-      }
+      $match_departments = Session::get('match_departments');
 
-      $playlists = Playlist::where('deleted', 0)->whereIn('department_id', $match)->orderBy('name', 'ASC')->get();
+      $playlists = Playlist::where('deleted', 0)->whereIn('department_id', $match_departments)->orderBy('name', 'ASC')->get();
 
       $data = array(
         'pageID' => '',
@@ -92,10 +89,17 @@ class PlaylistController extends Controller
      */
     public function show($id)
     {
-      $current_department = Session::get('current_department');
+      $match_departments = Session::get('match_departments');
 
       $playlist = Playlist::find($id);
-      $adverts = $playlist->Adverts->where('deleted', 0)->where('department_id', $current_department);
+      $adverts = $playlist->Adverts->where('deleted', 0);
+
+      /*
+      $filtered = $adverts->filter(function($item) use ($match_departments) {
+        return in_array($item->department_id, $match_departments);
+      });
+
+      dd($adverts);*/
 
       $data = array(
         'pageID' => 'playlisteditor',
@@ -162,16 +166,17 @@ class PlaylistController extends Controller
         $playlist = Playlist::find($playlistID);
         // TODO advert inde and display timing (GUI??)
         $playlist->Adverts()->attach($advertID, ['advert_index' => '1', 'display_schedule_id' => '1']);
+        //dd($playlist);
 
         return redirect()->route('dashboard.playlist.show', $playlistID);
     }
 
     public function removeMode($playlistID)
     {
-      $allowed_departments = Session::get('allowed_departments');
+      //$allowed_departments = Session::get('allowed_departments');
 
       $playlist = Playlist::find($playlistID);
-      $adverts = $playlist->Adverts->where('deleted', 0)->whereIn('department_id', $allowed_departments);
+      $adverts = $playlist->Adverts->where('deleted', 0);//->whereIn('department_id', $allowed_departments);
 
       $data = array(
         'pageID' => 'playlisteditor',
