@@ -3,8 +3,4 @@
 Homestead.yaml
 Homestead.json
 .env
-<<<<<<< HEAD
 *.scssc
-=======
-resources/views/templateDefault.blade.php
->>>>>>> refs/remotes/origin/Frontend
