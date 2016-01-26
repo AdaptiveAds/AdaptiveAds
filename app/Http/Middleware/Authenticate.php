@@ -50,10 +50,10 @@ class Authenticate
         //$privilages = $departments->first()->pivot->privilage;
 
         // Get users departments and privilages
-        $user = Auth::user()->with('Departments.Location')
-                            ->with('Departments.Screen')
-                            ->with('Departments.Skin')
-                            ->where('User.id', Auth::id())->first();
+        $user = Auth::user()->with('departments.Location')
+                            ->with('departments.Screen')
+                            ->with('departments.Skin')
+                            ->where('user.id', Auth::id())->first();
 
         $user_departments = $user->Departments;
         $allowed_departments = [];
