@@ -2,6 +2,9 @@
 
 @section('content')
 
+@include('objects/model_create', array('object' => 'Advert',
+																			 'allowed_departments' => $allowed_departments,
+																			 'route' => 'dashboard.advert.store'))
 <h3>Adverts</h3>
 
 <div id="left">
@@ -14,10 +17,7 @@
 	<!-- PHP Driven self updating ?? -->
 
 		<ul>
-				{!! Form::open(['url' => 'dashboard/advert', 'method' => 'POST']) !!}
-					<li><input type="text" name="txtAdvertName" placeholder="Advert Name..."/>
-					<li><button name="btnNewAdvert" type="submit">New</button></li>
-				{!! Form::close() !!}
+			<li><a href="#AdvertModal"><button name="btnNewAdvert">New</button></a></li>
 			<div class="clear"></div>
 		</ul>
 

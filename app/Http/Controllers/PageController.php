@@ -142,7 +142,7 @@ class PageController extends Controller
       ]);
 
       $page = Page::find($id);
-      $page->page_index = $request->input('txtPageIndex');
+      $page->page_index = $request->input('NumPageIndex');
       $page->template_id = 1;
       $page->save();
 

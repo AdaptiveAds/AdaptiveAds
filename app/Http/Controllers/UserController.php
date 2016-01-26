@@ -7,9 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-Use Session;
-
-class DashboardController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,15 +16,11 @@ class DashboardController extends Controller
      */
     public function index()
     {
-
-      $allowed_departments = Session::get('allowed_departments');
-
       $data = array(
-        'pageID' => 'dashboard',
-        'allowed_departments' => $allowed_departments
+        'pageID' => ''
       );
 
-      return view('pages/dashboard', $data);
+      return view('pages/users', $data);
     }
 
     /**
@@ -58,7 +52,7 @@ class DashboardController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
     /**

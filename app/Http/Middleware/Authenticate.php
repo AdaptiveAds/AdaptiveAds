@@ -50,20 +50,26 @@ class Authenticate
         //$privilages = $departments->first()->pivot->privilage;
 
         // Get users departments and privilages
-        $user = Auth::user()->with('Departments.Location')
-                            ->with('Departments.Screen')
-                            ->with('Departments.Skin')
-                            ->where('User.id', Auth::id())->first();
+        $user = Auth::user()->with('departments.Location')
+                            ->with('departments.Screen')
+                            ->with('departments.Skin')
+                            ->where('user.id', Auth::id())->first();
 
         $user_departments = $user->Departments;
         $allowed_departments = [];
         foreach ($user_departments as $department) {
-          array_push($allowed_departments, $department->id);
+          array_push($allowed_departments, $department);
+        }
+
+        $match_departments = [];
+        foreach ($allowed_departments as $department) {
+          array_push($match_departments, $department->id);
         }
 
         // Save until next request
         Session::flash('user', $user);
         Session::flash('allowed_departments', $allowed_departments);
+        Session::flash('match_departments', $match_departments);
         //dd($user);
 
         return $next($request);

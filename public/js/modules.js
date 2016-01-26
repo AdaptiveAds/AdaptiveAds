@@ -56,3 +56,67 @@ var IntervalManager = (function() {
   };
 
 } ());
+
+var SelectManager = (function() {
+
+  var action = "";
+  var token = "";
+
+  function register_eventhandlers() {
+    $('.advertItem').click(function() {
+       $('.pagecontainer li').removeClass('selected');
+       $(this).toggleClass('selected');
+    });
+
+    $('#btnUp').click(function() {
+
+        $('.selected').insertBefore($('.selected').prev('li'));
+
+        var newIndex = $('.selected').index();
+        var effectedID = $('.selected').next('li').attr('data-itemID');
+        var itemID = $('.selected').attr('data-itemID');
+
+        var effectedIndex = newIndex + 1;
+
+        updateIndexes(itemID, effectedID, newIndex, effectedIndex);
+    });
+
+    $('#btnDown').click(function() {
+        $('.selected').insertAfter($('.selected').next('li'));
+
+        var newIndex = $('.selected').index();
+        var effectedID = $('.selected').prev('li').attr('data-itemID');
+        var itemID = $('.selected').attr('data-itemID');
+
+        var effectedIndex = newIndex - 1;
+
+        updateIndexes(itemID, effectedID, newIndex, effectedIndex);
+    });
+  }
+
+  function updateIndexes(itemID, effectedID, newIndex, effectedIndex) {
+
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-Token': SelectManager.token
+      }
+    });
+
+    $.ajax({
+      type: "POST",
+      url : SelectManager.action,
+      data : {'itemID': itemID, 'effectedID': effectedID, 'newIndex': newIndex, 'effectedIndex': effectedIndex},
+      success : function(data){
+        // Do nothing...
+      },
+      error : function(xhr, textStatus, errorThrown) {
+        console.log(textStatus + " ------ " + errorThrown);
+      }
+    },"JSON");
+  }
+
+  return {
+    register_eventhandlers: register_eventhandlers
+  };
+
+} ());
