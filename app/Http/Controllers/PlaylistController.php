@@ -92,7 +92,7 @@ class PlaylistController extends Controller
       $match_departments = Session::get('match_departments');
 
       $playlist = Playlist::find($id);
-      $adverts = $playlist->Adverts->where('deleted', 0);
+      $adverts = $playlist->Adverts->where('deleted', 0); // ordered by advert_index
 
       /*
       $filtered = $adverts->filter(function($item) use ($match_departments) {
@@ -163,7 +163,7 @@ class PlaylistController extends Controller
     {
         $playlist = Playlist::find($playlistID);
         // TODO advert inde and display timing (GUI??)
-        $playlist->Adverts()->attach($advertID, ['advert_index' => '1', 'display_schedule_id' => '1']);
+        $playlist->Adverts()->attach($advertID, ['advert_index' => '0', 'display_schedule_id' => '1']);
         //dd($playlist);
 
         return redirect()->route('dashboard.playlist.show', $playlistID);
@@ -192,5 +192,29 @@ class PlaylistController extends Controller
         $playlist->Adverts()->detach($advertID);
 
         return redirect()->route('dashboard.playlist.show', $playlistID);
+    }
+
+    public function updateIndexes(Request $request, $playlistID)
+    {
+
+      // Get ids from request
+      $selectedID = $request->input('itemID');
+      $effectedID = $request->input('effectedID');
+
+      $playlist = Playlist::find($playlistID);
+
+      //dd($playlist);
+
+      foreach ($playlist->Adverts as $advert) {
+        if ($advert->id == $selectedID) {
+          $advert->pivot->advert_index = $request->input('newIndex');
+          $advert->pivot->save();
+        } else if ($advert->id == $effectedID) {
+          $advert->pivot->advert_index = $request->input('effectedIndex');
+          $advert->pivot->save();
+        }
+      }
+
+      return response('Success', 200);
     }
 }
