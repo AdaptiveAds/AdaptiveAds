@@ -5,6 +5,14 @@
 <h3>Advert Editor</h3>
 <h3>Title: {{ $advert->name or "Advert Page Title"}}</h3>
 
+<script>
+	$('document').ready(function() {
+		SelectManager.token = '{{ csrf_token() }}';
+		SelectManager.action = '/dashboard/advert/{{$advert->id}}/updateIndexes';
+		SelectManager.register_eventhandlers();
+	});
+</script>
+
 <div id="left">
 	<div class="pagecontainer">
 
@@ -27,14 +35,11 @@
 </div>
 <div id="right">
 
-	<!-- PHP Driven self updating ?? -->
-	<form name="advertlist" action="index_submit" method="get" accept-charset="utf-8">
-		<ul>
-			<li><button type="button">Up</button></li>
-			<li><button type="button">Down</button></li>
-			<!-- ensures form fills parent div w3c validation compliant -->
-			<div class="clear"></div>
-		</ul>
-	</form>
+	<ul>
+		<li><button id="btnUp" type="button">Up</button></li>
+		<li><button id="btnDown" type="button">Down</button></li>
+		<!-- ensures form fills parent div w3c validation compliant -->
+		<div class="clear"></div>
+	</ul>
 </div>
 @endsection

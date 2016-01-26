@@ -2,6 +2,13 @@
 
 @section('content')
 
+@include('objects/model_create', array('object' => 'Advert',
+																			 'allowed_departments' => $allowed_departments,
+																			 'route' => 'dashboard.advert.store'))
+@include('objects/model_create', array('object' => 'Playlist',
+																			 'allowed_departments' => $allowed_departments,
+																			 'route' => 'dashboard.playlist.store'))
+
 <div class="settings">
 	<div class="row">
 		<form name="dashboardUserDetails" action="index_submit" method="get" accept-charset="utf-8">
@@ -58,7 +65,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="{{ URL::to('dashboard/playlist/create')}}">
+						<a href="#PlaylistModal">
 							<i class="fa fa-list-ul">
 							<!-- temp name ofc -->
 								<span>Create Playlist</span>
@@ -75,7 +82,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="{{ URL::to('dashboard/advert/create')}}">
+						<a href="#AdvertModal">
 							<i class="fa fa-list-ul">
 							<!-- temp name ofc -->
 								<span>Create Advert</span>

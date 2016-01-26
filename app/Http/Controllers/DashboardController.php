@@ -20,16 +20,10 @@ class DashboardController extends Controller
     {
 
       $allowed_departments = Session::get('allowed_departments');
-      $selected_department = 1;
-
-      if (in_array($selected_department, $allowed_departments)) {
-        Session::put('current_department', 1);
-      } else {
-        Session::put('current_department', 2);
-      }
 
       $data = array(
-        'pageID' => 'dashboard'
+        'pageID' => 'dashboard',
+        'allowed_departments' => $allowed_departments
       );
 
       return view('pages/dashboard', $data);

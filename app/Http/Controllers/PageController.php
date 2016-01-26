@@ -26,7 +26,8 @@ class PageController extends Controller
      */
     public function index()
     {
-        // NOTE not used
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -120,6 +121,7 @@ class PageController extends Controller
     public function edit($id)
     {
       // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -142,7 +144,7 @@ class PageController extends Controller
       ]);
 
       $page = Page::find($id);
-      $page->page_index = $request->input('txtPageIndex');
+      $page->page_index = $request->input('NumPageIndex');
       $page->template_id = 1;
       $page->save();
 

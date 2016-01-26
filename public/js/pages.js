@@ -124,8 +124,8 @@ var Serve = (function(Page) {
     if (current_page_index > max_page_index) {current_page_index = 0;}
 
     // Update page
-    $('h1').html(data.department.playlists[0].adverts[current_advert_index].pages[current_page_index].page_data.page_data_name);
-    $('#page_content').html(data.department.playlists[0].adverts[current_advert_index].pages[current_page_index].page_data.page_content);
+    $('h1').html(data.department.playlists[0].adverts[current_advert_index].pages[current_page_index].page_data.heading);
+    $('#page_content').html(data.department.playlists[0].adverts[current_advert_index].pages[current_page_index].page_data.content_1);
 
     // Update current indexes
     localStorage.setItem('current_advert_index', current_advert_index);

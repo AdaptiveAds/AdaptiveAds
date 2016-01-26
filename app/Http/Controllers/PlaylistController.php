@@ -29,12 +29,15 @@ class PlaylistController extends Controller
      */
     public function index()
     {
-      $current_department = Session::get('current_department');
-      $playlists = Playlist::where('deleted', 0)->where('department_id', $current_department)->orderBy('name', 'ASC')->get();
+      $allowed_departments = Session::get('allowed_departments');
+      $match_departments = Session::get('match_departments');
+
+      $playlists = Playlist::where('deleted', 0)->whereIn('department_id', $match_departments)->orderBy('name', 'ASC')->get();
 
       $data = array(
         'pageID' => '',
-        'playlists' => $playlists
+        'playlists' => $playlists,
+        'allowed_departments' => $allowed_departments
       );
 
       return view('pages/playlists', $data);
@@ -47,7 +50,8 @@ class PlaylistController extends Controller
      */
     public function create()
     {
-        //
+        // NOTE not used
+        return Response('Not found', 404);
     }
 
     /**
@@ -58,22 +62,19 @@ class PlaylistController extends Controller
      */
     public function store(Request $request)
     {
-      $current_department = Session::get('current_department');
-      $allowed_departments = Session::get('allowed_departments');
 
-      if (in_array($current_department, $allowed_departments) == false) {
-        return response('Unauthorized', 401);
-      }
+      //dd($request);
 
       // Validation
       $this->validate($request, [
           'txtPlaylistName' => 'required|max:255',
+          'drpDepartments' => 'required'
       ]);
 
       // Was validation successful?
       $playlist = new Playlist;
       $playlist->name = $request->input('txtPlaylistName');
-      $playlist->departent_id = $current_department;
+      $playlist->department_id = $request->input('drpDepartments');
       $playlist->save();
 
       $data = array(
@@ -92,10 +93,15 @@ class PlaylistController extends Controller
      */
     public function show($id)
     {
-      $current_department = Session::get('current_department');
+      $match_departments = Session::get('match_departments');
 
       $playlist = Playlist::find($id);
-      $adverts = $playlist->Adverts->where('deleted', 0)->where('department_id', $current_department);
+
+      if (isset($playlist) == false) {
+        return response('Not found', 404);
+      }
+
+      $adverts = $playlist->Adverts->where('deleted', 0); // ordered by advert_index
 
       $data = array(
         'pageID' => 'playlisteditor',
@@ -114,7 +120,8 @@ class PlaylistController extends Controller
      */
     public function edit($id)
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -126,10 +133,8 @@ class PlaylistController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $playlist = Playlist::find($id);
-        //$advert = Advert::find($id,);
-
-        dd($advert);
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -141,37 +146,37 @@ class PlaylistController extends Controller
     public function destroy($id)
     {
 
-      $current_department = Session::get('current_department');
-      $allowed_departments = Session::get('allowed_departments');
+      $match_departments = Session::get('match_departments');
+      $playlist = Playlist::where('id', $id)->whereIn('department_id', $match_departments)->first();
 
-      if (in_array($current_department, $allowed_departments) == false) {
-        return response('Unauthorized', 401);
+      if (isset($playlist) == false) {
+        return response('Un-authorised', 401);
       }
-
-      $playlist = Playlist::find($id);
       // $playlist->Adverts()->detach(); // TODO Remove all associated adverts??
 
       $playlist->deleted = 1;
       $playlist->save();
 
-      return redirect()->action('DashboardController@index');
+      return redirect()->route('dashboard.playlist.index');
     }
 
     public function addExistingAdvert($playlistID, $advertID)
-    {    
+    {
         $playlist = Playlist::find($playlistID);
+
         // TODO advert inde and display timing (GUI??)
-        $playlist->Adverts()->attach($advertID, ['advert_index' => '1', 'display_schedule_id' => '1']);
+        $playlist->Adverts()->attach($advertID, ['advert_index' => '0', 'display_schedule_id' => '1']);
+        //dd($playlist);
 
         return redirect()->route('dashboard.playlist.show', $playlistID);
     }
 
     public function removeMode($playlistID)
     {
-      $allowed_departments = Session::get('allowed_departments');
+      //$allowed_departments = Session::get('allowed_departments');
 
       $playlist = Playlist::find($playlistID);
-      $adverts = $playlist->Adverts->where('deleted', 0)->whereIn('department_id', $allowed_departments);
+      $adverts = $playlist->Adverts->where('deleted', 0);//->whereIn('department_id', $allowed_departments);
 
       $data = array(
         'pageID' => 'playlisteditor',
@@ -189,5 +194,34 @@ class PlaylistController extends Controller
         $playlist->Adverts()->detach($advertID);
 
         return redirect()->route('dashboard.playlist.show', $playlistID);
+    }
+
+    public function updateIndexes(Request $request, $playlistID)
+    {
+
+      // Get ids from request
+      $selectedID = $request->input('itemID');
+      $effectedID = $request->input('effectedID');
+
+      $playlist = Playlist::find($playlistID);
+
+      // Can't find the playlist don't continue
+      if (isset($playlist) == false) {
+        abort(404);
+      }
+
+      //dd($playlist);
+
+      foreach ($playlist->Adverts as $advert) {
+        if ($advert->id == $selectedID) {
+          $advert->pivot->advert_index = $request->input('newIndex');
+          $advert->pivot->save();
+        } else if ($advert->id == $effectedID) {
+          $advert->pivot->advert_index = $request->input('effectedIndex');
+          $advert->pivot->save();
+        }
+      }
+
+      return response('Success', 200);
     }
 }

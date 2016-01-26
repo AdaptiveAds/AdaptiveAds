@@ -33,10 +33,12 @@ Route::get('dashboard', ['middleware' => 'auth', 'uses' => 'DashboardController@
 Route::get('dashboard/playlist/{playlistID}/{advertID}', ['as' => 'dashboard.playlist.add', 'uses' => 'PlaylistController@addExistingAdvert']);
 Route::get('dashboard/playlist/{playlistID}/{advertID}/remove', ['as' => 'dashboard.playlist.remove', 'uses' => 'PlaylistController@removeAdvert']);
 Route::post('dashboard/playlist/{playlistID}/remove', ['as' => 'dashboard.playlist.removeMode', 'uses' => 'PlaylistController@removeMode']);
-Route::resource('dashboard/playlist', 'PlaylistController');
+Route::post('dashboard/playlist/{playlistID}/updateIndexes', ['as' => 'dashboard.playlist.updateIndexes', 'uses' => 'PlaylistController@updateIndexes']);
+Route::resource('dashboard/playlist', 'PlaylistController', ['except' => ['create', 'edit', 'update']]);
 
 // Advert pages
 Route::post('dashboard/advert/{playlistID}', ['as' => 'dashboard.advert.select', 'uses' => 'AdvertController@selectForPlaylist']);
+Route::post('dashboard/advert/{advertID}/updateIndexes', ['as' => 'dashboard.advert.updateIndexes', 'uses' => 'AdvertController@updateIndexes']);
 Route::resource('dashboard/advert', 'AdvertController', ['except' => ['edit', 'update']]);
 
 // Page pages
@@ -48,7 +50,7 @@ Route::get('dashboard/settings/users', ['middleware' => 'auth', 'uses' => 'UserC
 Route::get('dashboard/settings/locations', ['middleware' => 'auth', 'uses' => 'LocationController@index']);
 Route::get('dashboard/settings/screens', ['middleware' => 'auth', 'uses' => 'ScreenController@index']);
 
-Route::get('serve/{screenId}', ['middleware' => 'auth', 'uses' => 'ServeController@show']);
+Route::get('serve/{screenId}', 'ServeController@show');
 Route::post('serve/{screenID}', 'ServeController@sync');
 
 Event::listen('illuminate.query', function($query)

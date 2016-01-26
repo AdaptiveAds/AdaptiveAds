@@ -49,7 +49,7 @@
 			<li><textarea title="content" type="text" name="imageMeta" placeholder="Example: Rabit on Chair..." required>{{ $pageData->image_meta or '' }}</textarea></li>
 			<li>
 				<label>Image 2:</label>
-				<input type="text" name="pageImage" placeholder="Image path..." value="{{ $pageData->page_image or '' }}"><br>
+				<input type="text" name="txtPageImage" placeholder="Image path..." value="{{ $pageData->page_image or '' }}"><br>
 			</li>
 			<li><textarea title="content" type="text" name="imageMeta" placeholder="Example: Dog playing violin..." required></textarea></li>
 			<li>
@@ -63,7 +63,7 @@
 			</li>
 			<li>
 				<label>Content 1:</label>
-				<textarea title="content" type="text" name="pageContent" placeholder="Enter Content..." required>{{ $pageData->content_1 or '' }}
+				<textarea title="content" type="text" name="txtPageContent" placeholder="Enter Content..." required>{{ $pageData->content_1 or '' }}
 				</textarea>
 			</li>
 			<li>
