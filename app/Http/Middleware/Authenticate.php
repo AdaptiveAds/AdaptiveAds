@@ -47,8 +47,6 @@ class Authenticate
             }
         }
 
-        //$privilages = $departments->first()->pivot->privilage;
-
         // Get users departments and privilages
         $user = Auth::user()->with('departments.Location')
                             ->with('departments.Screen')
@@ -56,11 +54,14 @@ class Authenticate
                             ->where('user.id', Auth::id())->first();
 
         $user_departments = $user->Departments;
+
+        // transfer collection to array
         $allowed_departments = [];
         foreach ($user_departments as $department) {
           array_push($allowed_departments, $department);
         }
 
+        // Get an array of id's of all departments this user can access
         $match_departments = [];
         foreach ($allowed_departments as $department) {
           array_push($match_departments, $department->id);
