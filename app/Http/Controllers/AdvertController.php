@@ -54,14 +54,8 @@ class AdvertController extends Controller
      */
     public function create()
     {
-        /*$advert = new Advert;
-
-        $data = array(
-          'pageID' => 'adverteditor',
-          'advert' => $advert
-        );
-
-        return view('pages/advertEditor', $data);*/
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -129,19 +123,22 @@ class AdvertController extends Controller
      */
     public function edit($id)
     {
-        $allowed_departments = Session::get('allowed_departments');
-        $advert = Advert::find($id)->whereIn('department_id', $allowed_departments)->get();
+      // NOTE not used
+      return Response('Not found', 404);
+    /*
+      $allowed_departments = Session::get('allowed_departments');
+      $advert = Advert::find($id)->whereIn('department_id', $allowed_departments)->get();
 
-        if ($advert->isEmpty()) {
-          return response('Not found.', 404); // User does not have access to this adverts' location
-        }
+      if ($advert->isEmpty()) {
+        return response('Not found.', 404); // User does not have access to this adverts' location
+      }
 
-        $data = array(
-          'pageID' => 'adverteditor',
-          'advert' => $advert
-        );
+      $data = array(
+        'pageID' => 'adverteditor',
+        'advert' => $advert
+      );
 
-        return view('pages/advertEditor', $data);
+      return view('pages/advertEditor', $data);*/
     }
 
     /**
@@ -153,16 +150,18 @@ class AdvertController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $allowed_departments = Session::get('allowed_departments');
-        $advert = Advert::find($id)->whereIn('department_id', $allowed_departments)->get();
+      // NOTE not used
+      return Response('Not found', 404);
+      /*$allowed_departments = Session::get('allowed_departments');
+      $advert = Advert::find($id)->whereIn('department_id', $allowed_departments)->get();
 
-        if ($advert->isEmpty()) {
-          return response('Not found.', 404); // Advert does not exist or un authorised
-        }
+      if ($advert->isEmpty()) {
+        return response('Not found.', 404); // Advert does not exist or un authorised
+      }
 
-        $advert->name = $request->name;
+      $advert->name = $request->name;
 
-        $advert->save();
+      $advert->save();*/
     }
 
     /**
@@ -203,23 +202,6 @@ class AdvertController extends Controller
       ->where('advert.deleted', '=', 0)
       ->get();
 
-      //dd($adverts);
-
-      //$adverts = Advert::where('deleted', 0)->whereIn('department_id', $match_departments)->first()->Playlist()->where('playlist_id', 1);
-
-      //$playlist = $adverts->Playlists->where('playlist_id', $playlistID)->andWhereNot('advert_id', $adverts->lists('id'));
-      //dd($playlist);
-
-
-      /*$playlist = Playlist::find($playlistID);
-      $match = [];
-      foreach ($adverts as $advert) {
-        array_push($match, $advert->id);
-      }
-
-      $filtered = $playlist->Adverts()->whereIn('advert_id', $match)->get();
-      dd($filtered);*/
-
       if (count($adverts) <= 0) {
         return response('Not found.', 404); // Advert does not exist or un authorised
       }
@@ -244,6 +226,10 @@ class AdvertController extends Controller
       // Find pages to modify
       $selectedPage = Page::find($selectedID);
       $effectedPage = Page::find($effectedID);
+
+      if (isset($selectedPage) == false || isset($effectedPage) == false) {
+        abort(404); // If we can't find a page abort
+      }
 
       // Update indexes
       $selectedPage->page_index = $request->input('newIndex');
