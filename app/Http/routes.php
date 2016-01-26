@@ -37,6 +37,7 @@ Route::resource('dashboard/playlist', 'PlaylistController');
 
 // Advert pages
 Route::post('dashboard/advert/{playlistID}', ['as' => 'dashboard.advert.select', 'uses' => 'AdvertController@selectForPlaylist']);
+Route::post('dashboard/advert/{advertID}/updateIndexes', ['as' => 'dashboard.advert.updateIndexes', 'uses' => 'AdvertController@updateIndexes']);
 Route::resource('dashboard/advert', 'AdvertController', ['except' => ['edit', 'update']]);
 
 // Page pages
