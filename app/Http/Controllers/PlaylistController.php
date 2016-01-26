@@ -50,7 +50,8 @@ class PlaylistController extends Controller
      */
     public function create()
     {
-        //
+        // NOTE not used
+        return Response('Not found', 404);
     }
 
     /**
@@ -62,9 +63,12 @@ class PlaylistController extends Controller
     public function store(Request $request)
     {
 
+      //dd($request);
+
       // Validation
       $this->validate($request, [
           'txtPlaylistName' => 'required|max:255',
+          'drpDepartments' => 'required'
       ]);
 
       // Was validation successful?
@@ -92,14 +96,12 @@ class PlaylistController extends Controller
       $match_departments = Session::get('match_departments');
 
       $playlist = Playlist::find($id);
+
+      if (isset($playlist) == false) {
+        return response('Not found', 404);
+      }
+
       $adverts = $playlist->Adverts->where('deleted', 0); // ordered by advert_index
-
-      /*
-      $filtered = $adverts->filter(function($item) use ($match_departments) {
-        return in_array($item->department_id, $match_departments);
-      });
-
-      dd($adverts);*/
 
       $data = array(
         'pageID' => 'playlisteditor',
@@ -118,7 +120,8 @@ class PlaylistController extends Controller
      */
     public function edit($id)
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -130,10 +133,8 @@ class PlaylistController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $playlist = Playlist::find($id);
-        //$advert = Advert::find($id,);
-
-        dd($advert);
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -162,6 +163,7 @@ class PlaylistController extends Controller
     public function addExistingAdvert($playlistID, $advertID)
     {
         $playlist = Playlist::find($playlistID);
+
         // TODO advert inde and display timing (GUI??)
         $playlist->Adverts()->attach($advertID, ['advert_index' => '0', 'display_schedule_id' => '1']);
         //dd($playlist);
@@ -202,6 +204,11 @@ class PlaylistController extends Controller
       $effectedID = $request->input('effectedID');
 
       $playlist = Playlist::find($playlistID);
+
+      // Can't find the playlist don't continue
+      if (isset($playlist) == false) {
+        abort(404);
+      }
 
       //dd($playlist);
 

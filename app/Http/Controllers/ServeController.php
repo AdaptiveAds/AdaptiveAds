@@ -12,8 +12,6 @@ use App\Playlist as Playlist;
 
 use App\Events\DurationEvent;
 
-use Session;
-
 class ServeController extends Controller
 {
     /**
@@ -58,6 +56,10 @@ class ServeController extends Controller
         $screen = Screen::find($id);
         //$screen_playlists = $screen->with('department.playlists.adverts')->get();
 
+        if (isset($screen) == false) {
+          return response('Not found', 404);
+        }
+
         //dd($screen_playlists);
         $loaded_screen = $this->loadPlaylists($screen);
 
@@ -98,6 +100,10 @@ class ServeController extends Controller
     {
         $screen = Screen::find($id);
         //$playlist = $screen->Location->Playlist;
+
+        if (isset($screen) == false) {
+          return response('Not found', 404);
+        }
 
         return $this->loadPlaylists($screen);
     }
