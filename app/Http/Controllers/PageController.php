@@ -26,7 +26,8 @@ class PageController extends Controller
      */
     public function index()
     {
-        // NOTE not used
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -120,6 +121,7 @@ class PageController extends Controller
     public function edit($id)
     {
       // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
