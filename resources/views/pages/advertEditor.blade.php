@@ -8,7 +8,7 @@
 <script>
 	$('document').ready(function() {
 		SelectManager.token = '{{ csrf_token() }}';
-		SelectManager.action = '/dashboard/advert/1/updateIndexes';
+		SelectManager.action = '/dashboard/advert/{{advert->id}}/updateIndexes';
 		SelectManager.register_eventhandlers();
 	});
 </script>
