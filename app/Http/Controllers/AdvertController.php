@@ -13,6 +13,7 @@ use DB;
 use App\Advert as Advert;
 use App\Playlist as Playlist;
 use App\Department as Department;
+use App\Page as Page;
 
 class AdvertController extends Controller
 {
@@ -231,5 +232,27 @@ class AdvertController extends Controller
       );
 
       return view('pages/adverts', $data);
+    }
+
+    public function updateIndexes(Request $request, $advertID)
+    {
+
+      // Get ids from request
+      $selectedID = $request->input('itemID');
+      $effectedID = $request->input('effectedID');
+
+      // Find pages to modify
+      $selectedPage = Page::find($selectedID);
+      $effectedPage = Page::find($effectedID);
+
+      // Update indexes
+      $selectedPage->page_index = $request->input('newIndex');
+      $effectedPage->page_index = $request->input('effectedIndex');
+
+      // Save!
+      $selectedPage->save();
+      $effectedPage->save();
+
+      return response('Success', 200);
     }
 }
