@@ -5,6 +5,14 @@
 <h3>Advert Editor</h3>
 <h3>Title: {{ $playlist->name or 'New Playlist' }}</h3>
 
+<script>
+	$('document').ready(function() {
+		SelectManager.token = '{{ csrf_token() }}';
+		SelectManager.action = '/dashboard/playlist/{{$playlist->id}}/updateIndexes';
+		SelectManager.register_eventhandlers();
+	});
+</script>
+
 <div id="left">
 	<div class="pagecontainer">
 		@include('objects/advertItem')
