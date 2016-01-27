@@ -9,6 +9,7 @@
 			<ul>
 				<li>
 					<input type="name" name="txtScreenID" placeholder="Screen id..." value="{{ $screenID or '' }}"/>
+					<label>Department:</label>
 					@include('objects/departments_dropdown', array('allowed_departments' => $allowed_departments))
 					<button type="submit" name="btnAddScreen">Add</button>
 					<button type="submit" name="btnFindScreen">Find</button>
