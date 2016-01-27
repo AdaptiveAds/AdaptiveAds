@@ -43,33 +43,18 @@
 	<script src="{{ URL::asset('js/modules.js') }}"></script>
 	<script src="{{ URL::asset('js/pages.js') }}"></script>
 
-	<script src="https://js.pusher.com/3.0/pusher.min.js"></script>
-	  <script>
-	    // Enable pusher logging - don't include this in production
-	    Pusher.log = function(message) {
-	      if (window.console && window.console.log) {
-	        window.console.log(message);
-	      }
-	    };
-
-	    /*var pusher = new Pusher('51ff72234733df1bcfdb', {
-	      encrypted: true
-	    });
-	    var channel = pusher.subscribe('duration');
-	    channel.bind('App\\Events\\DurationEvent', function(data) {
-	      alert(data.text);
-				console.print(data);
-	    });*/
-	  </script>
-
 </head>
 
 <body id="{{ $pageID }}">
 <div id="wrapper">
+	<!-- Only show if user is logged in -->
+	@if (Auth::guest() == false)
+		<div id="signedin">Signed in: <span id="signinName">{{Auth::user()->username}}</span> | <span id="signinLocation">Cafe</span> | <span id="signinPriv">User</span> | <a href="{{ URL::to('auth/logout') }}"><button id="signout">Sign out</button></a></div>
+	@endif
 		<header id="header">
 			<!-- IF statement for anchor: If the user has not logged in, prompt for login before accessing the dashboard -->
 			<div class="head">
-				<a href="../index.php?action=dashboard"><img src="{{ URL::asset('images/logo.png') }}" alt="php input" title="php input"></a>
+				<a href="{{ URL::to('dashboard')}}"><img src="{{ URL::asset('images/logo.png') }}" alt="php input" title="php input"></a>
 			</div>
 			<div class="head">
 				<nav>
@@ -77,22 +62,20 @@
 						<li><a href="{{ URL::to('dashboard')}}"><i class="fa fa-home"></i></a></li>
 						<li><a href="{{ URL::to('team')}}"><i class="fa fa-users"></i></a></li>
 						<li><a href="{{ URL::to('contact')}}"><i class="fa fa-envelope"></i></a></li>
-						<!-- Logout Functionality required -->
-						<li><a href="{{ URL::to('auth/logout') }}">Sign Out</i></a></li>
 					</ul>
 				</nav>
 			</div>
 		</header>
 
-		<div id="content">
-      @yield('content')
-      <div class="clear"></div>
-    <!-- close content -->
-    </div>
-    <footer>
-      &copy; <?php echo date('Y'); ?>. AdaptiveAds. All Rights Reserved.
-    </footer>
-  <!-- close wrapper -->
+	<div id="content">
+    @yield('content')
+    <div class="clear"></div>
+  <!-- close content -->
+  </div>
+  <footer>
+    &copy; <?php echo date('Y'); ?>. AdaptiveAds. All Rights Reserved.
+  </footer>
+<!-- close wrapper -->
   </div>
 </body>
 </html>

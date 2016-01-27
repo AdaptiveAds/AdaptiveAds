@@ -12,11 +12,7 @@
       <div class="modalDialogLeft">
         <label>Assign Department</label>
         <br/>
-        <select name="drpDepartments">
-          @foreach ($allowed_departments as $department)
-            <option value="{{$department->id}}">{{$department->name}}</option>
-          @endforeach
-        </select>
+        @include('objects/departments_dropdown', array('allowed_departments' => $allowed_departments))
       </div>
       <div class="clear"></div>
       <input type="submit" class="submit" name="btnCreate{{$object or 'object'}}" value="Create"/>

@@ -4,20 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Session;
-
-use App\Screen as Screen;
+use App\Department as Department;
+use App\Location as Location;
+use App\Skin as Skin;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class ScreenController extends Controller
+class DepartmentController extends Controller
 {
-    public function __construct()
-    {
-        // Auth required
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -25,16 +19,18 @@ class ScreenController extends Controller
      */
     public function index()
     {
-        $screens = Screen::all();
-        $allowed_departments = Session::get('allowed_departments');
+      $departments = Department::all();
+      $locations = Location::all();
+      $skins = Skin::all();
 
-        $data = array(
-          'pageID' => '',
-          'screens' => $screens,
-          'allowed_departments' => $allowed_departments
-        );
+      $data = array(
+        'pageID' => '',
+        'departments' => $departments,
+        'locations' => $locations,
+        'skins' => $skins
+      );
 
-        return view('pages/screens', $data);
+      return view('pages/departments', $data);
     }
 
     /**
@@ -105,49 +101,53 @@ class ScreenController extends Controller
 
     public function process(Request $request)
     {
-      // Get inputs from POST
-      $btnAddScreen = $request->input('btnAddScreen');
-      $btnFindScreen = $request->input('btnFindScreen');
+      // Get all inputs from request
+      $btnAddDepartment = $request->input('btnAddDepartment');
+      $btnFindDepartment = $request->input('btnFindDepartment');
       $btnFindAll = $request->input('btnFindAll');
-      $departmentID = $request->input('drpDepartments');
-      $screenID = $request->input('txtScreenID');
+      $departmentName = $request->input('txtDepartmentName');
+      $locationID = $request->input('drpLocations');
+      $skinID = $request->input('drpSkins');
 
       // Check which action to perform
-      if (isset($btnAddScreen)) {
+      if (isset($btnAddDepartment)) {
 
-        // Create new screen
-        $screen = new Screen();
-        $screen->department_id = $departmentID; // assign department
-        $screen->save();
+        // Create new department
+        $department = new Department();
+        $department->name = $departmentName;
+        $department->location_id = $locationID;
+        $department->skin_id = $skinID;
+        $department->save();
 
-        $screenID = null;
-        $screens = Screen::all(); // Return all screens
+        // Get all departments including new one
+        $departments = Department::all();
 
-      } else if (isset($btnFindScreen)) {
+      } else if (isset($btnFindDepartment)) {
 
-        // Find a screen with the same id and department
-        $screens = Screen::where('id', '=', $screenID)->where('department_id', '=', $departmentID)->get();
+        // Get all departments LIKE the search string and with the same department
+        // we don't care about  filtering by skin
+        $departments = Department::where('name', 'LIKE', '%' . $departmentName . '%')
+                                 ->where('location_id', '=', $locationID)->get();
 
       } else if (isset($btnFindAll)) {
 
-        // return all screens clear saved id
-        $screenID = null;
-        $screens = Screen::all();
+        // Get all departments and clear search string
+        $departmentName = null;
+        $departments = Department::all();
 
       } else {
         abort(401);
       }
 
-      // Pass back so we can re-populate the departments list
-      $allowed_departments = Session::get('allowed_departments');
-
       $data = array(
         'pageID' => '',
-        'screens' => $screens,
-        'screenID' => $screenID,
-        'allowed_departments' => $allowed_departments
+        'departments' => $departments,
+        'locations' => Location::all(),
+        'skins' => Skin::all(),
+        'departmentName' => $departmentName
       );
 
-      return view('pages/screens', $data);
+      return view('pages/departments', $data);
+
     }
 }

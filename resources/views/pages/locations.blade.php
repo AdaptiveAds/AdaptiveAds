@@ -4,37 +4,24 @@
 
 <div class="settings">
 	<div class="row">
-		<form name="locationsSearch" action="index_submit" method="get" accept-charset="utf-8">
-		<h3>Locations</h3>
-			<ul>
-				<li>
-					<input type="name" name="name" placeholder="Name" required>
-					<button type="button">Add</button>
-					<button type="button">Find</button>
-				</li>
-			</ul>
-		</form>
+		{!! Form::open(['route' => 'dashboard.settings.locations.process', 'method' => 'POST']) !!}
+			<h3>Locations</h3>
+				<ul>
+					<li>
+						<input type="name" name="txtLocationName" placeholder="Location name...."
+									 value="{{ $searchItem or '' }}" required>
+						<button type="submit" name="btnAddLocation">Add</button>
+						<button type="submit" name="btnFindLocation">Find</button>
+						<button type="submit" name="btnFindAll">Find all</button>
+					</li>
+				</ul>
+		{!! Form::close() !!}
 	</div>
 
 	<div class="row">
-		<form name="locationList" action="index_submit" method="get" accept-charset="utf-8">
-			<ul>
-				<li>
-					<label for="name">Name</label>
-					<button type="button">Edit</button>
-					<button type="button">Disable</button>
-				</li>
-				<li>
-					<label for="name">Name</label>
-					<button type="button">Edit</button>
-					<button type="button">Disable</button>
-				</li>
-				<li>
-					<label for="name">Name</label>
-					<button type="button">Edit</button>
-					<button type="button">Disable</button>
-				</li>
-			</ul>
+		<!-- TODO REMOVE FORM -->
+			<form>
+			@include('objects/locationItems')
 		</form>
 	</div>
 </div>
