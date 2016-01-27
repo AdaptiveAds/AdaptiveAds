@@ -4,7 +4,8 @@
 
 <div class="settings">
 	<div class="row">
-		<form name="usersSearch" action="index_submit" method="get" accept-charset="utf-8">
+		<!-- TODO REMOVE FORM -->
+		<form>
 		<h3>Users</h3>
 			<ul>
 				<li>
@@ -16,25 +17,9 @@
 	</div>
 
 	<div class="row">
-		<form name="usersList" action="index_submit" method="get" accept-charset="utf-8">
-			<ul>
-				<li>
-					<label for="username">Username</label>
-					<button type="button">Edit</button>
-					<button type="button">Disable</button>
-				</li>
-				<li>
-					<label for="username">Username</label>
-					<button type="button">Edit</button>
-					<button type="button">Disable</button>
-				</li>
-				<li>
-					<label for="username">Username</label>
-					<button type="button">Edit</button>
-					<button type="button">Disable</button>
-				</li>
-
-			</ul>
+		<!-- TODO REMOVE FORM -->
+		<form>
+			@include('objects/userItems')
 		</form>
 	</div>
 </div>
