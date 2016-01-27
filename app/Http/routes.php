@@ -50,6 +50,7 @@ Route::get('dashboard/settings/users', ['middleware' => 'auth', 'uses' => 'UserC
 Route::get('dashboard/settings/locations', ['middleware' => 'auth', 'uses' => 'LocationController@index']);
 Route::post('dashboard/settings/locations', ['as' => 'dashboard.settings.locations.process', 'uses' => 'LocationController@process']);
 Route::get('dashboard/settings/screens', ['middleware' => 'auth', 'uses' => 'ScreenController@index']);
+Route::post('dashboard/settings/screens', ['as' => 'dashboard.settings.screens.process', 'uses' => 'ScreenController@process']);
 
 Route::get('serve/{screenId}', 'ServeController@show');
 Route::post('serve/{screenID}', 'ServeController@sync');

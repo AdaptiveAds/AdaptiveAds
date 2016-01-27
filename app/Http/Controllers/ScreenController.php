@@ -12,6 +12,12 @@ use App\Http\Controllers\Controller;
 
 class ScreenController extends Controller
 {
+    public function __construct()
+    {
+        // Auth required
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -95,5 +101,53 @@ class ScreenController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function process(Request $request)
+    {
+      // Get inputs from POST
+      $btnAddScreen = $request->input('btnAddScreen');
+      $btnFindScreen = $request->input('btnFindScreen');
+      $btnFindAll = $request->input('btnFindAll');
+      $departmentID = $request->input('drpDepartments');
+      $screenID = $request->input('txtScreenID');
+
+      // Check which action to perform
+      if (isset($btnAddScreen)) {
+
+        // Create new screen
+        $screen = new Screen();
+        $screen->department_id = $departmentID; // assign department
+        $screen->save();
+
+        $screenID = null;
+        $screens = Screen::all(); // Return all screens
+
+      } else if (isset($btnFindScreen)) {
+
+        // Find a screen with the same id and department
+        $screens = Screen::where('id', '=', $screenID)->where('department_id', '=', $departmentID)->get();
+
+      } else if (isset($btnFindAll)) {
+
+        // return all screens clear saved id
+        $screenID = null;
+        $screens = Screen::all();
+
+      } else {
+        abort(401);
+      }
+
+      // Pass back so we can re-populate the departments list
+      $allowed_departments = Session::get('allowed_departments');
+
+      $data = array(
+        'pageID' => '',
+        'screens' => $screens,
+        'screenID' => $screenID,
+        'allowed_departments' => $allowed_departments
+      );
+
+      return view('pages/screens', $data);
     }
 }

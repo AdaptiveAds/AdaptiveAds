@@ -4,18 +4,18 @@
 
 <div class="settings">
 	<div class="row">
-		<!-- TODO REMOVE FORM -->
-		<form>
-		<h3>Screens</h3>
+		{!! Form::open(['route' => 'dashboard.settings.screens.process', 'method' => 'POST']) !!}
+			<h3>Screens</h3>
 			<ul>
 				<li>
-					<input type="name" name="name" placeholder="Name" required>
+					<input type="name" name="txtScreenID" placeholder="Screen id..." value="{{ $screenID or '' }}"/>
 					@include('objects/departments_dropdown', array('allowed_departments' => $allowed_departments))
-					<button type="button">Add</button>
-					<button type="button">Find</button>
+					<button type="submit" name="btnAddScreen">Add</button>
+					<button type="submit" name="btnFindScreen">Find</button>
+					<button type="submit" name="btnFindAll">Find All</button>
 				</li>
 			</ul>
-		</form>
+		{!! Form::close() !!}
 	</div>
 
 	<div class="row">
