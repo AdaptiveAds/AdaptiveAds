@@ -66,7 +66,7 @@
 
 <body id="{{ $pageID }}">
 <div id="wrapper">
-	<div id="signedin">Signed in: <span id="signinName">Kane Whelan</span> | <span id="signinLocation">Cafe</span> | <span id="signinPriv">User</span> | <button id="signout">Sign out</button></div>
+	<div id="signedin">Signed in: <span id="signinName">Kane Whelan</span> | <span id="signinLocation">Cafe</span> | <span id="signinPriv">User</span> | <a href="{{ URL::to('auth/logout') }}"><button id="signout">Sign out</button></a></div>
 		<header id="header">
 			<!-- IF statement for anchor: If the user has not logged in, prompt for login before accessing the dashboard -->
 			<div class="head">
@@ -78,8 +78,6 @@
 						<li><a href="{{ URL::to('dashboard')}}"><i class="fa fa-home"></i></a></li>
 						<li><a href="{{ URL::to('team')}}"><i class="fa fa-users"></i></a></li>
 						<li><a href="{{ URL::to('contact')}}"><i class="fa fa-envelope"></i></a></li>
-						<!-- Logout Functionality required -->
-						<li><a href="{{ URL::to('auth/logout') }}">Sign Out</i></a></li>
 					</ul>
 				</nav>
 			</div>
