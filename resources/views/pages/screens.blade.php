@@ -4,7 +4,8 @@
 
 <div class="settings">
 	<div class="row">
-		<form name="screenList" action="index_submit" method="get" accept-charset="utf-8">
+		<!-- TODO REMOVE FORM -->
+		<form>
 		<h3>Screens</h3>
 			<ul>
 				<li>
