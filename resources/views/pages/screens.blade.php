@@ -9,13 +9,7 @@
 			<ul>
 				<li>
 					<input type="name" name="name" placeholder="Name" required>
-					<select>
-						<option value="select">Select Location</option>
-						<option value="cafe">Cafe</option>
-						<option value="library">Library</option>
-						<option value="media">Media</option>
-						<option value="marketing">Marketing</option>
-					</select>
+					@include('objects/departments_dropdown', array('allowed_departments' => $allowed_departments))
 					<button type="button">Add</button>
 					<button type="button">Find</button>
 				</li>
