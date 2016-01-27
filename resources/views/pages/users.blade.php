@@ -4,37 +4,22 @@
 
 <div class="settings">
 	<div class="row">
-		<form name="usersSearch" action="index_submit" method="get" accept-charset="utf-8">
-		<h3>Users</h3>
+		{!! Form::open(['route' => 'dashboard.settings.users.process', 'method' => 'POST']) !!}
+			<h3>Users</h3>
 			<ul>
 				<li>
-					<input type="name" name="name" placeholder="Name" required>
-					<button type="button">Find</button>
+					<input type="name" name="txtUsername" placeholder="Name" value="{{ $username or '' }}"/>
+					<button type="submit" name="btnFindUser">Find</button>
+					<button type="submit" name="btnFindAll">Find All</button>
 				</li>
 			</ul>
-		</form>
+		{!! Form::close() !!}
 	</div>
 
 	<div class="row">
-		<form name="usersList" action="index_submit" method="get" accept-charset="utf-8">
-			<ul>
-				<li>
-					<label for="username">Username</label>
-					<button type="button">Edit</button>
-					<button type="button">Disable</button>
-				</li>
-				<li>
-					<label for="username">Username</label>
-					<button type="button">Edit</button>
-					<button type="button">Disable</button>
-				</li>
-				<li>
-					<label for="username">Username</label>
-					<button type="button">Edit</button>
-					<button type="button">Disable</button>
-				</li>
-
-			</ul>
+		<!-- TODO REMOVE FORM -->
+		<form>
+			@include('objects/userItems')
 		</form>
 	</div>
 </div>

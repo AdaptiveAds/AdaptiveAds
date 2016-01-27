@@ -49,12 +49,12 @@
 <div id="wrapper">
 	<!-- Only show if user is logged in -->
 	@if (Auth::guest() == false)
-		<div id="signedin">Signed in: <span id="signinName">Kane Whelan</span> | <span id="signinLocation">Cafe</span> | <span id="signinPriv">User</span> | <a href="{{ URL::to('auth/logout') }}"><button id="signout">Sign out</button></a></div>
+		<div id="signedin">Signed in: <span id="signinName">{{Auth::user()->username}}</span> | <span id="signinLocation">Cafe</span> | <span id="signinPriv">User</span> | <a href="{{ URL::to('auth/logout') }}"><button id="signout">Sign out</button></a></div>
 	@endif
 		<header id="header">
 			<!-- IF statement for anchor: If the user has not logged in, prompt for login before accessing the dashboard -->
 			<div class="head">
-				<a href="../index.php?action=dashboard"><img src="{{ URL::asset('images/logo.png') }}" alt="php input" title="php input"></a>
+				<a href="{{ URL::to('dashboard')}}"><img src="{{ URL::asset('images/logo.png') }}" alt="php input" title="php input"></a>
 			</div>
 			<div class="head">
 				<nav>

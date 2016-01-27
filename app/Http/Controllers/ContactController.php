@@ -4,19 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\User as User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class UserController extends Controller
+class ContactController extends Controller
 {
-
-    public function __construct()
-    {
-        // Auth required
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -24,14 +16,11 @@ class UserController extends Controller
      */
     public function index()
     {
-      $users = User::all();
-
       $data = array(
         'pageID' => '',
-        'users' => $users
       );
 
-      return view('pages/users', $data);
+      return view('pages/contact', $data);
     }
 
     /**
@@ -98,37 +87,5 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function process(Request $request)
-    {
-      // Get input from request
-      $btnFindUser = $request->input('btnFindUser');
-      $btnFindAll = $request->input('btnFindAll');
-      $username = $request->input('txtUsername');
-
-      // Check which action to perform
-      if (isset($btnFindUser)) {
-
-        // Get users with a userame LIKE that of the input
-        $users = User::where('username', 'LIKE', '%' . $username . '%')->get();
-
-      } else if (isset($btnFindAll)) {
-
-        // Get all users and clear the remembered search
-        $username = null;
-        $users = User::all();
-
-      } else {
-        abort(401);
-      }
-
-      $data = array(
-        'pageID' => '',
-        'users' => $users,
-        'username' => $username
-      );
-
-      return view('pages/users', $data);
     }
 }
