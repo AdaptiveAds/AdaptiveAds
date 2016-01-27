@@ -66,6 +66,7 @@
 
 <body id="{{ $pageID }}">
 <div id="wrapper">
+	<div id="signedin">Signed in: <span id="signinName">Kane Whelan</span> | <span id="signinLocation">Cafe</span> | <span id="signinPriv">User</span> | <button id="signout">Sign out</button></div>
 		<header id="header">
 			<!-- IF statement for anchor: If the user has not logged in, prompt for login before accessing the dashboard -->
 			<div class="head">
@@ -84,15 +85,15 @@
 			</div>
 		</header>
 
-		<div id="content">
-      @yield('content')
-      <div class="clear"></div>
-    <!-- close content -->
-    </div>
-    <footer>
-      &copy; <?php echo date('Y'); ?>. AdaptiveAds. All Rights Reserved.
-    </footer>
-  <!-- close wrapper -->
+	<div id="content">
+    @yield('content')
+    <div class="clear"></div>
+  <!-- close content -->
+  </div>
+  <footer>
+    &copy; <?php echo date('Y'); ?>. AdaptiveAds. All Rights Reserved.
+  </footer>
+<!-- close wrapper -->
   </div>
 </body>
 </html>
