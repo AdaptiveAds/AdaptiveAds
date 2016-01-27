@@ -15,7 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('contact', ['middleware' => 'auth', 'uses' => 'ContactController@index']);
+Route::get('contact', 'ContactController@index');
+Route::get('team', 'TeamController@index');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
