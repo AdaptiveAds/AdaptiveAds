@@ -107,6 +107,13 @@
 						</a>
 					</li>
 					<li>
+						<a href="{{ URL::to('dashboard/settings/departments/')}}">
+							<i class="fa fa-university">
+								<span>Departments</span>
+							</i>
+						</a>
+					</li>
+					<li>
 						<a href="{{ URL::to('dashboard/settings/screens')}}">
 							<i class="fa fa-desktop">
 								<span>Screens</span>
