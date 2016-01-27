@@ -47,6 +47,7 @@
 
 <body id="{{ $pageID }}">
 <div id="wrapper">
+	<!-- Only show if user is logged in -->
 	@if (Auth::guest() == false)
 		<div id="signedin">Signed in: <span id="signinName">Kane Whelan</span> | <span id="signinLocation">Cafe</span> | <span id="signinPriv">User</span> | <a href="{{ URL::to('auth/logout') }}"><button id="signout">Sign out</button></a></div>
 	@endif
