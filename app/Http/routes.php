@@ -48,6 +48,7 @@ Route::resource('dashboard/advert/{adID}/page', 'PageController', ['except' => [
 Route::get('dashboard/settings', ['middleware' => 'auth', 'uses' => 'PlaylistController@index']);
 Route::get('dashboard/settings/users', ['middleware' => 'auth', 'uses' => 'UserController@index']);
 Route::get('dashboard/settings/locations', ['middleware' => 'auth', 'uses' => 'LocationController@index']);
+Route::post('dashboard/settings/locations', ['as' => 'dashboard.settings.locations.process', 'uses' => 'LocationController@process']);
 Route::get('dashboard/settings/screens', ['middleware' => 'auth', 'uses' => 'ScreenController@index']);
 
 Route::get('serve/{screenId}', 'ServeController@show');
