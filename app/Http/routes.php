@@ -46,10 +46,16 @@ Route::resource('dashboard/advert/{adID}/page', 'PageController', ['except' => [
 
 // Settings
 Route::get('dashboard/settings', ['middleware' => 'auth', 'uses' => 'PlaylistController@index']);
+
 Route::get('dashboard/settings/users', ['middleware' => 'auth', 'uses' => 'UserController@index']);
 Route::post('dashboard/settings/users', ['as' => 'dashboard.settings.users.process', 'uses' => 'UserController@process']);
+
 Route::get('dashboard/settings/locations', ['middleware' => 'auth', 'uses' => 'LocationController@index']);
 Route::post('dashboard/settings/locations', ['as' => 'dashboard.settings.locations.process', 'uses' => 'LocationController@process']);
+
+Route::get('dashboard/settings/departments', ['middleware' => 'auth', 'uses' => 'DepartmentController@index']);
+Route::post('dashboard/settings/departments', ['as' => 'dashboard.settings.departments.process', 'uses' => 'DepartmentController@process']);
+
 Route::get('dashboard/settings/screens', ['middleware' => 'auth', 'uses' => 'ScreenController@index']);
 Route::post('dashboard/settings/screens', ['as' => 'dashboard.settings.screens.process', 'uses' => 'ScreenController@process']);
 
