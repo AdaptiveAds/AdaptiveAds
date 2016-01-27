@@ -4,16 +4,16 @@
 
 <div class="settings">
 	<div class="row">
-		<!-- TODO REMOVE FORM -->
-		<form>
-		<h3>Users</h3>
+		{!! Form::open(['route' => 'dashboard.settings.users.process', 'method' => 'POST']) !!}
+			<h3>Users</h3>
 			<ul>
 				<li>
-					<input type="name" name="name" placeholder="Name" required>
-					<button type="button">Find</button>
+					<input type="name" name="txtUsername" placeholder="Name" value="{{ $username or '' }}"/>
+					<button type="submit" name="btnFindUser">Find</button>
+					<button type="submit" name="btnFindAll">Find All</button>
 				</li>
 			</ul>
-		</form>
+		{!! Form::close() !!}
 	</div>
 
 	<div class="row">
