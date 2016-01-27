@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Department as Department;
+use App\Location as Location;
+use App\Skin as Skin;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -17,10 +20,14 @@ class DepartmentController extends Controller
     public function index()
     {
       $departments = Department::all();
+      $locations = Location::all();
+      $skins = Skin::all();
 
       $data = array(
         'pageID' => '',
-        'departments' => $departments
+        'departments' => $departments,
+        'locations' => $locations,
+        'skins' => $skins
       );
 
       return view('pages/departments', $data);
@@ -90,5 +97,57 @@ class DepartmentController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function process(Request $request)
+    {
+      // Get all inputs from request
+      $btnAddDepartment = $request->input('btnAddDepartment');
+      $btnFindDepartment = $request->input('btnFindDepartment');
+      $btnFindAll = $request->input('btnFindAll');
+      $departmentName = $request->input('txtDepartmentName');
+      $locationID = $request->input('drpLocations');
+      $skinID = $request->input('drpSkins');
+
+      // Check which action to perform
+      if (isset($btnAddDepartment)) {
+
+        // Create new department
+        $department = new Department();
+        $department->name = $departmentName;
+        $department->location_id = $locationID;
+        $department->skin_id = $skinID;
+        $department->save();
+
+        // Get all departments including new one
+        $departments = Department::all();
+
+      } else if (isset($btnFindDepartment)) {
+
+        // Get all departments LIKE the search string and with the same department
+        // we don't care about  filtering by skin
+        $departments = Department::where('name', 'LIKE', '%' . $departmentName . '%')
+                                 ->where('location_id', '=', $locationID)->get();
+
+      } else if (isset($btnFindAll)) {
+
+        // Get all departments and clear search string
+        $departmentName = null;
+        $departments = Department::all();
+
+      } else {
+        abort(401);
+      }
+
+      $data = array(
+        'pageID' => '',
+        'departments' => $departments,
+        'locations' => Location::all(),
+        'skins' => Skin::all(),
+        'departmentName' => $departmentName
+      );
+
+      return view('pages/departments', $data);
+
     }
 }
