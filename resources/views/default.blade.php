@@ -43,25 +43,6 @@
 	<script src="{{ URL::asset('js/modules.js') }}"></script>
 	<script src="{{ URL::asset('js/pages.js') }}"></script>
 
-	<script src="https://js.pusher.com/3.0/pusher.min.js"></script>
-	  <script>
-	    // Enable pusher logging - don't include this in production
-	    Pusher.log = function(message) {
-	      if (window.console && window.console.log) {
-	        window.console.log(message);
-	      }
-	    };
-
-	    /*var pusher = new Pusher('51ff72234733df1bcfdb', {
-	      encrypted: true
-	    });
-	    var channel = pusher.subscribe('duration');
-	    channel.bind('App\\Events\\DurationEvent', function(data) {
-	      alert(data.text);
-				console.print(data);
-	    });*/
-	  </script>
-
 </head>
 
 <body id="{{ $pageID }}">
