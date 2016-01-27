@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Session;
+
 use App\Screen as Screen;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -18,10 +20,12 @@ class ScreenController extends Controller
     public function index()
     {
         $screens = Screen::all();
+        $allowed_departments = Session::get('allowed_departments');
 
         $data = array(
           'pageID' => '',
-          'screens' => $screens
+          'screens' => $screens,
+          'allowed_departments' => $allowed_departments
         );
 
         return view('pages/screens', $data);
