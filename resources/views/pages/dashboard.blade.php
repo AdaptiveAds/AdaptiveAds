@@ -94,74 +94,82 @@
 			</article>
 		</section>
 
-		<section>
-			<h4>Admin Settings</h4>
-			<article>
-				<ul>
+		@if (isset($user))
+			@if ($user->getAdmin())
+				<section>
+					<h4>Admin Settings</h4>
+					<article>
+						<ul>
 
-					<li>
-						<a href="{{ URL::to('dashboard/settings/locations/')}}">
-							<i class="fa fa-map-marker">
-								<span>Locations</span>
-							</i>
-						</a>
-					</li>
-					<li>
-						<a href="{{ URL::to('dashboard/settings/departments/')}}">
-							<i class="fa fa-university">
-								<span>Departments</span>
-							</i>
-						</a>
-					</li>
-					<li>
-						<a href="{{ URL::to('dashboard/settings/screens')}}">
-							<i class="fa fa-desktop">
-								<span>Screens</span>
-							</i>
-						</a>
-					</li>
-					<li>
-						<a href="{{ URL::to('dashboard/settings/users')}}">
-							<i class="fa fa-users">
-								<span>Users</span>
-							</i>
-						</a>
-					</li>
-				</ul>
-				<div class="clear"></div>
-			</article>
-		</section>
+							<li>
+								<a href="{{ URL::to('dashboard/settings/locations/')}}">
+									<i class="fa fa-map-marker">
+										<span>Locations</span>
+									</i>
+								</a>
+							</li>
+							<li>
+								<a href="{{ URL::to('dashboard/settings/departments/')}}">
+									<i class="fa fa-university">
+										<span>Departments</span>
+									</i>
+								</a>
+							</li>
+							<li>
+								<a href="{{ URL::to('dashboard/settings/screens')}}">
+									<i class="fa fa-desktop">
+										<span>Screens</span>
+									</i>
+								</a>
+							</li>
+							<li>
+								<a href="{{ URL::to('dashboard/settings/users')}}">
+									<i class="fa fa-users">
+										<span>Users</span>
+									</i>
+								</a>
+							</li>
+						</ul>
+						<div class="clear"></div>
+					</article>
+				</section>
+			@endif
+		@endif
 
-		<section>
-			<h4>Super User Settings</h4>
-			<article>
-				<ul>
-					<li>
-						<a href="{{ URL::to('dashboard/settings/locations/')}}">
-							<i class="fa fa-map-marker">
-								<span>Locations</span>
-							</i>
-						</a>
-					</li>
-					<li>
-						<a href="{{ URL::to('dashboard/settings/screens')}}">
-							<i class="fa fa-desktop">
-								<span>Screens</span>
-							</i>
-						</a>
-					</li>
+		@if (isset($user))
+			@if ($user->is_super_user)
+				<section>
+					<h4>Super User Settings</h4>
+					<article>
+						<ul>
+							<li>
+								<a href="{{ URL::to('dashboard/settings/locations/')}}">
+									<i class="fa fa-map-marker">
+										<span>Locations</span>
+									</i>
+								</a>
+							</li>
+							<li>
+								<a href="{{ URL::to('dashboard/settings/screens')}}">
+									<i class="fa fa-desktop">
+										<span>Screens</span>
+									</i>
+								</a>
+							</li>
 
-					<li>
-						<a href="{{ URL::to('dashboard/settings/users')}}">
-							<i class="fa fa-users">
-								<span>Admins</span>
-							</i>
-						</a>
-					</li>
-				</ul>
-				<div class="clear"></div>
-			</article>
-		</section>
+							<li>
+								<a href="{{ URL::to('dashboard/settings/users')}}">
+									<i class="fa fa-users">
+										<span>Admins</span>
+									</i>
+								</a>
+							</li>
+						</ul>
+						<div class="clear"></div>
+					</article>
+				</section>
+			@endif
+		@endif
 	</div><!-- row-->
 </div>
 @endsection
