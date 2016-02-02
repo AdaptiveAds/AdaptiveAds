@@ -48,21 +48,30 @@ class Authenticate
             }
         }
 
+        // TODO put somewhere else!!!!!
         // Get users departments and privilages
         $user = Auth::user()->with('departments')
                             ->where('user.id', Auth::id())->first();
 
+        $allowed_departments = [];
+
         // If super user allow access to all departments
         if ($user->is_super_user) {
           $user_departments = Department::all();
+          // TODO DISABLE
+          $user->setAdmin(true);
         } else {
           $user_departments = $user->Departments;
-        }
 
-        // transfer collection to array
-        $allowed_departments = [];
-        foreach ($user_departments as $department) {
-          array_push($allowed_departments, $department);
+          // transfer collection to array
+          foreach ($user_departments as $department) {
+            array_push($allowed_departments, $department);
+
+            // Check if the user is an admin in the department
+            if ($user->isAdmin($department->id)) {
+              $user->setAdmin(true);
+            }
+          }
         }
 
         // Get an array of id's of all departments this user can access
