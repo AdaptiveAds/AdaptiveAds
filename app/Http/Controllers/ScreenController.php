@@ -16,6 +16,7 @@ class ScreenController extends Controller
     {
         // Auth required
         $this->middleware('auth');
+        $this->middleware('adminAccess');
     }
 
     /**
