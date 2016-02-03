@@ -23,7 +23,9 @@ class AdminAccess
       // Get the users allowed departmentments
       // includes both admin and user access/permission
       $allowed_departments = Session::get('allowed_departments');
+      $match_departments = Session::get('match_departments');
       $admin_departments = [];
+      $admin_match_departments = [];
 
       // Does user have permission to access this page?
       if ($super_user == false) {
@@ -34,16 +36,19 @@ class AdminAccess
           foreach ($allowed_departments as $department) {
             if ($department->getAdmin() == true) {
               array_push($admin_departments, $department);
+              array_push($admin_match_departments, $department->id);
             }
           }
         }
       } else {
         $admin_departments = $allowed_departments;
+        $admin_match_departments = $match_departments;
       }
 
       // Save an array of the departments that this user has
       // admin permissions to access
       Session::flash('allowed_departments', $admin_departments);
+      Session::flash('match_departments', $admin_match_departments);
 
       return $next($request);
 
