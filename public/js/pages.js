@@ -198,8 +198,10 @@ var Serve = (function(Page) {
 
     // Update page
     $('h1').html(currentAdvert.pages[index].page_data.heading);
-    $('#page_content').html(currentAdvert.pages[index].page_data.content_1);
-    $('#page_image').attr('src', currentAdvert.pages[index].page_data.image_path_1);
+    $('#page_content_1').html(currentAdvert.pages[index].page_data.content_1);
+    $('#page_image_1').attr('src', '../advert_images/' + currentAdvert.pages[index].page_data.image_path_1);
+    $('#page_content_2').html(currentAdvert.pages[index].page_data.content_2);
+    $('#page_image_2').attr('src', '../advert_images/' + currentAdvert.pages[index].page_data.image_path_2);
 
     return ++index;
 

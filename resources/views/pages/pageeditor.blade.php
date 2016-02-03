@@ -28,9 +28,13 @@
 	<form name="pageEditor" action="index_submit" method="get" accept-charset="utf-8"> -->
 		<ul>
 		@if (isset($pageData))
-			{!! Form::open(['route' => ['dashboard.advert.{adID}.page.update', $page->advert_id, $page->id], 'method' => 'PUT']) !!}
+			{!! Form::open(['route' => ['dashboard.advert.{adID}.page.update', $page->advert_id, $page->id],
+																	'method' => 'PUT',
+																	'files' => true]) !!}
 		@else
-			{!! Form::open(['route' => ['dashboard.advert.{adID}.page.store',  $page->advert_id], 'method' => 'POST']) !!}
+			{!! Form::open(['route' => ['dashboard.advert.{adID}.page.store',  $page->advert_id],
+			 														'method' => 'POST',
+																	'files' => true]) !!}
 		@endif
 			<!-- ADDED class=landscape as default for SCSS targeting:: This will enable active button formatting -->
 			<li id="orientation">
@@ -40,35 +44,36 @@
 			</li>
 			<li>
 				<label>Title</label>
-				<input type="text" placeholder="Page Name...." name="txtPageName" value="{{ $pageData->heading or '' }}"/>
+				<input type="text" placeholder="Page Name...." name="txtPageName" value="{{ $pageData->heading or '' }}" required>
 			</li>
 			<li>
 				<label>Image 1:</label>
-				<input type="text" name="txtPageImage" placeholder="Image path..." value="{{ $pageData->image_path or '' }}"><br>
+				<input type="file" name="filPageImage_1" accept="image/*"/><br>
 			</li>
-			<li><textarea title="content" type="text" name="imageMeta" placeholder="Example: Rabit on Chair..." required>{{ $pageData->image_meta or '' }}</textarea></li>
+			<li><textarea title="content" type="text" name="txtMeta_1" placeholder="Example: Rabit on Chair...">{{ $pageData->image_meta_1 or '' }}</textarea></li>
 			<li>
 				<label>Image 2:</label>
-				<input type="text" name="txtPageImage" placeholder="Image path..." value="{{ $pageData->page_image or '' }}"><br>
+				<input type="file" name="filPageImage_2" accept="image/*"/><br>
 			</li>
-			<li><textarea title="content" type="text" name="imageMeta" placeholder="Example: Dog playing violin..." required></textarea></li>
+			<li><textarea title="content" type="text" name="txtMeta_2" placeholder="Example: Dog playing violin..."></textarea></li>
 			<li>
-				<label>Video:</label>
-				<input type="text" name="txtPageVideo" placeholder="Video path..." value="{{ $pageData->video_path or '' }}"><br>
+				<label>Video 1:</label>
+				<input type="file" name="filPageVideo_1" accept="video/*"/><br>
 			</li>
-			<li><textarea title="content" type="text" name="txtVideoMeta" placeholder="Example: Rabit and Dog playing music..." required>{{ $pageData->video_meta or '' }}</textarea></li>
+			<li><textarea title="content" type="text" name="txtVideoMeta" placeholder="Example: Rabit and Dog playing music...">{{ $pageData->video_meta or '' }}</textarea></li>
 			<li>
-				<label>Page Index: </label>
-				<input type="number" name="NumPageIndex" value="{{ $page->page_index or 0}}"/>
+				<label>Video 2:</label>
+				<input type="file" name="filPageVideo_2" accept="video/*"/><br>
 			</li>
+			<li><textarea title="content" type="text" name="txtVideoMeta" placeholder="Example: Rabit and Dog playing music...">{{ $pageData->video_meta or '' }}</textarea></li>
 			<li>
 				<label>Content 1:</label>
-				<textarea title="content" type="text" name="txtPageContent" placeholder="Enter Content..." required>{{ $pageData->content_1 or '' }}
+				<textarea title="content" type="text" name="txtPageContent_1" placeholder="Enter Content...">{{ $pageData->content_1 or '' }}
 				</textarea>
 			</li>
 			<li>
 				<label>Content 2:</label>
-				<textarea title="content" type="text" name="pageContent" placeholder="Enter Content..." required>{{ $pageData->content_2 or '' }}
+				<textarea title="content" type="text" name="txtPageContent_2" placeholder="Enter Content...">{{ $pageData->content_2 or '' }}
 				</textarea>
 			</li>
 			<li><button type="submit" class="submit" name="btnSavePage">Save</button></li>
