@@ -9,7 +9,7 @@
 																			 'allowed_departments' => $allowed_departments,
 																			 'route' => 'dashboard.playlist.store'))
 
-<div class="settings">
+<div class="dashboard">
 	<div class="row">
 		<form name="dashboardUserDetails" action="index_submit" method="get" accept-charset="utf-8">
 		<h3>User Settings</h3>
@@ -52,9 +52,9 @@
 	</div>
 
 	<div class="row">
-		<section>
+		<div class="options">
 			<h4 class="indent">Options</h4>
-			<article>
+
 				<ul>
 					<li>
 						<a href="{{ URL::to('dashboard/playlist')}}">
@@ -91,12 +91,12 @@
 					</li>
 				</ul>
 				<div class="clear"></div>
-			</article>
-		</section>
 
-		<section>
+		</div>
+
+		<div class="options">
 			<h4>Admin Settings</h4>
-			<article>
+
 				<ul>
 
 					<li>
@@ -129,12 +129,11 @@
 					</li>
 				</ul>
 				<div class="clear"></div>
-			</article>
-		</section>
 
-		<section>
+		</div>
+
+		<div class="options">
 			<h4>Super User Settings</h4>
-			<article>
 				<ul>
 					<li>
 						<a href="{{ URL::to('dashboard/settings/locations/')}}">
@@ -160,8 +159,8 @@
 					</li>
 				</ul>
 				<div class="clear"></div>
-			</article>
-		</section>
+
+		</div><!-- options -->
 	</div><!-- row-->
 </div>
 @endsection

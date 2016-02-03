@@ -25,6 +25,9 @@ background-size: 10px 10px;
     color:$sitewide;
     }//headings
 
+    ul {margin:0; padding:0;}
+    li {list-style:none;}
+
     article {
     margin:10px 0;
     }//article
@@ -34,7 +37,6 @@ background-size: 10px 10px;
     border:$border1;
     background:$buttongrey;
     color:$sitewide;
-    padding:5px;
     }//button
 
     button.btn-active {
@@ -232,3 +234,25 @@ background-size: 10px 10px;
     }//close footer
   }//end wrapper
 }//end body
+
+/* Generic */
+input {
+border:none;
+box-shadow:none;
+color:$input;
+background:$lightbg;
+font-weight:bold;
+padding:0px;
+margin:0;
+padding:4px;
+}//input
+
+form {
+border:none;
+color:$sitewide;
+
+  h3 {
+  padding-bottom:8px;
+  }//h3
+
+}//form

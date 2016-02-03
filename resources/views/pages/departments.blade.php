@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="settings">
+<div class="global">
 	<div class="row">
 		{!! Form::open(['route' => 'dashboard.settings.departments.process', 'method' => 'POST']) !!}
 			<h3>Departments</h3>
