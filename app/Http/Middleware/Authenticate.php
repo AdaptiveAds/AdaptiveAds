@@ -54,6 +54,7 @@ class Authenticate
                             ->where('user.id', Auth::id())->first();
 
         $allowed_departments = [];
+        $admin_departments = [];
 
         // If super user allow access to all departments
         if ($user->is_super_user) {
@@ -63,14 +64,37 @@ class Authenticate
         } else {
           $user_departments = $user->Departments;
 
-          // transfer collection to array
-          foreach ($user_departments as $department) {
-            array_push($allowed_departments, $department);
+          /*foreach ($user_departments as $department) {
+            //array_push($admin_departments, $department);
 
             // Check if the user is an admin in the department
             if ($user->isAdmin($department->id)) {
+              //dd($department->id);
               $user->setAdmin(true);
-            }
+              //array_push($admin_departments, $department);
+
+              $bin = $user_departments->pull($department->id);
+              dd($bin->id);
+              array_push($admin_departments, $bin);
+            }*/
+
+            /*dd($user->GetAdminDepartments());
+
+            $admin_departments = $user_departments->filter(function($item) use ($user) {
+              return $user->isAdmin($item->id);
+            })->values();
+          //}
+
+          dd($admin_departments);*/
+        }
+
+        // transfer collection to array
+        foreach ($user_departments as $department) {
+          array_push($allowed_departments, $department);
+
+          // Check if the user is an admin in the department
+          if ($user->isAdmin($department->id)) {
+            $user->setAdmin(true);
           }
         }
 

@@ -109,7 +109,8 @@ class ScreenController extends Controller
       $btnAddScreen = $request->input('btnAddScreen');
       $btnFindScreen = $request->input('btnFindScreen');
       $btnFindAll = $request->input('btnFindAll');
-      $departmentID = $request->input('drpDepartments');
+      $locationID = $request->input('drpLocations');
+      $playlistID = $request->inpu ('drpPlaylists');
       $screenID = $request->input('txtScreenID');
 
       // Check which action to perform
@@ -117,7 +118,8 @@ class ScreenController extends Controller
 
         // Create new screen
         $screen = new Screen();
-        $screen->department_id = $departmentID; // assign department
+        $screen->location_id = $locationID; // assign location
+        $screen->playlist_id = $playlistID or 1; // Set playlist of none selected set default
         $screen->save();
 
         $screenID = null;

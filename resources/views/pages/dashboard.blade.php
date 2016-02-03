@@ -94,6 +94,7 @@
 			</article>
 		</section>
 
+		<!-- Only show if user is admin -->
 		@if (isset($user))
 			@if ($user->getAdmin())
 				<section>
@@ -136,6 +137,7 @@
 			@endif
 		@endif
 
+		<!-- Only show if user is super user -->
 		@if (isset($user))
 			@if ($user->is_super_user)
 				<section>
