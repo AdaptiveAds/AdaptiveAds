@@ -56,8 +56,10 @@ class Authenticate
         $allowed_departments = [];
         $admin_departments = [];
 
+        $super_user = $user->is_super_user;
+
         // If super user allow access to all departments
-        if ($user->is_super_user) {
+        if ($super_user) {
           $user_departments = Department::all();
 
           // transfer collection to array
@@ -99,6 +101,7 @@ class Authenticate
         Session::flash('user', $user);
         Session::flash('allowed_departments', $allowed_departments);
         Session::flash('match_departments', $match_departments);
+        Session::flash('super_user', $super_user); // TODO CHNAGE TO MIDDLEWEAR ON LOCATION
         //dd($user);
 
         return $next($request);
