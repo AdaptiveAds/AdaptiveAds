@@ -9,8 +9,6 @@
 			<ul>
 				<li>
 					<input type="name" name="txtDepartmentName" placeholder="Department Name..." value="{{ $departmentName or '' }}"/>
-					<label>Locations:</label>
-					@include('objects/locations_dropdown', array('locations' => $locations))
 					<label>Skins:</label>
 					@include('objects/skins_dropdown', array('skins' => $skins))
 					<button type="submit" name="btnAddDepartment">Add</button>
