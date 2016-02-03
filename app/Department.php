@@ -43,6 +43,10 @@ class Department extends Model
     return $this->belongsToMany(Advert::class)->withPivot('department_id', 'advert_id');
   }
 
+  public function Screens() {
+    return $this->hasManyThrough(Screen::class, Location::class);
+  }
+
   public function newPivot(Model $parent, array $attributes, $table, $exists) {
       if ($parent instanceof User) {
           return new DepartmentUser($parent, $attributes, $table, $exists);
