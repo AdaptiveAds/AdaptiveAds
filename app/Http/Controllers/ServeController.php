@@ -60,14 +60,9 @@ class ServeController extends Controller
           return response('Not found', 404);
         }
 
-        //dd($screen_playlists);
-        $loaded_screen = $this->loadPlaylists($screen);
-
-        //dd($loaded_screen);
-
         $data = array(
           'pageTitle' => '',
-          'screen' => $loaded_screen
+          'screen' => $screen
         );
 
         return view('templates/templateLayout', $data);
@@ -75,14 +70,23 @@ class ServeController extends Controller
 
     public function loadPlaylists($screen)
     {
-      //$current_advert_index = Session::get('current_advert_index', 1);
-      //$current_page_index = Session::get('current_page_index', 1);
 
-      return $playlist = $screen->with('department.playlists.adverts.pages')
-        //->with('adverts.page')
-        ->with('department.playlists.adverts.pages.pageData')
-        ->with('department.playlists.adverts.pages.template')
-        ->first();
+      /*return $screen
+                    ->with('playlist.adverts.pages')
+                    ->with('playlist.adverts.pages.pageData')
+                    ->with('playlist.adverts.pages.template')
+                    ->first();*/
+
+      return $screen->with(array('playlist' => function($query) {
+          $query->with(array('adverts' => function($query) {
+              $query->where('deleted', 0);
+            }));
+          $query->with(array('adverts.pages' => function($query) {
+            $query->where('deleted', 0);
+            $query->with('pageData');
+            $query->with('template');
+          }));
+        }))->first();
 
       /*return $playlist = Playlist::with(['adverts'=>function($query) use ($current_advert_index) {
             $query->where('advert_index', '=', $current_advert_index);
@@ -96,6 +100,19 @@ class ServeController extends Controller
         ->get();*/
     }
 
+    public function getGlobal()
+    {
+      return Playlist::where('isGlobal', true)
+                      ->with(array('adverts' => function($query) {
+                          $query->where('deleted', 0);
+                        }))
+                      ->with(array('adverts.pages' => function($query) {
+                        $query->where('deleted', 0);
+                        $query->with('pageData');
+                        $query->with('template');
+                      }))->first();
+    }
+
     public function sync($id)
     {
         $screen = Screen::find($id);
@@ -105,7 +122,14 @@ class ServeController extends Controller
           return response('Not found', 404);
         }
 
-        return $this->loadPlaylists($screen);
+        $data = array(
+          'data' => $this->loadPlaylists($screen),
+          'global' => $this->getGlobal()
+        );
+
+        //dd($data);
+
+        return $data;
     }
 
     /**
