@@ -1,4 +1,4 @@
-/**/
+
 #plus_container {
 	width:100%;
 
@@ -10,7 +10,7 @@
 		}//h1
 	}//header
 
-	.row1 {
+	.row {
 		clear:both;
 
 		.quad{
@@ -19,14 +19,13 @@
 		}//close quad
 	}//close row1
 
-	.row2 {
+	.row {
 		clear:both;
 
 		.quad{
 		float:left;
 		}//close quad
-	}//close row2
-
+	}//close row
 	.theme_fourbyfour {
 		.row{
 			clear: both; display:block; min-height:250px;

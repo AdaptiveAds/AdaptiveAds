@@ -37,12 +37,18 @@ background-size: 10px 10px;
     padding:5px;
     }//button
 
+    button.btn-active {
+    background:$logoblue;
+    }//button.btn-active
+
+    button.btn-active:hover {
+    background:$buttongrey;
+    }//button.btn-active:hover
+
     button:hover {
     background:$logoblue;
+    cursor:pointer;
     }//:hover
-
-
-
     a, img, button, button:hover {
     -o-transition:.5s;
     -ms-transition:.5s;
