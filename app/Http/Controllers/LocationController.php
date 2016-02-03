@@ -29,26 +29,13 @@ class LocationController extends Controller
     {
 
       $allowed_departments = Session::get('allowed_departments');
-      $isSuper = Session::get('super_user');
-      $filtered = [];
-
-      if ($isSuper) {
-        $filtered = $allowed_departments;
-      } else {
-
-        foreach ($allowed_departments as $department) {
-          if ($department->getAdmin() == true) {
-            array_push($filtered, $department);
-          }
-        }
-      }
 
       $locations = Location::all();
 
       $data = array(
         'pageID' => '',
         'locations' => $locations,
-        'allowed_departments' => $filtered
+        'allowed_departments' => $allowed_departments
       );
 
       return view('pages/locations', $data);
