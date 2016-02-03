@@ -9,6 +9,16 @@ class Department extends Model
   protected $table = 'department';
   public $timestamps = false;
 
+  protected $admin = false;
+
+  public function setAdmin($value) {
+    $this->admin = $value;
+  }
+
+  public function getAdmin() {
+    return $this->admin;
+  }
+
   public function Playlists() {
     return $this->hasMany(Playlist::class, 'department_id', 'id');
   }

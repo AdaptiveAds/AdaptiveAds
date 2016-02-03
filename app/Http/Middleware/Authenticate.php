@@ -59,44 +59,35 @@ class Authenticate
         // If super user allow access to all departments
         if ($user->is_super_user) {
           $user_departments = Department::all();
-          // TODO DISABLE
-          $user->setAdmin(true);
-        } else {
-          $user_departments = $user->Departments;
 
-          /*foreach ($user_departments as $department) {
-            //array_push($admin_departments, $department);
+          // transfer collection to array
+          foreach ($user_departments as $department) {
 
             // Check if the user is an admin in the department
             if ($user->isAdmin($department->id)) {
-              //dd($department->id);
-              $user->setAdmin(true);
-              //array_push($admin_departments, $department);
+              $user->setAdmin(true); // TODO DISABLE
+              $department->setAdmin(true); // Note user is admin of this department
+            }
 
-              $bin = $user_departments->pull($department->id);
-              dd($bin->id);
-              array_push($admin_departments, $bin);
-            }*/
+            array_push($allowed_departments, $department);
+          }
+        } else {
+          $user_departments = $user->Departments;
 
-            /*dd($user->GetAdminDepartments());
+          // transfer collection to array
+          foreach ($user_departments as $department) {
 
-            $admin_departments = $user_departments->filter(function($item) use ($user) {
-              return $user->isAdmin($item->id);
-            })->values();
-          //}
+            // Check if the user is an admin in the department
+            if ($user->isAdmin($department->id)) {
+              $user->setAdmin(true); // User can access admin settings
+              $department->setAdmin(true); // Note user is admin of this department
+            }
 
-          dd($admin_departments);*/
-        }
-
-        // transfer collection to array
-        foreach ($user_departments as $department) {
-          array_push($allowed_departments, $department);
-
-          // Check if the user is an admin in the department
-          if ($user->isAdmin($department->id)) {
-            $user->setAdmin(true);
+            array_push($allowed_departments, $department);
           }
         }
+
+
 
         // Get an array of id's of all departments this user can access
         $match_departments = [];
