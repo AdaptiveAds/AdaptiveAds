@@ -69,8 +69,8 @@ class PageController extends Controller
       $pageData = new PageData;
 
       $pageData->heading = $request->input('txtPageName');
-      $pageData->image_path = $request->input('txtPageImage');
-      $pageData->video_path = $request->input('txtPageVideo');
+      $pageData->image_path_1 = $request->input('txtPageImage');
+      $pageData->video_path_1 = $request->input('txtPageVideo');
       $pageData->content_1 = $request->input('txtPageContent');
       $pageData->save();
 
@@ -150,8 +150,8 @@ class PageController extends Controller
 
       $pageData = $page->PageData;
       $pageData->heading = $request->input('txtPageName');
-      $pageData->image_path = $request->input('txtPageImage');
-      $pageData->video_path = $request->input('txtPageVideo');
+      $pageData->image_path_1 = $request->input('txtPageImage');
+      $pageData->video_path_1 = $request->input('txtPageVideo');
       $pageData->content_1 = $request->input('txtPageContent');
       $pageData->save();
 
