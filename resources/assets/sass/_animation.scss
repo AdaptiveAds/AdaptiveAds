@@ -1,12 +1,12 @@
 /* Home animation*/
 /**/
 .plane {
-  width: 120px;
-  height: 120px;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-}
-.plane.main {
+width: 120px;
+height: 120px;
+-webkit-transform-style: preserve-3d;
+transform-style: preserve-3d;
+
+  .main {
   position: absolute;
   top: 0;
   left: 0;
@@ -14,21 +14,22 @@
   bottom: 0;
   margin: auto;
   -webkit-transform: rotateX(60deg) rotateZ(-30deg);
-          transform: rotateX(60deg) rotateZ(-30deg);
+  transform: rotateX(60deg) rotateZ(-30deg);
   -webkit-animation: rotate 10s infinite linear;
-          animation: rotate 10s infinite linear;
-}
-.plane.main .circle {
-  width: 120px;
-  height: 120px;
-  position: absolute;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  border-radius: 100%;
-  box-sizing: border-box;
-  box-shadow: 0 0 60px #1d718b, inset 0 0 60px #1d718b;
-}
+  animation: rotate 10s infinite linear;
 
+    .circle {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    border-radius: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 0 60px #1d718b, inset 0 0 60px #1d718b;
+    }//circle
+  }//main
+}//plane
 
 
 @-webkit-keyframes rotate {

@@ -22,10 +22,7 @@
 	</div>
 
 	<div class="row">
-		<!-- TODO REMOVE FORM -->
-		<form>
 			@include('objects/departmentItems')
-		</form>
 	</div>
 </div>
 @endsection
