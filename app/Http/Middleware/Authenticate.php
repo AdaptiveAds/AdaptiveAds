@@ -89,8 +89,6 @@ class Authenticate
           }
         }
 
-
-
         // Get an array of id's of all departments this user can access
         $match_departments = [];
         foreach ($allowed_departments as $department) {
