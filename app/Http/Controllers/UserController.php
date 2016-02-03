@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Session;
+
+use App\Department as Department;
 use App\User as User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -24,11 +27,11 @@ class UserController extends Controller
      */
     public function index()
     {
-      $users = User::all();
+      $allowed_departments = Session::get('allowed_departments');
 
       $data = array(
         'pageID' => '',
-        'users' => $users
+        'allowed_departments' => $allowed_departments
       );
 
       return view('pages/users', $data);
@@ -102,31 +105,48 @@ class UserController extends Controller
 
     public function process(Request $request)
     {
+      $allowed_departments = Session::get('allowed_departments');
+      $user = Session::get('user');
+
       // Get input from request
       $btnFindUser = $request->input('btnFindUser');
       $btnFindAll = $request->input('btnFindAll');
       $username = $request->input('txtUsername');
+      $departmentID = $request->input('drpDepartments');
+      $users = null;
+
+      //$privilage = $user->Departments()->where('id', $departmentID)->first()->pivot->Privilage;
 
       // Check which action to perform
       if (isset($btnFindUser)) {
 
-        // Get users with a userame LIKE that of the input
-        $users = User::where('username', 'LIKE', '%' . $username . '%')->get();
+        if ($user->isAdmin($departmentID)) {
+          // Get users with a userame LIKE that of the input
+          $users = User::where('username', 'LIKE', '%' . $username . '%')->get();
+
+        } else {
+          abort(401, 'Un-authorised');
+        }
 
       } else if (isset($btnFindAll)) {
 
-        // Get all users and clear the remembered search
-        $username = null;
-        $users = User::all();
+        if ($user->is_super_user) {
+          // Get all users and clear the remembered search
+          $username = null;
+          $users = User::all();
+        } else {
+          abort(401, 'Un-authorised');
+        }
 
       } else {
-        abort(401);
+        abort(401, 'Un-authorised');
       }
 
       $data = array(
         'pageID' => '',
         'users' => $users,
-        'username' => $username
+        'username' => $username,
+        'allowed_departments' => $allowed_departments
       );
 
       return view('pages/users', $data);
