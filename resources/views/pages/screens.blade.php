@@ -20,10 +20,7 @@
 	</div>
 
 	<div class="row">
-		<!-- TODO REMOVE FORM -->
-		<form>
 			@include('objects/screenItems')
-		</form>
 	</div>
 </div>
 @endsection

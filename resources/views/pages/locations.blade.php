@@ -19,10 +19,7 @@
 	</div>
 
 	<div class="row">
-		<!-- TODO REMOVE FORM -->
-			<form>
 			@include('objects/locationItems')
-		</form>
 	</div>
 </div>
 @endsection
