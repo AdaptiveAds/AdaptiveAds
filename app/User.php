@@ -55,15 +55,18 @@ class User extends Model implements AuthenticatableContract,
   }
 
   // Checks to see if the user is an admin in a department
-  public function isAdmin($departmendID) {
-    $privilage = $this->belongsToMany(Department::class)->withPivot('privilage_id')
-                      ->where('id', $departmendID)
-                      ->first()
-                      ->pivot
-                      ->privilage;
+  public function isAdmin($departmentID) {
+    $department = $this->belongsToMany(Department::class)->withPivot('privilage_id')
+                      ->where('id', $departmentID)
+                      ->first();
 
-    if ($privilage->level == 0) {
-      return true;
+    if ($department != null) { // Have we found a department with this user?
+      $privilage = $department->pivot
+                              ->privilage;
+
+      if ($privilage->level == 0) { // Is admin?
+        return true;
+      }
     }
 
     return false;
