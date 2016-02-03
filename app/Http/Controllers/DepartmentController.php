@@ -12,6 +12,14 @@ use App\Http\Controllers\Controller;
 
 class DepartmentController extends Controller
 {
+
+    public function __construct()
+    {
+        // Auth required
+        $this->middleware('auth');
+        $this->middleware('adminAccess');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +34,6 @@ class DepartmentController extends Controller
       $data = array(
         'pageID' => '',
         'departments' => $departments,
-        'locations' => $locations,
         'skins' => $skins
       );
 

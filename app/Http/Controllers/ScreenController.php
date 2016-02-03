@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Session;
 
 use App\Screen as Screen;
+use App\Location as Location;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -27,12 +28,14 @@ class ScreenController extends Controller
     public function index()
     {
         $screens = Screen::all();
-        $allowed_departments = Session::get('allowed_departments');
+        $match_departments = Session::get('match_departments');
+
+        $locations = Location::whereIn('department_id', $match_departments)->get();
 
         $data = array(
           'pageID' => '',
           'screens' => $screens,
-          'allowed_departments' => $allowed_departments
+          'locations' => $locations
         );
 
         return view('pages/screens', $data);
