@@ -82,17 +82,26 @@ var Serve = (function(Page) {
     var current_advert_index = 0;// data[0].adverts[0].pivot.advert_index;
     var current_page_index = 0;// data[0].adverts[0].page[0].page_index;
     var max_advert_index = playlist.adverts.length - 1;
-    var duration = playlist.adverts[0].pages[0].template.duration; // Update per advert
+    var duration = 10;
 
-    // Save data to session
-    localStorage.setItem('playlist', JSON.stringify(playlist));
-    localStorage.setItem('globalPlaylist', JSON.stringify(globalPlaylist));
-    localStorage.setItem('current_advert_index', current_advert_index);
-    localStorage.setItem('current_page_index', current_page_index);
-    localStorage.setItem('showGlobal', 0);
+    if (playlist !== undefined && playlist !== null) {
 
-    // Update the page after processing
-    update_page();
+      if (max_advert_index >= 0) {
+        duration = playlist.adverts[0].pages[0].template.duration; // Update per advert
+
+        // Save data to session
+        localStorage.setItem('playlist', JSON.stringify(playlist));
+        localStorage.setItem('globalPlaylist', JSON.stringify(globalPlaylist));
+        localStorage.setItem('current_advert_index', current_advert_index);
+        localStorage.setItem('current_page_index', current_page_index);
+        localStorage.setItem('showGlobal', 0);
+
+        // Update the page after processing
+        update_page();
+      }
+
+    }
+
     updateDurationInterval(duration);
 
   }
@@ -121,39 +130,47 @@ var Serve = (function(Page) {
 
     var currentAdvert = getCurrentAdvert(current_advert_index, showGlobal);
 
-    var max_advert_index = currentAdvert.length - 1;
-    var max_page_index = currentAdvert.pages.length -1;
+    if (currentAdvert !== null && currentAdvert !== undefined) {
+      var max_advert_index = currentAdvert.length - 1;
+      var max_page_index = currentAdvert.pages.length -1;
 
-    if (current_page_index > max_page_index) { // Shown all pages?
-      current_page_index = 0;
+      if (current_page_index > max_page_index) { // Shown all pages?
+        current_page_index = 0;
 
-      current_advert_index++;
-      currentAdvert = getCurrentAdvert(current_advert_index, showGlobal);
+        current_advert_index++;
+        currentAdvert = getCurrentAdvert(current_advert_index, showGlobal);
 
-      if (currentAdvert === undefined || currentAdvert.pages.length == 0) { // Shown all adverts?
-        current_advert_index = 0;
+        if (currentAdvert === undefined || currentAdvert.pages.length == 0) { // Shown all adverts?
+          current_advert_index = 0;
 
-        if (showGlobal == 1) { // Show global?
-          showGlobal = 0;
-          sync_with_server(); // Sync as we've finished both playlists
-          return; // Prevent further execution
-        } else {
-          showGlobal = 1;
-          currentAdvert = getCurrentAdvert(0, showGlobal);
+          if (showGlobal == 1) { // Show global?
+            showGlobal = 0;
+            sync_with_server(); // Sync as we've finished both playlists
+            return; // Prevent further execution
+          } else {
+            showGlobal = 1;
+            currentAdvert = getCurrentAdvert(0, showGlobal);
+          }
         }
       }
+
+      if (currentAdvert !== undefined && currentAdvert !== null) {
+        // Update the duration inverval for this page
+        updateDurationInterval(currentAdvert.pages[current_page_index].template.duration);
+
+        // Display page
+        current_page_index = showPage(currentAdvert, current_page_index);
+
+      } else {
+        showGlobal = 0;
+        sync_with_server();
+      }
+
+      // Update current indexes
+      localStorage.setItem('current_advert_index', current_advert_index);
+      localStorage.setItem('current_page_index', current_page_index);
+      localStorage.setItem('showGlobal', showGlobal);
     }
-
-    // Update the duration inverval for this page
-    updateDurationInterval(currentAdvert.pages[current_page_index].template.duration);
-
-    // Display page
-    current_page_index = showPage(currentAdvert, current_page_index);
-
-    // Update current indexes
-    localStorage.setItem('current_advert_index', current_advert_index);
-    localStorage.setItem('current_page_index', current_page_index);
-    localStorage.setItem('showGlobal', showGlobal);
   }
 
   function getCurrentAdvert(index, showGlobal) {
@@ -163,11 +180,15 @@ var Serve = (function(Page) {
     var globalPlaylist = JSON.parse(localStorage.getItem('globalPlaylist'));
     var advert = null;
 
-    // Show global or screen playlist?
-    if (showGlobal == 0) {
-      advert = playlist.adverts[index];
-    } else {
-      advert =  globalPlaylist.adverts[index];
+    if (playlist !== undefined && playlist !== null) {
+
+      // Show global or screen playlist?
+      if (showGlobal == 0) {
+        advert = playlist.adverts[index];
+      } else {
+        advert =  globalPlaylist.adverts[index];
+      }
+
     }
 
     return advert;
@@ -178,7 +199,7 @@ var Serve = (function(Page) {
     // Update page
     $('h1').html(currentAdvert.pages[index].page_data.heading);
     $('#page_content').html(currentAdvert.pages[index].page_data.content_1);
-    $('#page_image').attr('src', currentAdvert.pages[index].page_data.image_path);
+    $('#page_image').attr('src', currentAdvert.pages[index].page_data.image_path_1);
 
     return ++index;
 
