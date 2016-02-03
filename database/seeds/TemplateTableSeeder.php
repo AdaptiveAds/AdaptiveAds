@@ -19,7 +19,7 @@ class TemplateTableSeeder extends Seeder
       //Populate table
       $table->insert([
         'name' => 'firstTemplate',
-        'class' => 'something',
+        'class_name' => 'something',
         'duration' => 5
       ]);
     }

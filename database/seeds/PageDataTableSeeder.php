@@ -19,10 +19,10 @@ class PageDataTableSeeder extends Seeder
       //Populate table
       $table->insert([
         'heading' => 'Library',
-        'image_path' => 'D:\test.png',
-        'image_meta' => 'something',
-        'video_path' => 'D:\test.mp4',
-        'video_meta' => 'something',
+        'image_path_1' => 'D:\test.png',
+        'image_meta_1' => 'something',
+        'video_path_1' => 'D:\test.mp4',
+        'video_meta_1' => 'something',
         'content_1' => 'Read books here... maybe... zzzz.',
         'content_2' => 'Read books here... maybe... zzzz.',
         'deleted' => 0

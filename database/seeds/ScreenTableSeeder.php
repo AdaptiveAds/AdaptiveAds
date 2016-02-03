@@ -18,7 +18,8 @@ class ScreenTableSeeder extends Seeder
 
       //Populate table
       $table->insert([
-        'department_id' => 1
+        'location_id' => 1,
+        'playlist_id' => 1
       ]);
     }
 }

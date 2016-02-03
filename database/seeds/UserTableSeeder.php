@@ -19,7 +19,8 @@ class UserTableSeeder extends Seeder
       //Populate table
       $table->insert([
         'username' => 'dev',
-        'password' => '$2y$10$IHB0vBYdK99TJWtSDasqEecVYr.hX7Od4WZeUFwSH6i.O0Hucqnzm'
+        'password' => '$2y$10$IHB0vBYdK99TJWtSDasqEecVYr.hX7Od4WZeUFwSH6i.O0Hucqnzm',
+        'is_super_user' => 1
       ]);
     }
 }

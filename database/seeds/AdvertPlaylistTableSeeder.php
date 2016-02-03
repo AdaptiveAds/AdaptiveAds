@@ -18,7 +18,7 @@ class AdvertPlaylistTableSeeder extends Seeder
 
       //Populate table
       $table->insert([
-        'playlist_id' => 1,
+        'playlist_id' => 2,
         'advert_id' => 1,
         'display_schedule_id' => 1,
         'advert_index' => 0
