@@ -22,5 +22,12 @@ class PlaylistTableSeeder extends Seeder
         'deleted' => 0,
         'department_id' => 1
       ]);
+
+      $table->insert([
+        'name' => 'Global Playlist',
+        'deleted' => 0,
+        'department_id' => 1,
+        'isGlobal' => 1
+      ]);
     }
 }

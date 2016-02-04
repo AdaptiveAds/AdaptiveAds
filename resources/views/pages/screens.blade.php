@@ -9,9 +9,13 @@
 			<ul>
 				<li>
 					<input type="name" name="txtScreenID" placeholder="Screen id..." value="{{ $screenID or '' }}"/>
-					<label>Department:</label>
-					@include('objects/departments_dropdown', array('allowed_departments' => $allowed_departments))
-					<button type="submit" name="btnAddScreen">Add</button>
+					<label>Locations:</label>
+					@include('objects/locations_dropdown', array('locations' => $locations))
+					@if (isset($user))
+						@if ($user->is_super_user)
+							<button type="submit" name="btnAddScreen">Add</button>
+						@endif
+					@endif
 					<button type="submit" name="btnFindScreen">Find</button>
 					<button type="submit" name="btnFindAll">Find All</button>
 				</li>

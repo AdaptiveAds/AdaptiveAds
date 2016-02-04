@@ -25,6 +25,17 @@ class User extends Model implements AuthenticatableContract,
   protected $table = 'user';
   public $timestamps = false;
 
+  // If true this user is an admin in at least one deapartment
+  protected $admin = false;
+
+  public function setAdmin($value) {
+    $this->admin = $value;
+  }
+
+  public function getAdmin() {
+    return $this->admin;
+  }
+
   /**
    * The attributes that are mass assignable.
    *
@@ -41,6 +52,24 @@ class User extends Model implements AuthenticatableContract,
 
   public function Departments() {
     return $this->belongsToMany(Department::class)->withPivot('privilage_id');
+  }
+
+  // Checks to see if the user is an admin in a department
+  public function isAdmin($departmentID) {
+    $department = $this->belongsToMany(Department::class)->withPivot('privilage_id')
+                      ->where('id', $departmentID)
+                      ->first();
+
+    if ($department != null) { // Have we found a department with this user?
+      $privilage = $department->pivot
+                              ->privilage;
+
+      if ($privilage->level == 0) { // Is admin?
+        return true;
+      }
+    }
+
+    return false;
   }
 
   public function newPivot(Model $parent, array $attributes, $table, $exists) {

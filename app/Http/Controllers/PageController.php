@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+
+use Input;
 
 use App\Page as Page;
 use App\PageData as PageData;
@@ -59,19 +60,39 @@ class PageController extends Controller
       // Validation
       $this->validate($request, [
           'txtPageName' => 'required|max:255',
-          'txtPageImage' => 'max:255',
-          'txtPageVideo' => 'max:255',
-          'txtPageContent' => 'max:255',
-          //'pageIndex' => 'unique:page'
       ]);
 
       // Was validation successful?
       $pageData = new PageData;
 
+      dd($request->input('txtPageImage_1'));
+
       $pageData->heading = $request->input('txtPageName');
-      $pageData->image_path = $request->input('txtPageImage');
-      $pageData->video_path = $request->input('txtPageVideo');
+      $pageData->video_path_1 = $request->input('txtPageVideo');
       $pageData->content_1 = $request->input('txtPageContent');
+
+      // Upload image 1
+      $imageInput = Input::file('filPageImage_1');
+      if ($imageInput != null) {
+        $imagePath = $this->processImage($imageInput);
+
+        // If we have a valid image then set the path in the database
+        if ($imagePath != null) {
+          $pageData->image_path_1 = $imagePath;
+        }
+      }
+
+      // Upload image 2
+      $imageInput = Input::file('filPageImage_2');
+      if ($imageInput != null) {
+        $imagePath = $this->processImage($imageInput);
+
+        // If we have a valid image then set the path in the database
+        if ($imagePath != null) {
+          $pageData->image_path_2 = $imagePath;
+        }
+      }
+
       $pageData->save();
 
       $page = new Page;
@@ -136,11 +157,7 @@ class PageController extends Controller
 
       // Validation
       $this->validate($request, [
-          'txtPageName' => 'required|max:255',
-          'txtPageImage' => 'max:255',
-          'txtPageVideo' => 'max:255',
-          'txtPageContent' => 'max:255',
-          //'pageIndex' => 'unique:page'
+          'txtPageName' => 'required|max:255', 
       ]);
 
       $page = Page::find($id);
@@ -150,9 +167,34 @@ class PageController extends Controller
 
       $pageData = $page->PageData;
       $pageData->heading = $request->input('txtPageName');
-      $pageData->image_path = $request->input('txtPageImage');
-      $pageData->video_path = $request->input('txtPageVideo');
-      $pageData->content_1 = $request->input('txtPageContent');
+      $pageData->content_1 = $request->input('txtPageContent_1');
+      $pageData->content_2 = $request->input('txtPageContent_2');
+
+      // Upload image 1
+      $imageInput = Input::file('filPageImage_1');
+      if ($imageInput != null) {
+        $imagePath = $this->processImage($imageInput);
+
+        // If we have a valid image then set the path in the database
+        if ($imagePath != null) {
+          $pageData->image_path_1 = $imagePath;
+        }
+      }
+
+      // Upload image 2
+      $imageInput = Input::file('filPageImage_2');
+      if ($imageInput != null) {
+        $imagePath = $this->processImage($imageInput);
+
+        // If we have a valid image then set the path in the database
+        if ($imagePath != null) {
+          $pageData->image_path_2 = $imagePath;
+        }
+      }
+
+
+      $pageData->video_path_1 = $request->input('txtPageVideo');
+
       $pageData->save();
 
       return redirect()->route('dashboard.advert.{adID}.page.show', [$adID, $page->id]);
@@ -172,5 +214,20 @@ class PageController extends Controller
         $page->save();
 
         return redirect()->route('dashboard.advert.show', [$adID]);
+    }
+
+    public function processImage($input) {
+
+      if ($input->isValid()) {
+        $filename  = time() . '.' . $input->getClientOriginalExtension();
+
+        $path = public_path('advert_images/');
+
+        $input->move($path, $filename); // uploading file to given path
+
+        return $filename;
+      }
+
+      return null;
     }
 }

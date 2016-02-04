@@ -9,12 +9,22 @@ class Department extends Model
   protected $table = 'department';
   public $timestamps = false;
 
+  protected $admin = false;
+
+  public function setAdmin($value) {
+    $this->admin = $value;
+  }
+
+  public function getAdmin() {
+    return $this->admin;
+  }
+
   public function Playlists() {
     return $this->hasMany(Playlist::class, 'department_id', 'id');
   }
 
   public function Location() {
-    return $this->belongsTo(Location::class, 'location_id');
+    return $this->hasMany(Location::class, 'department_id', 'id');
   }
 
   public function Screen() {
@@ -31,6 +41,10 @@ class Department extends Model
 
   public function Adverts() {
     return $this->belongsToMany(Advert::class)->withPivot('department_id', 'advert_id');
+  }
+
+  public function Screens() {
+    return $this->hasManyThrough(Screen::class, Location::class);
   }
 
   public function newPivot(Model $parent, array $attributes, $table, $exists) {

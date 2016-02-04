@@ -16,10 +16,14 @@ class DepartmentTableSeeder extends Seeder
       //Empty table
       $table->delete();
 
+      $table->insert([
+        'name' => 'Global_Marketing',
+        'skin_id' => 1
+      ]);
+
       //Populate table
       $table->insert([
         'name' => 'Library',
-        'location_id' => 1,
         'skin_id' => 1
       ]);
     }

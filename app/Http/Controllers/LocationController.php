@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Session;
+
 use App\Location as Location;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -15,6 +17,7 @@ class LocationController extends Controller
     {
         // Auth required
         $this->middleware('auth');
+        $this->middleware('adminAccess');
     }
 
     /**
@@ -25,11 +28,14 @@ class LocationController extends Controller
     public function index()
     {
 
+      $allowed_departments = Session::get('allowed_departments');
+
       $locations = Location::all();
 
       $data = array(
         'pageID' => '',
-        'locations' => $locations
+        'locations' => $locations,
+        'allowed_departments' => $allowed_departments
       );
 
       return view('pages/locations', $data);
@@ -114,6 +120,7 @@ class LocationController extends Controller
       $btnFindLocation = $request->input('btnFindLocation');
       $btnFindAll = $request->input('btnFindAll');
       $locationName = $request->input('txtLocationName');
+      $departmentID = $request->input('drpDepartments');
 
       // Check which action to perform
       if (isset($btnAddLocation)) {
@@ -121,6 +128,7 @@ class LocationController extends Controller
         // Create a new location object
         $location = new Location();
         $location->name = $locationName;
+        $location->department_id = $departmentID;
         $location->save();
 
         // Reset location name so it doesn't appear on the form
@@ -132,7 +140,8 @@ class LocationController extends Controller
       } else if (isset($btnFindLocation)) {
 
         // Get all locations that are LIKE the provided name
-        $locations = Location::where('name', 'LIKE', '%' . $locationName . '%')->get();
+        $locations = Location::where('name', 'LIKE', '%' . $locationName . '%')
+                             ->get();
 
       } else if (isset($btnFindAll)) {
 

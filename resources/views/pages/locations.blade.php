@@ -9,7 +9,9 @@
 				<ul>
 					<li>
 						<input type="name" name="txtLocationName" placeholder="Location name...."
-									 value="{{ $searchItem or '' }}" required>
+									 value="{{ $searchItem or '' }}"/>
+						<label>Department:</label>
+ 						@include('objects/departments_dropdown', array('allowed_departments' => $allowed_departments))
 						<button type="submit" name="btnAddLocation">Add</button>
 						<button type="submit" name="btnFindLocation">Find</button>
 						<button type="submit" name="btnFindAll">Find all</button>

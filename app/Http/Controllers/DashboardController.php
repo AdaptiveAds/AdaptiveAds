@@ -20,10 +20,12 @@ class DashboardController extends Controller
     {
 
       $allowed_departments = Session::get('allowed_departments');
+      $user = Session::get('user');
 
       $data = array(
         'pageID' => 'dashboard',
-        'allowed_departments' => $allowed_departments
+        'allowed_departments' => $allowed_departments,
+        'user' => $user
       );
 
       return view('pages/dashboard', $data);

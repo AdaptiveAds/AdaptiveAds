@@ -4,14 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Session;
+
 use App\Department as Department;
-use App\Location as Location;
+use App\Playlist as Playlist;
 use App\Skin as Skin;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class DepartmentController extends Controller
 {
+
+    public function __construct()
+    {
+        // Auth required
+        $this->middleware('auth');
+        $this->middleware('adminAccess');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -19,15 +29,18 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-      $departments = Department::all();
-      $locations = Location::all();
+
+      $match_departments = Session::get('match_departments');
+
+      $departments = Department::whereIn('id', $match_departments)->get();
+      $playlists = Playlist::whereIn('department_id', $match_departments)->get();
       $skins = Skin::all();
 
       $data = array(
         'pageID' => '',
         'departments' => $departments,
-        'locations' => $locations,
-        'skins' => $skins
+        'skins' => $skins,
+        'playlists' => $playlists
       );
 
       return view('pages/departments', $data);
@@ -106,7 +119,7 @@ class DepartmentController extends Controller
       $btnFindDepartment = $request->input('btnFindDepartment');
       $btnFindAll = $request->input('btnFindAll');
       $departmentName = $request->input('txtDepartmentName');
-      $locationID = $request->input('drpLocations');
+      $playlistID = $request->input('drpPlaylists');
       $skinID = $request->input('drpSkins');
 
       // Check which action to perform
@@ -115,7 +128,6 @@ class DepartmentController extends Controller
         // Create new department
         $department = new Department();
         $department->name = $departmentName;
-        $department->location_id = $locationID;
         $department->skin_id = $skinID;
         $department->save();
 
@@ -126,8 +138,7 @@ class DepartmentController extends Controller
 
         // Get all departments LIKE the search string and with the same department
         // we don't care about  filtering by skin
-        $departments = Department::where('name', 'LIKE', '%' . $departmentName . '%')
-                                 ->where('location_id', '=', $locationID)->get();
+        $departments = Department::where('name', 'LIKE', '%' . $departmentName . '%');
 
       } else if (isset($btnFindAll)) {
 
@@ -139,10 +150,13 @@ class DepartmentController extends Controller
         abort(401);
       }
 
+      $match_departments = Session::get('match_departments');
+      $playlists = Playlist::whereIn('id', $match_departments)->get();
+
       $data = array(
         'pageID' => '',
         'departments' => $departments,
-        'locations' => Location::all(),
+        'playlists' => $playlists,
         'skins' => Skin::all(),
         'departmentName' => $departmentName
       );
