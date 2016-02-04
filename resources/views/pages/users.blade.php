@@ -11,6 +11,11 @@
 					<input type="name" name="txtUsername" placeholder="Name" value="{{ $username or '' }}"/>
 					<label>Department:</label>
 					@include('objects/departments_dropdown', array('allowed_departments' => $allowed_departments))
+					@if (isset($user))
+						@if ($user->is_super_user)
+							<button type="submit" name="btnFindUser">Find</button>
+						@endif
+					@endif
 					<button type="submit" name="btnFindUser">Find</button>
 					<button type="submit" name="btnFindAll">Find All</button>
 				</li>
