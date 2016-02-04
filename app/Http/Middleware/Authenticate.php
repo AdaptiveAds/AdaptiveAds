@@ -8,6 +8,7 @@ use Illuminate\Contracts\Auth\Guard;
 use Session;
 use Auth;
 use App\User as User;
+use App\Department as Department;
 
 class Authenticate
 {
@@ -48,12 +49,15 @@ class Authenticate
         }
 
         // Get users departments and privilages
-        $user = Auth::user()->with('departments.Location')
-                            ->with('departments.Screen')
-                            ->with('departments.Skin')
+        $user = Auth::user()->with('departments')
                             ->where('user.id', Auth::id())->first();
 
-        $user_departments = $user->Departments;
+        // If super user allow access to all departments
+        if ($user->is_super_user) {
+          $user_departments = Department::all();
+        } else {
+          $user_departments = $user->Departments;
+        }
 
         // transfer collection to array
         $allowed_departments = [];
