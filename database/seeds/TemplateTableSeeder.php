@@ -22,5 +22,11 @@ class TemplateTableSeeder extends Seeder
         'class_name' => 'something',
         'duration' => 5
       ]);
+
+      $table->insert([
+        'name' => 'secondTemplate',
+        'class_name' => 'something',
+        'duration' => 2
+      ]);
     }
 }

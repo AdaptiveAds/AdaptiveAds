@@ -15,7 +15,7 @@ class AdvsDb extends Migration
         Schema::create('template', function (Blueprint $table) {
 				    $table->engine = 'InnoDB';
         		$table->increments('id');
-        		$table->string('name', 20);
+        		$table->string('name', 40);
         		$table->string('class_name', 50);
         		$table->integer('duration');
         	});
@@ -23,17 +23,17 @@ class AdvsDb extends Migration
         Schema::create('page_data', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('heading', 20);
-            $table->string('content_1');
-            $table->string('content_2');
-            $table->string('image_path_1');
-            $table->string('image_path_2');
-            $table->string('image_meta_1');
-            $table->string('image_meta_2');
-            $table->string('video_path_1');
-            $table->string('video_path_2');
-            $table->string('video_meta_1');
-            $table->string('video_meta_2');
+            $table->text('heading', 20);
+            $table->text('content_1');
+            $table->text('content_2');
+            $table->text('image_path_1');
+            $table->text('image_path_2');
+            $table->text('image_meta_1');
+            $table->text('image_meta_2');
+            $table->text('video_path_1');
+            $table->text('video_path_2');
+            $table->text('video_meta_1');
+            $table->text('video_meta_2');
             $table->boolean('deleted');
           });
 
@@ -47,8 +47,8 @@ class AdvsDb extends Migration
         Schema::create('skin', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('name', 20);
-            $table->string('class_name', 20);
+            $table->string('name', 30);
+            $table->string('class_name', 30);
           });
 
         Schema::create('privilage', function (Blueprint $table) {
@@ -82,7 +82,7 @@ class AdvsDb extends Migration
         Schema::create('department', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
             $table->increments('id');
-          	$table->string('name', 20);
+          	$table->string('name', 40);
             $table->integer('skin_id')->unsigned();
             $table->foreign('skin_id')
                 	->references('id')
@@ -94,7 +94,7 @@ class AdvsDb extends Migration
         Schema::create('location', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('name', 20);
+            $table->string('name', 40);
             $table->integer('department_id')->unsigned();
             $table->foreign('department_id')
                 	->references('id')
@@ -106,7 +106,7 @@ class AdvsDb extends Migration
         Schema::create('advert', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('name', 20);
+            $table->string('name', 40);
             $table->integer('index');
             $table->boolean('deleted');
             $table->integer('department_id')->unsigned();
