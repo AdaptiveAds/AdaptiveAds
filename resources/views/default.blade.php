@@ -21,6 +21,10 @@
 <!-- preferred plan would be to compile the css from scss prior to uploading using propos -->
 	<link rel="stylesheet" 	href="{{ URL::asset('css/default.css') }}" type="text/css">
 
+<!-- requires testing in conjunction with contact form
+https://developers.google.com/recaptcha/docs/display -->
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 	<script src="{{ URL::asset('js/jquery-2.1.4.js') }}"></script>
 	<script type="text/javascript">
 	$('document').ready(function(){

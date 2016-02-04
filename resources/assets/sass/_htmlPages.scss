@@ -108,7 +108,7 @@ float:left; width:70%; min-height:300px;
 
 	/* Default Orientation - Landscape*/
 	.pagecontainer {
-	width:100%; min-height:400px; border:$border1; background:transparent; box-sizing:border-box;
+	width:100%; min-height:400px; background:transparent; box-sizing:border-box;
 
 		ul.theme_select {
 
@@ -127,7 +127,7 @@ float:left; width:70%; min-height:300px;
 	}//pagecontainer
 
 	.pagecontainer:last-child {
-	min-height:100px; background:orange; margin-top:5px;
+	min-height:100px; background:transparent; margin-top:5px;
 	}//last-child
 }//left
 
