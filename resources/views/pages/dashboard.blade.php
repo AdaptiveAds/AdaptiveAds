@@ -9,7 +9,7 @@
 																			 'allowed_departments' => $allowed_departments,
 																			 'route' => 'dashboard.playlist.store'))
 
-<div class="settings">
+<div class="dashboard">
 	<div class="row">
 		<form name="dashboardUserDetails" action="index_submit" method="get" accept-charset="utf-8">
 		<h3>User Settings</h3>
@@ -52,9 +52,9 @@
 	</div>
 
 	<div class="row">
-		<section>
-			<h4 class="indent">Options</h4>
-			<article>
+		<div class="options">
+			<h4>Options</h4>
+
 				<ul>
 					<li>
 						<a href="{{ URL::to('dashboard/playlist')}}">
@@ -91,16 +91,15 @@
 					</li>
 				</ul>
 				<div class="clear"></div>
-			</article>
-		</section>
 
+		</div>
 		<!-- Only show if user is admin -->
 		@if (isset($user))
 			@if ($user->getAdmin())
-				<section>
-					<h4>Admin Settings</h4>
-					<article>
-						<ul>
+		<div class="options">
+			<h4>Admin Settings</h4>
+
+				<ul>
 
 							<li>
 								<a href="{{ URL::to('dashboard/settings/locations/')}}">
@@ -132,17 +131,17 @@
 							</li>
 						</ul>
 						<div class="clear"></div>
-					</article>
-				</section>
+
+		</div>
 			@endif
 		@endif
 
 		<!-- Only show if user is super user -->
 		@if (isset($user))
 			@if ($user->is_super_user)
-				<section>
+				<div class="options">
 					<h4>Super User Settings</h4>
-					<article>
+				
 						<ul>
 							<li>
 								<a href="{{ URL::to('dashboard/settings/locations/')}}">
@@ -168,8 +167,7 @@
 							</li>
 						</ul>
 						<div class="clear"></div>
-					</article>
-				</section>
+				</div>
 			@endif
 		@endif
 	</div><!-- row-->

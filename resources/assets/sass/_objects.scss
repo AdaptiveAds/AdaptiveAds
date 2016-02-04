@@ -1,12 +1,17 @@
+/* Josh's code */
+
+/* advert and playlist editor */
+//select up and down functionality
 .advertItem {
 	width: 300px;
 	height:50px;
 }
 
 .selected {
-	background: #52D4FF;
+	background: $logoblue;
 }
 
+/* pop-up */
 .modalDialog {
 	position: fixed;
 	font-family: Arial, Helvetica, sans-serif;
