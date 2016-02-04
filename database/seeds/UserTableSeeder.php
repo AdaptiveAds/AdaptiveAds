@@ -32,13 +32,13 @@ class UserTableSeeder extends Seeder
       $table->insert([
         'username' => 'admin',
         'password' => '$2y$10$IHB0vBYdK99TJWtSDasqEecVYr.hX7Od4WZeUFwSH6i.O0Hucqnzm',
-        'is_super_user' => 1
+        'is_super_user' => 0
       ]);
 
       $table->insert([
         'username' => 'user',
         'password' => '$2y$10$IHB0vBYdK99TJWtSDasqEecVYr.hX7Od4WZeUFwSH6i.O0Hucqnzm',
-        'is_super_user' => 1
+        'is_super_user' => 0
       ]);
     }
 }
