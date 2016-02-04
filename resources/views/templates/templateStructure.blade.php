@@ -1,21 +1,29 @@
 <div id="plus_container" class="theme_fourbyfour">
 
-	<div id="header"><h1>Heading</h1></div>
+	<div id="header"><h1 name="pageName">{{ $pageData->heading or 'Heading' }}</h1></div>
   <div class="row">
-    	<div class="quad"><img src="/images/logo.png" title="" alt=""/></div>
+    	<div class="quad">
+				@if (isset($pageData->image_path_1) AND $pageData->image_path_1 != '')
+						<img src="/advert_images/{{ $pageData->image_path_1 }}" title="" alt=""/>
+				@else
+						<img src="/images/logo.png" title="" alt=""/>
+				@endif
+			</div>
 	    <div class="quad" id="page_content">
-	    	<p>This is a cool paragraph from J Dog.
-				</p>
+	    	<p name="pageContent_1">{{ $pageData->content_1 or '' }}</p>
 			</div>
 	</div>
 
 	<div class="row">
-    	<div class="quad"><img src="" title="" alt=""/></div>
+    	<div class="quad">
+				@if (isset($pageData->image_path_2) AND $pageData->image_path_2 != '')
+						<img src="/advert_images/{{ $pageData->image_path_2 }}" title="" alt=""/>
+				@else
+						<img src="/images/logo.png" title="" alt=""/>
+				@endif
+			</div>
 	    <div class="quad">
-	    	<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum
-				tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
-				ultricies mi vitae est. Mauris placerat eleifend leo.
-				</p>
+	    	<p name="pageContent_2">{{ $pageData->content_2 or '' }}</p>
 			</div>
 	</div>
   <div class="clear"></div>
