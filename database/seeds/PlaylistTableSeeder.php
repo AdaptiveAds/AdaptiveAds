@@ -18,16 +18,17 @@ class PlaylistTableSeeder extends Seeder
 
       //Populate table
       $table->insert([
-        'name' => 'Libray Playlist',
-        'deleted' => 0,
-        'department_id' => 1
-      ]);
-
-      $table->insert([
         'name' => 'Global Playlist',
         'deleted' => 0,
         'department_id' => 1,
         'isGlobal' => 1
       ]);
+
+      $table->insert([
+        'name' => 'Libray Playlist',
+        'deleted' => 0,
+        'department_id' => 2
+      ]);
+
     }
 }

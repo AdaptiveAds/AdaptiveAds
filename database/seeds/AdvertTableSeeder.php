@@ -20,7 +20,7 @@ class AdvertTableSeeder extends Seeder
       $table->insert([
         'name' => 'myAdvert',
         'deleted' => 0,
-        'department_id' => 1
+        'department_id' => 2
       ]);
     }
 }

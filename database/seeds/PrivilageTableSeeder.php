@@ -21,5 +21,10 @@ class PrivilageTableSeeder extends Seeder
         'name' => 'Admin',
         'level' => 0
       ]);
+
+      $table->insert([
+        'name' => 'User',
+        'level' => 1
+      ]);
     }
 }
