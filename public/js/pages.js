@@ -210,3 +210,33 @@ var Serve = (function(Page) {
   return Page;
 
 } (Page || {}));
+
+var PageEditor = (function(Page) {
+
+  Page.register_eventhandlers = function() {
+
+    $('input[name$="txtPageName"]').keyup(function() {
+      $('[name$="pageName"]').html($(this).val());
+    });
+
+    $('[name$="txtPageContent_1"]').keyup(function() {
+      $('[name$="pageContent_1"]').html($(this).val());
+    });
+
+    $('[name$="txtPageContent_2"]').keyup(function() {
+      $('[name$="pageContent_2"]').html($(this).val());
+    });
+
+  }
+
+  Page.init = function() {
+    Page.register_eventhandlers();
+  }
+
+  Page.dispose = function() {
+
+  }
+
+  return Page;
+
+} (Page || {}));

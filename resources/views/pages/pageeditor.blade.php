@@ -2,8 +2,15 @@
 
 @section('content')
 
+<script>
+	// Do sync and AJAX here.... TODO
+	$('document').ready(function() {
+		PageEditor.init();
+	});
+</script>
+
 <h3>Page Editor</h3>
-<h3>Title: {{ $pageData->heading or 'New Page'}}</h3>
+<h3 name="hedTitle">Title: {{ $pageData->heading or 'New Page'}}</h3>
 
 <div id="left" class="landscape theme_oneImages">
 	<div class="pagecontainer">
