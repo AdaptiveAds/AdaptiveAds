@@ -14,7 +14,7 @@ class Department extends Model
   }
 
   public function Location() {
-    return $this->hasMany(Location::class, 'department_id', 'id');
+    return $this->belongsTo(Location::class, 'location_id');
   }
 
   public function Screen() {

@@ -13,7 +13,8 @@
 			<label for="password">Password</label>
 			<input type="password" name="password" placeholder="password" required>
 		</li>
-		<button class="submit">Login</button>
+		<!-- submit button should not be inside <li> tag for formatting resasons -->
+		<input class="submit" type="submit" value="Login">
 	</ul>
 	<ul>
 		<li><a href="{{ URL::to('auth/register') }}">Register</a></li>

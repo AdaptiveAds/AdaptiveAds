@@ -29,7 +29,7 @@ var Page = (function() {
 
 var Serve = (function(Page) {
 
-  var durationIntervalHandle;
+  var updateIntervalHandle;
 
   var syncInterval = 10000;
   var syncAction = "";
@@ -45,10 +45,6 @@ var Serve = (function(Page) {
   //  Make AJAX request to server
   function sync_with_server() {
     // Source : http://learninglaravel.net/using-ajax-in-laravel/link
-
-    // Stop the durtaion inverval before proceeding
-    // this can cause duplicates if we sync after a run
-    IntervalManager.stop(this.durationIntervalHandle);
 
     // Headers source: https://laravel.com/docs/master/routing#csrf-x-csrf-token
     // Required to prevent server 500 error
@@ -75,113 +71,65 @@ var Serve = (function(Page) {
   function process_data(data) {
     AppDebug.print("Processing data...");
 
-    // Shorten vars for easy coding
-    var playlist = data.data.playlist;
-    var globalPlaylist = data.global;
+    //AppDebug.print(data.department.playlists[0].adverts.length);
 
+    // Get lower and upper indexes TODO Fill in
     var current_advert_index = 0;// data[0].adverts[0].pivot.advert_index;
     var current_page_index = 0;// data[0].adverts[0].page[0].page_index;
-    var max_advert_index = playlist.adverts.length - 1;
-    var duration = playlist.adverts[0].pages[0].template.duration; // Update per advert
+    var max_advert_index = data.department.playlists[0].adverts.length - 1;
+    var duration = data.department.playlists[0].adverts[current_advert_index].pages[current_page_index].template.duration;
 
     // Save data to session
-    localStorage.setItem('playlist', JSON.stringify(playlist));
-    localStorage.setItem('globalPlaylist', JSON.stringify(globalPlaylist));
+    localStorage.setItem('playlist', JSON.stringify(data));
     localStorage.setItem('current_advert_index', current_advert_index);
     localStorage.setItem('current_page_index', current_page_index);
-    localStorage.setItem('showGlobal', 0);
+    localStorage.setItem('max_advert_index', max_advert_index);
 
-    // Update the page after processing
-    update_page();
-    updateDurationInterval(duration);
+    if (this.updateIntervalHandle === undefined && this.syncIntervalHandle === undefined) {
 
-  }
+      // Set up an interval to keep syncing with the server
+      this.updateIntervalHandle = IntervalManager.add((duration * 1000),
+                                              update_page_content);
 
-  function updateDurationInterval(duration) {
+      this.syncIntervalHandle = IntervalManager.add(Serve.syncInterval, sync_with_server);
 
-    // If we already have an insterval stop it first
-    if (this.durationIntervalHandle !== undefined) {
-      IntervalManager.stop(this.durationIntervalHandle);
     }
-
-    // Create a new duration interval
-    this.durationIntervalHandle = IntervalManager.add((duration * 1000), update_page);
 
   }
 
   // Data received update content
-  function update_page() {
+  function update_page_content() {
 
     AppDebug.print("Updating page");
 
-    // Load flags from storage
-    var showGlobal = localStorage.getItem('showGlobal');
+    var data = JSON.parse(localStorage.getItem('playlist'));
     var current_advert_index = localStorage.getItem('current_advert_index');
     var current_page_index = localStorage.getItem('current_page_index');
+    var max_advert_index = localStorage.getItem('max_advert_index');
 
-    var currentAdvert = getCurrentAdvert(current_advert_index, showGlobal);
+    // Increament to the next index
+    // keep doing so if we get undefined returned possible skip in the index
+    do {
+      //current_advert_index++; REVIEW need this??
+    } while (data.department.playlists[0].adverts[current_advert_index] === undefined && current_advert_index < max_advert_index);
 
-    var max_advert_index = currentAdvert.length - 1;
-    var max_page_index = currentAdvert.pages.length -1;
+    var max_page_index = data.department.playlists[0].adverts[current_advert_index].pages.length - 1;
 
-    if (current_page_index > max_page_index) { // Shown all pages?
-      current_page_index = 0;
+    do {
+      current_page_index++;
+    } while (data.department.playlists[0].adverts[current_advert_index].pages[current_page_index] === undefined && current_page_index < max_page_index);
 
-      current_advert_index++;
-      currentAdvert = getCurrentAdvert(current_advert_index, showGlobal);
+    // Have we reached the end of the
+    if (current_advert_index > max_advert_index) {current_advert_index = 0;}
+    if (current_page_index > max_page_index) {current_page_index = 0;}
 
-      if (currentAdvert === undefined || currentAdvert.pages.length == 0) { // Shown all adverts?
-        current_advert_index = 0;
-
-        if (showGlobal == 1) { // Show global?
-          showGlobal = 0;
-          sync_with_server(); // Sync as we've finished both playlists
-          return; // Prevent further execution
-        } else {
-          showGlobal = 1;
-          currentAdvert = getCurrentAdvert(0, showGlobal);
-        }
-      }
-    }
-
-    // Update the duration inverval for this page
-    updateDurationInterval(currentAdvert.pages[current_page_index].template.duration);
-
-    // Display page
-    current_page_index = showPage(currentAdvert, current_page_index);
+    // Update page
+    $('h1').html(data.department.playlists[0].adverts[current_advert_index].pages[current_page_index].page_data.heading);
+    $('#page_content').html(data.department.playlists[0].adverts[current_advert_index].pages[current_page_index].page_data.content_1);
 
     // Update current indexes
     localStorage.setItem('current_advert_index', current_advert_index);
     localStorage.setItem('current_page_index', current_page_index);
-    localStorage.setItem('showGlobal', showGlobal);
-  }
-
-  function getCurrentAdvert(index, showGlobal) {
-
-    // Get playlists from storage
-    var playlist = JSON.parse(localStorage.getItem('playlist'));
-    var globalPlaylist = JSON.parse(localStorage.getItem('globalPlaylist'));
-    var advert = null;
-
-    // Show global or screen playlist?
-    if (showGlobal == 0) {
-      advert = playlist.adverts[index];
-    } else {
-      advert =  globalPlaylist.adverts[index];
-    }
-
-    return advert;
-  }
-
-  function showPage(currentAdvert, index) {
-
-    // Update page
-    $('h1').html(currentAdvert.pages[index].page_data.heading);
-    $('#page_content').html(currentAdvert.pages[index].page_data.content_1);
-    $('#page_image').attr('src', currentAdvert.pages[index].page_data.image_path);
-
-    return ++index;
-
   }
 
   return Page;

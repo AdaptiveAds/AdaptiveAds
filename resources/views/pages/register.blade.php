@@ -22,10 +22,10 @@
 			<input type="password" name="password_confirmation" placeholder="Re-type Password" required>
 		</li>
 
-		<button class="submit">Register</button>
+		<input class="submit" type="submit" value="Login">
 	</ul>
 	<ul>
-		<li><a href="{{ URL::to('auth/login') }}">Login</a></li>
+		<li><a href="{{ URL::to('auth/register') }}">Register</a></li>
 		<li><a href="*RunScript for reset">Forgot Password</a></li>
 	</ul>
 </form>

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="global">
+<div class="settings">
 	<div class="row">
 		{!! Form::open(['route' => 'dashboard.settings.departments.process', 'method' => 'POST']) !!}
 			<h3>Departments</h3>
@@ -22,7 +22,10 @@
 	</div>
 
 	<div class="row">
+		<!-- TODO REMOVE FORM -->
+		<form>
 			@include('objects/departmentItems')
+		</form>
 	</div>
 </div>
 @endsection

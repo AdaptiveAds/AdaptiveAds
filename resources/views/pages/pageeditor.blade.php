@@ -7,7 +7,7 @@
 
 <div id="left" class="landscape theme_oneImages">
 	<div class="pagecontainer">
-		@include('templates/templateStructure')
+		@include('templateStructure')
 	</div>
 	<div class="pagecontainer">
 		<ul class="theme_select">
@@ -19,7 +19,7 @@
 			<li class="select_fourbyfour"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
 			<li class="select_fourbyfourReverse"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
 		</ul>
-		<div class="clear"></div>
+
 	</div>
 </div>
 <div id="right">

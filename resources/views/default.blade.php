@@ -21,10 +21,6 @@
 <!-- preferred plan would be to compile the css from scss prior to uploading using propos -->
 	<link rel="stylesheet" 	href="{{ URL::asset('css/default.css') }}" type="text/css">
 
-<!-- requires testing in conjunction with contact form
-https://developers.google.com/recaptcha/docs/display -->
-	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
 	<script src="{{ URL::asset('js/jquery-2.1.4.js') }}"></script>
 	<script type="text/javascript">
 	$('document').ready(function(){
@@ -53,7 +49,7 @@ https://developers.google.com/recaptcha/docs/display -->
 <div id="wrapper">
 	<!-- Only show if user is logged in -->
 	@if (Auth::guest() == false)
-		<div id="signedin">Signed in: <span id="signinName">{{Auth::user()->username}}</span> <a href="{{ URL::to('auth/logout') }}"><button id="signout" class="btn-active">Sign out</button></a></div>
+		<div id="signedin">Signed in: <span id="signinName">{{Auth::user()->username}}</span> | <span id="signinLocation">Cafe</span> | <span id="signinPriv">User</span> | <a href="{{ URL::to('auth/logout') }}"><button id="signout">Sign out</button></a></div>
 	@endif
 		<header id="header">
 			<!-- IF statement for anchor: If the user has not logged in, prompt for login before accessing the dashboard -->
