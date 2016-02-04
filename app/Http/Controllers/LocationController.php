@@ -28,14 +28,15 @@ class LocationController extends Controller
     public function index()
     {
 
+      $user = Session::get('user');
       $allowed_departments = Session::get('allowed_departments');
 
       $locations = Location::all();
 
       $data = array(
-        'pageID' => '',
         'locations' => $locations,
-        'allowed_departments' => $allowed_departments
+        'allowed_departments' => $allowed_departments,
+        'user' => $user
       );
 
       return view('pages/locations', $data);
@@ -154,11 +155,12 @@ class LocationController extends Controller
       }
 
       //dd($locations);
+      $user = Session::get('user');
 
       $data = array(
-        'pageID' => '',
         'locations' => $locations,
-        'searchItem' => $locationName
+        'searchItem' => $locationName,
+        'user' => $user
       );
 
       return view('pages/locations', $data);
