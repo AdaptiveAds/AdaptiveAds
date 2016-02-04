@@ -30,6 +30,7 @@ class DepartmentController extends Controller
     public function index()
     {
 
+      $user = Session::get('user');
       $match_departments = Session::get('match_departments');
 
       $departments = Department::whereIn('id', $match_departments)->get();
@@ -37,7 +38,8 @@ class DepartmentController extends Controller
 
       $data = array(
         'departments' => $departments,
-        'skins' => $skins
+        'skins' => $skins,
+        'user' => $user
       );
 
       return view('pages/departments', $data);
@@ -169,7 +171,8 @@ class DepartmentController extends Controller
       $data = array(
         'departments' => $departments,
         'skins' => Skin::all(),
-        'departmentName' => $departmentName
+        'departmentName' => $departmentName,
+        'user' => $user
       );
 
       return view('pages/departments', $data);
