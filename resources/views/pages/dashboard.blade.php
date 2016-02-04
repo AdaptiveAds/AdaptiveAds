@@ -9,7 +9,7 @@
 																			 'allowed_departments' => $allowed_departments,
 																			 'route' => 'dashboard.playlist.store'))
 
-<div class="dashboard">
+<div class="settings">
 	<div class="row">
 		<form name="dashboardUserDetails" action="index_submit" method="get" accept-charset="utf-8">
 		<h3>User Settings</h3>
@@ -52,9 +52,9 @@
 	</div>
 
 	<div class="row">
-		<div class="options">
-			<h4>Options</h4>
-
+		<section>
+			<h4 class="indent">Options</h4>
+			<article>
 				<ul>
 					<li>
 						<a href="{{ URL::to('dashboard/playlist')}}">
@@ -91,25 +91,18 @@
 					</li>
 				</ul>
 				<div class="clear"></div>
+			</article>
+		</section>
 
-		</div>
-
-		<div class="options">
+		<section>
 			<h4>Admin Settings</h4>
-
+			<article>
 				<ul>
 
 					<li>
 						<a href="{{ URL::to('dashboard/settings/locations/')}}">
 							<i class="fa fa-map-marker">
 								<span>Locations</span>
-							</i>
-						</a>
-					</li>
-					<li>
-						<a href="{{ URL::to('dashboard/settings/departments/')}}">
-							<i class="fa fa-university">
-								<span>Departments</span>
 							</i>
 						</a>
 					</li>
@@ -129,11 +122,12 @@
 					</li>
 				</ul>
 				<div class="clear"></div>
+			</article>
+		</section>
 
-		</div>
-
-		<div class="options">
+		<section>
 			<h4>Super User Settings</h4>
+			<article>
 				<ul>
 					<li>
 						<a href="{{ URL::to('dashboard/settings/locations/')}}">
@@ -159,8 +153,8 @@
 					</li>
 				</ul>
 				<div class="clear"></div>
-
-		</div><!-- options -->
+			</article>
+		</section>
 	</div><!-- row-->
 </div>
 @endsection

@@ -31,7 +31,7 @@ var IntervalManager = (function() {
     // Save the interval handle
     Intervals.push(newInterval);
 
-    AppDebug.print('Stored interval ids = ' + Intervals);
+    AppDebug.print('Stored intervals = ' + Intervals);
 
     // Return the handle just incase we want to stop a specific one later
     return newInterval;
@@ -40,8 +40,6 @@ var IntervalManager = (function() {
   // Stop a specific interval
   function stop(intervalHandle) {
     clearInterval(intervalHandle);
-    var index = Intervals.indexOf(intervalHandle);
-    Intervals.splice(index, 1);
   }
 
   // Stop all intervals
@@ -122,36 +120,3 @@ var SelectManager = (function() {
   };
 
 } ());
-
-// From https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators
-function makeIterator(array){
-    var nextIndex = 0;
-    var length = array.length;
-
-    return {
-       next: function() {
-           return nextIndex < length ?
-               {value: array[nextIndex++], done: false} :
-               {done: true};
-       },
-
-       get: function(index) {
-         return index < length ?
-              {value: array[index], done: false} :
-              {value: null}
-       },
-
-       startPos: function(index) {
-         nextIndex = index;
-       },
-
-       getIndex: function() {
-         return nextIndex;
-       },
-
-       done: function() {
-         return nextIndex < length ?
-            false : true;
-       }
-    }
-}

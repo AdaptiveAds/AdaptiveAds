@@ -1,17 +1,17 @@
-// Contains Variables AND classes for the site
+/**//* Variables */
 @import "_variables.scss";
-
-// contains formatting for objects
-@import "_objects.scss";
-
-// contains HTML Page relative formatting
-@import "_htmlPages";
-
-// Default theme of website (framework)
+/* Classes */
+@import "_classes.scss";
+/* Theme */
 @import "_theme.scss";
+/* Animation */
+@import "_animation.scss";
+/* Pages */
+@import "_pages.scss";
+/* Template Layout
+@import "_template.scss";
+*/
+/* forms */
+@import "_forms.scss";
 
-//Department Skins files
-@import "_skins.scss";
-
-// advert template formatting
-@import "_advertTemplates.scss";
+@import "_objects.scss";

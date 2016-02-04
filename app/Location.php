@@ -10,6 +10,6 @@ class Location extends Model
   public $timestamps = false;
 
   public function Departments() {
-    return $this->belongsTo(Department::class);
+    return $this->hasMany(Department::class);
   }
 }
