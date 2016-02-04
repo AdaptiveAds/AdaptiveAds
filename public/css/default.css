@@ -180,22 +180,21 @@ section {
       padding: 0;
       margin: 0; }
       /* line 72, ../../resources/assets/sass/_htmlPages.scss */
+      .dashboard .row .options ul li:first-child {
+        margin-left: 0; }
+      /* line 76, ../../resources/assets/sass/_htmlPages.scss */
       .dashboard .row .options ul li {
         float: left;
-        margin: 0.2%; }
-        /* line 75, ../../resources/assets/sass/_htmlPages.scss */
+        margin: 1%; }
+        /* line 79, ../../resources/assets/sass/_htmlPages.scss */
         .dashboard .row .options ul li a {
           display: block;
           background: #3a3a3a;
           border-radius: 2px;
           min-width: 90px;
           border: 1px solid black;
-          color: #ffffff;
+          color: #fffffd;
           padding: 10px; }
-          /* line 78, ../../resources/assets/sass/_htmlPages.scss */
-          .dashboard .row .options ul li a :hover {
-            background: #1f6378;
-            color: #ffffff; }
           /* line 82, ../../resources/assets/sass/_htmlPages.scss */
           .dashboard .row .options ul li a i {
             font-size: 2em; }
@@ -206,54 +205,57 @@ section {
               margin: 0;
               margin-top: 4px;
               display: block; }
+        /* line 91, ../../resources/assets/sass/_htmlPages.scss */
+        .dashboard .row .options ul li a:hover {
+          background: #1f6378; }
 
 /***************************/
 /*      Page Editor        */
 /***************************/
-/* line 100, ../../resources/assets/sass/_htmlPages.scss */
+/* line 104, ../../resources/assets/sass/_htmlPages.scss */
 body .pagecontainer #footer {
   width: 100%;
   min-height: 20px;
   background: pink; }
 
-/* line 102, ../../resources/assets/sass/_htmlPages.scss */
+/* line 106, ../../resources/assets/sass/_htmlPages.scss */
 #left {
   float: left;
   width: 70%;
   min-height: 300px;
   /* Default Orientation - Landscape*/ }
-  /* line 106, ../../resources/assets/sass/_htmlPages.scss */
+  /* line 110, ../../resources/assets/sass/_htmlPages.scss */
   #left .pagecontainer {
     width: 100%;
     min-height: 400px;
     border: 1px solid black;
     background: transparent;
     box-sizing: border-box; }
-    /* line 111, ../../resources/assets/sass/_htmlPages.scss */
+    /* line 115, ../../resources/assets/sass/_htmlPages.scss */
     #left .pagecontainer ul.theme_select li {
       width: 20%;
       float: left; }
-      /* line 114, ../../resources/assets/sass/_htmlPages.scss */
+      /* line 118, ../../resources/assets/sass/_htmlPages.scss */
       #left .pagecontainer ul.theme_select li a {
         display: block; }
-        /* line 117, ../../resources/assets/sass/_htmlPages.scss */
+        /* line 121, ../../resources/assets/sass/_htmlPages.scss */
         #left .pagecontainer ul.theme_select li a img {
           width: 100%; }
-  /* line 125, ../../resources/assets/sass/_htmlPages.scss */
+  /* line 129, ../../resources/assets/sass/_htmlPages.scss */
   #left .pagecontainer:last-child {
     min-height: 100px;
     background: orange;
     margin-top: 5px; }
 
 /* Portrait*/
-/* line 133, ../../resources/assets/sass/_htmlPages.scss */
+/* line 137, ../../resources/assets/sass/_htmlPages.scss */
 #left.portrait .pagecontainer {
   float: left;
   width: 75%;
   box-sizing: border-box;
   border-radius: 2px;
   border: 1px solid black; }
-  /* line 136, ../../resources/assets/sass/_htmlPages.scss */
+  /* line 140, ../../resources/assets/sass/_htmlPages.scss */
   #left.portrait .pagecontainer ul.theme_select {
     width: 100%;
     padding: 0;
@@ -261,33 +263,33 @@ body .pagecontainer #footer {
     display: flex;
     text-align: center;
     display: block; }
-    /* line 139, ../../resources/assets/sass/_htmlPages.scss */
+    /* line 143, ../../resources/assets/sass/_htmlPages.scss */
     #left.portrait .pagecontainer ul.theme_select li {
       width: 50%; }
-/* line 151, ../../resources/assets/sass/_htmlPages.scss */
+/* line 155, ../../resources/assets/sass/_htmlPages.scss */
 #left.portrait .pagecontainer:last-child {
   float: left;
   width: 23%;
   background: orange;
   margin-left: 10px; }
 
-/* line 156, ../../resources/assets/sass/_htmlPages.scss */
+/* line 160, ../../resources/assets/sass/_htmlPages.scss */
 #right {
   float: left;
   width: 30%;
   background: transparent;
   box-sizing: border-box; }
-  /* line 162, ../../resources/assets/sass/_htmlPages.scss */
+  /* line 166, ../../resources/assets/sass/_htmlPages.scss */
   #right ul {
     margin: 0 auto;
     background: transparent;
     display: block;
     padding: 0;
     margin-left: 10px; }
-    /* line 169, ../../resources/assets/sass/_htmlPages.scss */
+    /* line 173, ../../resources/assets/sass/_htmlPages.scss */
     #right ul li:first-child {
       margin-top: 0; }
-    /* line 173, ../../resources/assets/sass/_htmlPages.scss */
+    /* line 177, ../../resources/assets/sass/_htmlPages.scss */
     #right ul li {
       display: block;
       background: transparent;
@@ -295,27 +297,27 @@ body .pagecontainer #footer {
       border-radius: 2px;
       padding: 5px;
       border: 1px solid black; }
-      /* line 181, ../../resources/assets/sass/_htmlPages.scss */
+      /* line 185, ../../resources/assets/sass/_htmlPages.scss */
       #right ul li textarea, #right ul li input {
         width: 90%;
         margin: 0 auto; }
-      /* line 186, ../../resources/assets/sass/_htmlPages.scss */
+      /* line 190, ../../resources/assets/sass/_htmlPages.scss */
       #right ul li label {
         display: block; }
-    /* line 191, ../../resources/assets/sass/_htmlPages.scss */
+    /* line 195, ../../resources/assets/sass/_htmlPages.scss */
     #right ul li#orientation {
       padding: 0;
       margin: 0; }
-      /* line 194, ../../resources/assets/sass/_htmlPages.scss */
+      /* line 198, ../../resources/assets/sass/_htmlPages.scss */
       #right ul li#orientation a {
         display: block; }
-      /* line 198, ../../resources/assets/sass/_htmlPages.scss */
+      /* line 202, ../../resources/assets/sass/_htmlPages.scss */
       #right ul li#orientation button:first-child {
         margin-left: 0px; }
-      /* line 202, ../../resources/assets/sass/_htmlPages.scss */
+      /* line 206, ../../resources/assets/sass/_htmlPages.scss */
       #right ul li#orientation button.active, #right ul li#orientation button.active:hover {
         background: #72bcd4; }
-      /* line 206, ../../resources/assets/sass/_htmlPages.scss */
+      /* line 210, ../../resources/assets/sass/_htmlPages.scss */
       #right ul li#orientation button {
         background: #ffffff;
         color: #000000;
@@ -324,7 +326,7 @@ body .pagecontainer #footer {
         float: left;
         padding: 0px 5px;
         overflow: hidden; }
-      /* line 210, ../../resources/assets/sass/_htmlPages.scss */
+      /* line 214, ../../resources/assets/sass/_htmlPages.scss */
       #right ul li#orientation button:hover {
         background: lightblue;
         cursor: pointer; }
@@ -332,42 +334,89 @@ body .pagecontainer #footer {
 /***************************/
 /*         Global          */
 /***************************/
-/* line 220, ../../resources/assets/sass/_htmlPages.scss */
+/* line 224, ../../resources/assets/sass/_htmlPages.scss */
 .global {
   width: 80%;
   margin: 0 auto;
   font-size: 120%; }
-  /* line 225, ../../resources/assets/sass/_htmlPages.scss */
+  /* line 229, ../../resources/assets/sass/_htmlPages.scss */
   .global .row {
     margin-bottom: 1%; }
-    /* line 230, ../../resources/assets/sass/_htmlPages.scss */
+    /* line 234, ../../resources/assets/sass/_htmlPages.scss */
     .global .row ul li {
       margin-top: 1%;
       padding: 1% 1% 1% 0; }
-      /* line 234, ../../resources/assets/sass/_htmlPages.scss */
+      /* line 238, ../../resources/assets/sass/_htmlPages.scss */
       .global .row ul li input {
         font-size: 90%;
         padding-left: 1%; }
-      /* line 239, ../../resources/assets/sass/_htmlPages.scss */
+      /* line 243, ../../resources/assets/sass/_htmlPages.scss */
       .global .row ul li label {
         min-width: 40%; }
-      /* line 243, ../../resources/assets/sass/_htmlPages.scss */
+      /* line 247, ../../resources/assets/sass/_htmlPages.scss */
       .global .row ul li button {
         font-size: 90%;
         float: right;
         margin-left: 1%; }
-  /* line 256, ../../resources/assets/sass/_htmlPages.scss */
+  /* line 260, ../../resources/assets/sass/_htmlPages.scss */
   .global .row:last-child ul li {
     padding: 1%; }
-    /* line 267, ../../resources/assets/sass/_htmlPages.scss */
+    /* line 271, ../../resources/assets/sass/_htmlPages.scss */
     .global .row:last-child ul li button:first-child {
       margin-left: 0; }
-  /* line 272, ../../resources/assets/sass/_htmlPages.scss */
+  /* line 276, ../../resources/assets/sass/_htmlPages.scss */
   .global .row:last-child ul li:nth-child(odd) {
     background: rgba(114, 188, 212, 0.1); }
-  /* line 275, ../../resources/assets/sass/_htmlPages.scss */
+  /* line 279, ../../resources/assets/sass/_htmlPages.scss */
   .global .row:last-child ul li:hover {
     background: rgba(114, 188, 212, 0.4); }
+
+/***************************/
+/*         Login           */
+/***************************/
+/* line 290, ../../resources/assets/sass/_htmlPages.scss */
+form#clientlogin, form#register {
+  margin: 0 auto;
+  width: 15%;
+  text-align: center; }
+  /* line 297, ../../resources/assets/sass/_htmlPages.scss */
+  form#clientlogin ul button, form#register ul button {
+    margin: 10% auto;
+    width: 50%;
+    display: block; }
+  /* line 303, ../../resources/assets/sass/_htmlPages.scss */
+  form#clientlogin ul li, form#register ul li {
+    width: 100%; }
+    /* line 306, ../../resources/assets/sass/_htmlPages.scss */
+    form#clientlogin ul li label, form#clientlogin ul li input, form#register ul li label, form#register ul li input {
+      width: 100%; }
+    /* line 308, ../../resources/assets/sass/_htmlPages.scss */
+    form#clientlogin ul li label, form#register ul li label {
+      display: block;
+      margin-top: 1%;
+      padding: 1%; }
+    /* line 314, ../../resources/assets/sass/_htmlPages.scss */
+    form#clientlogin ul li input, form#register ul li input {
+      display: block;
+      margin-top: 0;
+      width: 94%;
+      text-align: center; }
+    /* line 321, ../../resources/assets/sass/_htmlPages.scss */
+    form#clientlogin ul li input:hover, form#register ul li input:hover {
+      background: lightblue;
+      cursor: pointer; }
+  /* line 329, ../../resources/assets/sass/_htmlPages.scss */
+  form#clientlogin ul:last-child, form#register ul:last-child {
+    margin-top: 1%; }
+    /* line 332, ../../resources/assets/sass/_htmlPages.scss */
+    form#clientlogin ul:last-child li, form#register ul:last-child li {
+      text-align: left; }
+      /* line 335, ../../resources/assets/sass/_htmlPages.scss */
+      form#clientlogin ul:last-child li a, form#register ul:last-child li a {
+        color: lightblue; }
+      /* line 339, ../../resources/assets/sass/_htmlPages.scss */
+      form#clientlogin ul:last-child li a:hover, form#register ul:last-child li a:hover {
+        color: #fffffd; }
 
 /* line 1, ../../resources/assets/sass/_theme.scss */
 body {
@@ -430,7 +479,7 @@ body {
       transition: .5s; }
     /* line 62, ../../resources/assets/sass/_theme.scss */
     body #wrapper a {
-      color: #009632;
+      color: #ffffff;
       text-decoration: none; }
       /* line 66, ../../resources/assets/sass/_theme.scss */
       body #wrapper a img {

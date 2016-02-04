@@ -69,15 +69,15 @@ text-align:center; clear:both;
 		ul {
 		text-decoration:none; list-style:none; padding:0; margin:0;
 
+			li:first-child {
+			margin-left:0;
+			}//li:first-child
+
 			li {
-			float:left; margin:0.2%;
+			float:left; margin:1%;
 
 				a {
-				display:block; background:#3a3a3a; border-radius:$bradius; min-width:90px; border:$border1; color:#ffffff; padding:10px;
-
-					:hover {
-					background:$logoblue; color:#ffffff;
-					}//hover
+				display:block; background:#3a3a3a; border-radius:$bradius; min-width:90px; border:$border1; color:$lightbg; padding:10px;
 
 					i {
 					font-size:2em;
@@ -87,6 +87,10 @@ text-align:center; clear:both;
 						}//span
 					}//i
 				}//a
+
+				a:hover {
+				background:$logoblue;
+				}//hover
 			}//li
 		}//ul
 	}//options
@@ -278,3 +282,65 @@ font-size:120%;
 				}//ul
 	}//row:last-child
 }//global
+
+
+/***************************/
+/*         Login           */
+/***************************/
+form#clientlogin, form#register {
+margin:0 auto;
+width:15%;
+text-align:center;
+
+	ul {
+
+		button {
+		margin:10% auto;
+		width:50%;
+		display:block;
+		}//input
+
+		li {
+		width:100%;
+
+			label, input {width:100%;}
+
+			label {
+			display:block;
+			margin-top:1%;
+			padding:1%;
+			}//label
+
+			input {
+			display:block;
+			margin-top:0;
+			width:94%;
+			text-align:center;
+			}//input
+
+			input:hover {
+			background:$lightblue;
+			cursor:pointer;
+			}//li:hover
+
+		}//li
+	}//ul
+
+	ul:last-child{
+	margin-top:1%;
+
+		li {
+		text-align:left;
+
+			a {
+			color:$lightblue;
+			}//a
+
+			a:hover {
+			color:$lightbg;
+			}//a:hover
+		}//li
+	}//ul:last-child
+
+
+}//clientlogin | register

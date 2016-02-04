@@ -53,7 +53,7 @@
 
 	<div class="row">
 		<div class="options">
-			<h4 class="indent">Options</h4>
+			<h4>Options</h4>
 
 				<ul>
 					<li>
