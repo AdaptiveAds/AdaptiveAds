@@ -10,7 +10,7 @@
 </script>
 
 <h3>Page Editor</h3>
-<h3 name="hedTitle">Title: {{ $pageData->heading or 'New Page'}}</h3>
+<h3 name="pageName">Title: {{ $pageData->heading or 'New Page'}}</h3>
 
 <div id="left" class="landscape theme_oneImages">
 	<div class="pagecontainer">

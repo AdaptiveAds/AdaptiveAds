@@ -211,9 +211,9 @@ var Serve = (function(Page) {
 
 } (Page || {}));
 
-var PageEditor = (function(Page) {
+var PageEditor = (function() {
 
-  Page.register_eventhandlers = function() {
+  function register_eventhandlers() {
 
     $('input[name$="txtPageName"]').keyup(function() {
       $('[name$="pageName"]').html($(this).val());
@@ -229,14 +229,18 @@ var PageEditor = (function(Page) {
 
   }
 
-  Page.init = function() {
-    Page.register_eventhandlers();
+  function init() {
+    register_eventhandlers();
   }
 
-  Page.dispose = function() {
+  function dispose() {
 
   }
 
-  return Page;
+  return {
+    init: init,
+    dispose: dispose,
+    register_eventhandlers: register_eventhandlers
+  };
 
-} (Page || {}));
+}());
