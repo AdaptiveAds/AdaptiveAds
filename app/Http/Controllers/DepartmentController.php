@@ -37,7 +37,6 @@ class DepartmentController extends Controller
       $skins = Skin::all();
 
       $data = array(
-        'pageID' => '',
         'departments' => $departments,
         'skins' => $skins,
         'playlists' => $playlists
@@ -154,7 +153,6 @@ class DepartmentController extends Controller
       $playlists = Playlist::whereIn('id', $match_departments)->get();
 
       $data = array(
-        'pageID' => '',
         'departments' => $departments,
         'playlists' => $playlists,
         'skins' => Skin::all(),

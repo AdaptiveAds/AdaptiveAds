@@ -42,7 +42,6 @@ class PageController extends Controller
         $page->advert_id = $adID;
 
         $data = array(
-          'pageID' => 'pageeditor',
           'page' => $page
         );
 
@@ -103,7 +102,6 @@ class PageController extends Controller
       $page->save();
 
       $data = array(
-        'pageID' => 'pageeditor',
         'page' => $page
       );
 
@@ -125,7 +123,6 @@ class PageController extends Controller
       //dd($pageData);
 
       $data = array(
-        'pageID' => 'pageeditor',
         'page' => $page,
         'pageData' => $pageData
       );
@@ -157,7 +154,7 @@ class PageController extends Controller
 
       // Validation
       $this->validate($request, [
-          'txtPageName' => 'required|max:255', 
+          'txtPageName' => 'required|max:255',
       ]);
 
       $page = Page::find($id);

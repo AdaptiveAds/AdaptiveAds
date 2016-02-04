@@ -39,7 +39,6 @@ class AdvertController extends Controller
         //dd($adverts);
 
         $data = array(
-          'pageID' => '',
           'adverts' => $adverts,
           'allowed_departments' => $allowed_departments
         );
@@ -78,7 +77,6 @@ class AdvertController extends Controller
         $advert->save();
 
         $data = array(
-          'pageID' => 'adverteditor',
           'advert' => $advert
         );
 
@@ -107,7 +105,6 @@ class AdvertController extends Controller
       $pages = $advert->Pages->where('deleted', 0); // Ordered by page index
 
       $data = array(
-        'pageID' => '',
         'advert' => $advert,
         'pages' => $pages
       );
@@ -207,7 +204,6 @@ class AdvertController extends Controller
       }
 
       $data = array(
-        'pageID' => '',
         'adverts' => $adverts,
         'selectedPlaylist' => $playlistID,
         'allowed_departments' => $allowed_departments

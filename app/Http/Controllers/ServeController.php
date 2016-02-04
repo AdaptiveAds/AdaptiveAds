@@ -61,7 +61,6 @@ class ServeController extends Controller
         }
 
         $data = array(
-          'pageTitle' => '',
           'screen' => $screen
         );
 

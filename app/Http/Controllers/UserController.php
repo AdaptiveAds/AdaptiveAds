@@ -31,7 +31,6 @@ class UserController extends Controller
       $allowed_departments = Session::get('allowed_departments');
 
       $data = array(
-        'pageID' => '',
         'allowed_departments' => $allowed_departments
       );
 
@@ -144,7 +143,6 @@ class UserController extends Controller
       }
 
       $data = array(
-        'pageID' => '',
         'users' => $users,
         'username' => $username,
         'allowed_departments' => $allowed_departments

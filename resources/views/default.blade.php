@@ -49,7 +49,7 @@ https://developers.google.com/recaptcha/docs/display -->
 
 </head>
 
-<body id="{{ $pageID }}">
+<body>
 <div id="wrapper">
 	<!-- Only show if user is logged in -->
 	@if (Auth::guest() == false)

@@ -34,7 +34,6 @@ class ScreenController extends Controller
         $locations = Location::whereIn('department_id', $match_departments)->get();
 
         $data = array(
-          'pageID' => '',
           'screens' => $screens,
           'locations' => $locations,
           'user' => $user
@@ -178,7 +177,6 @@ class ScreenController extends Controller
       $locations = Location::whereIn('department_id', $match_departments)->get();
 
       $data = array(
-        'pageID' => '',
         'screens' => $screens,
         'screenID' => $screenID,
         'locations' => $locations,
