@@ -25,9 +25,15 @@ class PlaylistTableSeeder extends Seeder
       ]);
 
       $table->insert([
-        'name' => 'Libray Playlist',
+        'name' => 'Library Services Playlist',
         'deleted' => 0,
         'department_id' => 2
+      ]);
+
+      $table->insert([
+        'name' => 'DegreePlus Playlist',
+        'deleted' => 0,
+        'department_id' => 3
       ]);
 
     }

@@ -30,17 +30,16 @@ class DepartmentController extends Controller
     public function index()
     {
 
+      $user = Session::get('user');
       $match_departments = Session::get('match_departments');
 
       $departments = Department::whereIn('id', $match_departments)->get();
-      $playlists = Playlist::whereIn('department_id', $match_departments)->get();
       $skins = Skin::all();
 
       $data = array(
-        'pageID' => '',
         'departments' => $departments,
         'skins' => $skins,
-        'playlists' => $playlists
+        'user' => $user
       );
 
       return view('pages/departments', $data);
@@ -114,12 +113,16 @@ class DepartmentController extends Controller
 
     public function process(Request $request)
     {
+
+      $departments = null;
+      $user = Session::get('user');
+      $match_departments = Session::get('match_departments');
+
       // Get all inputs from request
       $btnAddDepartment = $request->input('btnAddDepartment');
       $btnFindDepartment = $request->input('btnFindDepartment');
       $btnFindAll = $request->input('btnFindAll');
       $departmentName = $request->input('txtDepartmentName');
-      $playlistID = $request->input('drpPlaylists');
       $skinID = $request->input('drpSkins');
 
       // Check which action to perform
@@ -131,34 +134,45 @@ class DepartmentController extends Controller
         $department->skin_id = $skinID;
         $department->save();
 
+        // Make the creator of the department an admin
+        $user->Departments()->attach($department->id, ['privilage_id' => '1']);
+        array_push($match_departments, $department->id);
+
+        // Reset department name so it doesn't appear on the form
+        $departmentName = null;
+
         // Get all departments including new one
-        $departments = Department::all();
+        //$departments = Department::all();
 
       } else if (isset($btnFindDepartment)) {
 
         // Get all departments LIKE the search string and with the same department
         // we don't care about  filtering by skin
-        $departments = Department::where('name', 'LIKE', '%' . $departmentName . '%');
+        $departments = Department::where('name', 'LIKE', '%' . $departmentName . '%')->get();
 
       } else if (isset($btnFindAll)) {
 
         // Get all departments and clear search string
         $departmentName = null;
-        $departments = Department::all();
+        //$departments = Department::all();
 
       } else {
         abort(401);
       }
 
-      $match_departments = Session::get('match_departments');
-      $playlists = Playlist::whereIn('id', $match_departments)->get();
+      if ($departments == null) {
+        if ($user->is_super_user) {
+          $departments = Department::all();
+        } else {
+          $departments = Department::whereIn('id', $match_departments)->get();
+        }
+      }
 
       $data = array(
-        'pageID' => '',
         'departments' => $departments,
-        'playlists' => $playlists,
         'skins' => Skin::all(),
-        'departmentName' => $departmentName
+        'departmentName' => $departmentName,
+        'user' => $user
       );
 
       return view('pages/departments', $data);

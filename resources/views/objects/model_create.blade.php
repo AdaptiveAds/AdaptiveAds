@@ -15,7 +15,7 @@
         @include('objects/departments_dropdown', array('allowed_departments' => $allowed_departments))
       </div>
       <div class="clear"></div>
-      <input type="submit" class="submit" name="btnCreate{{$object or 'object'}}" value="Create"/>
+      <button type="submit" name="btnCreate{{$object or 'object'}}">Create</button>
     {!! Form::close() !!}
   </div>
 </div>

@@ -2,8 +2,15 @@
 
 @section('content')
 
+<script>
+	// Do sync and AJAX here.... TODO
+	$('document').ready(function() {
+		PageEditor.init();
+	});
+</script>
+
 <h3>Page Editor</h3>
-<h3>Title: {{ $pageData->heading or 'New Page'}}</h3>
+<h3 name="pageName">Title: {{ $pageData->heading or 'New Page'}}</h3>
 
 <div id="left" class="landscape theme_oneImages">
 	<div class="pagecontainer">
@@ -47,33 +54,18 @@
 				<input type="text" placeholder="Page Name...." name="txtPageName" value="{{ $pageData->heading or '' }}" required>
 			</li>
 			<li>
-				<label>Image 1:</label>
-				<input type="file" name="filPageImage_1" accept="image/*"/><br>
+				<label>Image:</label>
+				<input type="file" name="filPageImage" accept="image/*"/><br>
 			</li>
-			<li><textarea title="content" type="text" name="txtMeta_1" placeholder="Example: Rabit on Chair...">{{ $pageData->image_meta_1 or '' }}</textarea></li>
+			<li><textarea title="content" type="text" name="txtMeta" placeholder="Example: Rabit on Chair...">{{ $pageData->image_meta or '' }}</textarea></li>
 			<li>
-				<label>Image 2:</label>
-				<input type="file" name="filPageImage_2" accept="image/*"/><br>
-			</li>
-			<li><textarea title="content" type="text" name="txtMeta_2" placeholder="Example: Dog playing violin..."></textarea></li>
-			<li>
-				<label>Video 1:</label>
-				<input type="file" name="filPageVideo_1" accept="video/*"/><br>
+				<label>Video:</label>
+				<input type="file" name="filPageVideo" accept="video/*"/><br>
 			</li>
 			<li><textarea title="content" type="text" name="txtVideoMeta" placeholder="Example: Rabit and Dog playing music...">{{ $pageData->video_meta or '' }}</textarea></li>
 			<li>
-				<label>Video 2:</label>
-				<input type="file" name="filPageVideo_2" accept="video/*"/><br>
-			</li>
-			<li><textarea title="content" type="text" name="txtVideoMeta" placeholder="Example: Rabit and Dog playing music...">{{ $pageData->video_meta or '' }}</textarea></li>
-			<li>
-				<label>Content 1:</label>
-				<textarea title="content" type="text" name="txtPageContent_1" placeholder="Enter Content...">{{ $pageData->content_1 or '' }}
-				</textarea>
-			</li>
-			<li>
-				<label>Content 2:</label>
-				<textarea title="content" type="text" name="txtPageContent_2" placeholder="Enter Content...">{{ $pageData->content_2 or '' }}
+				<label>Content:</label>
+				<textarea title="content" type="text" name="txtPageContent" placeholder="Enter Content...">{{ $pageData->content or '' }}
 				</textarea>
 			</li>
 			<li><button type="submit" class="submit" name="btnSavePage">Save</button></li>

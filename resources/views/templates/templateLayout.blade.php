@@ -18,18 +18,12 @@
 
 	<div id="header"><h1></h1></div>
   <div class="row1">
-    	<div class="quad"><img id="page_image_1" src="" title="" alt=""/></div>
-	    <div class="quad" id="page_content_1">
+    	<div class="quad"><img id="page_image" src="" title="" alt=""/></div>
+	    <div class="quad" id="page_content">
 	    	<p></p>
 			</div>
 	</div>
 
-	<div class="row2">
-    	<div class="quad"><img id="page_image_2" src="" title="" alt=""/></div>
-	    <div class="quad" id="page_content_2">
-	    	<p></p>
-			</div>
-	</div>
 </div>
 
 <div id="footer"></div>

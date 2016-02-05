@@ -67,13 +67,14 @@ class AuthController extends Controller
         ]);
     }
 
+
     public function getLogin()
     {
       $data = array(
         'pageID' => 'login'
       );
 
-      return view('pages/login', $data);
+      return view('pages/login');
     }
 
     public function getRegister()
@@ -82,6 +83,6 @@ class AuthController extends Controller
         'pageID' => 'register'
       );
 
-      return view('pages/register', $data);
+      return view('pages/register');
     }
 }

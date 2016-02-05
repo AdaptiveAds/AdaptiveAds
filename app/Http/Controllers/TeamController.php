@@ -17,7 +17,6 @@ class TeamController extends Controller
     public function index()
     {
       $data = array(
-        'pageID' => '',
       );
 
       return view('pages/team', $data);

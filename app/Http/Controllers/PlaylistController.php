@@ -35,7 +35,6 @@ class PlaylistController extends Controller
       $playlists = Playlist::where('deleted', 0)->whereIn('department_id', $match_departments)->orderBy('name', 'ASC')->get();
 
       $data = array(
-        'pageID' => '',
         'playlists' => $playlists,
         'allowed_departments' => $allowed_departments
       );
@@ -78,7 +77,6 @@ class PlaylistController extends Controller
       $playlist->save();
 
       $data = array(
-        'pageID' => 'playlisteditor',
         'playlist' => $playlist
       );
 
@@ -104,7 +102,6 @@ class PlaylistController extends Controller
       $adverts = $playlist->Adverts->where('deleted', 0); // ordered by advert_index
 
       $data = array(
-        'pageID' => 'playlisteditor',
         'playlist' => $playlist,
         'adverts' => $adverts
       );
@@ -179,7 +176,6 @@ class PlaylistController extends Controller
       $adverts = $playlist->Adverts->where('deleted', 0);//->whereIn('department_id', $allowed_departments);
 
       $data = array(
-        'pageID' => 'playlisteditor',
         'playlist' => $playlist,
         'adverts' => $adverts,
         'deleteMode' => true
