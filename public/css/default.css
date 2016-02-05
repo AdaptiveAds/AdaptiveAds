@@ -460,12 +460,12 @@ body {
     body #wrapper button {
       box-shadow: none;
       border: 1px solid black;
-      background: #1f6378;
-      color: white; }
-    /* line 42, ../../resources/assets/sass/_theme.scss */
-    body #wrapper button:hover {
       background: #3a3a3a none repeat scroll 0 0;
+      color: white;
       cursor: pointer; }
+    /* line 43, ../../resources/assets/sass/_theme.scss */
+    body #wrapper button:hover {
+      background: #1f6378; }
     /* line 54, ../../resources/assets/sass/_theme.scss */
     body #wrapper a, body #wrapper img, body #wrapper button, body #wrapper button:hover {
       -o-transition: .5s;

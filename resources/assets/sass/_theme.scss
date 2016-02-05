@@ -36,12 +36,12 @@ background-size: 10px 10px;
     %button {
       box-shadow:none;
       border:$border1;
-      background:$logoblue;
+      background:$buttongrey;
       color:$sitewide;
+      cursor:pointer
     }
     %button-hover {
-    background:$buttongrey;
-    cursor:pointer
+    background:$logoblue;
     }
 
     button {
