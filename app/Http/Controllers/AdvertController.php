@@ -67,22 +67,8 @@ class AdvertController extends Controller
      */
     public function store(Request $request)
     {
-        // Validation
-        $this->validate($request, [
-            'txtAdvertName' => 'required|max:255',
-        ]);
-
-        // Was validation successful?
-        $advert = new Advert;
-        $advert->name = $request->input('txtAdvertName');
-        $advert->department_id = $request->input('drpDepartments');
-        $advert->save();
-
-        $data = array(
-          'advert' => $advert
-        );
-
-        return view('pages/advertEditor', $data);
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -124,20 +110,6 @@ class AdvertController extends Controller
     {
       // NOTE not used
       return Response('Not found', 404);
-    /*
-      $allowed_departments = Session::get('allowed_departments');
-      $advert = Advert::find($id)->whereIn('department_id', $allowed_departments)->get();
-
-      if ($advert->isEmpty()) {
-        return response('Not found.', 404); // User does not have access to this adverts' location
-      }
-
-      $data = array(
-        'pageID' => 'adverteditor',
-        'advert' => $advert
-      );
-
-      return view('pages/advertEditor', $data);*/
     }
 
     /**
@@ -151,16 +123,6 @@ class AdvertController extends Controller
     {
       // NOTE not used
       return Response('Not found', 404);
-      /*$allowed_departments = Session::get('allowed_departments');
-      $advert = Advert::find($id)->whereIn('department_id', $allowed_departments)->get();
-
-      if ($advert->isEmpty()) {
-        return response('Not found.', 404); // Advert does not exist or un authorised
-      }
-
-      $advert->name = $request->name;
-
-      $advert->save();*/
     }
 
     /**
