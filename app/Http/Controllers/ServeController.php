@@ -76,7 +76,7 @@ class ServeController extends Controller
                     ->with('playlist.adverts.pages.template')
                     ->first();*/
 
-      return $screen->with(array('playlist' => function($query) {
+      return $screen->where('id', $screen->id)->with(array('playlist' => function($query) {
           $query->with(array('adverts' => function($query) {
               $query->where('deleted', 0);
             }));
