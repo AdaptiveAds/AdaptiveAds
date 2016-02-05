@@ -1,11 +1,10 @@
-<div id="plus_container" class="theme_fourbyfour">
+
+<div id="plus_container" class="theme1">
 
 	<div id="header"><h1>Heading</h1></div>
   <div class="row">
     	<div class="quad"><img src="/images/logo.png" title="" alt=""/></div>
 	    <div class="quad" id="page_content">
-	    	<p>This is a cool paragraph from J Dog.
-				</p>
 			</div>
 	</div>
 
