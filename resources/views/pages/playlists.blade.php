@@ -8,9 +8,12 @@
 
 <div class="global">
 	<div class="row">
+			<!-- TODO ADD FORM -->
 			<h3>Playlists</h3>
 			<ul>
 				<li>
+					<input type="name" name="txtPlaylistName" placeholder="Playlist name...."
+								 value="{{ $searchItem or '' }}"/>
 					<a href="#PlaylistModal"><button type="submit" name="btnAddPlaylist">New</button></a>
 				</li>
 			</ul>
