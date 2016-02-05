@@ -17,7 +17,7 @@ class ContactController extends Controller
     public function index()
     {
       $data = array(
-        'pageID' => '',
+
       );
 
       return view('pages/contact', $data);

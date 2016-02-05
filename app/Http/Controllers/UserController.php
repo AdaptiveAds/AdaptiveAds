@@ -28,11 +28,15 @@ class UserController extends Controller
      */
     public function index()
     {
+      $user = Session::get('user');
       $allowed_departments = Session::get('allowed_departments');
 
+      $users = $this->GetAllowedUsers($user, $allowed_departments);
+
       $data = array(
-        'pageID' => '',
-        'allowed_departments' => $allowed_departments
+        'allowed_departments' => $allowed_departments,
+        'user' => $user,
+        'users' => $users
       );
 
       return view('pages/users', $data);
@@ -116,40 +120,57 @@ class UserController extends Controller
       $departmentID = $request->input('drpDepartments');
       $users = null;
 
-      //$privilage = $user->Departments()->where('id', $departmentID)->first()->pivot->Privilage;
-
       // Check which action to perform
       if (isset($btnFindUser)) {
 
-        if ($user->isAdmin($departmentID)) {
-          // Get users with a userame LIKE that of the input
-          $users = User::where('username', 'LIKE', '%' . $username . '%')->get();
+        // Filter all available users for
+        $users = $this->GetAllowedUsers($user, $allowed_departments);
+        $users = $users->filter(function($item) use ($username) {
+          if ($item->username == $username) { // TODO CHANGE TO LIKE
+            return true;
+          }
 
-        } else {
-          abort(401, 'Un-authorised');
-        }
+          return false;
+        });
 
       } else if (isset($btnFindAll)) {
 
-        if ($user->is_super_user) {
-          // Get all users and clear the remembered search
-          $username = null;
-          $users = User::all();
-        } else {
-          abort(401, 'Un-authorised');
-        }
+        $username = null;
+        $users = $this->GetAllowedUsers($user, $allowed_departments);
 
       } else {
         abort(401, 'Un-authorised');
       }
 
       $data = array(
-        'pageID' => '',
+        'user' => $user,
         'users' => $users,
         'username' => $username,
         'allowed_departments' => $allowed_departments
       );
 
       return view('pages/users', $data);
+    }
+
+    public function GetAllowedUsers($user, $allowed_departments) {
+      // Check if super or admin
+      if ($user->is_super_user) {
+        return User::all(); // Return all users
+      } else {
+
+        $users = collect([]);
+        // Get every user assigned to every department
+        // this admin is responsible for
+        foreach ($allowed_departments as $department) {
+          $departmentUsers = $department->Users()->get();
+
+          if ($departmentUsers->count() > 0) {
+            $users = $users->merge($departmentUsers);
+          }
+        }
+      }
+
+      // Only return unqiue users
+      return $users->unique('id');
     }
 }

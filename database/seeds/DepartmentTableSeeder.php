@@ -23,7 +23,12 @@ class DepartmentTableSeeder extends Seeder
 
       //Populate table
       $table->insert([
-        'name' => 'Library',
+        'name' => 'Library Services',
+        'skin_id' => 1
+      ]);
+
+      $table->insert([
+        'name' => 'DegreePlus',
         'skin_id' => 1
       ]);
     }

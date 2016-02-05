@@ -8,6 +8,7 @@ use Session;
 
 use App\Screen as Screen;
 use App\Location as Location;
+use App\Department as Department;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -27,14 +28,18 @@ class ScreenController extends Controller
      */
     public function index()
     {
-        $screens = Screen::all();
         $match_departments = Session::get('match_departments');
+        $allowed_departments = Session::get('allowed_departments');
         $user = Session::get('user');
 
         $locations = Location::whereIn('department_id', $match_departments)->get();
 
+        // Get screens that the user has access to
+        $screens = $this->getAllowedScreens($user, $allowed_departments);
+
+        //dd($allowed_screens);
+
         $data = array(
-          'pageID' => '',
           'screens' => $screens,
           'locations' => $locations,
           'user' => $user
@@ -112,6 +117,7 @@ class ScreenController extends Controller
     public function process(Request $request)
     {
       $match_departments = Session::get('match_departments');
+      $allowed_departments = Session::get('allowed_departments');
       $user = Session::get('user');
 
       // Get inputs from POST
@@ -129,46 +135,31 @@ class ScreenController extends Controller
           // Create new screen
           $screen = new Screen();
           $screen->location_id = $locationID; // assign location
-          $screen->playlist_id = $playlistID or 1; // Set playlist of none selected set default
+          $screen->playlist_id = empty($playlistID)? 1 : $playlistID; // Set playlist of none selected set default
           $screen->save();
 
           $screenID = null;
-          $screens = Screen::all(); // Return all screens
+          $screens = $this->getAllowedScreens($user, $allowed_departments);
+
         } else {
           abort(401, 'Un-authorised');
         }
 
       } else if (isset($btnFindScreen)) {
 
-        /*$location = Location::find($locationID);
+        $screens = $this->getAllowedScreens($user, $allowed_departments);
+        $screens = $screens->filter(function($item) use ($screenID, $locationID) {
+          if ($item->id == $screenID && $item->location_id == $locationID) {
+            return true;
+          }
 
-        // Double check the user can use this location ID
-        if (in_array($location->department_id, $match_departments)) {
-          // Find a screen with the same id and department*/
-          $screens = Screen::where('id', '=', $screenID)->where('location_id', '=', $locationID)->get();
-        /*} else {
-          abort(401, 'Un-authorised');
-        }*/
+          return false;
+        });
 
       } else if (isset($btnFindAll)) {
 
         $screenID = null;
-
-        if ($user->is_super_user) {
-          // return all screens clear saved id
-          $screens = Screen::all();
-        } else {
-
-          // TODO REMOVE
-          $screens = Screen::all();
-          /*$allowed_departments = Session::get('allowed_departments');
-          $screens = collect([]);
-          foreach ($allowed_departments as $department) {
-            $screens->merge($department->Screens()->get());
-          }
-
-          dd($screens);*/
-        }
+        $screens = $this->getAllowedScreens($user, $allowed_departments);
 
       } else {
         abort(401);
@@ -178,7 +169,6 @@ class ScreenController extends Controller
       $locations = Location::whereIn('department_id', $match_departments)->get();
 
       $data = array(
-        'pageID' => '',
         'screens' => $screens,
         'screenID' => $screenID,
         'locations' => $locations,
@@ -186,5 +176,23 @@ class ScreenController extends Controller
       );
 
       return view('pages/screens', $data);
+    }
+
+    public function getAllowedScreens($user, $allowed_departments) {
+      if ($user->is_super_user) {
+        return Screen::all();
+      } else {
+
+        $screens = collect([]);
+        foreach ($allowed_departments as $department) {
+          $departmentScreens = $department->Screens()->get();
+
+          if ($departmentScreens->count() > 0) {
+            $screens = $screens->merge($departmentScreens);
+          }
+        }
+      }
+
+      return $screens;
     }
 }

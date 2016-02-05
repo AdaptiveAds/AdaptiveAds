@@ -28,14 +28,20 @@ class LocationController extends Controller
     public function index()
     {
 
+      $user = Session::get('user');
       $allowed_departments = Session::get('allowed_departments');
+      $match_departments = Session::get('match_departments');
 
-      $locations = Location::all();
+      if ($user->is_super_user) {
+        $locations = Location::all();
+      } else {
+        $locations = Location::whereIn('department_id', $match_departments)->get();
+      }
 
       $data = array(
-        'pageID' => '',
         'locations' => $locations,
-        'allowed_departments' => $allowed_departments
+        'allowed_departments' => $allowed_departments,
+        'user' => $user
       );
 
       return view('pages/locations', $data);
@@ -109,6 +115,7 @@ class LocationController extends Controller
 
     public function process(Request $request)
     {
+      $locations = null;
 
       // Validate input
       $this->validate($request, [
@@ -135,7 +142,7 @@ class LocationController extends Controller
         $locationName = null;
 
         // Get all locations
-        $locations = Location::all();
+        //$locations = Location::all();
 
       } else if (isset($btnFindLocation)) {
 
@@ -147,18 +154,30 @@ class LocationController extends Controller
 
         // Get all locations and surpress any search input
         $locationName = null;
-        $locations = Location::all();
+        //$locations = Location::all();
 
       } else {
         abort(401);
       }
 
       //dd($locations);
+      $user = Session::get('user');
+      $allowed_departments = Session::get('allowed_departments');
+      $match_departments = Session::get('match_departments');
+
+      if ($locations == null) {
+        if ($user->is_super_user) {
+          $locations = Location::all();
+        } else {
+          $locations = Location::whereIn('department_id', $match_departments)->get();
+        }
+      }
 
       $data = array(
-        'pageID' => '',
         'locations' => $locations,
-        'searchItem' => $locationName
+        'searchItem' => $locationName,
+        'user' => $user,
+        'allowed_departments' => $allowed_departments
       );
 
       return view('pages/locations', $data);

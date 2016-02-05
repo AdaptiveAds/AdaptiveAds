@@ -12,7 +12,12 @@
 									 value="{{ $searchItem or '' }}"/>
 						<label>Department:</label>
  						@include('objects/departments_dropdown', array('allowed_departments' => $allowed_departments))
-						<button type="submit" name="btnAddLocation">Add</button>
+						@if (isset($user))
+							<!-- Only show to admins -->
+							@if ($user->is_super_user == true || $user->getAdmin() == true)
+								<button type="submit" name="btnAddLocation">Add</button>
+							@endif
+						@endif
 						<button type="submit" name="btnFindLocation">Find</button>
 						<button type="submit" name="btnFindAll">Find all</button>
 					</li>

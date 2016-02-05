@@ -18,10 +18,32 @@ class AdvertPlaylistTableSeeder extends Seeder
 
       //Populate table
       $table->insert([
-        'playlist_id' => 2,
+        'playlist_id' => 1, // Global
         'advert_id' => 1,
         'display_schedule_id' => 1,
         'advert_index' => 0
       ]);
+
+      $table->insert([
+        'playlist_id' => 2, // Library
+        'advert_id' => 2,
+        'display_schedule_id' => 1,
+        'advert_index' => 0
+      ]);
+
+      $table->insert([
+        'playlist_id' => 2, // Library
+        'advert_id' => 4,
+        'display_schedule_id' => 1,
+        'advert_index' => 0
+      ]);
+
+      $table->insert([
+        'playlist_id' => 3, // DegreePlus
+        'advert_id' => 3,
+        'display_schedule_id' => 1,
+        'advert_index' => 0
+      ]);
+
     }
 }

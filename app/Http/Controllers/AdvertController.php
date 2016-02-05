@@ -39,7 +39,6 @@ class AdvertController extends Controller
         //dd($adverts);
 
         $data = array(
-          'pageID' => '',
           'adverts' => $adverts,
           'allowed_departments' => $allowed_departments
         );
@@ -78,7 +77,6 @@ class AdvertController extends Controller
         $advert->save();
 
         $data = array(
-          'pageID' => 'adverteditor',
           'advert' => $advert
         );
 
@@ -107,7 +105,6 @@ class AdvertController extends Controller
       $pages = $advert->Pages->where('deleted', 0); // Ordered by page index
 
       $data = array(
-        'pageID' => '',
         'advert' => $advert,
         'pages' => $pages
       );
@@ -207,7 +204,6 @@ class AdvertController extends Controller
       }
 
       $data = array(
-        'pageID' => '',
         'adverts' => $adverts,
         'selectedPlaylist' => $playlistID,
         'allowed_departments' => $allowed_departments
@@ -240,5 +236,48 @@ class AdvertController extends Controller
       $effectedPage->save();
 
       return response('Success', 200);
+    }
+
+    public function process($request) {
+
+      $this->validate($request, [
+          'txtAdvertName' => 'required|max:255',
+      ]);
+
+      $btnAddAdvert = $request->input('btnAddAdvert');
+      $btnFindAdvert = $request->input('btnFindAdvert');
+      $btnFindAll = $request->input('btnFindAll');
+      $advertName = $reuqest->input('txtAdvertName');
+
+      if (isset($btnAddAdvert)) {
+
+        $advert = new Advert;
+        $advert->name = $request->input('txtAdvertName');
+        $advert->department_id = $request->input('drpDepartments');
+        $advert->save();
+
+        $advertName = null;
+
+
+      } else if (isset($btnFindAdvert)) {
+
+        $adverts = Advert::where('name', '%' . $advertName . '%')->get();
+
+      } else if (isset($btnFindAll)) {
+
+        $advertName = null;
+
+      } else {
+        abort(401, 'Un-authorised');
+      }
+
+
+
+      $data = array(
+
+      );
+
+      return view('pages/advert', $data);
+
     }
 }

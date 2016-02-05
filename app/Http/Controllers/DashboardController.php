@@ -23,7 +23,6 @@ class DashboardController extends Controller
       $user = Session::get('user');
 
       $data = array(
-        'pageID' => 'dashboard',
         'allowed_departments' => $allowed_departments,
         'user' => $user
       );
