@@ -469,130 +469,130 @@ body {
     body #wrapper button:hover {
       background: #1f6378;
       cursor: pointer; }
-    /* line 54, ../../resources/assets/sass/_theme.scss */
+    /* line 55, ../../resources/assets/sass/_theme.scss */
     body #wrapper a, body #wrapper img, body #wrapper button, body #wrapper button:hover {
       -o-transition: .5s;
       -ms-transition: .5s;
       -moz-transition: .5s;
       -webkit-transition: .5s;
       transition: .5s; }
-    /* line 62, ../../resources/assets/sass/_theme.scss */
+    /* line 63, ../../resources/assets/sass/_theme.scss */
     body #wrapper a {
       color: #ffffff;
       text-decoration: none; }
-      /* line 66, ../../resources/assets/sass/_theme.scss */
+      /* line 67, ../../resources/assets/sass/_theme.scss */
       body #wrapper a img {
         border: 0;
         opacity: 0.8;
         filter: alpha(opacity=80);
         /* For IE8 and earlier */ }
-        /* line 71, ../../resources/assets/sass/_theme.scss */
+        /* line 72, ../../resources/assets/sass/_theme.scss */
         body #wrapper a img :hover {
           opacity: 1.0;
           filter: alpha(opacity=100);
           /* For IE8 and earlier */ }
-    /* line 77, ../../resources/assets/sass/_theme.scss */
+    /* line 78, ../../resources/assets/sass/_theme.scss */
     body #wrapper #signedin {
       font-weight: bold;
       margin: 5px 10px;
       padding: 0;
       font-size: 12px;
       float: right; }
-      /* line 84, ../../resources/assets/sass/_theme.scss */
+      /* line 85, ../../resources/assets/sass/_theme.scss */
       body #wrapper #signedin #signinName {
         color: yellow; }
-      /* line 88, ../../resources/assets/sass/_theme.scss */
+      /* line 89, ../../resources/assets/sass/_theme.scss */
       body #wrapper #signedin #signinLocation {
         color: orange; }
-      /* line 92, ../../resources/assets/sass/_theme.scss */
+      /* line 93, ../../resources/assets/sass/_theme.scss */
       body #wrapper #signedin #signinPriv {
         color: red; }
-    /* line 102, ../../resources/assets/sass/_theme.scss */
+    /* line 103, ../../resources/assets/sass/_theme.scss */
     body #wrapper header#header {
       width: 100%;
       display: block;
       display: inline-block; }
-      /* line 105, ../../resources/assets/sass/_theme.scss */
+      /* line 106, ../../resources/assets/sass/_theme.scss */
       body #wrapper header#header .head {
         width: 50%;
         float: left; }
-        /* line 109, ../../resources/assets/sass/_theme.scss */
+        /* line 110, ../../resources/assets/sass/_theme.scss */
         body #wrapper header#header .head img {
           width: 20%;
           margin-left: 5%; }
-      /* line 115, ../../resources/assets/sass/_theme.scss */
+      /* line 116, ../../resources/assets/sass/_theme.scss */
       body #wrapper header#header .head:last-child {
         float: right;
         padding-top: 10px; }
-      /* line 120, ../../resources/assets/sass/_theme.scss */
+      /* line 121, ../../resources/assets/sass/_theme.scss */
       body #wrapper header#header nav {
         width: auto;
         float: right;
         padding: 1%;
         font-size: 16px;
         font-weight: bold; }
-        /* line 127, ../../resources/assets/sass/_theme.scss */
+        /* line 128, ../../resources/assets/sass/_theme.scss */
         body #wrapper header#header nav ul {
           padding: 0;
           margin: 0; }
-          /* line 131, ../../resources/assets/sass/_theme.scss */
+          /* line 132, ../../resources/assets/sass/_theme.scss */
           body #wrapper header#header nav ul li:first-child {
             margin-left: 10px; }
-          /* line 134, ../../resources/assets/sass/_theme.scss */
+          /* line 135, ../../resources/assets/sass/_theme.scss */
           body #wrapper header#header nav ul li {
             list-style: none;
             float: left; }
-            /* line 138, ../../resources/assets/sass/_theme.scss */
+            /* line 139, ../../resources/assets/sass/_theme.scss */
             body #wrapper header#header nav ul li a {
               padding: 2px 20px;
               color: white;
               text-decoration: none; }
-              /* line 144, ../../resources/assets/sass/_theme.scss */
+              /* line 145, ../../resources/assets/sass/_theme.scss */
               body #wrapper header#header nav ul li a i .fa.fa-home {
                 font-size: 20px; }
-              /* line 147, ../../resources/assets/sass/_theme.scss */
+              /* line 148, ../../resources/assets/sass/_theme.scss */
               body #wrapper header#header nav ul li a img {
                 width: 100%; }
-    /* line 156, ../../resources/assets/sass/_theme.scss */
+    /* line 157, ../../resources/assets/sass/_theme.scss */
     body #wrapper #content {
       min-width: 1024px;
       width: 98%;
       margin: 2% auto;
       clear: both;
       display: block; }
-      /* line 166, ../../resources/assets/sass/_theme.scss */
+      /* line 167, ../../resources/assets/sass/_theme.scss */
       body #wrapper #content a #largeArea {
         width: 100%;
         height: 500px;
         margin: 0 auto;
         display: block; }
-    /* line 175, ../../resources/assets/sass/_theme.scss */
+    /* line 176, ../../resources/assets/sass/_theme.scss */
     body #wrapper .settings {
       width: 100%;
       margin: 0 auto;
       background: transparent; }
-      /* line 180, ../../resources/assets/sass/_theme.scss */
+      /* line 181, ../../resources/assets/sass/_theme.scss */
       body #wrapper .settings h4 {
         font-size: 20px; }
-      /* line 188, ../../resources/assets/sass/_theme.scss */
+      /* line 189, ../../resources/assets/sass/_theme.scss */
       body #wrapper .settings .row {
         width: 100%; }
-        /* line 191, ../../resources/assets/sass/_theme.scss */
+        /* line 192, ../../resources/assets/sass/_theme.scss */
         body #wrapper .settings .row form {
           margin-bottom: 5px; }
-          /* line 200, ../../resources/assets/sass/_theme.scss */
+          /* line 201, ../../resources/assets/sass/_theme.scss */
           body #wrapper .settings .row form :first-child ul li {
             border: none; }
-          /* line 206, ../../resources/assets/sass/_theme.scss */
+          /* line 207, ../../resources/assets/sass/_theme.scss */
           body #wrapper .settings .row form ul {
             padding: 0;
             margin: 0; }
-            /* line 210, ../../resources/assets/sass/_theme.scss */
+            /* line 211, ../../resources/assets/sass/_theme.scss */
             body #wrapper .settings .row form ul li {
               border: 1px solid #000000;
               list-style: outside none none;
               margin-bottom: 5px; }
-    /* line 220, ../../resources/assets/sass/_theme.scss */
+    /* line 221, ../../resources/assets/sass/_theme.scss */
     body #wrapper footer {
       width: 100%;
       margin: 0 auto;
@@ -605,7 +605,7 @@ body {
       font-size: 12px; }
 
 /* Generic */
-/* line 239, ../../resources/assets/sass/_theme.scss */
+/* line 240, ../../resources/assets/sass/_theme.scss */
 input {
   border: none;
   box-shadow: none;
@@ -616,11 +616,11 @@ input {
   margin: 0;
   padding: 4px; }
 
-/* line 250, ../../resources/assets/sass/_theme.scss */
+/* line 251, ../../resources/assets/sass/_theme.scss */
 form {
   border: none;
   color: white; }
-  /* line 254, ../../resources/assets/sass/_theme.scss */
+  /* line 255, ../../resources/assets/sass/_theme.scss */
   form h3 {
     padding-bottom: 8px; }
 

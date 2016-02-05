@@ -2,49 +2,36 @@
 	width:100%;
 
 	#header {
-	height:60px; background: white; margin-top: 2%; margin-bottom: 2%;
+ 	width:100%;
 
 		h1 {
-		line-height:80%; margin-left:2%;
+		background:white;
+		color:#000000;
 		}//h1
 	}//header
 
-	.row {
-		clear:both;
+//.theme1 default
+	.row{
+		clear: both; display:block; min-height:250px;
 
-		.quad{
-		float:left;
+		#image {
 
-		}//close quad
-	}//close row1
+		}
+			img{
+				width:80%; max-height:200px;
+			}//img
+		}//image
 
-	.row {
-		clear:both;
+		#text {
 
-		.quad{
-		float:left;
-		}//close quad
-	}//close row
-	.theme_fourbyfour {
-		.row{
-			clear: both; display:block; min-height:250px;
+		}
+	}//row
 
-			:last-child {
-				margin-top:1%;
-			}//:last-child
-			.quad{
-				float: left; display:block; width:46%;  text-align:center; padding:2%; background:orange;
-				p{
-					text-align:justify;
-				}//p
 
-				img{
-					width:80%; max-height:200px;
-				}//img
-			}//quad
-		}//row
+	.theme1 {
 	}//fourbyfour
 
+/*
 	.theme_fourbyfourReverse{
 		.row{
 			clear: both; display:block; min-height:250px;
@@ -168,7 +155,7 @@
 			}//quad
 		}//row
 	}//2Images
-
+*/
 }//ad_container
 
 

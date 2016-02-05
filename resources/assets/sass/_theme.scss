@@ -32,25 +32,25 @@ background-size: 10px 10px;
     margin:10px 0;
     }//article
 
+    /* Buttons */
+    %button {
+      box-shadow:none;
+      border:$border1;
+      background:$buttongrey;
+      color:$sitewide;
+      cursor:pointer
+    }
+    %button-hover {
+    background:$logoblue;
+    }
+
     button {
-    box-shadow:none;
-    border:$border1;
-    background:$buttongrey;
-    color:$sitewide;
-    }//button
+    @extend %button;
+      &:hover {
+        @extend %button-hover;
+      }
+    }
 
-    button.btn-active {
-    background:$logoblue;
-    }//button.btn-active
-
-    button.btn-active:hover {
-    background:$buttongrey;
-    }//button.btn-active:hover
-
-    button:hover {
-    background:$logoblue;
-    cursor:pointer;
-    }//:hover
     a, img, button, button:hover {
     -o-transition:.5s;
     -ms-transition:.5s;
