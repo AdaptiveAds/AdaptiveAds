@@ -31,6 +31,7 @@ class AdvertController extends Controller
      */
     public function index()
     {
+        $user = Session::get('user');
         $allowed_departments = Session::get('allowed_departments');
         $match_departments = Session::get('match_departments');
 
@@ -39,6 +40,7 @@ class AdvertController extends Controller
         //dd($adverts);
 
         $data = array(
+          'user' => $user,
           'adverts' => $adverts,
           'allowed_departments' => $allowed_departments
         );
@@ -240,39 +242,49 @@ class AdvertController extends Controller
 
     public function process(Request $request) {
 
-      // Validation
-      $this->validate($request, [
-          'txtAdvertName' => 'required|max:255',
-      ]);
+      $user = Session::get('user');
+      $allowed_departments = Session::get('allowed_departments');
 
       $btnAddAdvert = $request->input('btnAddAdvert');
       $btnFindAdvert = $request->input('btnFindAdvert');
       $btnFindAll = $request->input('btnFindAll');
       $advertName = $request->input('txtAdvertName');
+      $departmentID = $request->input('drpDepartments');
 
       if (isset($btnAddAdvert)) {
 
         $advert = new Advert;
-        $advert->name = $request->input('txtAdvertName');
-        $advert->department_id = $request->input('drpDepartments');
+        $advert->name = $advertName;
+        $advert->department_id = $departmentID;
         $advert->save();
 
         $advertName = null;
+        $adverts = $this->getAllowedAdverts($user, $allowed_departments);
 
       } else if (isset($btnFindAdvert)) {
 
-        $adverts = Advert::where('name', 'LIKE', '%' . $advertName . '%')->get();
+        $adverts = $this->getAllowedAdverts($user, $allowed_departments);
+        $adverts = $adverts->filter(function($item) use ($advertName) {
+          if ($item->name == $advertName) { // TODO Add department filter
+            return true;
+          }
+
+          return false;
+        });
 
       } else if (isset($btnFindAll)) {
 
         $advertName = null;
+        $adverts = $this->getAllowedAdverts($user, $allowed_departments);
 
       } else {
         abort(401, 'Un-authorised');
       }
 
       $data = array(
-        'adverts' => $adverts
+        'user' => $user,
+        'adverts' => $adverts,
+        'allowed_departments' => $allowed_departments
       );
 
       return view('pages/adverts', $data);
@@ -281,7 +293,7 @@ class AdvertController extends Controller
     public function getAllowedAdverts($user, $allowed_departments) {
       // Check if super or admin
       if ($user->is_super_user) {
-        return Adverts::all(); // Return all adverts
+        return Advert::all(); // Return all adverts
       } else {
 
         $adverts = collect([]);
@@ -290,8 +302,8 @@ class AdvertController extends Controller
         foreach ($allowed_departments as $department) {
           $departmentAdverts = $department->Adverts()->get();
 
-          if ($departmentUsers->count() > 0) {
-            $users = $users->merge($departmentUsers);
+          if ($departmentAdverts->count() > 0) {
+            $adverts = $adverts->merge($departmentAdverts);
           }
         }
       }
