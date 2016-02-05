@@ -237,4 +237,47 @@ class AdvertController extends Controller
 
       return response('Success', 200);
     }
+
+    public function process($request) {
+
+      $this->validate($request, [
+          'txtAdvertName' => 'required|max:255',
+      ]);
+
+      $btnAddAdvert = $request->input('btnAddAdvert');
+      $btnFindAdvert = $request->input('btnFindAdvert');
+      $btnFindAll = $request->input('btnFindAll');
+      $advertName = $reuqest->input('txtAdvertName');
+
+      if (isset($btnAddAdvert)) {
+
+        $advert = new Advert;
+        $advert->name = $request->input('txtAdvertName');
+        $advert->department_id = $request->input('drpDepartments');
+        $advert->save();
+
+        $advertName = null;
+
+
+      } else if (isset($btnFindAdvert)) {
+
+        $adverts = Advert::where('name', '%' . $advertName . '%')->get();
+
+      } else if (isset($btnFindAll)) {
+
+        $advertName = null;
+
+      } else {
+        abort(401, 'Un-authorised');
+      }
+
+
+
+      $data = array(
+
+      );
+
+      return view('pages/advert', $data);
+
+    }
 }
