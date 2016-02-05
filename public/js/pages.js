@@ -198,10 +198,8 @@ var Serve = (function(Page) {
 
     // Update page
     $('h1').html(currentAdvert.pages[index].page_data.heading);
-    $('#page_content_1').html(currentAdvert.pages[index].page_data.content_1);
-    $('#page_image_1').attr('src', '../advert_images/' + currentAdvert.pages[index].page_data.image_path_1);
-    $('#page_content_2').html(currentAdvert.pages[index].page_data.content_2);
-    $('#page_image_2').attr('src', '../advert_images/' + currentAdvert.pages[index].page_data.image_path_2);
+    $('#page_content').html(currentAdvert.pages[index].page_data.content);
+    $('#page_image').attr('src', '../advert_images/' + currentAdvert.pages[index].page_data.image_path);
 
     return ++index;
 
@@ -219,12 +217,8 @@ var PageEditor = (function() {
       $('[name$="pageName"]').html($(this).val());
     });
 
-    $('[name$="txtPageContent_1"]').keyup(function() {
-      $('[name$="pageContent_1"]').html($(this).val());
-    });
-
-    $('[name$="txtPageContent_2"]').keyup(function() {
-      $('[name$="pageContent_2"]').html($(this).val());
+    $('[name$="txtPageContent"]').keyup(function() {
+      $('[name$="pageContent"]').html($(this).val());
     });
 
   }

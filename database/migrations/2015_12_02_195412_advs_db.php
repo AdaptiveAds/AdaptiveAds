@@ -24,16 +24,11 @@ class AdvsDb extends Migration
 			      $table->engine = 'InnoDB';
             $table->increments('id');
             $table->text('heading', 20);
-            $table->text('content_1');
-            $table->text('content_2');
-            $table->text('image_path_1');
-            $table->text('image_path_2');
-            $table->text('image_meta_1');
-            $table->text('image_meta_2');
-            $table->text('video_path_1');
-            $table->text('video_path_2');
-            $table->text('video_meta_1');
-            $table->text('video_meta_2');
+            $table->text('content');
+            $table->text('image_path');
+            $table->text('image_meta');
+            $table->text('video_path');
+            $table->text('video_meta');
             $table->boolean('deleted');
           });
 

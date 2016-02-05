@@ -67,28 +67,17 @@ class PageController extends Controller
       dd($request->input('txtPageImage_1'));
 
       $pageData->heading = $request->input('txtPageName');
-      $pageData->video_path_1 = $request->input('txtPageVideo');
-      $pageData->content_1 = $request->input('txtPageContent');
+      $pageData->video_path = $request->input('txtPageVideo');
+      $pageData->content = $request->input('txtPageContent');
 
       // Upload image 1
-      $imageInput = Input::file('filPageImage_1');
+      $imageInput = Input::file('filPageImage');
       if ($imageInput != null) {
         $imagePath = $this->processImage($imageInput);
 
         // If we have a valid image then set the path in the database
         if ($imagePath != null) {
-          $pageData->image_path_1 = $imagePath;
-        }
-      }
-
-      // Upload image 2
-      $imageInput = Input::file('filPageImage_2');
-      if ($imageInput != null) {
-        $imagePath = $this->processImage($imageInput);
-
-        // If we have a valid image then set the path in the database
-        if ($imagePath != null) {
-          $pageData->image_path_2 = $imagePath;
+          $pageData->image_path = $imagePath;
         }
       }
 
@@ -164,33 +153,20 @@ class PageController extends Controller
 
       $pageData = $page->PageData;
       $pageData->heading = $request->input('txtPageName');
-      $pageData->content_1 = $request->input('txtPageContent_1');
-      $pageData->content_2 = $request->input('txtPageContent_2');
+      $pageData->content = $request->input('txtPageContent');
 
       // Upload image 1
-      $imageInput = Input::file('filPageImage_1');
+      $imageInput = Input::file('filPageImage');
       if ($imageInput != null) {
         $imagePath = $this->processImage($imageInput);
 
         // If we have a valid image then set the path in the database
         if ($imagePath != null) {
-          $pageData->image_path_1 = $imagePath;
+          $pageData->image_path = $imagePath;
         }
       }
 
-      // Upload image 2
-      $imageInput = Input::file('filPageImage_2');
-      if ($imageInput != null) {
-        $imagePath = $this->processImage($imageInput);
-
-        // If we have a valid image then set the path in the database
-        if ($imagePath != null) {
-          $pageData->image_path_2 = $imagePath;
-        }
-      }
-
-
-      $pageData->video_path_1 = $request->input('txtPageVideo');
+      $pageData->video_path = $request->input('txtPageVideo');
 
       $pageData->save();
 
