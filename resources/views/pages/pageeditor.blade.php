@@ -55,6 +55,7 @@
 				<input type="file" name="filPageVideo_1" accept="video/*"/><br>
 			</li>
 			<li>
+					<textarea title="content" type="text" name="txtVideoMeta" placeholder="Example: Rabit and Dog playing music...">{{ $pageData->video_meta or '' }}</textarea></li>
 					<label>Content 1:</label>
 				<textarea title="content" type="text" name="txtPageContent_1" placeholder="Enter Content...">{{ $pageData->content_1 or '' }}
 				</textarea>
