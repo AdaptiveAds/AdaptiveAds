@@ -51,12 +51,12 @@ background-size: 10px 10px;
       }
     }
 
-    a, img, button, button:hover {
-    -o-transition:.5s;
-    -ms-transition:.5s;
-    -moz-transition:.5s;
-    -webkit-transition:.5s;
-    transition:.5s;
+    a, img, button, button:hover, div {
+      -o-transition:.5s;
+      -ms-transition:.5s;
+      -moz-transition:.5s;
+      -webkit-transition:.5s;
+      transition:.5s;
     }
 
       a {

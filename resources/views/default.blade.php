@@ -76,9 +76,10 @@ https://developers.google.com/recaptcha/docs/display -->
 			<div class="head">
 				<nav>
 					<ul>
-						<li><a href="{{ URL::to('dashboard')}}"><i class="fa fa-home"></i></a></li>
-						<li><a href="{{ URL::to('team')}}"><i class="fa fa-users"></i></a></li>
-						<li><a href="{{ URL::to('contact')}}"><i class="fa fa-envelope"></i></a></li>
+						<li><a href="{{ URL::to('dashboard')}}">Home</a></li>
+						<li><a href="{{ URL::to('team')}}">Team</a></li>
+						<li><a href="{{ URL::to('contact')}}">Contact</a></li>
+						<li><a href="{{ URL::to('auth/login')}}">Sign In</a></li>
 					</ul>
 				</nav>
 			</div>

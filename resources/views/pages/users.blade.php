@@ -2,6 +2,10 @@
 
 @section('content')
 
+@include('objects/model_users', array('object' => 'Users',
+																			 'allowed_departments' => $allowed_departments,
+																			 'route' => 'dashboard.playlist.store'))
+
 <div class="global">
 	<div class="row">
 		{!! Form::open(['route' => 'dashboard.settings.users.process', 'method' => 'POST']) !!}
@@ -16,8 +20,8 @@
 							<button type="submit" name="btnFindUser">Find</button>
 						@endif
 					@endif
-					<button type="submit" name="btnFindUser">Find</button>
 					<button type="submit" name="btnFindAll">Find All</button>
+					<a href="#UsersModal"><button name="btnCreateUser">Create</button></a>
 				</li>
 			</ul>
 		{!! Form::close() !!}

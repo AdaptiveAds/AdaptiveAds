@@ -1,5 +1,6 @@
-#plus_container {
+#serve_container {
 	width:100%;
+	overflow:hidden;
 
 	#header {
  	width:100%;
@@ -10,26 +11,47 @@
 		}//h1
 	}//header
 
-//.theme1 default
-	.row{
-		clear: both; display:block; min-height:250px;
+//landscape
+	//default Row
+	%theme1 {
+		clear: both;
+		display:block;
+		min-height:250px;
+		width:100%;
+		float:left;
+	}
 
-		#image {
+	%theme1-img {
+		width:100%;
+		text-align:center;
 
+		& img {
+		width:50%;
 		}
-			img{
-				width:80%; max-height:200px;
-			}//img
-		}//image
+	}
 
-		#text {
+	%theme1-text {
+		width:100%;
+		font-size:120%;
+	}
 
+	%theme1-global {
+		float:left;
+		display:inline-block;
+	}
+
+	.row {
+	@extend %theme1;
+		& #serve_image {
+			@extend %theme1-img;
+			@extend %theme1-global;
 		}
-
-
-	.theme1 {
-	}//fourbyfour
-}//ad_container
+		& #serve_text {
+			@extend %theme1-text;
+			@extend %theme1-global;
+		}
+	}
+}
 
 
 #footer {

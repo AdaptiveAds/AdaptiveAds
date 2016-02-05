@@ -29,6 +29,8 @@
 		<div class="clear"></div>
 	</div>
 </div>
+</div>
+
 <div id="right">
 
 	<!-- PHP Driven self updating ??

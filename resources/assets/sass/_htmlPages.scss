@@ -23,42 +23,8 @@ text-align:center; clear:both;
 .dashboard {
 
 	.row {
-	width:50%; float:left;
-		/* LEFT ROW:: USER SETTINGS */
-		form {
-		width:80%; margin:0 auto;
+	width:100%;
 
-			ul {
-			margin:0;
-			padding:0;
-
-				li {
-			  margin:0px auto; padding:0; padding-bottom:20px; border:none; display:flex;
-
-					label {
-					min-width:25%;
-					}//label
-				}//li
-
-				li.twoinputs {
-
-					label.smalllabel {
-					min-width:16%
-					}//label
-
-					input {
-					float:right; margin-right:10px;
-
-						:last-child {
-						margin-right:0px;
-						}//last-child
-					}//input
-				}//twoinputs
-
-			}//ul
-		}//form
-
-		/* USER OPTIONS RIGHT SIDE */
 	.options {
 	background:transparent; text-align:center;
 
@@ -74,13 +40,14 @@ text-align:center; clear:both;
 			}//li:first-child
 
 			li {
-			float:left; margin:1%;
+			float:left;
+			margin:1%;
 
 				a {
 				display:block; background:#3a3a3a; border-radius:$bradius; min-width:90px; border:$border1; color:$lightbg; padding:10px;
 
 					i {
-					font-size:2em;
+					font-size:4em;
 
 						span {
 						font-size:16px; padding:0; margin:0; margin-top:4px; display:block;
@@ -141,11 +108,12 @@ float:left; width:70%; min-height:300px;
 			width:100%; padding:0; margin:0; display:flex; text-align:center; display:block;
 
 					li {
-					width:50%;
+					width:100%;
 						a {
 
 							img {
-
+							width:50%;
+							text-align:center;
 							}//img
 						}//a
 					}//li
@@ -232,8 +200,11 @@ font-size:120%;
 		ul {
 
 			li {
-			margin-top:1%;
-			padding: 1% 1% 1% 0;
+			margin-top:0.5%;
+
+				a {
+				padding: 1% 1% 1% 0;
+				}
 
 				input {
 				font-size:90%;
@@ -258,7 +229,11 @@ font-size:120%;
 				ul {
 
 					li {
-					padding:1%;
+
+						a {
+						display:block;
+						padding:1%;
+						}
 
 						label {
 
