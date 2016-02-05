@@ -1,22 +1,22 @@
 /*Variables*/
 /* sitewide classes */
-/* line 23, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_variables.scss */
+/* line 23, ../../resources/assets/sass/_variables.scss */
 .hidden {
   display: none; }
 
-/* line 24, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_variables.scss */
+/* line 24, ../../resources/assets/sass/_variables.scss */
 .shown {
   display: block; }
 
-/* line 25, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_variables.scss */
+/* line 25, ../../resources/assets/sass/_variables.scss */
 .clear {
   clear: both; }
 
-/* line 26, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_variables.scss */
+/* line 26, ../../resources/assets/sass/_variables.scss */
 .right {
   float: right; }
 
-/* line 27, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_variables.scss */
+/* line 27, ../../resources/assets/sass/_variables.scss */
 .alert-danger {
   color: red;
   font-size: 20px;
@@ -25,19 +25,19 @@
 
 /* Josh's code */
 /* advert and playlist editor */
-/* line 5, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_objects.scss */
+/* line 5, ../../resources/assets/sass/_objects.scss */
 .advertItem {
              /*
 	width: 300px;
 	height:50px;
 	*/ }
 
-/* line 11, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_objects.scss */
+/* line 11, ../../resources/assets/sass/_objects.scss */
 .selected {
   background: #1f6378; }
 
 /* pop-up */
-/* line 16, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_objects.scss */
+/* line 16, ../../resources/assets/sass/_objects.scss */
 .modalDialog {
   position: fixed;
   font-family: Arial, Helvetica, sans-serif;
@@ -53,12 +53,12 @@
   transition: opacity 400ms ease-in;
   pointer-events: none; }
 
-/* line 32, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_objects.scss */
+/* line 32, ../../resources/assets/sass/_objects.scss */
 .modalDialog:target {
   opacity: 1;
   pointer-events: auto; }
 
-/* line 37, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_objects.scss */
+/* line 37, ../../resources/assets/sass/_objects.scss */
 .modalDialog > div {
   width: 500px;
   position: relative;
@@ -70,24 +70,24 @@
   border-color: #fff;
   border-style: solid; }
 
-/* line 49, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_objects.scss */
+/* line 49, ../../resources/assets/sass/_objects.scss */
 .modalDialogLeft {
   float: left;
   padding: 20px 40px 10px 0px; }
 
-/* line 54, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_objects.scss */
+/* line 54, ../../resources/assets/sass/_objects.scss */
 .modalDialog > div > form > input.submit {
   cursor: pointer; }
 
-/* line 58, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_objects.scss */
+/* line 58, ../../resources/assets/sass/_objects.scss */
 .modalDialog > div > form > div > select {
   width: 220px; }
 
-/* line 62, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_objects.scss */
+/* line 62, ../../resources/assets/sass/_objects.scss */
 .modalDialog > div > form > input {
   margin: 10px 0px 10px 0px; }
 
-/* line 66, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_objects.scss */
+/* line 66, ../../resources/assets/sass/_objects.scss */
 .close {
   background: #606061;
   color: #FFFFFF;
@@ -106,27 +106,27 @@
   -webkit-box-shadow: 1px 1px 3px #000;
   box-shadow: 1px 1px 3px #000; }
 
-/* line 85, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_objects.scss */
+/* line 85, ../../resources/assets/sass/_objects.scss */
 .close:hover {
   background: #00d9ff; }
 
 /***************************/
 /*   Section | Article     */
 /***************************/
-/* line 4, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+/* line 4, ../../resources/assets/sass/_htmlPages.scss */
 section {
   text-align: center;
   clear: both; }
-  /* line 7, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+  /* line 7, ../../resources/assets/sass/_htmlPages.scss */
   section article {
     float: left;
     width: 22%;
     padding: 1%; }
-    /* line 10, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+    /* line 10, ../../resources/assets/sass/_htmlPages.scss */
     section article img {
       width: 50%;
       border-radius: 2px; }
-    /* line 14, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+    /* line 14, ../../resources/assets/sass/_htmlPages.scss */
     section article p {
       text-align: justify;
       color: #ffffff; }
@@ -134,61 +134,61 @@ section {
 /***************************/
 /*        dashboard        */
 /***************************/
-/* line 25, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+/* line 25, ../../resources/assets/sass/_htmlPages.scss */
 .dashboard .row {
   width: 50%;
   float: left;
   /* LEFT ROW:: USER SETTINGS */
   /* USER OPTIONS RIGHT SIDE */ }
-  /* line 28, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+  /* line 28, ../../resources/assets/sass/_htmlPages.scss */
   .dashboard .row form {
     width: 80%;
     margin: 0 auto; }
-    /* line 31, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+    /* line 31, ../../resources/assets/sass/_htmlPages.scss */
     .dashboard .row form ul {
       margin: 0;
       padding: 0; }
-      /* line 35, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+      /* line 35, ../../resources/assets/sass/_htmlPages.scss */
       .dashboard .row form ul li {
         margin: 0px auto;
         padding: 0;
         padding-bottom: 20px;
         border: none;
         display: flex; }
-        /* line 38, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+        /* line 38, ../../resources/assets/sass/_htmlPages.scss */
         .dashboard .row form ul li label {
           min-width: 25%; }
-      /* line 45, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+      /* line 45, ../../resources/assets/sass/_htmlPages.scss */
       .dashboard .row form ul li.twoinputs label.smalllabel {
         min-width: 16%; }
-      /* line 49, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+      /* line 49, ../../resources/assets/sass/_htmlPages.scss */
       .dashboard .row form ul li.twoinputs input {
         float: right;
         margin-right: 10px; }
-        /* line 52, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+        /* line 52, ../../resources/assets/sass/_htmlPages.scss */
         .dashboard .row form ul li.twoinputs input :last-child {
           margin-right: 0px; }
-  /* line 62, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+  /* line 62, ../../resources/assets/sass/_htmlPages.scss */
   .dashboard .row .options {
     background: transparent;
     text-align: center; }
-    /* line 65, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+    /* line 65, ../../resources/assets/sass/_htmlPages.scss */
     .dashboard .row .options h4 {
       text-align: left; }
-    /* line 69, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+    /* line 69, ../../resources/assets/sass/_htmlPages.scss */
     .dashboard .row .options ul {
       text-decoration: none;
       list-style: none;
       padding: 0;
       margin: 0; }
-      /* line 72, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+      /* line 72, ../../resources/assets/sass/_htmlPages.scss */
       .dashboard .row .options ul li:first-child {
         margin-left: 0; }
-      /* line 76, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+      /* line 76, ../../resources/assets/sass/_htmlPages.scss */
       .dashboard .row .options ul li {
         float: left;
         margin: 1%; }
-        /* line 79, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+        /* line 79, ../../resources/assets/sass/_htmlPages.scss */
         .dashboard .row .options ul li a {
           display: block;
           background: #3a3a3a;
@@ -197,66 +197,66 @@ section {
           border: 1px solid black;
           color: #fffffd;
           padding: 10px; }
-          /* line 82, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+          /* line 82, ../../resources/assets/sass/_htmlPages.scss */
           .dashboard .row .options ul li a i {
             font-size: 2em; }
-            /* line 85, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+            /* line 85, ../../resources/assets/sass/_htmlPages.scss */
             .dashboard .row .options ul li a i span {
               font-size: 16px;
               padding: 0;
               margin: 0;
               margin-top: 4px;
               display: block; }
-        /* line 91, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+        /* line 91, ../../resources/assets/sass/_htmlPages.scss */
         .dashboard .row .options ul li a:hover {
           background: #1f6378; }
 
 /***************************/
 /*      Page Editor        */
 /***************************/
-/* line 104, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+/* line 104, ../../resources/assets/sass/_htmlPages.scss */
 body .pagecontainer #footer {
   width: 100%;
   min-height: 20px;
   background: pink; }
 
-/* line 106, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+/* line 106, ../../resources/assets/sass/_htmlPages.scss */
 #left {
   float: left;
   width: 70%;
   min-height: 300px;
   /* Default Orientation - Landscape*/ }
-  /* line 110, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+  /* line 110, ../../resources/assets/sass/_htmlPages.scss */
   #left .pagecontainer {
     width: 100%;
     min-height: 400px;
     background: transparent;
     box-sizing: border-box; }
-    /* line 115, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+    /* line 115, ../../resources/assets/sass/_htmlPages.scss */
     #left .pagecontainer ul.theme_select li {
       width: 20%;
       float: left; }
-      /* line 118, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+      /* line 118, ../../resources/assets/sass/_htmlPages.scss */
       #left .pagecontainer ul.theme_select li a {
         display: block; }
-        /* line 121, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+        /* line 121, ../../resources/assets/sass/_htmlPages.scss */
         #left .pagecontainer ul.theme_select li a img {
           width: 100%; }
-  /* line 129, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+  /* line 129, ../../resources/assets/sass/_htmlPages.scss */
   #left .pagecontainer:last-child {
     min-height: 100px;
     background: transparent;
     margin-top: 5px; }
 
 /* Portrait*/
-/* line 137, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+/* line 137, ../../resources/assets/sass/_htmlPages.scss */
 #left.portrait .pagecontainer {
   float: left;
   width: 75%;
   box-sizing: border-box;
   border-radius: 2px;
   border: 1px solid black; }
-  /* line 140, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+  /* line 140, ../../resources/assets/sass/_htmlPages.scss */
   #left.portrait .pagecontainer ul.theme_select {
     width: 100%;
     padding: 0;
@@ -264,33 +264,33 @@ body .pagecontainer #footer {
     display: flex;
     text-align: center;
     display: block; }
-    /* line 143, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+    /* line 143, ../../resources/assets/sass/_htmlPages.scss */
     #left.portrait .pagecontainer ul.theme_select li {
       width: 50%; }
-/* line 155, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+/* line 155, ../../resources/assets/sass/_htmlPages.scss */
 #left.portrait .pagecontainer:last-child {
   float: left;
   width: 23%;
   background: orange;
   margin-left: 10px; }
 
-/* line 160, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+/* line 160, ../../resources/assets/sass/_htmlPages.scss */
 #right {
   float: left;
   width: 30%;
   background: transparent;
   box-sizing: border-box; }
-  /* line 166, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+  /* line 166, ../../resources/assets/sass/_htmlPages.scss */
   #right ul {
     margin: 0 auto;
     background: transparent;
     display: block;
     padding: 0;
     margin-left: 10px; }
-    /* line 173, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+    /* line 173, ../../resources/assets/sass/_htmlPages.scss */
     #right ul li:first-child {
       margin-top: 0; }
-    /* line 177, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+    /* line 177, ../../resources/assets/sass/_htmlPages.scss */
     #right ul li {
       display: block;
       background: transparent;
@@ -298,27 +298,27 @@ body .pagecontainer #footer {
       border-radius: 2px;
       padding: 5px;
       border: 1px solid black; }
-      /* line 185, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+      /* line 185, ../../resources/assets/sass/_htmlPages.scss */
       #right ul li textarea, #right ul li input {
         width: 90%;
         margin: 0 auto; }
-      /* line 190, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+      /* line 190, ../../resources/assets/sass/_htmlPages.scss */
       #right ul li label {
         display: block; }
-    /* line 195, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+    /* line 195, ../../resources/assets/sass/_htmlPages.scss */
     #right ul li#orientation {
       padding: 0;
       margin: 0; }
-      /* line 198, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+      /* line 198, ../../resources/assets/sass/_htmlPages.scss */
       #right ul li#orientation a {
         display: block; }
-      /* line 202, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+      /* line 202, ../../resources/assets/sass/_htmlPages.scss */
       #right ul li#orientation button:first-child {
         margin-left: 0px; }
-      /* line 206, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+      /* line 206, ../../resources/assets/sass/_htmlPages.scss */
       #right ul li#orientation button.active, #right ul li#orientation button.active:hover {
         background: #72bcd4; }
-      /* line 210, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+      /* line 210, ../../resources/assets/sass/_htmlPages.scss */
       #right ul li#orientation button {
         background: #ffffff;
         color: #000000;
@@ -327,7 +327,7 @@ body .pagecontainer #footer {
         float: left;
         padding: 0px 5px;
         overflow: hidden; }
-      /* line 214, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+      /* line 214, ../../resources/assets/sass/_htmlPages.scss */
       #right ul li#orientation button:hover {
         background: lightblue;
         cursor: pointer; }
@@ -335,91 +335,91 @@ body .pagecontainer #footer {
 /***************************/
 /*         Global          */
 /***************************/
-/* line 224, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+/* line 224, ../../resources/assets/sass/_htmlPages.scss */
 .global {
   width: 80%;
   margin: 0 auto;
   font-size: 120%; }
-  /* line 229, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+  /* line 229, ../../resources/assets/sass/_htmlPages.scss */
   .global .row {
     margin-bottom: 1%; }
-    /* line 234, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+    /* line 234, ../../resources/assets/sass/_htmlPages.scss */
     .global .row ul li {
       margin-top: 1%;
       padding: 1% 1% 1% 0; }
-      /* line 238, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+      /* line 238, ../../resources/assets/sass/_htmlPages.scss */
       .global .row ul li input {
         font-size: 90%;
         padding-left: 1%; }
-      /* line 243, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+      /* line 243, ../../resources/assets/sass/_htmlPages.scss */
       .global .row ul li label {
         min-width: 40%; }
-      /* line 247, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+      /* line 247, ../../resources/assets/sass/_htmlPages.scss */
       .global .row ul li button {
         font-size: 90%;
         float: right;
         margin-left: 1%; }
-  /* line 260, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+  /* line 260, ../../resources/assets/sass/_htmlPages.scss */
   .global .row:last-child ul li {
     padding: 1%; }
-    /* line 271, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+    /* line 271, ../../resources/assets/sass/_htmlPages.scss */
     .global .row:last-child ul li button:first-child {
       margin-left: 0; }
-  /* line 276, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+  /* line 276, ../../resources/assets/sass/_htmlPages.scss */
   .global .row:last-child ul li:nth-child(odd) {
     background: rgba(114, 188, 212, 0.1); }
-  /* line 279, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+  /* line 279, ../../resources/assets/sass/_htmlPages.scss */
   .global .row:last-child ul li:hover {
     background: rgba(114, 188, 212, 0.4); }
 
 /***************************/
 /*         Login           */
 /***************************/
-/* line 290, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+/* line 290, ../../resources/assets/sass/_htmlPages.scss */
 form#clientlogin, form#register {
   margin: 0 auto;
   width: 15%;
   text-align: center; }
-  /* line 297, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+  /* line 297, ../../resources/assets/sass/_htmlPages.scss */
   form#clientlogin ul button, form#register ul button {
     margin: 10% auto;
     width: 50%;
     display: block; }
-  /* line 303, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+  /* line 303, ../../resources/assets/sass/_htmlPages.scss */
   form#clientlogin ul li, form#register ul li {
     width: 100%; }
-    /* line 306, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+    /* line 306, ../../resources/assets/sass/_htmlPages.scss */
     form#clientlogin ul li label, form#clientlogin ul li input, form#register ul li label, form#register ul li input {
       width: 100%; }
-    /* line 308, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+    /* line 308, ../../resources/assets/sass/_htmlPages.scss */
     form#clientlogin ul li label, form#register ul li label {
       display: block;
       margin-top: 1%;
       padding: 1%; }
-    /* line 314, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+    /* line 314, ../../resources/assets/sass/_htmlPages.scss */
     form#clientlogin ul li input, form#register ul li input {
       display: block;
       margin-top: 0;
       width: 94%;
       text-align: center; }
-    /* line 321, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+    /* line 321, ../../resources/assets/sass/_htmlPages.scss */
     form#clientlogin ul li input:hover, form#register ul li input:hover {
       background: lightblue;
       cursor: pointer; }
-  /* line 329, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+  /* line 329, ../../resources/assets/sass/_htmlPages.scss */
   form#clientlogin ul:last-child, form#register ul:last-child {
     margin-top: 1%; }
-    /* line 332, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+    /* line 332, ../../resources/assets/sass/_htmlPages.scss */
     form#clientlogin ul:last-child li, form#register ul:last-child li {
       text-align: left; }
-      /* line 335, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+      /* line 335, ../../resources/assets/sass/_htmlPages.scss */
       form#clientlogin ul:last-child li a, form#register ul:last-child li a {
         color: lightblue; }
-      /* line 339, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_htmlPages.scss */
+      /* line 339, ../../resources/assets/sass/_htmlPages.scss */
       form#clientlogin ul:last-child li a:hover, form#register ul:last-child li a:hover {
         color: #fffffd; }
 
-/* line 1, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+/* line 1, ../../resources/assets/sass/_theme.scss */
 body {
   padding: 0;
   margin: 0;
@@ -433,7 +433,7 @@ body {
   background-clip: border-box;
   -webkit-background-size: 20px 20px;
   background-size: 10px 10px; }
-  /* line 15, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+  /* line 15, ../../resources/assets/sass/_theme.scss */
   body #wrapper {
     height: auto;
     display: block;
@@ -441,155 +441,155 @@ body {
     margin: 0 auto;
     min-width: 1325px;
     /* Buttons */ }
-    /* line 22, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+    /* line 22, ../../resources/assets/sass/_theme.scss */
     body #wrapper h1, body #wrapper h2, body #wrapper h3, body #wrapper h4, body #wrapper h5 {
       margin: 0;
       padding: 0;
       color: white; }
-    /* line 28, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+    /* line 28, ../../resources/assets/sass/_theme.scss */
     body #wrapper ul {
       margin: 0;
       padding: 0; }
-    /* line 29, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+    /* line 29, ../../resources/assets/sass/_theme.scss */
     body #wrapper li {
       list-style: none; }
-    /* line 31, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+    /* line 31, ../../resources/assets/sass/_theme.scss */
     body #wrapper article {
       margin: 10px 0; }
-    /* line 36, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+    /* line 36, ../../resources/assets/sass/_theme.scss */
     body #wrapper button {
       box-shadow: none;
       border: 1px solid black;
       background: #3a3a3a none repeat scroll 0 0;
       color: white;
       cursor: pointer; }
-    /* line 43, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+    /* line 43, ../../resources/assets/sass/_theme.scss */
     body #wrapper button:hover {
       background: #1f6378; }
-    /* line 54, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+    /* line 54, ../../resources/assets/sass/_theme.scss */
     body #wrapper a, body #wrapper img, body #wrapper button, body #wrapper button:hover {
       -o-transition: .5s;
       -ms-transition: .5s;
       -moz-transition: .5s;
       -webkit-transition: .5s;
       transition: .5s; }
-    /* line 62, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+    /* line 62, ../../resources/assets/sass/_theme.scss */
     body #wrapper a {
       color: #ffffff;
       text-decoration: none; }
-      /* line 66, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+      /* line 66, ../../resources/assets/sass/_theme.scss */
       body #wrapper a img {
         border: 0;
         opacity: 0.8;
         filter: alpha(opacity=80);
         /* For IE8 and earlier */ }
-        /* line 71, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+        /* line 71, ../../resources/assets/sass/_theme.scss */
         body #wrapper a img :hover {
           opacity: 1.0;
           filter: alpha(opacity=100);
           /* For IE8 and earlier */ }
-    /* line 77, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+    /* line 77, ../../resources/assets/sass/_theme.scss */
     body #wrapper #signedin {
       font-weight: bold;
       margin: 5px 10px;
       padding: 0;
       font-size: 12px;
       float: right; }
-      /* line 84, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+      /* line 84, ../../resources/assets/sass/_theme.scss */
       body #wrapper #signedin #signinName {
         color: yellow; }
-      /* line 88, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+      /* line 88, ../../resources/assets/sass/_theme.scss */
       body #wrapper #signedin #signinLocation {
         color: orange; }
-      /* line 92, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+      /* line 92, ../../resources/assets/sass/_theme.scss */
       body #wrapper #signedin #signinPriv {
         color: red; }
-    /* line 102, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+    /* line 102, ../../resources/assets/sass/_theme.scss */
     body #wrapper header#header {
       width: 100%;
       display: block;
       display: inline-block; }
-      /* line 105, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+      /* line 105, ../../resources/assets/sass/_theme.scss */
       body #wrapper header#header .head {
         width: 50%;
         float: left; }
-        /* line 109, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+        /* line 109, ../../resources/assets/sass/_theme.scss */
         body #wrapper header#header .head img {
           width: 20%;
           margin-left: 5%; }
-      /* line 115, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+      /* line 115, ../../resources/assets/sass/_theme.scss */
       body #wrapper header#header .head:last-child {
         float: right;
         padding-top: 10px; }
-      /* line 120, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+      /* line 120, ../../resources/assets/sass/_theme.scss */
       body #wrapper header#header nav {
         width: auto;
         float: right;
         padding: 1%;
         font-size: 16px;
         font-weight: bold; }
-        /* line 127, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+        /* line 127, ../../resources/assets/sass/_theme.scss */
         body #wrapper header#header nav ul {
           padding: 0;
           margin: 0; }
-          /* line 131, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+          /* line 131, ../../resources/assets/sass/_theme.scss */
           body #wrapper header#header nav ul li:first-child {
             margin-left: 10px; }
-          /* line 134, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+          /* line 134, ../../resources/assets/sass/_theme.scss */
           body #wrapper header#header nav ul li {
             list-style: none;
             float: left; }
-            /* line 138, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+            /* line 138, ../../resources/assets/sass/_theme.scss */
             body #wrapper header#header nav ul li a {
               padding: 2px 20px;
               color: white;
               text-decoration: none; }
-              /* line 144, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+              /* line 144, ../../resources/assets/sass/_theme.scss */
               body #wrapper header#header nav ul li a i .fa.fa-home {
                 font-size: 20px; }
-              /* line 147, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+              /* line 147, ../../resources/assets/sass/_theme.scss */
               body #wrapper header#header nav ul li a img {
                 width: 100%; }
-    /* line 156, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+    /* line 156, ../../resources/assets/sass/_theme.scss */
     body #wrapper #content {
       min-width: 1024px;
       width: 98%;
       margin: 2% auto;
       clear: both;
       display: block; }
-      /* line 166, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+      /* line 166, ../../resources/assets/sass/_theme.scss */
       body #wrapper #content a #largeArea {
         width: 100%;
         height: 500px;
         margin: 0 auto;
         display: block; }
-    /* line 175, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+    /* line 175, ../../resources/assets/sass/_theme.scss */
     body #wrapper .settings {
       width: 100%;
       margin: 0 auto;
       background: transparent; }
-      /* line 180, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+      /* line 180, ../../resources/assets/sass/_theme.scss */
       body #wrapper .settings h4 {
         font-size: 20px; }
-      /* line 188, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+      /* line 188, ../../resources/assets/sass/_theme.scss */
       body #wrapper .settings .row {
         width: 100%; }
-        /* line 191, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+        /* line 191, ../../resources/assets/sass/_theme.scss */
         body #wrapper .settings .row form {
           margin-bottom: 5px; }
-          /* line 200, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+          /* line 200, ../../resources/assets/sass/_theme.scss */
           body #wrapper .settings .row form :first-child ul li {
             border: none; }
-          /* line 206, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+          /* line 206, ../../resources/assets/sass/_theme.scss */
           body #wrapper .settings .row form ul {
             padding: 0;
             margin: 0; }
-            /* line 210, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+            /* line 210, ../../resources/assets/sass/_theme.scss */
             body #wrapper .settings .row form ul li {
               border: 1px solid #000000;
               list-style: outside none none;
               margin-bottom: 5px; }
-    /* line 220, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+    /* line 220, ../../resources/assets/sass/_theme.scss */
     body #wrapper footer {
       width: 100%;
       margin: 0 auto;
@@ -602,7 +602,7 @@ body {
       font-size: 12px; }
 
 /* Generic */
-/* line 239, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+/* line 239, ../../resources/assets/sass/_theme.scss */
 input {
   border: none;
   box-shadow: none;
@@ -613,11 +613,11 @@ input {
   margin: 0;
   padding: 4px; }
 
-/* line 250, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+/* line 250, ../../resources/assets/sass/_theme.scss */
 form {
   border: none;
   color: white; }
-  /* line 254, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_theme.scss */
+  /* line 254, ../../resources/assets/sass/_theme.scss */
   form h3 {
     padding-bottom: 8px; }
 
@@ -627,22 +627,22 @@ form {
 /* Yellow */
 /* Orange */
 /* Pink */
-/* line 1, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_advertTemplates.scss */
+/* line 1, ../../resources/assets/sass/_advertTemplates.scss */
 #plus_container {
   width: 100%; }
-  /* line 4, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_advertTemplates.scss */
+  /* line 4, ../../resources/assets/sass/_advertTemplates.scss */
   #plus_container #header {
     width: 100%; }
-    /* line 7, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_advertTemplates.scss */
+    /* line 7, ../../resources/assets/sass/_advertTemplates.scss */
     #plus_container #header h1 {
       background: white;
       color: #000000; }
-  /* line 14, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_advertTemplates.scss */
+  /* line 14, ../../resources/assets/sass/_advertTemplates.scss */
   #plus_container .row {
     clear: both;
     display: block;
     min-height: 250px; }
-    /* line 20, C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/_advertTemplates.scss */
+    /* line 20, ../../resources/assets/sass/_advertTemplates.scss */
     #plus_container .row img {
       width: 80%;
       max-height: 200px; }
