@@ -238,8 +238,9 @@ class AdvertController extends Controller
       return response('Success', 200);
     }
 
-    public function process($request) {
+    public function process(Request $request) {
 
+      // Validation
       $this->validate($request, [
           'txtAdvertName' => 'required|max:255',
       ]);
@@ -247,7 +248,7 @@ class AdvertController extends Controller
       $btnAddAdvert = $request->input('btnAddAdvert');
       $btnFindAdvert = $request->input('btnFindAdvert');
       $btnFindAll = $request->input('btnFindAll');
-      $advertName = $reuqest->input('txtAdvertName');
+      $advertName = $request->input('txtAdvertName');
 
       if (isset($btnAddAdvert)) {
 
@@ -258,10 +259,9 @@ class AdvertController extends Controller
 
         $advertName = null;
 
-
       } else if (isset($btnFindAdvert)) {
 
-        $adverts = Advert::where('name', '%' . $advertName . '%')->get();
+        $adverts = Advert::where('name', 'LIKE', '%' . $advertName . '%')->get();
 
       } else if (isset($btnFindAll)) {
 
@@ -271,13 +271,32 @@ class AdvertController extends Controller
         abort(401, 'Un-authorised');
       }
 
-
-
       $data = array(
-
+        'adverts' => $adverts
       );
 
-      return view('pages/advert', $data);
+      return view('pages/adverts', $data);
+    }
 
+    public function getAllowedAdverts($user, $allowed_departments) {
+      // Check if super or admin
+      if ($user->is_super_user) {
+        return Adverts::all(); // Return all adverts
+      } else {
+
+        $adverts = collect([]);
+        // Get every user assigned to every department
+        // this admin is responsible for
+        foreach ($allowed_departments as $department) {
+          $departmentAdverts = $department->Adverts()->get();
+
+          if ($departmentUsers->count() > 0) {
+            $users = $users->merge($departmentUsers);
+          }
+        }
+      }
+
+      // Only return unqiue users
+      return $adverts->unique('id');
     }
 }
