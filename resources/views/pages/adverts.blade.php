@@ -8,10 +8,13 @@
 
 <div class="global">
 	<div class="row">
+		<!-- TODO ADD FORM -->
 			<h3>Adverts</h3>
 			<ul>
 				<li>
-					<a href="#AdvertModal"><button name="btnNewAdvert">New</button></a>
+					<input type="name" name="txtAdvertName" placeholder="Advert name...."
+								 value="{{ $searchItem or '' }}"/>
+					<a href="#AdvertModal"><button type="submit" name="btnNewAdvert">New</button></a>
 				</li>
 			</ul>
 	</div>

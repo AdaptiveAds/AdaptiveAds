@@ -1,4 +1,5 @@
-<div id="plus_container" class="theme_fourbyfour">
+
+<div id="plus_container" class="theme1">
 
 	<div id="header"><h1 name="pageName">{{ $pageData->heading or 'Heading' }}</h1></div>
   <div class="row">

@@ -3,9 +3,11 @@
     @if ($locations->count() > 0)
       @foreach($locations as $location)
         <li>
-          <label for="name">{{ $location->name or 'Location name' }}</label>
-          <button type="button">Edit</button>
-          <button type="button">Disable</button>
+          {!! Form::open(['url' => '', 'method' => 'POST']) !!}
+            <label for="name">{{ $location->name or 'Location name' }}</label>
+            <button name="btnEditLocation">Edit</button>
+            <button type="submit" name="btnDisable">Disable</button>
+          {!! Form::close() !!}
         </li>
       @endforeach
     @else

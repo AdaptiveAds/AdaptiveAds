@@ -12,7 +12,7 @@
 <h3>Page Editor</h3>
 <h3 name="pageName">Title: {{ $pageData->heading or 'New Page'}}</h3>
 
-<div id="left" class="landscape theme_oneImages">
+<div id="left" class="landscape theme1">
 	<div class="pagecontainer">
 		@include('templates/templateStructure')
 	</div>
