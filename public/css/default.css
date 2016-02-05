@@ -1,22 +1,22 @@
 /*Variables*/
 /* sitewide classes */
-/* line 20, ../../resources/assets/sass/_variables.scss */
+/* line 23, ../../resources/assets/sass/_variables.scss */
 .hidden {
   display: none; }
 
-/* line 21, ../../resources/assets/sass/_variables.scss */
+/* line 24, ../../resources/assets/sass/_variables.scss */
 .shown {
   display: block; }
 
-/* line 22, ../../resources/assets/sass/_variables.scss */
+/* line 25, ../../resources/assets/sass/_variables.scss */
 .clear {
   clear: both; }
 
-/* line 23, ../../resources/assets/sass/_variables.scss */
+/* line 26, ../../resources/assets/sass/_variables.scss */
 .right {
   float: right; }
 
-/* line 24, ../../resources/assets/sass/_variables.scss */
+/* line 27, ../../resources/assets/sass/_variables.scss */
 .alert-danger {
   color: red;
   font-size: 20px;
@@ -27,15 +27,17 @@
 /* advert and playlist editor */
 /* line 5, ../../resources/assets/sass/_objects.scss */
 .advertItem {
-  width: 300px;
-  height: 50px; }
+             /*
+	width: 300px;
+	height:50px;
+	*/ }
 
-/* line 10, ../../resources/assets/sass/_objects.scss */
+/* line 11, ../../resources/assets/sass/_objects.scss */
 .selected {
   background: #1f6378; }
 
 /* pop-up */
-/* line 15, ../../resources/assets/sass/_objects.scss */
+/* line 16, ../../resources/assets/sass/_objects.scss */
 .modalDialog {
   position: fixed;
   font-family: Arial, Helvetica, sans-serif;
@@ -51,12 +53,12 @@
   transition: opacity 400ms ease-in;
   pointer-events: none; }
 
-/* line 31, ../../resources/assets/sass/_objects.scss */
+/* line 32, ../../resources/assets/sass/_objects.scss */
 .modalDialog:target {
   opacity: 1;
   pointer-events: auto; }
 
-/* line 36, ../../resources/assets/sass/_objects.scss */
+/* line 37, ../../resources/assets/sass/_objects.scss */
 .modalDialog > div {
   width: 500px;
   position: relative;
@@ -68,24 +70,24 @@
   border-color: #fff;
   border-style: solid; }
 
-/* line 48, ../../resources/assets/sass/_objects.scss */
+/* line 49, ../../resources/assets/sass/_objects.scss */
 .modalDialogLeft {
   float: left;
   padding: 20px 40px 10px 0px; }
 
-/* line 53, ../../resources/assets/sass/_objects.scss */
+/* line 54, ../../resources/assets/sass/_objects.scss */
 .modalDialog > div > form > input.submit {
   cursor: pointer; }
 
-/* line 57, ../../resources/assets/sass/_objects.scss */
+/* line 58, ../../resources/assets/sass/_objects.scss */
 .modalDialog > div > form > div > select {
   width: 220px; }
 
-/* line 61, ../../resources/assets/sass/_objects.scss */
+/* line 62, ../../resources/assets/sass/_objects.scss */
 .modalDialog > div > form > input {
   margin: 10px 0px 10px 0px; }
 
-/* line 65, ../../resources/assets/sass/_objects.scss */
+/* line 66, ../../resources/assets/sass/_objects.scss */
 .close {
   background: #606061;
   color: #FFFFFF;
@@ -104,7 +106,7 @@
   -webkit-box-shadow: 1px 1px 3px #000;
   box-shadow: 1px 1px 3px #000; }
 
-/* line 84, ../../resources/assets/sass/_objects.scss */
+/* line 85, ../../resources/assets/sass/_objects.scss */
 .close:hover {
   background: #00d9ff; }
 
@@ -437,7 +439,8 @@ body {
     display: block;
     width: 100%;
     margin: 0 auto;
-    min-width: 1325px; }
+    min-width: 1325px;
+    /* Buttons */ }
     /* line 22, ../../resources/assets/sass/_theme.scss */
     body #wrapper h1, body #wrapper h2, body #wrapper h3, body #wrapper h4, body #wrapper h5 {
       margin: 0;
@@ -453,21 +456,15 @@ body {
     /* line 31, ../../resources/assets/sass/_theme.scss */
     body #wrapper article {
       margin: 10px 0; }
-    /* line 35, ../../resources/assets/sass/_theme.scss */
+    /* line 36, ../../resources/assets/sass/_theme.scss */
     body #wrapper button {
       box-shadow: none;
       border: 1px solid black;
-      background: #3a3a3a none repeat scroll 0 0;
+      background: #1f6378;
       color: white; }
     /* line 42, ../../resources/assets/sass/_theme.scss */
-    body #wrapper button.btn-active {
-      background: #1f6378; }
-    /* line 46, ../../resources/assets/sass/_theme.scss */
-    body #wrapper button.btn-active:hover {
-      background: #3a3a3a none repeat scroll 0 0; }
-    /* line 50, ../../resources/assets/sass/_theme.scss */
     body #wrapper button:hover {
-      background: #1f6378;
+      background: #3a3a3a none repeat scroll 0 0;
       cursor: pointer; }
     /* line 54, ../../resources/assets/sass/_theme.scss */
     body #wrapper a, body #wrapper img, body #wrapper button, body #wrapper button:hover {

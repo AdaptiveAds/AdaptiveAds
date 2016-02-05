@@ -49,14 +49,27 @@ https://developers.google.com/recaptcha/docs/display -->
 
 </head>
 
-<body id="{{ $pageID }}">
+<body>
 <div id="wrapper">
 	<!-- Only show if user is logged in -->
 	@if (Auth::guest() == false)
-		<div id="signedin">Signed in: <span id="signinName">{{Auth::user()->username}}</span> <a href="{{ URL::to('auth/logout') }}"><button id="signout" class="btn-active">Sign out</button></a></div>
+		<div id="signedin">Signed in: <span id="signinName">{{Auth::user()->username}}</span> <a href="{{ URL::to('auth/logout') }}"><button id="signout" class="button-active">Sign out</button></a></div>
 	@endif
+<!--
+	<div id="themeColor">
+		<ul>
+			<li><i class="fa fa-circle-o-notch"></i></li>
+			<li><i class="fa fa-circle-o-notch"></i></li>
+			<li><i class="fa fa-circle-o-notch"></i></li>
+			<li><i class="fa fa-circle-o-notch"></i></li>
+			<li><i class="fa fa-circle-o-notch"></i></li>
+			<li><i class="fa fa-circle-o-notch"></i></li>
+			<li><i class="fa fa-circle-o-notch"></i></li>
+			<li><i class="fa fa-circle-o-notch"></i></li>
+		</ul>
+	</div>
+-->
 		<header id="header">
-			<!-- IF statement for anchor: If the user has not logged in, prompt for login before accessing the dashboard -->
 			<div class="head">
 				<a href="{{ URL::to('dashboard')}}"><img src="{{ URL::asset('images/logo.png') }}" alt="php input" title="php input"></a>
 			</div>
