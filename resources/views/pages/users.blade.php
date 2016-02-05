@@ -6,7 +6,7 @@
 	<div class="row">
 		{!! Form::open(['route' => 'dashboard.settings.users.process', 'method' => 'POST']) !!}
 			<h3>Users</h3>
-			<ul>
+			<ul name="listUsersControls">
 				<li>
 					<input type="name" name="txtUsername" placeholder="Name" value="{{ $username or '' }}"/>
 					<label>Department:</label>
