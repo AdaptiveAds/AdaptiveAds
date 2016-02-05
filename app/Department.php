@@ -40,7 +40,8 @@ class Department extends Model
   }
 
   public function Adverts() {
-    return $this->belongsToMany(Advert::class)->withPivot('department_id', 'advert_id');
+    //return $this->belongsToMany(Advert::class)->withPivot('department_id', 'advert_id');
+    return $this->hasMany(Playlist::class, 'department_id', 'id');
   }
 
   public function Screens() {
