@@ -11,9 +11,18 @@ use Input;
 use App\Page as Page;
 use App\PageData as PageData;
 
+/**
+  * Defines the CRUD methods for the PageController
+  * @author Josh Preece
+  * @license REVIEW
+  * @since 1.0
+  */
 class PageController extends Controller
 {
 
+    /**
+      * Controller Constructor defines what middleware to apply
+      */
     public function __construct()
     {
         // Auth required
@@ -189,6 +198,11 @@ class PageController extends Controller
         return redirect()->route('dashboard.advert.show', [$adID]);
     }
 
+    /**
+      * Takes an image upload, gives it a timestamp and moves it to advert_images in the public folder
+      * @param \Illuminate\Http\Request\Input $input
+      * @return string | null
+      */
     public function processImage($input) {
 
       if ($input->isValid()) {

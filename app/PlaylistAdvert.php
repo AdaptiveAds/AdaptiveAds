@@ -4,6 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+  * Defines the PlaylistAdvert model object
+  * @author Josh Preece
+  * @license REVIEW
+  * @since 1.0
+  */
 class PlaylistAdvert extends Model
 {
   /**
@@ -12,12 +18,17 @@ class PlaylistAdvert extends Model
    * @var string
    */
   protected $table = 'advert_playlist';
+
+  /**
+    * Flag to determine if timestamps should be used
+    * @var boolean
+    */
   public $timestamps = false;
 
-  public function Playlist() {
-
-  }
-
+  /**
+    * Gets the advert associated with the playlistAdvert collection. Belongs to relationship
+    * @return EloquentCollection
+    */
   public function Advert() {
     return $this->belongsTo(Advert::class, 'advert_id');
   }

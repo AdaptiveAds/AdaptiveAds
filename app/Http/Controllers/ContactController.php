@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+/**
+  * Defines the CRUD methods for the ContactController
+  * @author Josh Preece
+  * @license REVIEW
+  * @since 1.0
+  */
 class ContactController extends Controller
 {
     /**

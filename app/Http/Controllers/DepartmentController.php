@@ -12,9 +12,18 @@ use App\Skin as Skin;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+/**
+  * Defines the CRUD methods for the DepartmentController
+  * @author Josh Preece
+  * @license REVIEW
+  * @since 1.0
+  */
 class DepartmentController extends Controller
 {
 
+    /**
+      * Controller Constructor defines what middleware to apply
+      */
     public function __construct()
     {
         // Auth required
@@ -111,6 +120,11 @@ class DepartmentController extends Controller
         //
     }
 
+    /**
+      * Processes input from the screen. Includes basic CRUD and filtering options
+      * @param \Illuminate\Http\Request $request
+      * @return \Illuminate\Http\Response
+      */
     public function process(Request $request)
     {
 

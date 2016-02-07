@@ -4,10 +4,10 @@
 
 @include('objects/model_create', array('object' => 'Advert',
 																			 'allowed_departments' => $allowed_departments,
-																			 'route' => 'dashboard.advert.store'))
+																			 'route' => 'dashboard.advert.process'))
 @include('objects/model_create', array('object' => 'Playlist',
 																			 'allowed_departments' => $allowed_departments,
-																			 'route' => 'dashboard.playlist.store'))
+																			 'route' => 'dashboard.playlist.process'))
 
 <div class="dashboard">
 	<div class="row">
@@ -141,7 +141,7 @@
 			@if ($user->is_super_user)
 				<div class="options">
 					<h4>Super User Settings</h4>
-				
+
 						<ul>
 							<li>
 								<a href="{{ URL::to('dashboard/settings/locations/')}}">
