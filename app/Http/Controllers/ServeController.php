@@ -12,6 +12,12 @@ use App\Playlist as Playlist;
 
 use App\Events\DurationEvent;
 
+/**
+  * Defines the CRUD methods for the ServeController
+  * @author Josh Preece
+  * @license REVIEW
+  * @since 1.0
+  */
 class ServeController extends Controller
 {
     /**
@@ -67,6 +73,11 @@ class ServeController extends Controller
         return view('templates/templateLayout', $data);
     }
 
+    /**
+      * Gets the playlist associated with the screen and loads all realtions
+      * @param Screen $screen
+      * @return EloquentCollection
+      */
     public function loadPlaylists($screen)
     {
 
@@ -99,6 +110,10 @@ class ServeController extends Controller
         ->get();*/
     }
 
+    /**
+      * Gets the global playlist and loads all realtions
+      * @return EloquentCollection
+      */
     public function getGlobal()
     {
       return Playlist::where('isGlobal', true)
@@ -112,6 +127,11 @@ class ServeController extends Controller
                       }))->first();
     }
 
+    /**
+      * Calls loadPlaylist and getGlobal to pass back any changes to the client
+      * @param int $id
+      * @return \Illuminate\Http\Response
+      */
     public function sync($id)
     {
         $screen = Screen::find($id);

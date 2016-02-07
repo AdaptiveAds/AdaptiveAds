@@ -4,6 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+  * Defines the Playlist model object
+  * @author Josh Preece
+  * @license REVIEW
+  * @since 1.0
+  */
 class Playlist extends Model
 {
   /**
@@ -12,8 +18,18 @@ class Playlist extends Model
    * @var string
    */
   protected $table = 'playlist';
+
+  /**
+    * Flag to determine if timestamps should be used
+    * @var boolean
+    */
   public $timestamps = false;
 
+  /**
+    * Get all the adverts associated with the playlist. Belongs to many relationship.
+    * Pivot table and ordered by advert index
+    * @return EloquentCollection
+    */
   public function Adverts() {
     return $this->belongsToMany(Advert::class)->withPivot('playlist_id', 'advert_id', 'advert_index', 'display_schedule_id')
                 ->orderBy('advert_index', 'ASC');

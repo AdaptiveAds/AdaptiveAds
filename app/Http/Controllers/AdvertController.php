@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -15,9 +14,18 @@ use App\Playlist as Playlist;
 use App\Department as Department;
 use App\Page as Page;
 
+/**
+  * Defines the CRUD methods for the AdvertController
+  * @author Josh Preece
+  * @license REVIEW
+  * @since 1.0
+  */
 class AdvertController extends Controller
 {
 
+    /**
+      * Controller Constructor defines what middleware to apply
+      */
     public function __construct()
     {
         // Auth required
@@ -146,6 +154,11 @@ class AdvertController extends Controller
       return redirect()->route('dashboard.advert.index');
     }
 
+    /**
+      * Displays a list of adverts the user can add to the playlist
+      * @param int $playlistID ID of the selected playlist
+      * @return \Illuminate\Http\Response
+      */
     public function selectForPlaylist($playlistID)
     {
       $allowed_departments = Session::get('allowed_departments');
@@ -176,6 +189,13 @@ class AdvertController extends Controller
       return view('pages/adverts', $data);
     }
 
+    /**
+      * Updates an advert with a new index and also updates the effected
+      * avdert whom has been 'jumped' over.
+      * @param \Illuminate\Http\Request $request
+      * @param int $advertID
+      * @return \Illuminate\Http\Response
+      */
     public function updateIndexes(Request $request, $advertID)
     {
 
@@ -202,6 +222,11 @@ class AdvertController extends Controller
       return response('Success', 200);
     }
 
+    /**
+      * Processes input from the screen. Includes basic CRUD and filtering options
+      * @param \Illuminate\Http\Request $request
+      * @return \Illuminate\Http\Response
+      */
     public function process(Request $request) {
 
       $user = Session::get('user');
@@ -252,6 +277,13 @@ class AdvertController extends Controller
       return view('pages/adverts', $data);
     }
 
+    /**
+      * Gets an array of all the allowed averts the specified user is able
+      * to access and modify because they're admin
+      * @param User $user
+      * @param array $allowed_departments
+      * @return EloquentCollection
+      */
     public function getAllowedAdverts($user, $allowed_departments) {
       // Check if super or admin
       if ($user->is_super_user) {

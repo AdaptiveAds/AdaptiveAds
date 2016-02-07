@@ -10,9 +10,18 @@ use App\Location as Location;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+/**
+  * Defines the CRUD methods for the LocationController
+  * @author Josh Preece
+  * @license REVIEW
+  * @since 1.0
+  */
 class LocationController extends Controller
 {
 
+    /**
+      * Controller Constructor defines what middleware to apply
+      */
     public function __construct()
     {
         // Auth required
@@ -113,6 +122,11 @@ class LocationController extends Controller
         //
     }
 
+    /**
+      * Processes input from the screen. Includes basic CRUD and filtering options
+      * @param \Illuminate\Http\Request $request
+      * @return \Illuminate\Http\Response
+      */
     public function process(Request $request)
     {
       $locations = null;

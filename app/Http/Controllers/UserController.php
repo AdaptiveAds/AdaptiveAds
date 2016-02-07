@@ -11,9 +11,18 @@ use App\User as User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+/**
+  * Defines the CRUD methods for the UserController
+  * @author Josh Preece
+  * @license REVIEW
+  * @since 1.0
+  */
 class UserController extends Controller
 {
 
+    /**
+      * Controller Constructor defines what middleware to apply
+      */
     public function __construct()
     {
         // Auth required
@@ -108,6 +117,11 @@ class UserController extends Controller
         //
     }
 
+    /**
+      * Processes input from the screen. Includes basic CRUD and filtering options
+      * @param \Illuminate\Http\Request $request
+      * @return \Illuminate\Http\Response
+      */
     public function process(Request $request)
     {
       $allowed_departments = Session::get('allowed_departments');
@@ -152,6 +166,13 @@ class UserController extends Controller
       return view('pages/users', $data);
     }
 
+    /**
+      * Gets an array of all the allowed users the specified user is able
+      * to access and modify because they're admin
+      * @param User $user
+      * @param array $allowed_departments
+      * @return EloquentCollection
+      */
     public function GetAllowedUsers($user, $allowed_departments) {
       // Check if super or admin
       if ($user->is_super_user) {
