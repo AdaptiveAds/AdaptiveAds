@@ -12,8 +12,17 @@ use App\Department as Department;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+/**
+  * Defines the CRUD methods for the ScreenController
+  * @author Josh Preece
+  * @license REVIEW
+  * @since 1.0
+  */
 class ScreenController extends Controller
 {
+    /**
+      * Controller Constructor defines what middleware to apply
+      */
     public function __construct()
     {
         // Auth required
@@ -114,6 +123,11 @@ class ScreenController extends Controller
         //
     }
 
+    /**
+      * Processes input from the screen. Includes basic CRUD and filtering options
+      * @param \Illuminate\Http\Request $request
+      * @return \Illuminate\Http\Response
+      */
     public function process(Request $request)
     {
       $match_departments = Session::get('match_departments');
@@ -178,6 +192,13 @@ class ScreenController extends Controller
       return view('pages/screens', $data);
     }
 
+    /**
+      * Gets an array of all the allowed screens the specified user is able
+      * to access and modify because they're admin
+      * @param User $user
+      * @param array $allowed_departments
+      * @return EloquentCollection
+      */
     public function getAllowedScreens($user, $allowed_departments) {
       if ($user->is_super_user) {
         return Screen::all();
