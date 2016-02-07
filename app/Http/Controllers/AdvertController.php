@@ -35,7 +35,7 @@ class AdvertController extends Controller
         $allowed_departments = Session::get('allowed_departments');
         $match_departments = Session::get('match_departments');
 
-        $adverts = Advert::where('deleted', 0)->whereIn('department_id', $match_departments)->get();
+        $adverts = Advert::whereIn('department_id', $match_departments)->get();
 
         //dd($adverts);
 

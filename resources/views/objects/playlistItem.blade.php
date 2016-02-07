@@ -3,12 +3,12 @@
   @foreach($playlists as $playlist)
     <li class="advertItem">
       <a href="{{ URL::to('dashboard/playlist/' . $playlist->id)}}">{{ $playlist->name }}</a>
-      <button type="submit">Edit</button>
+      <button type="submit" name="btnEditPlaylist">Edit</button>
       @if ($playlist->deleted == 0)
-        <button type="submit">Disable</button>
+        <button type="submit" name="btnDisablePlaylist">Disable</button>
       @else
         @if ($user->getAdmin())
-          <button type="submit">Enable</button>
+          <button type="submit" name="btnEnablePlaylist">Enable</button>
         @endif
       @endif
     </li>
