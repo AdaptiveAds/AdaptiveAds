@@ -65,13 +65,16 @@ var SelectManager = (function() {
   var token = "";
 
   function register_eventhandlers() {
-    $('.advertItem').click(function() {
-       $('.pagecontainer li').removeClass('selected');
+    $('li[data-selectableItem="true"]').click(function() {
+       $('ul[data-selectableList="true"] li').removeClass('selected');
        $(this).toggleClass('selected');
+
+       // Enable buttons
+       $('#btnUp').removeAttr('disabled');
+       $('#btnDown').removeAttr('disabled');
     });
 
     $('#btnUp').click(function() {
-
         $('.selected').insertBefore($('.selected').prev('li'));
 
         var newIndex = $('.selected').index();
