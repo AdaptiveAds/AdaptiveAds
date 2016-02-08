@@ -41,6 +41,19 @@ https://developers.google.com/recaptcha/docs/display -->
 			$('.btn-orientationHor').removeClass('active');
 			$('.btn-orientationVert').addClass('active');
 		});
+		$('.swatch-red').click(function() {
+			// Writing the code like this will allow SCSS to be added to the button to show which is active
+			$('body').removeClass('swatch-default');
+			$('body').addClass('swatch-red');
+			$('li.swatch-red').addClass('active');
+			$('li.swatch-default').removeClass('active');
+		});
+		$('.swatch-default').click(function() {
+			$('body').removeClass('swatch-red');
+			$('body').addClass('swatch-default');
+			$('li.swatch-red').removeClass('active');
+			$('li.swatch-default').addClass('active');
+		});
 	});
 	</script>
 
@@ -53,22 +66,18 @@ https://developers.google.com/recaptcha/docs/display -->
 <div id="wrapper">
 	<!-- Only show if user is logged in -->
 	@if (Auth::guest() == false)
-		<div id="signedin">Signed in: <span id="signinName">{{Auth::user()->username}}</span> <a href="{{ URL::to('auth/logout') }}"><button id="signout" class="button-active">Sign out</button></a></div>
+		<div id="top">
+			<div id="signedin">Signed in: <span id="signinName">{{Auth::user()->username}}</span> <a href="{{ URL::to('auth/logout') }}"><button id="signout" class="button-active">Sign out</button></a></div>
+			<div id="swatches">
+				<ul>
+					<li>Theme: </li>
+					<li><button class="swatch-default active"><i class="fa fa-circle-o-notch"></i></button</li>
+					<li><button class="swatch-red"><i class="fa fa-circle-o-notch"></i></button</li>
+				</ul>
+			</div>
+		</div>
 	@endif
-<!--
-	<div id="themeColor">
-		<ul>
-			<li><i class="fa fa-circle-o-notch"></i></li>
-			<li><i class="fa fa-circle-o-notch"></i></li>
-			<li><i class="fa fa-circle-o-notch"></i></li>
-			<li><i class="fa fa-circle-o-notch"></i></li>
-			<li><i class="fa fa-circle-o-notch"></i></li>
-			<li><i class="fa fa-circle-o-notch"></i></li>
-			<li><i class="fa fa-circle-o-notch"></i></li>
-			<li><i class="fa fa-circle-o-notch"></i></li>
-		</ul>
-	</div>
--->
+
 		<header id="header">
 			<div class="head">
 				<a href="{{ URL::to('dashboard')}}"><img src="{{ URL::asset('images/logo.png') }}" alt="php input" title="php input"></a>
@@ -76,9 +85,10 @@ https://developers.google.com/recaptcha/docs/display -->
 			<div class="head">
 				<nav>
 					<ul>
-						<li><a href="{{ URL::to('dashboard')}}"><i class="fa fa-home"></i></a></li>
-						<li><a href="{{ URL::to('team')}}"><i class="fa fa-users"></i></a></li>
-						<li><a href="{{ URL::to('contact')}}"><i class="fa fa-envelope"></i></a></li>
+						<li><a href="{{ URL::to('dashboard')}}">Home</a></li>
+						<li><a href="{{ URL::to('team')}}">Team</a></li>
+						<li><a href="{{ URL::to('contact')}}">Contact</a></li>
+						<li><a href="{{ URL::to('auth/login')}}">Sign In</a></li>
 					</ul>
 				</nav>
 			</div>

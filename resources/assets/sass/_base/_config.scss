@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+// Colors
+$black: #000000;
+$white: #FFFFFd;
+$red: #e2061c;
+$gray-light: #c9c8c8;
+$gray: #838282;
+$gray-dark: #333333;
+$blue: #253652;
+$blue-dark: #1f6378;
+$blue-light:#add8e6;//logo light blue
+$blue-light-opacity-partial: rgba(114, 188, 212, 0.1);
+$blue-light-opacity-hover: rgba(114, 188, 212, 0.4);
+
+// Images
+/*
+$untitled:              '../images/base/sprite.png' !default;
+$untitled: '../images/base/colorbox-background.png' !default;
+*/
+
+// Background
+$background: $white !default;
+
+// Font
+$base-font-size: 16px !default;
+$base-font-family: Helvetica, Arial, Sans-Serif !default;
+$base-font-color: $gray-dark !default;
+
+// Border
+$base-border:2px !default;
+$thick-border-hidden: 4px solid transparent;
+$thick-border-show: 4px solid $gray-light;
+$base-border-radius: 2px !default;
+$rounded-border-radius: 50% !default;
+$base-border-color: $gray !default;

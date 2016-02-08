@@ -12,23 +12,72 @@
 <h3>Page Editor</h3>
 <h3 name="pageName">Title: {{ $pageData->heading or 'New Page'}}</h3>
 
-<div id="left" class="landscape theme1">
-	<div class="pagecontainer">
-		@include('templates/templateStructure')
-	</div>
-	<div class="pagecontainer">
-		<ul class="theme_select">
-			<li class="select_oneImages"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
-			<li class="select_twoImages"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
-			<li class="select_oneVideo"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
-			<li class="select_twobytwo"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
-			<li class="select_twobytwoReverse"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
-			<li class="select_fourbyfour"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
-			<li class="select_fourbyfourReverse"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
-		</ul>
-		<div class="clear"></div>
+
+<div id="left" class="landscape">
+	<div id="identity" class="theme1">
+		<div class="pagecontainer">
+			@include('templates/templateStructure')
+		</div>
+		<div class="pagecontainer">
+			<ul class="theme_select">
+				<li class="theme1 active"> <a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
+				<li class="theme2"> <a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
+				<li class="theme3"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
+				<li class="theme4"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
+				<li class="theme5"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
+				<li class="theme6"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
+
+				<script>
+					$( "li.theme1" ).click(function() {
+						$( "li" ).removeClass("active");
+						$( this ).addClass( "active" );
+						$( "#identity" ).removeClass();
+						$( "#identity" ).addClass( "theme1" );
+					});
+
+					$( "li.theme2" ).click(function() {
+						$( "li" ).removeClass("active");
+						$( this ).addClass( "active" );
+						$( "#identity" ).removeClass();
+						$( "#identity" ).addClass( "theme2" );
+					});
+
+					$( "li.theme3" ).click(function() {
+						$( "li" ).removeClass("active");
+						$( this ).addClass( "active" );
+						$( "#identity" ).removeClass();
+						$( "#identity" ).addClass( "theme3" );
+					});
+
+					$( "li.theme4" ).click(function() {
+						$( "li" ).removeClass("active");
+						$( this ).addClass( "active" );
+						$( "#identity" ).removeClass();
+						$( "#identity" ).addClass( "theme4" );
+					});
+
+					$( "li.theme5" ).click(function() {
+						$( "li" ).removeClass("active");
+						$( this ).addClass( "active" );
+						$( "#identity" ).removeClass();
+						$( "#identity" ).addClass( "theme5" );
+					});
+
+					$( "li.theme6" ).click(function() {
+						$( "li" ).removeClass("active");
+						$( this ).addClass( "active" );
+						$( "#identity" ).removeClass();
+						$( "#identity" ).addClass( "theme6" );
+					});
+				</script>
+
+			</ul>
+			<div class="clear"></div>
+		</div>
 	</div>
 </div>
+</div>
+
 <div id="right">
 
 	<!-- PHP Driven self updating ??

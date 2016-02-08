@@ -9,24 +9,10 @@
 				@endif
 			</div>
 
-			<div id="serve_text">	    <div class="quad" id="page_content">
-	    	<p name="pageContent">{{ $pageData->content or '' }}</p>
+			<div id="serve_text">
+	    		<p name="pageContent">{{ $pageData->content or '' }}</p>
 			</div>
 	</div>
   <div class="clear"></div>
 </div>
-
-<div id="serve_container">
-	<div id="header"><h1></h1></div>
-  <div class="row">
-    	<div id="serve_image">
-				<img src="" title="" alt=""/>
-			</div>
-
-			<div id="serve_text">
-				<p>This is a sentence</p>
-			</div>
-	</div>
-</div>
-
 <div id="footer"></div>

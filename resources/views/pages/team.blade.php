@@ -8,7 +8,7 @@
 			<h2>Chris Zielazny</h2>
 			<h4>Business IT</h4>
 		</header>
-		<img src="../images/logo.png">
+		<a href=""><img src="../images/logo.png"></a>
 		<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
 	</article>
 	<article>
