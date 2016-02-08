@@ -4,10 +4,10 @@
 
 @include('objects/model_create', array('object' => 'Advert',
 																			 'allowed_departments' => $allowed_departments,
-																			 'route' => 'dashboard.advert.store'))
+																			 'route' => 'dashboard.advert.process'))
 @include('objects/model_create', array('object' => 'Playlist',
 																			 'allowed_departments' => $allowed_departments,
-																			 'route' => 'dashboard.playlist.store'))
+																			 'route' => 'dashboard.playlist.process'))
 
 <div class="dashboard">
 	<div class="row">

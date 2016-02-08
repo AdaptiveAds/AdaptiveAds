@@ -13,9 +13,18 @@ use App\Playlist as Playlist;
 use App\Advert as Advert;
 use App\Department as Department;
 
+/**
+  * Defines the CRUD methods for the PlaylistController
+  * @author Josh Preece
+  * @license REVIEW
+  * @since 1.0
+  */
 class PlaylistController extends Controller
 {
 
+    /**
+      * Controller Constructor defines what middleware to apply
+      */
     public function __construct()
     {
         // Auth required
@@ -29,14 +38,16 @@ class PlaylistController extends Controller
      */
     public function index()
     {
+      $user = Session::get('user');
       $allowed_departments = Session::get('allowed_departments');
       $match_departments = Session::get('match_departments');
 
-      $playlists = Playlist::where('deleted', 0)->whereIn('department_id', $match_departments)->orderBy('name', 'ASC')->get();
+      $playlists = Playlist::whereIn('department_id', $match_departments)->orderBy('name', 'ASC')->get();
 
       $data = array(
         'playlists' => $playlists,
-        'allowed_departments' => $allowed_departments
+        'allowed_departments' => $allowed_departments,
+        'user' => $user
       );
 
       return view('pages/playlists', $data);
@@ -219,5 +230,82 @@ class PlaylistController extends Controller
       }
 
       return response('Success', 200);
+    }
+
+    /**
+      * Processes input from the screen. Includes basic CRUD and filtering options
+      * @param \Illuminate\Http\Request $request
+      * @return \Illuminate\Http\Response
+      */
+    public function process(Request $request) {
+
+      $user = Session::get('user');
+      $allowed_departments = Session::get('allowed_departments');
+
+      $btnAddPlaylist = $request->input('btnAddPlaylist');
+      $btnFindPlaylist = $request->input('btnFindPlaylist');
+      $btnFindAll = $request->input('btnFindAll');
+      $playlistName = $request->input('txtPlaylistName');
+      $departmentID = $request->input('drpDepartments');
+
+      if (isset($btnAddPlaylist)) {
+
+        $playlist = new Playlist;
+        $playlist->name = $playlistName;
+        $playlist->department_id = $departmentID;
+        $playlist->save();
+
+        $playlistName = null;
+        $playlists = $this->getAllowedPlaylists($user, $allowed_departments);
+
+      } else if (isset($btnFindPlaylist)) {
+
+
+
+      } else if (isset($btnFindAll)) {
+
+        $playlistName = null;
+        $playlists = $this->getAllowedPlaylists($user, $allowed_departments);
+
+      } else {
+        abort(401, 'Un-authorised');
+      }
+
+      $data = array(
+        'user' => $user,
+        'allowed_departments' => $allowed_departments,
+        'playlists' => $playlists
+      );
+
+      return view('pages/playlists', $data);
+    }
+
+    /**
+      * Gets an array of all the allowed playlists the specified user is able
+      * to access and modify because they're admin
+      * @param User $user
+      * @param array $allowed_departments
+      * @return EloquentCollection
+      */
+    public function getAllowedPlaylists($user, $allowed_departments) {
+      // Check if super or admin
+      if ($user->is_super_user) {
+        return Playlist::all(); // Return all adverts
+      } else {
+
+        $playlists = collect([]);
+        // Get every user assigned to every department
+        // this admin is responsible for
+        foreach ($allowed_departments as $department) {
+          $departmentPlaylists = $department->Playlists()->get();
+
+          if ($departmentPlaylists->count() > 0) {
+            $playlists = $playlists->merge($departmentPlaylists);
+          }
+        }
+      }
+
+      // Only return unqiue users
+      return $playlists->unique('id');
     }
 }

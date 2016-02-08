@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -15,9 +14,18 @@ use App\Playlist as Playlist;
 use App\Department as Department;
 use App\Page as Page;
 
+/**
+  * Defines the CRUD methods for the AdvertController
+  * @author Josh Preece
+  * @license REVIEW
+  * @since 1.0
+  */
 class AdvertController extends Controller
 {
 
+    /**
+      * Controller Constructor defines what middleware to apply
+      */
     public function __construct()
     {
         // Auth required
@@ -31,14 +39,16 @@ class AdvertController extends Controller
      */
     public function index()
     {
+        $user = Session::get('user');
         $allowed_departments = Session::get('allowed_departments');
         $match_departments = Session::get('match_departments');
 
-        $adverts = Advert::where('deleted', 0)->whereIn('department_id', $match_departments)->get();
+        $adverts = Advert::whereIn('department_id', $match_departments)->get();
 
         //dd($adverts);
 
         $data = array(
+          'user' => $user,
           'adverts' => $adverts,
           'allowed_departments' => $allowed_departments
         );
@@ -65,22 +75,8 @@ class AdvertController extends Controller
      */
     public function store(Request $request)
     {
-        // Validation
-        $this->validate($request, [
-            'txtAdvertName' => 'required|max:255',
-        ]);
-
-        // Was validation successful?
-        $advert = new Advert;
-        $advert->name = $request->input('txtAdvertName');
-        $advert->department_id = $request->input('drpDepartments');
-        $advert->save();
-
-        $data = array(
-          'advert' => $advert
-        );
-
-        return view('pages/advertEditor', $data);
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -122,20 +118,6 @@ class AdvertController extends Controller
     {
       // NOTE not used
       return Response('Not found', 404);
-    /*
-      $allowed_departments = Session::get('allowed_departments');
-      $advert = Advert::find($id)->whereIn('department_id', $allowed_departments)->get();
-
-      if ($advert->isEmpty()) {
-        return response('Not found.', 404); // User does not have access to this adverts' location
-      }
-
-      $data = array(
-        'pageID' => 'adverteditor',
-        'advert' => $advert
-      );
-
-      return view('pages/advertEditor', $data);*/
     }
 
     /**
@@ -149,16 +131,6 @@ class AdvertController extends Controller
     {
       // NOTE not used
       return Response('Not found', 404);
-      /*$allowed_departments = Session::get('allowed_departments');
-      $advert = Advert::find($id)->whereIn('department_id', $allowed_departments)->get();
-
-      if ($advert->isEmpty()) {
-        return response('Not found.', 404); // Advert does not exist or un authorised
-      }
-
-      $advert->name = $request->name;
-
-      $advert->save();*/
     }
 
     /**
@@ -182,6 +154,11 @@ class AdvertController extends Controller
       return redirect()->route('dashboard.advert.index');
     }
 
+    /**
+      * Displays a list of adverts the user can add to the playlist
+      * @param int $playlistID ID of the selected playlist
+      * @return \Illuminate\Http\Response
+      */
     public function selectForPlaylist($playlistID)
     {
       $allowed_departments = Session::get('allowed_departments');
@@ -212,6 +189,13 @@ class AdvertController extends Controller
       return view('pages/adverts', $data);
     }
 
+    /**
+      * Updates an advert with a new index and also updates the effected
+      * avdert whom has been 'jumped' over.
+      * @param \Illuminate\Http\Request $request
+      * @param int $advertID
+      * @return \Illuminate\Http\Response
+      */
     public function updateIndexes(Request $request, $advertID)
     {
 
@@ -238,46 +222,87 @@ class AdvertController extends Controller
       return response('Success', 200);
     }
 
-    public function process($request) {
+    /**
+      * Processes input from the screen. Includes basic CRUD and filtering options
+      * @param \Illuminate\Http\Request $request
+      * @return \Illuminate\Http\Response
+      */
+    public function process(Request $request) {
 
-      $this->validate($request, [
-          'txtAdvertName' => 'required|max:255',
-      ]);
+      $user = Session::get('user');
+      $allowed_departments = Session::get('allowed_departments');
 
       $btnAddAdvert = $request->input('btnAddAdvert');
       $btnFindAdvert = $request->input('btnFindAdvert');
       $btnFindAll = $request->input('btnFindAll');
-      $advertName = $reuqest->input('txtAdvertName');
+      $advertName = $request->input('txtAdvertName');
+      $departmentID = $request->input('drpDepartments');
 
       if (isset($btnAddAdvert)) {
 
         $advert = new Advert;
-        $advert->name = $request->input('txtAdvertName');
-        $advert->department_id = $request->input('drpDepartments');
+        $advert->name = $advertName;
+        $advert->department_id = $departmentID;
         $advert->save();
 
         $advertName = null;
-
+        $adverts = $this->getAllowedAdverts($user, $allowed_departments);
 
       } else if (isset($btnFindAdvert)) {
 
-        $adverts = Advert::where('name', '%' . $advertName . '%')->get();
+        $adverts = $this->getAllowedAdverts($user, $allowed_departments);
+        $adverts = $adverts->filter(function($item) use ($advertName) {
+          if ($item->name == $advertName) { // TODO Add department filter
+            return true;
+          }
+
+          return false;
+        });
 
       } else if (isset($btnFindAll)) {
 
         $advertName = null;
+        $adverts = $this->getAllowedAdverts($user, $allowed_departments);
 
       } else {
         abort(401, 'Un-authorised');
       }
 
-
-
       $data = array(
-
+        'user' => $user,
+        'adverts' => $adverts,
+        'allowed_departments' => $allowed_departments
       );
 
-      return view('pages/advert', $data);
+      return view('pages/adverts', $data);
+    }
 
+    /**
+      * Gets an array of all the allowed averts the specified user is able
+      * to access and modify because they're admin
+      * @param User $user
+      * @param array $allowed_departments
+      * @return EloquentCollection
+      */
+    public function getAllowedAdverts($user, $allowed_departments) {
+      // Check if super or admin
+      if ($user->is_super_user) {
+        return Advert::all(); // Return all adverts
+      } else {
+
+        $adverts = collect([]);
+        // Get every user assigned to every department
+        // this admin is responsible for
+        foreach ($allowed_departments as $department) {
+          $departmentAdverts = $department->Adverts()->get();
+
+          if ($departmentAdverts->count() > 0) {
+            $adverts = $adverts->merge($departmentAdverts);
+          }
+        }
+      }
+
+      // Only return unqiue users
+      return $adverts->unique('id');
     }
 }

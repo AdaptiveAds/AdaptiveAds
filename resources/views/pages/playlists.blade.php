@@ -2,21 +2,26 @@
 
 @section('content')
 
-@include('objects/model_create', array('object' => 'Playlist',
-																			 'allowed_departments' => $allowed_departments,
-																			 'route' => 'dashboard.playlist.store'))
-
 <div class="global">
 	<div class="row">
-			<!-- TODO ADD FORM -->
+		{!! Form::open(['route' => 'dashboard.playlist.process', 'method' => 'POST']) !!}
 			<h3>Playlists</h3>
 			<ul>
 				<li>
-					<input type="name" name="txtPlaylistName" placeholder="Playlist name...."
+					<input type="text" name="txtPlaylistName" placeholder="Playlist name...."
 								 value="{{ $searchItem or '' }}"/>
-					<a href="#PlaylistModal"><button type="submit" name="btnAddPlaylist">New</button></a>
+					<label>Department:</label>
+ 					@include('objects/departments_dropdown', array('allowed_departments' => $allowed_departments))
+ 					@if (isset($user))
+						@if ($user->is_super_user)
+							<button type="submit" name="btnAddPlaylist">Add</button>
+						@endif
+					@endif
+					<button type="submit" name="btnFindPlaylist">Find</button>
+					<button type="submit" name="btnFindAll">Find All</button>
 				</li>
 			</ul>
+		{!! Form::close() !!}
 	</div>
 
 	<div class="row">

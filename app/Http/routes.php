@@ -38,11 +38,13 @@ Route::get('dashboard/playlist/{playlistID}/{advertID}/remove', ['as' => 'dashbo
 Route::post('dashboard/playlist/{playlistID}/remove', ['as' => 'dashboard.playlist.removeMode', 'uses' => 'PlaylistController@removeMode']);
 Route::post('dashboard/playlist/{playlistID}/updateIndexes', ['as' => 'dashboard.playlist.updateIndexes', 'uses' => 'PlaylistController@updateIndexes']);
 Route::resource('dashboard/playlist', 'PlaylistController', ['except' => ['create', 'edit', 'update']]);
+Route::post('dashboard/playlist', ['as' => 'dashboard.playlist.process', 'uses' => 'PlaylistController@process']);
 
 // Advert pages
 Route::post('dashboard/advert/{playlistID}', ['as' => 'dashboard.advert.select', 'uses' => 'AdvertController@selectForPlaylist']);
 Route::post('dashboard/advert/{advertID}/updateIndexes', ['as' => 'dashboard.advert.updateIndexes', 'uses' => 'AdvertController@updateIndexes']);
 Route::resource('dashboard/advert', 'AdvertController', ['except' => ['edit', 'update']]);
+Route::post('dashboard/advert', ['as' => 'dashboard.advert.process', 'uses' => 'AdvertController@process']);
 
 // Page pages
 Route::resource('dashboard/advert/{adID}/page', 'PageController', ['except' => ['index', 'edit']]);

@@ -9,6 +9,12 @@ use App\Http\Controllers\Controller;
 
 Use Session;
 
+/**
+  * Defines the CRUD methods for the DashboardController
+  * @author Josh Preece
+  * @license REVIEW
+  * @since 1.0
+  */
 class DashboardController extends Controller
 {
     /**
