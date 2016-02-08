@@ -1,0 +1,19 @@
+// 1.Overwrite stuff
+
+body {
+  &.swatch-red {
+    // Background
+    background: $black;
+
+    // Font
+    $base-font-color: $white;
+    }
+
+  &.swatch-red {
+    // Background
+    background: orange;
+
+    // Font
+    $base-font-color: black;
+    }
+}

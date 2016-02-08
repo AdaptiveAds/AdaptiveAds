@@ -8,11 +8,11 @@ text-align:center; clear:both;
 	float:left; width:22%; padding:1%;
 
 		img {
-		width:50%; border-radius:$bradius;
+		width:50%; border-radius:$base-border-radius;
 		}//img
 
 		p {
-		text-align:justify; color:#ffffff;
+		text-align:justify;
 		}//p
 	}//article
 }//section
@@ -44,10 +44,16 @@ text-align:center; clear:both;
 			margin:1%;
 
 				a {
-				display:block; background:#3a3a3a; border-radius:$bradius; min-width:90px; border:$border1; color:$lightbg; padding:10px;
+				display:block; background:$blue-dark; border-radius:$base-border-radius; min-width:90px; border:$thick-border-hidden; color:$white; padding:10px;
+
+					&:hover {
+					background:$gray-dark;
+					border: $thick-border-show;
+					}
 
 					i {
 					font-size:4em;
+					color:$white;
 
 						span {
 						font-size:16px; padding:0; margin:0; margin-top:4px; display:block;
@@ -55,9 +61,6 @@ text-align:center; clear:both;
 					}//i
 				}//a
 
-				a:hover {
-				background:$logoblue;
-				}//hover
 			}//li
 		}//ul
 	}//options
@@ -102,7 +105,7 @@ float:left; width:70%; min-height:300px;
 #left.portrait {
 
 		.pagecontainer {
-		float:left; width:75%;  box-sizing:border-box; border-radius:$bradius; border:$border1;
+		float:left; width:75%;  box-sizing:border-box; border-radius:$base-border-radius; border:$base-border;
 
 			ul.theme_select {
 			width:100%; padding:0; margin:0; display:flex; text-align:center; display:block;
@@ -146,9 +149,9 @@ box-sizing:border-box;
 		display:block;
 		background:transparent;
 		margin:5px auto;
-		border-radius:$bradius;
+		border-radius:$base-border-radius;
 		padding:5px;
-		border:$border1;
+		border:$base-border;
 
 			textarea, input {
 			width:90%;
@@ -172,15 +175,15 @@ box-sizing:border-box;
 				}
 
 				button.active, button.active:hover {
-				background:$darkblue;
+				background:$blue-dark;
 				}//button.active
 
 				button {
-				background:#ffffff; color:#000000; width:50%; border:$border1; float:left; padding:0px 5px; overflow:hidden;
+				background:#ffffff; color:#000000; width:50%; border:$base-border; float:left; padding:0px 5px; overflow:hidden;
 				}//button
 
 				button:hover {
-				background:$lightblue; cursor:pointer;
+				background:$blue-light; cursor:pointer;
 				}//2 elements -- active hover
 			}//orientation
 	}//ul
@@ -249,10 +252,10 @@ font-size:120%;
 					}//li
 
 					li:nth-child(odd) {
-					background:$darkBackground;
+					background:$blue-light-opacity-partial;
 					}//li:hover
 					li:hover {
-					background:$alternateHover;
+					background:$blue-light-opacity-hover;
 					}//li:hover
 				}//ul
 	}//row:last-child
@@ -294,7 +297,7 @@ text-align:center;
 			}//input
 
 			input:hover {
-			background:$lightblue;
+			background:$blue-light;
 			cursor:pointer;
 			}//li:hover
 
@@ -308,11 +311,11 @@ text-align:center;
 		text-align:left;
 
 			a {
-			color:$lightblue;
+			color:$blue-light;
 			}//a
 
 			a:hover {
-			color:$lightbg;
+			color:$white;
 			}//a:hover
 		}//li
 	}//ul:last-child

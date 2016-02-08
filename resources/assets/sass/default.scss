@@ -1,18 +1,21 @@
-// Contains Variables AND classes for the site
-@import "_variables.scss";
+@charset 'UTF-8';
 
-// contains formatting for objects
-@import "_objects.scss";
+// 1.Base
+@import '_base/_config.scss';
 
-// contains HTML Page relative formatting
-@import "_htmlPages";
+// 2.Layouts
+@import '_layouts/_htmlPages.scss',
+        '_layouts/_theme.scss',
+        '_layouts/_advertTemplates/_advertTemplateMixins.scss',
+        '_layouts/_advertTemplates/_advertTemplates.scss';
 
-// Default theme of website (framework)
-@import "_theme.scss";
-@import "_mixin.scss";
+// 3.Skins
+@import '_skins/_skins.scss';
 
-//Department Skins files
-@import "_skins.scss";
+// 4.Objects
+@import '_objects/_mixins.scss',
+        '_objects/_objects.scss';
 
-// advert template formatting
-@import "_advertTemplates.scss";
+//5. HTML Swatches
+@import '_swatches/_swatches.scss',
+        '_swatches/_swatchMixins.scss';
