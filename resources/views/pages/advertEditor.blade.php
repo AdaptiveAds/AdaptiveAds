@@ -31,7 +31,7 @@
 	</div>
 
 	<div class="row">
-		@include('objects/pageItem')
+		@include('objects/pageItem', array('selectable' => true))
 	</div>
 </div>
 
