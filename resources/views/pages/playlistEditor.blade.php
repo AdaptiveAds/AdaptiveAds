@@ -2,9 +2,6 @@
 
 @section('content')
 
-<h3>Advert Editor</h3>
-<h3>Title: {{ $playlist->name or 'New Playlist' }}</h3>
-
 <script>
 	$('document').ready(function() {
 		SelectManager.token = '{{ csrf_token() }}';
@@ -13,36 +10,40 @@
 	});
 </script>
 
-<div id="left">
-	<div class="pagecontainer">
+<div class="global">
+	<div class="row">
+			<!-- TODO ADD FORM -->
+			<h3>Playlist Editor</h3>
+			<ul>
+				<li>
+ 					@if (isset($playlist))
+						{!! Form::open(['route' => 'dashboard.playlist.process', 'method' => 'POST']) !!}
+							<input type="name" name="txtPlaylistName" placeholder="Playlist name...."
+										 value="{{ $searchItem or '' }}"/>
+							<button id="btnUp" type="button" disabled>Up</button>
+		 					<button id="btnDown" type="button" disabled>Down</button>
+							<button type="button" name="btnNewPage" onclick="location.href='';">+ New Page</button>
+							{!! Form::open(['route' => ['dashboard.advert.select', $playlist->id], 'method' => 'POST']) !!}
+								<button type="submit" name="btnAddAdvert">Add Advert</button>
+							{!! Form::close() !!}
+
+							{!! Form:: open(['route' => ['dashboard.playlist.removeMode', $playlist->id], 'method' => 'POST']) !!}
+								<button type="submit" name="btnRemoveAdvert">Remove Mode</button>
+							{!! Form::close() !!}
+
+							<button type="button">Edit Timings</button>
+
+							{!! Form::open(['route' => ['dashboard.playlist.destroy', $playlist->id], 'method' => 'DELETE']) !!}
+								<button type="submit" name="btnDeletePlaylist">Delete Playlist</button>
+							{!! Form::close() !!}
+						{!! Form::close() !!}
+					@endif
+				</li>
+			</ul>
+	</div>
+
+	<div class="row">
 		@include('objects/advertItem')
 	</div>
-	<div class="pagecontainer">
-		{!! Form::open(['route' => ['dashboard.advert.select', $playlist->id], 'method' => 'POST']) !!}
-			<li><button type="submit" name="btnAddAdvert">Add Advert</button></li>
-		{!! Form::close() !!}
-
-		{!! Form:: open(['route' => ['dashboard.playlist.removeMode', $playlist->id], 'method' => 'POST']) !!}
-			<li><button type="submit" name="btnRemoveAdvert">Remove Mode</button></li>
-		{!! Form::close() !!}
-
-		<!--<li><button type="button">Edit Ad</button></li>
-		<li><button type="button">Ad Details</button></li>-->
-		<li><button type="button">Edit Timings</button></li>
-		<!--<li><button type="button">Remove Ad</button></li> -->
-		<!--<li><button type="button">Playlist Name</button></li>-->
-		{!! Form::open(['route' => ['dashboard.playlist.destroy', $playlist->id], 'method' => 'DELETE']) !!}
-			<li><button type="submit" name="btnDeletePlaylist">Delete Playlist</button></li>
-		{!! Form::close() !!}
-	</div>
-</div>
-<div id="right">
-
-	<ul>
-		<li><button id="btnUp" type="button">Up</button></li>
-		<li><button id="btnDown" type="button">Down</button></li>
-		<!-- ensures form fills parent div w3c validation compliant -->
-		<div class="clear"></div>
-	</ul>
 </div>
 @endsection

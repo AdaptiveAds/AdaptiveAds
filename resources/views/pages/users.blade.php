@@ -4,7 +4,7 @@
 
 @include('objects/model_users', array('object' => 'Users',
 																			 'allowed_departments' => $allowed_departments,
-																			 'route' => 'dashboard.playlist.store'))
+																			 'route' => 'dashboard.settings.users.process'))
 
 <div class="global">
 	<div class="row">
