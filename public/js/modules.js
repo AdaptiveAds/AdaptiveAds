@@ -65,21 +65,41 @@ var SelectManager = (function() {
   var token = "";
 
   function register_eventhandlers() {
-    $('li[data-selectableItem="true"]').click(function() {
-       $('ul[data-selectableList="true"] li').removeClass('selected');
-       $(this).toggleClass('selected');
+    $('li[data-selectableItem="true"], [data-selectableItem="true"]').click(function() {
 
-       // Enable buttons
-       $('#btnUp').removeAttr('disabled');
-       $('#btnDown').removeAttr('disabled');
+       // Remove selected from all links
+       $('ul[data-selectableList="true"] li a').removeClass('selected');
+
+       if ($(this).is(':checked')) {
+
+         // Apply selected to inner link
+         if ($(this).parent().is('li')) {
+           $(this).children('a').toggleClass('selected');
+         } else {
+           $(this).parent('a').toggleClass('selected');
+         }
+
+         // Un-check all checkboxes except this one
+         $('input:checkbox').not(this).removeAttr('checked');
+
+         // Enable buttons
+         $('#btnUp').removeAttr('disabled');
+         $('#btnDown').removeAttr('disabled');
+
+       } else {
+         // Disable buttons
+         $('#btnUp').attr('disabled', true);
+         $('#btnDown').attr('disabled', true);
+       }
     });
 
     $('#btnUp').click(function() {
-        $('.selected').insertBefore($('.selected').prev('li'));
+        var parentLi = $('.selected').parent();
+        parentLi.insertBefore(parentLi.prev('li'));
 
-        var newIndex = $('.selected').index();
-        var effectedID = $('.selected').next('li').attr('data-itemID');
-        var itemID = $('.selected').attr('data-itemID');
+        var newIndex = parentLi.index();
+        var effectedID = parentLi.next('li').attr('data-itemID');
+        var itemID = parentLi.attr('data-itemID');
 
         var effectedIndex = newIndex + 1;
 
@@ -87,11 +107,12 @@ var SelectManager = (function() {
     });
 
     $('#btnDown').click(function() {
-        $('.selected').insertAfter($('.selected').next('li'));
+        var parentLi = $('.selected').parent();
+        parentLi.insertAfter(parentLi.next('li'));
 
-        var newIndex = $('.selected').index();
-        var effectedID = $('.selected').prev('li').attr('data-itemID');
-        var itemID = $('.selected').attr('data-itemID');
+        var newIndex = parentLi.index();
+        var effectedID = parentLi.prev('li').attr('data-itemID');
+        var itemID = parentLi.attr('data-itemID');
 
         var effectedIndex = newIndex - 1;
 
