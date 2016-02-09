@@ -148,9 +148,9 @@ class TemplateController extends Controller
       }
 
 
-      data = array(
+      $data = array(
         'user' => $user,
-        'templates' =>, $templates
+        'templates' => $templates
       );
 
       return view('pages/templatesEditor', $data);
