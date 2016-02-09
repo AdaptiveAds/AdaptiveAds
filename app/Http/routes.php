@@ -68,6 +68,10 @@ Route::post('dashboard/settings/departments', ['as' => 'dashboard.settings.depar
 Route::get('dashboard/settings/screens', ['middleware' => 'auth', 'uses' => 'ScreenController@index']);
 Route::post('dashboard/settings/screens', ['as' => 'dashboard.settings.screens.process', 'uses' => 'ScreenController@process']);
 
+// Templates routes
+Route::get('dashboard/settings/templates', ['middleware' => 'auth', 'uses' => 'TemplateController@index']);
+Route::post('dashboard/settings/templates', ['as' => 'dashboard.settings.templates.process', 'uses' => 'TemplateController@process']);
+
 // Serve routes
 Route::get('serve/{screenId}', 'ServeController@show');
 Route::post('serve/{screenID}', 'ServeController@sync');

@@ -6,7 +6,7 @@
 	<div class="row">
 		{!! Form::open(['route' => 'dashboard.settings.screens.process', 'method' => 'POST']) !!}
 			<h3>Screens</h3>
-			<ul name="listScreenControls">
+			<ul name="lstScreenControls">
 				<li>
 					<input type="name" name="txtScreenID" placeholder="Screen id..." value="{{ $screenID or '' }}"/>
 					<label>Locations:</label>

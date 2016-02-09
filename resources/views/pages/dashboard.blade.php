@@ -88,6 +88,13 @@
 									</i>
 								</a>
 							</li>
+							<li>
+								<a href="{{ URL::to('dashboard/settings/templates')}}">
+									<i class="fa fa-navicon">
+										<span>Templates</span>
+									</i>
+								</a>
+							</li>
 						</ul>
 						<div class="clear"></div>
 
