@@ -43,7 +43,7 @@
 	</div>
 
 	<div class="row">
-		@include('objects/advertItem')
+		@include('objects/advertItem', array('selectable' => true))
 	</div>
 </div>
 @endsection

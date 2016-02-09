@@ -11,7 +11,9 @@
           <a href="{{ URL::route('dashboard.advert.show', $advert->id) }}">
       @endif
 
-        <input type="checkbox" data-selectableItem="true" name="chkSelectAdvert_{{ $advert->id }}"/>
+        @if ($selectable == true)
+          <input type="checkbox" data-selectableItem="true" name="chkSelectAdvert_{{ $advert->id }}"/>
+        @endif
         <label for="chkSelectAdvert_">{{ $advert->name }}</label>
       </a>
 
