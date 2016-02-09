@@ -24,7 +24,7 @@
 	</div>
 
 	<div class="row">
-			@include('objects/screenItems')
+			@include('objects/listScreens')
 	</div>
 </div>
 @endsection

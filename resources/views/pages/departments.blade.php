@@ -26,7 +26,7 @@
 	</div>
 
 	<div class="row">
-			@include('objects/departmentItems')
+			@include('objects/listDepartments')
 	</div>
 </div>
 @endsection

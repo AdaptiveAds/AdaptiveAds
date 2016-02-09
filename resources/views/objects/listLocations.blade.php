@@ -1,4 +1,4 @@
-<ul>
+<ul name="lstLocationItems">
   @if (isset($locations))
     @if ($locations->count() > 0)
       @foreach($locations as $location)
@@ -11,7 +11,7 @@
         </li>
       @endforeach
     @else
-      <li>
+      <li name="itmNone">
         <h3>No locations found</h3>
       </li>
     @endif

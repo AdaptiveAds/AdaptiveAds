@@ -25,7 +25,7 @@
 	</div>
 
 	<div class="row">
-		@include('objects/playlistItem')
+		@include('objects/listPlaylists')
 	</div>
 </div>
 @endsection

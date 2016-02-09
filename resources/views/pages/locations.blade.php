@@ -26,7 +26,7 @@
 	</div>
 
 	<div class="row">
-			@include('objects/locationItems')
+			@include('objects/listLocations')
 	</div>
 </div>
 @endsection

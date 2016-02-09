@@ -25,7 +25,7 @@
 	</div>
 
 	<div class="row">
-		@include('objects/advertItem', array('selectable' => false))
+		@include('objects/listAdverts', array('selectable' => false))
 	</div>
 </div>
 @endsection

@@ -28,7 +28,7 @@
 	</div>
 
 	<div class="row">
-			@include('objects/userItems')
+			@include('objects/listUsers')
 	</div>
 </div>
 @endsection

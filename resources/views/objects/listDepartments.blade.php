@@ -1,4 +1,4 @@
-<ul>
+<ul name="lstDepartmentItems">
   @if(isset($departments))
     @if($departments->count() > 0)
       @foreach($departments as $department)
@@ -9,7 +9,7 @@
         </li>
       @endforeach
     @else
-      <li>
+      <li name="itmNone">
         <h3>No departments found.</h3>
       </li>
     @endif
