@@ -20,6 +20,7 @@
 
 <!-- preferred plan would be to compile the css from scss prior to uploading using propos -->
 	<link rel="stylesheet" 	href="{{ URL::asset('css/default.css') }}" type="text/css">
+	<link rel="stylesheet" 	href="{{ URL::asset('css/_swatches/_swatch-theme-a/swatch-theme-a.css') }}" type="text/css">
 
 <!-- requires testing in conjunction with contact form
 https://developers.google.com/recaptcha/docs/display -->
@@ -41,18 +42,16 @@ https://developers.google.com/recaptcha/docs/display -->
 			$('.btn-orientationHor').removeClass('active');
 			$('.btn-orientationVert').addClass('active');
 		});
-		$('.swatch-red').click(function() {
-			// Writing the code like this will allow SCSS to be added to the button to show which is active
-			$('body').removeClass('swatch-default');
-			$('body').addClass('swatch-red');
-			$('li.swatch-red').addClass('active');
-			$('li.swatch-default').removeClass('active');
-		});
-		$('.swatch-default').click(function() {
-			$('body').removeClass('swatch-red');
-			$('body').addClass('swatch-default');
-			$('li.swatch-red').removeClass('active');
-			$('li.swatch-default').addClass('active');
+
+		$('li[data-btnSwatch="true"], li[data-btnFont="true"]').click(function() {
+			$( 'body' ).removeClass(); // Remove all classes
+		  $( this ).parent().children().removeClass('top-active'); // Remove active from all children
+		  $( this ).toggleClass('top-active'); // Toggle active
+
+		  // Foreach active element add the theme data to the body class
+		  $('.top-active').each(function() {
+		  	$( 'body' ).addClass($(this).data('theme'));
+		  });
 		});
 	});
 	</script>
@@ -62,25 +61,37 @@ https://developers.google.com/recaptcha/docs/display -->
 
 </head>
 
-<body>
+<body class="data-swatch-theme-a">
 <div id="wrapper">
-	<!-- Only show if user is logged in -->
-	@if (Auth::guest() == false)
+
 		<div id="top">
-			<div id="signedin">Signed in: <span id="signinName">{{Auth::user()->username}}</span> <a href="{{ URL::to('auth/logout') }}"><button id="signout" class="button-active">Sign out</button></a></div>
-			<div id="swatches">
+			<div id="fontsizing">
 				<ul>
-					<li>Theme: </li>
-					<li><button class="swatch-default active"><i class="fa fa-circle-o-notch"></i></button</li>
-					<li><button class="swatch-red"><i class="fa fa-circle-o-notch"></i></button</li>
+					<li data-btnFont="true" data-theme="font-theme-a"><i class="fa fa-font"></i></li>
+					<li data-btnFont="true" data-theme="font-theme-b" class="top-active"><i class="fa fa-font"></i></li>
+					<li data-btnFont="true" data-theme="font-theme-c"><i class="fa fa-font"></i></li>
 				</ul>
 			</div>
+			<div id="swatches">
+				<ul>
+					<li data-btnSwatch="true" data-theme="data-swatch-theme-a" class="top-active"><i class="fa fa-circle-o-notch"></i></li>
+					<li data-btnSwatch="true" data-theme="data-swatch-theme-b"><i class="fa fa-circle-o-notch"></i></li>
+					<li data-btnSwatch="true" data-theme="data-swatch-theme-c"><i class="fa fa-circle-o-notch"></i></li>
+				</ul>
+			</div>
+			<div id="logo">
+				<a href="{{ URL::to('dashboard')}}"><img src="{{ URL::asset('images/logo.png') }}" alt="php input" title="php input"></a>
+			</div>
 		</div>
-	@endif
+
 
 		<header id="header">
+			<!-- Only show if user is logged in -->
+
 			<div class="head">
-				<a href="{{ URL::to('dashboard')}}"><img src="{{ URL::asset('images/logo.png') }}" alt="php input" title="php input"></a>
+				@if (Auth::guest() == false)
+				<div id="signedin">Signed in: <span id="signinName">{{Auth::user()->username}}</span> <a href="{{ URL::to('auth/logout') }}"><button id="signout" class="button-active">Sign out</button></a></div>
+				@endif
 			</div>
 			<div class="head">
 				<nav>

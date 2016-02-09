@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@charset 'UTF-8';
 
 // Colors
 $white: rgba(255, 255, 255, 1.0);
@@ -19,24 +19,26 @@ $blue-light-opacity-partial: rgba(114, 188, 212, 0.1);
 $blue-light-opacity-hover: rgba(114, 188, 212, 0.4);
 
 // Site theme
-$background: #ffffff !default;
-$top-bar-color: #ffffff !default; //font color
-$top-logo-background:#ffffff !default;
+$background: orange;
+$top-bar-color: #ffffff; //font color
+$top-logo-background:orange;
 
 //Anchors
 
 // Font
-$base-font-size: 16px !default;
-$base-font-family: Helvetica, Arial, Sans-Serif !default;
-$base-font-color: $gray-dark !default;
+$base-font-size: 16px;
+$base-font-family: Helvetica, Arial, Sans-Serif;
+$base-font-color: $gray-dark;
 
 // Border
-$base-border:2px !default;
+$base-border:2px;
 $thick-border-hidden: 4px solid transparent;
 $thick-border-show: 4px solid $gray-light;
-$base-border-radius: 2px !default;
-$rounded-border-radius: 50% !default;
-$base-border-color: $gray !default;
+$base-border-radius: 2px;
+$rounded-border-radius: 50%;
+$base-border-color: $gray;
 
 // Forms
 $form-color: $base-font-color;
+
+@import '../../default.scss';

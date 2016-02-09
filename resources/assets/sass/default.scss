@@ -1,11 +1,11 @@
 @charset 'UTF-8';
 
-// 1.Base
 @import '_base/_config.scss';
 
 // 2.Layouts
-@import '_layouts/_htmlPages.scss',
-        '_layouts/_theme.scss',
+@import '_layouts/_theme.scss',
+        '_layouts/_themeMixins.scss',
+        '_layouts/_htmlPages.scss',
         '_layouts/_advertTemplates/_advertTemplateMixins.scss',
         '_layouts/_advertTemplates/_advertTemplates.scss';
 
@@ -17,5 +17,5 @@
         '_objects/_objects.scss';
 
 //5. HTML Swatches
-@import '_swatches/_swatches.scss',
-        '_swatches/_swatchMixins.scss';
+@import '_swatches/_swatchMixins.scss',
+        '_swatches/_swatches.scss';

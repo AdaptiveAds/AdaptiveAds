@@ -1,19 +1,19 @@
-// 1.Overwrite stuff
-
+//Classes for each Theme
+/*
 body {
-  &.swatch-red {
-    // Background
-    background: $black;
+  //SWATCH THEME A
+  &.data-swatch-theme-a, & #top ul li.top-active {
+  @extend %swatch-theme-a-background;
+  }
 
-    // Font
-    $base-font-color: $white;
-    }
+  //SWATCH THEME B
+  &.data-swatch-theme-b, & #top ul li.top-active {
+  @extend %swatch-theme-b-background;
+  }
 
-  &.swatch-red {
-    // Background
-    background: orange;
-
-    // Font
-    $base-font-color: black;
-    }
+  //SWATCH THEME C
+  &.data-swatch-theme-c, & #top ul li.top-active {
+  @extend %swatch-theme-c-background;
+  }
 }
+*/

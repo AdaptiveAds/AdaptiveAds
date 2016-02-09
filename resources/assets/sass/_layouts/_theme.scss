@@ -12,10 +12,15 @@ body {
 font-family:$base-font-family;
 font-size:$base-font-size;
 color:$base-font-color;
-background:$background ;
+background:$background;
+
+}//end body
 
   #wrapper {
-  @extend %wrapper;
+  width:100%;
+  margin:0 auto;
+  min-width:1325px;
+  display:block;
 
     h1, h2, h3, h4, h5 {
     color:$base-font-color;
@@ -35,47 +40,63 @@ background:$background ;
 
       #top {
       width:100%;
-      background:$gray-dark;
-      display:inline-block;
-      padding-top:0.8%;
-      padding-bottom:0.8%;
-      color:$white;
-
-        #signedin {
-        float:right;
-        margin-right:1%;
-        width:40%;
-        text-align:right;
-
-          #signinName {
-          color:red;
-          }//signinName
-        }//signedin
+      background:$blue-dark;
+      height:35px;
+      color:$top-bar-color;
 
         #swatches {
         float:left;
-        width:25%;
+        width:30%;
 
           ul {
+
             li {
             float:left;
-            margin-left:5%;
-
-              a {
-              //see mixins
-
-                &:first-child {
-                margin-left:0;
-                }
-              }
+            //reference _layouts/_themeMixins.scss
+            @extend %top-li;
+              //reference _swatches/_swatches.css for info
+              &[data-swatch="data-swatch-theme-a"] { @extend %swatch-btn-a;} //1:default
+              &[data-swatch="data-swatch-theme-b"] { @extend %swatch-btn-b;} //2
+              &[data-swatch="data-swatch-theme-c"] { @extend %swatch-btn-b;} //2
             }
+          }
+        }//swatches
+
+        #fontsizing {
+        float:right;
+        width:30%;
+
+          ul {
+
+            li {
+            line-height:100%;
+            float:right;
+            @extend %top-li;
+              &[data-theme="font-theme-a"] {font-size:160%;}
+              &[data-theme="font-theme-b"] {font-size:120%;}
+              &[data-theme="font-theme-c"] {font-size:100%;}
+            }
+          }
+        }
+
+        #logo {
+        text-align:center;
+        display:block;
+        width:auto;
+        margin:0 auto;
+        border-radius:50%;
+        background:$top-logo-background;
+
+        & a {
+
+          & img {max-width:18%;}
           }
         }
       }//top
 
 
     header#header {
-    width:100%; display:block; display:inline-block;
+    width:100%; min-height:100px; display:inline-block;
 
       .head {
       width:50%;
@@ -163,6 +184,7 @@ background:$background ;
 
           form {
           margin-bottom:5px;
+          color:$form-color;
 
             :first-child {
             //empty
@@ -205,7 +227,6 @@ background:$background ;
         }
     }//close footer
   }//end wrapper
-}//end body
 
 /* Generic */
 input {
