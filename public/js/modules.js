@@ -206,6 +206,8 @@ var ModalManager = (function() {
           getData(id, locations);
         case 'Departments':
           getData(id, departments);
+        case 'Screens':
+          getData(id, screens);
       }
 
       //getData($(this).attr('data-userID'), $(this).attr('data-modalObject') + '();');
@@ -265,6 +267,12 @@ var ModalManager = (function() {
   function departments(data) {
     $('[name="txtDepartmentName"]').val(data.department.name);
     $('[name="drpSkins"]').val(data.department.skin_id);
+  }
+
+  function screens(data) {
+    $('[name="txtScreenID"]').val(data.screen.id);
+    $('[name="drpLocations"]').val(data.screen.location_id);
+    $('[name="drpPlaylists"]').val(data.screen.playlist_id);
   }
 
   function getData(id, callback) {

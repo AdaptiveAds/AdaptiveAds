@@ -65,8 +65,8 @@ Route::resource('dashboard/settings/departments', 'DepartmentController');
 Route::post('dashboard/settings/departments/process', ['as' => 'dashboard.settings.departments.process', 'uses' => 'DepartmentController@process']);
 
 // Screens routes
-Route::get('dashboard/settings/screens', ['middleware' => 'auth', 'uses' => 'ScreenController@index']);
-Route::post('dashboard/settings/screens', ['as' => 'dashboard.settings.screens.process', 'uses' => 'ScreenController@process']);
+Route::resource('dashboard/settings/screens', 'ScreenController');
+Route::post('dashboard/settings/screens/process', ['as' => 'dashboard.settings.screens.process', 'uses' => 'ScreenController@process']);
 
 // Templates routes
 Route::resource('dashboard/settings/templates', 'TemplateController');
