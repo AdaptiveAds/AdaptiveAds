@@ -10,7 +10,7 @@
 				<li>
 					<input type="name" name="txtDepartmentName" placeholder="Department Name..." value="{{ $departmentName or '' }}"/>
 					<label>Skins:</label>
-					@include('objects/skins_dropdown', array('skins' => $skins))
+					@include('objects/dropdown_skins', array('skins' => $skins))
 
 					<!-- Only super suer can add departments -->
 					@if (isset($user))

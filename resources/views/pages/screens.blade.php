@@ -10,7 +10,7 @@
 				<li>
 					<input type="name" name="txtScreenID" placeholder="Screen id..." value="{{ $screenID or '' }}"/>
 					<label>Locations:</label>
-					@include('objects/locations_dropdown', array('locations' => $locations))
+					@include('objects/dropdown_locations', array('locations' => $locations))
 					@if (isset($user))
 						@if ($user->is_super_user)
 							<button type="submit" name="btnAddScreen">Add</button>

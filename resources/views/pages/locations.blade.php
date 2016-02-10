@@ -23,7 +23,7 @@
 						<input type="name" name="txtLocationName" placeholder="Location name...."
 									 value="{{ $searchItem or '' }}"/>
 						<label>Department:</label>
- 						@include('objects/departments_dropdown', array('allowed_departments' => $allowed_departments))
+ 						@include('objects/dropdown_departments', array('allowed_departments' => $allowed_departments))
 						@if (isset($user))
 							<!-- Only show to admins -->
 							@if ($user->is_super_user == true || $user->getAdmin() == true)

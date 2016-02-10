@@ -11,7 +11,7 @@
 					<input type="text" name="txtAdvertName" placeholder="Advert name...."
 								 value="{{ $searchItem or '' }}"/>
 					<label>Department:</label>
- 					@include('objects/departments_dropdown', array('allowed_departments' => $allowed_departments))
+ 					@include('objects/dropdown_departments', array('allowed_departments' => $allowed_departments))
  					@if (isset($user))
 						@if ($user->is_super_user)
 							<button type="submit" name="btnAddAdvert">Add</button>
