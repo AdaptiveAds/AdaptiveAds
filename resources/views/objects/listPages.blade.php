@@ -9,6 +9,8 @@
           @endif
           <label for="chkSelectPage_{{ $page->id }}">{{ $page->PageData->heading }}</label>
         </a>
+
+        <button type="submit" name="btnEdit">Edit</button>
         @if ($page->deleted == 0)
           <button type="submit" name="btnDisablePage">Disable</button>
         @else

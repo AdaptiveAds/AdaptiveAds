@@ -18,12 +18,12 @@
           <label for="chkSelectAdvert_">{{ $advert->name }}</label>
         </a>
 
-        <button type="submit" name="btnEditAdvert">Edit</button>
+        <button type="submit" name="btnEdit">Edit</button>
         @if ($advert->deleted == 0)
-          <button type="submit" name="btnDisableAdvert">Disable</button>
+          <button type="submit" name="btnDisable">Disable</button>
         @else
           @if ($user->getAdmin())
-            <button type="submit" name="btnEnableAdvert">Enable</button>
+            <button type="submit" name="btnEnable">Enable</button>
           @endif
         @endif
       </li>

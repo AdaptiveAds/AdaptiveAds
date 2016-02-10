@@ -3,9 +3,14 @@
     @if ($users->count() > 0)
       @foreach($users as $user)
         <li>
-          <label for="username">{{ $user->username }}</label>
-          <button type="button" name="btnEdit">Edit</button>
-          <button type="button" name="btnDisable">Disable</button>
+          <a href="#UsersModal" data-displayEditModal="true"
+											data-modalObject="Users"
+											data-modalRoute="{{ URL::route('dashboard.settings.users.update', $user->id)}}"
+                      data-userID="{{ $user->id }}">
+            {{ $user->username }}
+          </a>
+          <button type="submit" name="btnDisable">Disable</button>
+          <button type="submit" name="btnEnable">Enable</button>
         </li>
       @endforeach
     @else

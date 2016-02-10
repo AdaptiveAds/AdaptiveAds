@@ -4,6 +4,7 @@
     @foreach($playlists as $playlist)
       <li class="advertItem">
         <a href="{{ URL::to('dashboard/playlist/' . $playlist->id)}}">{{ $playlist->name }}</a>
+        
         <button type="submit" name="btnEditPlaylist">Edit</button>
         @if ($playlist->deleted == 0)
           <button type="submit" name="btnDisablePlaylist">Disable</button>
