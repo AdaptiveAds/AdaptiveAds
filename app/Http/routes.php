@@ -53,7 +53,7 @@ Route::resource('dashboard/advert/{adID}/page', 'PageController', ['except' => [
 Route::get('dashboard/settings', ['middleware' => 'auth', 'uses' => 'PlaylistController@index']);
 
 // Users routes
-Route::get('dashboard/settings/users', ['middleware' => 'auth', 'uses' => 'UserController@index']);
+Route::resource('dashboard/settings/users', 'UserController');
 Route::post('dashboard/settings/users', ['as' => 'dashboard.settings.users.process', 'uses' => 'UserController@process']);
 
 // Locations routes

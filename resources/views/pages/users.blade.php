@@ -2,9 +2,17 @@
 
 @section('content')
 
-@include('objects/model_users', array('object' => 'Users',
-																			 'allowed_departments' => $allowed_departments,
-																			 'route' => 'dashboard.settings.users.process'))
+@include('objects/modal_users', array('object' => 'Users',
+																			'heading' => 'Create New User',
+																			'allowed_departments' => $allowed_departments))
+
+<script>
+	$('document').ready(function() {
+		ModalManager.token = "{{ csrf_token() }}";
+		ModalManager.action = "/dashboard/settings/users/1";
+		ModalManager.register_eventhandlers();
+	});
+</script>
 
 <div class="global">
 	<div class="row">
@@ -21,7 +29,12 @@
 						@endif
 					@endif
 					<button type="submit" name="btnFindAll">Find All</button>
-					<a href="#UsersModal"><button name="btnCreateUser">Create</button></a>
+					<a href="#UsersModal" data-displayCreateModal="true"
+																data-modalObject="Users"
+																data-modalRoute="dashboard.settings.users.create">
+						<button type="button" name="btnCreateUser">Create</button>
+					</a>
+
 				</li>
 			</ul>
 		{!! Form::close() !!}
