@@ -69,8 +69,8 @@ Route::get('dashboard/settings/screens', ['middleware' => 'auth', 'uses' => 'Scr
 Route::post('dashboard/settings/screens', ['as' => 'dashboard.settings.screens.process', 'uses' => 'ScreenController@process']);
 
 // Templates routes
-Route::get('dashboard/settings/templates', ['middleware' => 'auth', 'uses' => 'TemplateController@index']);
-Route::post('dashboard/settings/templates', ['as' => 'dashboard.settings.templates.process', 'uses' => 'TemplateController@process']);
+Route::resource('dashboard/settings/templates', 'TemplateController');
+Route::post('dashboard/settings/templates/process', ['as' => 'dashboard.settings.templates.process', 'uses' => 'TemplateController@process']);
 
 // Serve routes
 Route::get('serve/{screenId}', 'ServeController@show');
