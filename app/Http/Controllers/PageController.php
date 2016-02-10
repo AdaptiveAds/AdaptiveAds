@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Helpers\Images;
 
 use Input;
 
@@ -82,7 +83,7 @@ class PageController extends Controller
       // Upload image 1
       $imageInput = Input::file('filPageImage');
       if ($imageInput != null) {
-        $imagePath = $this->processImage($imageInput);
+        $imagePath = Images::processImage($imageInput, 'advert_images/');
 
         // If we have a valid image then set the path in the database
         if ($imagePath != null) {
@@ -167,7 +168,7 @@ class PageController extends Controller
       // Upload image 1
       $imageInput = Input::file('filPageImage');
       if ($imageInput != null) {
-        $imagePath = $this->processImage($imageInput);
+        $imagePath = Images::processImage($imageInput, 'advert_images/');
 
         // If we have a valid image then set the path in the database
         if ($imagePath != null) {
@@ -196,25 +197,5 @@ class PageController extends Controller
         $page->save();
 
         return redirect()->route('dashboard.advert.show', [$adID]);
-    }
-
-    /**
-      * Takes an image upload, gives it a timestamp and moves it to advert_images in the public folder
-      * @param \Illuminate\Http\Request\Input $input
-      * @return string | null
-      */
-    public function processImage($input) {
-
-      if ($input->isValid()) {
-        $filename  = time() . '.' . $input->getClientOriginalExtension();
-
-        $path = public_path('advert_images/');
-
-        $input->move($path, $filename); // uploading file to given path
-
-        return $filename;
-      }
-
-      return null;
     }
 }
