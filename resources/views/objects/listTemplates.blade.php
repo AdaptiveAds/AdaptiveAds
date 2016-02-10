@@ -3,7 +3,13 @@
     @if($templates->count() > 0)
       @foreach($templates as $template)
         <li>
-          <label for="name">{{ $template->name }}</label>
+          <a href="#TemplatesModal" data-displayEditModal="true"
+                     data-modalObject="Templates"
+                     data-modalMethod="PUT"
+                     data-modalRoute="{{ URL::route('dashboard.settings.templates.update', $template->id) }}"
+                     data-userID="{{ $template->id }}">
+            {{ $template->name }}
+          </a>
           <button type="button">Edit</button>
           <button type="button">Disable</button>
         </li>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Session;
+use Input;
 
 use App\Template as Template;
 use App\Http\Requests;
@@ -42,7 +43,8 @@ class TemplateController extends Controller
 
       $data = array(
         'templates' => $templates,
-        'user' => $user
+        'user' => $user,
+        'allowed_departments' => $allowed_departments
       );
 
       return view('pages/templatesEditor', $data);
@@ -66,7 +68,31 @@ class TemplateController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // TODO VALIDATION
+
+        $txtTemplateName = $request->input('txtTemplateName');
+        $txtTemplateClass = $request->input('txtTemplateClass');
+        $numTemplateDuration = $request->input('numTemplateDuration');
+
+        $template = new Template();
+        $template->name = $txtTemplateName;
+        $template->class_name = $txtTemplateClass;
+        $template->duration = $numTemplateDuration;
+
+        // Upload image 1
+        $imageInput = Input::file('filTemplateThumbnail');
+        if ($imageInput != null) {
+          $imagePath = Images::processImage($imageInput, 'template_thumbmails');
+
+          // If we have a valid image then set the path in the database
+          if ($imagePath != null) {
+            $template->thumbnail = $imagePath;
+          }
+        }
+
+        $template->save();
+
+        return redirect()->route('dashboard.settings.templates.index');
     }
 
     /**
@@ -77,7 +103,8 @@ class TemplateController extends Controller
      */
     public function show($id)
     {
-        //
+        $template = Template::find($id);
+        return array('template' => $template);
     }
 
     /**
@@ -100,7 +127,37 @@ class TemplateController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $txtTemplateName = $request->input('txtTemplateName');
+        $txtTemplateClass = $request->input('txtTemplateClass');
+        $numTemplateDuration = $request->input('numTemplateDuration');
+
+        $template = Template::find($id);
+
+        if ($template != null) {
+
+          $template->name = $txtTemplateName;
+          $template->class_name = $txtTemplateClass;
+          $template->duration = $numTemplateDuration;
+
+          // Upload image 1
+          $imageInput = Input::file('filTemplateThumbnail');
+          if ($imageInput != null) {
+            $imagePath = Images::processImage($imageInput, 'template_thumbmails');
+
+            // If we have a valid image then set the path in the database
+            if ($imagePath != null) {
+              $template->thumbnail = $imagePath;
+            }
+          }
+
+          $template->save();
+
+
+        } else {
+          abort(404, 'Not found.');
+        }
+
+        return redirect()->route('dashboard.settings.templates.index');
     }
 
     /**
