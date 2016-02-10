@@ -204,6 +204,8 @@ var ModalManager = (function() {
           getData(id, templates);
         case 'Locations':
           getData(id, locations);
+        case 'Departments':
+          getData(id, departments);
       }
 
       //getData($(this).attr('data-userID'), $(this).attr('data-modalObject') + '();');
@@ -258,6 +260,11 @@ var ModalManager = (function() {
   function locations(data) {
     $('[name="txtLocationName"]').val(data.location.name);
     $('[name="drpDepartments"]').val(data.location.department_id);
+  }
+
+  function departments(data) {
+    $('[name="txtDepartmentName"]').val(data.department.name);
+    $('[name="drpSkins"]').val(data.department.skin_id);
   }
 
   function getData(id, callback) {

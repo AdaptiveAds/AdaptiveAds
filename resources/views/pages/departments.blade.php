@@ -2,6 +2,18 @@
 
 @section('content')
 
+@include('objects/modal_departments', array('object' => 'Departments',
+																			'heading' => 'Create New Department',
+																			'skins' => $skins))
+
+<script>
+	$('document').ready(function() {
+		ModalManager.token = "{{ csrf_token() }}";
+		ModalManager.action = "/dashboard/settings/departments/";
+		ModalManager.register_eventhandlers();
+	});
+</script>
+
 <div class="global">
 	<div class="row">
 		{!! Form::open(['route' => 'dashboard.settings.departments.process', 'method' => 'POST']) !!}
@@ -15,7 +27,12 @@
 					<!-- Only super suer can add departments -->
 					@if (isset($user))
 						@if ($user->is_super_user)
-							<button type="submit" name="btnAddDepartment">Add</button>
+							<a href="#DepartmentsModal" data-displayCreateModal="true"
+																				data-modalObject="Departments"
+																				data-modalMethod="POST"
+																				data-modalRoute="{{ URL::route('dashboard.settings.departments.store') }}">
+								<button type="button" name="btnAddDepartment">Add</button>
+							</a>
 						@endif
 					@endif
 					<button type="submit" name="btnFindDepartment">Find</button>

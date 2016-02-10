@@ -3,7 +3,13 @@
     @if($departments->count() > 0)
       @foreach($departments as $department)
         <li>
-          <label for="name">{{ $department->name }}</label>
+          <a href="#DepartmentsModal" data-displayEditModal="true"
+                                    data-modalObject="Departments"
+                                    data-modalMethod="PUT"
+                                    data-modalRoute="{{ URL::route('dashboard.settings.departments.update', $department->id) }}"
+                                    data-userID="{{ $department->id }}">
+            {{ $department->name }}
+          </a>
           <button type="button">Edit</button>
           <button type="button">Disable</button>
         </li>
