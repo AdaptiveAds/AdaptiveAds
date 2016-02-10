@@ -5,6 +5,7 @@
         <li>
           <a href="#UsersModal" data-displayEditModal="true"
 											data-modalObject="Users"
+                      data-modalMethod="PUT"
 											data-modalRoute="{{ URL::route('dashboard.settings.users.update', $user->id)}}"
                       data-userID="{{ $user->id }}">
             {{ $user->username }}
