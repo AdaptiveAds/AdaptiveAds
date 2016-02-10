@@ -9,7 +9,7 @@
 <script>
 	$('document').ready(function() {
 		ModalManager.token = "{{ csrf_token() }}";
-		ModalManager.action = "/dashboard/settings/users/1";
+		ModalManager.action = "/dashboard/settings/users/";
 		ModalManager.register_eventhandlers();
 	});
 </script>
@@ -31,7 +31,7 @@
 					<button type="submit" name="btnFindAll">Find All</button>
 					<a href="#UsersModal" data-displayCreateModal="true"
 																data-modalObject="Users"
-																data-modalRoute="dashboard.settings.users.create">
+																data-modalRoute="{{ URL::route('dashboard.settings.users.create') }}">
 						<button type="button" name="btnCreateUser">Create</button>
 					</a>
 

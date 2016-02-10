@@ -190,6 +190,7 @@ var ModalManager = (function() {
     $('[data-displayEditModal="true"]').click(function() {
 
       showLoading();
+      clearInput();
       //console.log($('.modal_content'));
 
       var selected = $(this);
@@ -217,7 +218,7 @@ var ModalManager = (function() {
   }
 
   function clearInput() {
-    $('input').val('');
+    $('input').not('input[name="_token"]').val('');
     $('input').removeAttr('checked');
   }
 
@@ -239,7 +240,7 @@ var ModalManager = (function() {
 
     $.ajax({
       type: "GET",
-      url : '/dashboard/settings/users/1',
+      url : ModalManager.action + id,
       data : {'id': id},
       success : function(data){
         showData();
