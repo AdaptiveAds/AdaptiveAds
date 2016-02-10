@@ -1,8 +1,9 @@
 @extends('objects/modal')
 
 @section('modal_content')
-  <h4>Create new {{$object or 'object'}}</h4>
-  {!! Form::open(['route' => $route, 'method' => 'POST']) !!}
+<div class="modal_content">
+  <h4 name='heading'>{{$heading or 'Modal Purpose'}}</h4>
+  {!! Form::open(['url' => '', 'method' => 'POST']) !!}
 		<ul>
 			<li>
 				<label>Username:</label>
@@ -22,6 +23,14 @@
 				<label>Re-type Emai:</label>
 				<input title="Confirm Email" type="email" name="txtEmailConfirm" placeholder="johnsmith@domain.com" required>
 			</li>
+      @if (isset($user))
+        @if ($user->is_super_user)
+          <li>
+    				<label for="chkIsSuper">Is super user</label>
+    				<input type="checkbox" name="chkIsSuper" required>
+    			</li>
+        @endif
+      @endif
 			<li>
 				<label>Password:</label>
 				<input title="Password"  type="name" name="txtPassword" placeholder="mypassword" required>
@@ -34,9 +43,9 @@
 				<input title="Tick to accept"  type="checkbox" name="AdsNews" value="signup"><span>Sign up to Ads News</span>
 			</li>
 			<li>
-				<button type="button">Edit</button>
-				<button type="button">Save</button>
+				<button type="submit">Save</button>
 			</li>
 		</ul>
   {!! Form::close() !!}
+</div>
 @endsection
