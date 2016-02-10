@@ -199,26 +199,42 @@ var ModalManager = (function() {
       switch(object) {
         case 'Users':
           getData(id, users);
+        case 'Templates':
+          getData(id, templates);
       }
 
       //getData($(this).attr('data-userID'), $(this).attr('data-modalObject') + '();');
-      $('[name="heading"]').html('Edit User');
-      $('#' + $(this).attr('data-modalObject') + 'Modal').find('form').attr('action', $(this).attr('data-modalRoute'));
+      $('[name="heading"]').html('Edit ' + object);
+      var form = $('#' + object + 'Modal').find('form');
+      form.attr('action', selected.attr('data-modalRoute'));
+
+      if (selected.attr('data-modalMethod') == "PUT" || selected.attr('data-modalMethod') == "PATCH") {
+        form.attr('method', 'POST');
+        form.prepend('<input name="_method" type="hidden" value="PUT"/>');
+      } else {
+        form.attr('method', selected.attr('data-modalMethod') || 'POST');
+      }
     });
 
     $('[data-displayCreateModal="true"]').click(function() {
 
       showData();
-
       clearInput();
-      $('[name="heading"]').html('Create New User');
-      $('#' + $(this).attr('data-modalObject') + 'Modal').find('form').attr('action', $(this).attr('data-modalRoute'));
+
+      var selected = $(this);
+      var object = selected.attr('data-modalObject');
+
+      $('[name="heading"]').html('Create New ' + object);
+      var form = $('#' + object + 'Modal').find('form');
+      form.attr('action', selected.attr('data-modalRoute'));
+      form.attr('method', selected.attr('data-modalMethod'));
+      form.children('input[name="_method"]').remove();
     });
 
   }
 
   function clearInput() {
-    $('input').not('input[name="_token"]').val('');
+    $('input').not('input[name="_token"], input[name="_method"]').val('');
     $('input').removeAttr('checked');
   }
 
@@ -228,6 +244,12 @@ var ModalManager = (function() {
     if (data.user.is_super_user) {
       $('[name="chkIsSuper"]').attr('checked', true);
     }
+  }
+
+  function templates(data) {
+    $('[name="txtTemplateName"]').val(data.template.name);
+    $('[name="txtTemplateClass"]').val(data.template.class_name);
+    $('[name="numTemplateDuration"]').val(data.template.duration);
   }
 
   function getData(id, callback) {

@@ -31,6 +31,7 @@
 					<button type="submit" name="btnFindAll">Find All</button>
 					<a href="#UsersModal" data-displayCreateModal="true"
 																data-modalObject="Users"
+																data-modalMethod="POST"
 																data-modalRoute="{{ URL::route('dashboard.settings.users.create') }}">
 						<button type="button" name="btnCreateUser">Create</button>
 					</a>
