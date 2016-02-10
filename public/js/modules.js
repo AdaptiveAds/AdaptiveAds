@@ -196,11 +196,14 @@ var ModalManager = (function() {
       var selected = $(this);
       var id = selected.attr('data-userID');
       var object = selected.attr('data-modalObject');
+
       switch(object) {
         case 'Users':
           getData(id, users);
         case 'Templates':
           getData(id, templates);
+        case 'Locations':
+          getData(id, locations);
       }
 
       //getData($(this).attr('data-userID'), $(this).attr('data-modalObject') + '();');
@@ -252,6 +255,11 @@ var ModalManager = (function() {
     $('[name="numTemplateDuration"]').val(data.template.duration);
   }
 
+  function locations(data) {
+    $('[name="txtLocationName"]').val(data.location.name);
+    $('[name="drpDepartments"]').val(data.location.department_id);
+  }
+
   function getData(id, callback) {
 
     $.ajaxSetup({
@@ -269,7 +277,6 @@ var ModalManager = (function() {
         callback(data);
       },
       error : function(xhr, textStatus, errorThrown) {
-        console.log("JJJJ");
         showErrors();
         $('[name="errorMsg"]').html(errorThrown);
       }

@@ -4,7 +4,13 @@
       @foreach($locations as $location)
         <li>
           {!! Form::open(['url' => '', 'method' => 'POST']) !!}
-            <label for="name">{{ $location->name or 'Location name' }}</label>
+          <a href="#LocationsModal" data-displayEditModal="true"
+                     data-modalObject="Locations"
+                     data-modalMethod="PUT"
+                     data-modalRoute="{{ URL::route('dashboard.settings.locations.update', $location->id) }}"
+                     data-userID="{{ $location->id }}">
+              {{ $location->name or 'Location name' }}
+            </a>
             <button name="btnEditLocation">Edit</button>
             <button type="submit" name="btnDisable">Disable</button>
           {!! Form::close() !!}

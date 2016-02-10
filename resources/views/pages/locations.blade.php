@@ -2,6 +2,18 @@
 
 @section('content')
 
+@include('objects/modal_locations', array('object' => 'Locations',
+																			'heading' => 'Create New Location',
+																			'allowed_departments' => $allowed_departments))
+
+<script>
+	$('document').ready(function() {
+		ModalManager.token = "{{ csrf_token() }}";
+		ModalManager.action = "/dashboard/settings/locations/";
+		ModalManager.register_eventhandlers();
+	});
+</script>
+
 <div class="global">
 	<div class="row">
 		{!! Form::open(['route' => 'dashboard.settings.locations.process', 'method' => 'POST']) !!}
@@ -15,7 +27,12 @@
 						@if (isset($user))
 							<!-- Only show to admins -->
 							@if ($user->is_super_user == true || $user->getAdmin() == true)
-								<button type="submit" name="btnAddLocation">Add</button>
+								<a href="#LocationsModal" data-displayCreateModal="true"
+																					data-modalObject="Locations"
+																					data-modalMethod="POST"
+																					data-modalRoute="{{ URL::route('dashboard.settings.locations.store') }}">
+									<button type="button" name="btnAddLocation">Add</button>
+								</a>
 							@endif
 						@endif
 						<button type="submit" name="btnFindLocation">Find</button>
