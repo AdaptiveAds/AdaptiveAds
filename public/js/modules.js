@@ -179,3 +179,100 @@ function makeIterator(array){
        }
     }
 }
+
+var ModalManager = (function() {
+
+  var token = "";
+  var action = "";
+
+  function register_eventhandlers() {
+
+    $('[data-displayEditModal="true"]').click(function() {
+
+      showLoading();
+      //console.log($('.modal_content'));
+
+      var selected = $(this);
+      var id = selected.attr('data-userID');
+      var object = selected.attr('data-modalObject');
+      switch(object) {
+        case 'Users':
+          getData(id, users);
+      }
+
+      //getData($(this).attr('data-userID'), $(this).attr('data-modalObject') + '();');
+      $('[name="heading"]').html('Edit User');
+      $('#' + $(this).attr('data-modalObject') + 'Modal').find('form').attr('action', $(this).attr('data-modalRoute'));
+    });
+
+    $('[data-displayCreateModal="true"]').click(function() {
+
+      showData();
+
+      clearInput();
+      $('[name="heading"]').html('Create New User');
+      $('#' + $(this).attr('data-modalObject') + 'Modal').find('form').attr('action', $(this).attr('data-modalRoute'));
+    });
+
+  }
+
+  function clearInput() {
+    $('input').val('');
+    $('input').removeAttr('checked');
+  }
+
+  function users(data) {
+    $('[name="txtUsername"]').val(data.user.username);
+
+    if (data.user.is_super_user) {
+      $('[name="chkIsSuper"]').attr('checked', true);
+    }
+  }
+
+  function getData(id, callback) {
+
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-Token': ModalManager.token
+      }
+    });
+
+    $.ajax({
+      type: "GET",
+      url : '/dashboard/settings/users/1',
+      data : {'id': id},
+      success : function(data){
+        showData();
+        callback(data);
+      },
+      error : function(xhr, textStatus, errorThrown) {
+        console.log("JJJJ");
+        showErrors();
+        $('[name="errorMsg"]').html(errorThrown);
+      }
+    },"JSON");
+  }
+
+  function showLoading() {
+    $('.loading').removeClass('hidden');
+    $('.modal_content').addClass('hidden');
+    $('.errors').addClass('hidden');
+  }
+
+  function showData() {
+    $('.modal_content').removeClass('hidden');
+    $('.loading').addClass('hidden');
+    $('.errors').addClass('hidden');
+  }
+
+  function showErrors() {
+    $('.errors').removeClass('hidden');
+    $('.loading').addClass('hidden');
+    $('.modal_content').addClass('hidden');
+  }
+
+  return {
+    register_eventhandlers: register_eventhandlers
+  };
+
+} ());
