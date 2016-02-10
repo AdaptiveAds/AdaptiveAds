@@ -127,13 +127,13 @@ class TemplateController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $txtTemplateName = $request->input('txtTemplateName');
-        $txtTemplateClass = $request->input('txtTemplateClass');
-        $numTemplateDuration = $request->input('numTemplateDuration');
-
         $template = Template::find($id);
 
         if ($template != null) {
+
+          $txtTemplateName = $request->input('txtTemplateName');
+          $txtTemplateClass = $request->input('txtTemplateClass');
+          $numTemplateDuration = $request->input('numTemplateDuration');
 
           $template->name = $txtTemplateName;
           $template->class_name = $txtTemplateClass;
