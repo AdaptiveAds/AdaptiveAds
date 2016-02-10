@@ -57,12 +57,12 @@ Route::resource('dashboard/settings/users', 'UserController');
 Route::post('dashboard/settings/users', ['as' => 'dashboard.settings.users.process', 'uses' => 'UserController@process']);
 
 // Locations routes
-Route::get('dashboard/settings/locations', ['middleware' => 'auth', 'uses' => 'LocationController@index']);
-Route::post('dashboard/settings/locations', ['as' => 'dashboard.settings.locations.process', 'uses' => 'LocationController@process']);
+Route::resource('dashboard/settings/locations', 'LocationController');
+Route::post('dashboard/settings/locations/process', ['as' => 'dashboard.settings.locations.process', 'uses' => 'LocationController@process']);
 
 // Department routes
-Route::get('dashboard/settings/departments', ['middleware' => 'auth', 'uses' => 'DepartmentController@index']);
-Route::post('dashboard/settings/departments', ['as' => 'dashboard.settings.departments.process', 'uses' => 'DepartmentController@process']);
+Route::resource('dashboard/settings/departments', 'DepartmentController');
+Route::post('dashboard/settings/departments/process', ['as' => 'dashboard.settings.departments.process', 'uses' => 'DepartmentController@process']);
 
 // Screens routes
 Route::get('dashboard/settings/screens', ['middleware' => 'auth', 'uses' => 'ScreenController@index']);
