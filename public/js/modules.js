@@ -191,7 +191,6 @@ var ModalManager = (function() {
 
       showLoading();
       clearInput();
-      //console.log($('.modal_content'));
 
       var selected = $(this);
       var id = selected.attr('data-userID');
@@ -200,14 +199,22 @@ var ModalManager = (function() {
       switch(object) {
         case 'Users':
           getData(id, users);
+          break;
         case 'Templates':
           getData(id, templates);
+          break;
         case 'Locations':
           getData(id, locations);
+          break;
         case 'Departments':
           getData(id, departments);
+          break;
         case 'Screens':
           getData(id, screens);
+          break;
+        case 'Playlist':
+          getData(id, playlist);
+          break;
       }
 
       //getData($(this).attr('data-userID'), $(this).attr('data-modalObject') + '();');
@@ -242,18 +249,19 @@ var ModalManager = (function() {
 
   function clearInput() {
     $('input').not('input[name="_token"], input[name="_method"]').val('');
-    $('input').removeAttr('checked');
+    $('input[type="checkbox"]').prop('checked', false);
   }
 
   function users(data) {
     $('[name="txtUsername"]').val(data.user.username);
 
     if (data.user.is_super_user) {
-      $('[name="chkIsSuper"]').attr('checked', true);
+      $('[name="chkIsSuper"]').prop('checked', true);
     }
   }
 
   function templates(data) {
+    console.log("??");
     $('[name="txtTemplateName"]').val(data.template.name);
     $('[name="txtTemplateClass"]').val(data.template.class_name);
     $('[name="numTemplateDuration"]').val(data.template.duration);
@@ -273,6 +281,15 @@ var ModalManager = (function() {
     $('[name="txtScreenID"]').val(data.screen.id);
     $('[name="drpLocations"]').val(data.screen.location_id);
     $('[name="drpPlaylists"]').val(data.screen.playlist_id);
+  }
+
+  function playlist(data) {
+    $('[name="txtPlaylistName"]').val(data.playlist.name);
+    $('[name="drpDepartments"]').val(data.playlist.department_id);
+
+    if (data.playlist.isGlobal) {
+      $('[name="chkIsGlobal"]').attr('checked', true);
+    }
   }
 
   function getData(id, callback) {
