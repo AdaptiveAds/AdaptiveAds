@@ -80,8 +80,15 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
-        return array('user' => $user);
+      // Prevent access if not an ajax request
+      if ($request->ajax() == false)
+        abort(401, 'Unauthorized');
+
+      $user = User::find($id);
+      if ($user == null)
+        abort(404, 'Not found');
+        
+      return array('user' => $user);
     }
 
     /**

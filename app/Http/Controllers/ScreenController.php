@@ -96,6 +96,10 @@ class ScreenController extends Controller
      */
     public function show($id)
     {
+      // Prevent access if not an ajax request
+      if ($request->ajax() == false)
+        abort(401, 'Unauthorized');
+
       $screen = Screen::find($id);
 
       if ($screen == null)

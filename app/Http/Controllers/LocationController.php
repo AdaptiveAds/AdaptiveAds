@@ -93,6 +93,10 @@ class LocationController extends Controller
      */
     public function show($id)
     {
+      // Prevent access if not an ajax request
+      if ($request->ajax() == false)
+        abort(401, 'Unauthorized');
+
       $location = Location::find($id);
       if ($location == null)
         abort(404, 'Not found.');

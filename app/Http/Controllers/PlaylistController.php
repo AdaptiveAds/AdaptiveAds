@@ -96,6 +96,10 @@ class PlaylistController extends Controller
      */
     public function show($id)
     {
+      // Prevent access if not an ajax request
+      if ($request->ajax() == false)
+        abort(401, 'Unauthorized');
+
       $playlist = Playlist::find($id);
       if ($playlist == null)
         abort(404, 'Not found.');

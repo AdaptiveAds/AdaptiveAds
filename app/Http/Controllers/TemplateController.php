@@ -103,8 +103,15 @@ class TemplateController extends Controller
      */
     public function show($id)
     {
-        $template = Template::find($id);
-        return array('template' => $template);
+      // Prevent access if not an ajax request
+      if ($request->ajax() == false)
+        abort(401, 'Unauthorized');
+
+      $template = Template::find($id);
+      if ($template == null)
+        abort(404, 'Not found.');
+
+      return array('template' => $template);
     }
 
     /**
