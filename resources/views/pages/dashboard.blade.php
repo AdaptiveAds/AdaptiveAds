@@ -2,10 +2,10 @@
 
 @section('content')
 
-@include('objects/model_create', array('object' => 'Advert',
+@include('objects/modal_create', array('object' => 'Advert',
 																			 'allowed_departments' => $allowed_departments,
 																			 'route' => 'dashboard.advert.process'))
-@include('objects/model_create', array('object' => 'Playlist',
+@include('objects/modal_create', array('object' => 'Playlist',
 																			 'allowed_departments' => $allowed_departments,
 																			 'route' => 'dashboard.playlist.process'))
 
@@ -85,6 +85,13 @@
 								<a href="{{ URL::to('dashboard/settings/users')}}">
 									<i class="fa fa-users">
 										<span>Users</span>
+									</i>
+								</a>
+							</li>
+							<li>
+								<a href="{{ URL::to('dashboard/settings/templates')}}">
+									<i class="fa fa-navicon">
+										<span>Templates</span>
 									</i>
 								</a>
 							</li>

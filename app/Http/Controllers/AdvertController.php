@@ -75,8 +75,15 @@ class AdvertController extends Controller
      */
     public function store(Request $request)
     {
-      // NOTE not used
-      return Response('Not found', 404);
+      $txtAdvertName = $request->input('txtAdvertName');
+      $departmentID = $request->input('drpDepartments');
+
+      $advert = new Advert();
+      $advert->name = $txtAdvertName;
+      $advert->department_id = $departmentID;
+      $advert->save();
+
+      return redirect()->route('dashboard.advert.index');
     }
 
     /**
@@ -86,6 +93,22 @@ class AdvertController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
+    {
+      $advert = Advert::find($id);
+
+      if ($advert == null)
+        abort(404, 'Not found.');
+
+      return array('advert' => $advert);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
     {
       $allowed_departments = Session::get('allowed_departments');
       $match_departments = Session::get('match_departments');
@@ -109,18 +132,6 @@ class AdvertController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-      // NOTE not used
-      return Response('Not found', 404);
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -129,8 +140,22 @@ class AdvertController extends Controller
      */
     public function update(Request $request, $id)
     {
-      // NOTE not used
-      return Response('Not found', 404);
+      $advert = Advert::find($id);
+
+      if ($advert != null) {
+
+        $txtAdvertName = $request->input('txtAdvertName');
+        $departmentID = $request->input('drpDepartments');
+
+        $advert->name = $txtAdvertName;
+        $advert->department_id = $departmentID;
+        $advert->save();
+
+      } else {
+        abort(404, 'Not found.');
+      }
+
+      return redirect()->route('dashboard.advert.index');
     }
 
     /**

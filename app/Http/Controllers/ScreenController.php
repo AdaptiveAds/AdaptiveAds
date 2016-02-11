@@ -8,7 +8,7 @@ use Session;
 
 use App\Screen as Screen;
 use App\Location as Location;
-use App\Department as Department;
+use App\Playlist as Playlist;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -42,6 +42,7 @@ class ScreenController extends Controller
         $user = Session::get('user');
 
         $locations = Location::whereIn('department_id', $match_departments)->get();
+        $playlists = Playlist::whereIn('department_id', $match_departments)->get();
 
         // Get screens that the user has access to
         $screens = $this->getAllowedScreens($user, $allowed_departments);
@@ -51,7 +52,8 @@ class ScreenController extends Controller
         $data = array(
           'screens' => $screens,
           'locations' => $locations,
-          'user' => $user
+          'user' => $user,
+          'playlists' => $playlists
         );
 
         return view('pages/screens', $data);
@@ -75,7 +77,15 @@ class ScreenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $locationID = $request->input('drpLocations');
+      $playlistID = $request->input('drpPlaylists');
+
+      $screen = new Screen();
+      $screen->location_id = $locationID;
+      $screen->playlist_id = empty($playlistID)? 1 : $playlistID;
+      $screen->save();
+
+      return redirect()->route('dashboard.settings.screens.index');
     }
 
     /**
@@ -86,7 +96,12 @@ class ScreenController extends Controller
      */
     public function show($id)
     {
-        //
+      $screen = Screen::find($id);
+
+      if ($screen == null)
+        abort(404, 'Not found.');
+
+      return array('screen' => $screen);
     }
 
     /**
@@ -109,7 +124,22 @@ class ScreenController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $screen = Screen::find($id);
+
+      if ($screen != null) {
+
+        $locationID = $request->input('drpLocations');
+        $playlistID = $request->input('drpPlaylists');
+
+        $screen->location_id = $locationID;
+        $screen->playlist_id = empty($playlistID)? 1 : $playlistID;
+        $screen->save();
+
+      } else {
+        abort(404, 'Not found.');
+      }
+
+      return redirect()->route('dashboard.settings.screens.index');
     }
 
     /**
