@@ -215,6 +215,9 @@ var ModalManager = (function() {
         case 'Playlist':
           getData(id, playlist);
           break;
+        case 'Advert':
+          getData(id, advert);
+          break;
       }
 
       //getData($(this).attr('data-userID'), $(this).attr('data-modalObject') + '();');
@@ -290,6 +293,11 @@ var ModalManager = (function() {
     if (data.playlist.isGlobal) {
       $('[name="chkIsGlobal"]').attr('checked', true);
     }
+  }
+
+  function advert(data) {
+    $('[name="txtAdvertName"]').val(data.advert.name);
+    $('[name="drpDepartments"]').val(data.advert.department_id);
   }
 
   function getData(id, callback) {

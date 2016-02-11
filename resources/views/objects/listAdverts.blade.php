@@ -9,7 +9,7 @@
         @elseif (isset($deleteMode))
             <a href="{{ URL::route('dashboard.playlist.remove', [$playlist->id, $advert->id]) }}">
         @else
-            <a href="{{ URL::route('dashboard.advert.show', $advert->id) }}">
+            <a href="{{ URL::route('dashboard.advert.edit', $advert->id) }}">
         @endif
 
           @if ($selectable == true)
@@ -18,7 +18,13 @@
           <label for="chkSelectAdvert_">{{ $advert->name }}</label>
         </a>
 
-        <button type="submit" name="btnEdit">Edit</button>
+        <a href="#AdvertModal" data-displayEditModal="true"
+                               data-modalObject="Advert"
+                               data-modalMethod="PUT"
+                               data-modalRoute="{{ URL::route('dashboard.advert.update', $advert->id) }}"
+                               data-userID="{{ $advert->id }}">
+          <button type="button" name="btnEdit">Edit</button>
+        </a>
         @if ($advert->deleted == 0)
           <button type="submit" name="btnDisable">Disable</button>
         @else

@@ -43,8 +43,8 @@ Route::post('dashboard/playlist/process', ['as' => 'dashboard.playlist.process',
 // Advert pages
 Route::post('dashboard/advert/{playlistID}', ['as' => 'dashboard.advert.select', 'uses' => 'AdvertController@selectForPlaylist']);
 Route::post('dashboard/advert/{advertID}/updateIndexes', ['as' => 'dashboard.advert.updateIndexes', 'uses' => 'AdvertController@updateIndexes']);
-Route::resource('dashboard/advert', 'AdvertController', ['except' => ['edit', 'update']]);
-Route::post('dashboard/advert', ['as' => 'dashboard.advert.process', 'uses' => 'AdvertController@process']);
+Route::resource('dashboard/advert', 'AdvertController');
+Route::post('dashboard/advert/process', ['as' => 'dashboard.advert.process', 'uses' => 'AdvertController@process']);
 
 // Page pages
 Route::resource('dashboard/advert/{adID}/page', 'PageController', ['except' => ['index', 'edit']]);
