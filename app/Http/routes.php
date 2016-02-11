@@ -33,12 +33,12 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 Route::get('dashboard', ['middleware' => 'auth', 'uses' => 'DashboardController@index']);
 
 // Playlist pages
-Route::get('dashboard/playlist/{playlistID}/{advertID}', ['as' => 'dashboard.playlist.add', 'uses' => 'PlaylistController@addExistingAdvert']);
+//Route::get('dashboard/playlist/{playlistID}/{advertID}', ['as' => 'dashboard.playlist.add', 'uses' => 'PlaylistController@addExistingAdvert']);
 Route::get('dashboard/playlist/{playlistID}/{advertID}/remove', ['as' => 'dashboard.playlist.remove', 'uses' => 'PlaylistController@removeAdvert']);
 Route::post('dashboard/playlist/{playlistID}/remove', ['as' => 'dashboard.playlist.removeMode', 'uses' => 'PlaylistController@removeMode']);
 Route::post('dashboard/playlist/{playlistID}/updateIndexes', ['as' => 'dashboard.playlist.updateIndexes', 'uses' => 'PlaylistController@updateIndexes']);
-Route::resource('dashboard/playlist', 'PlaylistController', ['except' => ['create', 'edit', 'update']]);
-Route::post('dashboard/playlist', ['as' => 'dashboard.playlist.process', 'uses' => 'PlaylistController@process']);
+Route::resource('dashboard/playlist', 'PlaylistController', ['except' => ['create']]);
+Route::post('dashboard/playlist/process', ['as' => 'dashboard.playlist.process', 'uses' => 'PlaylistController@process']);
 
 // Advert pages
 Route::post('dashboard/advert/{playlistID}', ['as' => 'dashboard.advert.select', 'uses' => 'AdvertController@selectForPlaylist']);
