@@ -12,7 +12,7 @@
       <div class="modalDialogLeft">
         <label>Assign Department</label>
         <br/>
-        @include('objects/departments_dropdown', array('allowed_departments' => $allowed_departments))
+        @include('objects/dropdown_departments', array('allowed_departments' => $allowed_departments))
       </div>
       <div class="clear"></div>
       <button type="submit" name="btnAdd{{$object or 'object'}}">Create</button>

@@ -72,7 +72,15 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $txtDepartmentName = $request->input('txtDepartmentName');
+      $skinID = $request->input('drpSkins');
+
+      $department = new Department();
+      $department->name = $txtDepartmentName;
+      $department->skin_id = $skinID;
+      $department->save();
+
+      return redirect()->route('dashboard.settings.departments.index');
     }
 
     /**
@@ -83,7 +91,12 @@ class DepartmentController extends Controller
      */
     public function show($id)
     {
-        //
+      $department = Department::find($id);
+
+      if ($department == null)
+        abort(404, 'Not found.');
+
+      return array('department' => $department);
     }
 
     /**
@@ -106,7 +119,22 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $department = Department::find($id);
+
+      if ($department != null) {
+
+        $txtDepartmentName = $request->input('txtDepartmentName');
+        $skinID = $request->input('drpSkins');
+
+        $department->name = $txtDepartmentName;
+        $department->skin_id = $skinID;
+        $department->save();
+
+      } else {
+        abort(404, 'Not found.');
+      }
+
+      return redirect()->route('dashboard.settings.departments.index');
     }
 
     /**

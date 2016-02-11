@@ -33,18 +33,18 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 Route::get('dashboard', ['middleware' => 'auth', 'uses' => 'DashboardController@index']);
 
 // Playlist pages
-Route::get('dashboard/playlist/{playlistID}/{advertID}', ['as' => 'dashboard.playlist.add', 'uses' => 'PlaylistController@addExistingAdvert']);
+//Route::get('dashboard/playlist/{playlistID}/{advertID}', ['as' => 'dashboard.playlist.add', 'uses' => 'PlaylistController@addExistingAdvert']);
 Route::get('dashboard/playlist/{playlistID}/{advertID}/remove', ['as' => 'dashboard.playlist.remove', 'uses' => 'PlaylistController@removeAdvert']);
 Route::post('dashboard/playlist/{playlistID}/remove', ['as' => 'dashboard.playlist.removeMode', 'uses' => 'PlaylistController@removeMode']);
 Route::post('dashboard/playlist/{playlistID}/updateIndexes', ['as' => 'dashboard.playlist.updateIndexes', 'uses' => 'PlaylistController@updateIndexes']);
-Route::resource('dashboard/playlist', 'PlaylistController', ['except' => ['create', 'edit', 'update']]);
-Route::post('dashboard/playlist', ['as' => 'dashboard.playlist.process', 'uses' => 'PlaylistController@process']);
+Route::resource('dashboard/playlist', 'PlaylistController', ['except' => ['create']]);
+Route::post('dashboard/playlist/process', ['as' => 'dashboard.playlist.process', 'uses' => 'PlaylistController@process']);
 
 // Advert pages
 Route::post('dashboard/advert/{playlistID}', ['as' => 'dashboard.advert.select', 'uses' => 'AdvertController@selectForPlaylist']);
 Route::post('dashboard/advert/{advertID}/updateIndexes', ['as' => 'dashboard.advert.updateIndexes', 'uses' => 'AdvertController@updateIndexes']);
-Route::resource('dashboard/advert', 'AdvertController', ['except' => ['edit', 'update']]);
-Route::post('dashboard/advert', ['as' => 'dashboard.advert.process', 'uses' => 'AdvertController@process']);
+Route::resource('dashboard/advert', 'AdvertController');
+Route::post('dashboard/advert/process', ['as' => 'dashboard.advert.process', 'uses' => 'AdvertController@process']);
 
 // Page pages
 Route::resource('dashboard/advert/{adID}/page', 'PageController', ['except' => ['index', 'edit']]);
@@ -53,20 +53,24 @@ Route::resource('dashboard/advert/{adID}/page', 'PageController', ['except' => [
 Route::get('dashboard/settings', ['middleware' => 'auth', 'uses' => 'PlaylistController@index']);
 
 // Users routes
-Route::get('dashboard/settings/users', ['middleware' => 'auth', 'uses' => 'UserController@index']);
+Route::resource('dashboard/settings/users', 'UserController');
 Route::post('dashboard/settings/users', ['as' => 'dashboard.settings.users.process', 'uses' => 'UserController@process']);
 
 // Locations routes
-Route::get('dashboard/settings/locations', ['middleware' => 'auth', 'uses' => 'LocationController@index']);
-Route::post('dashboard/settings/locations', ['as' => 'dashboard.settings.locations.process', 'uses' => 'LocationController@process']);
+Route::resource('dashboard/settings/locations', 'LocationController');
+Route::post('dashboard/settings/locations/process', ['as' => 'dashboard.settings.locations.process', 'uses' => 'LocationController@process']);
 
 // Department routes
-Route::get('dashboard/settings/departments', ['middleware' => 'auth', 'uses' => 'DepartmentController@index']);
-Route::post('dashboard/settings/departments', ['as' => 'dashboard.settings.departments.process', 'uses' => 'DepartmentController@process']);
+Route::resource('dashboard/settings/departments', 'DepartmentController');
+Route::post('dashboard/settings/departments/process', ['as' => 'dashboard.settings.departments.process', 'uses' => 'DepartmentController@process']);
 
 // Screens routes
-Route::get('dashboard/settings/screens', ['middleware' => 'auth', 'uses' => 'ScreenController@index']);
-Route::post('dashboard/settings/screens', ['as' => 'dashboard.settings.screens.process', 'uses' => 'ScreenController@process']);
+Route::resource('dashboard/settings/screens', 'ScreenController');
+Route::post('dashboard/settings/screens/process', ['as' => 'dashboard.settings.screens.process', 'uses' => 'ScreenController@process']);
+
+// Templates routes
+Route::resource('dashboard/settings/templates', 'TemplateController');
+Route::post('dashboard/settings/templates/process', ['as' => 'dashboard.settings.templates.process', 'uses' => 'TemplateController@process']);
 
 // Serve routes
 Route::get('serve/{screenId}', 'ServeController@show');

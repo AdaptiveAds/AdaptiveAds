@@ -2,32 +2,45 @@
 
 @section('content')
 
-@include('objects/model_create', array('object' => 'Playlist',
-																			 'allowed_departments' => $allowed_departments,
-																			 'route' => 'dashboard.playlist.store'))
+@include('objects/modal_templates', array('object' => 'Templates',
+																			'heading' => 'Create New Template',
+																			'allowed_departments' => $allowed_departments))
+
+<script>
+	$('document').ready(function() {
+		ModalManager.token = "{{ csrf_token() }}";
+		ModalManager.action = "/dashboard/settings/templates/";
+		ModalManager.register_eventhandlers();
+	});
+</script>
 
 <div class="global">
 	<div class="row">
-			<!-- TODO ADD FORM -->
-			<h3>Template Editor</h3>
-			<ul>
-				<li>
-					<input type="name" name="templateName" placeholder="Template Name...."
-								 value="{{ $searchItem or '' }}"/>
-          <input type="name" name="templateClass" placeholder="Template Class...."
-                        value="{{ $searchItem or '' }}"/>
-          <input type="name" name="templateDuration" placeholder="Template Duration...."
-                        value="{{ $searchItem or '' }}"/>
-          <input type="name" name="templateDuration" placeholder="Thumbnail Path..."
-                        value="{{ $searchItem or '' }}"/>
-          <!-- Needs href - JOSH? -->
-					<a href=""><button type="submit" name="btnaddTemplate">Save</button></a>
-				</li>
-			</ul>
+			{!! Form::open(['route' => 'dashboard.settings.templates.process', 'method' => 'POST']) !!}
+				<h3>Template Editor</h3>
+				<ul name="lstTemplateControls">
+					<li>
+						<input type="text" name="txtTemplateName" placeholder="Template Name...."
+									 value="{{ $searchItem or '' }}"/>
+	          <input type="text" name="txtTemplateClass" placeholder="Template Class...."
+	                        value="{{ $searchItem or '' }}"/>
+	          <input type="number" name="numTemplateDuration" placeholder="Duration (Seconds)...."
+	                        value="{{ $searchItem or '' }}"/>
+						<a href="#TemplatesModal" data-displayCreateModal="true"
+																		data-modalObject="Templates"
+																		data-modalMethod="POST"
+																		data-modalRoute="{{ URL::route('dashboard.settings.templates.store') }}">
+							<button type="button" name="btnAddTemplate">Add</button>
+						</a>
+						<button type="submit" name="btnFindTemplate">Find</button>
+						<button type="submit" name="btnFindAll">Find All</button>
+					</li>
+				</ul>
+			{!! Form::close() !!}
 	</div>
 
 	<div class="row">
-		@include('objects/playlistItem')
+		@include('objects/listTemplates')
 	</div>
 </div>
 @endsection

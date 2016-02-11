@@ -12,6 +12,13 @@
 	background: $blue-light;
 }
 
+.modalDialog .loading, .modalDialog .errors {
+	z-index: 9999;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+
 /* pop-up */
 .modalDialog {
 	position: fixed;

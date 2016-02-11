@@ -73,13 +73,7 @@ class PlaylistController extends Controller
     public function store(Request $request)
     {
 
-      //dd($request);
-
-      // Validation
-      $this->validate($request, [
-          'txtPlaylistName' => 'required|max:255',
-          'drpDepartments' => 'required'
-      ]);
+      // TODO VALIDATION
 
       // Was validation successful?
       $playlist = new Playlist;
@@ -91,7 +85,7 @@ class PlaylistController extends Controller
         'playlist' => $playlist
       );
 
-      return view('pages/playlistEditor', $data);
+      return redirect()->route('dashboard.playlist.index');
     }
 
     /**
@@ -101,6 +95,21 @@ class PlaylistController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
+    {
+      $playlist = Playlist::find($id);
+      if ($playlist == null)
+        abort(404, 'Not found.');
+
+      return array('playlist' => $playlist);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
     {
       $match_departments = Session::get('match_departments');
 
@@ -121,18 +130,6 @@ class PlaylistController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-      // NOTE not used
-      return Response('Not found', 404);
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -141,8 +138,24 @@ class PlaylistController extends Controller
      */
     public function update(Request $request, $id)
     {
-      // NOTE not used
-      return Response('Not found', 404);
+      $playlist = Playlist::find($id);
+
+      if ($playlist != null) {
+
+        $txtPlaylistName = $request->input('txtPlaylistName');
+        $departmentID = $request->input('drpDepartments');
+        $chkIsGlobal = $request->input('chkIsGlobal');
+
+        $playlist->name = $txtPlaylistName;
+        $playlist->isGlobal = $chkIsGlobal;
+        $playlist->department_id = $departmentID;
+        $playlist->save();
+
+      } else {
+        abort(404, 'Not found.');
+      }
+
+      return redirect()->route('dashboard.playlist.index');
     }
 
     /**

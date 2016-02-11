@@ -74,7 +74,15 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $txtLocationName = $request->input('txtLocationName');
+      $departmentID = $request->input('drpDepartments');
+
+      $location = new Location();
+      $location->name = $txtLocationName;
+      $location->department_id = $departmentID;
+      $location->save();
+
+      return redirect()->route('dashboard.settings.locations.index');
     }
 
     /**
@@ -85,7 +93,11 @@ class LocationController extends Controller
      */
     public function show($id)
     {
-        //
+      $location = Location::find($id);
+      if ($location == null)
+        abort(404, 'Not found.');
+
+      return array('location' => $location);
     }
 
     /**
@@ -108,7 +120,22 @@ class LocationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $location = Location::find($id);
+
+      if ($location != null) {
+
+        $txtLocationName = $request->input('txtLocationName');
+        $departmentID = $request->input('drpDepartments');
+
+        $location->name = $txtLocationName;
+        $location->department_id = $departmentID;
+        $location->save();
+
+      } else {
+        abort(404, 'Not found.');
+      }
+
+      return redirect()->route('dashboard.settings.locations.index');
     }
 
     /**
