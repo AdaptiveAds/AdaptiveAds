@@ -2,6 +2,18 @@
 
 @section('content')
 
+@include('objects/modal_playlist', array('object' => 'Playlist',
+																			'heading' => 'Create New Playlist',
+																			'allowed_departments' => $allowed_departments))
+
+<script>
+	$('document').ready(function() {
+		ModalManager.token = "{{ csrf_token() }}";
+		ModalManager.action = "/dashboard/playlist/";
+		ModalManager.register_eventhandlers();
+	});
+</script>
+
 <div class="global">
 	<div class="row">
 		{!! Form::open(['route' => 'dashboard.playlist.process', 'method' => 'POST']) !!}
@@ -14,7 +26,12 @@
  					@include('objects/dropdown_departments', array('allowed_departments' => $allowed_departments))
  					@if (isset($user))
 						@if ($user->is_super_user)
-							<button type="submit" name="btnAddPlaylist">Add</button>
+							<a href="#PlaylistModal" data-displayCreateModal="true"
+																			 data-modalObject="Playlist"
+																			 data-modalMethod="POST"
+																			 data-modalRoute="{{ URL::route('dashboard.playlist.store') }}">
+								<button type="button" name="btnAddPlaylist">Add</button>
+							</a>
 						@endif
 					@endif
 					<button type="submit" name="btnFindPlaylist">Find</button>
