@@ -101,7 +101,7 @@ class TemplateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
       // Prevent access if not an ajax request
       if ($request->ajax() == false)
