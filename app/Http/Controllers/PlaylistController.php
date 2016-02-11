@@ -185,8 +185,11 @@ class PlaylistController extends Controller
       return redirect()->route('dashboard.playlist.index');
     }
 
-    public function addExistingAdvert($playlistID, $advertID)
+    public function addExistingAdvert(Request $request, $playlistID, $adverts)
     {
+        if ($request->ajax() == false)
+          abort(401, 'Unauthorized');
+        
         $playlist = Playlist::find($playlistID);
 
         // TODO advert inde and display timing (GUI??)
