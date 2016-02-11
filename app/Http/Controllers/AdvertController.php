@@ -192,8 +192,9 @@ class AdvertController extends Controller
     {
       $allowed_departments = Session::get('allowed_departments');
       $match_departments = Session::get('match_departments');
+      $user = Session::get('user');
 
-      $adverts = DB::table('advert')->leftJoin('advert_playlist', function ($join) use ($playlistID) {
+      $adverts = Advert::leftJoin('advert_playlist', function ($join) use ($playlistID) {
         $join->on('advert.id', '=', 'advert_playlist.advert_id');
         $join->where('advert_playlist.playlist_id', '=', $playlistID);
       })
@@ -205,14 +206,16 @@ class AdvertController extends Controller
       ->where('advert.deleted', '=', 0)
       ->get();
 
-      if (count($adverts) <= 0) {
+      if ($adverts->count() <= 0) {
         return response('Not found.', 404); // Advert does not exist or un authorised
       }
 
       $data = array(
         'adverts' => $adverts,
         'selectedPlaylist' => $playlistID,
-        'allowed_departments' => $allowed_departments
+        'allowed_departments' => $allowed_departments,
+        'selectable' => true,
+        'user' => $user
       );
 
       return view('pages/adverts', $data);
