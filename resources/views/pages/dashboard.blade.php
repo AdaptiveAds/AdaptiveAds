@@ -16,7 +16,7 @@
 
 				<ul>
 					<li>
-						<a href="{{ URL::to('dashboard/playlist')}}">
+						<a name="lnkPlaylists" href="{{ URL::to('dashboard/playlist')}}">
 							<i class="fa fa-list-ul">
 							<!-- temp name ofc -->
 								<span>Playlists</span>
@@ -24,7 +24,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="#PlaylistModal">
+						<a name="lnkCreatePlaylist" href="#PlaylistModal">
 							<i class="fa fa-list-ul">
 							<!-- temp name ofc -->
 								<span>Create Playlist</span>
@@ -33,7 +33,7 @@
 					</li>
 
 					<li>
-						<a href="{{ URL::to('dashboard/advert')}}">
+						<a name="lnkAdverts" href="{{ URL::to('dashboard/advert')}}">
 							<i class="fa fa-list-ul">
 							<!-- temp name ofc -->
 								<span>Adverts</span>
@@ -41,7 +41,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="#AdvertModal">
+						<a name="lnkCreateAdvert" href="#AdvertModal">
 							<i class="fa fa-list-ul">
 							<!-- temp name ofc -->
 								<span>Create Advert</span>
@@ -61,35 +61,35 @@
 				<ul>
 
 							<li>
-								<a href="{{ URL::to('dashboard/settings/locations/')}}">
+								<a name="lnkLocations" href="{{ URL::to('dashboard/settings/locations/')}}">
 									<i class="fa fa-map-marker">
 										<span>Locations</span>
 									</i>
 								</a>
 							</li>
 							<li>
-								<a href="{{ URL::to('dashboard/settings/departments/')}}">
+								<a name="lnkDepartments" href="{{ URL::to('dashboard/settings/departments/')}}">
 									<i class="fa fa-university">
 										<span>Departments</span>
 									</i>
 								</a>
 							</li>
 							<li>
-								<a href="{{ URL::to('dashboard/settings/screens')}}">
+								<a name="lnkScreens" href="{{ URL::to('dashboard/settings/screens')}}">
 									<i class="fa fa-desktop">
 										<span>Screens</span>
 									</i>
 								</a>
 							</li>
 							<li>
-								<a href="{{ URL::to('dashboard/settings/users')}}">
+								<a name="lnkUsers" href="{{ URL::to('dashboard/settings/users')}}">
 									<i class="fa fa-users">
 										<span>Users</span>
 									</i>
 								</a>
 							</li>
 							<li>
-								<a href="{{ URL::to('dashboard/settings/templates')}}">
+								<a name="lnkTemplates" href="{{ URL::to('dashboard/settings/templates')}}">
 									<i class="fa fa-navicon">
 										<span>Templates</span>
 									</i>

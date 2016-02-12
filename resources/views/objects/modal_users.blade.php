@@ -40,9 +40,6 @@
 				<input title="Confirm Password"  type="password" name="txtPasswordConfirm" placeholder="mypassword" required>
 			</li>
 			<li>
-				<input title="Tick to accept"  type="checkbox" name="AdsNews" value="signup"><span>Sign up to Ads News</span>
-			</li>
-			<li>
 				<button type="submit" name="btnSave">Save</button>
 			</li>
 		</ul>

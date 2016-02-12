@@ -4,9 +4,11 @@
 
 <script>
 	$('document').ready(function() {
-		SelectManager.token = '{{ csrf_token() }}';
-		SelectManager.action = '/dashboard/playlist/{{$playlist->id}}/updateIndexes';
+		IndexUpdater.token = '{{ csrf_token() }}';
+		IndexUpdater.action = '/dashboard/playlist/{{$playlist->id}}/updateIndexes';
+		SelectManager.multi = false;
 		SelectManager.register_eventhandlers();
+		IndexUpdater.register_eventhandlers();
 	});
 </script>
 
@@ -18,16 +20,17 @@
 				<li>
  					@if (isset($playlist))
 						{!! Form::open(['route' => 'dashboard.playlist.process', 'method' => 'POST']) !!}
-							<input type="name" name="txtPlaylistName" placeholder="Playlist name...."
-										 value="{{ $searchItem or '' }}"/>
-							<button id="btnUp" type="button" disabled>Up</button>
-		 					<button id="btnDown" type="button" disabled>Down</button>
-							<button type="button" name="btnNewPage" onclick="location.href='';">+ New Page</button>
+								<input type="name" name="txtPlaylistName" placeholder="Playlist name...."
+											 value="{{ $searchItem or '' }}"/>
+								<button id="btnUp" type="button" disabled>Up</button>
+			 					<button id="btnDown" type="button" disabled>Down</button>
+								<button type="button" name="btnNewPage" onclick="location.href='';">+ New Page</button>
+							{!! Form::close() !!}
 							{!! Form::open(['route' => ['dashboard.advert.select', $playlist->id], 'method' => 'POST']) !!}
 								<button type="submit" name="btnAddAdvert">Add Advert</button>
 							{!! Form::close() !!}
 
-							{!! Form:: open(['route' => ['dashboard.playlist.removeMode', $playlist->id], 'method' => 'POST']) !!}
+							{!! Form:: open(['route' => ['dashboard.advert.removeMode', $playlist->id], 'method' => 'POST']) !!}
 								<button type="submit" name="btnRemoveAdvert">Remove Mode</button>
 							{!! Form::close() !!}
 
@@ -36,7 +39,6 @@
 							{!! Form::open(['route' => ['dashboard.playlist.destroy', $playlist->id], 'method' => 'DELETE']) !!}
 								<button type="submit" name="btnDeletePlaylist">Delete Playlist</button>
 							{!! Form::close() !!}
-						{!! Form::close() !!}
 					@endif
 				</li>
 			</ul>

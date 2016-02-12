@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Session;
+use DB;
 
 use App\Playlist as Playlist;
 use App\Advert as Advert;
@@ -94,8 +95,12 @@ class PlaylistController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
+      // Prevent access if not an ajax request
+      if ($request->ajax() == false)
+        abort(401, 'Unauthorized');
+
       $playlist = Playlist::find($id);
       if ($playlist == null)
         abort(404, 'Not found.');
@@ -181,39 +186,38 @@ class PlaylistController extends Controller
       return redirect()->route('dashboard.playlist.index');
     }
 
-    public function addExistingAdvert($playlistID, $advertID)
+    public function addExistingAdvert(Request $request)
     {
-        $playlist = Playlist::find($playlistID);
 
-        // TODO advert inde and display timing (GUI??)
-        $playlist->Adverts()->attach($advertID, ['advert_index' => '0', 'display_schedule_id' => '1']);
-        //dd($playlist);
+      if ($request->ajax() == false)
+        abort(401, 'Unauthorized');
 
-        return redirect()->route('dashboard.playlist.show', $playlistID);
-    }
-
-    public function removeMode($playlistID)
-    {
-      //$allowed_departments = Session::get('allowed_departments');
+      $playlistID = $request->input('playlistID');
+      $adverts = $request->input('arrAdverts');
 
       $playlist = Playlist::find($playlistID);
-      $adverts = $playlist->Adverts->where('deleted', 0);//->whereIn('department_id', $allowed_departments);
 
-      $data = array(
-        'playlist' => $playlist,
-        'adverts' => $adverts,
-        'deleteMode' => true
-      );
+      $currentIndex = DB::table('advert_playlist')->where('playlist_id', $playlistID)->max('advert_index');
 
-      return view('pages/playlistEditor', $data);
+      foreach ($adverts as $advertID) {
+        // TODO advert inde and display timing (GUI??)
+        $playlist->Adverts()->attach($advertID, ['advert_index' => ++$currentIndex, 'display_schedule_id' => '1']);
+      }
     }
 
-    public function removeAdvert($playlistID, $advertID)
+    public function removeAdvert(Request $request)
     {
-        $playlist = Playlist::find($playlistID);
-        $playlist->Adverts()->detach($advertID);
+      if ($request->ajax() == false)
+        abort(401, 'Unauthorized');
 
-        return redirect()->route('dashboard.playlist.show', $playlistID);
+      $playlistID = $request->input('playlistID');
+      $adverts = $request->input('arrAdverts');
+
+      $playlist = Playlist::find($playlistID);
+
+      foreach($adverts as $advertID) {
+        $playlist->Adverts()->detach($advertID);
+      }
     }
 
     public function updateIndexes(Request $request, $playlistID)
