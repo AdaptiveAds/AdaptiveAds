@@ -1,21 +1,22 @@
 @charset 'UTF-8';
 
-@import '_base/_config.scss';
+// --defaultTheme
+@import 'website/defaultTheme/_config.scss';
 
-// 2.Layouts
-@import '_layouts/_theme.scss',
-        '_layouts/_themeMixins.scss',
-        '_layouts/_htmlPages.scss',
-        '_layouts/_advertTemplates/_advertTemplateMixins.scss',
-        '_layouts/_advertTemplates/_advertTemplates.scss';
+//Adverts
+// --advertTemplates
+@import 'adverts/advertTemplates/_advertTemplateLayouts.scss',
+        'adverts/advertTemplates/_advertTemplateMixins.scss';
+// --departmentSkins
+@import 'adverts/departmentSkins/_skins.scss';
 
-// 3.Skins
-@import '_skins/_skins.scss';
+// --defaultStructure
+@import 'website/defaultStructure/_defaultTheme.scss',
+        'website/defaultStructure/_defaultThemeMixins.scss',
+        'website/defaultStructure/_defaultWebsitePages.scss',
+        'website/defaultStructure/_objects.scss';
 
-// 4.Objects
-@import '_objects/_mixins.scss',
-        '_objects/_objects.scss';
-
-//5. HTML Swatches
-@import '_swatches/_swatchMixins.scss',
-        '_swatches/_swatches.scss';
+//Website
+// --customThemes
+@import 'website/customTheme/_customThemeMixins.scss',
+        'website/customTheme/_customTheme.scss';

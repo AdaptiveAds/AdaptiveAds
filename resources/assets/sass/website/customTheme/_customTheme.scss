@@ -1,0 +1,8 @@
+body.data-swatch-theme-b {
+$background:orange;
+$color-white:#ffffff;
+$text:pink;
+
+@include swatch-theme($background, #000000, $text, #372945 )
+
+  }//end body

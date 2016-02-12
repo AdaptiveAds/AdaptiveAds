@@ -20,19 +20,22 @@
 			<h3>Adverts</h3>
 			<ul>
 				<li>
-					<input type="text" name="txtAdvertName" placeholder="Advert name...."
+					<input name="txtAdvertName" type="text" placeholder="Advert name...."
 								 value="{{ $searchItem or '' }}"/>
-					<label>Department:</label>
+					<label name="lblDepartment">Department:</label>
  					@include('objects/dropdown_departments', array('allowed_departments' => $allowed_departments))
-					<a href="#AdvertModal" data-displayCreateModal="true"
-																		data-modalObject="Advert"
-																		data-modalMethod="POST"
-																		data-modalRoute="{{ URL::route('dashboard.advert.store') }}">
-						<button type="button" name="btnAddAdvert">Add</button>
-					</a>
+					<!-- Span inserted for testing purposes -->
+					<span name="spnAdvertModal">
+						<a href="#AdvertModal" data-displayCreateModal="true"
+																			data-modalObject="Advert"
+																			data-modalMethod="POST"
+																			data-modalRoute="{{ URL::route('dashboard.advert.store') }}">
+							<button name="btnAddAdvert" type="button" >Add</button>
+						</a>
+					</span>
 
-					<button type="submit" name="btnFindAdvert">Find</button>
-					<button type="submit" name="btnFindAll">Find All</button>
+					<button name="btnFindAdvert" type="submit" >Find</button>
+					<button name="btnFindAll" type="submit" >Find All</button>
 				</li>
 			</ul>
 		{!! Form::close() !!}

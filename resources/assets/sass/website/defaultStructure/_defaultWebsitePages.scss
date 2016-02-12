@@ -8,7 +8,7 @@ text-align:center; clear:both;
 	float:left; width:22%; padding:1%;
 
 		img {
-		width:50%; border-radius:$base-border-radius;
+		width:50%; border-radius:$site-border-radius;
 		}//img
 
 		p {
@@ -44,16 +44,22 @@ text-align:center; clear:both;
 			margin:1%;
 
 				a {
-				display:block; background:$blue-dark; border-radius:$base-border-radius; min-width:90px; border:$thick-border-hidden; color:$white; padding:10px;
+				display:block;
+				background:$dashboard-anchor-background;
+				border-radius:$site-border-radius;
+				min-width:90px;
+				border:$site-border-hidden;
+				color:$dashboard-anchor-text;
+				padding:10px;
 
 					&:hover {
-					background:$gray-dark;
-					border: $thick-border-show;
+					background:$dashboard-anchor-text-hover;
+					border: $site-border-show;
 					}
 
 					i {
 					font-size:4em;
-					color:$white;
+					color:$dashboard-anchor-text;
 
 						span {
 						font-size:16px; padding:0; margin:0; margin-top:4px; display:block;
@@ -105,7 +111,7 @@ float:left; width:70%; min-height:300px;
 #left.portrait {
 
 		.pagecontainer {
-		float:left; width:75%;  box-sizing:border-box; border-radius:$base-border-radius; border:$base-border;
+		float:left; width:75%;  box-sizing:border-box; border-radius:$site-border-radius; border:$site-border;
 
 			ul.theme_select {
 			width:100%; padding:0; margin:0; display:flex; text-align:center; display:block;
@@ -149,9 +155,9 @@ box-sizing:border-box;
 		display:block;
 		background:transparent;
 		margin:5px auto;
-		border-radius:$base-border-radius;
+		border-radius:$site-border-radius;
 		padding:5px;
-		border:$base-border;
+		border:$site-border;
 
 			textarea, input {
 			width:90%;
@@ -175,15 +181,15 @@ box-sizing:border-box;
 				}
 
 				button.active, button.active:hover {
-				background:$blue-dark;
+				background:$button-background-active;
 				}//button.active
 
 				button {
-				background:#ffffff; color:#000000; width:50%; border:$base-border; float:left; padding:0px 5px; overflow:hidden;
+				background:$button-background; color:#000000; width:50%; border:$site-border; float:left; padding:0px 5px; overflow:hidden;
 				}//button
 
 				button:hover {
-				background:$blue-light; cursor:pointer;
+				background:$button-background-hover; cursor:pointer;
 				}//2 elements -- active hover
 			}//orientation
 	}//ul
@@ -252,10 +258,10 @@ font-size:120%;
 					}//li
 
 					li:nth-child(odd) {
-					background:$blue-light-opacity-partial;
+					background:$li-background;
 					}//li:hover
 					li:hover {
-					background:$blue-light-opacity-hover;
+					background:$li-background-hover;
 					}//li:hover
 				}//ul
 	}//row:last-child
@@ -297,7 +303,7 @@ text-align:center;
 			}//input
 
 			input:hover {
-			background:$blue-light;
+			background:$login-background-hover;
 			cursor:pointer;
 			}//li:hover
 
@@ -311,11 +317,11 @@ text-align:center;
 		text-align:left;
 
 			a {
-			color:$blue-light;
+			color:$login-anchor-color;
 			}//a
 
 			a:hover {
-			color:$white;
+			color:$login-anchor-color-hover;
 			}//a:hover
 		}//li
 	}//ul:last-child

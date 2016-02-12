@@ -9,7 +9,7 @@
 }
 
 .selected {
-	background: $blue-light;
+	background: $objects-selected-background;
 }
 
 .modalDialog .loading, .modalDialog .errors {
@@ -47,7 +47,7 @@
 	margin: 10% auto;
 	padding: 20px 20px 20px 20px;
 	border-radius: 10px;
-	background: $background;
+	background: $site-background;
   border: 4px;
   border-color: #fff;
   border-style: solid;

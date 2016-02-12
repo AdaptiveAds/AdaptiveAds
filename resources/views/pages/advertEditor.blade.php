@@ -18,11 +18,11 @@
 				<li>
  					@if (isset($advert))
 						{!! Form::open(['route' => 'dashboard.advert.process', 'method' => 'POST']) !!}
-						<input type="name" name="txtPlaylistName" placeholder="Advert name...."
+						<input type="txtAdvertName" name="txtPlaylistName" placeholder="Advert name...."
 									 value="{{ $searchItem or '' }}"/>
-						<button id="btnUp" type="button" disabled>Up</button>
-	 					<button id="btnDown" type="button" disabled>Down</button>
-						<button type="button" name="btnNewPage" onclick="location.href='{{ URL::route('dashboard.advert.{adID}.page.create', $advert->id) }}';">+ New Page</button>
+						<button name="btnUp" id="btnUp" type="button" disabled>Up</button>
+	 					<button name="btnDown" id="btnDown" type="button" disabled>Down</button>
+						<button name="btnNewPage" type="button"  onclick="location.href='{{ URL::route('dashboard.advert.{adID}.page.create', $advert->id) }}';">+ New Page</button>
 						<button name="btnDeleteAdvert" type="submit">Delete Ad</button>
 						{!! Form::close() !!}
 					@endif

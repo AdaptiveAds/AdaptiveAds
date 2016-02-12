@@ -1,0 +1,13 @@
+@mixin swatch-theme($background, $heading, $text, $link ) {
+    background:$background;
+
+    h1, h2, h3, h4, h5, h6 {
+        color:$heading;
+    }
+    p {
+        color:$text;
+    }
+    a {
+        color:$link;
+    }
+}
