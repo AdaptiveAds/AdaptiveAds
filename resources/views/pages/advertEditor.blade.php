@@ -4,9 +4,10 @@
 
 <script>
 	$('document').ready(function() {
-		SelectManager.token = '{{ csrf_token() }}';
-		SelectManager.action = '/dashboard/advert/{{$advert->id}}/updateIndexes';
+		IndexUpdater.token = '{{ csrf_token() }}';
+		IndexUpdater.action = '/dashboard/advert/{{$advert->id}}/updateIndexes';
 		SelectManager.register_eventhandlers();
+		IndexUpdater.register_eventhandlers();
 	});
 </script>
 
