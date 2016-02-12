@@ -143,22 +143,22 @@ var AdvertAssign = (function() {
   }
 
   function redirect() {
-    AppDebug.print(AdvertAdder.redirectPath);
-    window.location.href = AdvertAdder.redirectPath;
+    AppDebug.print(AdvertAssign.redirectPath);
+    window.location.href = AdvertAssign.redirectPath;
   }
 
   function updatePlaylist(adverts) {
 
     $.ajaxSetup({
       headers: {
-        'X-CSRF-Token': AdvertAdder.token
+        'X-CSRF-Token': AdvertAssign.token
       }
     });
 
     $.ajax({
       type: "POST",
-      url : AdvertAdder.action,
-      data : {'playlistID': AdvertAdder.playlist, 'arrAdverts': adverts},
+      url : AdvertAssign.action,
+      data : {'playlistID': AdvertAssign.playlist, 'arrAdverts': adverts},
       success : function(data){
         redirect();
       },

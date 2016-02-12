@@ -5,17 +5,22 @@
 @include('objects/modal_advert', array('object' => 'Advert',
 																			'heading' => 'Create New Advert',
 																			'allowed_departments' => $allowed_departments))
-
 @if (isset($selectedPlaylist))
+
 	<script>
 		$('document').ready(function() {
-			AdvertAdder.token = "{{ csrf_token() }}";
-			AdvertAdder.action = "/dashboard/playlist/{{ $selectedPlaylist }}/add";
-			AdvertAdder.redirectPath = "/dashboard/playlist/{{ $selectedPlaylist }}/edit"
+			AdvertAssign.token = "{{ csrf_token() }}";
+	@if (isset($deleteMode))
+			AdvertAssign.action = "/dashboard/playlist/{{ $selectedPlaylist }}/remove";
+			AdvertAssign.redirectPath = "/dashboard/playlist/{{ $selectedPlaylist }}/edit";
+	@else
+			AdvertAssign.action = "/dashboard/playlist/{{ $selectedPlaylist }}/add";
+	@endif
+			AdvertAssign.redirectPath = "/dashboard/playlist/{{ $selectedPlaylist }}/edit";
+			AdvertAssign.playlist = {{ $selectedPlaylist or 1 }};
 			SelectManager.multi = true;
-			AdvertAdder.playlist = {{$selectedPlaylist or 1}};
 			SelectManager.register_eventhandlers();
-			AdvertAdder.register_eventhandlers();
+			AdvertAssign.register_eventhandlers();
 		});
 	</script>
 @endif

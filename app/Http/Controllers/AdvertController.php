@@ -221,6 +221,26 @@ class AdvertController extends Controller
       return view('pages/adverts', $data);
     }
 
+    public function removeMode($playlistID)
+    {
+      $allowed_departments = Session::get('allowed_departments');
+      $user = Session::get('user');
+
+      $playlist = Playlist::find($playlistID);
+      $adverts = $playlist->Adverts->where('deleted', 0);//->whereIn('department_id', $allowed_departments);
+
+      $data = array(
+        'allowed_departments' => $allowed_departments,
+        'selectable' => true,
+        'selectedPlaylist' => $playlist->id,
+        'adverts' => $adverts,
+        'deleteMode' => true,
+        'user' => $user
+      );
+
+      return view('pages/adverts', $data);
+    }
+
     /**
       * Updates an advert with a new index and also updates the effected
       * avdert whom has been 'jumped' over.

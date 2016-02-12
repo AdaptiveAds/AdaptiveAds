@@ -4,11 +4,7 @@
     @foreach($adverts as $advert)
       <!-- Only display select if we're adding to a playlist -->
       <li data-itemID="{{$advert->id}}">
-        @if (isset($deleteMode))
-            <a href="{{ URL::route('dashboard.playlist.remove', [$playlist->id, $advert->id]) }}">
-        @else
-            <a href="{{ URL::route('dashboard.advert.edit', $advert->id) }}">
-        @endif
+          <a href="{{ URL::route('dashboard.advert.edit', $advert->id) }}">
 
           @if ($selectable == true)
             <input type="checkbox" data-selectableItem="true" name="chkSelectAdvert_{{ $advert->id }}"/>
