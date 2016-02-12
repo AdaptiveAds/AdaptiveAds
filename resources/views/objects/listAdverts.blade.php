@@ -4,9 +4,7 @@
     @foreach($adverts as $advert)
       <!-- Only display select if we're adding to a playlist -->
       <li data-itemID="{{$advert->id}}">
-        @if (isset($selectedPlaylist))
-            <a href="{{ URL::route('dashboard.playlist.add', [$selectedPlaylist, $advert->id]) }}">
-        @elseif (isset($deleteMode))
+        @if (isset($deleteMode))
             <a href="{{ URL::route('dashboard.playlist.remove', [$playlist->id, $advert->id]) }}">
         @else
             <a href="{{ URL::route('dashboard.advert.edit', $advert->id) }}">

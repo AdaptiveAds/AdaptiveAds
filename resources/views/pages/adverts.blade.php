@@ -6,13 +6,19 @@
 																			'heading' => 'Create New Advert',
 																			'allowed_departments' => $allowed_departments))
 
-<script>
-	$('document').ready(function() {
-		ModalManager.token = "{{ csrf_token() }}";
-		ModalManager.action = "/dashboard/advert/";
-		ModalManager.register_eventhandlers();
-	});
-</script>
+@if (isset($selectedPlaylist))
+	<script>
+		$('document').ready(function() {
+			AdvertAdder.token = "{{ csrf_token() }}";
+			AdvertAdder.action = "/dashboard/playlist/{{ $selectedPlaylist }}/add";
+			AdvertAdder.redirectPath = "/dashboard/playlist/{{ $selectedPlaylist }}/edit"
+			SelectManager.multi = true;
+			AdvertAdder.playlist = {{$selectedPlaylist or 1}};
+			SelectManager.register_eventhandlers();
+			AdvertAdder.register_eventhandlers();
+		});
+	</script>
+@endif
 
 <div class="global">
 	<div class="row">
@@ -24,12 +30,18 @@
 								 value="{{ $searchItem or '' }}"/>
 					<label>Department:</label>
  					@include('objects/dropdown_departments', array('allowed_departments' => $allowed_departments))
-					<a href="#AdvertModal" data-displayCreateModal="true"
-																		data-modalObject="Advert"
-																		data-modalMethod="POST"
-																		data-modalRoute="{{ URL::route('dashboard.advert.store') }}">
-						<button type="button" name="btnAddAdvert">Add</button>
-					</a>
+					@if (isset($deleteMode))
+						<button name="btnRemoveAdvert" type="button">Remove</button>
+					@elseif (isset($selectedPlaylist))
+						<button name="btnAddAdvert" type="button">Add</button>
+					@else
+						<a href="#AdvertModal" data-displayCreateModal="true"
+																	 data-modalObject="Advert"
+																	 data-modalMethod="POST"
+																	 data-modalRoute="{{ URL::route('dashboard.advert.store') }}">
+							<button type="button" name="btnAddAdvert">Add</button>
+						</a>
+					@endif
 
 					<button type="submit" name="btnFindAdvert">Find</button>
 					<button type="submit" name="btnFindAll">Find All</button>
@@ -39,7 +51,11 @@
 	</div>
 
 	<div class="row">
-		@include('objects/listAdverts', array('selectable' => false))
+		@if (isset($selectedPlaylist))
+			@include('objects/listAdverts', array('selectable' => true))
+		@else
+			@include('objects/listAdverts', array('selectable' => false))
+		@endif
 	</div>
 </div>
 @endsection

@@ -63,12 +63,24 @@ var SelectManager = (function() {
 
   var action = "";
   var token = "";
+  var multi = false;
+  var adverts = [];
 
   function register_eventhandlers() {
+
+    // Un-check all checkboxes
+    $('input:checkbox').removeAttr('checked');
+
     $('li[data-selectableItem="true"], [data-selectableItem="true"]').click(function() {
 
-       // Remove selected from all links
-       $('ul[data-selectableList="true"] li a').removeClass('selected');
+       if (SelectManager.multi == false) {
+
+         // Remove selected from all links
+         $('ul[data-selectableList="true"] li a').removeClass('selected');
+
+         // Un-check all checkboxes except this one
+         $('input:checkbox').not(this).removeAttr('checked');
+       }
 
        if ($(this).is(':checked')) {
 
@@ -79,18 +91,106 @@ var SelectManager = (function() {
            $(this).parent('a').toggleClass('selected');
          }
 
-         // Un-check all checkboxes except this one
-         $('input:checkbox').not(this).removeAttr('checked');
-
-         // Enable buttons
-         $('#btnUp').removeAttr('disabled');
-         $('#btnDown').removeAttr('disabled');
+         $(this).trigger('selected');
 
        } else {
-         // Disable buttons
-         $('#btnUp').attr('disabled', true);
-         $('#btnDown').attr('disabled', true);
+
+         $(this).parent('a').removeClass('selected');
+         $(this).trigger('deselected');
        }
+    });
+
+
+  }
+
+  function getSelected() {
+    var adverts = [];
+    $('[data-selectableItem="true"]:checked').each(function() {
+      adverts.push($(this).parents('li').data('itemid'));
+    });
+
+    return adverts;
+  }
+
+  return {
+    register_eventhandlers: register_eventhandlers,
+    getSelected: getSelected
+  };
+
+} ());
+
+var AdvertAssign = (function() {
+
+  var token = "";
+  var action = "";
+  var playlist = 0;
+  var redirectPath = "";
+
+  function register_eventhandlers() {
+
+    $('button[name="btnAddAdvert"]').click(function() {
+
+      updatePlaylist(SelectManager.getSelected());
+
+    });
+
+    $('button[name="btnRemoveAdvert"]').click(function() {
+
+      updatePlaylist(SelectManager.getSelected());
+
+    });
+
+  }
+
+  function redirect() {
+    AppDebug.print(AdvertAdder.redirectPath);
+    window.location.href = AdvertAdder.redirectPath;
+  }
+
+  function updatePlaylist(adverts) {
+
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-Token': AdvertAdder.token
+      }
+    });
+
+    $.ajax({
+      type: "POST",
+      url : AdvertAdder.action,
+      data : {'playlistID': AdvertAdder.playlist, 'arrAdverts': adverts},
+      success : function(data){
+        redirect();
+      },
+      error : function(xhr, textStatus, errorThrown) {
+        console.log(textStatus + " ------ " + errorThrown);
+      }
+    },"JSON");
+  }
+
+  return {
+    register_eventhandlers: register_eventhandlers,
+  };
+
+} ());
+
+var IndexUpdater = (function() {
+
+  var token = "";
+  var action = "";
+
+  function register_eventhandlers() {
+
+    $('[data-selectableItem="true"]').on('selected', function() {
+      // Enable buttons
+      $('#btnUp').removeAttr('disabled');
+      $('#btnDown').removeAttr('disabled');
+    });
+
+    $('[data-selectableItem="true"]').on('deselected', function() {
+      // Disable buttons
+      $('#btnUp').attr('disabled', true);
+      $('#btnDown').attr('disabled', true);
     });
 
     $('#btnUp').click(function() {
@@ -124,16 +224,16 @@ var SelectManager = (function() {
 
     $.ajaxSetup({
       headers: {
-        'X-CSRF-Token': SelectManager.token
+        'X-CSRF-Token': IndexUpdater.token
       }
     });
 
     $.ajax({
       type: "POST",
-      url : SelectManager.action,
+      url : IndexUpdater.action,
       data : {'itemID': itemID, 'effectedID': effectedID, 'newIndex': newIndex, 'effectedIndex': effectedIndex},
       success : function(data){
-        // Do nothing...
+        // Do Nothing...
       },
       error : function(xhr, textStatus, errorThrown) {
         console.log(textStatus + " ------ " + errorThrown);
@@ -264,7 +364,6 @@ var ModalManager = (function() {
   }
 
   function templates(data) {
-    console.log("??");
     $('[name="txtTemplateName"]').val(data.template.name);
     $('[name="txtTemplateClass"]').val(data.template.class_name);
     $('[name="numTemplateDuration"]').val(data.template.duration);
