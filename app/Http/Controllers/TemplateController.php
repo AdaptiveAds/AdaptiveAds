@@ -101,10 +101,17 @@ class TemplateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
-        $template = Template::find($id);
-        return array('template' => $template);
+      // Prevent access if not an ajax request
+      if ($request->ajax() == false)
+        abort(401, 'Unauthorized');
+
+      $template = Template::find($id);
+      if ($template == null)
+        abort(404, 'Not found.');
+
+      return array('template' => $template);
     }
 
     /**
