@@ -14,63 +14,18 @@
 
 
 <div id="left" class="landscape">
-	<div id="identity" class="theme1">
+	<div id="identity">
 		<div class="pagecontainer">
 			@include('templates/templateStructure')
 		</div>
 		<div class="pagecontainer">
 			<ul class="theme_select">
-				<li class="theme1 active"> <a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
-				<li class="theme2"> <a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
-				<li class="theme3"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
-				<li class="theme4"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
-				<li class="theme5"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
-				<li class="theme6"><a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
-
-				<script>
-					$( "li.theme1" ).click(function() {
-						$( "li" ).removeClass("active");
-						$( this ).addClass( "active" );
-						$( "#identity" ).removeClass();
-						$( "#identity" ).addClass( "theme1" );
-					});
-
-					$( "li.theme2" ).click(function() {
-						$( "li" ).removeClass("active");
-						$( this ).addClass( "active" );
-						$( "#identity" ).removeClass();
-						$( "#identity" ).addClass( "theme2" );
-					});
-
-					$( "li.theme3" ).click(function() {
-						$( "li" ).removeClass("active");
-						$( this ).addClass( "active" );
-						$( "#identity" ).removeClass();
-						$( "#identity" ).addClass( "theme3" );
-					});
-
-					$( "li.theme4" ).click(function() {
-						$( "li" ).removeClass("active");
-						$( this ).addClass( "active" );
-						$( "#identity" ).removeClass();
-						$( "#identity" ).addClass( "theme4" );
-					});
-
-					$( "li.theme5" ).click(function() {
-						$( "li" ).removeClass("active");
-						$( this ).addClass( "active" );
-						$( "#identity" ).removeClass();
-						$( "#identity" ).addClass( "theme5" );
-					});
-
-					$( "li.theme6" ).click(function() {
-						$( "li" ).removeClass("active");
-						$( this ).addClass( "active" );
-						$( "#identity" ).removeClass();
-						$( "#identity" ).addClass( "theme6" );
-					});
-				</script>
-
+				<li data-btnTemplate="true" data-theme="template1" class="active"> <a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
+				<li data-btnTemplate="true" data-theme="template2"> <a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
+				<li data-btnTemplate="true" data-theme="template3"> <a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
+				<li data-btnTemplate="true" data-theme="template4"> <a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
+				<li data-btnTemplate="true" data-theme="template5"> <a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
+				<li data-btnTemplate="true" data-theme="template6"> <a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
 			</ul>
 			<div class="clear"></div>
 		</div>

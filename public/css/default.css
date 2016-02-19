@@ -74,7 +74,7 @@ body {
   font-family: Helvetica, Arial, Sans-Serif;
   font-size: 16px;
   color: #333333;
-  background: black; }
+  background: white; }
 
 /* line 19, ../../resources/assets/sass/website/defaultStructure/_defaultTheme.scss */
 #wrapper {
@@ -88,7 +88,8 @@ body {
   /* line 37, ../../resources/assets/sass/website/defaultStructure/_defaultTheme.scss */
   #wrapper a {
     text-decoration: none;
-    color: #1f6378; }
+    color: #1f6378;
+    cursor: pointer; }
     /* line 41, ../../resources/assets/sass/website/defaultStructure/_defaultTheme.scss */
     #wrapper a img {
       opacity: 0.8;
@@ -104,7 +105,7 @@ body {
     width: 100%;
     background: #1f6378;
     height: 35px;
-    color: white; }
+    color: black; }
     /* line 53, ../../resources/assets/sass/website/defaultStructure/_defaultTheme.scss */
     #wrapper #top #swatches {
       float: left;
@@ -132,7 +133,7 @@ body {
       #wrapper #top #fontsizing ul li {
         line-height: 100%;
         float: right;
-        color: white; }
+        color: black; }
         /* line 82, ../../resources/assets/sass/website/defaultStructure/_defaultTheme.scss */
         #wrapper #top #fontsizing ul li[data-theme="font-theme-a"] {
           font-size: 160%; }
@@ -149,7 +150,7 @@ body {
       width: auto;
       margin: 0 auto;
       border-radius: 50%;
-      background: black; }
+      background: white; }
       /* line 99, ../../resources/assets/sass/website/defaultStructure/_defaultTheme.scss */
       #wrapper #top #logo a img {
         max-width: 18%; }
@@ -503,79 +504,88 @@ body .pagecontainer #footer {
     /* line 211, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
     .global .row ul li {
       margin-top: 0.5%; }
-      /* line 214, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+      /* line 215, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+      .global .row ul li:first-child {
+        min-height: 65px; }
+      /* line 217, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
       .global .row ul li a {
-        padding: 1% 1% 1% 0; }
-      /* line 218, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+        cursor: pointer; }
+      /* line 222, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
       .global .row ul li input {
         font-size: 90%;
         padding-left: 1%; }
-      /* line 223, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+      /* line 227, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
       .global .row ul li label {
         min-width: 40%; }
-      /* line 227, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+      /* line 231, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
       .global .row ul li button {
         font-size: 90%;
         float: right;
         margin-left: 1%; }
-  /* line 242, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
-  .global .row:last-child ul li a {
-    display: block;
-    padding: 1%; }
-  /* line 255, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
-  .global .row:last-child ul li button:first-child {
-    margin-left: 0; }
-  /* line 260, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
-  .global .row:last-child ul li:nth-child(odd) {
-    background: rgba(114, 188, 212, 0.1); }
-  /* line 263, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
-  .global .row:last-child ul li:hover {
-    background: rgba(114, 188, 212, 0.4); }
+        /* line 236, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+        .global .row ul li button:hover {
+          background: orange; }
+  /* line 246, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+  .global .row:last-child ul li {
+    min-height: 30px; }
+    /* line 249, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+    .global .row:last-child ul li:nth-child(odd) {
+      background: rgba(114, 188, 212, 0.1); }
+    /* line 253, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+    .global .row:last-child ul li:hover {
+      background: rgba(114, 188, 212, 0.4); }
+    /* line 257, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+    .global .row:last-child ul li a {
+      padding: 0;
+      display: inline; }
+    /* line 267, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+    .global .row:last-child ul li button:first-child {
+      margin-left: 10px; }
 
 /***************************/
 /*         Login           */
 /***************************/
-/* line 274, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 282, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
 form#clientlogin, form#register {
   margin: 0 auto;
   width: 15%;
   text-align: center; }
-  /* line 281, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+  /* line 289, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
   form#clientlogin ul button, form#register ul button {
     margin: 10% auto;
     width: 50%;
     display: block; }
-  /* line 287, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+  /* line 295, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
   form#clientlogin ul li, form#register ul li {
     width: 100%; }
-    /* line 290, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+    /* line 298, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
     form#clientlogin ul li label, form#clientlogin ul li input, form#register ul li label, form#register ul li input {
       width: 100%; }
-    /* line 292, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+    /* line 300, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
     form#clientlogin ul li label, form#register ul li label {
       display: block;
       margin-top: 1%;
       padding: 1%; }
-    /* line 298, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+    /* line 306, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
     form#clientlogin ul li input, form#register ul li input {
       display: block;
       margin-top: 0;
       width: 94%;
       text-align: center; }
-    /* line 305, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+    /* line 313, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
     form#clientlogin ul li input:hover, form#register ul li input:hover {
       background: lightblue;
       cursor: pointer; }
-  /* line 313, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+  /* line 321, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
   form#clientlogin ul:last-child, form#register ul:last-child {
     margin-top: 1%; }
-    /* line 316, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+    /* line 324, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
     form#clientlogin ul:last-child li, form#register ul:last-child li {
       text-align: left; }
-      /* line 319, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+      /* line 327, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
       form#clientlogin ul:last-child li a, form#register ul:last-child li a {
         color: red; }
-      /* line 323, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+      /* line 331, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
       form#clientlogin ul:last-child li a:hover, form#register ul:last-child li a:hover {
         color: white; }
 
@@ -628,7 +638,7 @@ form#clientlogin, form#register {
   margin: 10% auto;
   padding: 20px 20px 20px 20px;
   border-radius: 10px;
-  background: black;
+  background: white;
   border: 4px;
   border-color: #fff;
   border-style: solid; }
@@ -672,16 +682,3 @@ form#clientlogin, form#register {
 /* line 92, ../../resources/assets/sass/website/defaultStructure/_objects.scss */
 .close:hover {
   background: #00d9ff; }
-
-/* line 1, ../../resources/assets/sass/website/customTheme/_customTheme.scss */
-body.data-swatch-theme-b {
-  background: orange; }
-  /* line 4, ../../resources/assets/sass/website/customTheme/_customThemeMixins.scss */
-  body.data-swatch-theme-b h1, body.data-swatch-theme-b h2, body.data-swatch-theme-b h3, body.data-swatch-theme-b h4, body.data-swatch-theme-b h5, body.data-swatch-theme-b h6 {
-    color: black; }
-  /* line 7, ../../resources/assets/sass/website/customTheme/_customThemeMixins.scss */
-  body.data-swatch-theme-b p {
-    color: pink; }
-  /* line 10, ../../resources/assets/sass/website/customTheme/_customThemeMixins.scss */
-  body.data-swatch-theme-b a {
-    color: #372945; }

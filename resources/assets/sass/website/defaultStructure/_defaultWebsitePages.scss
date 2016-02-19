@@ -211,8 +211,12 @@ font-size:120%;
 			li {
 			margin-top:0.5%;
 
+				//Temporary height? - Changing to icons should resolve spacing issue
+				&:first-child {min-height:65px;}
+
 				a {
-				padding: 1% 1% 1% 0;
+				cursor:pointer;
+				//padding: 1% 1% 1% 0;
 				}
 
 				input {
@@ -228,6 +232,8 @@ font-size:120%;
 				font-size:90%;
 				float:right;
 				margin-left:1%;
+
+					&:hover {background:orange;}
 			}//button
 			}//li
 		}//ul
@@ -238,31 +244,33 @@ font-size:120%;
 				ul {
 
 					li {
+					min-height:30px;
+
+						&:nth-child(odd) {
+						background:$li-background;
+					}//li:nth
+
+						&:hover {
+						background:$li-background-hover;
+						}
 
 						a {
-						display:block;
-						padding:1%;
+						padding:0;
+						display:inline;
 						}
 
 						label {
-
 						}//label
 
 						button {
 
-						}//button
+							&:first-child {
+							margin-left:10px;
+							}//button:first-child
 
-						button:first-child {
-						margin-left:0;
-						}//button:first-child
+						}//button
 					}//li
 
-					li:nth-child(odd) {
-					background:$li-background;
-					}//li:hover
-					li:hover {
-					background:$li-background-hover;
-					}//li:hover
 				}//ul
 	}//row:last-child
 }//global

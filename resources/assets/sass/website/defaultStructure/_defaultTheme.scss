@@ -36,7 +36,7 @@ background:$site-background;
 
       a {
       text-decoration:none; color:$button-font-color;
-          & :hover {}
+      cursor:pointer;
 
           & img {opacity: 0.8; filter: alpha(opacity=80); /* For IE8 and earlier */
 

@@ -1,13 +1,79 @@
-@mixin swatch-theme($background, $heading, $text, $link ) {
-    background:$background;
 
-    h1, h2, h3, h4, h5, h6 {
-        color:$heading;
-    }
-    p {
-        color:$text;
-    }
-    a {
-        color:$link;
-    }
-}
+
+// Login
+@mixin swatch-theme-a-login(
+  $login-background-hover, #add8e6,
+  $login-anchor-color,red,
+  $login-anchor-color-hover,#ffffff
+)
+
+// Inputs
+@mixin swatch-theme-a-inputs(
+  $input-hover,orange
+)
+
+//Dashboard
+@mixin swatch-theme-a-dashboard(
+  $dashboard-anchor-background, #1f6378,
+  $dashboard-anchor-text, #ffffff,
+  $dashboard-anchor-text-hover, #1f6378
+)
+
+//Row Highlights
+@mixin swatch-theme-a-rowhighlights(
+  $li-background, rgba(114, 188, 212, 0.1),
+  $li-background-hover, rgba(114, 188, 212, 0.4)
+)
+
+//Objects
+@mixin swatch-theme-a-objects(
+  $objects-selected-background, #add8e6 //light blue
+)
+
+// Site theme
+@mixin swatch-theme-a-theme(
+  $site-background, #000000
+  $site-top-text, #ffffff  //font color
+  $site-top-background, #1f6378,//dark blue
+  $site-top-logo-background, $site-background
+)
+
+// Font
+@mixin swatch-theme-a-font(
+  $top-swatch-btn-color-a, #000000,
+  $top-swatch-btn-background-a,#ffffff,
+  $top-swatch-btn-color-b, green,
+  $top-swatch-btn-background-b,#ffffff,
+  $top-swatch-btn-color-c, black,
+  $top-swatch-btn-background-c,#ffffff,
+
+  $site-font-family, Helvetica Arial Sans-Serif,
+  $site-font-size, 16px
+  $site-font-theme-a-size,160%,
+  $site-font-theme-b-size,120%,
+  $site-font-theme-c-size,100%,
+  $site-font-color,#333333
+  )
+
+// Border
+@mixin swatch-theme-a-border(
+  $site-border,2px
+  $site-border-color, #838282,
+  $site-border-hidden, 4px solid transparent,
+  $site-border-show, 4px solid $site-font-color,
+  $site-border-radius, 2px
+  $site-border-rounded-radius, 50%
+)
+
+// Forms
+@mixin swatch-theme-a-form(
+  $site-font-form-color, $site-font-color
+)
+
+//buttons
+@mixin swatch-theme-a-buttons(
+  $button-font-color, $site-top-background,
+  $button-background, green,
+  $button-background-active, orange,
+  $button-background-hover, yellow
+)
