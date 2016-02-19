@@ -55,6 +55,7 @@ Route::get('dashboard/settings', ['middleware' => 'auth', 'uses' => 'PlaylistCon
 // Users routes
 Route::resource('dashboard/settings/users', 'UserController');
 Route::post('dashboard/settings/users', ['as' => 'dashboard.settings.users.process', 'uses' => 'UserController@process']);
+Route::post('dashboard/settings/users/{users}/toggleDeleted', ['as' => 'dashboard.settings.users.toggleDeleted', 'uses' => 'UserController@toggleDeleted']);
 
 // Locations routes
 Route::resource('dashboard/settings/locations', 'LocationController');
@@ -67,10 +68,12 @@ Route::post('dashboard/settings/departments/process', ['as' => 'dashboard.settin
 // Screens routes
 Route::resource('dashboard/settings/screens', 'ScreenController');
 Route::post('dashboard/settings/screens/process', ['as' => 'dashboard.settings.screens.process', 'uses' => 'ScreenController@process']);
+Route::post('dashboard/settings/screens/{screens}/toggleDeleted', ['as' => 'dashboard.settings.screens.toggleDeleted', 'uses' => 'ScreenController@toggleDeleted']);
 
 // Templates routes
 Route::resource('dashboard/settings/templates', 'TemplateController');
 Route::post('dashboard/settings/templates/process', ['as' => 'dashboard.settings.templates.process', 'uses' => 'TemplateController@process']);
+Route::post('dashboard/settings/templates/{templates}/toggleDeleted', ['as' => 'dashboard.settings.templates.toggleDeleted', 'uses' => 'TemplateController@toggleDeleted']);
 
 // Serve routes
 Route::get('serve/{screenId}', 'ServeController@show');

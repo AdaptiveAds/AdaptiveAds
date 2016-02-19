@@ -10,8 +10,15 @@
                                     data-userID="{{ $screen->id }}">
             {{ $screen->id }}
           </a>
-          <button type="button">Edit</button>
-          <button type="button">Disable</button>
+
+          {{-- Show correct button to disable ot enable --}}
+          {!! Form::open(['route' => ['dashboard.settings.screens.toggleDeleted', $screen->id], 'method' => 'POST']) !!}
+          @if ($screen->deleted == 0)
+            <button type="submit" name="btnDisable">Disable</button>
+          @else
+            <button type="submit" name="btnEnable">Enable</button>
+          @endif
+          {!! Form::close() !!}
         </li>
       @endforeach
     @else

@@ -250,4 +250,22 @@ class ScreenController extends Controller
 
       return $screens;
     }
+
+    public function toggleDeleted($id) {
+
+      $screen = Screen::find($id);
+
+      if ($screen == null)
+        abort(404, 'Not found.');
+
+      if ($screen->deleted == 0) {
+        $screen->deleted = 1;
+      } else {
+        $screen->deleted = 0;
+      }
+
+      $screen->save();
+
+      return redirect()->route('dashboard.settings.screens.index');
+    }
 }

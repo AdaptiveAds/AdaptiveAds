@@ -122,7 +122,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+      abort(401, 'Unauthorized');
     }
 
     /**
@@ -201,5 +201,23 @@ class UserController extends Controller
 
       // Only return unqiue users
       return $users->unique('id');
+    }
+
+    public function toggleDeleted($id) {
+      
+      $user = User::find($id);
+
+      if ($user == null)
+        abort(404, 'Not found.');
+
+      if ($user->deleted == 0) {
+        $user->deleted = 1;
+      } else {
+        $user->deleted = 0;
+      }
+
+      $user->save();
+
+      return redirect()->route('dashboard.settings.users.index');
     }
 }

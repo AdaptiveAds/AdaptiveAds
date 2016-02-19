@@ -225,4 +225,22 @@ class TemplateController extends Controller
 
 
     }
+
+    public function toggleDeleted($id) {
+
+      $template = Template::find($id);
+
+      if ($template == null)
+        abort(404, 'Not found.');
+
+      if ($template->deleted == 0) {
+        $template->deleted = 1;
+      } else {
+        $template->deleted = 0;
+      }
+
+      $template->save();
+
+      return redirect()->route('dashboard.settings.templates.index');
+    }
 }

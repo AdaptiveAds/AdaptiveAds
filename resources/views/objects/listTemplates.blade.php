@@ -10,8 +10,15 @@
                      data-userID="{{ $template->id }}">
             {{ $template->name }}
           </a>
-          <button type="button">Edit</button>
-          <button type="button">Disable</button>
+
+          {{-- Show correct button to disable ot enable --}}
+          {!! Form::open(['route' => ['dashboard.settings.templates.toggleDeleted', $template->id], 'method' => 'POST']) !!}
+          @if ($template->deleted == 0)
+            <button type="submit" name="btnDisable">Disable</button>
+          @else
+            <button type="submit" name="btnEnable">Enable</button>
+          @endif
+          {!! Form::close() !!}
         </li>
       @endforeach
     @else
