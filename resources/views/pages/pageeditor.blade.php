@@ -20,12 +20,12 @@
 		</div>
 		<div class="pagecontainer">
 			<ul class="theme_select">
-				<li data-btnTemplate="true" data-theme="template1" class="active"> <a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
-				<li data-btnTemplate="true" data-theme="template2"> <a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
-				<li data-btnTemplate="true" data-theme="template3"> <a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
-				<li data-btnTemplate="true" data-theme="template4"> <a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
-				<li data-btnTemplate="true" data-theme="template5"> <a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
-				<li data-btnTemplate="true" data-theme="template6"> <a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
+				<li data-btnTemplate="true" data-template="template1" class="active"> <a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
+				<li data-btnTemplate="true" data-template="template2"> <a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
+				<li data-btnTemplate="true" data-template="template3"> <a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
+				<li data-btnTemplate="true" data-template="template4"> <a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
+				<li data-btnTemplate="true" data-template="template5"> <a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
+				<li data-btnTemplate="true" data-template="template6"> <a href="#"><img src="/images/logo.png" alt="" title="" /></a></li>
 			</ul>
 			<div class="clear"></div>
 		</div>
