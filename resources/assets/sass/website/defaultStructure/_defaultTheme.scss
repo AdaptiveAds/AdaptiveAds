@@ -92,18 +92,19 @@ background:$site-background;
         width:auto;
         margin:0 auto;
         border-radius:50%;
+        width:85%;
         background:$site-top-logo-background;
 
         & a {
 
-          & img {max-width:18%;}
+          & img {max-width:10%;}
           }
         }
       }//top
 
 
     header#header {
-    width:100%; min-height:100px; display:inline-block;
+    width:100%; min-height:45px; display:inline-block;
 
       .head {
       width:50%;
