@@ -31,9 +31,9 @@
 			<h3>Adverts</h3>
 			<ul>
 				<li>
-					<input type="text" name="txtAdvertName" placeholder="Advert name...."
+					<input name="txtAdvertName" type="text" placeholder="Advert name...."
 								 value="{{ $searchItem or '' }}"/>
-					<label>Department:</label>
+					<label name="lblDepartment">Department:</label>
  					@include('objects/dropdown_departments', array('allowed_departments' => $allowed_departments))
 					@if (isset($deleteMode))
 						<button name="btnRemoveAdvert" type="button">Remove</button>
@@ -48,8 +48,8 @@
 						</a>
 					@endif
 
-					<button type="submit" name="btnFindAdvert">Find</button>
-					<button type="submit" name="btnFindAll">Find All</button>
+					<button name="btnFindAdvert" type="submit" >Find</button>
+					<button name="btnFindAll" type="submit" >Find All</button>
 				</li>
 			</ul>
 		{!! Form::close() !!}

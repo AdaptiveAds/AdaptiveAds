@@ -8,8 +8,8 @@
 		<h3>Admins</h3>
 			<ul>
 				<li>
-					<input type="name" name="name" placeholder="Name" required>
-					<button type="button">Find</button>
+					<input type="name" name="txtName" placeholder="Name" required>
+					<button name="btnFind" type="button">Find</button>
 				</li>
 			</ul>
 		</form>
@@ -19,19 +19,19 @@
 		<form name="adminUserList" action="index_submit" method="get" accept-charset="utf-8">
 			<ul>
 				<li>
-					<label for="username">Username</label>
-					<button type="button">Edit</button>
-					<button type="button">Disable</button>
+					<label name="lblUsername" for="username">Username</label>
+					<button name="btnEdit" type="button">Edit</button>
+					<button name="btnDisable" type="button">Disable</button>
 				</li>
 				<li>
-					<label for="username">Username</label>
-					<button type="button">Edit</button>
-					<button type="button">Disable</button>
+					<label name="lblUsername" for="username">Username</label>
+					<button name="btnEdit" type="button">Edit</button>
+					<button name="btnDisable" type="button">Disable</button>
 				</li>
 				<li>
-					<label for="username">Username</label>
-					<button type="button">Edit</button>
-					<button type="button">Disable</button>
+					<label name="lblUsername" for="username">Username</label>
+					<button name="btnEdit" type="button">Edit</button>
+					<button name="btnDisable" type="button">Disable</button>
 				</li>
 
 			</ul>

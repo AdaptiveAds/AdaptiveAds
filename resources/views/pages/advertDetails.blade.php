@@ -14,8 +14,8 @@
 	<!-- PHP Driven self updating ?? -->
 	<form name="advertlist" action="index_submit" method="get" accept-charset="utf-8">
 		<ul>
-			<li><button type="button">Up</button></li>
-			<li><button type="button">Down</button></li>
+			<li><button name="btnUp" type="button">Up</button></li>
+			<li><button name="btnDown" type="button">Down</button></li>
 			<!-- ensures form fills parent div w3c validation compliant -->
 			<div class="clear"></div>
 		</ul>

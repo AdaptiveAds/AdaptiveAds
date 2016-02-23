@@ -20,7 +20,6 @@
 
 <!-- preferred plan would be to compile the css from scss prior to uploading using propos -->
 	<link rel="stylesheet" 	href="{{ URL::asset('css/default.css') }}" type="text/css">
-	<link rel="stylesheet" 	href="{{ URL::asset('css/_swatches/_swatch-theme-a/swatch-theme-a.css') }}" type="text/css">
 
 <!-- requires testing in conjunction with contact form
 https://developers.google.com/recaptcha/docs/display -->
@@ -53,6 +52,16 @@ https://developers.google.com/recaptcha/docs/display -->
 		  	$( 'body' ).addClass($(this).data('theme'));
 		  });
 		});
+
+		$('li[data-btnTemplate="true"]').click(function() {
+			$( '#serve_container, li[data-btnTemplate="true"]' ).removeClass(); // Remove all classes
+			$(this).toggleClass('active'); // Toggle active
+
+			$('#serve_container').addClass($(this).data('template'));
+		});
+
+
+
 	});
 	</script>
 
