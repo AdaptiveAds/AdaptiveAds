@@ -15,16 +15,16 @@
 			<h4>Options</h4>
 
 				<ul>
-					<li>
-						<a name="lnkPlaylists" href="{{ URL::to('dashboard/playlist')}}">
+					<li name="liPlaylist">
+						<a href="{{ URL::to('dashboard/playlist')}}">
 							<i class="fa fa-list-ul">
 							<!-- temp name ofc -->
 								<span>Playlists</span>
 							</i>
 						</a>
 					</li>
-					<li>
-						<a name="lnkCreatePlaylist" href="#PlaylistModal">
+					<li name="liPlaylistModal">
+						<a href="#PlaylistModal">
 							<i class="fa fa-list-ul">
 							<!-- temp name ofc -->
 								<span>Create Playlist</span>
@@ -32,16 +32,16 @@
 						</a>
 					</li>
 
-					<li>
-						<a name="lnkAdverts" href="{{ URL::to('dashboard/advert')}}">
+					<li name="liAdvert">
+						<a href="{{ URL::to('dashboard/advert')}}">
 							<i class="fa fa-list-ul">
 							<!-- temp name ofc -->
 								<span>Adverts</span>
 							</i>
 						</a>
 					</li>
-					<li>
-						<a name="lnkCreateAdvert" href="#AdvertModal">
+					<li name="liModal">
+						<a href="#AdvertModal">
 							<i class="fa fa-list-ul">
 							<!-- temp name ofc -->
 								<span>Create Advert</span>
@@ -60,36 +60,36 @@
 
 				<ul>
 
-							<li>
-								<a name="lnkLocations" href="{{ URL::to('dashboard/settings/locations/')}}">
+							<li name="liLocations">
+								<a href="{{ URL::to('dashboard/settings/locations/')}}">
 									<i class="fa fa-map-marker">
 										<span>Locations</span>
 									</i>
 								</a>
 							</li>
-							<li>
-								<a name="lnkDepartments" href="{{ URL::to('dashboard/settings/departments/')}}">
+							<li name="liDepartments">
+								<a href="{{ URL::to('dashboard/settings/departments/')}}">
 									<i class="fa fa-university">
 										<span>Departments</span>
 									</i>
 								</a>
 							</li>
-							<li>
-								<a name="lnkScreens" href="{{ URL::to('dashboard/settings/screens')}}">
+							<li name="liScreens">
+								<a href="{{ URL::to('dashboard/settings/screens')}}">
 									<i class="fa fa-desktop">
 										<span>Screens</span>
 									</i>
 								</a>
 							</li>
-							<li>
-								<a name="lnkUsers" href="{{ URL::to('dashboard/settings/users')}}">
+							<li name="liUsers">
+								<a href="{{ URL::to('dashboard/settings/users')}}">
 									<i class="fa fa-users">
 										<span>Users</span>
 									</i>
 								</a>
 							</li>
-							<li>
-								<a name="lnkTemplates" href="{{ URL::to('dashboard/settings/templates')}}">
+							<li name="liTemplates">
+								<a href="{{ URL::to('dashboard/settings/templates')}}">
 									<i class="fa fa-navicon">
 										<span>Templates</span>
 									</i>
@@ -109,14 +109,14 @@
 					<h4>Super User Settings</h4>
 
 						<ul>
-							<li>
+							<li name="liLocations">
 								<a href="{{ URL::to('dashboard/settings/locations/')}}">
 									<i class="fa fa-map-marker">
 										<span>Locations</span>
 									</i>
 								</a>
 							</li>
-							<li>
+							<li name="liScreens">
 								<a href="{{ URL::to('dashboard/settings/screens')}}">
 									<i class="fa fa-desktop">
 										<span>Screens</span>
@@ -124,7 +124,7 @@
 								</a>
 							</li>
 
-							<li>
+							<li name="liUsers">
 								<a href="{{ URL::to('dashboard/settings/users')}}">
 									<i class="fa fa-users">
 										<span>Admins</span>

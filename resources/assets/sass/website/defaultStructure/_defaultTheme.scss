@@ -9,10 +9,10 @@
 
 
 body {
-font-family:$base-font-family;
-font-size:$base-font-size;
-color:$base-font-color;
-background:$background;
+font-family:$site-font-family;
+font-size:$site-font-size;
+color:$site-font-color;
+background:$site-background;
 
 }//end body
 
@@ -23,7 +23,7 @@ background:$background;
   display:block;
 
     h1, h2, h3, h4, h5 {
-    color:$base-font-color;
+    color:$site-font-color;
     }//headings
 
     button {
@@ -35,14 +35,20 @@ background:$background;
     }
 
       a {
-      @extend %anchors;
+      text-decoration:none; color:$button-font-color;
+      cursor:pointer;
+
+          & img {opacity: 0.8; filter: alpha(opacity=80); /* For IE8 and earlier */
+
+            &:hover {opacity: 1.0; filter: alpha(opacity=100); /* For IE8 and earlier */ }
+          }
       }//end 'a'
 
       #top {
       width:100%;
-      background:$blue-dark;
+      background:$site-top-background;
       height:35px;
-      color:$top-bar-color;
+      color:$site-top-text;
 
         #swatches {
         float:left;
@@ -55,9 +61,9 @@ background:$background;
             //reference _layouts/_themeMixins.scss
             @extend %top-li;
               //reference _swatches/_swatches.css for info
-              &[data-swatch="data-swatch-theme-a"] { @extend %swatch-btn-a;} //1:default
-              &[data-swatch="data-swatch-theme-b"] { @extend %swatch-btn-b;} //2
-              &[data-swatch="data-swatch-theme-c"] { @extend %swatch-btn-b;} //2
+              &[data-swatch="data-swatch-theme-a"] { color:$top-swatch-btn-color-a; background:$top-swatch-btn-background-a;} //1:default
+              &[data-swatch="data-swatch-theme-b"] { color:$top-swatch-btn-color-b; background:$top-swatch-btn-background-b;} //2
+              &[data-swatch="data-swatch-theme-c"] { color:$top-swatch-btn-color-c; background:$top-swatch-btn-background-c;} //2
             }
           }
         }//swatches
@@ -71,10 +77,11 @@ background:$background;
             li {
             line-height:100%;
             float:right;
+            color:$site-top-text;
             @extend %top-li;
-              &[data-theme="font-theme-a"] {font-size:160%;}
-              &[data-theme="font-theme-b"] {font-size:120%;}
-              &[data-theme="font-theme-c"] {font-size:100%;}
+              &[data-theme="font-theme-a"] { font-size:$site-font-theme-a-size;}
+              &[data-theme="font-theme-b"] { font-size:$site-font-theme-b-size;}
+              &[data-theme="font-theme-c"] { font-size:$site-font-theme-c-size;}
             }
           }
         }
@@ -85,18 +92,19 @@ background:$background;
         width:auto;
         margin:0 auto;
         border-radius:50%;
-        background:$top-logo-background;
+        width:85%;
+        background:$site-top-logo-background;
 
         & a {
 
-          & img {max-width:18%;}
+          & img {max-width:10%;}
           }
         }
       }//top
 
 
     header#header {
-    width:100%; min-height:100px; display:inline-block;
+    width:100%; min-height:45px; display:inline-block;
 
       .head {
       width:50%;
@@ -184,7 +192,7 @@ background:$background;
 
           form {
           margin-bottom:5px;
-          color:$form-color;
+          color:$site-font-form-color;
 
             :first-child {
             //empty
