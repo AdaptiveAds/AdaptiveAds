@@ -281,11 +281,11 @@ class AdvertController extends Controller
     }
 
     /**
-      * Processes input from the screen. Includes basic filtering options
+      * Filters adverts by criteria
       * @param \Illuminate\Http\Request $request
       * @return \Illuminate\Http\Response
       */
-    public function process(Request $request)
+    public function filter(Request $request)
     {
 
       $user = Session::get('user');
@@ -296,21 +296,31 @@ class AdvertController extends Controller
       $advertName = $request->input('txtAdvertName');
       $departmentID = $request->input('drpDepartments');
 
+      $adverts = $this->getAllowedAdverts($user, $allowed_departments);
+
       if (isset($btnFindAdvert)) {
 
-        $adverts = $this->getAllowedAdverts($user, $allowed_departments);
-        $adverts = $adverts->filter(function($item) use ($advertName) {
-          if ($item->name == $advertName) { // TODO Add department filter
+        // Search by name
+        $filtered = $adverts->filter(function($item) use ($advertName) {
+          if ($item->name == $advertName) {
             return true;
           }
-
-          return false;
         });
+
+        // Search by department
+        if ($filtered->count() == 0) {
+          $filtered = $adverts->filter(function($item) use ($departmentID) {
+            if ($item->department_id == $departmentID) {
+              return true;
+            }
+          });
+        }
+
+        $adverts = $filtered;
 
       } else if (isset($btnFindAll)) {
 
         $advertName = null;
-        $adverts = $this->getAllowedAdverts($user, $allowed_departments);
 
       } else {
         abort(401, 'Un-authorised');

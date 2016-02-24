@@ -16,7 +16,7 @@
 
 <div class="global">
 	<div class="row">
-		{!! Form::open(['route' => 'dashboard.settings.users.process', 'method' => 'POST']) !!}
+		{!! Form::open(['route' => 'dashboard.settings.users.filter', 'method' => 'POST']) !!}
 			<h3>Users</h3>
 			<ul name="listUsersControls">
 				<li>

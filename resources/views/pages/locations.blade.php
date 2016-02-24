@@ -16,7 +16,7 @@
 
 <div class="global">
 	<div class="row">
-		{!! Form::open(['route' => 'dashboard.settings.locations.process', 'method' => 'POST']) !!}
+		{!! Form::open(['route' => 'dashboard.settings.locations.filter', 'method' => 'POST']) !!}
 			<h3>Locations</h3>
 				<ul>
 					<li>

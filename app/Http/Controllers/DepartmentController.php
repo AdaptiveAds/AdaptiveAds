@@ -153,11 +153,11 @@ class DepartmentController extends Controller
     }
 
     /**
-      * Processes input from the screen. Includes basic filtering options
+      * Filters departments by criteria
       * @param \Illuminate\Http\Request $request
       * @return \Illuminate\Http\Response
       */
-    public function process(Request $request)
+    public function filter(Request $request)
     {
 
       $departments = null;
@@ -170,12 +170,32 @@ class DepartmentController extends Controller
       $departmentName = $request->input('txtDepartmentName');
       $skinID = $request->input('drpSkins');
 
+      $departments = Department::all(); // TODO restrict
+
       // Check which action to perform
       if (isset($btnFindDepartment)) {
 
-        // Get all departments LIKE the search string and with the same department
-        // we don't care about  filtering by skin
-        $departments = Department::where('name', 'LIKE', '%' . $departmentName . '%')->get();
+        $filtered = collect([]);
+
+        // Filter by name
+        if ($departmentName != null) {
+          $filtered = $departments->filter(function($item) use ($departmentName) {
+            if (strpos($item->name, $departmentName) !== false) { // Get rough match
+              return true;
+            }
+          });
+        }
+
+        // Filter by skin id
+        if ($filtered->count() == 0) {
+          $filtered = $departments->filter(function($item) use ($skinID) {
+            if ($item->skin_id == $skinID) {
+              return true;
+            }
+          });
+        }
+
+        $departments = $filtered;
 
       } else if (isset($btnFindAll)) {
 

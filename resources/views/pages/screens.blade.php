@@ -17,7 +17,7 @@
 
 <div class="global">
 	<div class="row">
-		{!! Form::open(['route' => 'dashboard.settings.screens.process', 'method' => 'POST']) !!}
+		{!! Form::open(['route' => 'dashboard.settings.screens.filter', 'method' => 'POST']) !!}
 			<h3>Screens</h3>
 			<ul name="lstScreenControls">
 				<li>

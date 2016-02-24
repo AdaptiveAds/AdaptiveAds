@@ -158,11 +158,11 @@ class ScreenController extends Controller
     }
 
     /**
-      * Processes input from the screen. Includes basic filtering options
+      * Filter screens by criteria
       * @param \Illuminate\Http\Request $request
       * @return \Illuminate\Http\Response
       */
-    public function process(Request $request)
+    public function filter(Request $request)
     {
       $match_departments = Session::get('match_departments');
       $allowed_departments = Session::get('allowed_departments');
@@ -178,22 +178,20 @@ class ScreenController extends Controller
       // Check which action to perform
       if (isset($btnFindScreen)) {
 
+        // Filter by id
         $screens = $this->getAllowedScreens($user, $allowed_departments);
         $filtered = $screens->filter(function($item) use ($screenID) {
           if ($item->id == $screenID) {
             return true;
           }
-
-          return false;
         });
 
+        // Filter by location
         if ($filtered->count() == 0) {
           $filtered = $screens->filter(function($item) use ($locationID) {
             if ($item->location_id == $locationID) {
               return true;
             }
-
-            return false;
           });
         }
 

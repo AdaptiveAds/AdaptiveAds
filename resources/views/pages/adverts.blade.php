@@ -35,7 +35,7 @@
 
 <div class="global">
 	<div class="row">
-		{!! Form::open(['route' => 'dashboard.advert.process', 'method' => 'POST']) !!}
+		{!! Form::open(['route' => 'dashboard.advert.filter', 'method' => 'POST']) !!}
 			<h3>Adverts</h3>
 			<ul>
 				<li>

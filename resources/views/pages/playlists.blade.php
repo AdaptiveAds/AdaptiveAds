@@ -16,7 +16,7 @@
 
 <div class="global">
 	<div class="row">
-		{!! Form::open(['route' => 'dashboard.playlist.process', 'method' => 'POST']) !!}
+		{!! Form::open(['route' => 'dashboard.playlist.filter', 'method' => 'POST']) !!}
 			<h3>Playlists</h3>
 			<ul>
 				<li>
