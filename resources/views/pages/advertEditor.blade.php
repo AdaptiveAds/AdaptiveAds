@@ -13,13 +13,12 @@
 
 <div class="global">
 	<div class="row">
-			<!-- TODO ADD FORM -->
-			<h3>Advert Editor</h3>
+			<h3>Advert Editor - {{ $advert->name or '' }}</h3>
 			<ul>
 				<li>
  					@if (isset($advert))
 						{!! Form::open(['route' => 'dashboard.advert.process', 'method' => 'POST']) !!}
-						<input type="txtAdvertName" name="txtPlaylistName" placeholder="Advert name...."
+						<input type="text" name="txtPageName" placeholder="Page name...."
 									 value="{{ $searchItem or '' }}"/>
 						<button name="btnUp" id="btnUp" type="button" disabled>Up</button>
 	 					<button name="btnDown" id="btnDown" type="button" disabled>Down</button>
