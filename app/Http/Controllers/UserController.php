@@ -75,7 +75,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the user to show
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, $id)
@@ -94,7 +94,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the user to edit
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -106,7 +106,7 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $id ID of the user to update
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -117,7 +117,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the user to destroy
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -126,7 +126,7 @@ class UserController extends Controller
     }
 
     /**
-      * Processes input from the screen. Includes basic CRUD and filtering options
+      * Processes input from the screen. Includes basic filtering options
       * @param \Illuminate\Http\Request $request
       * @return \Illuminate\Http\Response
       */
@@ -203,8 +203,13 @@ class UserController extends Controller
       return $users->unique('id');
     }
 
+    /**
+      * Soft deletes a specified resource
+      * @param int  $id ID of the user to soft delete
+      * @return \Illuminate\Http\Response
+      */
     public function toggleDeleted($id) {
-      
+
       $user = User::find($id);
 
       if ($user == null)

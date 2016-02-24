@@ -76,7 +76,10 @@ class AuthController extends Controller
         ]);
     }
 
-
+    /**
+      * Gets and shows the login view
+      * @return \Illuminate\Http\Response
+      */
     public function getLogin()
     {
       $data = array(
@@ -119,7 +122,7 @@ class AuthController extends Controller
         {
             return redirect()->intended($this->redirectPath());
         }
-        
+
         return redirect($this->loginPath())
             ->withInput($request->only('login', 'remember'))
             ->withErrors([
@@ -127,6 +130,10 @@ class AuthController extends Controller
             ]);
     }
 
+    /**
+      * Gets and shows the register view
+      * @return \Illuminate\Http\Response
+      */
     public function getRegister()
     {
       $data = array(

@@ -92,7 +92,7 @@ class PlaylistController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the playlist to show
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, $id)
@@ -111,7 +111,7 @@ class PlaylistController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the playlist to edit
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -138,7 +138,7 @@ class PlaylistController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $id ID of the playlist to update
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -166,7 +166,7 @@ class PlaylistController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the playlist to destroy
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -186,6 +186,12 @@ class PlaylistController extends Controller
       return redirect()->route('dashboard.playlist.index');
     }
 
+    /**
+      * AJAX Only Method
+      * Adds an existing advert to the current playlist. If the request was
+      * not made by an AJAX method HTTP 401 will be returned
+      * @param Illuminate\Http\Request $request
+      */
     public function addExistingAdvert(Request $request)
     {
 
@@ -205,6 +211,12 @@ class PlaylistController extends Controller
       }
     }
 
+    /**
+      * AJAX Only Method
+      * Removes a selected advert from the current playlist. If the request
+      * was not made by a AJAX request HTTP 401 will be returned.
+      * @param Illuminate\Http\Request $request
+      */
     public function removeAdvert(Request $request)
     {
       if ($request->ajax() == false)
@@ -220,8 +232,20 @@ class PlaylistController extends Controller
       }
     }
 
+    /**
+      * AJAX Only Method
+      * Updates the indexes of a selected playlist and the effected playlist
+      * that has been jumped over. If the request was not made by a AJAX request
+      * HTTP 401 will be returned.
+      * @param Illuminate\Http\Request $request
+      * @param int $playlistID  ID of the playlist to modify
+      * @return Illuminate\Http\Response
+      */
     public function updateIndexes(Request $request, $playlistID)
     {
+
+      if ($request->ajax() == false)
+        abort(401, 'Unauthorized');
 
       // Get ids from request
       $selectedID = $request->input('itemID');
@@ -250,7 +274,7 @@ class PlaylistController extends Controller
     }
 
     /**
-      * Processes input from the screen. Includes basic CRUD and filtering options
+      * Processes input from the screen. Includes basic filtering options
       * @param \Illuminate\Http\Request $request
       * @return \Illuminate\Http\Response
       */
@@ -329,7 +353,7 @@ class PlaylistController extends Controller
 
     /**
       * Soft deletes a specified resource
-      * @param Id $id
+      * @param int  $id ID of the playlist to soft delete
       * @return \Illuminate\Http\Response
       */
     public function toggleDeleted($id)

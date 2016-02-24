@@ -98,7 +98,7 @@ class TemplateController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the template to show
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, $id)
@@ -117,7 +117,7 @@ class TemplateController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the template to edit
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -129,7 +129,7 @@ class TemplateController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $id ID of the template to update
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -170,7 +170,7 @@ class TemplateController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the template to destroy
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -178,6 +178,11 @@ class TemplateController extends Controller
         //
     }
 
+    /**
+      * Processes input from the screen. Includes basic filtering options
+      * @param \Illuminate\Http\Request $request
+      * @return \Illuminate\Http\Response
+      */
     public function process(Request $request) {
 
       $user = Session::get('user');
@@ -228,7 +233,7 @@ class TemplateController extends Controller
 
     /**
       * Soft deletes a specified resource
-      * @param Id $id
+      * @param int  $id ID of the template to soft delete
       * @return \Illuminate\Http\Response
       */
     public function toggleDeleted($id)

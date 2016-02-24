@@ -91,7 +91,7 @@ class ScreenController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the screen to show
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, $id)
@@ -111,7 +111,7 @@ class ScreenController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the screen to edit
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -123,7 +123,7 @@ class ScreenController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $id ID of the screen to update
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -149,7 +149,7 @@ class ScreenController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the screen to destroy
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -158,7 +158,7 @@ class ScreenController extends Controller
     }
 
     /**
-      * Processes input from the screen. Includes basic CRUD and filtering options
+      * Processes input from the screen. Includes basic filtering options
       * @param \Illuminate\Http\Request $request
       * @return \Illuminate\Http\Response
       */
@@ -253,7 +253,7 @@ class ScreenController extends Controller
 
     /**
       * Soft deletes a specified resource
-      * @param Id $id
+      * @param int  $id ID of the screen to soft delete
       * @return \Illuminate\Http\Response
       */
     public function toggleDeleted($id) {

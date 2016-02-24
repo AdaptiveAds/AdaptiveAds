@@ -88,7 +88,7 @@ class LocationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the location to show
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, $id)
@@ -107,7 +107,7 @@ class LocationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the location to edit
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -119,7 +119,7 @@ class LocationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $id ID of the location to update
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -145,7 +145,7 @@ class LocationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the location to destroy
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -231,7 +231,7 @@ class LocationController extends Controller
 
     /**
       * Soft deletes a specified resource
-      * @param Id $id
+      * @param int  $id ID of the location to soft delete
       * @return \Illuminate\Http\Response
       */
     public function toggleDeleted($id)

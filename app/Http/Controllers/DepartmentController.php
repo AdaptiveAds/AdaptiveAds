@@ -86,7 +86,7 @@ class DepartmentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the department to show
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, $id)
@@ -106,7 +106,7 @@ class DepartmentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the department to edit
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -118,7 +118,7 @@ class DepartmentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $id ID of the department to update
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -144,7 +144,7 @@ class DepartmentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the department to destroy
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -153,7 +153,7 @@ class DepartmentController extends Controller
     }
 
     /**
-      * Processes input from the screen. Includes basic CRUD and filtering options
+      * Processes input from the screen. Includes basic filtering options
       * @param \Illuminate\Http\Request $request
       * @return \Illuminate\Http\Response
       */
@@ -227,7 +227,7 @@ class DepartmentController extends Controller
 
     /**
       * Soft deletes a specified resource
-      * @param Id $id
+      * @param int  $id ID of the department to soft delete
       * @return \Illuminate\Http\Response
       */
     public function toggleDeleted($id)

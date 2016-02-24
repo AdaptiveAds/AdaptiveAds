@@ -89,7 +89,7 @@ class AdvertController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the advert to show
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, $id)
@@ -109,7 +109,7 @@ class AdvertController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the advert to edit
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -139,7 +139,7 @@ class AdvertController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int $id  ID of the advert to update
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -165,7 +165,7 @@ class AdvertController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the advert to destroy
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -185,7 +185,7 @@ class AdvertController extends Controller
 
     /**
       * Displays a list of adverts the user can add to the playlist
-      * @param int $playlistID ID of the selected playlist
+      * @param int $playlistID  ID of the selected playlist
       * @return \Illuminate\Http\Response
       */
     public function selectForPlaylist($playlistID)
@@ -221,6 +221,12 @@ class AdvertController extends Controller
       return view('pages/adverts', $data);
     }
 
+    /**
+      * Enters remove mode and returns all adverts associated with the
+      * selected playlist to allow the user to select adverts to remove.
+      * @param int $playlistID  ID of the playlist to affect in remove mode
+      * @return \Illuminate\Http\Response
+      */
     public function removeMode($playlistID)
     {
       $allowed_departments = Session::get('allowed_departments');
@@ -245,7 +251,7 @@ class AdvertController extends Controller
       * Updates an advert with a new index and also updates the effected
       * avdert whom has been 'jumped' over.
       * @param \Illuminate\Http\Request $request
-      * @param int $advertID
+      * @param int $advertID  ID of the advert to update its index
       * @return \Illuminate\Http\Response
       */
     public function updateIndexes(Request $request, $advertID)
@@ -275,7 +281,7 @@ class AdvertController extends Controller
     }
 
     /**
-      * Processes input from the screen. Includes basic CRUD and filtering options
+      * Processes input from the screen. Includes basic filtering options
       * @param \Illuminate\Http\Request $request
       * @return \Illuminate\Http\Response
       */
@@ -362,7 +368,7 @@ class AdvertController extends Controller
 
     /**
       * Soft deletes a specified resource
-      * @param Id $id
+      * @param int $id ID of the advert to soft delete
       * @return \Illuminate\Http\Response
       */
     public function toggleDeleted($id)
