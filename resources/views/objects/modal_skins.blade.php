@@ -6,7 +6,7 @@
   {!! Form::open(['url' => '', 'method' => 'POST', 'files' => 'true']) !!}
     <ul>
       <li>
-        <label>Template Name:</label>
+        <label>Skin Name:</label>
         <input type="text" name="txtSkinName" placeholder="Skin Name...."/>
       </li>
       <li>
