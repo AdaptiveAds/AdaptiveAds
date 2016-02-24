@@ -18,6 +18,7 @@ class AdvsDb extends Migration
         		$table->string('name', 40);
         		$table->string('class_name', 50);
         		$table->integer('duration');
+            $table->boolean('deleted');
         	});
 
         Schema::create('page_data', function (Blueprint $table) {
@@ -44,6 +45,7 @@ class AdvsDb extends Migration
             $table->increments('id');
             $table->string('name', 30);
             $table->string('class_name', 30);
+            $table->boolean('deleted');
           });
 
         Schema::create('privilage', function (Blueprint $table) {
@@ -60,6 +62,7 @@ class AdvsDb extends Migration
              $table->string('password', 60);
              $table->boolean('is_super_user');
              $table->rememberToken();
+             $table->boolean('deleted');
           });
 
         Schema::create('display_timing', function (Blueprint $table) {
@@ -78,6 +81,7 @@ class AdvsDb extends Migration
 			      $table->engine = 'InnoDB';
             $table->increments('id');
           	$table->string('name', 40);
+            $table->boolean('deleted');
             $table->integer('skin_id')->unsigned();
             $table->foreign('skin_id')
                 	->references('id')
@@ -91,6 +95,7 @@ class AdvsDb extends Migration
             $table->increments('id');
             $table->string('name', 40);
             $table->integer('department_id')->unsigned();
+            $table->boolean('deleted');
             $table->foreign('department_id')
                 	->references('id')
                 	->on('department')
@@ -141,6 +146,7 @@ class AdvsDb extends Migration
               			->on('playlist')
               	  	->onUpdate('cascade')
               	  	->onDelete('cascade');
+              $table->boolean('deleted');
           });
 
         Schema::create('advert_playlist', function (Blueprint $table) {

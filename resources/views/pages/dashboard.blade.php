@@ -59,81 +59,52 @@
 			<h4>Admin Settings</h4>
 
 				<ul>
+					<li name="liLocations">
+						<a href="{{ URL::to('dashboard/settings/locations/')}}">
+							<i class="fa fa-map-marker">
+								<span>Locations</span>
+							</i>
+						</a>
+					</li>
+					<li name="liDepartments">
+						<a href="{{ URL::to('dashboard/settings/departments/')}}">
+							<i class="fa fa-university">
+								<span>Departments</span>
+							</i>
+						</a>
+					</li>
+					<li name="liScreens">
+						<a href="{{ URL::to('dashboard/settings/screens')}}">
+							<i class="fa fa-desktop">
+								<span>Screens</span>
+							</i>
+						</a>
+					</li>
+					<li name="liUsers">
+						<a href="{{ URL::to('dashboard/settings/users')}}">
+							<i class="fa fa-users">
+								<span>Users</span>
+							</i>
+						</a>
+					</li>
+					<li name="liTemplates">
+						<a href="{{ URL::to('dashboard/settings/templates')}}">
+							<i class="fa fa-navicon">
+								<span>Templates</span>
+							</i>
+						</a>
+					</li>
+					<li name="liSkins">
+						<a href="{{ URL::to('dashboard/settings/skins')}}">
+							<i class="fa fa-male">
+								<span>Skins</span>
+							</i>
+						</a>
+					</li>
+				</ul>
+				<div class="clear"></div>
 
-							<li name="liLocations">
-								<a href="{{ URL::to('dashboard/settings/locations/')}}">
-									<i class="fa fa-map-marker">
-										<span>Locations</span>
-									</i>
-								</a>
-							</li>
-							<li name="liDepartments">
-								<a href="{{ URL::to('dashboard/settings/departments/')}}">
-									<i class="fa fa-university">
-										<span>Departments</span>
-									</i>
-								</a>
-							</li>
-							<li name="liScreens">
-								<a href="{{ URL::to('dashboard/settings/screens')}}">
-									<i class="fa fa-desktop">
-										<span>Screens</span>
-									</i>
-								</a>
-							</li>
-							<li name="liUsers">
-								<a href="{{ URL::to('dashboard/settings/users')}}">
-									<i class="fa fa-users">
-										<span>Users</span>
-									</i>
-								</a>
-							</li>
-							<li name="liTemplates">
-								<a href="{{ URL::to('dashboard/settings/templates')}}">
-									<i class="fa fa-navicon">
-										<span>Templates</span>
-									</i>
-								</a>
-							</li>
-						</ul>
-						<div class="clear"></div>
-
-		</div>
-			@endif
-		@endif
-
-		<!-- Only show if user is super user -->
-		@if (isset($user))
-			@if ($user->is_super_user)
-				<div class="options">
-					<h4>Super User Settings</h4>
-
-						<ul>
-							<li name="liLocations">
-								<a href="{{ URL::to('dashboard/settings/locations/')}}">
-									<i class="fa fa-map-marker">
-										<span>Locations</span>
-									</i>
-								</a>
-							</li>
-							<li name="liScreens">
-								<a href="{{ URL::to('dashboard/settings/screens')}}">
-									<i class="fa fa-desktop">
-										<span>Screens</span>
-									</i>
-								</a>
-							</li>
-
-							<li name="liUsers">
-								<a href="{{ URL::to('dashboard/settings/users')}}">
-									<i class="fa fa-users">
-										<span>Admins</span>
-									</i>
-								</a>
-							</li>
-						</ul>
-						<div class="clear"></div>
-				</div>
+			</div>
 			@endif
 		@endif
 	</div><!-- row-->

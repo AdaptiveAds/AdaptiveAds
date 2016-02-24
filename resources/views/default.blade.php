@@ -95,20 +95,21 @@ https://developers.google.com/recaptcha/docs/display -->
 
 
 		<header id="header">
-			<!-- Only show if user is logged in -->
 
-			<div class="head">
-				@if (Auth::guest() == false)
-				<div id="signedin">Signed in: <span id="signinName">{{Auth::user()->username}}</span> <a href="{{ URL::to('auth/logout') }}"><button id="signout" class="button-active">Sign out</button></a></div>
-				@endif
-			</div>
+
 			<div class="head">
 				<nav>
 					<ul>
 						<li><a href="{{ URL::to('dashboard')}}">Home</a></li>
 						<li><a href="{{ URL::to('team')}}">Team</a></li>
 						<li><a href="{{ URL::to('contact')}}">Contact</a></li>
-						<li><a href="{{ URL::to('auth/login')}}">Sign In</a></li>
+
+						<!-- Only show if user is logged in -->
+						@if (Auth::guest() == false)
+							<li><a href="{{ URL::to('logout') }}">Sign Out</a></li>
+						@else
+							<li><a href="{{ URL::to('login')}}">Sign In</a></li>
+						@endif
 					</ul>
 				</nav>
 			</div>

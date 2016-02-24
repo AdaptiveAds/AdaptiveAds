@@ -318,6 +318,9 @@ var ModalManager = (function() {
         case 'Advert':
           getData(id, advert);
           break;
+        case 'Skins':
+          getData(id, skins);
+          break;
       }
 
       //getData($(this).attr('data-userID'), $(this).attr('data-modalObject') + '();');
@@ -397,6 +400,11 @@ var ModalManager = (function() {
   function advert(data) {
     $('[name="txtAdvertName"]').val(data.advert.name);
     $('[name="drpDepartments"]').val(data.advert.department_id);
+  }
+
+  function skins(data) {
+    $('[name="txtSkinName"]').val(data.skin.name);
+    $('[name="txtSkinClass"]').val(data.skin.class_name);
   }
 
   function getData(id, callback) {

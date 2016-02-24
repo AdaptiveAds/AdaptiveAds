@@ -79,6 +79,12 @@ Route::resource('dashboard/settings/templates', 'TemplateController');
 Route::post('dashboard/settings/templates/process', ['as' => 'dashboard.settings.templates.process', 'uses' => 'TemplateController@process']);
 Route::post('dashboard/settings/templates/{templates}/toggleDeleted', ['as' => 'dashboard.settings.templates.toggleDeleted', 'uses' => 'TemplateController@toggleDeleted']);
 
+// Templates routes
+Route::resource('dashboard/settings/skins', 'SkinController');
+Route::post('dashboard/settings/skins/process', ['as' => 'dashboard.settings.skins.process', 'uses' => 'SkinController@process']);
+Route::post('dashboard/settings/skins/{skins}/toggleDeleted', ['as' => 'dashboard.settings.skins.toggleDeleted', 'uses' => 'SkinController@toggleDeleted']);
+
+
 // Serve routes
 Route::get('serve/{screenId}', 'ServeController@show');
 Route::post('serve/{screenID}', 'ServeController@sync');
