@@ -199,7 +199,7 @@ Illuminate\Routing\Controller
 				Josh Preece<br>
 				<b>Since:</b>
 				1.0<br>
-			<b>Located at</b> <a href="source-class-App.Http.Controllers.UserController.html#14-205" title="Go to source code">Http/Controllers/UserController.php</a>
+			<b>Located at</b> <a href="source-class-App.Http.Controllers.UserController.html#14-228" title="Go to source code">Http/Controllers/UserController.php</a>
 		<br>
 	</div>
 
@@ -365,7 +365,7 @@ Illuminate\Routing\Controller
 					<h4>Parameters</h4>
 					<div class="list"><dl>
 						<dt><var>$request</var></dt>
-						<dd>$id</dd>
+						<dd>$id ID of the user to show</dd>
 						<dt><var>$id</var></dt>
 						<dd></dd>
 					</dl></div>
@@ -405,7 +405,7 @@ Illuminate\Routing\Controller
 					<h4>Parameters</h4>
 					<div class="list"><dl>
 						<dt><var>$id</var></dt>
-						<dd></dd>
+						<dd>ID of the user to edit</dd>
 					</dl></div>
 
 					<h4>Returns</h4>
@@ -445,7 +445,7 @@ Illuminate\Routing\Controller
 						<dt><var>$request</var></dt>
 						<dd></dd>
 						<dt><var>$id</var></dt>
-						<dd></dd>
+						<dd>ID of the user to update</dd>
 					</dl></div>
 
 					<h4>Returns</h4>
@@ -483,7 +483,7 @@ Illuminate\Routing\Controller
 					<h4>Parameters</h4>
 					<div class="list"><dl>
 						<dt><var>$id</var></dt>
-						<dd></dd>
+						<dd>ID of the user to destroy</dd>
 					</dl></div>
 
 					<h4>Returns</h4>
@@ -511,11 +511,11 @@ Illuminate\Routing\Controller
 			<code><a href="source-class-App.Http.Controllers.UserController.html#128-175" title="Go to source code">process</a>( <span>Illuminate\Http\Request <var>$request</var></span> )</code>
 
 			<div class="description short">
-				<p>Processes input from the screen. Includes basic CRUD and filtering options</p>
+				<p>Processes input from the screen. Includes basic filtering options</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Processes input from the screen. Includes basic CRUD and filtering options</p>
+				<p>Processes input from the screen. Includes basic filtering options</p>
 
 
 					<h4>Parameters</h4>
@@ -569,6 +569,44 @@ to access and modify because they're admin</p>
 					<h4>Returns</h4>
 					<div class="list">
 						EloquentCollection
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="toggleDeleted" id="_toggleDeleted">
+
+			<td class="attributes"><code>
+				 public 
+				Illuminate\Http\Response
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_toggleDeleted">#</a>
+			<code><a href="source-class-App.Http.Controllers.UserController.html#206-227" title="Go to source code">toggleDeleted</a>( <span>integer <var>$id</var></span> )</code>
+
+			<div class="description short">
+				<p>Soft deletes a specified resource</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Soft deletes a specified resource</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$id</var></dt>
+						<dd>ID of the user to soft delete</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						Illuminate\Http\Response
 					</div>
 
 

@@ -190,7 +190,7 @@ Illuminate\Routing\Controller
 		<b>Namespace:</b> <a href="namespace-App.html">App</a>\<a href="namespace-App.Http.html">Http</a>\<a href="namespace-App.Http.Controllers.html">Controllers</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-App.Http.Controllers.TemplateController.html#14-228" title="Go to source code">Http/Controllers/TemplateController.php</a>
+			<b>Located at</b> <a href="source-class-App.Http.Controllers.TemplateController.html#14-256" title="Go to source code">Http/Controllers/TemplateController.php</a>
 		<br>
 	</div>
 
@@ -356,7 +356,7 @@ Illuminate\Routing\Controller
 					<h4>Parameters</h4>
 					<div class="list"><dl>
 						<dt><var>$request</var></dt>
-						<dd>$id</dd>
+						<dd>$id ID of the template to show</dd>
 						<dt><var>$id</var></dt>
 						<dd></dd>
 					</dl></div>
@@ -396,7 +396,7 @@ Illuminate\Routing\Controller
 					<h4>Parameters</h4>
 					<div class="list"><dl>
 						<dt><var>$id</var></dt>
-						<dd></dd>
+						<dd>ID of the template to edit</dd>
 					</dl></div>
 
 					<h4>Returns</h4>
@@ -436,7 +436,7 @@ Illuminate\Routing\Controller
 						<dt><var>$request</var></dt>
 						<dd></dd>
 						<dt><var>$id</var></dt>
-						<dd></dd>
+						<dd>ID of the template to update</dd>
 					</dl></div>
 
 					<h4>Returns</h4>
@@ -474,7 +474,7 @@ Illuminate\Routing\Controller
 					<h4>Parameters</h4>
 					<div class="list"><dl>
 						<dt><var>$id</var></dt>
-						<dd></dd>
+						<dd>ID of the template to destroy</dd>
 					</dl></div>
 
 					<h4>Returns</h4>
@@ -492,24 +492,33 @@ Illuminate\Routing\Controller
 
 			<td class="attributes"><code>
 				 public 
-				
+				Illuminate\Http\Response
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_process">#</a>
-			<code><a href="source-class-App.Http.Controllers.TemplateController.html#181-221" title="Go to source code">process</a>( <span>Illuminate\Http\Request <var>$request</var></span> )</code>
+			<code><a href="source-class-App.Http.Controllers.TemplateController.html#181-226" title="Go to source code">process</a>( <span>Illuminate\Http\Request <var>$request</var></span> )</code>
 
 			<div class="description short">
-				
+				<p>Processes input from the screen. Includes basic filtering options</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>Processes input from the screen. Includes basic filtering options</p>
 
 
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$request</var></dt>
+						<dd></dd>
+					</dl></div>
 
+					<h4>Returns</h4>
+					<div class="list">
+						Illuminate\Http\Response
+					</div>
 
 
 
@@ -528,7 +537,7 @@ Illuminate\Routing\Controller
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getAllowedTemplates">#</a>
-			<code><a href="source-class-App.Http.Controllers.TemplateController.html#223-227" title="Go to source code">getAllowedTemplates</a>( <span> <var>$user</var></span>, <span> <var>$allowed_departments</var></span> )</code>
+			<code><a href="source-class-App.Http.Controllers.TemplateController.html#228-232" title="Go to source code">getAllowedTemplates</a>( <span> <var>$user</var></span>, <span> <var>$allowed_departments</var></span> )</code>
 
 			<div class="description short">
 				
@@ -539,6 +548,44 @@ Illuminate\Routing\Controller
 
 
 
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="toggleDeleted" id="_toggleDeleted">
+
+			<td class="attributes"><code>
+				 public 
+				Illuminate\Http\Response
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_toggleDeleted">#</a>
+			<code><a href="source-class-App.Http.Controllers.TemplateController.html#234-255" title="Go to source code">toggleDeleted</a>( <span>integer <var>$id</var></span> )</code>
+
+			<div class="description short">
+				<p>Soft deletes a specified resource</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Soft deletes a specified resource</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$id</var></dt>
+						<dd>ID of the template to soft delete</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						Illuminate\Http\Response
+					</div>
 
 
 
