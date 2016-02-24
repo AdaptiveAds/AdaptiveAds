@@ -51,9 +51,6 @@ Route::post('dashboard/advert/{advert}/toggleDeleted', ['as' => 'dashboard.adver
 // Page pages
 Route::resource('dashboard/advert/{adID}/page', 'PageController', ['except' => ['index', 'edit']]);
 
-// Settings
-Route::get('dashboard/settings', ['middleware' => 'auth', 'uses' => 'PlaylistController@index']);
-
 // Users routes
 Route::resource('dashboard/settings/users', 'UserController');
 Route::post('dashboard/settings/users/filter', ['as' => 'dashboard.settings.users.filter', 'uses' => 'UserController@filter']);
