@@ -11,7 +11,7 @@
         </a>
 
         <button type="submit" name="btnEdit">Edit</button>
-        {{-- Show correct button to disable ot enable --}
+        {{-- Show correct button to disable ot enable --}}
         @if ($page->deleted == 0)
           <button type="submit" name="btnDisablePage">Disable</button>
         @else
