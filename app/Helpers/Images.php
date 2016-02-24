@@ -2,6 +2,12 @@
 
 namespace App\Helpers;
 
+/**
+  * Holds generic functions related to images
+  * @author Josh Preece
+  * @license REVIEW
+  * @since 1.0
+  */
 class Images extends Helper {
 
   /**
