@@ -188,24 +188,14 @@ class TemplateController extends Controller
 
       $user = Session::get('user');
 
-      $btnAddTemplate = $request->input('btnAddTemplate');
       $btnFindTemplate = $request->input('btnFindTemplate');
       $btnFindAll = $request->input('btnFindAll');
       $templateName = $request->input('txtTemplateName');
       $templateClass = $request->input('txtTemplateClass');
       $templateDuration = $request->input('numTemplateDuration');
 
-      if (isset($btnAddTemplate)) {
-
-        $template = new Template();
-        $template->name = $templateName;
-        $template->class_name = $templateClass;
-        $template->duration = $templateDuration;
-        $template->save();
-
-        $templateName = null;
-
-      } else if (isset($btnFindTemplate)) {
+        // Check which action to perform
+      if (isset($btnFindTemplate)) {
 
 
 

@@ -169,7 +169,6 @@ class ScreenController extends Controller
       $user = Session::get('user');
 
       // Get inputs from POST
-      $btnAddScreen = $request->input('btnAddScreen');
       $btnFindScreen = $request->input('btnFindScreen');
       $btnFindAll = $request->input('btnFindAll');
       $locationID = $request->input('drpLocations');
@@ -177,23 +176,7 @@ class ScreenController extends Controller
       $screenID = $request->input('txtScreenID');
 
       // Check which action to perform
-      if (isset($btnAddScreen)) {
-
-        if ($user->is_super_user) {
-          // Create new screen
-          $screen = new Screen();
-          $screen->location_id = $locationID; // assign location
-          $screen->playlist_id = empty($playlistID)? 1 : $playlistID; // Set playlist of none selected set default
-          $screen->save();
-
-          $screenID = null;
-          $screens = $this->getAllowedScreens($user, $allowed_departments);
-
-        } else {
-          abort(401, 'Un-authorised');
-        }
-
-      } else if (isset($btnFindScreen)) {
+      if (isset($btnFindScreen)) {
 
         $screens = $this->getAllowedScreens($user, $allowed_departments);
         $screens = $screens->filter(function($item) use ($screenID, $locationID) {

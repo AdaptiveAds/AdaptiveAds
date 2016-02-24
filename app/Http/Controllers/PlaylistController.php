@@ -283,23 +283,13 @@ class PlaylistController extends Controller
       $user = Session::get('user');
       $allowed_departments = Session::get('allowed_departments');
 
-      $btnAddPlaylist = $request->input('btnAddPlaylist');
       $btnFindPlaylist = $request->input('btnFindPlaylist');
       $btnFindAll = $request->input('btnFindAll');
       $playlistName = $request->input('txtPlaylistName');
       $departmentID = $request->input('drpDepartments');
 
-      if (isset($btnAddPlaylist)) {
-
-        $playlist = new Playlist;
-        $playlist->name = $playlistName;
-        $playlist->department_id = $departmentID;
-        $playlist->save();
-
-        $playlistName = null;
-        $playlists = $this->getAllowedPlaylists($user, $allowed_departments);
-
-      } else if (isset($btnFindPlaylist)) {
+        // Check which action to perform
+      if (isset($btnFindPlaylist)) {
 
 
 

@@ -168,28 +168,13 @@ class LocationController extends Controller
       ]);
 
       // Get all input vars
-      $btnAddLocation = $request->input('btnAddLocation');
       $btnFindLocation = $request->input('btnFindLocation');
       $btnFindAll = $request->input('btnFindAll');
       $locationName = $request->input('txtLocationName');
       $departmentID = $request->input('drpDepartments');
 
       // Check which action to perform
-      if (isset($btnAddLocation)) {
-
-        // Create a new location object
-        $location = new Location();
-        $location->name = $locationName;
-        $location->department_id = $departmentID;
-        $location->save();
-
-        // Reset location name so it doesn't appear on the form
-        $locationName = null;
-
-        // Get all locations
-        //$locations = Location::all();
-
-      } else if (isset($btnFindLocation)) {
+      if (isset($btnFindLocation)) {
 
         // Get all locations that are LIKE the provided name
         $locations = Location::where('name', 'LIKE', '%' . $locationName . '%')

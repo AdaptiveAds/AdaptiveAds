@@ -291,23 +291,12 @@ class AdvertController extends Controller
       $user = Session::get('user');
       $allowed_departments = Session::get('allowed_departments');
 
-      $btnAddAdvert = $request->input('btnAddAdvert');
       $btnFindAdvert = $request->input('btnFindAdvert');
       $btnFindAll = $request->input('btnFindAll');
       $advertName = $request->input('txtAdvertName');
       $departmentID = $request->input('drpDepartments');
 
-      if (isset($btnAddAdvert)) {
-
-        $advert = new Advert;
-        $advert->name = $advertName;
-        $advert->department_id = $departmentID;
-        $advert->save();
-
-        $advertName = null;
-        $adverts = $this->getAllowedAdverts($user, $allowed_departments);
-
-      } else if (isset($btnFindAdvert)) {
+      if (isset($btnFindAdvert)) {
 
         $adverts = $this->getAllowedAdverts($user, $allowed_departments);
         $adverts = $adverts->filter(function($item) use ($advertName) {
