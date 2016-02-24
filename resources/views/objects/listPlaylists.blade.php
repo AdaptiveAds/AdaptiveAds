@@ -15,11 +15,13 @@
 
         {{-- Show correct button to disable ot enable --}}
         {!! Form::open(['route' => ['dashboard.playlist.toggleDeleted', $playlist->id], 'method' => 'POST']) !!}
-          @if ($playlist->deleted == 0)
-            <button type="submit" name="btnDisablePlaylist">Disable</button>
-          @else
-            @if ($user->getAdmin())
-              <button type="submit" name="btnEnablePlaylist">Enable</button>
+          @if ($playlist->isGlobal == false)
+            @if ($playlist->deleted == 0)
+              <button type="submit" name="btnDisablePlaylist">Disable</button>
+            @else
+              @if ($user->getAdmin())
+                <button type="submit" name="btnEnablePlaylist">Enable</button>
+              @endif
             @endif
           @endif
         {!! Form::close() !!}
