@@ -91,7 +91,7 @@ class ScreenController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the screen to show
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, $id)
@@ -111,7 +111,7 @@ class ScreenController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the screen to edit
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -123,7 +123,7 @@ class ScreenController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $id ID of the screen to update
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -149,7 +149,7 @@ class ScreenController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the screen to destroy
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -158,7 +158,7 @@ class ScreenController extends Controller
     }
 
     /**
-      * Processes input from the screen. Includes basic CRUD and filtering options
+      * Processes input from the screen. Includes basic filtering options
       * @param \Illuminate\Http\Request $request
       * @return \Illuminate\Http\Response
       */
@@ -169,7 +169,6 @@ class ScreenController extends Controller
       $user = Session::get('user');
 
       // Get inputs from POST
-      $btnAddScreen = $request->input('btnAddScreen');
       $btnFindScreen = $request->input('btnFindScreen');
       $btnFindAll = $request->input('btnFindAll');
       $locationID = $request->input('drpLocations');
@@ -177,32 +176,28 @@ class ScreenController extends Controller
       $screenID = $request->input('txtScreenID');
 
       // Check which action to perform
-      if (isset($btnAddScreen)) {
-
-        if ($user->is_super_user) {
-          // Create new screen
-          $screen = new Screen();
-          $screen->location_id = $locationID; // assign location
-          $screen->playlist_id = empty($playlistID)? 1 : $playlistID; // Set playlist of none selected set default
-          $screen->save();
-
-          $screenID = null;
-          $screens = $this->getAllowedScreens($user, $allowed_departments);
-
-        } else {
-          abort(401, 'Un-authorised');
-        }
-
-      } else if (isset($btnFindScreen)) {
+      if (isset($btnFindScreen)) {
 
         $screens = $this->getAllowedScreens($user, $allowed_departments);
-        $screens = $screens->filter(function($item) use ($screenID, $locationID) {
-          if ($item->id == $screenID && $item->location_id == $locationID) {
+        $filtered = $screens->filter(function($item) use ($screenID) {
+          if ($item->id == $screenID) {
             return true;
           }
 
           return false;
         });
+
+        if ($filtered->count() == 0) {
+          $filtered = $screens->filter(function($item) use ($locationID) {
+            if ($item->location_id == $locationID) {
+              return true;
+            }
+
+            return false;
+          });
+        }
+
+        $screens = $filtered;
 
       } else if (isset($btnFindAll)) {
 
@@ -213,6 +208,8 @@ class ScreenController extends Controller
         abort(401);
       }
 
+      $playlists = Playlist::whereIn('department_id', $match_departments)->get();
+
       // Pass back so we can re-populate the locations list
       $locations = Location::whereIn('department_id', $match_departments)->get();
 
@@ -220,6 +217,7 @@ class ScreenController extends Controller
         'screens' => $screens,
         'screenID' => $screenID,
         'locations' => $locations,
+        'playlists' => $playlists,
         'user' => $user
       );
 
@@ -249,5 +247,28 @@ class ScreenController extends Controller
       }
 
       return $screens;
+    }
+
+    /**
+      * Soft deletes a specified resource
+      * @param int  $id ID of the screen to soft delete
+      * @return \Illuminate\Http\Response
+      */
+    public function toggleDeleted($id) {
+
+      $screen = Screen::find($id);
+
+      if ($screen == null)
+        abort(404, 'Not found.');
+
+      if ($screen->deleted == 0) {
+        $screen->deleted = 1;
+      } else {
+        $screen->deleted = 0;
+      }
+
+      $screen->save();
+
+      return redirect()->route('dashboard.settings.screens.index');
     }
 }

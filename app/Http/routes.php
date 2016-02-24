@@ -21,13 +21,13 @@ Route::get('contact', 'ContactController@index');
 Route::get('team', 'TeamController@index');
 
 // Authentication routes...
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
+Route::get('login', 'Auth\AuthController@getLogin');
+Route::post('login', 'Auth\AuthController@postLogin');
+Route::get('logout', 'Auth\AuthController@getLogout');
 
 // Registration routes...
-Route::get('auth/register', 'Auth\AuthController@getRegister');
-Route::post('auth/register', 'Auth\AuthController@postRegister');
+Route::get('register', 'Auth\AuthController@getRegister');
+Route::post('register', 'Auth\AuthController@postRegister');
 
 // Landing page
 Route::get('dashboard', ['middleware' => 'auth', 'uses' => 'DashboardController@index']);
@@ -38,6 +38,7 @@ Route::post('dashboard/playlist/{playlistID}/remove', ['as' => 'dashboard.playli
 Route::post('dashboard/playlist/{playlistID}/updateIndexes', ['as' => 'dashboard.playlist.updateIndexes', 'uses' => 'PlaylistController@updateIndexes']);
 Route::resource('dashboard/playlist', 'PlaylistController', ['except' => ['create']]);
 Route::post('dashboard/playlist/process', ['as' => 'dashboard.playlist.process', 'uses' => 'PlaylistController@process']);
+Route::post('dashboard/settings/playlist/{playlistID}/toggleDeleted', ['as' => 'dashboard.playlist.toggleDeleted', 'uses' => 'PlaylistController@toggleDeleted']);
 
 // Advert pages
 Route::post('dashboard/advert/{playlistID}/removeMode', ['as' => 'dashboard.advert.removeMode', 'uses' => 'AdvertController@removeMode']);
@@ -45,6 +46,7 @@ Route::post('dashboard/advert/{playlistID}/select', ['as' => 'dashboard.advert.s
 Route::post('dashboard/advert/{advertID}/updateIndexes', ['as' => 'dashboard.advert.updateIndexes', 'uses' => 'AdvertController@updateIndexes']);
 Route::resource('dashboard/advert', 'AdvertController');
 Route::post('dashboard/advert/process', ['as' => 'dashboard.advert.process', 'uses' => 'AdvertController@process']);
+Route::post('dashboard/advert/{advert}/toggleDeleted', ['as' => 'dashboard.advert.toggleDeleted', 'uses' => 'AdvertController@toggleDeleted']);
 
 // Page pages
 Route::resource('dashboard/advert/{adID}/page', 'PageController', ['except' => ['index', 'edit']]);
@@ -55,22 +57,27 @@ Route::get('dashboard/settings', ['middleware' => 'auth', 'uses' => 'PlaylistCon
 // Users routes
 Route::resource('dashboard/settings/users', 'UserController');
 Route::post('dashboard/settings/users', ['as' => 'dashboard.settings.users.process', 'uses' => 'UserController@process']);
+Route::post('dashboard/settings/users/{users}/toggleDeleted', ['as' => 'dashboard.settings.users.toggleDeleted', 'uses' => 'UserController@toggleDeleted']);
 
 // Locations routes
 Route::resource('dashboard/settings/locations', 'LocationController');
 Route::post('dashboard/settings/locations/process', ['as' => 'dashboard.settings.locations.process', 'uses' => 'LocationController@process']);
+Route::post('dashboard/settings/locations/{locations}/toggleDeleted', ['as' => 'dashboard.settings.locations.toggleDeleted', 'uses' => 'LocationController@toggleDeleted']);
 
 // Department routes
 Route::resource('dashboard/settings/departments', 'DepartmentController');
 Route::post('dashboard/settings/departments/process', ['as' => 'dashboard.settings.departments.process', 'uses' => 'DepartmentController@process']);
+Route::post('dashboard/settings/departments/{departments}/toggleDeleted', ['as' => 'dashboard.settings.departments.toggleDeleted', 'uses' => 'DepartmentController@toggleDeleted']);
 
 // Screens routes
 Route::resource('dashboard/settings/screens', 'ScreenController');
 Route::post('dashboard/settings/screens/process', ['as' => 'dashboard.settings.screens.process', 'uses' => 'ScreenController@process']);
+Route::post('dashboard/settings/screens/{screens}/toggleDeleted', ['as' => 'dashboard.settings.screens.toggleDeleted', 'uses' => 'ScreenController@toggleDeleted']);
 
 // Templates routes
 Route::resource('dashboard/settings/templates', 'TemplateController');
 Route::post('dashboard/settings/templates/process', ['as' => 'dashboard.settings.templates.process', 'uses' => 'TemplateController@process']);
+Route::post('dashboard/settings/templates/{templates}/toggleDeleted', ['as' => 'dashboard.settings.templates.toggleDeleted', 'uses' => 'TemplateController@toggleDeleted']);
 
 // Serve routes
 Route::get('serve/{screenId}', 'ServeController@show');

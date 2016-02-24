@@ -31,8 +31,6 @@ class TemplateController extends Controller
      */
     public function index()
     {
-      $match_departments = Session::get('match_departments');
-      $allowed_departments = Session::get('allowed_departments');
       $user = Session::get('user');
 
       // Get templates that the user has access to
@@ -43,8 +41,7 @@ class TemplateController extends Controller
 
       $data = array(
         'templates' => $templates,
-        'user' => $user,
-        'allowed_departments' => $allowed_departments
+        'user' => $user
       );
 
       return view('pages/templatesEditor', $data);
@@ -98,7 +95,7 @@ class TemplateController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the template to show
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, $id)
@@ -117,7 +114,7 @@ class TemplateController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the template to edit
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -129,7 +126,7 @@ class TemplateController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $id ID of the template to update
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -170,7 +167,7 @@ class TemplateController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the template to destroy
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -178,39 +175,62 @@ class TemplateController extends Controller
         //
     }
 
-    public function process(Request $request) {
-
+    /**
+      * Processes input from the screen. Includes basic filtering options
+      * @param \Illuminate\Http\Request $request
+      * @return \Illuminate\Http\Response
+      */
+    public function process(Request $request)
+    {
       $user = Session::get('user');
 
-      $btnAddTemplate = $request->input('btnAddTemplate');
       $btnFindTemplate = $request->input('btnFindTemplate');
       $btnFindAll = $request->input('btnFindAll');
       $templateName = $request->input('txtTemplateName');
       $templateClass = $request->input('txtTemplateClass');
       $templateDuration = $request->input('numTemplateDuration');
 
-      if (isset($btnAddTemplate)) {
+      $templates = Template::all();
 
-        $template = new Template();
-        $template->name = $templateName;
-        $template->class_name = $templateClass;
-        $template->duration = $templateDuration;
-        $template->save();
+      // Check which action to perform
+      if (isset($btnFindTemplate)) {
 
-        $templateName = null;
+        // First filter by name
+        $filtered = $templates->filter(function($item) use ($templateName) {
+          if ($item->name == $templateName) {
+            return true;
+          }
+        });
 
-      } else if (isset($btnFindTemplate)) {
+        // If no results found filter by class name
+        if ($filtered->count() == 0) {
+          $filtered = $templates->filter(function($item) use ($templateClass) {
+            if ($item->class_name == $templateClass) {
+              return true;
+            }
+          });
 
+          // Again if no result found filter by duration
+          if ($filtered->count() == 0) {
+            $filtered = $templates->filter(function($item) use ($templateDuration) {
+              if ($item->duration == $templateDuration) {
+                return true;
+              }
+            });
+          }
+        }
 
+        $templates = $filtered;
 
       } else if (isset($btnFindAll)) {
 
-
+        $templateName = null;
+        $templateClass = null;
+        $templateDuration = null;
 
       } else {
         abort(401, 'Un-authorised');
       }
-
 
       $data = array(
         'user' => $user,
@@ -224,5 +244,28 @@ class TemplateController extends Controller
 
 
 
+    }
+
+    /**
+      * Soft deletes a specified resource
+      * @param int  $id ID of the template to soft delete
+      * @return \Illuminate\Http\Response
+      */
+    public function toggleDeleted($id)
+    {
+      $template = Template::find($id);
+
+      if ($template == null)
+        abort(404, 'Not found.');
+
+      if ($template->deleted == 0) {
+        $template->deleted = 1;
+      } else {
+        $template->deleted = 0;
+      }
+
+      $template->save();
+
+      return redirect()->route('dashboard.settings.templates.index');
     }
 }

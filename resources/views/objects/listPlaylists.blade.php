@@ -10,15 +10,19 @@
                                  data-modalMethod="PUT"
                                  data-modalRoute="{{ URL::route('dashboard.playlist.update', $playlist->id) }}"
                                  data-userID="{{ $playlist->id }}">
-          <button type="button" name="btnEditPlaylist">Edit</button>
+          <button type="button" name="btnEdit">Edit</button>
         </a>
-        @if ($playlist->deleted == 0)
-          <button type="submit" name="btnDisablePlaylist">Disable</button>
-        @else
-          @if ($user->getAdmin())
-            <button type="submit" name="btnEnablePlaylist">Enable</button>
+
+        {{-- Show correct button to disable ot enable --}}
+        {!! Form::open(['route' => ['dashboard.playlist.toggleDeleted', $playlist->id], 'method' => 'POST']) !!}
+          @if ($playlist->deleted == 0)
+            <button type="submit" name="btnDisablePlaylist">Disable</button>
+          @else
+            @if ($user->getAdmin())
+              <button type="submit" name="btnEnablePlaylist">Enable</button>
+            @endif
           @endif
-        @endif
+        {!! Form::close() !!}
       </li>
     @endforeach
   @else

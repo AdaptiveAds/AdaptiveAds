@@ -2,12 +2,19 @@
 
 @section('content')
 
-<form id="clientlogin" name="login" action="login" method="POST" accept-charset="utf-8">
+{!! Form::open(['url' => 'login', 'method' => 'POST', 'id' => 'clientlogin']) !!}
 	{!! csrf_field() !!}
 	<ul>
+		@if ($errors->any())
+		  <div class="alert alert-danger">
+		    @foreach($errors->getMessages() as $error)
+					{{ $error[0] }}
+				@endforeach
+		  </div>
+		@endif
 		<li>
 			<label for="usermail">Username</label>
-			<input type="username" name="username" placeholder="Email or Username" required>
+			<input type="username" name="login" placeholder="Email or Username" required>
 		</li>
 		<li>
 			<label for="password">Password</label>
@@ -19,5 +26,5 @@
 		<li><a href="{{ URL::to('auth/register') }}">Register</a></li>
 		<li><a href="*RunScript for reset">Forgot Password</a></li>
 	</ul>
-</form>
+{!! Form::close() !!}
 @endsection

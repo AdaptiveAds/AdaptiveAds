@@ -4,7 +4,7 @@
     @foreach($adverts as $advert)
       <!-- Only display select if we're adding to a playlist -->
       <li data-itemID="{{$advert->id}}">
-          <a href="{{ URL::route('dashboard.advert.edit', $advert->id) }}">
+        <a href="{{ URL::route('dashboard.advert.edit', $advert->id) }}">
 
           @if ($selectable == true)
             <input type="checkbox" data-selectableItem="true" name="chkSelectAdvert_{{ $advert->id }}"/>
@@ -19,6 +19,9 @@
                                data-userID="{{ $advert->id }}">
           <button type="button" name="btnEdit">Edit</button>
         </a>
+
+        {{-- Show correct button to disable ot enable --}}
+        {!! Form::open(['route' => ['dashboard.advert.toggleDeleted', $advert->id], 'method' => 'POST']) !!}
         @if ($advert->deleted == 0)
           <button type="submit" name="btnDisable">Disable</button>
         @else
@@ -26,6 +29,7 @@
             <button type="submit" name="btnEnable">Enable</button>
           @endif
         @endif
+        {!! Form::close() !!}
       </li>
     @endforeach
   @else

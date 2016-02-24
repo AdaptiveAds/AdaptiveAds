@@ -288,7 +288,7 @@
 </span><span id="110" class="l"><a href="#110">110 </a>    <span class="php-comment">/**
 </span></span><span id="111" class="l"><a href="#111">111 </a><span class="php-comment">     * Display the specified resource.
 </span></span><span id="112" class="l"><a href="#112">112 </a><span class="php-comment">     *
-</span></span><span id="113" class="l"><a href="#113">113 </a><span class="php-comment">     * @param  int  $id
+</span></span><span id="113" class="l"><a href="#113">113 </a><span class="php-comment">     * @param  int  $id ID of the page to show
 </span></span><span id="114" class="l"><a href="#114">114 </a><span class="php-comment">     * @return \Illuminate\Http\Response
 </span></span><span id="115" class="l"><a href="#115">115 </a><span class="php-comment">     */</span>
 </span><span id="116" class="l"><a href="#116">116 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> show(<span class="php-var">$adID</span>, <span class="php-var">$id</span>)
@@ -310,7 +310,7 @@
 </span><span id="132" class="l"><a href="#132">132 </a>    <span class="php-comment">/**
 </span></span><span id="133" class="l"><a href="#133">133 </a><span class="php-comment">     * Show the form for editing the specified resource.
 </span></span><span id="134" class="l"><a href="#134">134 </a><span class="php-comment">     *
-</span></span><span id="135" class="l"><a href="#135">135 </a><span class="php-comment">     * @param  int  $id
+</span></span><span id="135" class="l"><a href="#135">135 </a><span class="php-comment">     * @param  int  $id ID of the page to edit
 </span></span><span id="136" class="l"><a href="#136">136 </a><span class="php-comment">     * @return \Illuminate\Http\Response
 </span></span><span id="137" class="l"><a href="#137">137 </a><span class="php-comment">     */</span>
 </span><span id="138" class="l"><a href="#138">138 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> edit(<span class="php-var">$id</span>)
@@ -323,61 +323,62 @@
 </span></span><span id="145" class="l"><a href="#145">145 </a><span class="php-comment">     * Update the specified resource in storage.
 </span></span><span id="146" class="l"><a href="#146">146 </a><span class="php-comment">     *
 </span></span><span id="147" class="l"><a href="#147">147 </a><span class="php-comment">     * @param  \Illuminate\Http\Request  $request
-</span></span><span id="148" class="l"><a href="#148">148 </a><span class="php-comment">     * @param  int  $id
-</span></span><span id="149" class="l"><a href="#149">149 </a><span class="php-comment">     * @return \Illuminate\Http\Response
-</span></span><span id="150" class="l"><a href="#150">150 </a><span class="php-comment">     */</span>
-</span><span id="151" class="l"><a href="#151">151 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> update(Request <span class="php-var">$request</span>, <span class="php-var">$adID</span>, <span class="php-var">$id</span>)
-</span><span id="152" class="l"><a href="#152">152 </a>    {
-</span><span id="153" class="l"><a href="#153">153 </a>
-</span><span id="154" class="l"><a href="#154">154 </a>      <span class="php-comment">// Validation</span>
-</span><span id="155" class="l"><a href="#155">155 </a>      <span class="php-var">$this</span>-&gt;validate(<span class="php-var">$request</span>, [
-</span><span id="156" class="l"><a href="#156">156 </a>          <span class="php-quote">'txtPageName'</span> =&gt; <span class="php-quote">'required|max:255'</span>,
-</span><span id="157" class="l"><a href="#157">157 </a>      ]);
-</span><span id="158" class="l"><a href="#158">158 </a>
-</span><span id="159" class="l"><a href="#159">159 </a>      <span class="php-var">$page</span> = Page::find(<span class="php-var">$id</span>);
-</span><span id="160" class="l"><a href="#160">160 </a>      <span class="php-var">$page</span>-&gt;page_index = <span class="php-var">$request</span>-&gt;input(<span class="php-quote">'NumPageIndex'</span>);
-</span><span id="161" class="l"><a href="#161">161 </a>      <span class="php-var">$page</span>-&gt;template_id = <span class="php-num">1</span>;
-</span><span id="162" class="l"><a href="#162">162 </a>      <span class="php-var">$page</span>-&gt;save();
-</span><span id="163" class="l"><a href="#163">163 </a>
-</span><span id="164" class="l"><a href="#164">164 </a>      <span class="php-var">$pageData</span> = <span class="php-var">$page</span>-&gt;PageData;
-</span><span id="165" class="l"><a href="#165">165 </a>      <span class="php-var">$pageData</span>-&gt;heading = <span class="php-var">$request</span>-&gt;input(<span class="php-quote">'txtPageName'</span>);
-</span><span id="166" class="l"><a href="#166">166 </a>      <span class="php-var">$pageData</span>-&gt;content = <span class="php-var">$request</span>-&gt;input(<span class="php-quote">'txtPageContent'</span>);
-</span><span id="167" class="l"><a href="#167">167 </a>
-</span><span id="168" class="l"><a href="#168">168 </a>      <span class="php-comment">// Upload image 1</span>
-</span><span id="169" class="l"><a href="#169">169 </a>      <span class="php-var">$imageInput</span> = Input::<span class="php-keyword2">file</span>(<span class="php-quote">'filPageImage'</span>);
-</span><span id="170" class="l"><a href="#170">170 </a>      <span class="php-keyword1">if</span> (<span class="php-var">$imageInput</span> != <span class="php-keyword1">null</span>) {
-</span><span id="171" class="l"><a href="#171">171 </a>        <span class="php-var">$imagePath</span> = Images::processImage(<span class="php-var">$imageInput</span>, <span class="php-quote">'advert_images/'</span>);
-</span><span id="172" class="l"><a href="#172">172 </a>
-</span><span id="173" class="l"><a href="#173">173 </a>        <span class="php-comment">// If we have a valid image then set the path in the database</span>
-</span><span id="174" class="l"><a href="#174">174 </a>        <span class="php-keyword1">if</span> (<span class="php-var">$imagePath</span> != <span class="php-keyword1">null</span>) {
-</span><span id="175" class="l"><a href="#175">175 </a>          <span class="php-var">$pageData</span>-&gt;image_path = <span class="php-var">$imagePath</span>;
-</span><span id="176" class="l"><a href="#176">176 </a>        }
-</span><span id="177" class="l"><a href="#177">177 </a>      }
-</span><span id="178" class="l"><a href="#178">178 </a>
-</span><span id="179" class="l"><a href="#179">179 </a>      <span class="php-var">$pageData</span>-&gt;video_path = <span class="php-var">$request</span>-&gt;input(<span class="php-quote">'txtPageVideo'</span>);
-</span><span id="180" class="l"><a href="#180">180 </a>
-</span><span id="181" class="l"><a href="#181">181 </a>      <span class="php-var">$pageData</span>-&gt;save();
-</span><span id="182" class="l"><a href="#182">182 </a>
-</span><span id="183" class="l"><a href="#183">183 </a>      <span class="php-keyword1">return</span> redirect()-&gt;route(<span class="php-quote">'dashboard.advert.{adID}.page.show'</span>, [<span class="php-var">$adID</span>, <span class="php-var">$page</span>-&gt;id]);
-</span><span id="184" class="l"><a href="#184">184 </a>    }
-</span><span id="185" class="l"><a href="#185">185 </a>
-</span><span id="186" class="l"><a href="#186">186 </a>    <span class="php-comment">/**
-</span></span><span id="187" class="l"><a href="#187">187 </a><span class="php-comment">     * Remove the specified resource from storage.
-</span></span><span id="188" class="l"><a href="#188">188 </a><span class="php-comment">     *
-</span></span><span id="189" class="l"><a href="#189">189 </a><span class="php-comment">     * @param  int  $id
-</span></span><span id="190" class="l"><a href="#190">190 </a><span class="php-comment">     * @return \Illuminate\Http\Response
-</span></span><span id="191" class="l"><a href="#191">191 </a><span class="php-comment">     */</span>
-</span><span id="192" class="l"><a href="#192">192 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> destroy(<span class="php-var">$adID</span>, <span class="php-var">$id</span>)
-</span><span id="193" class="l"><a href="#193">193 </a>    {
-</span><span id="194" class="l"><a href="#194">194 </a>        <span class="php-var">$page</span> = Page::find(<span class="php-var">$id</span>);
-</span><span id="195" class="l"><a href="#195">195 </a>
-</span><span id="196" class="l"><a href="#196">196 </a>        <span class="php-var">$page</span>-&gt;deleted = <span class="php-num">1</span>;
-</span><span id="197" class="l"><a href="#197">197 </a>        <span class="php-var">$page</span>-&gt;save();
-</span><span id="198" class="l"><a href="#198">198 </a>
-</span><span id="199" class="l"><a href="#199">199 </a>        <span class="php-keyword1">return</span> redirect()-&gt;route(<span class="php-quote">'dashboard.advert.show'</span>, [<span class="php-var">$adID</span>]);
-</span><span id="200" class="l"><a href="#200">200 </a>    }
-</span><span id="201" class="l"><a href="#201">201 </a>}
-</span><span id="202" class="l"><a href="#202">202 </a></span></code></pre>
+</span></span><span id="148" class="l"><a href="#148">148 </a><span class="php-comment">     * @param  int  $adID ID of the advert the page belongs to
+</span></span><span id="149" class="l"><a href="#149">149 </a><span class="php-comment">     * @param  int  $id   ID of the page to update
+</span></span><span id="150" class="l"><a href="#150">150 </a><span class="php-comment">     * @return \Illuminate\Http\Response
+</span></span><span id="151" class="l"><a href="#151">151 </a><span class="php-comment">     */</span>
+</span><span id="152" class="l"><a href="#152">152 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> update(Request <span class="php-var">$request</span>, <span class="php-var">$adID</span>, <span class="php-var">$id</span>)
+</span><span id="153" class="l"><a href="#153">153 </a>    {
+</span><span id="154" class="l"><a href="#154">154 </a>
+</span><span id="155" class="l"><a href="#155">155 </a>      <span class="php-comment">// Validation</span>
+</span><span id="156" class="l"><a href="#156">156 </a>      <span class="php-var">$this</span>-&gt;validate(<span class="php-var">$request</span>, [
+</span><span id="157" class="l"><a href="#157">157 </a>          <span class="php-quote">'txtPageName'</span> =&gt; <span class="php-quote">'required|max:255'</span>,
+</span><span id="158" class="l"><a href="#158">158 </a>      ]);
+</span><span id="159" class="l"><a href="#159">159 </a>
+</span><span id="160" class="l"><a href="#160">160 </a>      <span class="php-var">$page</span> = Page::find(<span class="php-var">$id</span>);
+</span><span id="161" class="l"><a href="#161">161 </a>      <span class="php-var">$page</span>-&gt;page_index = <span class="php-var">$request</span>-&gt;input(<span class="php-quote">'NumPageIndex'</span>);
+</span><span id="162" class="l"><a href="#162">162 </a>      <span class="php-var">$page</span>-&gt;template_id = <span class="php-num">1</span>;
+</span><span id="163" class="l"><a href="#163">163 </a>      <span class="php-var">$page</span>-&gt;save();
+</span><span id="164" class="l"><a href="#164">164 </a>
+</span><span id="165" class="l"><a href="#165">165 </a>      <span class="php-var">$pageData</span> = <span class="php-var">$page</span>-&gt;PageData;
+</span><span id="166" class="l"><a href="#166">166 </a>      <span class="php-var">$pageData</span>-&gt;heading = <span class="php-var">$request</span>-&gt;input(<span class="php-quote">'txtPageName'</span>);
+</span><span id="167" class="l"><a href="#167">167 </a>      <span class="php-var">$pageData</span>-&gt;content = <span class="php-var">$request</span>-&gt;input(<span class="php-quote">'txtPageContent'</span>);
+</span><span id="168" class="l"><a href="#168">168 </a>
+</span><span id="169" class="l"><a href="#169">169 </a>      <span class="php-comment">// Upload image 1</span>
+</span><span id="170" class="l"><a href="#170">170 </a>      <span class="php-var">$imageInput</span> = Input::<span class="php-keyword2">file</span>(<span class="php-quote">'filPageImage'</span>);
+</span><span id="171" class="l"><a href="#171">171 </a>      <span class="php-keyword1">if</span> (<span class="php-var">$imageInput</span> != <span class="php-keyword1">null</span>) {
+</span><span id="172" class="l"><a href="#172">172 </a>        <span class="php-var">$imagePath</span> = Images::processImage(<span class="php-var">$imageInput</span>, <span class="php-quote">'advert_images/'</span>);
+</span><span id="173" class="l"><a href="#173">173 </a>
+</span><span id="174" class="l"><a href="#174">174 </a>        <span class="php-comment">// If we have a valid image then set the path in the database</span>
+</span><span id="175" class="l"><a href="#175">175 </a>        <span class="php-keyword1">if</span> (<span class="php-var">$imagePath</span> != <span class="php-keyword1">null</span>) {
+</span><span id="176" class="l"><a href="#176">176 </a>          <span class="php-var">$pageData</span>-&gt;image_path = <span class="php-var">$imagePath</span>;
+</span><span id="177" class="l"><a href="#177">177 </a>        }
+</span><span id="178" class="l"><a href="#178">178 </a>      }
+</span><span id="179" class="l"><a href="#179">179 </a>
+</span><span id="180" class="l"><a href="#180">180 </a>      <span class="php-var">$pageData</span>-&gt;video_path = <span class="php-var">$request</span>-&gt;input(<span class="php-quote">'txtPageVideo'</span>);
+</span><span id="181" class="l"><a href="#181">181 </a>
+</span><span id="182" class="l"><a href="#182">182 </a>      <span class="php-var">$pageData</span>-&gt;save();
+</span><span id="183" class="l"><a href="#183">183 </a>
+</span><span id="184" class="l"><a href="#184">184 </a>      <span class="php-keyword1">return</span> redirect()-&gt;route(<span class="php-quote">'dashboard.advert.{adID}.page.show'</span>, [<span class="php-var">$adID</span>, <span class="php-var">$page</span>-&gt;id]);
+</span><span id="185" class="l"><a href="#185">185 </a>    }
+</span><span id="186" class="l"><a href="#186">186 </a>
+</span><span id="187" class="l"><a href="#187">187 </a>    <span class="php-comment">/**
+</span></span><span id="188" class="l"><a href="#188">188 </a><span class="php-comment">     * Remove the specified resource from storage.
+</span></span><span id="189" class="l"><a href="#189">189 </a><span class="php-comment">     *
+</span></span><span id="190" class="l"><a href="#190">190 </a><span class="php-comment">     * @param  int  $id ID of the page to destroy
+</span></span><span id="191" class="l"><a href="#191">191 </a><span class="php-comment">     * @return \Illuminate\Http\Response
+</span></span><span id="192" class="l"><a href="#192">192 </a><span class="php-comment">     */</span>
+</span><span id="193" class="l"><a href="#193">193 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> destroy(<span class="php-var">$adID</span>, <span class="php-var">$id</span>)
+</span><span id="194" class="l"><a href="#194">194 </a>    {
+</span><span id="195" class="l"><a href="#195">195 </a>        <span class="php-var">$page</span> = Page::find(<span class="php-var">$id</span>);
+</span><span id="196" class="l"><a href="#196">196 </a>
+</span><span id="197" class="l"><a href="#197">197 </a>        <span class="php-var">$page</span>-&gt;deleted = <span class="php-num">1</span>;
+</span><span id="198" class="l"><a href="#198">198 </a>        <span class="php-var">$page</span>-&gt;save();
+</span><span id="199" class="l"><a href="#199">199 </a>
+</span><span id="200" class="l"><a href="#200">200 </a>        <span class="php-keyword1">return</span> redirect()-&gt;route(<span class="php-quote">'dashboard.advert.show'</span>, [<span class="php-var">$adID</span>]);
+</span><span id="201" class="l"><a href="#201">201 </a>    }
+</span><span id="202" class="l"><a href="#202">202 </a>}
+</span><span id="203" class="l"><a href="#203">203 </a></span></code></pre>
 	</div>
 
 	<div id="footer">
