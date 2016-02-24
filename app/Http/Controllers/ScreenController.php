@@ -251,6 +251,11 @@ class ScreenController extends Controller
       return $screens;
     }
 
+    /**
+      * Soft deletes a specified resource
+      * @param Id $id
+      * @return \Illuminate\Http\Response
+      */
     public function toggleDeleted($id) {
 
       $screen = Screen::find($id);

@@ -226,8 +226,13 @@ class TemplateController extends Controller
 
     }
 
-    public function toggleDeleted($id) {
-
+    /**
+      * Soft deletes a specified resource
+      * @param Id $id
+      * @return \Illuminate\Http\Response
+      */
+    public function toggleDeleted($id)
+    {
       $template = Template::find($id);
 
       if ($template == null)

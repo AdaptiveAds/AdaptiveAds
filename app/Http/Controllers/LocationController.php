@@ -228,4 +228,27 @@ class LocationController extends Controller
       return view('pages/locations', $data);
 
     }
+
+    /**
+      * Soft deletes a specified resource
+      * @param Id $id
+      * @return \Illuminate\Http\Response
+      */
+    public function toggleDeleted($id)
+    {
+      $location = Location::find($id);
+
+      if ($location == null)
+        abort(404, 'Not found.');
+
+      if ($location->deleted == 0) {
+        $location->deleted = 1;
+      } else {
+        $location->deleted = 0;
+      }
+
+      $location->save();
+
+      return redirect()->route('dashboard.settings.locations.index');
+    }
 }

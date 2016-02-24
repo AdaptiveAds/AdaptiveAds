@@ -1,14 +1,16 @@
-<ul name="listUsers">
+<ul name="lstUsers">
   @if (isset($users))
     @if ($users->count() > 0)
       @foreach($users as $user)
         <li data-userID="{{ $user->id }}">
+          <a href="#">{{ $user->username }}</a>
+
           <a href="#UsersModal" data-displayEditModal="true"
 											data-modalObject="Users"
                       data-modalMethod="PUT"
 											data-modalRoute="{{ URL::route('dashboard.settings.users.update', $user->id)}}"
                       data-userID="{{ $user->id }}">
-            {{ $user->username }}
+            <button type="button" name="btnEdit">Edit</button>
           </a>
 
           {{-- Show correct button to disable ot enable --}}

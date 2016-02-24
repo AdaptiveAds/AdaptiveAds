@@ -279,7 +279,8 @@ class AdvertController extends Controller
       * @param \Illuminate\Http\Request $request
       * @return \Illuminate\Http\Response
       */
-    public function process(Request $request) {
+    public function process(Request $request)
+    {
 
       $user = Session::get('user');
       $allowed_departments = Session::get('allowed_departments');
@@ -336,7 +337,8 @@ class AdvertController extends Controller
       * @param array $allowed_departments
       * @return EloquentCollection
       */
-    public function getAllowedAdverts($user, $allowed_departments) {
+    public function getAllowedAdverts($user, $allowed_departments)
+    {
       // Check if super or admin
       if ($user->is_super_user) {
         return Advert::all(); // Return all adverts
@@ -356,5 +358,28 @@ class AdvertController extends Controller
 
       // Only return unqiue users
       return $adverts->unique('id');
+    }
+
+    /**
+      * Soft deletes a specified resource
+      * @param Id $id
+      * @return \Illuminate\Http\Response
+      */
+    public function toggleDeleted($id)
+    {
+      $advert = Advert::find($id);
+
+      if ($advert == null)
+        abort(404, 'Not found.');
+
+      if ($advert->deleted == 0) {
+        $advert->deleted = 1;
+      } else {
+        $advert->deleted = 0;
+      }
+
+      $advert->save();
+
+      return redirect()->route('dashboard.advert.index');
     }
 }

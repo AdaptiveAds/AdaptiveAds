@@ -3,21 +3,25 @@
     @if($templates->count() > 0)
       @foreach($templates as $template)
         <li>
-          <a href="#TemplatesModal" data-displayEditModal="true"
-                     data-modalObject="Templates"
-                     data-modalMethod="PUT"
-                     data-modalRoute="{{ URL::route('dashboard.settings.templates.update', $template->id) }}"
-                     data-userID="{{ $template->id }}">
+          <a href="#">
             {{ $template->name }}
+          </a>
+
+          <a href="#TemplatesModal" data-displayEditModal="true"
+                                    data-modalObject="Templates"
+                                    data-modalMethod="PUT"
+                                    data-modalRoute="{{ URL::route('dashboard.settings.templates.update', $template->id) }}"
+                                    data-userID="{{ $template->id }}">
+            <button type="button" name="btnEdit">Edit</button>
           </a>
 
           {{-- Show correct button to disable ot enable --}}
           {!! Form::open(['route' => ['dashboard.settings.templates.toggleDeleted', $template->id], 'method' => 'POST']) !!}
-          @if ($template->deleted == 0)
-            <button type="submit" name="btnDisable">Disable</button>
-          @else
-            <button type="submit" name="btnEnable">Enable</button>
-          @endif
+            @if ($template->deleted == 0)
+              <button type="submit" name="btnDisable">Disable</button>
+            @else
+              <button type="submit" name="btnEnable">Enable</button>
+            @endif
           {!! Form::close() !!}
         </li>
       @endforeach

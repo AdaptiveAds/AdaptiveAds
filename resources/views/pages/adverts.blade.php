@@ -25,6 +25,14 @@
 	</script>
 @endif
 
+<script>
+	$('document').ready(function() {
+		ModalManager.token = "{{ csrf_token() }}";
+		ModalManager.action = "/dashboard/advert/";
+		ModalManager.register_eventhandlers();
+	});
+</script>
+
 <div class="global">
 	<div class="row">
 		{!! Form::open(['route' => 'dashboard.advert.process', 'method' => 'POST']) !!}

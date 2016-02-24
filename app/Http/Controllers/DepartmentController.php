@@ -224,4 +224,27 @@ class DepartmentController extends Controller
       return view('pages/departments', $data);
 
     }
+
+    /**
+      * Soft deletes a specified resource
+      * @param Id $id
+      * @return \Illuminate\Http\Response
+      */
+    public function toggleDeleted($id)
+    {
+      $department = Department::find($id);
+
+      if ($department == null)
+        abort(404, 'Not found.');
+
+      if ($department->deleted == 0) {
+        $department->deleted = 1;
+      } else {
+        $department->deleted = 0;
+      }
+
+      $department->save();
+
+      return redirect()->route('dashboard.settings.departments.index');
+    }
 }

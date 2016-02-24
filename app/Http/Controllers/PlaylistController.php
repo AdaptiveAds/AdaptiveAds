@@ -304,7 +304,8 @@ class PlaylistController extends Controller
       * @param array $allowed_departments
       * @return EloquentCollection
       */
-    public function getAllowedPlaylists($user, $allowed_departments) {
+    public function getAllowedPlaylists($user, $allowed_departments)
+    {
       // Check if super or admin
       if ($user->is_super_user) {
         return Playlist::all(); // Return all adverts
@@ -324,5 +325,28 @@ class PlaylistController extends Controller
 
       // Only return unqiue users
       return $playlists->unique('id');
+    }
+
+    /**
+      * Soft deletes a specified resource
+      * @param Id $id
+      * @return \Illuminate\Http\Response
+      */
+    public function toggleDeleted($id)
+    {
+      $playlist = Playlist::find($id);
+
+      if ($playlist == null)
+        abort(404, 'Not found.');
+
+      if ($playlist->deleted == 0) {
+        $playlist->deleted = 1;
+      } else {
+        $playlist->deleted = 0;
+      }
+
+      $playlist->save();
+
+      return redirect()->route('dashboard.playlist.index');
     }
 }
