@@ -170,7 +170,8 @@ class DepartmentController extends Controller
       $departmentName = $request->input('txtDepartmentName');
       $skinID = $request->input('drpSkins');
 
-      $departments = Department::all(); // TODO restrict
+      $match_departments = Session::get('match_departments');
+      $departments = Department::whereIn('id', $match_departments)->get();
 
       // Check which action to perform
       if (isset($btnFindDepartment)) {
@@ -205,14 +206,6 @@ class DepartmentController extends Controller
 
       } else {
         abort(401);
-      }
-
-      if ($departments == null) {
-        if ($user->is_super_user) {
-          $departments = Department::all();
-        } else {
-          $departments = Department::whereIn('id', $match_departments)->get();
-        }
       }
 
       $data = array(

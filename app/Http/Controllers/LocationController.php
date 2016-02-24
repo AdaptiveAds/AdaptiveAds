@@ -168,7 +168,8 @@ class LocationController extends Controller
       $locationName = $request->input('txtLocationName');
       $departmentID = $request->input('drpDepartments');
 
-      $locations = Location::all(); // TODO restrict
+      $match_departments = Session::get('match_departments');
+      $locations = Location::whereIn('department_id', $match_departments)->get();
 
       // Check which action to perform
       if (isset($btnFindLocation)) {
@@ -203,10 +204,8 @@ class LocationController extends Controller
         abort(401);
       }
 
-      //dd($locations);
       $user = Session::get('user');
       $allowed_departments = Session::get('allowed_departments');
-      $match_departments = Session::get('match_departments');
 
       $data = array(
         'locations' => $locations,
