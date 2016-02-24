@@ -183,7 +183,8 @@ class TemplateController extends Controller
       * @param \Illuminate\Http\Request $request
       * @return \Illuminate\Http\Response
       */
-    public function process(Request $request) {
+    public function process(Request $request)
+    {
 
       $user = Session::get('user');
 
