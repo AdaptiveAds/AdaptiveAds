@@ -86,7 +86,7 @@ class DepartmentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the department to show
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, $id)
@@ -106,7 +106,7 @@ class DepartmentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the department to edit
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -118,7 +118,7 @@ class DepartmentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $id ID of the department to update
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -144,7 +144,7 @@ class DepartmentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the department to destroy
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -153,7 +153,7 @@ class DepartmentController extends Controller
     }
 
     /**
-      * Processes input from the screen. Includes basic CRUD and filtering options
+      * Processes input from the screen. Includes basic filtering options
       * @param \Illuminate\Http\Request $request
       * @return \Illuminate\Http\Response
       */
@@ -165,32 +165,13 @@ class DepartmentController extends Controller
       $match_departments = Session::get('match_departments');
 
       // Get all inputs from request
-      $btnAddDepartment = $request->input('btnAddDepartment');
       $btnFindDepartment = $request->input('btnFindDepartment');
       $btnFindAll = $request->input('btnFindAll');
       $departmentName = $request->input('txtDepartmentName');
       $skinID = $request->input('drpSkins');
 
       // Check which action to perform
-      if (isset($btnAddDepartment)) {
-
-        // Create new department
-        $department = new Department();
-        $department->name = $departmentName;
-        $department->skin_id = $skinID;
-        $department->save();
-
-        // Make the creator of the department an admin
-        $user->Departments()->attach($department->id, ['privilage_id' => '1']);
-        array_push($match_departments, $department->id);
-
-        // Reset department name so it doesn't appear on the form
-        $departmentName = null;
-
-        // Get all departments including new one
-        //$departments = Department::all();
-
-      } else if (isset($btnFindDepartment)) {
+      if (isset($btnFindDepartment)) {
 
         // Get all departments LIKE the search string and with the same department
         // we don't care about  filtering by skin
@@ -223,5 +204,28 @@ class DepartmentController extends Controller
 
       return view('pages/departments', $data);
 
+    }
+
+    /**
+      * Soft deletes a specified resource
+      * @param int  $id ID of the department to soft delete
+      * @return \Illuminate\Http\Response
+      */
+    public function toggleDeleted($id)
+    {
+      $department = Department::find($id);
+
+      if ($department == null)
+        abort(404, 'Not found.');
+
+      if ($department->deleted == 0) {
+        $department->deleted = 1;
+      } else {
+        $department->deleted = 0;
+      }
+
+      $department->save();
+
+      return redirect()->route('dashboard.settings.departments.index');
     }
 }

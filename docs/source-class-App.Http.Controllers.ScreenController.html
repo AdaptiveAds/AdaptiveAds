@@ -269,7 +269,7 @@
 </span><span id="91" class="l"><a href="#91"> 91 </a>    <span class="php-comment">/**
 </span></span><span id="92" class="l"><a href="#92"> 92 </a><span class="php-comment">     * Display the specified resource.
 </span></span><span id="93" class="l"><a href="#93"> 93 </a><span class="php-comment">     *
-</span></span><span id="94" class="l"><a href="#94"> 94 </a><span class="php-comment">     * @param  int  $id
+</span></span><span id="94" class="l"><a href="#94"> 94 </a><span class="php-comment">     * @param  int  $id ID of the screen to show
 </span></span><span id="95" class="l"><a href="#95"> 95 </a><span class="php-comment">     * @return \Illuminate\Http\Response
 </span></span><span id="96" class="l"><a href="#96"> 96 </a><span class="php-comment">     */</span>
 </span><span id="97" class="l"><a href="#97"> 97 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> show(Request <span class="php-var">$request</span>, <span class="php-var">$id</span>)
@@ -289,7 +289,7 @@
 </span><span id="111" class="l"><a href="#111">111 </a>    <span class="php-comment">/**
 </span></span><span id="112" class="l"><a href="#112">112 </a><span class="php-comment">     * Show the form for editing the specified resource.
 </span></span><span id="113" class="l"><a href="#113">113 </a><span class="php-comment">     *
-</span></span><span id="114" class="l"><a href="#114">114 </a><span class="php-comment">     * @param  int  $id
+</span></span><span id="114" class="l"><a href="#114">114 </a><span class="php-comment">     * @param  int  $id ID of the screen to edit
 </span></span><span id="115" class="l"><a href="#115">115 </a><span class="php-comment">     * @return \Illuminate\Http\Response
 </span></span><span id="116" class="l"><a href="#116">116 </a><span class="php-comment">     */</span>
 </span><span id="117" class="l"><a href="#117">117 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> edit(<span class="php-var">$id</span>)
@@ -301,7 +301,7 @@
 </span></span><span id="123" class="l"><a href="#123">123 </a><span class="php-comment">     * Update the specified resource in storage.
 </span></span><span id="124" class="l"><a href="#124">124 </a><span class="php-comment">     *
 </span></span><span id="125" class="l"><a href="#125">125 </a><span class="php-comment">     * @param  \Illuminate\Http\Request  $request
-</span></span><span id="126" class="l"><a href="#126">126 </a><span class="php-comment">     * @param  int  $id
+</span></span><span id="126" class="l"><a href="#126">126 </a><span class="php-comment">     * @param  int  $id ID of the screen to update
 </span></span><span id="127" class="l"><a href="#127">127 </a><span class="php-comment">     * @return \Illuminate\Http\Response
 </span></span><span id="128" class="l"><a href="#128">128 </a><span class="php-comment">     */</span>
 </span><span id="129" class="l"><a href="#129">129 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> update(Request <span class="php-var">$request</span>, <span class="php-var">$id</span>)
@@ -327,7 +327,7 @@
 </span><span id="149" class="l"><a href="#149">149 </a>    <span class="php-comment">/**
 </span></span><span id="150" class="l"><a href="#150">150 </a><span class="php-comment">     * Remove the specified resource from storage.
 </span></span><span id="151" class="l"><a href="#151">151 </a><span class="php-comment">     *
-</span></span><span id="152" class="l"><a href="#152">152 </a><span class="php-comment">     * @param  int  $id
+</span></span><span id="152" class="l"><a href="#152">152 </a><span class="php-comment">     * @param  int  $id ID of the screen to destroy
 </span></span><span id="153" class="l"><a href="#153">153 </a><span class="php-comment">     * @return \Illuminate\Http\Response
 </span></span><span id="154" class="l"><a href="#154">154 </a><span class="php-comment">     */</span>
 </span><span id="155" class="l"><a href="#155">155 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> destroy(<span class="php-var">$id</span>)
@@ -336,7 +336,7 @@
 </span><span id="158" class="l"><a href="#158">158 </a>    }
 </span><span id="159" class="l"><a href="#159">159 </a>
 </span><span id="160" class="l"><a href="#160">160 </a>    <span class="php-comment">/**
-</span></span><span id="161" class="l"><a href="#161">161 </a><span class="php-comment">      * Processes input from the screen. Includes basic CRUD and filtering options
+</span></span><span id="161" class="l"><a href="#161">161 </a><span class="php-comment">      * Processes input from the screen. Includes basic filtering options
 </span></span><span id="162" class="l"><a href="#162">162 </a><span class="php-comment">      * @param \Illuminate\Http\Request $request
 </span></span><span id="163" class="l"><a href="#163">163 </a><span class="php-comment">      * @return \Illuminate\Http\Response
 </span></span><span id="164" class="l"><a href="#164">164 </a><span class="php-comment">      */</span>
@@ -428,8 +428,31 @@
 </span><span id="250" class="l"><a href="#250">250 </a>
 </span><span id="251" class="l"><a href="#251">251 </a>      <span class="php-keyword1">return</span> <span class="php-var">$screens</span>;
 </span><span id="252" class="l"><a href="#252">252 </a>    }
-</span><span id="253" class="l"><a href="#253">253 </a>}
-</span><span id="254" class="l"><a href="#254">254 </a></span></code></pre>
+</span><span id="253" class="l"><a href="#253">253 </a>
+</span><span id="254" class="l"><a href="#254">254 </a>    <span class="php-comment">/**
+</span></span><span id="255" class="l"><a href="#255">255 </a><span class="php-comment">      * Soft deletes a specified resource
+</span></span><span id="256" class="l"><a href="#256">256 </a><span class="php-comment">      * @param int  $id ID of the screen to soft delete
+</span></span><span id="257" class="l"><a href="#257">257 </a><span class="php-comment">      * @return \Illuminate\Http\Response
+</span></span><span id="258" class="l"><a href="#258">258 </a><span class="php-comment">      */</span>
+</span><span id="259" class="l"><a href="#259">259 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> toggleDeleted(<span class="php-var">$id</span>) {
+</span><span id="260" class="l"><a href="#260">260 </a>
+</span><span id="261" class="l"><a href="#261">261 </a>      <span class="php-var">$screen</span> = Screen::find(<span class="php-var">$id</span>);
+</span><span id="262" class="l"><a href="#262">262 </a>
+</span><span id="263" class="l"><a href="#263">263 </a>      <span class="php-keyword1">if</span> (<span class="php-var">$screen</span> == <span class="php-keyword1">null</span>)
+</span><span id="264" class="l"><a href="#264">264 </a>        abort(<span class="php-num">404</span>, <span class="php-quote">'Not found.'</span>);
+</span><span id="265" class="l"><a href="#265">265 </a>
+</span><span id="266" class="l"><a href="#266">266 </a>      <span class="php-keyword1">if</span> (<span class="php-var">$screen</span>-&gt;deleted == <span class="php-num">0</span>) {
+</span><span id="267" class="l"><a href="#267">267 </a>        <span class="php-var">$screen</span>-&gt;deleted = <span class="php-num">1</span>;
+</span><span id="268" class="l"><a href="#268">268 </a>      } <span class="php-keyword1">else</span> {
+</span><span id="269" class="l"><a href="#269">269 </a>        <span class="php-var">$screen</span>-&gt;deleted = <span class="php-num">0</span>;
+</span><span id="270" class="l"><a href="#270">270 </a>      }
+</span><span id="271" class="l"><a href="#271">271 </a>
+</span><span id="272" class="l"><a href="#272">272 </a>      <span class="php-var">$screen</span>-&gt;save();
+</span><span id="273" class="l"><a href="#273">273 </a>
+</span><span id="274" class="l"><a href="#274">274 </a>      <span class="php-keyword1">return</span> redirect()-&gt;route(<span class="php-quote">'dashboard.settings.screens.index'</span>);
+</span><span id="275" class="l"><a href="#275">275 </a>    }
+</span><span id="276" class="l"><a href="#276">276 </a>}
+</span><span id="277" class="l"><a href="#277">277 </a></span></code></pre>
 	</div>
 
 	<div id="footer">

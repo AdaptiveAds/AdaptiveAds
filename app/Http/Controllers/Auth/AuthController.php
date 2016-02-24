@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
+use Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
+use Illuminate\Contracts\Auth\Guard;
 
 class AuthController extends Controller
 {
@@ -23,7 +26,7 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
-    //protected $loginPath = 'auth/login';
+    protected $loginPath = 'login';
     protected $redirectPath = 'dashboard';
     protected $username = 'username';
 
@@ -32,8 +35,9 @@ class AuthController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Guard $auth)
     {
+        $this->auth = $auth;
         $this->middleware('guest', ['except' => 'getLogout']);
     }
 
@@ -45,11 +49,16 @@ class AuthController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+        $validator = Validator::make($data, [
             'username' => 'required|max:255|unique:user',
             //'email' => 'required|email|max:255|unique:user',
             'password' => 'required|confirmed|min:6',
         ]);
+
+
+        return Redirect::to('register')
+          ->withErrors($validator) // send back all errors to the login form
+          ->withInput(Input::except('password'));
     }
 
     /**
@@ -67,7 +76,10 @@ class AuthController extends Controller
         ]);
     }
 
-
+    /**
+      * Gets and shows the login view
+      * @return \Illuminate\Http\Response
+      */
     public function getLogin()
     {
       $data = array(
@@ -77,6 +89,51 @@ class AuthController extends Controller
       return view('pages/login');
     }
 
+    /**
+     * Handle a login request to the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function postLogin(Request $request)
+    {
+        // get our login input
+        $login = $request->input('login');
+
+        // check login field
+        $login_type = filter_var( $login, FILTER_VALIDATE_EMAIL ) ? 'email' : 'username';
+        // merge our login field into the request with either email or username as key
+        $request->merge([ $login_type => $login ]);
+        // let's validate and set our credentials
+        if ( $login_type == 'email' ) {
+            $this->validate($request, [
+                'email'    => 'required|email',
+                'password' => 'required',
+            ]);
+            $credentials = $request->only( 'email', 'password' );
+        } else {
+            $this->validate($request, [
+                'username' => 'required',
+                'password' => 'required',
+            ]);
+            $credentials = $request->only( 'username', 'password' );
+        }
+        if ($this->auth->attempt($credentials, $request->has('remember')))
+        {
+            return redirect()->intended($this->redirectPath());
+        }
+
+        return redirect($this->loginPath())
+            ->withInput($request->only('login', 'remember'))
+            ->withErrors([
+                'login' => $this->getFailedLoginMessage(),
+            ]);
+    }
+
+    /**
+      * Gets and shows the register view
+      * @return \Illuminate\Http\Response
+      */
     public function getRegister()
     {
       $data = array(

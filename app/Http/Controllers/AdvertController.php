@@ -89,7 +89,7 @@ class AdvertController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the advert to show
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, $id)
@@ -109,7 +109,7 @@ class AdvertController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the advert to edit
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -139,7 +139,7 @@ class AdvertController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int $id  ID of the advert to update
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -165,7 +165,7 @@ class AdvertController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $id ID of the advert to destroy
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -185,7 +185,7 @@ class AdvertController extends Controller
 
     /**
       * Displays a list of adverts the user can add to the playlist
-      * @param int $playlistID ID of the selected playlist
+      * @param int $playlistID  ID of the selected playlist
       * @return \Illuminate\Http\Response
       */
     public function selectForPlaylist($playlistID)
@@ -221,6 +221,12 @@ class AdvertController extends Controller
       return view('pages/adverts', $data);
     }
 
+    /**
+      * Enters remove mode and returns all adverts associated with the
+      * selected playlist to allow the user to select adverts to remove.
+      * @param int $playlistID  ID of the playlist to affect in remove mode
+      * @return \Illuminate\Http\Response
+      */
     public function removeMode($playlistID)
     {
       $allowed_departments = Session::get('allowed_departments');
@@ -245,7 +251,7 @@ class AdvertController extends Controller
       * Updates an advert with a new index and also updates the effected
       * avdert whom has been 'jumped' over.
       * @param \Illuminate\Http\Request $request
-      * @param int $advertID
+      * @param int $advertID  ID of the advert to update its index
       * @return \Illuminate\Http\Response
       */
     public function updateIndexes(Request $request, $advertID)
@@ -275,32 +281,22 @@ class AdvertController extends Controller
     }
 
     /**
-      * Processes input from the screen. Includes basic CRUD and filtering options
+      * Processes input from the screen. Includes basic filtering options
       * @param \Illuminate\Http\Request $request
       * @return \Illuminate\Http\Response
       */
-    public function process(Request $request) {
+    public function process(Request $request)
+    {
 
       $user = Session::get('user');
       $allowed_departments = Session::get('allowed_departments');
 
-      $btnAddAdvert = $request->input('btnAddAdvert');
       $btnFindAdvert = $request->input('btnFindAdvert');
       $btnFindAll = $request->input('btnFindAll');
       $advertName = $request->input('txtAdvertName');
       $departmentID = $request->input('drpDepartments');
 
-      if (isset($btnAddAdvert)) {
-
-        $advert = new Advert;
-        $advert->name = $advertName;
-        $advert->department_id = $departmentID;
-        $advert->save();
-
-        $advertName = null;
-        $adverts = $this->getAllowedAdverts($user, $allowed_departments);
-
-      } else if (isset($btnFindAdvert)) {
+      if (isset($btnFindAdvert)) {
 
         $adverts = $this->getAllowedAdverts($user, $allowed_departments);
         $adverts = $adverts->filter(function($item) use ($advertName) {
@@ -336,7 +332,8 @@ class AdvertController extends Controller
       * @param array $allowed_departments
       * @return EloquentCollection
       */
-    public function getAllowedAdverts($user, $allowed_departments) {
+    public function getAllowedAdverts($user, $allowed_departments)
+    {
       // Check if super or admin
       if ($user->is_super_user) {
         return Advert::all(); // Return all adverts
@@ -356,5 +353,28 @@ class AdvertController extends Controller
 
       // Only return unqiue users
       return $adverts->unique('id');
+    }
+
+    /**
+      * Soft deletes a specified resource
+      * @param int $id ID of the advert to soft delete
+      * @return \Illuminate\Http\Response
+      */
+    public function toggleDeleted($id)
+    {
+      $advert = Advert::find($id);
+
+      if ($advert == null)
+        abort(404, 'Not found.');
+
+      if ($advert->deleted == 0) {
+        $advert->deleted = 1;
+      } else {
+        $advert->deleted = 0;
+      }
+
+      $advert->save();
+
+      return redirect()->route('dashboard.advert.index');
     }
 }

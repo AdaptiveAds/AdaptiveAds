@@ -14,13 +14,12 @@
 
 <div class="global">
 	<div class="row">
-			<!-- TODO ADD FORM -->
-			<h3>Playlist Editor</h3>
+			<h3>Playlist Editor - {{ $playlist->name or '' }}</h3>
 			<ul>
 				<li>
  					@if (isset($playlist))
 						{!! Form::open(['route' => 'dashboard.playlist.process', 'method' => 'POST']) !!}
-								<input type="name" name="txtPlaylistName" placeholder="Playlist name...."
+								<input type="name" name="txtAdvertName" placeholder="Advert name...."
 											 value="{{ $searchItem or '' }}"/>
 								<button id="btnUp" type="button" disabled>Up</button>
 			 					<button id="btnDown" type="button" disabled>Down</button>
