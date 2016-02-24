@@ -31,8 +31,6 @@ class TemplateController extends Controller
      */
     public function index()
     {
-      $match_departments = Session::get('match_departments');
-      $allowed_departments = Session::get('allowed_departments');
       $user = Session::get('user');
 
       // Get templates that the user has access to
@@ -43,8 +41,7 @@ class TemplateController extends Controller
 
       $data = array(
         'templates' => $templates,
-        'user' => $user,
-        'allowed_departments' => $allowed_departments
+        'user' => $user
       );
 
       return view('pages/templatesEditor', $data);
@@ -185,7 +182,6 @@ class TemplateController extends Controller
       */
     public function process(Request $request)
     {
-
       $user = Session::get('user');
 
       $btnFindTemplate = $request->input('btnFindTemplate');
@@ -194,19 +190,47 @@ class TemplateController extends Controller
       $templateClass = $request->input('txtTemplateClass');
       $templateDuration = $request->input('numTemplateDuration');
 
-        // Check which action to perform
+      $templates = Template::all();
+
+      // Check which action to perform
       if (isset($btnFindTemplate)) {
 
+        // First filter by name
+        $filtered = $templates->filter(function($item) use ($templateName) {
+          if ($item->name == $templateName) {
+            return true;
+          }
+        });
 
+        // If no results found filter by class name
+        if ($filtered->count() == 0) {
+          $filtered = $templates->filter(function($item) use ($templateClass) {
+            if ($item->class_name == $templateClass) {
+              return true;
+            }
+          });
+
+          // Again if no result found filter by duration
+          if ($filtered->count() == 0) {
+            $filtered = $templates->filter(function($item) use ($templateDuration) {
+              if ($item->duration == $templateDuration) {
+                return true;
+              }
+            });
+          }
+        }
+
+        $templates = $filtered;
 
       } else if (isset($btnFindAll)) {
 
-
+        $templateName = null;
+        $templateClass = null;
+        $templateDuration = null;
 
       } else {
         abort(401, 'Un-authorised');
       }
-
 
       $data = array(
         'user' => $user,

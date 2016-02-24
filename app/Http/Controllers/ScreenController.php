@@ -179,13 +179,25 @@ class ScreenController extends Controller
       if (isset($btnFindScreen)) {
 
         $screens = $this->getAllowedScreens($user, $allowed_departments);
-        $screens = $screens->filter(function($item) use ($screenID, $locationID) {
-          if ($item->id == $screenID && $item->location_id == $locationID) {
+        $filtered = $screens->filter(function($item) use ($screenID) {
+          if ($item->id == $screenID) {
             return true;
           }
 
           return false;
         });
+
+        if ($filtered->count() == 0) {
+          $filtered = $screens->filter(function($item) use ($locationID) {
+            if ($item->location_id == $locationID) {
+              return true;
+            }
+
+            return false;
+          });
+        }
+
+        $screens = $filtered;
 
       } else if (isset($btnFindAll)) {
 
@@ -196,6 +208,8 @@ class ScreenController extends Controller
         abort(401);
       }
 
+      $playlists = Playlist::whereIn('department_id', $match_departments)->get();
+
       // Pass back so we can re-populate the locations list
       $locations = Location::whereIn('department_id', $match_departments)->get();
 
@@ -203,6 +217,7 @@ class ScreenController extends Controller
         'screens' => $screens,
         'screenID' => $screenID,
         'locations' => $locations,
+        'playlists' => $playlists,
         'user' => $user
       );
 
