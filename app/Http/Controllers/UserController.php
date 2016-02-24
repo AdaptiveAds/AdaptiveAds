@@ -126,11 +126,11 @@ class UserController extends Controller
     }
 
     /**
-      * Processes input from the screen. Includes basic filtering options
+      * Filter users by criteria
       * @param \Illuminate\Http\Request $request
       * @return \Illuminate\Http\Response
       */
-    public function process(Request $request)
+    public function filter(Request $request)
     {
       $allowed_departments = Session::get('allowed_departments');
       $user = Session::get('user');
@@ -142,23 +142,36 @@ class UserController extends Controller
       $departmentID = $request->input('drpDepartments');
       $users = null;
 
+      $users = $this->GetAllowedUsers($user, $allowed_departments);
+
       // Check which action to perform
       if (isset($btnFindUser)) {
 
-        // Filter all available users for
-        $users = $this->GetAllowedUsers($user, $allowed_departments);
-        $users = $users->filter(function($item) use ($username) {
-          if ($item->username == $username) { // TODO CHANGE TO LIKE
-            return true;
-          }
+        $filtered = collect([]);
 
-          return false;
-        });
+        // Filter all available users for
+        if ($username != false) {
+          $filtered = $users->filter(function($item) use ($username) {
+            if (strpos($item->username, $username) !== false) { // Get rough match
+              return true;
+            }
+          });
+        }
+
+        // Filter by department id
+        if ($filtered->count() == 0) {
+          $filtered = $users->filter(function($item) use ($departmentID) {
+            if ($item->department_id == $departmentID) {
+              return true;
+            }
+          });
+        }
+
+        $users = $filtered;
 
       } else if (isset($btnFindAll)) {
 
         $username = null;
-        $users = $this->GetAllowedUsers($user, $allowed_departments);
 
       } else {
         abort(401, 'Un-authorised');

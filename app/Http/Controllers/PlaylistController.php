@@ -274,11 +274,11 @@ class PlaylistController extends Controller
     }
 
     /**
-      * Processes input from the screen. Includes basic filtering options
+      * Filters playlists by criteria
       * @param \Illuminate\Http\Request $request
       * @return \Illuminate\Http\Response
       */
-    public function process(Request $request) {
+    public function filter(Request $request) {
 
       $user = Session::get('user');
       $allowed_departments = Session::get('allowed_departments');
@@ -288,15 +288,36 @@ class PlaylistController extends Controller
       $playlistName = $request->input('txtPlaylistName');
       $departmentID = $request->input('drpDepartments');
 
-        // Check which action to perform
+      $playlists = $this->getAllowedPlaylists($user, $allowed_departments);
+
+      // Check which action to perform
       if (isset($btnFindPlaylist)) {
 
+        $filtered = collect([]);
 
+        // Search by name
+        if ($playlistName != null) {
+          $filtered = $playlists->filter(function($item) use ($playlistName) {
+            if (strpos($item->name, $playlistName) !== false) { // check for rough match
+              return true;
+            }
+          });
+        }
+
+        // Search by department
+        if ($filtered->count() == 0) {
+          $filtered = $playlists->filter(function($item) use ($departmentID) {
+            if ($item->department_id == $departmentID) {
+              return true;
+            }
+          });
+        }
+
+        $playlists = $filtered;
 
       } else if (isset($btnFindAll)) {
 
         $playlistName = null;
-        $playlists = $this->getAllowedPlaylists($user, $allowed_departments);
 
       } else {
         abort(401, 'Un-authorised');

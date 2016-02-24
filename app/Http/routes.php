@@ -37,7 +37,7 @@ Route::post('dashboard/playlist/{playlistID}/add', ['as' => 'dashboard.playlist.
 Route::post('dashboard/playlist/{playlistID}/remove', ['as' => 'dashboard.playlist.remove', 'uses' => 'PlaylistController@removeAdvert']);
 Route::post('dashboard/playlist/{playlistID}/updateIndexes', ['as' => 'dashboard.playlist.updateIndexes', 'uses' => 'PlaylistController@updateIndexes']);
 Route::resource('dashboard/playlist', 'PlaylistController', ['except' => ['create']]);
-Route::post('dashboard/playlist/process', ['as' => 'dashboard.playlist.process', 'uses' => 'PlaylistController@process']);
+Route::post('dashboard/playlist/filter', ['as' => 'dashboard.playlist.filter', 'uses' => 'PlaylistController@filter']);
 Route::post('dashboard/settings/playlist/{playlistID}/toggleDeleted', ['as' => 'dashboard.playlist.toggleDeleted', 'uses' => 'PlaylistController@toggleDeleted']);
 
 // Advert pages
@@ -45,43 +45,40 @@ Route::post('dashboard/advert/{playlistID}/removeMode', ['as' => 'dashboard.adve
 Route::post('dashboard/advert/{playlistID}/select', ['as' => 'dashboard.advert.select', 'uses' => 'AdvertController@selectForPlaylist']);
 Route::post('dashboard/advert/{advertID}/updateIndexes', ['as' => 'dashboard.advert.updateIndexes', 'uses' => 'AdvertController@updateIndexes']);
 Route::resource('dashboard/advert', 'AdvertController');
-Route::post('dashboard/advert/process', ['as' => 'dashboard.advert.process', 'uses' => 'AdvertController@process']);
+Route::post('dashboard/advert/filter', ['as' => 'dashboard.advert.filter', 'uses' => 'AdvertController@filter']);
 Route::post('dashboard/advert/{advert}/toggleDeleted', ['as' => 'dashboard.advert.toggleDeleted', 'uses' => 'AdvertController@toggleDeleted']);
 
 // Page pages
 Route::resource('dashboard/advert/{adID}/page', 'PageController', ['except' => ['index', 'edit']]);
 
-// Settings
-Route::get('dashboard/settings', ['middleware' => 'auth', 'uses' => 'PlaylistController@index']);
-
 // Users routes
 Route::resource('dashboard/settings/users', 'UserController');
-Route::post('dashboard/settings/users', ['as' => 'dashboard.settings.users.process', 'uses' => 'UserController@process']);
+Route::post('dashboard/settings/users/filter', ['as' => 'dashboard.settings.users.filter', 'uses' => 'UserController@filter']);
 Route::post('dashboard/settings/users/{users}/toggleDeleted', ['as' => 'dashboard.settings.users.toggleDeleted', 'uses' => 'UserController@toggleDeleted']);
 
 // Locations routes
 Route::resource('dashboard/settings/locations', 'LocationController');
-Route::post('dashboard/settings/locations/process', ['as' => 'dashboard.settings.locations.process', 'uses' => 'LocationController@process']);
+Route::post('dashboard/settings/locations/filter', ['as' => 'dashboard.settings.locations.filter', 'uses' => 'LocationController@filter']);
 Route::post('dashboard/settings/locations/{locations}/toggleDeleted', ['as' => 'dashboard.settings.locations.toggleDeleted', 'uses' => 'LocationController@toggleDeleted']);
 
 // Department routes
 Route::resource('dashboard/settings/departments', 'DepartmentController');
-Route::post('dashboard/settings/departments/process', ['as' => 'dashboard.settings.departments.process', 'uses' => 'DepartmentController@process']);
+Route::post('dashboard/settings/departments/filter', ['as' => 'dashboard.settings.departments.filter', 'uses' => 'DepartmentController@filter']);
 Route::post('dashboard/settings/departments/{departments}/toggleDeleted', ['as' => 'dashboard.settings.departments.toggleDeleted', 'uses' => 'DepartmentController@toggleDeleted']);
 
 // Screens routes
 Route::resource('dashboard/settings/screens', 'ScreenController');
-Route::post('dashboard/settings/screens/process', ['as' => 'dashboard.settings.screens.process', 'uses' => 'ScreenController@process']);
+Route::post('dashboard/settings/screens/filter', ['as' => 'dashboard.settings.screens.filter', 'uses' => 'ScreenController@filter']);
 Route::post('dashboard/settings/screens/{screens}/toggleDeleted', ['as' => 'dashboard.settings.screens.toggleDeleted', 'uses' => 'ScreenController@toggleDeleted']);
 
 // Templates routes
 Route::resource('dashboard/settings/templates', 'TemplateController');
-Route::post('dashboard/settings/templates/process', ['as' => 'dashboard.settings.templates.process', 'uses' => 'TemplateController@process']);
+Route::post('dashboard/settings/templates/filter', ['as' => 'dashboard.settings.templates.filter', 'uses' => 'TemplateController@filter']);
 Route::post('dashboard/settings/templates/{templates}/toggleDeleted', ['as' => 'dashboard.settings.templates.toggleDeleted', 'uses' => 'TemplateController@toggleDeleted']);
 
-// Templates routes
+// Skins routes
 Route::resource('dashboard/settings/skins', 'SkinController');
-Route::post('dashboard/settings/skins/process', ['as' => 'dashboard.settings.skins.process', 'uses' => 'SkinController@process']);
+Route::post('dashboard/settings/skins/filter', ['as' => 'dashboard.settings.skins.filter', 'uses' => 'SkinController@filter']);
 Route::post('dashboard/settings/skins/{skins}/toggleDeleted', ['as' => 'dashboard.settings.skins.toggleDeleted', 'uses' => 'SkinController@toggleDeleted']);
 
 

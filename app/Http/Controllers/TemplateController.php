@@ -176,11 +176,11 @@ class TemplateController extends Controller
     }
 
     /**
-      * Processes input from the screen. Includes basic filtering options
+      * Filter templates by criteria
       * @param \Illuminate\Http\Request $request
       * @return \Illuminate\Http\Response
       */
-    public function process(Request $request)
+    public function filter(Request $request)
     {
       $user = Session::get('user');
 
@@ -195,29 +195,35 @@ class TemplateController extends Controller
       // Check which action to perform
       if (isset($btnFindTemplate)) {
 
-        // First filter by name
-        $filtered = $templates->filter(function($item) use ($templateName) {
-          if ($item->name == $templateName) {
-            return true;
-          }
-        });
+        $filtered = collect([]);
 
-        // If no results found filter by class name
-        if ($filtered->count() == 0) {
-          $filtered = $templates->filter(function($item) use ($templateClass) {
-            if ($item->class_name == $templateClass) {
+        // First filter by name
+        if ($templateName != null) {
+          $filtered = $templates->filter(function($item) use ($templateName) {
+            if (strpos($item->name, $templateName) !== false) { // Get rough match
               return true;
             }
           });
+        }
 
-          // Again if no result found filter by duration
+        // If no results found filter by class name
+        if ($templateClass != null) {
           if ($filtered->count() == 0) {
-            $filtered = $templates->filter(function($item) use ($templateDuration) {
-              if ($item->duration == $templateDuration) {
+            $filtered = $templates->filter(function($item) use ($templateClass) {
+              if (strpos($item->class_name, $templateClass) !== false) { // Get rough match
                 return true;
               }
             });
           }
+        }
+
+        // Again if no result found filter by duration
+        if ($filtered->count() == 0) {
+          $filtered = $templates->filter(function($item) use ($templateDuration) {
+            if ($item->duration == $templateDuration) {
+              return true;
+            }
+          });
         }
 
         $templates = $filtered;

@@ -133,11 +133,11 @@ class SkinController extends Controller
     }
 
     /**
-      * Processes input from the skins page. Includes basic filtering options
+      * Filter skins by criteria
       * @param \Illuminate\Http\Request $request
       * @return \Illuminate\Http\Response
       */
-    public function process(Request $request)
+    public function filter(Request $request)
     {
       $user = Session::get('user');
 
@@ -151,20 +151,26 @@ class SkinController extends Controller
       // Check which action to perform
       if (isset($btnFindSkin)) {
 
-        // First filter by name
-        $filtered = $skins->filter(function($item) use ($skinName) {
-          if ($item->name == $skinName) {
-            return true;
-          }
-        });
+        $filtered = collect([]);
 
-        // If no results found filter by class name
-        if ($filtered->count() == 0) {
-          $filtered = $skins->filter(function($item) use ($skinClass) {
-            if ($item->class_name == $skinClass) {
+        // First filter by name
+        if ($skinName != null) {
+          $filtered = $skins->filter(function($item) use ($skinName) {
+            if (strpos($item->name, $skinName) !== false) { // Get rough match
               return true;
             }
           });
+        }
+
+        // If no results found filter by class name
+        if ($skinClass != null) {
+          if ($filtered->count() == 0) {
+            $filtered = $skins->filter(function($item) use ($skinClass) {
+              if (strpos($item->class_name, $skinClass) !== false) { // Get rough match
+                return true;
+              }
+            });
+          }
         }
 
         $skins = $filtered;

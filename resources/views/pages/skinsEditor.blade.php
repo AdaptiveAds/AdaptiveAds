@@ -15,7 +15,7 @@
 
 <div class="global">
 	<div class="row">
-			{!! Form::open(['route' => 'dashboard.settings.skins.process', 'method' => 'POST']) !!}
+			{!! Form::open(['route' => 'dashboard.settings.skins.filter', 'method' => 'POST']) !!}
 				<h3>Skins Editor</h3>
 				<ul name="lstSkinControls">
 					<li>

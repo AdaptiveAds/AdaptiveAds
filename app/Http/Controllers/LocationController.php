@@ -154,18 +154,13 @@ class LocationController extends Controller
     }
 
     /**
-      * Processes input from the screen. Includes basic CRUD and filtering options
+      * Filter locations by criteria
       * @param \Illuminate\Http\Request $request
       * @return \Illuminate\Http\Response
       */
-    public function process(Request $request)
+    public function filter(Request $request)
     {
       $locations = null;
-
-      // Validate input
-      $this->validate($request, [
-          'txtLocationName' => 'required|max:255',
-      ]);
 
       // Get all input vars
       $btnFindLocation = $request->input('btnFindLocation');
@@ -173,35 +168,44 @@ class LocationController extends Controller
       $locationName = $request->input('txtLocationName');
       $departmentID = $request->input('drpDepartments');
 
+      $match_departments = Session::get('match_departments');
+      $locations = Location::whereIn('department_id', $match_departments)->get();
+
       // Check which action to perform
       if (isset($btnFindLocation)) {
 
-        // Get all locations that are LIKE the provided name
-        $locations = Location::where('name', 'LIKE', '%' . $locationName . '%')
-                             ->get();
+        $filtered = collect([]);
+
+        // Filter by name
+        if ($locationName != null) {
+          $filtered = $locations->filter(function($item) use ($locationName) {
+            if (strpos($item->name, $locationName) !== false) { // Get rough match
+              return true;
+            }
+          });
+        }
+
+        // Filter by department id
+        if ($filtered->count() == 0) {
+          $filtered = $locations->filter(function($item) use ($departmentID) {
+            if ($item->department_id == $departmentID) {
+              return true;
+            }
+          });
+        }
+
+        $locations = $filtered;
 
       } else if (isset($btnFindAll)) {
 
-        // Get all locations and surpress any search input
         $locationName = null;
-        //$locations = Location::all();
 
       } else {
         abort(401);
       }
 
-      //dd($locations);
       $user = Session::get('user');
       $allowed_departments = Session::get('allowed_departments');
-      $match_departments = Session::get('match_departments');
-
-      if ($locations == null) {
-        if ($user->is_super_user) {
-          $locations = Location::all();
-        } else {
-          $locations = Location::whereIn('department_id', $match_departments)->get();
-        }
-      }
 
       $data = array(
         'locations' => $locations,

@@ -4,10 +4,10 @@
 
 @include('objects/modal_create', array('object' => 'Advert',
 																			 'allowed_departments' => $allowed_departments,
-																			 'route' => 'dashboard.advert.process'))
+																			 'route' => 'dashboard.advert.filter'))
 @include('objects/modal_create', array('object' => 'Playlist',
 																			 'allowed_departments' => $allowed_departments,
-																			 'route' => 'dashboard.playlist.process'))
+																			 'route' => 'dashboard.playlist.filter'))
 
 <div class="dashboard">
 	<div class="row">
