@@ -3,8 +3,7 @@
 @section('content')
 
 @include('objects/modal_templates', array('object' => 'Templates',
-																			'heading' => 'Create New Template',
-																			'allowed_departments' => $allowed_departments))
+																			'heading' => 'Create New Template'))
 
 <script>
 	$('document').ready(function() {
