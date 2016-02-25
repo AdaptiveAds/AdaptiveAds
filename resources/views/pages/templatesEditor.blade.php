@@ -39,7 +39,7 @@
 	</div>
 
 	<div class="row">
-		@include('objects/listTemplates')
+		@include('objects/listTemplates', array('editMode' => true))
 	</div>
 </div>
 @endsection

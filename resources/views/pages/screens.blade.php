@@ -42,7 +42,7 @@
 	</div>
 
 	<div class="row">
-			@include('objects/listScreens')
+			@include('objects/listScreens', array('editMode' => true))
 	</div>
 </div>
 @endsection

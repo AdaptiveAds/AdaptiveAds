@@ -26,7 +26,7 @@
 	</div>
 
 	<div class="row">
-		@include('objects/listPages', array('selectable' => true))
+		@include('objects/listPages', array('selectable' => true, 'editMode' => true))
 	</div>
 </div>
 

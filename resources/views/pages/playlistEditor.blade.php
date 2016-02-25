@@ -37,7 +37,7 @@
 	</div>
 
 	<div class="row">
-		@include('objects/listAdverts', array('selectable' => true))
+		@include('objects/listAdverts', array('selectable' => true, 'editMode' => true))
 	</div>
 </div>
 @endsection

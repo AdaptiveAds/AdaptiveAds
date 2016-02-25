@@ -38,7 +38,7 @@
 	</div>
 
 	<div class="row">
-		@include('objects/listSkins')
+		@include('objects/listSkins', array('editMode' => true))
 	</div>
 </div>
 @endsection

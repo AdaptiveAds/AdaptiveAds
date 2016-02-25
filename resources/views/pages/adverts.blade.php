@@ -67,7 +67,7 @@
 		@if (isset($selectedPlaylist))
 			@include('objects/listAdverts', array('selectable' => true))
 		@else
-			@include('objects/listAdverts', array('selectable' => false))
+			@include('objects/listAdverts', array('selectable' => false, 'editMode' => true))
 		@endif
 	</div>
 </div>

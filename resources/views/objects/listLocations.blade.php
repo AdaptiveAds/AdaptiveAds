@@ -7,23 +7,27 @@
             {{ $location->name or 'Location name' }}
           </a>
 
-          <a href="#LocationsModal" data-displayEditModal="true"
-                                    data-modalObject="Locations"
-                                    data-modalMethod="PUT"
-                                    data-modalRoute="{{ URL::route('dashboard.settings.locations.update', $location->id) }}"
-                                    data-userID="{{ $location->id }}">
-            <button type="button" name="btnEdit">Edit</button>
-          </a>
+          {{-- Only show edit options if in mode --}}
+          @if (isset($editMode))
+
+            <a href="#LocationsModal" data-displayEditModal="true"
+                                      data-modalObject="Locations"
+                                      data-modalMethod="PUT"
+                                      data-modalRoute="{{ URL::route('dashboard.settings.locations.update', $location->id) }}"
+                                      data-userID="{{ $location->id }}">
+              <button type="button" name="btnEdit">Edit</button>
+            </a>
 
 
-          {{-- Show correct button to disable ot enable --}}
-          {!! Form::open(['route' => ['dashboard.settings.locations.toggleDeleted', $location->id], 'method' => 'POST']) !!}
-            @if ($location->deleted == 0)
-              <button type="submit" name="btnDisable">Disable</button>
-            @else
-              <button type="submit" name="btnEnable">Enable</button>
-            @endif
-          {!! Form::close() !!}
+            {{-- Show correct button to disable ot enable --}}
+            {!! Form::open(['route' => ['dashboard.settings.locations.toggleDeleted', $location->id], 'method' => 'POST']) !!}
+              @if ($location->deleted == 0)
+                <button type="submit" name="btnDisable">Disable</button>
+              @else
+                <button type="submit" name="btnEnable">Enable</button>
+              @endif
+            {!! Form::close() !!}
+          @endif
         </li>
       @endforeach
     @else
