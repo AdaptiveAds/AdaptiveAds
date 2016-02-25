@@ -106,9 +106,9 @@ https://developers.google.com/recaptcha/docs/display -->
 
 						<!-- Only show if user is logged in -->
 						@if (Auth::guest() == false)
-							<li><a href="{{ URL::to('logout') }}">Sign Out</a></li>
+							<li><a name="lnkSignOut" href="{{ URL::to('logout') }}">Sign Out</a></li>
 						@else
-							<li><a href="{{ URL::to('login')}}">Sign In</a></li>
+							<li><a name="lnkSignIn" href="{{ URL::to('login')}}">Sign In</a></li>
 						@endif
 					</ul>
 				</nav>
