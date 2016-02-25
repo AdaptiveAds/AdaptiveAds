@@ -10,7 +10,6 @@
       <h3>Error</h3>
       <p name="errorMsg"></p>
     </div>
-    @yield('modal_errors')
     @yield('modal_content')
   </div>
 </div>

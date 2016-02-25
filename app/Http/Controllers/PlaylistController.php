@@ -194,6 +194,7 @@ class PlaylistController extends Controller
       */
     public function addExistingAdvert(Request $request)
     {
+
       if ($request->ajax() == false)
         abort(401, 'Unauthorized');
 
@@ -208,7 +209,7 @@ class PlaylistController extends Controller
 
         // NOTE global is restricted to a MAX of 3 adverts
         if ($count >= 3)
-          abort(100, 'Max number of adverts already assigned');
+          return array('failed' => true, 'message' => 'Global playlist has reached the maxiumum assigned');
       }
 
       $currentIndex = DB::table('advert_playlist')->where('playlist_id', $playlistID)->max('advert_index');

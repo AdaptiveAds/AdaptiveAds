@@ -160,10 +160,15 @@ var AdvertAssign = (function() {
       url : AdvertAssign.action,
       data : {'playlistID': AdvertAssign.playlist, 'arrAdverts': adverts},
       success : function(data){
-        redirect();
+        if (data.failed === undefined) {
+          redirect(); // Redirect to playlist page (or defined)
+        } else {
+          alert(data.message);
+          redirect();
+        }
       },
       error : function(xhr, textStatus, errorThrown) {
-        console.log(textStatus + " ------ " + errorThrown);
+        // Do nothing
       }
     },"JSON");
   }
