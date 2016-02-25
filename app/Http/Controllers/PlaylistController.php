@@ -203,18 +203,19 @@ class PlaylistController extends Controller
 
       $playlist = Playlist::find($playlistID);
 
-      // Apply global restrictions
-      if ($playlist->isGlobal == true) {
-        $count = $playlist->CountAssigned();
-
-        // NOTE global is restricted to a MAX of 3 adverts
-        if ($count >= 3)
-          return array('failed' => true, 'message' => 'Global playlist has reached the maxiumum assigned');
-      }
-
       $currentIndex = DB::table('advert_playlist')->where('playlist_id', $playlistID)->max('advert_index');
 
       foreach ($adverts as $advertID) {
+
+        // Apply global restrictions
+        if ($playlist->isGlobal == true) {
+          $count = $playlist->CountAssigned();
+
+          // NOTE global is restricted to a MAX of 3 adverts
+          if ($count >= 3)
+            return array('failed' => true, 'message' => 'Global playlist has reached the maxiumum assigned');
+        }
+
         // TODO advert inde and display timing (GUI??)
         $playlist->Adverts()->attach($advertID, ['advert_index' => ++$currentIndex, 'display_schedule_id' => '1']);
       }

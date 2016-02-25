@@ -43,9 +43,8 @@
 								 value="{{ $searchItem or '' }}"/>
 					<label name="lblDepartment">Department:</label>
  					@include('objects/dropdown_departments', array('allowed_departments' => $allowed_departments))
-					@if (isset($deleteMode))
-						<button name="btnRemoveAdvert" type="button">Remove</button>
-					@elseif (isset($selectedPlaylist))
+
+					@if (isset($selectedPlaylist))
 						<button name="btnAddAdvert" type="button">Add</button>
 					@else
 						<a href="#AdvertModal" data-displayCreateModal="true"

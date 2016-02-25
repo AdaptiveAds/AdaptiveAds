@@ -218,7 +218,7 @@ class AdvertController extends Controller
         'user' => $user
       );
 
-      return view('pages/adverts', $data);
+      return view('pages/adverts_addMode', $data);
     }
 
     /**
@@ -244,7 +244,7 @@ class AdvertController extends Controller
         'user' => $user
       );
 
-      return view('pages/adverts', $data);
+      return view('pages/adverts_removeMode', $data);
     }
 
     /**
