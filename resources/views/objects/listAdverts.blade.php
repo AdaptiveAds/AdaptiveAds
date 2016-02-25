@@ -12,24 +12,28 @@
           <label for="chkSelectAdvert_">{{ $advert->name }}</label>
         </a>
 
-        <a href="#AdvertModal" data-displayEditModal="true"
-                               data-modalObject="Advert"
-                               data-modalMethod="PUT"
-                               data-modalRoute="{{ URL::route('dashboard.advert.update', $advert->id) }}"
-                               data-userID="{{ $advert->id }}">
-          <button type="button" name="btnEdit">Edit</button>
-        </a>
+        @if (isset($editMode))
 
-        {{-- Show correct button to disable ot enable --}}
-        {!! Form::open(['route' => ['dashboard.advert.toggleDeleted', $advert->id], 'method' => 'POST']) !!}
-        @if ($advert->deleted == 0)
-          <button type="submit" name="btnDisable">Disable</button>
-        @else
-          @if ($user->getAdmin())
-            <button type="submit" name="btnEnable">Enable</button>
+          <a href="#AdvertModal" data-displayEditModal="true"
+                                 data-modalObject="Advert"
+                                 data-modalMethod="PUT"
+                                 data-modalRoute="{{ URL::route('dashboard.advert.update', $advert->id) }}"
+                                 data-userID="{{ $advert->id }}">
+            <button type="button" name="btnEdit">Edit</button>
+          </a>
+
+        
+          {{-- Show correct button to disable ot enable --}}
+          {!! Form::open(['route' => ['dashboard.advert.toggleDeleted', $advert->id], 'method' => 'POST']) !!}
+          @if ($advert->deleted == 0)
+            <button type="submit" name="btnDisable">Disable</button>
+          @else
+            @if ($user->getAdmin())
+              <button type="submit" name="btnEnable">Enable</button>
+            @endif
           @endif
+          {!! Form::close() !!}
         @endif
-        {!! Form::close() !!}
       </li>
     @endforeach
   @else

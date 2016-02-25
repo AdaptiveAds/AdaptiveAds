@@ -9,16 +9,6 @@
           @endif
           <label for="chkSelectPage_{{ $page->id }}">{{ $page->PageData->heading }}</label>
         </a>
-
-        <button type="submit" name="btnEdit">Edit</button>
-        {{-- Show correct button to disable ot enable --}}
-        @if ($page->deleted == 0)
-          <button type="submit" name="btnDisablePage">Disable</button>
-        @else
-          @if ($user->getAdmin())
-            <button type="submit" name="btnEnablePage">Enable</button>
-          @endif
-        @endif
       </li>
     @endforeach
   @else

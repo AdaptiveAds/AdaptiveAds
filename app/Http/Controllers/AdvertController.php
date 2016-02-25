@@ -218,7 +218,10 @@ class AdvertController extends Controller
         'user' => $user
       );
 
-      return view('pages/adverts', $data);
+      // Set flag to indicate flow is valid
+      Session::flash('flow_valid', true);
+
+      return view('pages/adverts_addMode', $data);
     }
 
     /**
@@ -244,7 +247,10 @@ class AdvertController extends Controller
         'user' => $user
       );
 
-      return view('pages/adverts', $data);
+      // Set flag to indicate flow valid
+      Session::flash('flow_valid', true);
+
+      return view('pages/adverts_removeMode', $data);
     }
 
     /**

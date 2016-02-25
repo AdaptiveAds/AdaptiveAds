@@ -160,10 +160,20 @@ var AdvertAssign = (function() {
       url : AdvertAssign.action,
       data : {'playlistID': AdvertAssign.playlist, 'arrAdverts': adverts},
       success : function(data){
-        redirect();
+        if (data.failed === undefined) {
+          redirect(); // Redirect to playlist page (or defined)
+        } else {
+          $('[name="errorMsg"]').html(data.message);
+          $('.errors').removeClass('hidden');
+          window.location.href = '#ErrorModal';
+
+          $('.close').on('modalClosed', function() {
+            redirect();
+          });
+        }
       },
       error : function(xhr, textStatus, errorThrown) {
-        console.log(textStatus + " ------ " + errorThrown);
+        // Do nothing
       }
     },"JSON");
   }
@@ -296,32 +306,7 @@ var ModalManager = (function() {
       var id = selected.attr('data-userID');
       var object = selected.attr('data-modalObject');
 
-      switch(object) {
-        case 'Users':
-          getData(id, users);
-          break;
-        case 'Templates':
-          getData(id, templates);
-          break;
-        case 'Locations':
-          getData(id, locations);
-          break;
-        case 'Departments':
-          getData(id, departments);
-          break;
-        case 'Screens':
-          getData(id, screens);
-          break;
-        case 'Playlist':
-          getData(id, playlist);
-          break;
-        case 'Advert':
-          getData(id, advert);
-          break;
-        case 'Skins':
-          getData(id, skins);
-          break;
-      }
+      getData(id, object.toLowerCase());
 
       //getData($(this).attr('data-userID'), $(this).attr('data-modalObject') + '();');
       $('[name="heading"]').html('Edit ' + object);

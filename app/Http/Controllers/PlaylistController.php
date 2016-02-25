@@ -195,6 +195,12 @@ class PlaylistController extends Controller
     public function addExistingAdvert(Request $request)
     {
 
+      // Flow must be valid to continue
+      // We don't want the user to add adverts after clicking the back button...
+      $valid = Session::get('flow_valid');
+      if ($valid == false)
+        return array('failed' => true, 'message' => 'Flow invalid, please follow page flow');
+
       if ($request->ajax() == false)
         abort(401, 'Unauthorized');
 
@@ -206,6 +212,16 @@ class PlaylistController extends Controller
       $currentIndex = DB::table('advert_playlist')->where('playlist_id', $playlistID)->max('advert_index');
 
       foreach ($adverts as $advertID) {
+
+        // Apply global restrictions
+        if ($playlist->isGlobal == true) {
+          $count = $playlist->CountAssigned();
+
+          // NOTE global is restricted to a MAX of 3 adverts
+          if ($count >= 3)
+            return array('failed' => true, 'message' => 'Global playlist has reached the maxiumum assigned');
+        }
+
         // TODO advert inde and display timing (GUI??)
         $playlist->Adverts()->attach($advertID, ['advert_index' => ++$currentIndex, 'display_schedule_id' => '1']);
       }
@@ -219,6 +235,13 @@ class PlaylistController extends Controller
       */
     public function removeAdvert(Request $request)
     {
+
+      // Flow must be valid to continue
+      // We don't want the user to remove adverts after clicking the back button...
+      $valid = Session::get('flow_valid');
+      if ($valid == false)
+        return array('failed' => true, 'message' => 'Flow invalid, please follow page flow');
+
       if ($request->ajax() == false)
         abort(401, 'Unauthorized');
 
@@ -373,6 +396,10 @@ class PlaylistController extends Controller
 
       if ($playlist == null)
         abort(404, 'Not found.');
+
+      // NOTE Global playlist cannot be deleted
+      if ($playlist->isGlobal == true)
+        abort(401, 'Unauthorized');
 
       if ($playlist->deleted == 0) {
         $playlist->deleted = 1;

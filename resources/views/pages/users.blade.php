@@ -42,7 +42,7 @@
 	</div>
 
 	<div class="row">
-			@include('objects/listUsers')
+			@include('objects/listUsers', array('editMode' => true))
 	</div>
 </div>
 @endsection

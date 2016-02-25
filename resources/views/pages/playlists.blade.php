@@ -42,7 +42,7 @@
 	</div>
 
 	<div class="row">
-		@include('objects/listPlaylists')
+		@include('objects/listPlaylists', array('editMode' => true))
 	</div>
 </div>
 @endsection

@@ -43,7 +43,7 @@
 	</div>
 
 	<div class="row">
-			@include('objects/listLocations')
+		@include('objects/listLocations', array('editMode' => true))
 	</div>
 </div>
 @endsection

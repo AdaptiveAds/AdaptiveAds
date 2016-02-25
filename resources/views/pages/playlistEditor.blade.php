@@ -15,12 +15,12 @@
 <div class="global">
 	<div class="row">
 			<h3>Playlist Editor - {{ $playlist->name or '' }}</h3>
+			<h5>Add or remove adverts and update their indexes</h5>
 			<ul>
 				<li>
  					@if (isset($playlist))
 						<button id="btnUp" type="button" disabled>Up</button>
 	 					<button id="btnDown" type="button" disabled>Down</button>
-						<button type="button" name="btnNewPage" onclick="location.href='';">+ New Page</button>
 
 						{!! Form::open(['route' => ['dashboard.advert.select', $playlist->id], 'method' => 'POST']) !!}
 							<button type="submit" name="btnAddAdvert">Add Advert</button>
