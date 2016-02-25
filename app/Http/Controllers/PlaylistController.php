@@ -195,6 +195,12 @@ class PlaylistController extends Controller
     public function addExistingAdvert(Request $request)
     {
 
+      // Flow must be valid to continue
+      // We don't want the user to add adverts after clicking the back button...
+      $valid = Session::get('flow_valid');
+      if ($valid == false)
+        return array('failed' => true, 'message' => 'Flow invalid, please follow page flow');
+
       if ($request->ajax() == false)
         abort(401, 'Unauthorized');
 
@@ -229,6 +235,13 @@ class PlaylistController extends Controller
       */
     public function removeAdvert(Request $request)
     {
+
+      // Flow must be valid to continue
+      // We don't want the user to remove adverts after clicking the back button...
+      $valid = Session::get('flow_valid');
+      if ($valid == false)
+        return array('failed' => true, 'message' => 'Flow invalid, please follow page flow');
+
       if ($request->ajax() == false)
         abort(401, 'Unauthorized');
 

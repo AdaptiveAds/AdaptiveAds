@@ -2,6 +2,8 @@
 
 @section('content')
 
+@include('objects/modal_error', array('object' => 'Error'))
+
 <script>
 	$('document').ready(function() {
 		AdvertAssign.token = "{{ csrf_token() }}";

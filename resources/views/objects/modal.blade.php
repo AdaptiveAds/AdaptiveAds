@@ -1,4 +1,11 @@
 <div id="{{$object or 'object'}}Modal" class="modalDialog">
+  <script>
+    $('document').ready(function() {
+      $('.close').click(function() {
+        $(this).trigger('modalClosed');
+      });
+    });
+  </script>
   <div>
     <a href="#close" class="close">X</a>
     <div class="loading hidden">

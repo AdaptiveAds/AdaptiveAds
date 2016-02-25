@@ -218,6 +218,9 @@ class AdvertController extends Controller
         'user' => $user
       );
 
+      // Set flag to indicate flow is valid
+      Session::flash('flow_valid', true);
+
       return view('pages/adverts_addMode', $data);
     }
 
@@ -243,6 +246,9 @@ class AdvertController extends Controller
         'deleteMode' => true,
         'user' => $user
       );
+
+      // Set flag to indicate flow valid
+      Session::flash('flow_valid', true);
 
       return view('pages/adverts_removeMode', $data);
     }
