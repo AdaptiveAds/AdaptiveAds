@@ -17,14 +17,12 @@
               <button type="button" name="btnEdit">Edit</button>
             </a>
 
-            {{-- Show correct button to disable ot enable --}}
-            {!! Form::open(['route' => ['dashboard.settings.screens.toggleDeleted', $screen->id], 'method' => 'POST']) !!}
-              @if ($screen->deleted == 0)
-                <button type="submit" name="btnDisable">Disable</button>
-              @else
-                <button type="submit" name="btnEnable">Enable</button>
-              @endif
-            {!! Form::close() !!}
+            @if ($user->is_super_user)
+              {{-- Show correct button to disable ot enable --}}
+              {!! Form::open(['route' => ['dashboard.settings.screens.destroy', $screen->id], 'method' => 'DELETE']) !!}
+                <button type="submit" name="btnDelete">Delete</button>
+              {!! Form::close() !!}
+            @endif
           @endif
         </li>
       @endforeach
