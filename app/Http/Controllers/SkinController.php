@@ -129,7 +129,20 @@ class SkinController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $skin = Skin::find($id);
+
+      if ($skin == null)
+        abort(404, 'Not found.');
+
+      $count = $skin->Departments()->count();
+      if ($count != 0)
+        return redirect()->route('dashboard.settings.skins.index')
+                         ->with('message', 'Unable to delete ' . $skin->name . ', as one or more departments require it.');
+
+      $skin->delete();
+
+      return redirect()->route('dashboard.settings.skins.index')
+                       ->with('message', 'Skin deleted successfully');
     }
 
     /**
@@ -190,28 +203,5 @@ class SkinController extends Controller
       );
 
       return view('pages/skinsEditor', $data);
-    }
-
-    /**
-      * Soft deletes a specified resource
-      * @param int  $id ID of the skin to soft delete
-      * @return \Illuminate\Http\Response
-      */
-    public function toggleDeleted($id)
-    {
-      $skin = Skin::find($id);
-
-      if ($skin == null)
-        abort(404, 'Not found.');
-
-      if ($skin->deleted == 0) {
-        $skin->deleted = 1;
-      } else {
-        $skin->deleted = 0;
-      }
-
-      $skin->save();
-
-      return redirect()->route('dashboard.settings.skins.index');
     }
 }

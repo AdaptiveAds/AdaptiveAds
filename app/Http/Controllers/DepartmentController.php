@@ -149,7 +149,28 @@ class DepartmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $user = Session::get('user');
+
+      if ($user->is_super_user == false)
+        abort(401, 'Unauthorized');
+
+      $department = Department::find($id);
+
+      if ($department == null)
+        abort(404, 'Not found.');
+
+      $adCount = $department->Adverts()->count();
+      $plCount = $department->Playlists()->count();
+
+      if ($adCount != 0 || $plCount != 0)
+        return redirect()->route('dashboard.settings.departments.index')
+                         ->with('message', 'Unable to delete ' . $department->name
+                                            . ', one or more adverts and playlists depend on it');
+
+      $department->delete();
+
+      return redirect()->route('dashboard.settings.departments.index')
+                       ->with('message', 'Department deleted successfully');
     }
 
     /**
@@ -217,28 +238,5 @@ class DepartmentController extends Controller
 
       return view('pages/departments', $data);
 
-    }
-
-    /**
-      * Soft deletes a specified resource
-      * @param int  $id ID of the department to soft delete
-      * @return \Illuminate\Http\Response
-      */
-    public function toggleDeleted($id)
-    {
-      $department = Department::find($id);
-
-      if ($department == null)
-        abort(404, 'Not found.');
-
-      if ($department->deleted == 0) {
-        $department->deleted = 1;
-      } else {
-        $department->deleted = 0;
-      }
-
-      $department->save();
-
-      return redirect()->route('dashboard.settings.departments.index');
     }
 }

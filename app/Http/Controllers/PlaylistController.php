@@ -172,18 +172,27 @@ class PlaylistController extends Controller
     public function destroy($id)
     {
 
-      $match_departments = Session::get('match_departments');
-      $playlist = Playlist::where('id', $id)->whereIn('department_id', $match_departments)->first();
+      $playlist = Playlist::find($id);
 
-      if (isset($playlist) == false) {
-        return response('Un-authorised', 401);
-      }
-      // $playlist->Adverts()->detach(); // TODO Remove all associated adverts??
+      if ($playlist == null)
+        abort(404, 'Not found.');
 
-      $playlist->deleted = 1;
-      $playlist->save();
+      // NOTE Global playlist cannot be deleted
+      if ($playlist->isGlobal == true)
+        abort(401, 'Unauthorized');
 
-      return redirect()->route('dashboard.playlist.index');
+      $adCount = $playlist->Adverts()->count();
+      $scCount = $playlist->Screens()->count();
+
+      if ($scCount != 0)
+        return redirect()->route('dashboard.playlist.index')
+                         ->with('message', 'Unable to delete ' . $playlist->name
+                                            . ', one or more screens depends on it');
+
+      $playlist->delete();
+
+      return redirect()->route('dashboard.playlist.index')
+                       ->with('message', 'Playlist deleted successfully');
     }
 
     /**
@@ -214,7 +223,8 @@ class PlaylistController extends Controller
 
       // Apply global restrictions
       if ($playlist->isGlobal == true) {
-        $count = $playlist->CountAssigned();
+        $count = $playlist->Adverts()->count();
+      }
 
       foreach ($adverts as $advertID) {
 
@@ -226,7 +236,6 @@ class PlaylistController extends Controller
         // TODO advert inde and display timing (GUI??)
         $playlist->Adverts()->attach($advertID, ['advert_index' => ++$currentIndex, 'display_schedule_id' => '1']);
         $count++;
-      }
     }
 
     /**
@@ -385,32 +394,5 @@ class PlaylistController extends Controller
 
       // Only return unqiue users
       return $playlists->unique('id');
-    }
-
-    /**
-      * Soft deletes a specified resource
-      * @param int  $id ID of the playlist to soft delete
-      * @return \Illuminate\Http\Response
-      */
-    public function toggleDeleted($id)
-    {
-      $playlist = Playlist::find($id);
-
-      if ($playlist == null)
-        abort(404, 'Not found.');
-
-      // NOTE Global playlist cannot be deleted
-      if ($playlist->isGlobal == true)
-        abort(401, 'Unauthorized');
-
-      if ($playlist->deleted == 0) {
-        $playlist->deleted = 1;
-      } else {
-        $playlist->deleted = 0;
-      }
-
-      $playlist->save();
-
-      return redirect()->route('dashboard.playlist.index');
     }
 }

@@ -62,9 +62,11 @@ class ServeController extends Controller
         $screen = Screen::find($id);
         //$screen_playlists = $screen->with('department.playlists.adverts')->get();
 
-        if (isset($screen) == false) {
-          return response('Not found', 404);
-        }
+        if (isset($screen) == false)
+          abort(404, 'Not found');
+
+        if ($screen->deleted == 1)
+          abort(404, 'Not found');
 
         $data = array(
           'screen' => $screen

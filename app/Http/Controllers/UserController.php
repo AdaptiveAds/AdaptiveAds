@@ -122,7 +122,20 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-      abort(401, 'Unauthorized');
+      $requestUser = Session::get('user');
+
+      if ($requestUser->is_super_user)
+        abort(401, 'Unauthorized');
+
+      $user = User::find($id);
+
+      if ($user == null)
+        abort(404, 'Not found.');
+
+      $user->delete();
+
+      return redirect()->route('dashboard.settings.users.index')
+                       ->with('message', 'User deleted successfully');
     }
 
     /**
@@ -214,28 +227,5 @@ class UserController extends Controller
 
       // Only return unqiue users
       return $users->unique('id');
-    }
-
-    /**
-      * Soft deletes a specified resource
-      * @param int  $id ID of the user to soft delete
-      * @return \Illuminate\Http\Response
-      */
-    public function toggleDeleted($id) {
-
-      $user = User::find($id);
-
-      if ($user == null)
-        abort(404, 'Not found.');
-
-      if ($user->deleted == 0) {
-        $user->deleted = 1;
-      } else {
-        $user->deleted = 0;
-      }
-
-      $user->save();
-
-      return redirect()->route('dashboard.settings.users.index');
     }
 }
