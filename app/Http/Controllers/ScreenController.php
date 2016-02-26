@@ -154,7 +154,20 @@ class ScreenController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $user = Session::get('user');
+
+      if ($user->is_super_user)
+        abort(401, 'Unauthorized');
+
+      $screen = Screen::find($id);
+
+      if ($screen == null)
+        abort(404, 'Not found.');
+
+      $screen->delete();
+
+      return redirect()->route('dashboard.settings.screens.index')
+                       ->with('message', 'Screen deleted successfully');
     }
 
     /**
@@ -245,28 +258,5 @@ class ScreenController extends Controller
       }
 
       return $screens;
-    }
-
-    /**
-      * Soft deletes a specified resource
-      * @param int  $id ID of the screen to soft delete
-      * @return \Illuminate\Http\Response
-      */
-    public function toggleDeleted($id) {
-
-      $screen = Screen::find($id);
-
-      if ($screen == null)
-        abort(404, 'Not found.');
-
-      if ($screen->deleted == 0) {
-        $screen->deleted = 1;
-      } else {
-        $screen->deleted = 0;
-      }
-
-      $screen->save();
-
-      return redirect()->route('dashboard.settings.screens.index');
     }
 }

@@ -15,14 +15,14 @@
               <button type="button" name="btnEdit">Edit</button>
             </a>
 
-            {{-- Show correct button to disable ot enable --}}
-            {!! Form::open(['route' => ['dashboard.settings.users.toggleDeleted', $user->id], 'method' => 'POST']) !!}
-            @if ($user->deleted == 0)
-              <button type="submit" name="btnDisable">Disable</button>
-            @else
-              <button type="submit" name="btnEnable">Enable</button>
+            @if ($user->is_super_user)
+              {{-- Show correct button to disable ot enable --}}
+              {!! Form::open(['route' => ['dashboard.settings.users.destroy', $user->id],
+                              'method' => 'DELETE',
+                              'onsubmit' => 'return ConfirmDelete()']) !!}
+                <button type="submit" name="btnDeleted">Delete</button>
+              {!! Form::close() !!}
             @endif
-            {!! Form::close() !!}
           @endif
         </li>
       @endforeach

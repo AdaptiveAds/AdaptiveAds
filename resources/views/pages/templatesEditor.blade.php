@@ -17,6 +17,11 @@
 	<div class="row">
 			{!! Form::open(['route' => 'dashboard.settings.templates.filter', 'method' => 'POST']) !!}
 				<h3>Template Editor</h3>
+				@if (Session::has('message'))
+					<div>
+						<h4>{{Session::get('message')}}</h4>
+					</div>
+				@endif
 				<ul name="lstTemplateControls">
 					<li>
 						<input type="text" name="txtTemplateName" placeholder="Template Name...."

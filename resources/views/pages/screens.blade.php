@@ -19,6 +19,11 @@
 	<div class="row">
 		{!! Form::open(['route' => 'dashboard.settings.screens.filter', 'method' => 'POST']) !!}
 			<h3>Screens</h3>
+			@if (Session::has('message'))
+				<div>
+					<h4>{{Session::get('message')}}</h4>
+				</div>
+			@endif
 			<ul name="lstScreenControls">
 				<li>
 					<input type="name" name="txtScreenID" placeholder="Screen id..." value="{{ $screenID or '' }}"/>

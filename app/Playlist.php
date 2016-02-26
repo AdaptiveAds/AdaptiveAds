@@ -35,9 +35,8 @@ class Playlist extends Model
                 ->orderBy('advert_index', 'ASC');
   }
 
-  public function CountAssigned() {
-    return $this->belongsToMany(Advert::class)->withPivot('playlist_id', 'advert_id', 'advert_index', 'display_schedule_id')
-                ->count();
+  public function Screens() {
+    return $this->hasMany(Screen::class);
   }
 
 }

@@ -18,6 +18,11 @@
 	<div class="row">
 		{!! Form::open(['route' => 'dashboard.advert.filter', 'method' => 'POST']) !!}
 			<h3>Adverts</h3>
+			@if (Session::has('message'))
+				<div>
+					<h4>{{Session::get('message')}}</h4>
+				</div>
+			@endif
 			<ul>
 				<li>
 					<input name="txtAdvertName" type="text" placeholder="Advert name...."

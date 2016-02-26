@@ -65,6 +65,7 @@ https://developers.google.com/recaptcha/docs/display -->
 	});
 	</script>
 
+	<script src="{{ URL::asset('js/helpers.js') }}"></script>
 	<script src="{{ URL::asset('js/modules.js') }}"></script>
 	<script src="{{ URL::asset('js/pages.js') }}"></script>
 

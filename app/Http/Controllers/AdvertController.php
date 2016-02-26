@@ -170,17 +170,15 @@ class AdvertController extends Controller
      */
     public function destroy($id)
     {
-      $match_departments = Session::get('match_departments');
-      $advert = Advert::where('id', $id)->whereIn('department_id', $match_departments)->first();
+      $advert = Advert::find($id);
 
-      if (isset($advert) == false) {
-        return response('Un-authorised.', 401); // Advert does not exist or un authorised
-      }
+      if ($advert == null)
+        abort(404, 'Not found.');
 
-      $advert->deleted = 1;
-      $advert->save();
+      $advert->delete();
 
-      return redirect()->route('dashboard.advert.index');
+      return redirect()->route('dashboard.advert.index')
+                       ->with('message', 'Advert deleted successfully');
     }
 
     /**
@@ -369,28 +367,5 @@ class AdvertController extends Controller
 
       // Only return unqiue users
       return $adverts->unique('id');
-    }
-
-    /**
-      * Soft deletes a specified resource
-      * @param int $id ID of the advert to soft delete
-      * @return \Illuminate\Http\Response
-      */
-    public function toggleDeleted($id)
-    {
-      $advert = Advert::find($id);
-
-      if ($advert == null)
-        abort(404, 'Not found.');
-
-      if ($advert->deleted == 0) {
-        $advert->deleted = 1;
-      } else {
-        $advert->deleted = 0;
-      }
-
-      $advert->save();
-
-      return redirect()->route('dashboard.advert.index');
     }
 }

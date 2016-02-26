@@ -20,12 +20,10 @@
 
 
             {{-- Show correct button to disable ot enable --}}
-            {!! Form::open(['route' => ['dashboard.settings.locations.toggleDeleted', $location->id], 'method' => 'POST']) !!}
-              @if ($location->deleted == 0)
-                <button type="submit" name="btnDisable">Disable</button>
-              @else
-                <button type="submit" name="btnEnable">Enable</button>
-              @endif
+            {!! Form::open(['route' => ['dashboard.settings.locations.destroy', $location->id],
+                            'method' => 'DELETE',
+                            'onsubmit' => 'return ConfirmDelete()']) !!}
+              <button type="submit" name="btnDelete">Delete</button>
             {!! Form::close() !!}
           @endif
         </li>

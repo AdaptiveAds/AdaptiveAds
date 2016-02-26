@@ -23,4 +23,8 @@ class Template extends Model
       * @var boolean
       */
     public $timestamps = false;
+
+    public function Pages() {
+      return $this->hasMany(Page::class);
+    }
 }

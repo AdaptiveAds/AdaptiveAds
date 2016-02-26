@@ -22,16 +22,12 @@
             <button type="button" name="btnEdit">Edit</button>
           </a>
 
-        
+
           {{-- Show correct button to disable ot enable --}}
-          {!! Form::open(['route' => ['dashboard.advert.toggleDeleted', $advert->id], 'method' => 'POST']) !!}
-          @if ($advert->deleted == 0)
-            <button type="submit" name="btnDisable">Disable</button>
-          @else
-            @if ($user->getAdmin())
-              <button type="submit" name="btnEnable">Enable</button>
-            @endif
-          @endif
+          {!! Form::open(['route' => ['dashboard.advert.destroy',$advert->id],
+                          'method' => 'DELETE',
+                          'onsubmit' => 'return ConfirmDelete()']) !!}
+            <button type="submit" name="btnDelete">Delete</button>
           {!! Form::close() !!}
         @endif
       </li>

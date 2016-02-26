@@ -16,18 +16,16 @@
             <button type="button" name="btnEdit">Edit</button>
           </a>
 
-          {{-- Show correct button to disable ot enable --}}
-          {!! Form::open(['route' => ['dashboard.playlist.toggleDeleted', $playlist->id], 'method' => 'POST']) !!}
-            @if ($playlist->isGlobal == false)
-              @if ($playlist->deleted == 0)
-                <button type="submit" name="btnDisablePlaylist">Disable</button>
-              @else
-                @if ($user->getAdmin())
-                  <button type="submit" name="btnEnablePlaylist">Enable</button>
-                @endif
+          @if ($user->getAdmin())
+            {{-- Show correct button to disable ot enable --}}
+            {!! Form::open(['route' => ['dashboard.playlist.destroy', $playlist->id],
+                            'method' => 'DELETE',
+                            'onsubmit' => 'return ConfirmDelete()']) !!}
+              @if ($playlist->isGlobal == false)
+                <button type="submit" name="btnDelete">Delete</button>
               @endif
-            @endif
-          {!! Form::close() !!}
+            {!! Form::close() !!}
+          @endif
         @endif
       </li>
     @endforeach

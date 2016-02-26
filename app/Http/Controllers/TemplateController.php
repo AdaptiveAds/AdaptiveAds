@@ -11,6 +11,12 @@ use App\Template as Template;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+/**
+  * Defines the CRUD methods for the TemplateController
+  * @author Josh Preece
+  * @license REVIEW
+  * @since 1.0
+  */
 class TemplateController extends Controller
 {
 
@@ -172,7 +178,22 @@ class TemplateController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $template = Template::find($id);
+
+      if ($template == null)
+        abort(404, 'Not found.');
+
+      $pagesCount = $template->Pages()->count();
+
+      // Don't delete if template is referenced
+      if ($pagesCount != 0)
+        return redirect()->route('dashboard.settings.templates.index')
+                         ->with('message', 'Unable to delete ' . $template->name .', as one or more pages require it.');
+
+      $template->delete();
+
+      return redirect()->route('dashboard.settings.templates.index')
+                       ->with('message', 'Templete deleted successfully');
     }
 
     /**
@@ -250,28 +271,5 @@ class TemplateController extends Controller
 
 
 
-    }
-
-    /**
-      * Soft deletes a specified resource
-      * @param int  $id ID of the template to soft delete
-      * @return \Illuminate\Http\Response
-      */
-    public function toggleDeleted($id)
-    {
-      $template = Template::find($id);
-
-      if ($template == null)
-        abort(404, 'Not found.');
-
-      if ($template->deleted == 0) {
-        $template->deleted = 1;
-      } else {
-        $template->deleted = 0;
-      }
-
-      $template->save();
-
-      return redirect()->route('dashboard.settings.templates.index');
     }
 }

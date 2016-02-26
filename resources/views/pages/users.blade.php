@@ -18,6 +18,11 @@
 	<div class="row">
 		{!! Form::open(['route' => 'dashboard.settings.users.filter', 'method' => 'POST']) !!}
 			<h3>Users</h3>
+			@if (Session::has('message'))
+				<div>
+					<h4>{{Session::get('message')}}</h4>
+				</div>
+			@endif
 			<ul name="listUsersControls">
 				<li>
 					<input type="name" name="txtUsername" placeholder="Name" value="{{ $username or '' }}"/>

@@ -150,7 +150,20 @@ class LocationController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $location = Location::find($id);
+
+      if ($location == null)
+        abort(404, 'Not found.');
+
+      $count = $location->Screens->count();
+      if ($count != 0)
+        return redirect()->route('dashboard.settings.locations.index')
+                         ->with('message', 'Unable to delete ' . $location . ', as one or more screens depe');
+
+      $location->delete();
+
+      return redirect()->route('dashboard.settings.locations.index')
+                       ->with('message', 'Location deleted successfully');
     }
 
     /**
@@ -216,28 +229,5 @@ class LocationController extends Controller
 
       return view('pages/locations', $data);
 
-    }
-
-    /**
-      * Soft deletes a specified resource
-      * @param int  $id ID of the location to soft delete
-      * @return \Illuminate\Http\Response
-      */
-    public function toggleDeleted($id)
-    {
-      $location = Location::find($id);
-
-      if ($location == null)
-        abort(404, 'Not found.');
-
-      if ($location->deleted == 0) {
-        $location->deleted = 1;
-      } else {
-        $location->deleted = 0;
-      }
-
-      $location->save();
-
-      return redirect()->route('dashboard.settings.locations.index');
     }
 }

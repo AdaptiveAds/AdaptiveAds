@@ -18,6 +18,11 @@
 	<div class="row">
 		{!! Form::open(['route' => 'dashboard.playlist.filter', 'method' => 'POST']) !!}
 			<h3>Playlists</h3>
+			@if (Session::has('message'))
+				<div>
+					<h4>{{Session::get('message')}}</h4>
+				</div>
+			@endif
 			<ul>
 				<li>
 					<input type="text" name="txtPlaylistName" placeholder="Playlist name...."

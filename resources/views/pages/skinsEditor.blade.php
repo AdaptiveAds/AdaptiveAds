@@ -17,6 +17,11 @@
 	<div class="row">
 			{!! Form::open(['route' => 'dashboard.settings.skins.filter', 'method' => 'POST']) !!}
 				<h3>Skins Editor</h3>
+				@if (Session::has('message'))
+					<div>
+						<h4>{{Session::get('message')}}</h4>
+					</div>
+				@endif
 				<ul name="lstSkinControls">
 					<li>
 						<input type="text" name="txtSkinName" placeholder="Skin Name...."
