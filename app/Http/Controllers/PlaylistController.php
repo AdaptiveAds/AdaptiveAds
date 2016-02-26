@@ -149,10 +149,8 @@ class PlaylistController extends Controller
 
         $txtPlaylistName = $request->input('txtPlaylistName');
         $departmentID = $request->input('drpDepartments');
-        $chkIsGlobal = $request->input('chkIsGlobal');
 
         $playlist->name = $txtPlaylistName;
-        $playlist->isGlobal = $chkIsGlobal;
         $playlist->department_id = $departmentID;
         $playlist->save();
 
