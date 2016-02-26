@@ -18,7 +18,9 @@
             </a>
 
             {{-- Show correct button to disable ot enable --}}
-            {!! Form::open(['route' => ['dashboard.settings.templates.destroy', $template->id], 'method' => 'DELETE']) !!}
+            {!! Form::open(['route' => ['dashboard.settings.templates.destroy', $template->id],
+                                        'method' => 'DELETE',
+                                        'onsubmit' => 'return ConfirmDelete()']) !!}
               <button type="submit" name="btnDelete">Delete</button>
             {!! Form::close() !!}
           @endif

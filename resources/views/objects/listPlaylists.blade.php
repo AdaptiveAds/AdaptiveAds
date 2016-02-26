@@ -18,7 +18,9 @@
 
           @if ($user->getAdmin())
             {{-- Show correct button to disable ot enable --}}
-            {!! Form::open(['route' => ['dashboard.playlist.destroy', $playlist->id], 'method' => 'DELETE']) !!}
+            {!! Form::open(['route' => ['dashboard.playlist.destroy', $playlist->id],
+                            'method' => 'DELETE',
+                            'onsubmit' => 'return ConfirmDelete()']) !!}
               @if ($playlist->isGlobal == false)
                 <button type="submit" name="btnDelete">Delete</button>
               @endif
