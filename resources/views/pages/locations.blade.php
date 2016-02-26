@@ -18,6 +18,11 @@
 	<div class="row">
 		{!! Form::open(['route' => 'dashboard.settings.locations.filter', 'method' => 'POST']) !!}
 			<h3>Locations</h3>
+			@if (Session::has('message'))
+				<div>
+					<h4>{{Session::get('message')}}</h4>
+				</div>
+			@endif
 				<ul>
 					<li>
 						<input type="name" name="txtLocationName" placeholder="Location name...."
