@@ -164,8 +164,7 @@ class AdvsDb extends Migration
             $table->foreign('advert_id')
                 	->references('id')
                 	->on('advert')
-                	->onUpdate('cascade')
-                	->onDelete('cascade');
+                	->onUpdate('cascade');
             $table->foreign('display_schedule_id')
                 	->references('id')
                 	->on('display_schedule')
