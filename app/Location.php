@@ -31,4 +31,8 @@ class Location extends Model
   public function Departments() {
     return $this->belongsTo(Department::class);
   }
+
+  public function Screens() {
+    return $this->hasMany(Screen::class);
+  }
 }
