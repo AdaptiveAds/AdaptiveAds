@@ -71,6 +71,14 @@ Route::post('dashboard/settings/templates/filter', ['as' => 'dashboard.settings.
 Route::resource('dashboard/settings/skins', 'SkinController');
 Route::post('dashboard/settings/skins/filter', ['as' => 'dashboard.settings.skins.filter', 'uses' => 'SkinController@filter']);
 
+// Privileges routes
+Route::resource('dashboard/settings/privileges', 'PrivilegeController');
+Route::post('dashboard/settings/privileges/filter', ['as' => 'dashboard.settings.privileges.filter', 'uses' => 'PrivilegeController@filter']);
+Route::post('dashboard/settings/privileges/addMode', ['as' => 'dashboard.settings.privileges.addMode', 'uses' => 'PrivilegeController@addMode']);
+Route::post('dashboard/settings/privileges/add', ['as' => 'dashboard.settings.privileges.add', 'uses' => 'PrivilegeController@addUser']);
+Route::post('dashboard/settings/privileges/removeMode', ['as' => 'dashboard.settings.privileges.removeMode', 'uses' => 'PrivilegeController@removeMode']);
+Route::post('dashboard/settings/privileges/remove', ['as' => 'dashboard.settings.privileges.remove', 'uses' => 'PrivilegeController@removeUser']);
+
 // Serve routes
 Route::get('serve/{screenId}', 'ServeController@show');
 Route::post('serve/{screenID}', 'ServeController@sync');
