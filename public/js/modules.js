@@ -304,9 +304,17 @@ var ModalManager = (function() {
 
       var selected = $(this);
       var id = selected.attr('data-userID');
-      var object = selected.attr('data-modalObject');
+      var object = selected.attr('data-modalObject').toLowerCase();
 
-      getData(id, object.toLowerCase());
+      // Search for our function def
+      var fn = window["ModalManager"][object];
+
+      // If it is not a function cancel the process
+      if (typeof fn !== "function")
+        return;
+
+      // Go AJAX the data
+      getData(id, fn);
 
       //getData($(this).attr('data-userID'), $(this).attr('data-modalObject') + '();');
       $('[name="heading"]').html('Edit ' + object);
@@ -434,7 +442,15 @@ var ModalManager = (function() {
   }
 
   return {
-    register_eventhandlers: register_eventhandlers
+    register_eventhandlers: register_eventhandlers,
+    users: users,
+    templates: templates,
+    locations: locations,
+    departments: departments,
+    screens: screens,
+    playlist: playlist,
+    advert: advert,
+    skins, skins
   };
 
 } ());
