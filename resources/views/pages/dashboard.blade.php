@@ -96,7 +96,7 @@
 					</li>
 					<li name="liSkins">
 						<a href="{{ URL::to('dashboard/settings/skins')}}">
-							<i class="fa fa-male">
+							<i class="fa fa-photo">
 								<span>Skins</span>
 							</i>
 						</a>
