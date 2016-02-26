@@ -10,6 +10,12 @@ use App\Http\Controllers\Controller;
 use App\Skin as Skin;
 use Session;
 
+/**
+  * Defines the CRUD methods for the SkinController
+  * @author Josh Preece
+  * @license REVIEW
+  * @since 1.0
+  */
 class SkinController extends Controller
 {
 

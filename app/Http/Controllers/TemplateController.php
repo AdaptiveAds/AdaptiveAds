@@ -11,6 +11,12 @@ use App\Template as Template;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+/**
+  * Defines the CRUD methods for the TemplateController
+  * @author Josh Preece
+  * @license REVIEW
+  * @since 1.0
+  */
 class TemplateController extends Controller
 {
 
