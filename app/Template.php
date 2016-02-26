@@ -23,4 +23,12 @@ class Template extends Model
       * @var boolean
       */
     public $timestamps = false;
+
+    public function Pages() {
+      return $this->hasMany(Page::class);
+    }
+
+    public function CountAssigned() {
+      return $this->hasMany(Page::class)->count();
+    }
 }

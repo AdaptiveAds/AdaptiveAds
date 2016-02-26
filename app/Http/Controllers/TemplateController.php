@@ -264,6 +264,13 @@ class TemplateController extends Controller
       if ($template == null)
         abort(404, 'Not found.');
 
+      $pagesCount = $template->CountAssigned();
+
+      // Don't delete if template is referenced
+      if ($pagesCount != 0)
+        return redirect()->route('dashboard.settings.templates.index')
+                         ->with('message', 'Unable to delete ' . $template->name .' as one or more pages require it.');
+
       if ($template->deleted == 0) {
         $template->deleted = 1;
       } else {
