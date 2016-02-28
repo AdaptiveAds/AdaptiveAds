@@ -19,7 +19,7 @@
 		{!! Form::open(['route' => 'dashboard.advert.filter', 'method' => 'POST']) !!}
 			<h3>Adverts</h3>
 			@if (Session::has('message'))
-				<h5>{{Session::get('message')}}</h5>
+				<h5>{{Session::pull('message')}}</h5>
 			@else
 				<h5>Manage adverts</h5>
 			@endif

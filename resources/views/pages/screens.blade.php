@@ -20,9 +20,9 @@
 		{!! Form::open(['route' => 'dashboard.settings.screens.filter', 'method' => 'POST']) !!}
 			<h3>Screens</h3>
 			@if (Session::has('message'))
-				<div>
-					<h4>{{Session::get('message')}}</h4>
-				</div>
+				<h5>{{Session::pull('message')}}</h5>
+			@else
+				<h5>Register/Manage new and existing screens<h5>
 			@endif
 			<ul name="lstScreenControls">
 				<li>

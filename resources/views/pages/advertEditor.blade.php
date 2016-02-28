@@ -14,6 +14,11 @@
 <div class="global">
 	<div class="row">
 			<h3>Advert Editor - {{ $advert->name or '' }}</h3>
+			@if (Session::has('message'))
+				<h5>{{Session::pull('message')}}</h5>
+			@else
+				<h5>Manage advert pages and update their indexes</h5>
+			@endif
 			<ul>
 				<li>
  					@if (isset($advert))

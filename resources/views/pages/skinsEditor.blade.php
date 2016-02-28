@@ -18,9 +18,9 @@
 			{!! Form::open(['route' => 'dashboard.settings.skins.filter', 'method' => 'POST']) !!}
 				<h3>Skins Editor</h3>
 				@if (Session::has('message'))
-					<div>
-						<h4>{{Session::get('message')}}</h4>
-					</div>
+					<h5>{{Session::pull('message')}}</h5>
+				@else
+					<h5>Manage department skin(s)</h5>
 				@endif
 				<ul name="lstSkinControls">
 					<li>

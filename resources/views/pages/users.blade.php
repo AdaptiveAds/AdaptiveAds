@@ -19,9 +19,9 @@
 		{!! Form::open(['route' => 'dashboard.settings.users.filter', 'method' => 'POST']) !!}
 			<h3>Users</h3>
 			@if (Session::has('message'))
-				<div>
-					<h4>{{Session::get('message')}}</h4>
-				</div>
+				<h5>{{Session::pull('message')}}</h5>
+			@else
+				<h5>Manage user accounts</h5>
 			@endif
 			<ul name="listUsersControls">
 				<li>

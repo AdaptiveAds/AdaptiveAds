@@ -15,7 +15,11 @@
 <div class="global">
 	<div class="row">
 			<h3>Playlist Editor - {{ $playlist->name or '' }}</h3>
-			<h5>Add or remove adverts and update their indexes</h5>
+			@if (Session::has('message'))
+				<h5>{{Session::pull('message')}}</h5>
+			@else
+				<h5>Manage assigned adverts and update their indexes</h5>
+			@endif
 			<ul>
 				<li>
  					@if (isset($playlist))
