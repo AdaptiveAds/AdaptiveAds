@@ -134,6 +134,7 @@
 				<li><a href="class-App.Http.Controllers.LocationController.html">App\Http\Controllers\LocationController</a></li>
 				<li><a href="class-App.Http.Controllers.PageController.html">App\Http\Controllers\PageController</a></li>
 				<li><a href="class-App.Http.Controllers.PlaylistController.html">App\Http\Controllers\PlaylistController</a></li>
+				<li><a href="class-App.Http.Controllers.PrivilegeController.html">App\Http\Controllers\PrivilegeController</a></li>
 				<li><a href="class-App.Http.Controllers.ScreenController.html">App\Http\Controllers\ScreenController</a></li>
 				<li><a href="class-App.Http.Controllers.ServeController.html">App\Http\Controllers\ServeController</a></li>
 				<li><a href="class-App.Http.Controllers.SkinController.html">App\Http\Controllers\SkinController</a></li>
@@ -244,47 +245,44 @@
 </span><span id="65" class="l"><a href="#65"> 65 </a>          <span class="php-comment">// transfer collection to array</span>
 </span><span id="66" class="l"><a href="#66"> 66 </a>          <span class="php-keyword1">foreach</span> (<span class="php-var">$user_departments</span> <span class="php-keyword1">as</span> <span class="php-var">$department</span>) {
 </span><span id="67" class="l"><a href="#67"> 67 </a>
-</span><span id="68" class="l"><a href="#68"> 68 </a>            <span class="php-comment">// Check if the user is an admin in the department</span>
-</span><span id="69" class="l"><a href="#69"> 69 </a>            <span class="php-keyword1">if</span> (<span class="php-var">$user</span>-&gt;isAdmin(<span class="php-var">$department</span>-&gt;id)) {
-</span><span id="70" class="l"><a href="#70"> 70 </a>              <span class="php-var">$user</span>-&gt;setAdmin(<span class="php-keyword1">true</span>); <span class="php-comment">// TODO DISABLE</span>
-</span><span id="71" class="l"><a href="#71"> 71 </a>              <span class="php-var">$department</span>-&gt;setAdmin(<span class="php-keyword1">true</span>); <span class="php-comment">// Note user is admin of this department</span>
-</span><span id="72" class="l"><a href="#72"> 72 </a>            }
-</span><span id="73" class="l"><a href="#73"> 73 </a>
-</span><span id="74" class="l"><a href="#74"> 74 </a>            <span class="php-keyword2">array_push</span>(<span class="php-var">$allowed_departments</span>, <span class="php-var">$department</span>);
-</span><span id="75" class="l"><a href="#75"> 75 </a>          }
-</span><span id="76" class="l"><a href="#76"> 76 </a>        } <span class="php-keyword1">else</span> {
-</span><span id="77" class="l"><a href="#77"> 77 </a>          <span class="php-var">$user_departments</span> = <span class="php-var">$user</span>-&gt;Departments;
+</span><span id="68" class="l"><a href="#68"> 68 </a>            <span class="php-var">$user</span>-&gt;setAdmin(<span class="php-keyword1">true</span>); <span class="php-comment">// TODO DISABLE</span>
+</span><span id="69" class="l"><a href="#69"> 69 </a>            <span class="php-var">$department</span>-&gt;setAdmin(<span class="php-keyword1">true</span>); <span class="php-comment">// Note user is admin of this department</span>
+</span><span id="70" class="l"><a href="#70"> 70 </a>
+</span><span id="71" class="l"><a href="#71"> 71 </a>            <span class="php-keyword2">array_push</span>(<span class="php-var">$allowed_departments</span>, <span class="php-var">$department</span>);
+</span><span id="72" class="l"><a href="#72"> 72 </a>          }
+</span><span id="73" class="l"><a href="#73"> 73 </a>        } <span class="php-keyword1">else</span> {
+</span><span id="74" class="l"><a href="#74"> 74 </a>          <span class="php-var">$user_departments</span> = <span class="php-var">$user</span>-&gt;Departments;
+</span><span id="75" class="l"><a href="#75"> 75 </a>
+</span><span id="76" class="l"><a href="#76"> 76 </a>          <span class="php-comment">// transfer collection to array</span>
+</span><span id="77" class="l"><a href="#77"> 77 </a>          <span class="php-keyword1">foreach</span> (<span class="php-var">$user_departments</span> <span class="php-keyword1">as</span> <span class="php-var">$department</span>) {
 </span><span id="78" class="l"><a href="#78"> 78 </a>
-</span><span id="79" class="l"><a href="#79"> 79 </a>          <span class="php-comment">// transfer collection to array</span>
-</span><span id="80" class="l"><a href="#80"> 80 </a>          <span class="php-keyword1">foreach</span> (<span class="php-var">$user_departments</span> <span class="php-keyword1">as</span> <span class="php-var">$department</span>) {
-</span><span id="81" class="l"><a href="#81"> 81 </a>
-</span><span id="82" class="l"><a href="#82"> 82 </a>            <span class="php-comment">// Check if the user is an admin in the department</span>
-</span><span id="83" class="l"><a href="#83"> 83 </a>            <span class="php-keyword1">if</span> (<span class="php-var">$user</span>-&gt;isAdmin(<span class="php-var">$department</span>-&gt;id)) {
-</span><span id="84" class="l"><a href="#84"> 84 </a>              <span class="php-var">$user</span>-&gt;setAdmin(<span class="php-keyword1">true</span>); <span class="php-comment">// User can access admin settings</span>
-</span><span id="85" class="l"><a href="#85"> 85 </a>              <span class="php-var">$department</span>-&gt;setAdmin(<span class="php-keyword1">true</span>); <span class="php-comment">// Note user is admin of this department</span>
-</span><span id="86" class="l"><a href="#86"> 86 </a>            }
-</span><span id="87" class="l"><a href="#87"> 87 </a>
-</span><span id="88" class="l"><a href="#88"> 88 </a>            <span class="php-keyword2">array_push</span>(<span class="php-var">$allowed_departments</span>, <span class="php-var">$department</span>);
-</span><span id="89" class="l"><a href="#89"> 89 </a>          }
-</span><span id="90" class="l"><a href="#90"> 90 </a>        }
-</span><span id="91" class="l"><a href="#91"> 91 </a>
-</span><span id="92" class="l"><a href="#92"> 92 </a>        <span class="php-comment">// Get an array of id's of all departments this user can access</span>
-</span><span id="93" class="l"><a href="#93"> 93 </a>        <span class="php-var">$match_departments</span> = [];
-</span><span id="94" class="l"><a href="#94"> 94 </a>        <span class="php-keyword1">foreach</span> (<span class="php-var">$allowed_departments</span> <span class="php-keyword1">as</span> <span class="php-var">$department</span>) {
-</span><span id="95" class="l"><a href="#95"> 95 </a>          <span class="php-keyword2">array_push</span>(<span class="php-var">$match_departments</span>, <span class="php-var">$department</span>-&gt;id);
-</span><span id="96" class="l"><a href="#96"> 96 </a>        }
-</span><span id="97" class="l"><a href="#97"> 97 </a>
-</span><span id="98" class="l"><a href="#98"> 98 </a>        <span class="php-comment">// Save until next request</span>
-</span><span id="99" class="l"><a href="#99"> 99 </a>        Session::flash(<span class="php-quote">'user'</span>, <span class="php-var">$user</span>);
-</span><span id="100" class="l"><a href="#100">100 </a>        Session::flash(<span class="php-quote">'allowed_departments'</span>, <span class="php-var">$allowed_departments</span>);
-</span><span id="101" class="l"><a href="#101">101 </a>        Session::flash(<span class="php-quote">'match_departments'</span>, <span class="php-var">$match_departments</span>);
-</span><span id="102" class="l"><a href="#102">102 </a>        Session::flash(<span class="php-quote">'super_user'</span>, <span class="php-var">$super_user</span>); <span class="php-comment">// TODO CHNAGE TO MIDDLEWEAR ON LOCATION</span>
-</span><span id="103" class="l"><a href="#103">103 </a>        <span class="php-comment">//dd($user);</span>
-</span><span id="104" class="l"><a href="#104">104 </a>
-</span><span id="105" class="l"><a href="#105">105 </a>        <span class="php-keyword1">return</span> <span class="php-var">$next</span>(<span class="php-var">$request</span>);
-</span><span id="106" class="l"><a href="#106">106 </a>    }
-</span><span id="107" class="l"><a href="#107">107 </a>}
-</span><span id="108" class="l"><a href="#108">108 </a></span></code></pre>
+</span><span id="79" class="l"><a href="#79"> 79 </a>            <span class="php-comment">// Check if the user is an admin in the department</span>
+</span><span id="80" class="l"><a href="#80"> 80 </a>            <span class="php-keyword1">if</span> (<span class="php-var">$user</span>-&gt;isAdmin(<span class="php-var">$department</span>-&gt;id)) {
+</span><span id="81" class="l"><a href="#81"> 81 </a>              <span class="php-var">$user</span>-&gt;setAdmin(<span class="php-keyword1">true</span>); <span class="php-comment">// User can access admin settings</span>
+</span><span id="82" class="l"><a href="#82"> 82 </a>              <span class="php-var">$department</span>-&gt;setAdmin(<span class="php-keyword1">true</span>); <span class="php-comment">// Note user is admin of this department</span>
+</span><span id="83" class="l"><a href="#83"> 83 </a>            }
+</span><span id="84" class="l"><a href="#84"> 84 </a>
+</span><span id="85" class="l"><a href="#85"> 85 </a>            <span class="php-keyword2">array_push</span>(<span class="php-var">$allowed_departments</span>, <span class="php-var">$department</span>);
+</span><span id="86" class="l"><a href="#86"> 86 </a>          }
+</span><span id="87" class="l"><a href="#87"> 87 </a>        }
+</span><span id="88" class="l"><a href="#88"> 88 </a>
+</span><span id="89" class="l"><a href="#89"> 89 </a>        <span class="php-comment">// Get an array of id's of all departments this user can access</span>
+</span><span id="90" class="l"><a href="#90"> 90 </a>        <span class="php-var">$match_departments</span> = [];
+</span><span id="91" class="l"><a href="#91"> 91 </a>        <span class="php-keyword1">foreach</span> (<span class="php-var">$allowed_departments</span> <span class="php-keyword1">as</span> <span class="php-var">$department</span>) {
+</span><span id="92" class="l"><a href="#92"> 92 </a>          <span class="php-keyword2">array_push</span>(<span class="php-var">$match_departments</span>, <span class="php-var">$department</span>-&gt;id);
+</span><span id="93" class="l"><a href="#93"> 93 </a>        }
+</span><span id="94" class="l"><a href="#94"> 94 </a>
+</span><span id="95" class="l"><a href="#95"> 95 </a>        <span class="php-comment">// Save until next request</span>
+</span><span id="96" class="l"><a href="#96"> 96 </a>        Session::flash(<span class="php-quote">'user'</span>, <span class="php-var">$user</span>);
+</span><span id="97" class="l"><a href="#97"> 97 </a>        Session::flash(<span class="php-quote">'allowed_departments'</span>, <span class="php-var">$allowed_departments</span>);
+</span><span id="98" class="l"><a href="#98"> 98 </a>        Session::flash(<span class="php-quote">'match_departments'</span>, <span class="php-var">$match_departments</span>);
+</span><span id="99" class="l"><a href="#99"> 99 </a>        Session::flash(<span class="php-quote">'super_user'</span>, <span class="php-var">$super_user</span>); <span class="php-comment">// TODO CHNAGE TO MIDDLEWEAR ON LOCATION</span>
+</span><span id="100" class="l"><a href="#100">100 </a>        <span class="php-comment">//dd($user);</span>
+</span><span id="101" class="l"><a href="#101">101 </a>
+</span><span id="102" class="l"><a href="#102">102 </a>        <span class="php-keyword1">return</span> <span class="php-var">$next</span>(<span class="php-var">$request</span>);
+</span><span id="103" class="l"><a href="#103">103 </a>    }
+</span><span id="104" class="l"><a href="#104">104 </a>}
+</span><span id="105" class="l"><a href="#105">105 </a></span></code></pre>
 	</div>
 
 	<div id="footer">
@@ -292,6 +290,6 @@
 	</div>
 </div>
 <script src="resources/combined.js?f34e17f1c306ee5e8827cc7fbc837df85db065f0"></script>
-<script src="elementlist.js?aa5aef909ea6345d8ee8ded065e0993425f345c3"></script>
+<script src="elementlist.js?ec2e78d86b03168e059a882cb200aeba23cdda35"></script>
 </body>
 </html>

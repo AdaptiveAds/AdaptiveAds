@@ -19,9 +19,9 @@
 		{!! Form::open(['route' => 'dashboard.advert.filter', 'method' => 'POST']) !!}
 			<h3>Adverts</h3>
 			@if (Session::has('message'))
-				<div>
-					<h4>{{Session::get('message')}}</h4>
-				</div>
+				<h5>{{Session::pull('message')}}</h5>
+			@else
+				<h5>Manage adverts</h5>
 			@endif
 			<ul>
 				<li>
@@ -37,8 +37,8 @@
 						<button type="button" name="btnAddAdvert">Add</button>
 					</a>
 
-					<button name="btnFindAdvert" type="submit" >Find</button>
-					<button name="btnFindAll" type="submit" >Find All</button>
+					<button name="btnFindAdvert" type="submit">Find</button>
+					<button name="btnFindAll" type="submit">Find All</button>
 				</li>
 			</ul>
 		{!! Form::close() !!}

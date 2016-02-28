@@ -85,7 +85,8 @@ class ScreenController extends Controller
       $screen->playlist_id = empty($playlistID)? 1 : $playlistID;
       $screen->save();
 
-      return redirect()->route('dashboard.settings.screens.index');
+      return redirect()->route('dashboard.settings.screens.index')
+                       ->with('message', 'Screen registered successfully');
     }
 
     /**
@@ -103,7 +104,7 @@ class ScreenController extends Controller
       $screen = Screen::find($id);
 
       if ($screen == null)
-        abort(404, 'Not found.');
+        return array('error' => 'Error: Screen not found.');
 
       return array('screen' => $screen);
     }
@@ -130,20 +131,19 @@ class ScreenController extends Controller
     {
       $screen = Screen::find($id);
 
-      if ($screen != null) {
+      if ($screen == null)
+        return redirect()->route('dashboard.settings.screens.index')
+                         ->with('message', 'Error: Screen not found');
 
-        $locationID = $request->input('drpLocations');
-        $playlistID = $request->input('drpPlaylists');
+      $locationID = $request->input('drpLocations');
+      $playlistID = $request->input('drpPlaylists');
 
-        $screen->location_id = $locationID;
-        $screen->playlist_id = empty($playlistID)? 1 : $playlistID;
-        $screen->save();
+      $screen->location_id = $locationID;
+      $screen->playlist_id = empty($playlistID)? 1 : $playlistID;
+      $screen->save();
 
-      } else {
-        abort(404, 'Not found.');
-      }
-
-      return redirect()->route('dashboard.settings.screens.index');
+      return redirect()->route('dashboard.settings.screens.index')
+                       ->with('message', 'Screen updated successfully');
     }
 
     /**
@@ -162,7 +162,8 @@ class ScreenController extends Controller
       $screen = Screen::find($id);
 
       if ($screen == null)
-        abort(404, 'Not found.');
+        return redirect()->route('dashboard.settings.screens.index')
+                         ->with('message', 'Error: Screen not found');
 
       $screen->delete();
 

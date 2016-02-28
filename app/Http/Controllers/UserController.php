@@ -44,7 +44,7 @@ class UserController extends Controller
 
       $data = array(
         'allowed_departments' => $allowed_departments,
-        'user' => $user,
+        'requestUser' => $user,
         'users' => $users
       );
 
@@ -86,7 +86,7 @@ class UserController extends Controller
 
       $user = User::find($id);
       if ($user == null)
-        abort(404, 'Not found');
+        return array('error' => 'Error: User not found.');
 
       return array('user' => $user);
     }
@@ -130,7 +130,8 @@ class UserController extends Controller
       $user = User::find($id);
 
       if ($user == null)
-        abort(404, 'Not found.');
+        return redirect()->route('dashboard.settings.users.index')
+                         ->with('message', 'Error: User not found');
 
       $user->delete();
 
@@ -191,7 +192,7 @@ class UserController extends Controller
       }
 
       $data = array(
-        'user' => $user,
+        'requestUser' => $user,
         'users' => $users,
         'username' => $username,
         'allowed_departments' => $allowed_departments

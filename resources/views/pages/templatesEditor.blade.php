@@ -18,9 +18,9 @@
 			{!! Form::open(['route' => 'dashboard.settings.templates.filter', 'method' => 'POST']) !!}
 				<h3>Template Editor</h3>
 				@if (Session::has('message'))
-					<div>
-						<h4>{{Session::get('message')}}</h4>
-					</div>
+					<h5>{{Session::pull('message')}}</h5>
+				@else
+					<h5>Manage templates</h5>
 				@endif
 				<ul name="lstTemplateControls">
 					<li>

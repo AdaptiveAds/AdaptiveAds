@@ -21,7 +21,7 @@
 
             @if ($user->is_super_user)
               {{-- Show correct button to disable ot enable --}}
-              {!! Form::open(['route' => ['dashboard.settings.departments.destroy', $department->id
+              {!! Form::open(['route' => ['dashboard.settings.departments.destroy', $department->id],
                               'method' => 'DELETE',
                               'onsubmit' => 'return ConfirmDelete()']) !!}
                 <button type="submit" name="btnDelete">Delete</button>

@@ -84,7 +84,7 @@ class Department extends Model
     * @return EloquentCollection
     */
   public function Users() {
-    return $this->belongsToMany(User::class)->withPivot('user_id', 'department_id', 'privilage_id');
+    return $this->belongsToMany(User::class)->withPivot('user_id', 'department_id', 'is_admin');
   }
 
   /**

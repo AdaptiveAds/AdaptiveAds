@@ -65,9 +65,6 @@ class ServeController extends Controller
         if (isset($screen) == false)
           abort(404, 'Not found');
 
-        if ($screen->deleted == 1)
-          abort(404, 'Not found');
-
         $data = array(
           'screen' => $screen
         );
@@ -91,7 +88,7 @@ class ServeController extends Controller
 
       return $screen->where('id', $screen->id)->with(array('playlist' => function($query) {
           $query->with(array('adverts' => function($query) {
-              $query->where('deleted', 0);
+
             }));
           $query->with(array('adverts.pages' => function($query) {
             $query->where('deleted', 0);
@@ -120,7 +117,6 @@ class ServeController extends Controller
     {
       return Playlist::where('isGlobal', true)
                       ->with(array('adverts' => function($query) {
-                          $query->where('deleted', 0);
                         }))
                       ->with(array('adverts.pages' => function($query) {
                         $query->where('deleted', 0);

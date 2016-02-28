@@ -19,9 +19,9 @@
 		{!! Form::open(['route' => 'dashboard.settings.locations.filter', 'method' => 'POST']) !!}
 			<h3>Locations</h3>
 			@if (Session::has('message'))
-				<div>
-					<h4>{{Session::get('message')}}</h4>
-				</div>
+				<h5>{{Session::pull('message')}}</h5>
+			@else
+				<h5>Create and manage department locations</h5>
 			@endif
 				<ul>
 					<li>

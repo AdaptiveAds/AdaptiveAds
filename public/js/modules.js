@@ -71,6 +71,10 @@ var SelectManager = (function() {
     // Un-check all checkboxes
     $('input:checkbox').removeAttr('checked');
 
+    $("#checkAll").change(function () {
+        $("input:checkbox").prop('checked', $(this).prop("checked"));
+    });
+
     $('li[data-selectableItem="true"], [data-selectableItem="true"]').click(function() {
 
        if (SelectManager.multi == false) {
@@ -104,12 +108,12 @@ var SelectManager = (function() {
   }
 
   function getSelected() {
-    var adverts = [];
+    var objects = [];
     $('[data-selectableItem="true"]:checked').each(function() {
-      adverts.push($(this).parents('li').data('itemid'));
+      objects.push($(this).parents('li').data('itemid'));
     });
 
-    return adverts;
+    return objects;
   }
 
   return {
@@ -119,56 +123,55 @@ var SelectManager = (function() {
 
 } ());
 
-var AdvertAssign = (function() {
+var ObjectAssign = (function() {
 
   var token = "";
   var action = "";
-  var playlist = 0;
-  var redirectPath = "";
 
   function register_eventhandlers() {
 
-    $('button[name="btnAddAdvert"]').click(function() {
+    $('button[name="btnAdd"]').click(function() {
 
-      updatePlaylist(SelectManager.getSelected());
+      update('add', SelectManager.getSelected());
 
     });
 
-    $('button[name="btnRemoveAdvert"]').click(function() {
+    $('button[name="btnRemove"]').click(function() {
 
-      updatePlaylist(SelectManager.getSelected());
+      update('remove', SelectManager.getSelected());
 
     });
 
   }
 
-  function redirect() {
-    AppDebug.print(AdvertAssign.redirectPath);
-    window.location.href = AdvertAssign.redirectPath;
+  function redirect(path) {
+    console.log(path);
+    window.location.href = path;
   }
 
-  function updatePlaylist(adverts) {
+  function update(mode, objects) {
 
     $.ajaxSetup({
       headers: {
-        'X-CSRF-Token': AdvertAssign.token
+        'X-CSRF-Token': ObjectAssign.token
       }
     });
 
     $.ajax({
       type: "POST",
-      url : AdvertAssign.action,
-      data : {'playlistID': AdvertAssign.playlist, 'arrAdverts': adverts},
+      url : ObjectAssign.action,
+      data : {'mode': mode, 'arrObjects': objects},
       success : function(data){
+        console.log(data);
         if (data.failed === undefined) {
-          redirect(); // Redirect to playlist page (or defined)
+          redirect(data.redirect); // Redirect
         } else {
           $('[name="errorMsg"]').html(data.message);
           $('.errors').removeClass('hidden');
           window.location.href = '#ErrorModal';
 
           $('.close').on('modalClosed', function() {
-            redirect();
+            redirect(data.redirect);
           });
         }
       },
@@ -243,7 +246,9 @@ var IndexUpdater = (function() {
       url : IndexUpdater.action,
       data : {'itemID': itemID, 'effectedID': effectedID, 'newIndex': newIndex, 'effectedIndex': effectedIndex},
       success : function(data){
-        // Do Nothing...
+        if (data.redirect !== undefiend || data.redirect !== null) {
+          window.location.href = data.redirect;
+        }
       },
       error : function(xhr, textStatus, errorThrown) {
         console.log(textStatus + " ------ " + errorThrown);
@@ -413,8 +418,13 @@ var ModalManager = (function() {
       url : ModalManager.action + id,
       data : {'id': id},
       success : function(data){
-        showData();
-        callback(data);
+        if (data.error !== undefined) {
+          showErrors();
+          $('[name="errorMsg"]').html(data.error);
+        } else {
+          showData();
+          callback(data);
+        }
       },
       error : function(xhr, textStatus, errorThrown) {
         showErrors();

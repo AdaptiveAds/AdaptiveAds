@@ -45,8 +45,6 @@ class AdvertController extends Controller
 
         $adverts = Advert::whereIn('department_id', $match_departments)->get();
 
-        //dd($adverts);
-
         $data = array(
           'user' => $user,
           'adverts' => $adverts,
@@ -83,7 +81,8 @@ class AdvertController extends Controller
       $advert->department_id = $departmentID;
       $advert->save();
 
-      return redirect()->route('dashboard.advert.index');
+      return redirect()->route('dashboard.advert.index')
+                       ->with('message', 'Advert saved successfully');
     }
 
     /**
@@ -101,7 +100,7 @@ class AdvertController extends Controller
       $advert = Advert::find($id);
 
       if ($advert == null)
-        abort(404, 'Not found.');
+        return array('error' => 'Error: Advert not found.');
 
       return array('advert' => $advert);
     }
@@ -146,20 +145,19 @@ class AdvertController extends Controller
     {
       $advert = Advert::find($id);
 
-      if ($advert != null) {
+      if ($advert == null)
+        return redirect()->route('dashboard.advert.index')
+                         ->with('message', 'Error: Could not find advert to update');
 
-        $txtAdvertName = $request->input('txtAdvertName');
-        $departmentID = $request->input('drpDepartments');
+      $txtAdvertName = $request->input('txtAdvertName');
+      $departmentID = $request->input('drpDepartments');
 
-        $advert->name = $txtAdvertName;
-        $advert->department_id = $departmentID;
-        $advert->save();
+      $advert->name = $txtAdvertName;
+      $advert->department_id = $departmentID;
+      $advert->save();
 
-      } else {
-        abort(404, 'Not found.');
-      }
-
-      return redirect()->route('dashboard.advert.index');
+      return redirect()->route('dashboard.advert.index')
+                       ->with('message', 'Advert: '.$advert->name.' updated successfully');
     }
 
     /**
@@ -173,82 +171,13 @@ class AdvertController extends Controller
       $advert = Advert::find($id);
 
       if ($advert == null)
-        abort(404, 'Not found.');
+        return redirect()->route('dashboard.advert.index')
+                         ->with('message', 'Error: Could not find advert to delete');
 
       $advert->delete();
 
       return redirect()->route('dashboard.advert.index')
                        ->with('message', 'Advert deleted successfully');
-    }
-
-    /**
-      * Displays a list of adverts the user can add to the playlist
-      * @param int $playlistID  ID of the selected playlist
-      * @return \Illuminate\Http\Response
-      */
-    public function selectForPlaylist($playlistID)
-    {
-      $allowed_departments = Session::get('allowed_departments');
-      $match_departments = Session::get('match_departments');
-      $user = Session::get('user');
-
-      $adverts = Advert::leftJoin('advert_playlist', function ($join) use ($playlistID) {
-        $join->on('advert.id', '=', 'advert_playlist.advert_id');
-        $join->where('advert_playlist.playlist_id', '=', $playlistID);
-      })
-      //->whereNull('playlist_id')
-      //->where('advert_playlist.advert_id', '!=', 'advert.id')
-      ->where('advert_playlist.playlist_id', '!=', $playlistID)
-      ->orWhereRaw('advert_playlist.playlist_id is null')
-      ->whereIn('advert.department_id', $match_departments)
-      ->where('advert.deleted', '=', 0)
-      ->get();
-
-      if ($adverts->count() <= 0) {
-        return response('Not found.', 404); // Advert does not exist or un authorised
-      }
-
-      $data = array(
-        'adverts' => $adverts,
-        'selectedPlaylist' => $playlistID,
-        'allowed_departments' => $allowed_departments,
-        'selectable' => true,
-        'user' => $user
-      );
-
-      // Set flag to indicate flow is valid
-      Session::flash('flow_valid', true);
-
-      return view('pages/adverts_addMode', $data);
-    }
-
-    /**
-      * Enters remove mode and returns all adverts associated with the
-      * selected playlist to allow the user to select adverts to remove.
-      * @param int $playlistID  ID of the playlist to affect in remove mode
-      * @return \Illuminate\Http\Response
-      */
-    public function removeMode($playlistID)
-    {
-      $allowed_departments = Session::get('allowed_departments');
-      $user = Session::get('user');
-
-      $playlist = Playlist::find($playlistID);
-      $adverts = $playlist->Adverts->where('deleted', 0);//->whereIn('department_id', $allowed_departments);
-
-      $data = array(
-        'allowed_departments' => $allowed_departments,
-        'selectable' => true,
-        'selectedPlaylist' => $playlist->id,
-        'adverts' => $adverts,
-        'deleteMode' => true,
-        'user' => $user
-      );
-
-      // Set flag to indicate flow valid
-      Session::flash('flow_valid', true);
-
-      return view('pages/adverts_removeMode', $data);
     }
 
     /**

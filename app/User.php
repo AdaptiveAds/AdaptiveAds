@@ -78,7 +78,7 @@ class User extends Model implements AuthenticatableContract,
     * @return EloquentCollection
     */
   public function Departments() {
-    return $this->belongsToMany(Department::class)->withPivot('privilage_id');
+    return $this->belongsToMany(Department::class)->withPivot('is_admin');
   }
 
   /**
@@ -87,20 +87,31 @@ class User extends Model implements AuthenticatableContract,
     * @return boolean True if user is admin of department
     */
   public function isAdmin($departmentID) {
-    $department = $this->belongsToMany(Department::class)->withPivot('privilage_id')
+    $department = $this->belongsToMany(Department::class)->withPivot('is_admin')
                       ->where('id', $departmentID)
                       ->first();
 
     if ($department != null) { // Have we found a department with this user?
-      $privilage = $department->pivot
-                              ->privilage;
-
-      if ($privilage->level == 0) { // Is admin?
+      if ($department->pivot->is_admin)
         return true;
-      }
     }
 
     return false;
+  }
+
+  /**
+    * Sets the user as an admin of a department
+    * @param int $departmentID ID of the department to assign
+    * @return boolean True if user is admin of department
+    */
+  public function makeAdmin($departmentID) {
+    $department = $this->belongsToMany(Department::class)->withPivot('is_admin')
+                      ->where('id', $departmentID)
+                      ->first();
+
+    if ($department != null) { // Have we found a department with this user?
+      $department->pivot->is_admin = 1;
+    }
   }
 
   /**

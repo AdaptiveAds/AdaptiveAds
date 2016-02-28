@@ -43,7 +43,7 @@ class DepartmentController extends Controller
       $match_departments = Session::get('match_departments');
 
       $departments = Department::whereIn('id', $match_departments)->get();
-      $skins = Skin::all();
+      $skins = Skin::all(); // TODO restrict
 
       $data = array(
         'departments' => $departments,
@@ -75,12 +75,17 @@ class DepartmentController extends Controller
       $txtDepartmentName = $request->input('txtDepartmentName');
       $skinID = $request->input('drpSkins');
 
+      if (isset($txtDepartmentName) == false)
+        return redirect()->route('dashboard.settings.departments.index')
+                         ->with('message', 'Error: Please enter a department name');
+
       $department = new Department();
       $department->name = $txtDepartmentName;
       $department->skin_id = $skinID;
       $department->save();
 
-      return redirect()->route('dashboard.settings.departments.index');
+      return redirect()->route('dashboard.settings.departments.index')
+                       ->with('message', 'Department saved successfully');
     }
 
     /**
@@ -98,7 +103,7 @@ class DepartmentController extends Controller
       $department = Department::find($id);
 
       if ($department == null)
-        abort(404, 'Not found.');
+        return array('error' => 'Error: Department not found.');
 
       return array('department' => $department);
     }
@@ -125,20 +130,19 @@ class DepartmentController extends Controller
     {
       $department = Department::find($id);
 
-      if ($department != null) {
+      if ($department == null)
+        return redirect()->route('dashboard.settings.departments.index')
+                         ->with('message', 'Error: Department not found');
 
-        $txtDepartmentName = $request->input('txtDepartmentName');
-        $skinID = $request->input('drpSkins');
+      $txtDepartmentName = $request->input('txtDepartmentName');
+      $skinID = $request->input('drpSkins');
 
-        $department->name = $txtDepartmentName;
-        $department->skin_id = $skinID;
-        $department->save();
+      $department->name = $txtDepartmentName;
+      $department->skin_id = $skinID;
+      $department->save();
 
-      } else {
-        abort(404, 'Not found.');
-      }
-
-      return redirect()->route('dashboard.settings.departments.index');
+      return redirect()->route('dashboard.settings.departments.index')
+                       ->with('message', 'Department updated successfully');
     }
 
     /**
@@ -157,7 +161,8 @@ class DepartmentController extends Controller
       $department = Department::find($id);
 
       if ($department == null)
-        abort(404, 'Not found.');
+        return redirect()->route('dashboard.settings.departments.index')
+                         ->with('message', 'Error: Department not found');
 
       $adCount = $department->Adverts()->count();
       $plCount = $department->Playlists()->count();
@@ -226,7 +231,7 @@ class DepartmentController extends Controller
         //$departments = Department::all();
 
       } else {
-        abort(401);
+        abort(401, 'Unauthorized');
       }
 
       $data = array(

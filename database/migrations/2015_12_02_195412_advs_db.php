@@ -18,7 +18,6 @@ class AdvsDb extends Migration
         		$table->string('name', 40);
         		$table->string('class_name', 50);
         		$table->integer('duration');
-            $table->boolean('deleted');
         	});
 
         Schema::create('page_data', function (Blueprint $table) {
@@ -45,15 +44,15 @@ class AdvsDb extends Migration
             $table->increments('id');
             $table->string('name', 30);
             $table->string('class_name', 30);
-            $table->boolean('deleted');
           });
 
+        /*
         Schema::create('privilage', function (Blueprint $table) {
 			       $table->engine = 'InnoDB';
 			       $table->increments('id');
 			       $table->integer('level');
              $table->string('name', 20);
-          });
+          });*/
 
         Schema::create('user', function (Blueprint $table) {
 			       $table->engine = 'InnoDB';
@@ -62,7 +61,6 @@ class AdvsDb extends Migration
              $table->string('password', 60);
              $table->boolean('is_super_user');
              $table->rememberToken();
-             $table->boolean('deleted');
           });
 
         Schema::create('display_timing', function (Blueprint $table) {
@@ -81,7 +79,6 @@ class AdvsDb extends Migration
 			      $table->engine = 'InnoDB';
             $table->increments('id');
           	$table->string('name', 40);
-            $table->boolean('deleted');
             $table->integer('skin_id')->unsigned();
             $table->foreign('skin_id')
                 	->references('id')
@@ -95,7 +92,6 @@ class AdvsDb extends Migration
             $table->increments('id');
             $table->string('name', 40);
             $table->integer('department_id')->unsigned();
-            $table->boolean('deleted');
             $table->foreign('department_id')
                 	->references('id')
                 	->on('department')
@@ -108,7 +104,6 @@ class AdvsDb extends Migration
             $table->increments('id');
             $table->string('name', 40);
             $table->integer('index');
-            $table->boolean('deleted');
             $table->integer('department_id')->unsigned();
             $table->foreign('department_id')
           	      ->references('id')
@@ -122,7 +117,6 @@ class AdvsDb extends Migration
             $table->increments('id');
             $table->string('name');
             $table->boolean('isGlobal');
-            $table->boolean('deleted');
             $table->integer('department_id')->unsigned();
             $table->foreign('department_id')
           	      ->references('id')
@@ -146,7 +140,6 @@ class AdvsDb extends Migration
               			->on('playlist')
               	  	->onUpdate('cascade')
               	  	->onDelete('cascade');
-              $table->boolean('deleted');
           });
 
         Schema::create('advert_playlist', function (Blueprint $table) {
@@ -202,7 +195,7 @@ class AdvsDb extends Migration
       			$table->integer('user_id')->unsigned();
       			$table->integer('department_id')->unsigned();
       			$table->primary(array('user_id','department_id'));
-      			$table->integer('privilage_id')->unsigned();
+      			$table->boolean('is_admin');
       			$table->foreign('department_id')
                   ->references('id')
                   ->on('department')
@@ -213,11 +206,6 @@ class AdvsDb extends Migration
           				->on('user')
           				->onUpdate('cascade')
           				->onDelete('cascade');
-      			$table->foreign('privilage_id')
-                  ->references('id')
-                  ->on('privilage')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
           });
 
         Schema::create('password_resets', function(Blueprint $table) {
@@ -239,7 +227,7 @@ class AdvsDb extends Migration
                      'screen', 'playlist',
                      'advert', 'location',
                      'department', 'display_timing',
-                     'user', 'privilage',
+                     'user',
                      'skin', 'display_schedule',
                      'page_data', 'template');
     }
