@@ -44,7 +44,7 @@ class UserController extends Controller
 
       $data = array(
         'allowed_departments' => $allowed_departments,
-        'user' => $user,
+        'requestUser' => $user,
         'users' => $users
       );
 
@@ -191,7 +191,7 @@ class UserController extends Controller
       }
 
       $data = array(
-        'user' => $user,
+        'requestUser' => $user,
         'users' => $users,
         'username' => $username,
         'allowed_departments' => $allowed_departments

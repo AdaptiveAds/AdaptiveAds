@@ -15,7 +15,7 @@
               <button type="button" name="btnEdit">Edit</button>
             </a>
 
-            @if ($user->is_super_user)
+            @if ($requestUser->is_super_user)
               {{-- Show correct button to disable ot enable --}}
               {!! Form::open(['route' => ['dashboard.settings.users.destroy', $user->id],
                               'method' => 'DELETE',
