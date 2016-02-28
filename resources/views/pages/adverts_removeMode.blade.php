@@ -18,8 +18,12 @@
 
 <div class="global">
 	<div class="row">
-		<h3>Delete Mode</h3>
-		<h5>Remove selected adverts from playlist</h5>
+		<h3>Remove Mode</h3>
+		@if (Session::has('message'))
+			<h5>{{Session::pull('message')}}</h5>
+		@else
+			<h5>Remove selected adverts from {{$playlist->name or 'playlist'}}</h5>
+		@endif
 		<ul>
 			<li>
 				<button name="btnRemove" type="button">Remove</button>

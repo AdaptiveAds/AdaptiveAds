@@ -197,6 +197,10 @@ class PlaylistController extends Controller
     {
       $match_departments = Session::get('match_departments');
       $playlistID = $request->input('playlistID');
+      $playlist = Playlist::find($playlistID);
+
+      if ($playlist == null)
+        abort(404, 'Not found');
 
       $adverts = Advert::leftJoin('advert_playlist', function ($join) use ($playlistID) {
         $join->on('advert.id', '=', 'advert_playlist.advert_id');
@@ -213,7 +217,8 @@ class PlaylistController extends Controller
       Session::put('playlistID', $playlistID);
 
       $data = array(
-        'adverts' => $adverts
+        'adverts' => $adverts,
+        'playlist' => $playlist
       );
 
       return view('pages/adverts_addMode', $data);
@@ -234,7 +239,8 @@ class PlaylistController extends Controller
       Session::put('playlistID', $playlistID);
 
       $data = array(
-        'adverts' => $adverts
+        'adverts' => $adverts,
+        'playlist' => $playlist
       );
 
       return view('pages/adverts_removeMode', $data);

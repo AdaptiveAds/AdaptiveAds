@@ -18,7 +18,11 @@
 <div class="global">
 	<div class="row">
 			<h3>Add Mode</h3>
-			<h5>Add an existing advert to the playlist</h5>
+			@if (Session::has('message'))
+				<h5>{{Session::pull('message')}}</h5>
+			@else
+				<h5>Add an existing advert to {{$playlist->name or 'the playlist'}}</h5>
+			@endif
 			<ul>
 				<li>
 					<button name="btnAdd" type="button">Add</button>
