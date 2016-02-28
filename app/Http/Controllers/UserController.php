@@ -86,8 +86,7 @@ class UserController extends Controller
 
       $user = User::find($id);
       if ($user == null)
-        return redirect()->route('dashboard.settings.users.index')
-                         ->with('message', 'Error: User not found');
+        return array('error' => 'Error: User not found.');
 
       return array('user' => $user);
     }

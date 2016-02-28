@@ -104,7 +104,7 @@ class ScreenController extends Controller
       $screen = Screen::find($id);
 
       if ($screen == null)
-        abort(404, 'Unauthorized');
+        return array('error' => 'Error: Screen not found.');
 
       return array('screen' => $screen);
     }

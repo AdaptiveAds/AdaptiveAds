@@ -43,7 +43,7 @@ class DepartmentController extends Controller
       $match_departments = Session::get('match_departments');
 
       $departments = Department::whereIn('id', $match_departments)->get();
-      $skins = Skin::all // TODO restrict
+      $skins = Skin::all(); // TODO restrict
 
       $data = array(
         'departments' => $departments,
@@ -103,7 +103,7 @@ class DepartmentController extends Controller
       $department = Department::find($id);
 
       if ($department == null)
-        abort(404, 'Not found.');
+        return array('error' => 'Error: Department not found.');
 
       return array('department' => $department);
     }

@@ -97,7 +97,7 @@ class PlaylistController extends Controller
 
       $playlist = Playlist::find($id);
       if ($playlist == null)
-        abort(404, 'Not found.');
+        return array('error' => 'Error: Playlist not found.');
 
       return array('playlist' => $playlist);
     }

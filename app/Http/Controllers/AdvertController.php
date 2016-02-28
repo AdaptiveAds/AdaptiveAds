@@ -100,7 +100,7 @@ class AdvertController extends Controller
       $advert = Advert::find($id);
 
       if ($advert == null)
-        abort(404, 'Not found.');
+        return array('error' => 'Error: Advert not found.');
 
       return array('advert' => $advert);
     }

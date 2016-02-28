@@ -99,7 +99,7 @@ class LocationController extends Controller
 
       $location = Location::find($id);
       if ($location == null)
-        abort(404, 'Not found.');
+        return array('error', 'Error: Location not found.');
 
       return array('location' => $location);
     }

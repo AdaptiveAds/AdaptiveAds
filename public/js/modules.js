@@ -242,7 +242,9 @@ var IndexUpdater = (function() {
       url : IndexUpdater.action,
       data : {'itemID': itemID, 'effectedID': effectedID, 'newIndex': newIndex, 'effectedIndex': effectedIndex},
       success : function(data){
-        // Do Nothing...
+        if (data.redirect !== undefiend || data.redirect !== null) {
+          window.location.href = data.redirect;
+        }
       },
       error : function(xhr, textStatus, errorThrown) {
         console.log(textStatus + " ------ " + errorThrown);
@@ -412,8 +414,13 @@ var ModalManager = (function() {
       url : ModalManager.action + id,
       data : {'id': id},
       success : function(data){
-        showData();
-        callback(data);
+        if (data.error !== undefined) {
+          showErrors();
+          $('[name="errorMsg"]').html(data.error);
+        } else {
+          showData();
+          callback(data);
+        }
       },
       error : function(xhr, textStatus, errorThrown) {
         showErrors();

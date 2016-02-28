@@ -88,8 +88,7 @@ class SkinController extends Controller
 
       $skin = Skin::find($id);
       if ($skin == null)
-        return redirect()->route('dashboard.settings.skins.index')
-                         ->with('message', 'Error: Skin not found');
+        return array('error' => 'Error: Skin not found.');
 
       return array('skin' => $skin);
     }

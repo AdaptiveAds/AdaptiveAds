@@ -111,8 +111,7 @@ class TemplateController extends Controller
 
       $template = Template::find($id);
       if ($template == null)
-        return redirect()->route('dashboard.settings.templates.index')
-                         ->with('message', 'Error: Template not found');
+        return array('error' => 'Error: Template not found.');
 
       return array('template' => $template);
     }
@@ -181,7 +180,7 @@ class TemplateController extends Controller
       if ($template == null)
         return redirect()->route('dashboard.settings.templates.index')
                          ->with('message', 'Error: Template not found');
-                         
+
       $pagesCount = $template->Pages()->count();
 
       // Don't delete if template is referenced
