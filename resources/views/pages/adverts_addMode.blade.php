@@ -6,14 +6,12 @@
 
 <script>
 	$('document').ready(function() {
-		AdvertAssign.token = "{{ csrf_token() }}";
-		AdvertAssign.action = "/dashboard/playlist/{{ $selectedPlaylist }}/add";
+		ObjectAssign.token = "{{ csrf_token() }}";
+		ObjectAssign.action = "/dashboard/playlist/process";
 
-		AdvertAssign.redirectPath = "/dashboard/playlist/{{ $selectedPlaylist }}/edit";
-		AdvertAssign.playlist = {{ $selectedPlaylist or 1 }};
 		SelectManager.multi = true;
 		SelectManager.register_eventhandlers();
-		AdvertAssign.register_eventhandlers();
+		ObjectAssign.register_eventhandlers();
 	});
 </script>
 
@@ -23,7 +21,7 @@
 			<h5>Add an existing advert to the playlist</h5>
 			<ul>
 				<li>
-					<button name="btnAddAdvert" type="button">Add</button>
+					<button name="btnAdd" type="button">Add</button>
 				</li>
 			</ul>
 	</div>

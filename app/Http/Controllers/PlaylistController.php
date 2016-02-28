@@ -193,28 +193,76 @@ class PlaylistController extends Controller
                        ->with('message', 'Playlist deleted successfully');
     }
 
+    public function addMode(Request $request)
+    {
+      $match_departments = Session::get('match_departments');
+      $playlistID = $request->input('playlistID');
+
+      $adverts = Advert::leftJoin('advert_playlist', function ($join) use ($playlistID) {
+        $join->on('advert.id', '=', 'advert_playlist.advert_id');
+        $join->where('advert_playlist.playlist_id', '=', $playlistID);
+      })
+      ->where('advert_playlist.playlist_id', '!=', $playlistID)
+      ->orWhereRaw('advert_playlist.playlist_id is null')
+      ->whereIn('advert.department_id', $match_departments)
+      ->get();
+
+      if ($adverts->count() <= 0)
+        abort(404, 'Not found');
+
+      Session::put('playlistID', $playlistID);
+
+      $data = array(
+        'adverts' => $adverts
+      );
+
+      return view('pages/adverts_addMode', $data);
+
+    }
+
+    public function removeMode(Request $request)
+    {
+      $playlistID = $request->input('playlistID');
+
+      $playlist = Playlist::find($playlistID);
+
+      if ($playlist == null)
+        abort(404, 'Not found');
+
+      $adverts = $playlist->Adverts()->get();
+
+      Session::put('playlistID', $playlistID);
+
+      $data = array(
+        'adverts' => $adverts
+      );
+
+      return view('pages/adverts_removeMode', $data);
+    }
+
     /**
       * AJAX Only Method
       * Adds an existing advert to the current playlist. If the request was
       * not made by an AJAX method HTTP 401 will be returned
       * @param Illuminate\Http\Request $request
       */
-    public function addExistingAdvert(Request $request)
+    public function addAdvert(Request $request)
     {
-
-      // Flow must be valid to continue
-      // We don't want the user to add adverts after clicking the back button...
-      $valid = Session::get('flow_valid');
-      if ($valid == false)
-        return array('failed' => true, 'message' => 'Flow invalid, please follow page flow');
-
       if ($request->ajax() == false)
         abort(401, 'Unauthorized');
 
-      $playlistID = $request->input('playlistID');
-      $adverts = $request->input('arrAdverts');
+      if (Session::has('playlistID') == false) {
+        Session::flash('message', 'Error: playlist id not found');
+        return array('redirect' => '/dashboard/playlist');
+      }
 
+      $playlistID = Session::pull('playlistID');
       $playlist = Playlist::find($playlistID);
+
+      if ($playlist == null)
+        abort(404, 'Not found');
+
+      $adverts = $request->input('arrObjects');
 
       $currentIndex = DB::table('advert_playlist')->where('playlist_id', $playlistID)->max('advert_index');
       $count = 0;
@@ -227,13 +275,18 @@ class PlaylistController extends Controller
       foreach ($adverts as $advertID) {
 
         // NOTE global is restricted to a MAX of 3 adverts
-        if ($count >= 3)
-            return array('failed' => true, 'message' => 'Global playlist has reached the maxiumum assigned');
+        if ($count >= 3) {
+            Session::flash('message', 'Global playlist has reached the maxiumum assigned');
+            return array('redirect' => '/dashboard/playlist/'.$playlistID.'/edit');
         }
 
         // TODO advert inde and display timing (GUI??)
         $playlist->Adverts()->attach($advertID, ['advert_index' => ++$currentIndex, 'display_schedule_id' => '1']);
         $count++;
+      }
+
+      Session::flash('message', 'Advert(s) added');
+      return array('redirect' => '/dashboard/playlist/'.$playlistID.'/edit');
     }
 
     /**
@@ -244,24 +297,28 @@ class PlaylistController extends Controller
       */
     public function removeAdvert(Request $request)
     {
-
-      // Flow must be valid to continue
-      // We don't want the user to remove adverts after clicking the back button...
-      $valid = Session::get('flow_valid');
-      if ($valid == false)
-        return array('failed' => true, 'message' => 'Flow invalid, please follow page flow');
-
       if ($request->ajax() == false)
         abort(401, 'Unauthorized');
 
-      $playlistID = $request->input('playlistID');
-      $adverts = $request->input('arrAdverts');
+      if (Session::has('playlistID') == false) {
+        Session::flash('message', 'Error no playlist id found');
+        return array('redirect' => '/dashboard/playlist');
+      }
 
+      $playlistID = Session::pull('playlistID');
       $playlist = Playlist::find($playlistID);
+
+      if ($playlist == null)
+        abort(404, 'Not found');
+
+      $adverts = $request->input('arrObjects');
 
       foreach($adverts as $advertID) {
         $playlist->Adverts()->detach($advertID);
       }
+
+      Session::flash('message', 'Advert(s) removed');
+      return array('redirect' => '/dashboard/playlist/'.$playlistID.'/edit');
     }
 
     /**
@@ -289,8 +346,6 @@ class PlaylistController extends Controller
       if (isset($playlist) == false) {
         abort(404);
       }
-
-      //dd($playlist);
 
       foreach ($playlist->Adverts as $advert) {
         if ($advert->id == $selectedID) {
@@ -392,5 +447,31 @@ class PlaylistController extends Controller
 
       // Only return unqiue users
       return $playlists->unique('id');
+    }
+
+    public function process(Request $request)
+    {
+      $btnAddMode = $request->input('btnAddMode');
+      $btnRemoveMode = $request->input('btnRemoveMode');
+      $mode = $request->input('mode');
+
+      if (isset($mode)) {
+        if ($mode == 'add') {
+          return $this->addAdvert($request);
+        } else if ($mode == 'remove') {
+          return $this->removeAdvert($request);
+        }
+      } else if (isset($btnAddMode)) {
+
+        return $this->addMode($request);
+
+      } else if (isset($btnRemoveMode)) {
+
+        return $this->removeMode($request);
+
+      } else {
+        abort(401, 'Unauthorized');
+      }
+
     }
 }

@@ -6,15 +6,13 @@
 
 <script>
 	$('document').ready(function() {
-		AdvertAssign.token = "{{ csrf_token() }}";
+		ObjectAssign.token = "{{ csrf_token() }}";
 
-		AdvertAssign.action = "/dashboard/playlist/{{ $selectedPlaylist }}/remove";
-		AdvertAssign.redirectPath = "/dashboard/playlist/{{ $selectedPlaylist }}/edit";
+		ObjectAssign.action = "/dashboard/playlist/process";
 
-		AdvertAssign.playlist = {{ $selectedPlaylist or 1 }};
 		SelectManager.multi = true;
 		SelectManager.register_eventhandlers();
-		AdvertAssign.register_eventhandlers();
+		ObjectAssign.register_eventhandlers();
 	});
 </script>
 
@@ -24,7 +22,7 @@
 		<h5>Remove selected adverts from playlist</h5>
 		<ul>
 			<li>
-				<button name="btnRemoveAdvert" type="button">Remove</button>
+				<button name="btnRemove" type="button">Remove</button>
 			</li>
 		</ul>
 	</div>

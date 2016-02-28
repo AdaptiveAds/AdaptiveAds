@@ -22,12 +22,14 @@
 						<button id="btnUp" type="button" disabled>Up</button>
 	 					<button id="btnDown" type="button" disabled>Down</button>
 
-						{!! Form::open(['route' => ['dashboard.advert.select', $playlist->id], 'method' => 'POST']) !!}
-							<button type="submit" name="btnAddAdvert">Add Advert</button>
+						{!! Form::open(['route' => ['dashboard.playlist.process'], 'method' => 'POST']) !!}
+							<input type="hidden" name="playlistID" value="{{$playlist->id}}"/>
+							<button type="submit" name="btnAddMode">Add Mode</button>
 						{!! Form::close() !!}
 
-						{!! Form:: open(['route' => ['dashboard.advert.removeMode', $playlist->id], 'method' => 'POST']) !!}
-							<button type="submit" name="btnRemoveAdvert">Remove Mode</button>
+						{!! Form:: open(['route' => ['dashboard.playlist.process'], 'method' => 'POST']) !!}
+							<input type="hidden" name="playlistID" value="{{$playlist->id}}"/>
+							<button type="submit" name="btnRemoveMode">Remove Mode</button>
 						{!! Form::close() !!}
 
 						<button type="button">Edit Timings</button>
