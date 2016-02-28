@@ -65,11 +65,8 @@ class Authenticate
           // transfer collection to array
           foreach ($user_departments as $department) {
 
-            // Check if the user is an admin in the department
-            if ($user->isAdmin($department->id)) {
-              $user->setAdmin(true); // TODO DISABLE
-              $department->setAdmin(true); // Note user is admin of this department
-            }
+            $user->setAdmin(true); // TODO DISABLE
+            $department->setAdmin(true); // Note user is admin of this department
 
             array_push($allowed_departments, $department);
           }
