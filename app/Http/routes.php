@@ -39,10 +39,8 @@ Route::post('dashboard/playlist/filter', ['as' => 'dashboard.playlist.filter', '
 Route::post('dashboard/playlist/process', ['as' => 'dashboard.playlist.process', 'uses' => 'PlaylistController@process']);
 
 // Advert pages
-Route::post('dashboard/advert/{playlistID}/removeMode', ['as' => 'dashboard.advert.removeMode', 'uses' => 'AdvertController@removeMode']);
-Route::post('dashboard/advert/{playlistID}/select', ['as' => 'dashboard.advert.select', 'uses' => 'AdvertController@selectForPlaylist']);
-Route::post('dashboard/advert/{advertID}/updateIndexes', ['as' => 'dashboard.advert.updateIndexes', 'uses' => 'AdvertController@updateIndexes']);
 Route::resource('dashboard/advert', 'AdvertController');
+Route::post('dashboard/advert/{advertID}/updateIndexes', ['as' => 'dashboard.advert.updateIndexes', 'uses' => 'AdvertController@updateIndexes']);
 Route::post('dashboard/advert/filter', ['as' => 'dashboard.advert.filter', 'uses' => 'AdvertController@filter']);
 
 // Page pages
