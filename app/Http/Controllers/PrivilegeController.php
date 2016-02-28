@@ -8,7 +8,8 @@ use Session;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Privilage as Privilege;
+use App\Department as Department;
+use App\User as User;
 
 /**
   * Defines the CRUD methods for the PrivilegeController
@@ -37,11 +38,9 @@ class PrivilegeController extends Controller
     public function index()
     {
       $allowed_departments = Session::get('allowed_departments');
-      $privileges = Privilege::all();
 
       $data = array(
         'allowed_departments' => $allowed_departments,
-        'privileges' => $privileges
       );
 
       return view('pages/privileges', $data);
@@ -116,16 +115,28 @@ class PrivilegeController extends Controller
     public function addMode(Request $request)
     {
 
+      $allowed_departments = Session::get('allowed_departments');
       $departmentID = $request->input('drpDepartments');
-      $PrivilageID = $request->input('drpPrivileges');
 
-      Session::flash('departmentID', $departmentID);
-      Session::flash('privilegeID', $privilegeID);
+      if ($departmentID == null)
+        return redirect()->route('dashboard.settings.privileges.index')
+                         ->with('message', 'Please select a department to work with');
 
-      $users = null;
+      $department = Department::find($departmentID);
+
+      if ($department == null)
+        abort(404, 'Not found');
+
+      $depUsers = $department->Users()->get();
+      $allUsers = User::all();
+
+      $users = $allUsers->diff($depUsers);
+
+      Session::put('departmentID', $departmentID);
 
       $data = array(
-        'users' => $users
+        'users' => $users,
+        'allowed_departments' => $allowed_departments
       );
 
       return view('pages/privileges_addMode', $data);
@@ -133,16 +144,25 @@ class PrivilegeController extends Controller
 
     public function removeMode(Request $request)
     {
+      $allowed_departments = Session::get('allowed_departments');
       $departmentID = $request->input('drpDepartments');
-      $PrivilageID = $request->input('drpPrivileges');
 
-      Session::flash('departmentID', $departmentID);
-      Session::flash('privilegeID', $privilegeID);
+      if ($departmentID == null)
+        return redirect()->route('dashboard.settings.privileges.index')
+                         ->with('message', 'Please select a department to work with');
 
-      $users = null;
+      $department = Department::find($departmentID);
+
+      if ($department == null)
+        abort(404, 'Not found');
+
+      $users = $department->Users()->get();
+
+      Session::put('departmentID', $departmentID);
 
       $data = array(
-        'users' => $users
+        'users' => $users,
+        'allowed_departments' => $allowed_departments
       );
 
       return view('pages/privileges_removeMode', $data);
@@ -150,36 +170,116 @@ class PrivilegeController extends Controller
 
     public function addUser(Request $request)
     {
-      if (Session::has('departmentID') == false)
-        abort(400); // TODO change
+      if (Session::has('departmentID') == false) {
+        Session::flash('message', 'Please select a department to proceed');
+        return array('redirect' => '/dashboard/settings/privileges');
+      }
 
-      $users = null;
+      $department = Department::find(Session::pull('departmentID'));
 
-      $data = array(
-        'users' => $users
-      );
+      if ($department == null)
+        abort(404, 'Not found');
 
-      return view('pages/privileges', $data);
+      $users = $request->input('arrObjects');
+
+      if (count($users) == 0) {
+        Session::flash('message', 'No users selected.. Permissions unchanged');
+        return array('redirect' => '/dashboard/settings/privileges');
+      }
+
+      foreach ($users as $userID) {
+        $department->Users()->attach($userID);
+      }
+
+      Session::flash('message', 'User permissions added');
+
+      return array('redirect' => '/dashboard/settings/privileges');
     }
 
     public function removeUser(Request $request)
     {
-      if (Session::has('departmentID') == false)
-        abort(400); // TODO change
+      if (Session::has('departmentID') == false) {
+        Session::flash('message', 'Please select a department to proceed');
+        return array('redirect' => '/dashboard/settings/privileges');
+      }
 
-      $users = null;
+      $department = Department::find(Session::pull('departmentID'));
 
-      $data = array(
-        'users' => $users
-      );
+      if ($department == null)
+        abort(404, 'Not found');
 
-      return view('pages/privileges', $data);
+      $users = $request->input('arrObjects');
+
+      if (count($users) == 0) {
+        Session::flash('message', 'No users selected.. Permissions unchanged');
+        return array('redirect' => '/dashboard/settings/privileges');
+      }
+
+      foreach ($users as $userID) {
+        $department->Users()->detach($userID);
+      }
+
+      Session::flash('message', 'User permissions removed');
+
+      return array('redirect' => '/dashboard/settings/privileges');
     }
 
     public function filter(Request $request)
     {
       $drpDepartment = $request->input('drpDepartments');
-      $drpPrivilege = $request->input('drpPrivileges');
+
+      if ($drpDepartment !== null) {
+        $department = Department::find($drpDepartment);
+
+        $users = $department->Users()->get();
+      }
+
+      $allowed_departments = Session::get('allowed_departments');
+
+      $data = array(
+        'allowed_departments' => $allowed_departments,
+        'users' => $users
+      );
+
+      return view('pages/privileges', $data);
+
+    }
+
+    public function process(Request $request)
+    {
+      //$request->session()->flush();
+      $btnFindAll = $request->input('btnFindAll');
+      $btnAddMode = $request->input('btnAddPrivilege');
+      $btnRemoveMode = $request->input('btnRemovePrivilege');
+      $mode = $request->input('mode');
+
+      if (isset($mode)) {
+        if ($mode == 'add') {
+          return $this->addUser($request);
+        } else if ($mode == 'remove') {
+          return $this->removeUser($request);
+        }
+      }
+
+      if (isset($btnFindAll)) {
+
+        return $this->filter($request);
+
+      } else if (isset($btnAddMode)) {
+
+        return $this->addMode($request);
+
+      } else if (isset($btnRemoveMode)) {
+
+        return $this->removeMode($request);
+
+      } else {
+        abort(401, 'Unauthorized');
+      }
+    }
+
+    public function togglePermission(Request $request)
+    {
 
     }
 }
