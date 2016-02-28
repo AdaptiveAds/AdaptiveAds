@@ -65,9 +65,6 @@ class ServeController extends Controller
         if (isset($screen) == false)
           abort(404, 'Not found');
 
-        if ($screen->deleted == 1)
-          abort(404, 'Not found');
-
         $data = array(
           'screen' => $screen
         );
