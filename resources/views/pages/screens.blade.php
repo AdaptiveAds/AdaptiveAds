@@ -22,7 +22,7 @@
 			@if (Session::has('message'))
 				<h5>{{Session::pull('message')}}</h5>
 			@else
-				<h5>Register/Manage new and existing screens<h5>
+				<h5>Register/Manage new and existing screens</h5>
 			@endif
 			<ul name="lstScreenControls">
 				<li>
