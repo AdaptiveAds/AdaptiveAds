@@ -100,6 +100,21 @@ class User extends Model implements AuthenticatableContract,
   }
 
   /**
+    * Sets the user as an admin of a department
+    * @param int $departmentID ID of the department to assign
+    * @return boolean True if user is admin of department
+    */
+  public function makeAdmin($departmentID) {
+    $department = $this->belongsToMany(Department::class)->withPivot('is_admin')
+                      ->where('id', $departmentID)
+                      ->first();
+
+    if ($department != null) { // Have we found a department with this user?
+      $department->pivot->is_admin = 1;
+    }
+  }
+
+  /**
     * Overrides default newPivot method to provide extra logic....
     * REVIEW???
     * @param Model $parent Parent object of pivot table

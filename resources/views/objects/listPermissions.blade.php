@@ -14,13 +14,18 @@
 
           </a>
 
-          {!! Form::open(['url' => '', 'method' => 'POST']) !!}
-            @if ($user->is_super_user)
-              <button type="submit" name="btnToggle">Make User</button>
-            @else
-              <button type="submit" name="btnToggle">Make Admin</button>
-            @endif
-          {!! Form::close() !!}
+          @if (isset($selectable) == false)
+            {!! Form::open(['route' => 'dashboard.settings.privileges.process', 'method' => 'POST']) !!}
+              <input type="hidden" name="userID" value="{{$user->id}}"/>
+              @if ($user->is_super_user == false)
+                @if ($user->isAdmin($department->id))
+                  <button type="submit" name="btnToggle">Make User</button>
+                @else
+                  <button type="submit" name="btnToggle">Make Admin</button>
+                @endif
+              @endif
+            {!! Form::close() !!}
+          @endif
         </li>
       @endforeach
     @else

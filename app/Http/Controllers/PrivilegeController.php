@@ -194,6 +194,7 @@ class PrivilegeController extends Controller
       }
 
       Session::flash('message', 'User permissions added');
+      Session::flash('remember_id', $department->id);
 
       return array('redirect' => '/dashboard/settings/privileges');
     }
@@ -222,6 +223,7 @@ class PrivilegeController extends Controller
       }
 
       Session::flash('message', 'User permissions removed');
+      Session::flash('remember_id', $department->id);
 
       return array('redirect' => '/dashboard/settings/privileges');
     }
@@ -229,17 +231,21 @@ class PrivilegeController extends Controller
     public function filter(Request $request)
     {
       $drpDepartment = $request->input('drpDepartments');
+      $department = null;
 
       if ($drpDepartment !== null) {
         $department = Department::find($drpDepartment);
 
         $users = $department->Users()->get();
+        Session::put('departmentID', $drpDepartment);
       }
 
       $allowed_departments = Session::get('allowed_departments');
+      Session::flash('remember_id', $department->id);
 
       $data = array(
         'allowed_departments' => $allowed_departments,
+        'department' => $department,
         'users' => $users
       );
 
@@ -253,6 +259,7 @@ class PrivilegeController extends Controller
       $btnFindAll = $request->input('btnFindAll');
       $btnAddMode = $request->input('btnAddMode');
       $btnRemoveMode = $request->input('btnRemoveMode');
+      $btnToggle = $request->input('btnToggle');
       $mode = $request->input('mode');
 
       if (isset($mode)) {
@@ -275,6 +282,10 @@ class PrivilegeController extends Controller
 
         return $this->removeMode($request);
 
+      } else if (isset($btnToggle)) {
+
+        return $this->togglePermission($request);
+
       } else {
         abort(401, 'Unauthorized');
       }
@@ -282,6 +293,43 @@ class PrivilegeController extends Controller
 
     public function togglePermission(Request $request)
     {
+
+      if (Session::has('departmentID') == false) {
+
+      }
+
+      $departmentID = Session::get('departmentID');
+      $userID = $request->input('userID');
+
+      if ($userID == null) {
+
+      }
+
+      $user = User::find($userID);
+      $department = Department::find($departmentID);
+
+      if ($user == null || $department == null)
+        abort(404, 'Not found');
+
+      if ($user->isAdmin($departmentID))
+        $user->Departments()->updateExistingPivot($departmentID, array('is_admin' => 0));
+      else {
+        $user->Departments()->updateExistingPivot($departmentID, array('is_admin' => 1));
+      }
+
+      $users = $department->Users()->get();
+      $allowed_departments = Session::get('allowed_departments');
+
+      Session::flash('message', 'Account: '.$user->username.' access level updated');
+      Session::flash('remember_id', $department->id);
+
+      $data = array(
+        'allowed_departments' => $allowed_departments,
+        'department' => $department,
+        'users' => $users,
+      );
+
+      return view('pages/privileges', $data);
 
     }
 }
