@@ -104,7 +104,7 @@
 					<li name="liPrivileges">
 						<a href="{{ URL::to('dashboard/settings/privileges')}}">
 							<i class="fa fa-key">
-								<span>Skins</span>
+								<span>Privileges</span>
 							</i>
 						</a>
 					</li>
