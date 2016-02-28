@@ -124,7 +124,7 @@ class PlaylistController extends Controller
         return response('Not found', 404);
       }
 
-      $adverts = $playlist->Adverts->where('deleted', 0); // ordered by advert_index
+      $adverts = $playlist->Adverts()->get();
 
       $data = array(
         'playlist' => $playlist,
