@@ -19,20 +19,17 @@ class PlaylistTableSeeder extends Seeder
       //Populate table
       $table->insert([
         'name' => 'Global Playlist',
-        'deleted' => 0,
         'department_id' => 1,
         'isGlobal' => 1
       ]);
 
       $table->insert([
         'name' => 'Library Services Playlist',
-        'deleted' => 0,
         'department_id' => 2
       ]);
 
       $table->insert([
         'name' => 'DegreePlus Playlist',
-        'deleted' => 0,
         'department_id' => 3
       ]);
 

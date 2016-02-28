@@ -20,31 +20,31 @@ class DepartmentUserTableSeeder extends Seeder
       $table->insert([
         'user_id' => 1, // Dev
         'department_id' => 2, // Library
-        'privilage_id' => 1
+        'is_admin' => 0
       ]);
 
       $table->insert([
         'user_id' => 3, // Admin
         'department_id' => 2, // Library
-        'privilage_id' => 1
+        'is_admin' => 1
       ]);
 
       $table->insert([
         'user_id' => 3, // Admin
         'department_id' => 3, // DegreePlus
-        'privilage_id' => 1
+        'is_admin' => 1
       ]);
 
       $table->insert([
         'user_id' => 4, // User
         'department_id' => 2, // Library
-        'privilage_id' => 2
+        'is_admin' => 0
       ]);
 
       $table->insert([
         'user_id' => 4,
         'department_id' => 3, // DegreePlus
-        'privilage_id' => 2
+        'is_admin' => 0
       ]);
     }
 }

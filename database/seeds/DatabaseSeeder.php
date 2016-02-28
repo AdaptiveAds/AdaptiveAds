@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PageDataTableSeeder::class);
         $this->call(DisplayScheduleTableSeeder::class);
         $this->call(SkinTableSeeder::class);
-        $this->call(PrivilageTableSeeder::class);
+        //$this->call(PrivilageTableSeeder::class);
         $this->call(UserTableSeeder::class);
         // TODO display timing
         $this->call(DepartmentTableSeeder::class);
