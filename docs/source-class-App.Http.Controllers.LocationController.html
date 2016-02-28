@@ -134,6 +134,7 @@
 				<li><a href="class-App.Http.Controllers.LocationController.html">App\Http\Controllers\LocationController</a></li>
 				<li><a href="class-App.Http.Controllers.PageController.html">App\Http\Controllers\PageController</a></li>
 				<li><a href="class-App.Http.Controllers.PlaylistController.html">App\Http\Controllers\PlaylistController</a></li>
+				<li><a href="class-App.Http.Controllers.PrivilegeController.html">App\Http\Controllers\PrivilegeController</a></li>
 				<li><a href="class-App.Http.Controllers.ScreenController.html">App\Http\Controllers\ScreenController</a></li>
 				<li><a href="class-App.Http.Controllers.ServeController.html">App\Http\Controllers\ServeController</a></li>
 				<li><a href="class-App.Http.Controllers.SkinController.html">App\Http\Controllers\SkinController</a></li>
@@ -278,7 +279,7 @@
 </span><span id="99" class="l"><a href="#99"> 99 </a>
 </span><span id="100" class="l"><a href="#100">100 </a>      <span class="php-var">$location</span> = Location::find(<span class="php-var">$id</span>);
 </span><span id="101" class="l"><a href="#101">101 </a>      <span class="php-keyword1">if</span> (<span class="php-var">$location</span> == <span class="php-keyword1">null</span>)
-</span><span id="102" class="l"><a href="#102">102 </a>        abort(<span class="php-num">404</span>, <span class="php-quote">'Not found.'</span>);
+</span><span id="102" class="l"><a href="#102">102 </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">array</span>(<span class="php-quote">'error'</span>, <span class="php-quote">'Error: Location not found.'</span>);
 </span><span id="103" class="l"><a href="#103">103 </a>
 </span><span id="104" class="l"><a href="#104">104 </a>      <span class="php-keyword1">return</span> <span class="php-keyword1">array</span>(<span class="php-quote">'location'</span> =&gt; <span class="php-var">$location</span>);
 </span><span id="105" class="l"><a href="#105">105 </a>    }
@@ -305,34 +306,34 @@
 </span><span id="126" class="l"><a href="#126">126 </a>    {
 </span><span id="127" class="l"><a href="#127">127 </a>      <span class="php-var">$location</span> = Location::find(<span class="php-var">$id</span>);
 </span><span id="128" class="l"><a href="#128">128 </a>
-</span><span id="129" class="l"><a href="#129">129 </a>      <span class="php-keyword1">if</span> (<span class="php-var">$location</span> != <span class="php-keyword1">null</span>) {
-</span><span id="130" class="l"><a href="#130">130 </a>
-</span><span id="131" class="l"><a href="#131">131 </a>        <span class="php-var">$txtLocationName</span> = <span class="php-var">$request</span>-&gt;input(<span class="php-quote">'txtLocationName'</span>);
-</span><span id="132" class="l"><a href="#132">132 </a>        <span class="php-var">$departmentID</span> = <span class="php-var">$request</span>-&gt;input(<span class="php-quote">'drpDepartments'</span>);
-</span><span id="133" class="l"><a href="#133">133 </a>
-</span><span id="134" class="l"><a href="#134">134 </a>        <span class="php-var">$location</span>-&gt;name = <span class="php-var">$txtLocationName</span>;
-</span><span id="135" class="l"><a href="#135">135 </a>        <span class="php-var">$location</span>-&gt;department_id = <span class="php-var">$departmentID</span>;
-</span><span id="136" class="l"><a href="#136">136 </a>        <span class="php-var">$location</span>-&gt;save();
-</span><span id="137" class="l"><a href="#137">137 </a>
-</span><span id="138" class="l"><a href="#138">138 </a>      } <span class="php-keyword1">else</span> {
-</span><span id="139" class="l"><a href="#139">139 </a>        abort(<span class="php-num">404</span>, <span class="php-quote">'Not found.'</span>);
-</span><span id="140" class="l"><a href="#140">140 </a>      }
-</span><span id="141" class="l"><a href="#141">141 </a>
-</span><span id="142" class="l"><a href="#142">142 </a>      <span class="php-keyword1">return</span> redirect()-&gt;route(<span class="php-quote">'dashboard.settings.locations.index'</span>);
-</span><span id="143" class="l"><a href="#143">143 </a>    }
-</span><span id="144" class="l"><a href="#144">144 </a>
-</span><span id="145" class="l"><a href="#145">145 </a>    <span class="php-comment">/**
-</span></span><span id="146" class="l"><a href="#146">146 </a><span class="php-comment">     * Remove the specified resource from storage.
-</span></span><span id="147" class="l"><a href="#147">147 </a><span class="php-comment">     *
-</span></span><span id="148" class="l"><a href="#148">148 </a><span class="php-comment">     * @param  int  $id ID of the location to destroy
-</span></span><span id="149" class="l"><a href="#149">149 </a><span class="php-comment">     * @return \Illuminate\Http\Response
-</span></span><span id="150" class="l"><a href="#150">150 </a><span class="php-comment">     */</span>
-</span><span id="151" class="l"><a href="#151">151 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> destroy(<span class="php-var">$id</span>)
-</span><span id="152" class="l"><a href="#152">152 </a>    {
-</span><span id="153" class="l"><a href="#153">153 </a>      <span class="php-var">$location</span> = Location::find(<span class="php-var">$id</span>);
-</span><span id="154" class="l"><a href="#154">154 </a>
-</span><span id="155" class="l"><a href="#155">155 </a>      <span class="php-keyword1">if</span> (<span class="php-var">$location</span> == <span class="php-keyword1">null</span>)
-</span><span id="156" class="l"><a href="#156">156 </a>        abort(<span class="php-num">404</span>, <span class="php-quote">'Not found.'</span>);
+</span><span id="129" class="l"><a href="#129">129 </a>      <span class="php-keyword1">if</span> (<span class="php-var">$location</span> == <span class="php-keyword1">null</span>)
+</span><span id="130" class="l"><a href="#130">130 </a>        <span class="php-keyword1">return</span> redirect()-&gt;route(<span class="php-quote">'dashboard.settings.locations.index'</span>)
+</span><span id="131" class="l"><a href="#131">131 </a>                         -&gt;with(<span class="php-quote">'message'</span>, <span class="php-quote">'Error: Location not found'</span>);
+</span><span id="132" class="l"><a href="#132">132 </a>
+</span><span id="133" class="l"><a href="#133">133 </a>      <span class="php-var">$txtLocationName</span> = <span class="php-var">$request</span>-&gt;input(<span class="php-quote">'txtLocationName'</span>);
+</span><span id="134" class="l"><a href="#134">134 </a>      <span class="php-var">$departmentID</span> = <span class="php-var">$request</span>-&gt;input(<span class="php-quote">'drpDepartments'</span>);
+</span><span id="135" class="l"><a href="#135">135 </a>
+</span><span id="136" class="l"><a href="#136">136 </a>      <span class="php-var">$location</span>-&gt;name = <span class="php-var">$txtLocationName</span>;
+</span><span id="137" class="l"><a href="#137">137 </a>      <span class="php-var">$location</span>-&gt;department_id = <span class="php-var">$departmentID</span>;
+</span><span id="138" class="l"><a href="#138">138 </a>      <span class="php-var">$location</span>-&gt;save();
+</span><span id="139" class="l"><a href="#139">139 </a>
+</span><span id="140" class="l"><a href="#140">140 </a>      <span class="php-keyword1">return</span> redirect()-&gt;route(<span class="php-quote">'dashboard.settings.locations.index'</span>)
+</span><span id="141" class="l"><a href="#141">141 </a>                       -&gt;with(<span class="php-quote">'message'</span>, <span class="php-quote">'Location updated successfully'</span>);
+</span><span id="142" class="l"><a href="#142">142 </a>    }
+</span><span id="143" class="l"><a href="#143">143 </a>
+</span><span id="144" class="l"><a href="#144">144 </a>    <span class="php-comment">/**
+</span></span><span id="145" class="l"><a href="#145">145 </a><span class="php-comment">     * Remove the specified resource from storage.
+</span></span><span id="146" class="l"><a href="#146">146 </a><span class="php-comment">     *
+</span></span><span id="147" class="l"><a href="#147">147 </a><span class="php-comment">     * @param  int  $id ID of the location to destroy
+</span></span><span id="148" class="l"><a href="#148">148 </a><span class="php-comment">     * @return \Illuminate\Http\Response
+</span></span><span id="149" class="l"><a href="#149">149 </a><span class="php-comment">     */</span>
+</span><span id="150" class="l"><a href="#150">150 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> destroy(<span class="php-var">$id</span>)
+</span><span id="151" class="l"><a href="#151">151 </a>    {
+</span><span id="152" class="l"><a href="#152">152 </a>      <span class="php-var">$location</span> = Location::find(<span class="php-var">$id</span>);
+</span><span id="153" class="l"><a href="#153">153 </a>
+</span><span id="154" class="l"><a href="#154">154 </a>      <span class="php-keyword1">if</span> (<span class="php-var">$location</span> == <span class="php-keyword1">null</span>)
+</span><span id="155" class="l"><a href="#155">155 </a>        <span class="php-keyword1">return</span> redirect()-&gt;route(<span class="php-quote">'dashboard.settings.locations.index'</span>)
+</span><span id="156" class="l"><a href="#156">156 </a>                         -&gt;with(<span class="php-quote">'message'</span>, <span class="php-quote">'Error: Location not found'</span>);
 </span><span id="157" class="l"><a href="#157">157 </a>
 </span><span id="158" class="l"><a href="#158">158 </a>      <span class="php-var">$count</span> = <span class="php-var">$location</span>-&gt;Screens-&gt;<span class="php-keyword2">count</span>();
 </span><span id="159" class="l"><a href="#159">159 </a>      <span class="php-keyword1">if</span> (<span class="php-var">$count</span> != <span class="php-num">0</span>)
@@ -393,7 +394,7 @@
 </span><span id="214" class="l"><a href="#214">214 </a>        <span class="php-var">$locationName</span> = <span class="php-keyword1">null</span>;
 </span><span id="215" class="l"><a href="#215">215 </a>
 </span><span id="216" class="l"><a href="#216">216 </a>      } <span class="php-keyword1">else</span> {
-</span><span id="217" class="l"><a href="#217">217 </a>        abort(<span class="php-num">401</span>);
+</span><span id="217" class="l"><a href="#217">217 </a>        abort(<span class="php-num">401</span>, <span class="php-quote">'Unauthorized'</span>);
 </span><span id="218" class="l"><a href="#218">218 </a>      }
 </span><span id="219" class="l"><a href="#219">219 </a>
 </span><span id="220" class="l"><a href="#220">220 </a>      <span class="php-var">$user</span> = Session::get(<span class="php-quote">'user'</span>);
@@ -418,6 +419,6 @@
 	</div>
 </div>
 <script src="resources/combined.js?f34e17f1c306ee5e8827cc7fbc837df85db065f0"></script>
-<script src="elementlist.js?aa5aef909ea6345d8ee8ded065e0993425f345c3"></script>
+<script src="elementlist.js?ec2e78d86b03168e059a882cb200aeba23cdda35"></script>
 </body>
 </html>
