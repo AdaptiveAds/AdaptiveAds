@@ -139,6 +139,10 @@ class PrivilegeController extends Controller
 
       $users = $allUsers->diff($depUsers);
 
+      if ($users->count() == 0)
+        return redirect()->route('dashboard.settings.privileges.index')
+                         ->with('message', 'No users to add');
+
       Session::put('departmentID', $departmentID);
 
       $data = array(
@@ -172,6 +176,10 @@ class PrivilegeController extends Controller
                          ->with('message', 'Error: Department not found');
 
       $users = $department->Users()->get();
+
+      if ($users->count() == 0)
+        return redirect()->route('dashboard.settings.privileges.index')
+                         ->with('message', 'No users to remove');
 
       Session::put('departmentID', $departmentID);
 
