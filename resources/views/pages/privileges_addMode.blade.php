@@ -17,11 +17,11 @@
 
 <div class="global">
 	<div class="row">
-				<h3>Assign Privileges</h3>
+				<h3>Add Mode</h3>
 				@if (Session::has('message'))
-					<div>
-						<h4>{{Session::get('message')}}</h4>
-					</div>
+					<h5>{{Session::pull('message')}}</h5>
+				@else
+					<h5>Add user(s) to {{$department->name or 'a department'}}</h5>
 				@endif
 				<ul name="lstPrivilegeControls">
 					<li>

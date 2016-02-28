@@ -6,9 +6,9 @@
 	<div class="row">
 				<h3>View Privileges</h3>
 				@if (Session::has('message'))
-					<div>
-						<h4>{{Session::get('message')}}</h4>
-					</div>
+					<h5>{{Session::pull('message')}}</h5>
+				@else
+					<h5>Assign users to departments and modify their access level</h5>
 				@endif
 				<ul name="lstPrivilegeControls">
 					<li>

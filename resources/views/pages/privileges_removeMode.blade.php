@@ -17,11 +17,11 @@
 
 <div class="global">
 	<div class="row">
-				<h3>Remove Privileges</h3>
+				<h3>Remove Mode</h3>
 				@if (Session::has('message'))
-					<div>
-						<h4>{{Session::get('message')}}</h4>
-					</div>
+					<h5>{{Session::pull('message')}}</h5>
+				@else
+					<h5>Remove user(s) from {{$department->name or 'a department'}}</h5>
 				@endif
 				<ul name="lstPrivilegeControls">
 					<li>

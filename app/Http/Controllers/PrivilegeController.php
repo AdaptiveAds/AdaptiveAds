@@ -136,7 +136,8 @@ class PrivilegeController extends Controller
 
       $data = array(
         'users' => $users,
-        'allowed_departments' => $allowed_departments
+        'allowed_departments' => $allowed_departments,
+        'department' => $department
       );
 
       return view('pages/privileges_addMode', $data);
@@ -162,7 +163,8 @@ class PrivilegeController extends Controller
 
       $data = array(
         'users' => $users,
-        'allowed_departments' => $allowed_departments
+        'allowed_departments' => $allowed_departments,
+        'department' => $department
       );
 
       return view('pages/privileges_removeMode', $data);
