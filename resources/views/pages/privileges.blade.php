@@ -16,9 +16,9 @@
 							<label>Department:</label>
 							@include('objects/dropdown_departments', array('allowed_departments' => $allowed_departments))
 
-							<button type="submit" name="btnRemovePrivilege">Remove Mode</button>
+							<button type="submit" name="btnRemoveMode">Remove Mode</button>
 
-							<button type="submit" name="btnAddPrivilege">Add Mode</button>
+							<button type="submit" name="btnAddMode">Add Mode</button>
 
 							<button type="submit" name="btnFindAll">Find All</button>
 						{!! Form::close() !!}

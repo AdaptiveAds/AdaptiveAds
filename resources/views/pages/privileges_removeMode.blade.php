@@ -9,10 +9,9 @@
 		ObjectAssign.token = "{{ csrf_token() }}";
 		ObjectAssign.action = "/dashboard/settings/privileges/process";
 
-		ObjectAssign.redirectPath = "/dashboard/settings/privileges/";
 		SelectManager.multi = true;
 		SelectManager.register_eventhandlers();
-		ObjectAssign.register_eventhandlers();
+		ObjectAssign.register_eventhandlers(); // Must be after select manager
 	});
 </script>
 

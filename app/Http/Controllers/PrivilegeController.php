@@ -249,8 +249,8 @@ class PrivilegeController extends Controller
     {
       //$request->session()->flush();
       $btnFindAll = $request->input('btnFindAll');
-      $btnAddMode = $request->input('btnAddPrivilege');
-      $btnRemoveMode = $request->input('btnRemovePrivilege');
+      $btnAddMode = $request->input('btnAddMode');
+      $btnRemoveMode = $request->input('btnRemoveMode');
       $mode = $request->input('mode');
 
       if (isset($mode)) {
