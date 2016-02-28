@@ -28,6 +28,10 @@
 			<li>
 				<button name="btnRemove" type="button">Remove</button>
 			</li>
+			<li>
+				<input type="checkbox" id="checkAll" name="chkAll"/>
+				<label for="checkAll">Check All</label>
+			</li>
 		</ul>
 	</div>
 

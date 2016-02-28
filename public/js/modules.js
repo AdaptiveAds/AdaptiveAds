@@ -71,6 +71,10 @@ var SelectManager = (function() {
     // Un-check all checkboxes
     $('input:checkbox').removeAttr('checked');
 
+    $("#checkAll").change(function () {
+        $("input:checkbox").prop('checked', $(this).prop("checked"));
+    });
+
     $('li[data-selectableItem="true"], [data-selectableItem="true"]').click(function() {
 
        if (SelectManager.multi == false) {

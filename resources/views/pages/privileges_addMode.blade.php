@@ -27,6 +27,10 @@
 					<li>
 						<button type="button" name="btnAdd">Add</button>
 					</li>
+					<li>
+						<input type="checkbox" id="checkAll" name="chkAll"/>
+						<label for="checkAll">Check All</label>
+					</li>
 				</ul>
 	</div>
 
