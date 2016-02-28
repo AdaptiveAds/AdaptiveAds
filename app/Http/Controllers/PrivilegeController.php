@@ -112,6 +112,12 @@ class PrivilegeController extends Controller
         //
     }
 
+    /**
+      * Shows the privileges add more page to allow
+      * the user to select users to assign to a selected department
+      * @param \Illuminate\Http\Request $request
+      * @return \Illuminate\Http\Response
+      */
     public function addMode(Request $request)
     {
 
@@ -144,6 +150,12 @@ class PrivilegeController extends Controller
       return view('pages/privileges_addMode', $data);
     }
 
+    /**
+      * Shows the privileges remove mode page to allow
+      * the user to remove selected users from a selected department
+      * @param \Illuminate\Http\Request $request
+      * @return \Illuminate\Http\Response
+      */
     public function removeMode(Request $request)
     {
       $allowed_departments = Session::get('allowed_departments');
@@ -172,6 +184,11 @@ class PrivilegeController extends Controller
       return view('pages/privileges_removeMode', $data);
     }
 
+    /**
+      * (AJAX) Adds selected users to a selected department
+      * @param \Illuminate\Http\Request $request
+      * @return array   Contains redirect url to process after request
+      */
     public function addUser(Request $request)
     {
       if (Session::has('departmentID') == false) {
@@ -203,6 +220,11 @@ class PrivilegeController extends Controller
       return array('redirect' => '/dashboard/settings/privileges');
     }
 
+    /**
+      * (AJAX) Removes selected users from a selected department
+      * @param \Illuminate\Http\Request $request
+      * @return array   Contains the redirect url to process after request
+      */
     public function removeUser(Request $request)
     {
       if (Session::has('departmentID') == false) {
@@ -234,6 +256,11 @@ class PrivilegeController extends Controller
       return array('redirect' => '/dashboard/settings/privileges');
     }
 
+    /**
+      * Filters privileges by criteria
+      * @param \Illuminate\Http\Request $request
+      * @return \Illuminate\Http\Response
+      */
     public function filter(Request $request)
     {
       $drpDepartment = $request->input('drpDepartments');
@@ -265,6 +292,12 @@ class PrivilegeController extends Controller
 
     }
 
+    /**
+      * Processes input and determines the action to perform,
+      * allows the user to get into add and remove modes
+      * @param \Illuminate\Http\Request $request
+      * @return \Illuminate\Http\Response
+      */
     public function process(Request $request)
     {
       //$request->session()->flush();
@@ -303,6 +336,11 @@ class PrivilegeController extends Controller
       }
     }
 
+    /**
+      * Toggles a users access level between admin and user
+      * @param \Illuminate\Http\Request $request
+      * @return \Illuminate\Http\Response
+      */
     public function togglePermission(Request $request)
     {
 

@@ -472,6 +472,12 @@ class PlaylistController extends Controller
       return $playlists->unique('id');
     }
 
+    /**
+      * Processes input and determines the action to undertake,
+      * mostly to determine which mode to perform add or remove
+      * @param \Illuminate\Http\Request $request
+      * @return \Illuminate\Http\Response
+      */
     public function process(Request $request)
     {
       $btnAddMode = $request->input('btnAddMode');
