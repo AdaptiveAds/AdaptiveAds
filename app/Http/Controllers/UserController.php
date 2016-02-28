@@ -86,7 +86,8 @@ class UserController extends Controller
 
       $user = User::find($id);
       if ($user == null)
-        abort(404, 'Not found');
+        return redirect()->route('dashboard.settings.users.index')
+                         ->with('message', 'Error: User not found');
 
       return array('user' => $user);
     }
@@ -130,7 +131,8 @@ class UserController extends Controller
       $user = User::find($id);
 
       if ($user == null)
-        abort(404, 'Not found.');
+        return redirect()->route('dashboard.settings.users.index')
+                         ->with('message', 'Error: User not found');
 
       $user->delete();
 

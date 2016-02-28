@@ -126,20 +126,19 @@ class LocationController extends Controller
     {
       $location = Location::find($id);
 
-      if ($location != null) {
+      if ($location == null)
+        return redirect()->route('dashboard.settings.locations.index')
+                         ->with('message', 'Error: Location not found');
 
-        $txtLocationName = $request->input('txtLocationName');
-        $departmentID = $request->input('drpDepartments');
+      $txtLocationName = $request->input('txtLocationName');
+      $departmentID = $request->input('drpDepartments');
 
-        $location->name = $txtLocationName;
-        $location->department_id = $departmentID;
-        $location->save();
+      $location->name = $txtLocationName;
+      $location->department_id = $departmentID;
+      $location->save();
 
-      } else {
-        abort(404, 'Not found.');
-      }
-
-      return redirect()->route('dashboard.settings.locations.index');
+      return redirect()->route('dashboard.settings.locations.index')
+                       ->with('message', 'Location updated successfully');
     }
 
     /**
@@ -153,7 +152,8 @@ class LocationController extends Controller
       $location = Location::find($id);
 
       if ($location == null)
-        abort(404, 'Not found.');
+        return redirect()->route('dashboard.settings.locations.index')
+                         ->with('message', 'Error: Location not found');
 
       $count = $location->Screens->count();
       if ($count != 0)
@@ -214,7 +214,7 @@ class LocationController extends Controller
         $locationName = null;
 
       } else {
-        abort(401);
+        abort(401, 'Unauthorized');
       }
 
       $user = Session::get('user');

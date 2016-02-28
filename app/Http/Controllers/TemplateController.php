@@ -71,8 +71,6 @@ class TemplateController extends Controller
      */
     public function store(Request $request)
     {
-        // TODO VALIDATION
-
         $txtTemplateName = $request->input('txtTemplateName');
         $txtTemplateClass = $request->input('txtTemplateClass');
         $numTemplateDuration = $request->input('numTemplateDuration');
@@ -95,7 +93,8 @@ class TemplateController extends Controller
 
         $template->save();
 
-        return redirect()->route('dashboard.settings.templates.index');
+        return redirect()->route('dashboard.settings.templates.index')
+                         ->with('message', 'Template created successfully');
     }
 
     /**
@@ -112,7 +111,8 @@ class TemplateController extends Controller
 
       $template = Template::find($id);
       if ($template == null)
-        abort(404, 'Not found.');
+        return redirect()->route('dashboard.settings.templates.index')
+                         ->with('message', 'Error: Template not found');
 
       return array('template' => $template);
     }
@@ -139,35 +139,33 @@ class TemplateController extends Controller
     {
         $template = Template::find($id);
 
-        if ($template != null) {
+        if ($template == null)
+          return redirect()->route('dashboard.settings.templates.index')
+                           ->with('message', 'Error: Template not found');
 
-          $txtTemplateName = $request->input('txtTemplateName');
-          $txtTemplateClass = $request->input('txtTemplateClass');
-          $numTemplateDuration = $request->input('numTemplateDuration');
+        $txtTemplateName = $request->input('txtTemplateName');
+        $txtTemplateClass = $request->input('txtTemplateClass');
+        $numTemplateDuration = $request->input('numTemplateDuration');
 
-          $template->name = $txtTemplateName;
-          $template->class_name = $txtTemplateClass;
-          $template->duration = $numTemplateDuration;
+        $template->name = $txtTemplateName;
+        $template->class_name = $txtTemplateClass;
+        $template->duration = $numTemplateDuration;
 
-          // Upload image 1
-          $imageInput = Input::file('filTemplateThumbnail');
-          if ($imageInput != null) {
-            $imagePath = Images::processImage($imageInput, 'template_thumbmails');
+        // Upload image 1
+        $imageInput = Input::file('filTemplateThumbnail');
+        if ($imageInput != null) {
+          $imagePath = Images::processImage($imageInput, 'template_thumbmails');
 
-            // If we have a valid image then set the path in the database
-            if ($imagePath != null) {
-              $template->thumbnail = $imagePath;
-            }
+          // If we have a valid image then set the path in the database
+          if ($imagePath != null) {
+            $template->thumbnail = $imagePath;
           }
-
-          $template->save();
-
-
-        } else {
-          abort(404, 'Not found.');
         }
 
-        return redirect()->route('dashboard.settings.templates.index');
+        $template->save();
+
+        return redirect()->route('dashboard.settings.templates.index')
+                         ->with('message', 'Templated updated successfully');
     }
 
     /**
@@ -181,8 +179,9 @@ class TemplateController extends Controller
       $template = Template::find($id);
 
       if ($template == null)
-        abort(404, 'Not found.');
-
+        return redirect()->route('dashboard.settings.templates.index')
+                         ->with('message', 'Error: Template not found');
+                         
       $pagesCount = $template->Pages()->count();
 
       // Don't delete if template is referenced

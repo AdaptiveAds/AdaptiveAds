@@ -125,7 +125,8 @@ class PrivilegeController extends Controller
       $department = Department::find($departmentID);
 
       if ($department == null)
-        abort(404, 'Not found');
+        return redirect()->route('dashboard.settings.privileges.index')
+                         ->with('message', 'Error: Department not found');
 
       $depUsers = $department->Users()->get();
       $allUsers = User::all();
@@ -155,7 +156,8 @@ class PrivilegeController extends Controller
       $department = Department::find($departmentID);
 
       if ($department == null)
-        abort(404, 'Not found');
+        return redirect()->route('dashboard.settings.privileges.index')
+                         ->with('message', 'Error: Department not found');
 
       $users = $department->Users()->get();
 
@@ -179,8 +181,10 @@ class PrivilegeController extends Controller
 
       $department = Department::find(Session::pull('departmentID'));
 
-      if ($department == null)
-        abort(404, 'Not found');
+      if ($department == null) {
+        Session::flash('message', 'Error: Department not found');
+        return array('redirect' => '/dashboard/settings/privileges');
+      }
 
       $users = $request->input('arrObjects');
 
@@ -208,8 +212,10 @@ class PrivilegeController extends Controller
 
       $department = Department::find(Session::pull('departmentID'));
 
-      if ($department == null)
-        abort(404, 'Not found');
+      if ($department == null) {
+        Session::flash('message', 'Error: Department not found');
+        return array('redirect' => '/dashboard/settings/privileges');
+      }
 
       $users = $request->input('arrObjects');
 
@@ -233,12 +239,18 @@ class PrivilegeController extends Controller
       $drpDepartment = $request->input('drpDepartments');
       $department = null;
 
-      if ($drpDepartment !== null) {
-        $department = Department::find($drpDepartment);
+      if ($drpDepartment == null)
+        return redirect()->route('dashboard.settings.privileges.index')
+                         ->with('message', 'Please select a department');
 
-        $users = $department->Users()->get();
-        Session::put('departmentID', $drpDepartment);
-      }
+      $department = Department::find($drpDepartment);
+
+      if ($department == null)
+        return redirect()->route('dashboard.settings.privileges.index')
+                         ->with('message', 'Error: Department not found');
+
+      $users = $department->Users()->get();
+      Session::put('departmentID', $drpDepartment);
 
       $allowed_departments = Session::get('allowed_departments');
       Session::flash('remember_id', $department->id);
@@ -294,22 +306,19 @@ class PrivilegeController extends Controller
     public function togglePermission(Request $request)
     {
 
-      if (Session::has('departmentID') == false) {
-
-      }
+      if (Session::has('departmentID') == false)
+        return redirect()->route('dashboard.settings.privileges.index')
+                         ->with('message', 'Please select a department to proceed');
 
       $departmentID = Session::get('departmentID');
       $userID = $request->input('userID');
-
-      if ($userID == null) {
-
-      }
 
       $user = User::find($userID);
       $department = Department::find($departmentID);
 
       if ($user == null || $department == null)
-        abort(404, 'Not found');
+        return redirect()->route('dashboard.settings.privileges.index')
+                         ->with('message', 'Error: User or Department not found');
 
       if ($user->isAdmin($departmentID))
         $user->Departments()->updateExistingPivot($departmentID, array('is_admin' => 0));

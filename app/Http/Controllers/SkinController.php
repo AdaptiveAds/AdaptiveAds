@@ -71,7 +71,8 @@ class SkinController extends Controller
       $skin->class_name = $txtSkinClass;
       $skin->save();
 
-      return redirect()->route('dashboard.settings.skins.index');
+      return redirect()->route('dashboard.settings.skins.index')
+                       ->with('message', 'Skin created successfully');
     }
 
     /**
@@ -87,7 +88,8 @@ class SkinController extends Controller
 
       $skin = Skin::find($id);
       if ($skin == null)
-        abort(404, 'Not found.');
+        return redirect()->route('dashboard.settings.skins.index')
+                         ->with('message', 'Error: Skin not found');
 
       return array('skin' => $skin);
     }
@@ -115,7 +117,8 @@ class SkinController extends Controller
       $skin = Skin::find($id);
 
       if ($skin == null)
-        abort(404, 'Not Found.');
+        return redirect()->route('dashboard.settings.skins.index')
+                         ->with('message', 'Error: Skin not found');
 
       $txtSkinName = $request->input('txtSkinName');
       $txtSkinClass = $request->input('txtSkinClass');
@@ -124,7 +127,8 @@ class SkinController extends Controller
       $skin->class_name = $txtSkinClass;
       $skin->save();
 
-      return redirect()->route('dashboard.settings.skins.index');
+      return redirect()->route('dashboard.settings.skins.index')
+                       ->with('message', 'Skin updated successfully');
     }
 
     /**
@@ -138,7 +142,8 @@ class SkinController extends Controller
       $skin = Skin::find($id);
 
       if ($skin == null)
-        abort(404, 'Not found.');
+        return redirect()->route('dashboard.settings.skins.index')
+                         ->with('message', 'Error: Skin not found');
 
       $count = $skin->Departments()->count();
       if ($count != 0)

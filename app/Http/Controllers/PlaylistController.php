@@ -74,19 +74,13 @@ class PlaylistController extends Controller
     public function store(Request $request)
     {
 
-      // TODO VALIDATION
-
-      // Was validation successful?
       $playlist = new Playlist;
       $playlist->name = $request->input('txtPlaylistName');
       $playlist->department_id = $request->input('drpDepartments');
       $playlist->save();
 
-      $data = array(
-        'playlist' => $playlist
-      );
-
-      return redirect()->route('dashboard.playlist.index');
+      return redirect()->route('dashboard.playlist.index')
+                       ->with('message', 'Playlist created successfully');
     }
 
     /**
@@ -120,9 +114,9 @@ class PlaylistController extends Controller
 
       $playlist = Playlist::find($id);
 
-      if (isset($playlist) == false) {
-        return response('Not found', 404);
-      }
+      if (isset($playlist) == false)
+        return redirect()->route('dashboard.playlist.index')
+                         ->with('message', 'Error: Playlist not found');
 
       $adverts = $playlist->Adverts()->get();
 
@@ -145,20 +139,19 @@ class PlaylistController extends Controller
     {
       $playlist = Playlist::find($id);
 
-      if ($playlist != null) {
+      if ($playlist == null)
+        return redirect()->route('dashboard.playlist.index')
+                         ->with('message', 'Error: Playlist not found');
 
-        $txtPlaylistName = $request->input('txtPlaylistName');
-        $departmentID = $request->input('drpDepartments');
+      $txtPlaylistName = $request->input('txtPlaylistName');
+      $departmentID = $request->input('drpDepartments');
 
-        $playlist->name = $txtPlaylistName;
-        $playlist->department_id = $departmentID;
-        $playlist->save();
+      $playlist->name = $txtPlaylistName;
+      $playlist->department_id = $departmentID;
+      $playlist->save();
 
-      } else {
-        abort(404, 'Not found.');
-      }
-
-      return redirect()->route('dashboard.playlist.index');
+      return redirect()->route('dashboard.playlist.index')
+                       ->with('message', 'Playlist updated successfully');
     }
 
     /**
@@ -173,7 +166,8 @@ class PlaylistController extends Controller
       $playlist = Playlist::find($id);
 
       if ($playlist == null)
-        abort(404, 'Not found.');
+        return redirect()->route('dashboard.playlist.index')
+                         ->with('message', 'Error: Playlist not found');
 
       // NOTE Global playlist cannot be deleted
       if ($playlist->isGlobal == true)
@@ -193,6 +187,12 @@ class PlaylistController extends Controller
                        ->with('message', 'Playlist deleted successfully');
     }
 
+    /**
+      * Displays the add mode page and loads the page
+      * with all adverts not associated with the selected playlist
+      * @param Illuminate\Http\Request $request
+      * @return Illuminate\Http\Response
+      */
     public function addMode(Request $request)
     {
       $match_departments = Session::get('match_departments');
@@ -200,7 +200,8 @@ class PlaylistController extends Controller
       $playlist = Playlist::find($playlistID);
 
       if ($playlist == null)
-        abort(404, 'Not found');
+        return redirect()->route('dashboard.playlist.edit', array($playlistID))
+                         ->with('message', 'Error: Playlist not found');
 
       $adverts = Advert::leftJoin('advert_playlist', function ($join) use ($playlistID) {
         $join->on('advert.id', '=', 'advert_playlist.advert_id');
@@ -212,7 +213,8 @@ class PlaylistController extends Controller
       ->get();
 
       if ($adverts->count() <= 0)
-        abort(404, 'Not found');
+        return redirect()->route('dashboard.playlist.edit', array($playlistID))
+                         ->with('message', 'No available adverts to assign');
 
       Session::put('playlistID', $playlistID);
 
@@ -225,6 +227,12 @@ class PlaylistController extends Controller
 
     }
 
+    /**
+      * Displays the remove mode page and loads the page
+      * with all adverts associated with the selected playlist
+      * @param Illuminate\Http\Request $request
+      * @return Illuminate\Http\Response
+      */
     public function removeMode(Request $request)
     {
       $playlistID = $request->input('playlistID');
@@ -232,9 +240,14 @@ class PlaylistController extends Controller
       $playlist = Playlist::find($playlistID);
 
       if ($playlist == null)
-        abort(404, 'Not found');
+        return redirect()->route('dashboard.playlist.edit', array($playlistID))
+                         ->with('message', 'Error: Playlist not found');
 
       $adverts = $playlist->Adverts()->get();
+
+      if ($adverts->count() == 0)
+        return redirect()->route('dashboard.playlist.edit', array($playlistID))
+                         ->with('message', 'No adverts to remove');
 
       Session::put('playlistID', $playlistID);
 
@@ -265,8 +278,10 @@ class PlaylistController extends Controller
       $playlistID = Session::pull('playlistID');
       $playlist = Playlist::find($playlistID);
 
-      if ($playlist == null)
-        abort(404, 'Not found');
+      if ($playlist == null) {
+        Session::flash('message', 'Error: playlist id not found');
+        return array('redirect' => '/dashboard/playlist');
+      }
 
       $adverts = $request->input('arrObjects');
 
@@ -314,8 +329,10 @@ class PlaylistController extends Controller
       $playlistID = Session::pull('playlistID');
       $playlist = Playlist::find($playlistID);
 
-      if ($playlist == null)
-        abort(404, 'Not found');
+      if ($playlist == null) {
+        Session::flash('message', 'Error: playlist id not found');
+        return array('redirect' => '/dashboard/playlist');
+      }
 
       $adverts = $request->input('arrObjects');
 

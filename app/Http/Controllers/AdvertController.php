@@ -45,8 +45,6 @@ class AdvertController extends Controller
 
         $adverts = Advert::whereIn('department_id', $match_departments)->get();
 
-        //dd($adverts);
-
         $data = array(
           'user' => $user,
           'adverts' => $adverts,
@@ -83,7 +81,8 @@ class AdvertController extends Controller
       $advert->department_id = $departmentID;
       $advert->save();
 
-      return redirect()->route('dashboard.advert.index');
+      return redirect()->route('dashboard.advert.index')
+                       ->with('message', 'Advert saved successfully');
     }
 
     /**
@@ -146,20 +145,19 @@ class AdvertController extends Controller
     {
       $advert = Advert::find($id);
 
-      if ($advert != null) {
+      if ($advert == null)
+        return redirect()->route('dashboard.advert.index')
+                         ->with('message', 'Error: Could not find advert to update');
 
-        $txtAdvertName = $request->input('txtAdvertName');
-        $departmentID = $request->input('drpDepartments');
+      $txtAdvertName = $request->input('txtAdvertName');
+      $departmentID = $request->input('drpDepartments');
 
-        $advert->name = $txtAdvertName;
-        $advert->department_id = $departmentID;
-        $advert->save();
+      $advert->name = $txtAdvertName;
+      $advert->department_id = $departmentID;
+      $advert->save();
 
-      } else {
-        abort(404, 'Not found.');
-      }
-
-      return redirect()->route('dashboard.advert.index');
+      return redirect()->route('dashboard.advert.index')
+                       ->with('message', 'Advert: '.$advert->name.' updated successfully');
     }
 
     /**
@@ -173,7 +171,8 @@ class AdvertController extends Controller
       $advert = Advert::find($id);
 
       if ($advert == null)
-        abort(404, 'Not found.');
+        return redirect()->route('dashboard.advert.index')
+                         ->with('message', 'Error: Could not find advert to delete');
 
       $advert->delete();
 
