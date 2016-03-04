@@ -71,6 +71,10 @@ var SelectManager = (function() {
     // Un-check all checkboxes
     $('input:checkbox').removeAttr('checked');
 
+    $("#checkAll").change(function () {
+        $("input:checkbox").prop('checked', $(this).prop("checked"));
+    });
+
     $('li[data-selectableItem="true"], [data-selectableItem="true"]').click(function() {
 
        if (SelectManager.multi == false) {
@@ -104,12 +108,12 @@ var SelectManager = (function() {
   }
 
   function getSelected() {
-    var adverts = [];
+    var objects = [];
     $('[data-selectableItem="true"]:checked').each(function() {
-      adverts.push($(this).parents('li').data('itemid'));
+      objects.push($(this).parents('li').data('itemid'));
     });
 
-    return adverts;
+    return objects;
   }
 
   return {
@@ -119,51 +123,60 @@ var SelectManager = (function() {
 
 } ());
 
-var AdvertAssign = (function() {
+var ObjectAssign = (function() {
 
   var token = "";
   var action = "";
-  var playlist = 0;
-  var redirectPath = "";
 
   function register_eventhandlers() {
 
-    $('button[name="btnAddAdvert"]').click(function() {
+    $('button[name="btnAdd"]').click(function() {
 
-      updatePlaylist(SelectManager.getSelected());
+      update('add', SelectManager.getSelected());
 
     });
 
-    $('button[name="btnRemoveAdvert"]').click(function() {
+    $('button[name="btnRemove"]').click(function() {
 
-      updatePlaylist(SelectManager.getSelected());
+      update('remove', SelectManager.getSelected());
 
     });
 
   }
 
-  function redirect() {
-    AppDebug.print(AdvertAssign.redirectPath);
-    window.location.href = AdvertAssign.redirectPath;
+  function redirect(path) {
+    console.log(path);
+    window.location.href = path;
   }
 
-  function updatePlaylist(adverts) {
+  function update(mode, objects) {
 
     $.ajaxSetup({
       headers: {
-        'X-CSRF-Token': AdvertAssign.token
+        'X-CSRF-Token': ObjectAssign.token
       }
     });
 
     $.ajax({
       type: "POST",
-      url : AdvertAssign.action,
-      data : {'playlistID': AdvertAssign.playlist, 'arrAdverts': adverts},
+      url : ObjectAssign.action,
+      data : {'mode': mode, 'arrObjects': objects},
       success : function(data){
-        redirect();
+        console.log(data);
+        if (data.failed === undefined) {
+          redirect(data.redirect); // Redirect
+        } else {
+          $('[name="errorMsg"]').html(data.message);
+          $('.errors').removeClass('hidden');
+          window.location.href = '#ErrorModal';
+
+          $('.close').on('modalClosed', function() {
+            redirect(data.redirect);
+          });
+        }
       },
       error : function(xhr, textStatus, errorThrown) {
-        console.log(textStatus + " ------ " + errorThrown);
+        // Do nothing
       }
     },"JSON");
   }
@@ -233,7 +246,9 @@ var IndexUpdater = (function() {
       url : IndexUpdater.action,
       data : {'itemID': itemID, 'effectedID': effectedID, 'newIndex': newIndex, 'effectedIndex': effectedIndex},
       success : function(data){
-        // Do Nothing...
+        if (data.redirect !== undefiend || data.redirect !== null) {
+          window.location.href = data.redirect;
+        }
       },
       error : function(xhr, textStatus, errorThrown) {
         console.log(textStatus + " ------ " + errorThrown);
@@ -294,31 +309,17 @@ var ModalManager = (function() {
 
       var selected = $(this);
       var id = selected.attr('data-userID');
-      var object = selected.attr('data-modalObject');
+      var object = selected.attr('data-modalObject').toLowerCase();
 
-      switch(object) {
-        case 'Users':
-          getData(id, users);
-          break;
-        case 'Templates':
-          getData(id, templates);
-          break;
-        case 'Locations':
-          getData(id, locations);
-          break;
-        case 'Departments':
-          getData(id, departments);
-          break;
-        case 'Screens':
-          getData(id, screens);
-          break;
-        case 'Playlist':
-          getData(id, playlist);
-          break;
-        case 'Advert':
-          getData(id, advert);
-          break;
-      }
+      // Search for our function def
+      var fn = window["ModalManager"][object];
+
+      // If it is not a function cancel the process
+      if (typeof fn !== "function")
+        return;
+
+      // Go AJAX the data
+      getData(id, fn);
 
       //getData($(this).attr('data-userID'), $(this).attr('data-modalObject') + '();');
       $('[name="heading"]').html('Edit ' + object);
@@ -399,6 +400,11 @@ var ModalManager = (function() {
     $('[name="drpDepartments"]').val(data.advert.department_id);
   }
 
+  function skins(data) {
+    $('[name="txtSkinName"]').val(data.skin.name);
+    $('[name="txtSkinClass"]').val(data.skin.class_name);
+  }
+
   function getData(id, callback) {
 
     $.ajaxSetup({
@@ -412,8 +418,13 @@ var ModalManager = (function() {
       url : ModalManager.action + id,
       data : {'id': id},
       success : function(data){
-        showData();
-        callback(data);
+        if (data.error !== undefined) {
+          showErrors();
+          $('[name="errorMsg"]').html(data.error);
+        } else {
+          showData();
+          callback(data);
+        }
       },
       error : function(xhr, textStatus, errorThrown) {
         showErrors();
@@ -441,7 +452,15 @@ var ModalManager = (function() {
   }
 
   return {
-    register_eventhandlers: register_eventhandlers
+    register_eventhandlers: register_eventhandlers,
+    users: users,
+    templates: templates,
+    locations: locations,
+    departments: departments,
+    screens: screens,
+    playlist: playlist,
+    advert: advert,
+    skins, skins
   };
 
 } ());

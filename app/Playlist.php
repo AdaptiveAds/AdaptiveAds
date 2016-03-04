@@ -35,4 +35,8 @@ class Playlist extends Model
                 ->orderBy('advert_index', 'ASC');
   }
 
+  public function Screens() {
+    return $this->hasMany(Screen::class);
+  }
+
 }

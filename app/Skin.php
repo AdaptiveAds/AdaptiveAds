@@ -23,4 +23,8 @@ class Skin extends Model
     * @var boolean
     */
   public $timestamps = false;
+
+  public function Departments() {
+    return $this->hasMany(Department::class);
+  }
 }

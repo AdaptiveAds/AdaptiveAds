@@ -85,7 +85,8 @@ class ScreenController extends Controller
       $screen->playlist_id = empty($playlistID)? 1 : $playlistID;
       $screen->save();
 
-      return redirect()->route('dashboard.settings.screens.index');
+      return redirect()->route('dashboard.settings.screens.index')
+                       ->with('message', 'Screen registered successfully');
     }
 
     /**
@@ -103,7 +104,7 @@ class ScreenController extends Controller
       $screen = Screen::find($id);
 
       if ($screen == null)
-        abort(404, 'Not found.');
+        return array('error' => 'Error: Screen not found.');
 
       return array('screen' => $screen);
     }
@@ -130,20 +131,19 @@ class ScreenController extends Controller
     {
       $screen = Screen::find($id);
 
-      if ($screen != null) {
+      if ($screen == null)
+        return redirect()->route('dashboard.settings.screens.index')
+                         ->with('message', 'Error: Screen not found');
 
-        $locationID = $request->input('drpLocations');
-        $playlistID = $request->input('drpPlaylists');
+      $locationID = $request->input('drpLocations');
+      $playlistID = $request->input('drpPlaylists');
 
-        $screen->location_id = $locationID;
-        $screen->playlist_id = empty($playlistID)? 1 : $playlistID;
-        $screen->save();
+      $screen->location_id = $locationID;
+      $screen->playlist_id = empty($playlistID)? 1 : $playlistID;
+      $screen->save();
 
-      } else {
-        abort(404, 'Not found.');
-      }
-
-      return redirect()->route('dashboard.settings.screens.index');
+      return redirect()->route('dashboard.settings.screens.index')
+                       ->with('message', 'Screen updated successfully');
     }
 
     /**
@@ -154,15 +154,29 @@ class ScreenController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $user = Session::get('user');
+
+      if ($user->is_super_user)
+        abort(401, 'Unauthorized');
+
+      $screen = Screen::find($id);
+
+      if ($screen == null)
+        return redirect()->route('dashboard.settings.screens.index')
+                         ->with('message', 'Error: Screen not found');
+
+      $screen->delete();
+
+      return redirect()->route('dashboard.settings.screens.index')
+                       ->with('message', 'Screen deleted successfully');
     }
 
     /**
-      * Processes input from the screen. Includes basic filtering options
+      * Filter screens by criteria
       * @param \Illuminate\Http\Request $request
       * @return \Illuminate\Http\Response
       */
-    public function process(Request $request)
+    public function filter(Request $request)
     {
       $match_departments = Session::get('match_departments');
       $allowed_departments = Session::get('allowed_departments');
@@ -178,22 +192,20 @@ class ScreenController extends Controller
       // Check which action to perform
       if (isset($btnFindScreen)) {
 
+        // Filter by id
         $screens = $this->getAllowedScreens($user, $allowed_departments);
         $filtered = $screens->filter(function($item) use ($screenID) {
           if ($item->id == $screenID) {
             return true;
           }
-
-          return false;
         });
 
+        // Filter by location
         if ($filtered->count() == 0) {
           $filtered = $screens->filter(function($item) use ($locationID) {
             if ($item->location_id == $locationID) {
               return true;
             }
-
-            return false;
           });
         }
 
@@ -247,28 +259,5 @@ class ScreenController extends Controller
       }
 
       return $screens;
-    }
-
-    /**
-      * Soft deletes a specified resource
-      * @param int  $id ID of the screen to soft delete
-      * @return \Illuminate\Http\Response
-      */
-    public function toggleDeleted($id) {
-
-      $screen = Screen::find($id);
-
-      if ($screen == null)
-        abort(404, 'Not found.');
-
-      if ($screen->deleted == 0) {
-        $screen->deleted = 1;
-      } else {
-        $screen->deleted = 0;
-      }
-
-      $screen->save();
-
-      return redirect()->route('dashboard.settings.screens.index');
     }
 }

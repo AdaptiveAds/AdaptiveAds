@@ -43,7 +43,7 @@ class DepartmentController extends Controller
       $match_departments = Session::get('match_departments');
 
       $departments = Department::whereIn('id', $match_departments)->get();
-      $skins = Skin::all();
+      $skins = Skin::all(); // TODO restrict
 
       $data = array(
         'departments' => $departments,
@@ -75,12 +75,17 @@ class DepartmentController extends Controller
       $txtDepartmentName = $request->input('txtDepartmentName');
       $skinID = $request->input('drpSkins');
 
+      if (isset($txtDepartmentName) == false)
+        return redirect()->route('dashboard.settings.departments.index')
+                         ->with('message', 'Error: Please enter a department name');
+
       $department = new Department();
       $department->name = $txtDepartmentName;
       $department->skin_id = $skinID;
       $department->save();
 
-      return redirect()->route('dashboard.settings.departments.index');
+      return redirect()->route('dashboard.settings.departments.index')
+                       ->with('message', 'Department saved successfully');
     }
 
     /**
@@ -98,7 +103,7 @@ class DepartmentController extends Controller
       $department = Department::find($id);
 
       if ($department == null)
-        abort(404, 'Not found.');
+        return array('error' => 'Error: Department not found.');
 
       return array('department' => $department);
     }
@@ -125,20 +130,19 @@ class DepartmentController extends Controller
     {
       $department = Department::find($id);
 
-      if ($department != null) {
+      if ($department == null)
+        return redirect()->route('dashboard.settings.departments.index')
+                         ->with('message', 'Error: Department not found');
 
-        $txtDepartmentName = $request->input('txtDepartmentName');
-        $skinID = $request->input('drpSkins');
+      $txtDepartmentName = $request->input('txtDepartmentName');
+      $skinID = $request->input('drpSkins');
 
-        $department->name = $txtDepartmentName;
-        $department->skin_id = $skinID;
-        $department->save();
+      $department->name = $txtDepartmentName;
+      $department->skin_id = $skinID;
+      $department->save();
 
-      } else {
-        abort(404, 'Not found.');
-      }
-
-      return redirect()->route('dashboard.settings.departments.index');
+      return redirect()->route('dashboard.settings.departments.index')
+                       ->with('message', 'Department updated successfully');
     }
 
     /**
@@ -149,15 +153,37 @@ class DepartmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $user = Session::get('user');
+
+      if ($user->is_super_user == false)
+        abort(401, 'Unauthorized');
+
+      $department = Department::find($id);
+
+      if ($department == null)
+        return redirect()->route('dashboard.settings.departments.index')
+                         ->with('message', 'Error: Department not found');
+
+      $adCount = $department->Adverts()->count();
+      $plCount = $department->Playlists()->count();
+
+      if ($adCount != 0 || $plCount != 0)
+        return redirect()->route('dashboard.settings.departments.index')
+                         ->with('message', 'Unable to delete ' . $department->name
+                                            . ', one or more adverts and playlists depend on it');
+
+      $department->delete();
+
+      return redirect()->route('dashboard.settings.departments.index')
+                       ->with('message', 'Department deleted successfully');
     }
 
     /**
-      * Processes input from the screen. Includes basic filtering options
+      * Filters departments by criteria
       * @param \Illuminate\Http\Request $request
       * @return \Illuminate\Http\Response
       */
-    public function process(Request $request)
+    public function filter(Request $request)
     {
 
       $departments = null;
@@ -170,12 +196,33 @@ class DepartmentController extends Controller
       $departmentName = $request->input('txtDepartmentName');
       $skinID = $request->input('drpSkins');
 
+      $match_departments = Session::get('match_departments');
+      $departments = Department::whereIn('id', $match_departments)->get();
+
       // Check which action to perform
       if (isset($btnFindDepartment)) {
 
-        // Get all departments LIKE the search string and with the same department
-        // we don't care about  filtering by skin
-        $departments = Department::where('name', 'LIKE', '%' . $departmentName . '%')->get();
+        $filtered = collect([]);
+
+        // Filter by name
+        if ($departmentName != null) {
+          $filtered = $departments->filter(function($item) use ($departmentName) {
+            if (strpos($item->name, $departmentName) !== false) { // Get rough match
+              return true;
+            }
+          });
+        }
+
+        // Filter by skin id
+        if ($filtered->count() == 0) {
+          $filtered = $departments->filter(function($item) use ($skinID) {
+            if ($item->skin_id == $skinID) {
+              return true;
+            }
+          });
+        }
+
+        $departments = $filtered;
 
       } else if (isset($btnFindAll)) {
 
@@ -184,15 +231,7 @@ class DepartmentController extends Controller
         //$departments = Department::all();
 
       } else {
-        abort(401);
-      }
-
-      if ($departments == null) {
-        if ($user->is_super_user) {
-          $departments = Department::all();
-        } else {
-          $departments = Department::whereIn('id', $match_departments)->get();
-        }
+        abort(401, 'Unauthorized');
       }
 
       $data = array(
@@ -204,28 +243,5 @@ class DepartmentController extends Controller
 
       return view('pages/departments', $data);
 
-    }
-
-    /**
-      * Soft deletes a specified resource
-      * @param int  $id ID of the department to soft delete
-      * @return \Illuminate\Http\Response
-      */
-    public function toggleDeleted($id)
-    {
-      $department = Department::find($id);
-
-      if ($department == null)
-        abort(404, 'Not found.');
-
-      if ($department->deleted == 0) {
-        $department->deleted = 1;
-      } else {
-        $department->deleted = 0;
-      }
-
-      $department->save();
-
-      return redirect()->route('dashboard.settings.departments.index');
     }
 }

@@ -123,8 +123,10 @@
 				<li><a href="class-App.Http.Controllers.LocationController.html">LocationController</a></li>
 				<li><a href="class-App.Http.Controllers.PageController.html">PageController</a></li>
 				<li><a href="class-App.Http.Controllers.PlaylistController.html">PlaylistController</a></li>
+				<li><a href="class-App.Http.Controllers.PrivilegeController.html">PrivilegeController</a></li>
 				<li><a href="class-App.Http.Controllers.ScreenController.html">ScreenController</a></li>
 				<li><a href="class-App.Http.Controllers.ServeController.html">ServeController</a></li>
+				<li><a href="class-App.Http.Controllers.SkinController.html">SkinController</a></li>
 				<li><a href="class-App.Http.Controllers.TeamController.html">TeamController</a></li>
 				<li><a href="class-App.Http.Controllers.TemplateController.html">TemplateController</a></li>
 				<li><a href="class-App.Http.Controllers.UserController.html">UserController</a></li>
@@ -199,7 +201,7 @@ Illuminate\Routing\Controller
 				Josh Preece<br>
 				<b>Since:</b>
 				1.0<br>
-			<b>Located at</b> <a href="source-class-App.Http.Controllers.DepartmentController.html#15-250" title="Go to source code">Http/Controllers/DepartmentController.php</a>
+			<b>Located at</b> <a href="source-class-App.Http.Controllers.DepartmentController.html#15-247" title="Go to source code">Http/Controllers/DepartmentController.php</a>
 		<br>
 	</div>
 
@@ -314,7 +316,7 @@ Illuminate\Routing\Controller
 
 			<td class="name"><div>
 			<a class="anchor" href="#_store">#</a>
-			<code><a href="source-class-App.Http.Controllers.DepartmentController.html#67-84" title="Go to source code">store</a>( <span>Illuminate\Http\Request <var>$request</var></span> )</code>
+			<code><a href="source-class-App.Http.Controllers.DepartmentController.html#67-89" title="Go to source code">store</a>( <span>Illuminate\Http\Request <var>$request</var></span> )</code>
 
 			<div class="description short">
 				<p>Store a newly created resource in storage.</p>
@@ -352,7 +354,7 @@ Illuminate\Routing\Controller
 
 			<td class="name"><div>
 			<a class="anchor" href="#_show">#</a>
-			<code><a href="source-class-App.Http.Controllers.DepartmentController.html#86-104" title="Go to source code">show</a>( <span>Illuminate\Http\Request <var>$request</var></span>, <span> <var>$id</var></span> )</code>
+			<code><a href="source-class-App.Http.Controllers.DepartmentController.html#91-109" title="Go to source code">show</a>( <span>Illuminate\Http\Request <var>$request</var></span>, <span> <var>$id</var></span> )</code>
 
 			<div class="description short">
 				<p>Display the specified resource.</p>
@@ -392,7 +394,7 @@ Illuminate\Routing\Controller
 
 			<td class="name"><div>
 			<a class="anchor" href="#_edit">#</a>
-			<code><a href="source-class-App.Http.Controllers.DepartmentController.html#106-115" title="Go to source code">edit</a>( <span>integer <var>$id</var></span> )</code>
+			<code><a href="source-class-App.Http.Controllers.DepartmentController.html#111-120" title="Go to source code">edit</a>( <span>integer <var>$id</var></span> )</code>
 
 			<div class="description short">
 				<p>Show the form for editing the specified resource.</p>
@@ -430,7 +432,7 @@ Illuminate\Routing\Controller
 
 			<td class="name"><div>
 			<a class="anchor" href="#_update">#</a>
-			<code><a href="source-class-App.Http.Controllers.DepartmentController.html#117-142" title="Go to source code">update</a>( <span>Illuminate\Http\Request <var>$request</var></span>, <span>integer <var>$id</var></span> )</code>
+			<code><a href="source-class-App.Http.Controllers.DepartmentController.html#122-146" title="Go to source code">update</a>( <span>Illuminate\Http\Request <var>$request</var></span>, <span>integer <var>$id</var></span> )</code>
 
 			<div class="description short">
 				<p>Update the specified resource in storage.</p>
@@ -470,7 +472,7 @@ Illuminate\Routing\Controller
 
 			<td class="name"><div>
 			<a class="anchor" href="#_destroy">#</a>
-			<code><a href="source-class-App.Http.Controllers.DepartmentController.html#144-153" title="Go to source code">destroy</a>( <span>integer <var>$id</var></span> )</code>
+			<code><a href="source-class-App.Http.Controllers.DepartmentController.html#148-179" title="Go to source code">destroy</a>( <span>integer <var>$id</var></span> )</code>
 
 			<div class="description short">
 				<p>Remove the specified resource from storage.</p>
@@ -497,7 +499,7 @@ Illuminate\Routing\Controller
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="process" id="_process">
+		<tr data-order="filter" id="_filter">
 
 			<td class="attributes"><code>
 				 public 
@@ -507,59 +509,21 @@ Illuminate\Routing\Controller
 			</td>
 
 			<td class="name"><div>
-			<a class="anchor" href="#_process">#</a>
-			<code><a href="source-class-App.Http.Controllers.DepartmentController.html#155-226" title="Go to source code">process</a>( <span>Illuminate\Http\Request <var>$request</var></span> )</code>
+			<a class="anchor" href="#_filter">#</a>
+			<code><a href="source-class-App.Http.Controllers.DepartmentController.html#181-246" title="Go to source code">filter</a>( <span>Illuminate\Http\Request <var>$request</var></span> )</code>
 
 			<div class="description short">
-				<p>Processes input from the screen. Includes basic filtering options</p>
+				<p>Filters departments by criteria</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Processes input from the screen. Includes basic filtering options</p>
+				<p>Filters departments by criteria</p>
 
 
 					<h4>Parameters</h4>
 					<div class="list"><dl>
 						<dt><var>$request</var></dt>
 						<dd></dd>
-					</dl></div>
-
-					<h4>Returns</h4>
-					<div class="list">
-						Illuminate\Http\Response
-					</div>
-
-
-
-
-			</div>
-			</div></td>
-		</tr>
-		<tr data-order="toggleDeleted" id="_toggleDeleted">
-
-			<td class="attributes"><code>
-				 public 
-				Illuminate\Http\Response
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_toggleDeleted">#</a>
-			<code><a href="source-class-App.Http.Controllers.DepartmentController.html#228-249" title="Go to source code">toggleDeleted</a>( <span>integer <var>$id</var></span> )</code>
-
-			<div class="description short">
-				<p>Soft deletes a specified resource</p>
-			</div>
-
-			<div class="description detailed hidden">
-				<p>Soft deletes a specified resource</p>
-
-
-					<h4>Parameters</h4>
-					<div class="list"><dl>
-						<dt><var>$id</var></dt>
-						<dd>ID of the department to soft delete</dd>
 					</dl></div>
 
 					<h4>Returns</h4>

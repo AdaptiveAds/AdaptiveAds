@@ -16,8 +16,13 @@
 
 <div class="global">
 	<div class="row">
-		{!! Form::open(['route' => 'dashboard.settings.departments.process', 'method' => 'POST']) !!}
+		{!! Form::open(['route' => 'dashboard.settings.departments.filter', 'method' => 'POST']) !!}
 			<h3>Departments</h3>
+			@if (Session::has('message'))
+				<h5>{{Session::pull('message')}}</h5>
+			@else
+				<h5>Create and manage departments</h5>
+			@endif
 			<ul>
 				<li>
 					<input type="name" name="txtDepartmentName" placeholder="Department Name..." value="{{ $departmentName or '' }}"/>
@@ -43,7 +48,7 @@
 	</div>
 
 	<div class="row">
-			@include('objects/listDepartments')
+			@include('objects/listDepartments', array('editMode' => true))
 	</div>
 </div>
 @endsection

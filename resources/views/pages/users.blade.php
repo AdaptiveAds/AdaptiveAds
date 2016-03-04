@@ -16,8 +16,13 @@
 
 <div class="global">
 	<div class="row">
-		{!! Form::open(['route' => 'dashboard.settings.users.process', 'method' => 'POST']) !!}
+		{!! Form::open(['route' => 'dashboard.settings.users.filter', 'method' => 'POST']) !!}
 			<h3>Users</h3>
+			@if (Session::has('message'))
+				<h5>{{Session::pull('message')}}</h5>
+			@else
+				<h5>Manage user accounts</h5>
+			@endif
 			<ul name="listUsersControls">
 				<li>
 					<input type="name" name="txtUsername" placeholder="Name" value="{{ $username or '' }}"/>
@@ -42,7 +47,7 @@
 	</div>
 
 	<div class="row">
-			@include('objects/listUsers')
+			@include('objects/listUsers', array('editMode' => true))
 	</div>
 </div>
 @endsection

@@ -44,7 +44,7 @@ class UserController extends Controller
 
       $data = array(
         'allowed_departments' => $allowed_departments,
-        'user' => $user,
+        'requestUser' => $user,
         'users' => $users
       );
 
@@ -86,7 +86,7 @@ class UserController extends Controller
 
       $user = User::find($id);
       if ($user == null)
-        abort(404, 'Not found');
+        return array('error' => 'Error: User not found.');
 
       return array('user' => $user);
     }
@@ -122,15 +122,29 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-      abort(401, 'Unauthorized');
+      $requestUser = Session::get('user');
+
+      if ($requestUser->is_super_user)
+        abort(401, 'Unauthorized');
+
+      $user = User::find($id);
+
+      if ($user == null)
+        return redirect()->route('dashboard.settings.users.index')
+                         ->with('message', 'Error: User not found');
+
+      $user->delete();
+
+      return redirect()->route('dashboard.settings.users.index')
+                       ->with('message', 'User deleted successfully');
     }
 
     /**
-      * Processes input from the screen. Includes basic filtering options
+      * Filter users by criteria
       * @param \Illuminate\Http\Request $request
       * @return \Illuminate\Http\Response
       */
-    public function process(Request $request)
+    public function filter(Request $request)
     {
       $allowed_departments = Session::get('allowed_departments');
       $user = Session::get('user');
@@ -142,30 +156,43 @@ class UserController extends Controller
       $departmentID = $request->input('drpDepartments');
       $users = null;
 
+      $users = $this->GetAllowedUsers($user, $allowed_departments);
+
       // Check which action to perform
       if (isset($btnFindUser)) {
 
-        // Filter all available users for
-        $users = $this->GetAllowedUsers($user, $allowed_departments);
-        $users = $users->filter(function($item) use ($username) {
-          if ($item->username == $username) { // TODO CHANGE TO LIKE
-            return true;
-          }
+        $filtered = collect([]);
 
-          return false;
-        });
+        // Filter all available users for
+        if ($username != false) {
+          $filtered = $users->filter(function($item) use ($username) {
+            if (strpos($item->username, $username) !== false) { // Get rough match
+              return true;
+            }
+          });
+        }
+
+        // Filter by department id
+        if ($filtered->count() == 0) {
+          $filtered = $users->filter(function($item) use ($departmentID) {
+            if ($item->department_id == $departmentID) {
+              return true;
+            }
+          });
+        }
+
+        $users = $filtered;
 
       } else if (isset($btnFindAll)) {
 
         $username = null;
-        $users = $this->GetAllowedUsers($user, $allowed_departments);
 
       } else {
         abort(401, 'Un-authorised');
       }
 
       $data = array(
-        'user' => $user,
+        'requestUser' => $user,
         'users' => $users,
         'username' => $username,
         'allowed_departments' => $allowed_departments
@@ -201,28 +228,5 @@ class UserController extends Controller
 
       // Only return unqiue users
       return $users->unique('id');
-    }
-
-    /**
-      * Soft deletes a specified resource
-      * @param int  $id ID of the user to soft delete
-      * @return \Illuminate\Http\Response
-      */
-    public function toggleDeleted($id) {
-
-      $user = User::find($id);
-
-      if ($user == null)
-        abort(404, 'Not found.');
-
-      if ($user->deleted == 0) {
-        $user->deleted = 1;
-      } else {
-        $user->deleted = 0;
-      }
-
-      $user->save();
-
-      return redirect()->route('dashboard.settings.users.index');
     }
 }

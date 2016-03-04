@@ -99,7 +99,7 @@ class LocationController extends Controller
 
       $location = Location::find($id);
       if ($location == null)
-        abort(404, 'Not found.');
+        return array('error', 'Error: Location not found.');
 
       return array('location' => $location);
     }
@@ -126,20 +126,19 @@ class LocationController extends Controller
     {
       $location = Location::find($id);
 
-      if ($location != null) {
+      if ($location == null)
+        return redirect()->route('dashboard.settings.locations.index')
+                         ->with('message', 'Error: Location not found');
 
-        $txtLocationName = $request->input('txtLocationName');
-        $departmentID = $request->input('drpDepartments');
+      $txtLocationName = $request->input('txtLocationName');
+      $departmentID = $request->input('drpDepartments');
 
-        $location->name = $txtLocationName;
-        $location->department_id = $departmentID;
-        $location->save();
+      $location->name = $txtLocationName;
+      $location->department_id = $departmentID;
+      $location->save();
 
-      } else {
-        abort(404, 'Not found.');
-      }
-
-      return redirect()->route('dashboard.settings.locations.index');
+      return redirect()->route('dashboard.settings.locations.index')
+                       ->with('message', 'Location updated successfully');
     }
 
     /**
@@ -150,22 +149,31 @@ class LocationController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $location = Location::find($id);
+
+      if ($location == null)
+        return redirect()->route('dashboard.settings.locations.index')
+                         ->with('message', 'Error: Location not found');
+
+      $count = $location->Screens->count();
+      if ($count != 0)
+        return redirect()->route('dashboard.settings.locations.index')
+                         ->with('message', 'Unable to delete ' . $location . ', as one or more screens depe');
+
+      $location->delete();
+
+      return redirect()->route('dashboard.settings.locations.index')
+                       ->with('message', 'Location deleted successfully');
     }
 
     /**
-      * Processes input from the screen. Includes basic CRUD and filtering options
+      * Filter locations by criteria
       * @param \Illuminate\Http\Request $request
       * @return \Illuminate\Http\Response
       */
-    public function process(Request $request)
+    public function filter(Request $request)
     {
       $locations = null;
-
-      // Validate input
-      $this->validate($request, [
-          'txtLocationName' => 'required|max:255',
-      ]);
 
       // Get all input vars
       $btnFindLocation = $request->input('btnFindLocation');
@@ -173,35 +181,44 @@ class LocationController extends Controller
       $locationName = $request->input('txtLocationName');
       $departmentID = $request->input('drpDepartments');
 
+      $match_departments = Session::get('match_departments');
+      $locations = Location::whereIn('department_id', $match_departments)->get();
+
       // Check which action to perform
       if (isset($btnFindLocation)) {
 
-        // Get all locations that are LIKE the provided name
-        $locations = Location::where('name', 'LIKE', '%' . $locationName . '%')
-                             ->get();
+        $filtered = collect([]);
+
+        // Filter by name
+        if ($locationName != null) {
+          $filtered = $locations->filter(function($item) use ($locationName) {
+            if (strpos($item->name, $locationName) !== false) { // Get rough match
+              return true;
+            }
+          });
+        }
+
+        // Filter by department id
+        if ($filtered->count() == 0) {
+          $filtered = $locations->filter(function($item) use ($departmentID) {
+            if ($item->department_id == $departmentID) {
+              return true;
+            }
+          });
+        }
+
+        $locations = $filtered;
 
       } else if (isset($btnFindAll)) {
 
-        // Get all locations and surpress any search input
         $locationName = null;
-        //$locations = Location::all();
 
       } else {
-        abort(401);
+        abort(401, 'Unauthorized');
       }
 
-      //dd($locations);
       $user = Session::get('user');
       $allowed_departments = Session::get('allowed_departments');
-      $match_departments = Session::get('match_departments');
-
-      if ($locations == null) {
-        if ($user->is_super_user) {
-          $locations = Location::all();
-        } else {
-          $locations = Location::whereIn('department_id', $match_departments)->get();
-        }
-      }
 
       $data = array(
         'locations' => $locations,
@@ -212,28 +229,5 @@ class LocationController extends Controller
 
       return view('pages/locations', $data);
 
-    }
-
-    /**
-      * Soft deletes a specified resource
-      * @param int  $id ID of the location to soft delete
-      * @return \Illuminate\Http\Response
-      */
-    public function toggleDeleted($id)
-    {
-      $location = Location::find($id);
-
-      if ($location == null)
-        abort(404, 'Not found.');
-
-      if ($location->deleted == 0) {
-        $location->deleted = 1;
-      } else {
-        $location->deleted = 0;
-      }
-
-      $location->save();
-
-      return redirect()->route('dashboard.settings.locations.index');
     }
 }

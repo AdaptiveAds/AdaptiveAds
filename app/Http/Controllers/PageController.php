@@ -74,8 +74,6 @@ class PageController extends Controller
       // Was validation successful?
       $pageData = new PageData;
 
-      dd($request->input('txtPageImage_1'));
-
       $pageData->heading = $request->input('txtPageName');
       $pageData->video_path = $request->input('txtPageVideo');
       $pageData->content = $request->input('txtPageContent');
@@ -95,7 +93,7 @@ class PageController extends Controller
 
       $page = new Page;
       $page->page_data_id = $pageData->id;
-      $page->page_index = $request->input('NumPageIndex');
+      $page->page_index = Page::where('advert_id', $adID)->count(); // Add to end
       $page->advert_id = $adID;
       $page->template_id = 1;
       $page->save();
@@ -104,7 +102,8 @@ class PageController extends Controller
         'page' => $page
       );
 
-      return redirect()->route('dashboard.advert.{adID}.page.show', [$adID, $page->id]);
+      return redirect()->route('dashboard.advert.{adID}.page.show', [$adID, $page->id])
+                       ->with('message', 'Page created successfully');
     }
 
     /**
@@ -158,7 +157,6 @@ class PageController extends Controller
       ]);
 
       $page = Page::find($id);
-      $page->page_index = $request->input('NumPageIndex');
       $page->template_id = 1;
       $page->save();
 
@@ -181,7 +179,8 @@ class PageController extends Controller
 
       $pageData->save();
 
-      return redirect()->route('dashboard.advert.{adID}.page.show', [$adID, $page->id]);
+      return redirect()->route('dashboard.advert.{adID}.page.show', [$adID, $page->id])
+                       ->with('message', 'Page updated successfully');
     }
 
     /**
@@ -194,9 +193,14 @@ class PageController extends Controller
     {
         $page = Page::find($id);
 
+        if ($page == null)
+          return redirect()->route('dashboard.advert.edit', [$adID])
+                           ->with('message', 'Error: Page not found');
+
         $page->deleted = 1;
         $page->save();
 
-        return redirect()->route('dashboard.advert.show', [$adID]);
+        return redirect()->route('dashboard.advert.edit', [$adID])
+                         ->with('message', 'Page deleted successfully');
     }
 }

@@ -17,8 +17,13 @@
 
 <div class="global">
 	<div class="row">
-		{!! Form::open(['route' => 'dashboard.settings.screens.process', 'method' => 'POST']) !!}
+		{!! Form::open(['route' => 'dashboard.settings.screens.filter', 'method' => 'POST']) !!}
 			<h3>Screens</h3>
+			@if (Session::has('message'))
+				<h5>{{Session::pull('message')}}</h5>
+			@else
+				<h5>Register/Manage new and existing screens</h5>
+			@endif
 			<ul name="lstScreenControls">
 				<li>
 					<input type="name" name="txtScreenID" placeholder="Screen id..." value="{{ $screenID or '' }}"/>
@@ -42,7 +47,7 @@
 	</div>
 
 	<div class="row">
-			@include('objects/listScreens')
+			@include('objects/listScreens', array('editMode' => true))
 	</div>
 </div>
 @endsection

@@ -5,24 +5,28 @@
       <li class="advertItem">
         <a href="{{ URL::route('dashboard.playlist.edit', [$playlist->id])}}">{{ $playlist->name }}</a>
 
-        <a href="#PlaylistModal" data-displayEditModal="true"
-                                 data-modalObject="Playlist"
-                                 data-modalMethod="PUT"
-                                 data-modalRoute="{{ URL::route('dashboard.playlist.update', $playlist->id) }}"
-                                 data-userID="{{ $playlist->id }}">
-          <button type="button" name="btnEdit">Edit</button>
-        </a>
+        {{-- Only show edit options if in mode --}}
+        @if (isset($editMode))
 
-        {{-- Show correct button to disable ot enable --}}
-        {!! Form::open(['route' => ['dashboard.playlist.toggleDeleted', $playlist->id], 'method' => 'POST']) !!}
-          @if ($playlist->deleted == 0)
-            <button type="submit" name="btnDisablePlaylist">Disable</button>
-          @else
-            @if ($user->getAdmin())
-              <button type="submit" name="btnEnablePlaylist">Enable</button>
-            @endif
+          <a href="#PlaylistModal" data-displayEditModal="true"
+                                   data-modalObject="Playlist"
+                                   data-modalMethod="PUT"
+                                   data-modalRoute="{{ URL::route('dashboard.playlist.update', $playlist->id) }}"
+                                   data-userID="{{ $playlist->id }}">
+            <button type="button" name="btnEdit">Edit</button>
+          </a>
+
+          @if ($user->getAdmin())
+            {{-- Show correct button to disable ot enable --}}
+            {!! Form::open(['route' => ['dashboard.playlist.destroy', $playlist->id],
+                            'method' => 'DELETE',
+                            'onsubmit' => 'return ConfirmDelete()']) !!}
+              @if ($playlist->isGlobal == false)
+                <button type="submit" name="btnDelete">Delete</button>
+              @endif
+            {!! Form::close() !!}
           @endif
-        {!! Form::close() !!}
+        @endif
       </li>
     @endforeach
   @else

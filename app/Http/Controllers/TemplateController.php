@@ -11,6 +11,12 @@ use App\Template as Template;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+/**
+  * Defines the CRUD methods for the TemplateController
+  * @author Josh Preece
+  * @license REVIEW
+  * @since 1.0
+  */
 class TemplateController extends Controller
 {
 
@@ -65,8 +71,6 @@ class TemplateController extends Controller
      */
     public function store(Request $request)
     {
-        // TODO VALIDATION
-
         $txtTemplateName = $request->input('txtTemplateName');
         $txtTemplateClass = $request->input('txtTemplateClass');
         $numTemplateDuration = $request->input('numTemplateDuration');
@@ -89,7 +93,8 @@ class TemplateController extends Controller
 
         $template->save();
 
-        return redirect()->route('dashboard.settings.templates.index');
+        return redirect()->route('dashboard.settings.templates.index')
+                         ->with('message', 'Template created successfully');
     }
 
     /**
@@ -106,7 +111,7 @@ class TemplateController extends Controller
 
       $template = Template::find($id);
       if ($template == null)
-        abort(404, 'Not found.');
+        return array('error' => 'Error: Template not found.');
 
       return array('template' => $template);
     }
@@ -133,35 +138,33 @@ class TemplateController extends Controller
     {
         $template = Template::find($id);
 
-        if ($template != null) {
+        if ($template == null)
+          return redirect()->route('dashboard.settings.templates.index')
+                           ->with('message', 'Error: Template not found');
 
-          $txtTemplateName = $request->input('txtTemplateName');
-          $txtTemplateClass = $request->input('txtTemplateClass');
-          $numTemplateDuration = $request->input('numTemplateDuration');
+        $txtTemplateName = $request->input('txtTemplateName');
+        $txtTemplateClass = $request->input('txtTemplateClass');
+        $numTemplateDuration = $request->input('numTemplateDuration');
 
-          $template->name = $txtTemplateName;
-          $template->class_name = $txtTemplateClass;
-          $template->duration = $numTemplateDuration;
+        $template->name = $txtTemplateName;
+        $template->class_name = $txtTemplateClass;
+        $template->duration = $numTemplateDuration;
 
-          // Upload image 1
-          $imageInput = Input::file('filTemplateThumbnail');
-          if ($imageInput != null) {
-            $imagePath = Images::processImage($imageInput, 'template_thumbmails');
+        // Upload image 1
+        $imageInput = Input::file('filTemplateThumbnail');
+        if ($imageInput != null) {
+          $imagePath = Images::processImage($imageInput, 'template_thumbmails');
 
-            // If we have a valid image then set the path in the database
-            if ($imagePath != null) {
-              $template->thumbnail = $imagePath;
-            }
+          // If we have a valid image then set the path in the database
+          if ($imagePath != null) {
+            $template->thumbnail = $imagePath;
           }
-
-          $template->save();
-
-
-        } else {
-          abort(404, 'Not found.');
         }
 
-        return redirect()->route('dashboard.settings.templates.index');
+        $template->save();
+
+        return redirect()->route('dashboard.settings.templates.index')
+                         ->with('message', 'Templated updated successfully');
     }
 
     /**
@@ -172,15 +175,31 @@ class TemplateController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $template = Template::find($id);
+
+      if ($template == null)
+        return redirect()->route('dashboard.settings.templates.index')
+                         ->with('message', 'Error: Template not found');
+
+      $pagesCount = $template->Pages()->count();
+
+      // Don't delete if template is referenced
+      if ($pagesCount != 0)
+        return redirect()->route('dashboard.settings.templates.index')
+                         ->with('message', 'Unable to delete ' . $template->name .', as one or more pages require it.');
+
+      $template->delete();
+
+      return redirect()->route('dashboard.settings.templates.index')
+                       ->with('message', 'Templete deleted successfully');
     }
 
     /**
-      * Processes input from the screen. Includes basic filtering options
+      * Filter templates by criteria
       * @param \Illuminate\Http\Request $request
       * @return \Illuminate\Http\Response
       */
-    public function process(Request $request)
+    public function filter(Request $request)
     {
       $user = Session::get('user');
 
@@ -195,29 +214,35 @@ class TemplateController extends Controller
       // Check which action to perform
       if (isset($btnFindTemplate)) {
 
-        // First filter by name
-        $filtered = $templates->filter(function($item) use ($templateName) {
-          if ($item->name == $templateName) {
-            return true;
-          }
-        });
+        $filtered = collect([]);
 
-        // If no results found filter by class name
-        if ($filtered->count() == 0) {
-          $filtered = $templates->filter(function($item) use ($templateClass) {
-            if ($item->class_name == $templateClass) {
+        // First filter by name
+        if ($templateName != null) {
+          $filtered = $templates->filter(function($item) use ($templateName) {
+            if (strpos($item->name, $templateName) !== false) { // Get rough match
               return true;
             }
           });
+        }
 
-          // Again if no result found filter by duration
+        // If no results found filter by class name
+        if ($templateClass != null) {
           if ($filtered->count() == 0) {
-            $filtered = $templates->filter(function($item) use ($templateDuration) {
-              if ($item->duration == $templateDuration) {
+            $filtered = $templates->filter(function($item) use ($templateClass) {
+              if (strpos($item->class_name, $templateClass) !== false) { // Get rough match
                 return true;
               }
             });
           }
+        }
+
+        // Again if no result found filter by duration
+        if ($filtered->count() == 0) {
+          $filtered = $templates->filter(function($item) use ($templateDuration) {
+            if ($item->duration == $templateDuration) {
+              return true;
+            }
+          });
         }
 
         $templates = $filtered;
@@ -244,28 +269,5 @@ class TemplateController extends Controller
 
 
 
-    }
-
-    /**
-      * Soft deletes a specified resource
-      * @param int  $id ID of the template to soft delete
-      * @return \Illuminate\Http\Response
-      */
-    public function toggleDeleted($id)
-    {
-      $template = Template::find($id);
-
-      if ($template == null)
-        abort(404, 'Not found.');
-
-      if ($template->deleted == 0) {
-        $template->deleted = 1;
-      } else {
-        $template->deleted = 0;
-      }
-
-      $template->save();
-
-      return redirect()->route('dashboard.settings.templates.index');
     }
 }

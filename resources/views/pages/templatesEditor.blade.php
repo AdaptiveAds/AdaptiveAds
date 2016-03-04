@@ -15,8 +15,13 @@
 
 <div class="global">
 	<div class="row">
-			{!! Form::open(['route' => 'dashboard.settings.templates.process', 'method' => 'POST']) !!}
+			{!! Form::open(['route' => 'dashboard.settings.templates.filter', 'method' => 'POST']) !!}
 				<h3>Template Editor</h3>
+				@if (Session::has('message'))
+					<h5>{{Session::pull('message')}}</h5>
+				@else
+					<h5>Manage templates</h5>
+				@endif
 				<ul name="lstTemplateControls">
 					<li>
 						<input type="text" name="txtTemplateName" placeholder="Template Name...."
@@ -39,7 +44,7 @@
 	</div>
 
 	<div class="row">
-		@include('objects/listTemplates')
+		@include('objects/listTemplates', array('editMode' => true))
 	</div>
 </div>
 @endsection

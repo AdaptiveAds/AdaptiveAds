@@ -16,8 +16,13 @@
 
 <div class="global">
 	<div class="row">
-		{!! Form::open(['route' => 'dashboard.playlist.process', 'method' => 'POST']) !!}
+		{!! Form::open(['route' => 'dashboard.playlist.filter', 'method' => 'POST']) !!}
 			<h3>Playlists</h3>
+			@if (Session::has('message'))
+				<h5>{{Session::pull('message')}}</h5>
+			@else
+				<h5>Create and manage playlists</h5>
+			@endif
 			<ul>
 				<li>
 					<input type="text" name="txtPlaylistName" placeholder="Playlist name...."
@@ -42,7 +47,7 @@
 	</div>
 
 	<div class="row">
-		@include('objects/listPlaylists')
+		@include('objects/listPlaylists', array('editMode' => true))
 	</div>
 </div>
 @endsection
