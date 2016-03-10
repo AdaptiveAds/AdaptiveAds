@@ -11,10 +11,18 @@
               $button-font-color,
               $button-background-hover
             )
+
   {
+%font-a {font-size:80%;}
+%font-b {font-size:100%;}
+%font-c {font-size:140%;}
+
+body.font-theme-a {@extend %font-a;}
+body.font-theme-b {@extend %font-b;}
+body.font-theme-c {@extend %font-c;}
+
   body.#{$name} {
     font-family:Helvetica, Arial, Sans-Serif;
-    font-size: 1.5em;
     color:$site-font-color;
     background:$site-background;
     margin:0;
@@ -56,25 +64,34 @@
       #top {
       width:100%;
       background:#1f6378;//dark blue;
-      height:35px;
       color:#000000;
+      display:block;
+
+        //used for swatches and font ID's
+        %top-li {display:block; cursor:pointer; min-height:40px;
+          i {padding:20%;}
+          &.top-active {background:$site-background;}
+
+          &[data-theme="font-theme-a"] {font-size:16px;}
+          &[data-theme="font-theme-b"] {font-size:20px;}
+          &[data-theme="font-theme-c"] {font-size:24px;}
+        }
+
 
         #swatches {
         float:left;
         width:30%;
+        font-size:24px;
 
           ul {
-
             li {
             float:left;
-            //reference _layouts/_themeMixins.scss
             @extend %top-li;
-              //reference _swatches/_swatches.css for info
-              &[data-swatch="data-swatch-theme-a"] { color:#ffffff; background:#000000;} //1:default
-              &[data-swatch="data-swatch-theme-b"] { color:red; background:yellow;} //2
-              &[data-swatch="data-swatch-theme-c"] { color:#000000; background:#ffffff;} //2
+
             }
           }
+
+
         }//swatches
 
         #fontsizing {
@@ -87,30 +104,12 @@
             line-height:100%;
             float:right;
             color:#ffffff;
+            overflow:hidden;
             @extend %top-li;
-              &[data-theme="font-theme-a"] { font-size:1.5em;}
-              &[data-theme="font-theme-b"] { font-size:1.8em;}
-              &[data-theme="font-theme-c"] { font-size:2em;}
             }
           }
         }
-
-        #logo {
-        text-align:center;
-        display:block;
-        width:auto;
-        margin:0 auto;
-        border-radius:50%;
-        width:85%;
-        background:$site-background;
-        transition:none;
-
-        & a {
-          & img {max-width:15%;}
-          }
-        }
       }//top
-
 
     header#header {
     width:100%; min-height:45px; display:inline-block;
@@ -123,46 +122,60 @@
         width:20%;
         margin-left:5%;
         }//img
-      }//close head
 
-      .head:last-child {
-      float:right;
-      padding-top:10px;
-      }//last:child
+        &:last-child {
+        float:right;
+        padding-top:10px;
+        }//last:child
 
-      nav {
-      width:auto;
-      float:right;
-      padding:1%;
-      font-size:16px;
-      font-weight:bold;
+        nav {
+        width:auto;
+        float:right;
+        padding:1%;
+        font-size:100%;
+        font-weight:bold;
 
-        ul {
-        padding:0;
-        margin:0;
+          ul {
+          padding:0;
+          margin:0;
 
-          li:first-child {
-            margin-left:10px;}
+            li:first-child {
+              margin-left:10px;}
 
-          li {
-            list-style:none;
-            float:left;
+            li {
+              list-style:none;
+              float:left;
 
-            a {
-            padding:2px 20px;
-            text-decoration:none;
+              a {
+              padding:2px 20px;
+              text-decoration:none;
 
-              i {
-              .fa.fa-home {font-size:20px;}
-              }// close i
+                i {
+                .fa.fa-home {font-size:120%;}
+                }// close i
 
-              img {
-              width:100%;
-              }//close img
-            }// close 'a'
-          }//close li
-        }//close ul
-      }//close nav
+                img {
+                width:100%;
+                }//close img
+              }// close 'a'
+            }//close li
+          }//close ul
+        }//close nav
+
+        #logo {
+        text-align:left;
+        float:left;
+        display:block;
+        width:auto;
+        margin:0 auto;
+        width:40%;
+        transition:none;
+
+        & a {
+          & img {max-width:40%; padding:2%;}
+          }
+        }
+      }//head
     }//close header
 
     #content {
@@ -190,7 +203,7 @@
     background:transparent;
 
         h4 {
-        font-size:20px;
+        font-size:110%;
 
           .indent {
 
@@ -238,7 +251,7 @@
       position:fixed;
       bottom:2px;
       right:2px;
-      font-size:12px;
+      font-size:110%;
 
         #footer {
           //empty
@@ -268,7 +281,6 @@ border:none;
 }//body
   }//close mixin
 
-
-@include theme(data-swatch-theme-a, #000000, #ffffff, red, yellow );
-@include theme(data-swatch-theme-b, #ffffff, #000000, pink, purple );
-@include theme(data-swatch-theme-c, orange, red, blue, green );
+@include theme(data-swatch-theme-a, #000000, #ffffff, red, yellow);
+@include theme(data-swatch-theme-b, #ffffff, #000000, pink, purple);
+@include theme(data-swatch-theme-c, orange, red, blue, green);
