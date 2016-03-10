@@ -1177,7 +1177,7 @@ section {
 /***************************/
 /* line 200, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
 .global {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   font-size: 120%; }
   /* line 205, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
@@ -1219,55 +1219,56 @@ section {
     /* line 256, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
     .global .row:last-child ul li a {
       padding: 0;
-      display: inline; }
-    /* line 266, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+      display: inline;
+      float: left; }
+    /* line 267, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
     .global .row:last-child ul li button:first-child {
       margin-left: 10px; }
 
 /***************************/
 /*         Login           */
 /***************************/
-/* line 281, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 282, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
 form#clientlogin, form#register {
   margin: 0 auto;
   width: 15%;
   text-align: center; }
-  /* line 288, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+  /* line 289, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
   form#clientlogin ul button, form#register ul button {
     margin: 10% auto;
     width: 50%;
     display: block; }
-  /* line 294, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+  /* line 295, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
   form#clientlogin ul li, form#register ul li {
     width: 100%; }
-    /* line 297, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+    /* line 298, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
     form#clientlogin ul li label, form#clientlogin ul li input, form#register ul li label, form#register ul li input {
       width: 100%; }
-    /* line 299, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+    /* line 300, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
     form#clientlogin ul li label, form#register ul li label {
       display: block;
       margin-top: 1%;
       padding: 1%; }
-    /* line 305, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+    /* line 306, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
     form#clientlogin ul li input, form#register ul li input {
       display: block;
       margin-top: 0;
       width: 94%;
       text-align: center; }
-    /* line 312, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+    /* line 313, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
     form#clientlogin ul li input:hover, form#register ul li input:hover {
       background: #ffffff;
       cursor: pointer; }
-  /* line 320, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+  /* line 321, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
   form#clientlogin ul:last-child, form#register ul:last-child {
     margin-top: 1%; }
-    /* line 323, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+    /* line 324, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
     form#clientlogin ul:last-child li, form#register ul:last-child li {
       text-align: left; }
-      /* line 326, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+      /* line 327, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
       form#clientlogin ul:last-child li a, form#register ul:last-child li a {
         color: #ffffff; }
-      /* line 330, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
+      /* line 331, ../../resources/assets/sass/website/defaultStructure/_defaultWebsitePages.scss */
       form#clientlogin ul:last-child li a:hover, form#register ul:last-child li a:hover {
         color: #000000; }
 
