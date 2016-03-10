@@ -1,5 +1,3 @@
-* {margin:0; padding:0; border:none; list-style:none; }
-
 /* classes */
 .hidden {display:none; }
 .shown {display:block;}
@@ -7,14 +5,21 @@
 .right {float:right;}
 .alert-danger {color:red; font-size:20px; font-weight:bold; text-align:center;}
 
+@mixin theme( $name,
+              $site-font-color,
+              $site-background,
+              $button-font-color,
+              $button-background-hover
+            )
+  {
+  body.#{$name} {
+    font-family:Helvetica, Arial, Sans-Serif;
+    font-size: 1.5em;
+    color:$site-font-color;
+    background:$site-background;
+    margin:0;
 
-body {
-font-family:$site-font-family;
-font-size:$site-font-size;
-color:$site-font-color;
-background:$site-background;
-
-}//end body
+  * {margin:0; padding:0; border:none; list-style:none; color:$site-font-color;}
 
   #wrapper {
   width:100%;
@@ -22,16 +27,20 @@ background:$site-background;
   min-width:1325px;
   display:block;
 
-    h1, h2, h3, h4, h5 {
-    color:$site-font-color;
-    }//headings
-
     button {
-    @extend %button;
-    }
+    box-shadow:none; border:1px solid $button-font-color; cursor:pointer;
+
+      &:hover {
+      background:$button-background-hover;
+      }//&hover
+    }//button
 
     a, img, button, button:hover, div {
-    @extend %transitions;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition:.5s;
     }
 
       a {
@@ -46,9 +55,9 @@ background:$site-background;
 
       #top {
       width:100%;
-      background:$site-top-background;
+      background:#1f6378;//dark blue;
       height:35px;
-      color:$site-top-text;
+      color:#000000;
 
         #swatches {
         float:left;
@@ -61,9 +70,9 @@ background:$site-background;
             //reference _layouts/_themeMixins.scss
             @extend %top-li;
               //reference _swatches/_swatches.css for info
-              &[data-swatch="data-swatch-theme-a"] { color:$top-swatch-btn-color-a; background:$top-swatch-btn-background-a;} //1:default
-              &[data-swatch="data-swatch-theme-b"] { color:$top-swatch-btn-color-b; background:$top-swatch-btn-background-b;} //2
-              &[data-swatch="data-swatch-theme-c"] { color:$top-swatch-btn-color-c; background:$top-swatch-btn-background-c;} //2
+              &[data-swatch="data-swatch-theme-a"] { color:#ffffff; background:#000000;} //1:default
+              &[data-swatch="data-swatch-theme-b"] { color:red; background:yellow;} //2
+              &[data-swatch="data-swatch-theme-c"] { color:#000000; background:#ffffff;} //2
             }
           }
         }//swatches
@@ -77,11 +86,11 @@ background:$site-background;
             li {
             line-height:100%;
             float:right;
-            color:$site-top-text;
+            color:#ffffff;
             @extend %top-li;
-              &[data-theme="font-theme-a"] { font-size:$site-font-theme-a-size;}
-              &[data-theme="font-theme-b"] { font-size:$site-font-theme-b-size;}
-              &[data-theme="font-theme-c"] { font-size:$site-font-theme-c-size;}
+              &[data-theme="font-theme-a"] { font-size:1.5em;}
+              &[data-theme="font-theme-b"] { font-size:1.8em;}
+              &[data-theme="font-theme-c"] { font-size:2em;}
             }
           }
         }
@@ -93,11 +102,11 @@ background:$site-background;
         margin:0 auto;
         border-radius:50%;
         width:85%;
-        background:$site-top-logo-background;
+        background:$site-background;
+        transition:none;
 
         & a {
-
-          & img {max-width:10%;}
+          & img {max-width:15%;}
           }
         }
       }//top
@@ -129,7 +138,8 @@ background:$site-background;
       font-weight:bold;
 
         ul {
-          @extend %zeroPM;
+        padding:0;
+        margin:0;
 
           li:first-child {
             margin-left:10px;}
@@ -192,7 +202,7 @@ background:$site-background;
 
           form {
           margin-bottom:5px;
-          color:$site-font-form-color;
+          color:$site-font-color;
 
             :first-child {
             //empty
@@ -254,3 +264,11 @@ border:none;
   }//h3
 
 }//form
+
+}//body
+  }//close mixin
+
+
+@include theme(data-swatch-theme-a, #000000, #ffffff, red, yellow );
+@include theme(data-swatch-theme-b, #ffffff, #000000, pink, purple );
+@include theme(data-swatch-theme-c, orange, red, blue, green );

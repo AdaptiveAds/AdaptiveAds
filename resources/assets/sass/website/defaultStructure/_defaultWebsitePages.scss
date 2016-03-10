@@ -45,7 +45,7 @@ text-align:center; clear:both;
 
 				a {
 				display:block;
-				background:$dashboard-anchor-background;
+				background:#1f6378;
 				border-radius:$site-border-radius;
 				min-width:90px;
 				border:$site-border-hidden;
@@ -54,7 +54,7 @@ text-align:center; clear:both;
 
 					&:hover {
 					background:$dashboard-anchor-text-hover;
-					border: $site-border-show;
+					border:$site-border-show;
 					}
 
 					i {
@@ -76,8 +76,6 @@ text-align:center; clear:both;
 /***************************/
 /*      Page Editor        */
 /***************************/
-
-body .pagecontainer #footer {width:100%; min-height:20px; background:pink;}//footer
 
 #left {
 float:left; width:70%; min-height:300px;
@@ -311,7 +309,7 @@ text-align:center;
 			}//input
 
 			input:hover {
-			background:$login-background-hover;
+			background:#ffffff;
 			cursor:pointer;
 			}//li:hover
 
@@ -325,11 +323,11 @@ text-align:center;
 		text-align:left;
 
 			a {
-			color:$login-anchor-color;
+			color:#ffffff;
 			}//a
 
 			a:hover {
-			color:$login-anchor-color-hover;
+			color:#000000;
 			}//a:hover
 		}//li
 	}//ul:last-child

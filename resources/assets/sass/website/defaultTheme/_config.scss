@@ -1,16 +1,5 @@
-// Login
-$login-background-hover:#add8e6;//logo light blue
-$login-anchor-color:red;
-$login-anchor-color-hover:#ffffff;
-
-// Inputs
-$input-hover:orange;
-
-//
-$dashboard-anchor-background: #1f6378;
+$dashboard-anchor-text-hover:#1f6378 ;
 $dashboard-anchor-text:#ffffff;
-$dashboard-anchor-text-hover: #1f6378;
-
 //
 $li-background: rgba(114, 188, 212, 0.1);
 $li-background-hover: rgba(114, 188, 212, 0.4);
@@ -20,7 +9,6 @@ $objects-selected-background:#add8e6; //light blue
 
 // Site theme
 $site-background: #ffffff !default;
-$site-top-text: #000000 !default; //font color
 $site-top-background:#1f6378;//dark blue
 $site-top-logo-background: $site-background !default; //
 
@@ -32,8 +20,6 @@ $top-swatch-btn-background-b:#ffffff;
 $top-swatch-btn-color-c: black;
 $top-swatch-btn-background-c:#ffffff;
 
-$site-font-family: Helvetica, Arial, Sans-Serif !default;
-$site-font-size: 16px !default;
 $site-font-theme-a-size:160%;
 $site-font-theme-b-size:120%;
 $site-font-theme-c-size:100%;
