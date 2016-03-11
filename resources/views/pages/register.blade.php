@@ -1,4 +1,4 @@
-@extends('default')
+@extends('backend')
 
 @section('content')
 
