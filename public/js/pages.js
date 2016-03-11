@@ -197,6 +197,8 @@ var Serve = (function(Page) {
   function showPage(currentAdvert, index) {
 
     // Update page
+    $('#serve_container').removeClass();
+    $('#serve_container').addClass(currentAdvert.pages[index].template.class_name);
     $('[name="pageName"]').html(currentAdvert.pages[index].page_data.heading);
     $('[name="pageContent"]').html(currentAdvert.pages[index].page_data.content);
     $('#server_image').next().attr('src', '../advert_images/' + currentAdvert.pages[index].page_data.image_path);
