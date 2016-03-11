@@ -197,9 +197,9 @@ var Serve = (function(Page) {
   function showPage(currentAdvert, index) {
 
     // Update page
-    $('h1').html(currentAdvert.pages[index].page_data.heading);
-    $('#page_content').html(currentAdvert.pages[index].page_data.content);
-    $('#page_image').attr('src', '../advert_images/' + currentAdvert.pages[index].page_data.image_path);
+    $('[name="pageName"]').html(currentAdvert.pages[index].page_data.heading);
+    $('[name="pageContent"]').html(currentAdvert.pages[index].page_data.content);
+    $('#server_image').next().attr('src', '../advert_images/' + currentAdvert.pages[index].page_data.image_path);
 
     return ++index;
 

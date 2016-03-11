@@ -66,10 +66,11 @@ class ServeController extends Controller
           abort(404, 'Not found');
 
         $data = array(
-          'screen' => $screen
+          'screen' => $screen,
+          'serve' => true
         );
 
-        return view('templates/templateLayout', $data);
+        return view('templateDefault', $data);
     }
 
     /**

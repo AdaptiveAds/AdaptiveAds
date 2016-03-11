@@ -1,3 +1,18 @@
+@if(isset($serve))
+
+	<script>
+		// Do sync and AJAX here.... TODO
+		$('document').ready(function() {
+			Serve.syncAction = '/serve/' + {{ $screen->id or '1' }};
+			Serve.syncToken = '{{ csrf_token() }}';
+			Serve.syncScreen = {{ $screen->id or '1' }};
+			Serve.syncInterval = 20000;
+			Serve.init();
+		});
+	</script>
+
+@endif
+
 <div id="serve_container" class="template1">
 	<div id="header"><h1 name="pageName">{{ $pageData->heading or 'New Page'}}</h1></div>
   <div class="row">
