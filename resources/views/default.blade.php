@@ -30,6 +30,32 @@ https://developers.google.com/recaptcha/docs/display -->
 
 	<script type="text/javascript">
 	$('document').ready(function(){
+		var theme = localStorage.getItem('currentTheme');
+		var font = localStorage.getItem('currentFont');
+
+		if (theme !== null) {
+			$('body').removeClass();
+			$('body').addClass(theme);
+
+				$('li[data-btnSwatch="true"]').removeClass();
+				$('li[data-btnSwatch="true"]').each(function() {
+					if ($(this).data('theme') == theme) {
+						$(this).addClass('top-active');
+					}
+				});
+		}
+
+		if (font !== null) {
+			$('body').addClass(font);
+
+			$('li[data-btnFont="true"]').removeClass();
+			$('li[data-btnFont="true"]').each(function() {
+				if ($(this).data('theme') == font) {
+					$(this).addClass('top-active');
+				}
+			});
+		}
+
 		$('.btn-orientationHor').click(function() {
 			// Writing the code like this will allow SCSS to be added to the button to show which is active
 			$('#left').removeClass('portrait');
@@ -52,6 +78,14 @@ https://developers.google.com/recaptcha/docs/display -->
 		  // Foreach active element add the theme data to the body class
 		  $('.top-active').each(function() {
 		  	$( 'body' ).addClass($(this).data('theme'));
+
+				if ($(this).data('btnswatch') !== undefined) {
+					localStorage.setItem('currentTheme',$(this).data('theme'));
+				}
+
+				if ($(this).data('btnfont') !== undefined) {
+					localStorage.setItem('currentFont',$(this).data('theme'));
+				}
 		  });
 		});
 
@@ -60,6 +94,7 @@ https://developers.google.com/recaptcha/docs/display -->
 			$(this).toggleClass('active'); // Toggle active
 
 			$('#serve_container').addClass($(this).data('template'));
+
 		});
 
 
