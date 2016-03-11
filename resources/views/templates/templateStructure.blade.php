@@ -1,5 +1,5 @@
-<div id="serve_container">
-	<div id="header"><h1></h1></div>
+<div id="serve_container" class="template1">
+	<div id="header"><h1 name="pageName">{{ $pageData->heading or 'New Page'}}</h1></div>
   <div class="row">
     	<div id="serve_image">
 				@if (isset($pageData->image_path) AND $pageData->image_path != '')
@@ -15,4 +15,10 @@
 	</div>
   <div class="clear"></div>
 </div>
-<div id="footer"></div>
+<div id="footer">
+	<ul>
+			<li>Term time hours: 8.30am – midnight</li>
+			<li>Term time weekends – Sat & Sun,  11am – 6pm</li>
+	</ul>
+	<div class="clear"></div>
+</div>
