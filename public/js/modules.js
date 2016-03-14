@@ -127,8 +127,9 @@ var ObjectAssign = (function() {
 
   var token = "";
   var action = "";
+  var extra = null;
 
-  function register_eventhandlers() {
+  function register_eventhandlers(callback) {
 
     $('button[name="btnAdd"]').click(function() {
 
@@ -142,10 +143,13 @@ var ObjectAssign = (function() {
 
     });
 
+    if (callback !== undefined) {
+      callback();
+    }
+
   }
 
   function redirect(path) {
-    console.log(path);
     window.location.href = path;
   }
 
@@ -160,9 +164,8 @@ var ObjectAssign = (function() {
     $.ajax({
       type: "POST",
       url : ObjectAssign.action,
-      data : {'mode': mode, 'arrObjects': objects},
+      data : {'mode': mode, 'arrObjects': objects, 'extra': ObjectAssign.extra},
       success : function(data){
-        console.log(data);
         if (data.failed === undefined) {
           redirect(data.redirect); // Redirect
         } else {
