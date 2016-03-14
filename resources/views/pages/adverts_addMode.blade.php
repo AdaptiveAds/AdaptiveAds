@@ -8,10 +8,18 @@
 	$('document').ready(function() {
 		ObjectAssign.token = "{{ csrf_token() }}";
 		ObjectAssign.action = "/dashboard/playlist/process";
+		ObjectAssign.extra = {key: "schedule", data: 1};
 
 		SelectManager.multi = true;
 		SelectManager.register_eventhandlers();
-		ObjectAssign.register_eventhandlers();
+		ObjectAssign.register_eventhandlers(addExternalEvent);
+
+		function addExternalEvent() {
+			$('[name="drpSchedules"]').change(function() {
+				ObjectAssign.extra = {key: "schedule", data: this.value};
+			});
+		}
+
 	});
 </script>
 
@@ -25,6 +33,8 @@
 			@endif
 			<ul>
 				<li>
+					<label name="lblSchedule">Display Time:</label>
+					@include('objects/dropdown_schedules')
 					<button name="btnAdd" type="button">Add</button>
 				</li>
 				<li>
