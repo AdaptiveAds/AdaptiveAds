@@ -44,7 +44,7 @@ class Advert extends Model
     * @returns EloquentCollection
     */
   public function Department() {
-    return $this->belongsToOne(Department::class)->withPivot('advert_id', 'department_id');
+    return $this->hasOne(Department::class, 'id', 'department_id');
   }
 
 }

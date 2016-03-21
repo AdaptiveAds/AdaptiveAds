@@ -65,6 +65,16 @@ class ServeController extends Controller
         if (isset($screen) == false)
           abort(404, 'Not found');
 
+        $info = $this->loadPlaylists($screen);
+        $collec = $info->playlist->adverts;
+
+        $processed = $collec->each(function($item) {
+          $item->department = $item->Department()->first();
+          $item->skin = $item->department->Skin()->first();
+        });
+
+        //dd($info);
+
         $data = array(
           'screen' => $screen,
           'serve' => true
@@ -88,9 +98,6 @@ class ServeController extends Controller
                     ->first();*/
 
       return $screen->where('id', $screen->id)->with(array('playlist' => function($query) {
-          $query->with(array('adverts' => function($query) {
-
-            }));
           $query->with(array('adverts.pages' => function($query) {
             $query->where('deleted', 0);
             $query->with('pageData');
