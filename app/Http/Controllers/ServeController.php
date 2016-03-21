@@ -68,12 +68,11 @@ class ServeController extends Controller
         $info = $this->loadPlaylists($screen);
         $collec = $info->playlist->adverts;
 
+        // Eager load each arvert's department/skin
         $processed = $collec->each(function($item) {
           $item->department = $item->Department()->first();
           $item->skin = $item->department->Skin()->first();
         });
-
-        //dd($info);
 
         $data = array(
           'screen' => $screen,
