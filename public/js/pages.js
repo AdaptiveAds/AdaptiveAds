@@ -104,6 +104,7 @@ var Serve = (function(Page) {
         // Update the page after processing
         update_page();
       } else {
+        localStorage.setItem('globalPlaylist', JSON.stringify(globalPlaylist));
         localStorage.setItem('showGlobal', 1);
         localStorage.setItem('current_advert_index', 0);
         localStorage.setItem('current_page_index', 0);
