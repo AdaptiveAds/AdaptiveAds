@@ -68,26 +68,8 @@ class ServeController extends Controller
         $screen = $this->loadPlaylists($screen);
         //$collec = $info->playlist->adverts;
 
-        // Eager load each arvert's department/skin
-        /*$screen->playlist->adverts->each(function($item) use ($screen) {
-          $item->department = $item->Department()->first();
-          $item->skin = $item->department->Skin()->first();
-          $item->timing = $item->Advert()
-                               ->where('advert_id', $item->id)
-                               ->where('playlist_id', $screen->playlist->id)
-                               ->first();
-        });*/
-
         $time = date('H:i:s', Time());
         $adverts = $this->applySchedule($screen->playlist->adverts);
-
-        /*$screen->playlist->adverts->filter(function($item) use ($time) {
-          $schedule = $item->advertSchedule->schedule;
-          if ($schedule->anyTime == true)
-            return true;
-          if ($time >= $schedule->start_time && $time <= $schedule->end_time)
-            return true;
-        });*/
 
         //dd($adverts);
 

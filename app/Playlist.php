@@ -31,7 +31,7 @@ class Playlist extends Model
     * @return EloquentCollection
     */
   public function Adverts() {
-    return $this->belongsToMany(Advert::class)->withPivot('playlist_id', 'advert_id', 'advert_index', 'display_schedule_id')
+    return $this->belongsToMany(Advert::class)->withPivot('playlist_id', 'advert_id', 'advert_index')
                 ->orderBy('advert_index', 'ASC');
   }
 

@@ -313,7 +313,7 @@ class PlaylistController extends Controller
         }
 
         // TODO advert inde and display timing (GUI??)
-        $playlist->Adverts()->attach($advertID, ['advert_index' => ++$currentIndex, 'display_schedule_id' => 1]);
+        $playlist->Adverts()->attach($advertID, ['advert_index' => ++$currentIndex]);
 
         // Create a new schedule
         $schedule = new AdvertSchedule();
