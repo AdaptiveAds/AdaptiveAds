@@ -20,7 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SkinTableSeeder::class);
         //$this->call(PrivilageTableSeeder::class);
         $this->call(UserTableSeeder::class);
-        // TODO display timing
         $this->call(DepartmentTableSeeder::class);
         $this->call(LocationTableSeeder::class);
         $this->call(AdvertTableSeeder::class);
@@ -28,6 +27,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ScreenTableSeeder::class);
         $this->call(PageTableSeeder::class);
         $this->call(AdvertPlaylistTableSeeder::class);
+        $this->call(AdvertScheduleTableSeeder::class);
         $this->call(DepartmentUserTableSeeder::class);
 
         Model::reguard();
