@@ -65,21 +65,54 @@ class ServeController extends Controller
         if (isset($screen) == false)
           abort(404, 'Not found');
 
-        $info = $this->loadPlaylists($screen);
-        $collec = $info->playlist->adverts;
+        $screen = $this->loadPlaylists($screen);
+        //$collec = $info->playlist->adverts;
 
         // Eager load each arvert's department/skin
-        $processed = $collec->each(function($item) {
+        /*$screen->playlist->adverts->each(function($item) use ($screen) {
           $item->department = $item->Department()->first();
           $item->skin = $item->department->Skin()->first();
-        });
+          $item->timing = $item->Advert()
+                               ->where('advert_id', $item->id)
+                               ->where('playlist_id', $screen->playlist->id)
+                               ->first();
+        });*/
+
+        $time = date('H:i:s', Time());
+        $adverts = $this->applySchedule($screen->playlist->adverts);
+
+        /*$screen->playlist->adverts->filter(function($item) use ($time) {
+          $schedule = $item->advertSchedule->schedule;
+          if ($schedule->anyTime == true)
+            return true;
+          if ($time >= $schedule->start_time && $time <= $schedule->end_time)
+            return true;
+        });*/
+
+        //dd($adverts);
 
         $data = array(
           'screen' => $screen,
+          'playlist' => $screen->playlist,
+          'adverts' => $adverts,
+          'global' => $this->getGlobal(),
           'serve' => true
         );
 
         return view('templateDefault', $data);
+    }
+
+    public function applySchedule($adverts) {
+      $time = date('H:i:s', Time());
+      $processed = $adverts->filter(function($item) use ($time) {
+        $schedule = $item->advertSchedule->schedule;
+        if ($schedule->anyTime == true)
+          return true;
+        if ($time > $schedule->start_time && $time < $schedule->end_time)
+          return true;
+      })->values();
+
+      return $processed;
     }
 
     /**
@@ -90,30 +123,15 @@ class ServeController extends Controller
     public function loadPlaylists($screen)
     {
 
-      /*return $screen
-                    ->with('playlist.adverts.pages')
-                    ->with('playlist.adverts.pages.pageData')
-                    ->with('playlist.adverts.pages.template')
-                    ->first();*/
-
       return $screen->where('id', $screen->id)->with(array('playlist' => function($query) {
+          $query->with('adverts.department.skin');
+          $query->with('adverts.advertSchedule.schedule');
           $query->with(array('adverts.pages' => function($query) {
             $query->where('deleted', 0);
             $query->with('pageData');
             $query->with('template');
           }));
         }))->first();
-
-      /*return $playlist = Playlist::with(['adverts'=>function($query) use ($current_advert_index) {
-            $query->where('advert_index', '=', $current_advert_index);
-        }])
-        ->with(['adverts.page'=>function($query) use ($current_page_index) {
-            //$query->where('page_index', '=', $current_page_index);
-        }])
-        ->with('adverts.page.pageData')
-        ->with('adverts.page.template')
-        ->where('id', '=', $playlistID->id)
-        ->get();*/
     }
 
     /**
@@ -146,8 +164,13 @@ class ServeController extends Controller
           return response('Not found', 404);
         }
 
+        $data = $this->loadPlaylists($screen);
+        $adverts = $this->applySchedule($data->playlist->adverts);
+
         $data = array(
-          'data' => $this->loadPlaylists($screen),
+          'screen' => $screen,
+          'playlist' => $data->playlist,
+          'adverts' => $adverts,
           'global' => $this->getGlobal()
         );
 

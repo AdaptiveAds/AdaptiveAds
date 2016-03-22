@@ -76,27 +76,37 @@ var Serve = (function(Page) {
     AppDebug.print("Processing data...");
 
     // Shorten vars for easy coding
-    var playlist = data.data.playlist;
+    var playlist = data.playlist;
+    var adverts = data.adverts;
     var globalPlaylist = data.global;
 
     var current_advert_index = 0;// data[0].adverts[0].pivot.advert_index;
     var current_page_index = 0;// data[0].adverts[0].page[0].page_index;
-    var max_advert_index = playlist.adverts.length - 1;
+    var max_advert_index = adverts.length - 1;
     var duration = 10;
 
-    if (playlist !== undefined && playlist !== null) {
-
+    if (playlist !== undefined && playlist !== null)
+    {
       if (max_advert_index >= 0) {
-        duration = playlist.adverts[0].pages[0].template.duration; // Update per advert
+        duration = adverts[0].pages[0].template.duration; // Update per advert
+
+        // Clear data
+        localStorage.clear();
 
         // Save data to session
         localStorage.setItem('playlist', JSON.stringify(playlist));
+        localStorage.setItem('adverts', JSON.stringify(adverts));
         localStorage.setItem('globalPlaylist', JSON.stringify(globalPlaylist));
         localStorage.setItem('current_advert_index', current_advert_index);
         localStorage.setItem('current_page_index', current_page_index);
         localStorage.setItem('showGlobal', 0);
 
         // Update the page after processing
+        update_page();
+      } else {
+        localStorage.setItem('showGlobal', 1);
+        localStorage.setItem('current_advert_index', 0);
+        localStorage.setItem('current_page_index', 0);
         update_page();
       }
 
@@ -175,16 +185,15 @@ var Serve = (function(Page) {
 
   function getCurrentAdvert(index, showGlobal) {
 
-    // Get playlists from storage
-    var playlist = JSON.parse(localStorage.getItem('playlist'));
+    // Get adverts from storage
+    var adverts = JSON.parse(localStorage.getItem('adverts'));
     var globalPlaylist = JSON.parse(localStorage.getItem('globalPlaylist'));
     var advert = null;
 
-    if (playlist !== undefined && playlist !== null) {
-
+    if (adverts !== undefined && adverts !== null) {
       // Show global or screen playlist?
       if (showGlobal == 0) {
-        advert = playlist.adverts[index];
+        advert = adverts[index];
       } else {
         advert =  globalPlaylist.adverts[index];
       }

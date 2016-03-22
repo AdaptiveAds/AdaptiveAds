@@ -47,4 +47,8 @@ class Advert extends Model
     return $this->hasOne(Department::class, 'id', 'department_id');
   }
 
+  public function AdvertSchedule() {
+    return $this->belongsTo(AdvertSchedule::class, 'id', 'advert_id');
+  }
+
 }
