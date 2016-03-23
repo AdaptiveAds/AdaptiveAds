@@ -30,6 +30,7 @@ var Page = (function() {
 var Serve = (function(Page) {
 
   var durationIntervalHandle;
+  var errorIntervalHandle;
 
   var syncInterval = 10000;
   var syncAction = "";
@@ -49,6 +50,7 @@ var Serve = (function(Page) {
     // Stop the durtaion inverval before proceeding
     // this can cause duplicates if we sync after a run
     IntervalManager.stop(this.durationIntervalHandle);
+    IntervalManager.stop(this.errorIntervalHandle);
 
     // Headers source: https://laravel.com/docs/master/routing#csrf-x-csrf-token
     // Required to prevent server 500 error
@@ -66,7 +68,8 @@ var Serve = (function(Page) {
         process_data(data);
       },
       error : function(xhr, textStatus, errorThrown) {
-        console.log(textStatus + " ------ " + errorThrown);
+        //console.log(textStatus + " ------ " + errorThrown);
+        startErrorWatch();
       }
     },"JSON");
   }
@@ -74,6 +77,12 @@ var Serve = (function(Page) {
   // Data recieved process it
   function process_data(data) {
     AppDebug.print("Processing data...");
+
+    if (data.playlist === undefined) {
+      startErrorWatch();
+      return;
+    }
+
 
     // Shorten vars for easy coding
     var playlist = data.playlist;
@@ -114,6 +123,16 @@ var Serve = (function(Page) {
     }
 
     updateDurationInterval(duration);
+
+  }
+
+  function startErrorWatch() {
+
+    if (this.errorIntervalHandle !== undefined) {
+      IntervalManager.stop(this.errorIntervalHandle);
+    }
+
+    this.errorIntervalHandle = IntervalManager.add((4 * 1000), sync_with_server);
 
   }
 
