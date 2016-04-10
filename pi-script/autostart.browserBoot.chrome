@@ -1,0 +1,6 @@
+# Auto run the browser
+@xset s off
+@xset -dpms
+@xset s noblank
+@unclutter -idle 0.1 -root
+@chromium-browser --noerrdialogs  --kiosk http://HOST_NAME/serve/SCREEN_ID --incognito
