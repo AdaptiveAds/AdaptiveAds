@@ -5,18 +5,16 @@
 
 //Adverts
 // --advertTemplates
-@import 'adverts/advertTemplates/_advertTemplateLayouts.scss',
-        'adverts/advertTemplates/_advertTemplateMixins.scss';
+@import 'adverts/advertTemplates/_advertTemplateLayouts.scss';
 // --departmentSkins
 @import 'adverts/departmentSkins/_skins.scss';
 
 // --defaultStructure
 @import 'website/defaultStructure/_defaultTheme.scss',
-        'website/defaultStructure/_defaultThemeMixins.scss',
+        'website/defaultStructure/_defaultThemeExtends.scss',
         'website/defaultStructure/_defaultWebsitePages.scss',
         'website/defaultStructure/_objects.scss';
 
 //Website
 // --customThemes
-//import 'website/customTheme/_customThemeMixins.scss',
-  //      'website/customTheme/_customTheme.scss';
+//@import 'website/customTheme/_callThemes.scss';

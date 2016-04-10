@@ -1,4 +1,4 @@
-@extends('default')
+@extends('backend')
 
 @section('content')
 
@@ -47,7 +47,7 @@
 			 														'method' => 'POST',
 																	'files' => true]) !!}
 		@endif
-			<!-- ADDED class=landscape as default for SCSS targeting:: This will enable active button formatting -->
+			<!-- ADDED class=landscape as backend for SCSS targeting:: This will enable active button formatting -->
 			<li id="orientation">
 				<button class="btn-orientationHor active" type="button">Landscape</button>
 				<button class="btn-orientationVert" type="button">Portrait</button>

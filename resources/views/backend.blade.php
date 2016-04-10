@@ -21,13 +21,41 @@
 <!-- preferred plan would be to compile the css from scss prior to uploading using propos -->
 	<link rel="stylesheet" 	href="{{ URL::asset('css/default.css') }}" type="text/css">
 
+
+
 <!-- requires testing in conjunction with contact form
 https://developers.google.com/recaptcha/docs/display -->
 	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
 	<script src="{{ URL::asset('js/jquery-2.1.4.js') }}"></script>
+
 	<script type="text/javascript">
 	$('document').ready(function(){
+		var theme = localStorage.getItem('currentTheme');
+		var font = localStorage.getItem('currentFont');
+
+		if (theme !== null) {
+			$('body').removeClass();
+			$('body').addClass(theme);
+
+				$('li[data-btnSwatch="true"]').removeClass();
+				$('li[data-btnSwatch="true"]').each(function() {
+					if ($(this).data('theme') == theme) {
+						$(this).addClass('top-active');
+					}
+				});
+		}
+
+		if (font !== null) {
+			$('body').addClass(font);
+
+			$('li[data-btnFont="true"]').removeClass();
+			$('li[data-btnFont="true"]').each(function() {
+				if ($(this).data('theme') == font) {
+					$(this).addClass('top-active');
+				}
+			});
+		}
+
 		$('.btn-orientationHor').click(function() {
 			// Writing the code like this will allow SCSS to be added to the button to show which is active
 			$('#left').removeClass('portrait');
@@ -50,6 +78,14 @@ https://developers.google.com/recaptcha/docs/display -->
 		  // Foreach active element add the theme data to the body class
 		  $('.top-active').each(function() {
 		  	$( 'body' ).addClass($(this).data('theme'));
+
+				if ($(this).data('btnswatch') !== undefined) {
+					localStorage.setItem('currentTheme',$(this).data('theme'));
+				}
+
+				if ($(this).data('btnfont') !== undefined) {
+					localStorage.setItem('currentFont',$(this).data('theme'));
+				}
 		  });
 		});
 
@@ -58,8 +94,8 @@ https://developers.google.com/recaptcha/docs/display -->
 			$(this).toggleClass('active'); // Toggle active
 
 			$('#serve_container').addClass($(this).data('template'));
-		});
 
+		});
 
 
 	});
@@ -71,16 +107,17 @@ https://developers.google.com/recaptcha/docs/display -->
 
 </head>
 
-<body class="data-swatch-theme-a">
+<body class="data-swatch-theme-a font-theme-b">
 <div id="wrapper">
 
 		<div id="top">
 			<div id="fontsizing">
 				<ul>
-					<li data-btnFont="true" data-theme="font-theme-a"><i class="fa fa-font"></i></li>
-					<li data-btnFont="true" data-theme="font-theme-b" class="top-active"><i class="fa fa-font"></i></li>
-					<li data-btnFont="true" data-theme="font-theme-c"><i class="fa fa-font"></i></li>
+					<li data-btnFont="true" data-theme="font-theme-a" onclick="TextSize.a();"><i class="fa fa-font"></i></li>
+					<li data-btnFont="true" data-theme="font-theme-b" onclick="TextSize.b();" class="top-active"><i class="fa fa-font"></i></li>
+					<li data-btnFont="true" data-theme="font-theme-c" onclick="TextSize.c();"><i class="fa fa-font"></i></li>
 				</ul>
+				<div class="clear"></div>
 			</div>
 			<div id="swatches">
 				<ul>
@@ -88,16 +125,17 @@ https://developers.google.com/recaptcha/docs/display -->
 					<li data-btnSwatch="true" data-theme="data-swatch-theme-b"><i class="fa fa-circle-o-notch"></i></li>
 					<li data-btnSwatch="true" data-theme="data-swatch-theme-c"><i class="fa fa-circle-o-notch"></i></li>
 				</ul>
+				<div class="clear"></div>
 			</div>
-			<div id="logo">
-				<a href="{{ URL::to('dashboard')}}"><img src="{{ URL::asset('images/logo.png') }}" alt="php input" title="php input"></a>
-			</div>
+			 <div class="clear"></div>
 		</div>
-
-
 		<header id="header">
 
-
+			<div class="head">
+				<div id="logo">
+					<a href="{{ URL::to('dashboard')}}"><img src="{{ URL::asset('images/logo.png') }}" alt="php input" title="php input"></a>
+				</div>
+			</div>
 			<div class="head">
 				<nav>
 					<ul>

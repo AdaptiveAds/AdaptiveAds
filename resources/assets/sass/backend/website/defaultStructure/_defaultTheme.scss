@@ -1,5 +1,3 @@
-* {margin:0; padding:0; border:none; list-style:none; }
-
 /* classes */
 .hidden {display:none; }
 .shown {display:block;}
@@ -7,14 +5,29 @@
 .right {float:right;}
 .alert-danger {color:red; font-size:20px; font-weight:bold; text-align:center;}
 
+@mixin theme( $name,
+              $site-font-color,
+              $site-background,
+              $button-font-color,
+              $button-background-hover
+            )
 
-body {
-font-family:$site-font-family;
-font-size:$site-font-size;
-color:$site-font-color;
-background:$site-background;
+  {
+%font-a {font-size:80%;}
+%font-b {font-size:100%;}
+%font-c {font-size:140%;}
 
-}//end body
+body.font-theme-a {@extend %font-a;}
+body.font-theme-b {@extend %font-b;}
+body.font-theme-c {@extend %font-c;}
+
+  body.#{$name} {
+    font-family:Helvetica, Arial, Sans-Serif;
+    color:$site-font-color;
+    background:$site-background;
+    margin:0;
+
+  * {margin:0; padding:0; border:none; list-style:none; color:$site-font-color;}
 
   #wrapper {
   width:100%;
@@ -22,16 +35,20 @@ background:$site-background;
   min-width:1325px;
   display:block;
 
-    h1, h2, h3, h4, h5 {
-    color:$site-font-color;
-    }//headings
-
     button {
-    @extend %button;
-    }
+    box-shadow:none; border:1px solid $button-font-color; cursor:pointer;
+
+      &:hover {
+      background:$button-background-hover;
+      }//&hover
+    }//button
 
     a, img, button, button:hover, div {
-    @extend %transitions;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition:.5s;
     }
 
       a {
@@ -46,26 +63,35 @@ background:$site-background;
 
       #top {
       width:100%;
-      background:$site-top-background;
-      height:35px;
-      color:$site-top-text;
+      background:#1f6378;//dark blue;
+      color:#000000;
+      display:block;
+
+        //used for swatches and font ID's
+        %top-li {display:block; cursor:pointer; min-height:40px;
+          i {padding:20%;}
+          &.top-active {background:$site-background;}
+
+          &[data-theme="font-theme-a"] {font-size:16px;}
+          &[data-theme="font-theme-b"] {font-size:20px;}
+          &[data-theme="font-theme-c"] {font-size:24px;}
+        }
+
 
         #swatches {
         float:left;
         width:30%;
+        font-size:24px;
 
           ul {
-
             li {
             float:left;
-            //reference _layouts/_themeMixins.scss
             @extend %top-li;
-              //reference _swatches/_swatches.css for info
-              &[data-swatch="data-swatch-theme-a"] { color:$top-swatch-btn-color-a; background:$top-swatch-btn-background-a;} //1:default
-              &[data-swatch="data-swatch-theme-b"] { color:$top-swatch-btn-color-b; background:$top-swatch-btn-background-b;} //2
-              &[data-swatch="data-swatch-theme-c"] { color:$top-swatch-btn-color-c; background:$top-swatch-btn-background-c;} //2
+
             }
           }
+
+
         }//swatches
 
         #fontsizing {
@@ -77,31 +103,13 @@ background:$site-background;
             li {
             line-height:100%;
             float:right;
-            color:$site-top-text;
+            color:#ffffff;
+            overflow:hidden;
             @extend %top-li;
-              &[data-theme="font-theme-a"] { font-size:$site-font-theme-a-size;}
-              &[data-theme="font-theme-b"] { font-size:$site-font-theme-b-size;}
-              &[data-theme="font-theme-c"] { font-size:$site-font-theme-c-size;}
             }
           }
         }
-
-        #logo {
-        text-align:center;
-        display:block;
-        width:auto;
-        margin:0 auto;
-        border-radius:50%;
-        width:85%;
-        background:$site-top-logo-background;
-
-        & a {
-
-          & img {max-width:10%;}
-          }
-        }
       }//top
-
 
     header#header {
     width:100%; min-height:45px; display:inline-block;
@@ -114,45 +122,60 @@ background:$site-background;
         width:20%;
         margin-left:5%;
         }//img
-      }//close head
 
-      .head:last-child {
-      float:right;
-      padding-top:10px;
-      }//last:child
+        &:last-child {
+        float:right;
+        padding-top:10px;
+        }//last:child
 
-      nav {
-      width:auto;
-      float:right;
-      padding:1%;
-      font-size:16px;
-      font-weight:bold;
+        nav {
+        width:auto;
+        float:right;
+        padding:1%;
+        font-size:100%;
+        font-weight:bold;
 
-        ul {
-          @extend %zeroPM;
+          ul {
+          padding:0;
+          margin:0;
 
-          li:first-child {
-            margin-left:10px;}
+            li:first-child {
+              margin-left:10px;}
 
-          li {
-            list-style:none;
-            float:left;
+            li {
+              list-style:none;
+              float:left;
 
-            a {
-            padding:2px 20px;
-            text-decoration:none;
+              a {
+              padding:2px 20px;
+              text-decoration:none;
 
-              i {
-              .fa.fa-home {font-size:20px;}
-              }// close i
+                i {
+                .fa.fa-home {font-size:120%;}
+                }// close i
 
-              img {
-              width:100%;
-              }//close img
-            }// close 'a'
-          }//close li
-        }//close ul
-      }//close nav
+                img {
+                width:100%;
+                }//close img
+              }// close 'a'
+            }//close li
+          }//close ul
+        }//close nav
+
+        #logo {
+        text-align:left;
+        float:left;
+        display:block;
+        width:auto;
+        margin:0 auto;
+        width:40%;
+        transition:none;
+
+        & a {
+          & img {max-width:40%; padding:2%;}
+          }
+        }
+      }//head
     }//close header
 
     #content {
@@ -180,7 +203,7 @@ background:$site-background;
     background:transparent;
 
         h4 {
-        font-size:20px;
+        font-size:110%;
 
           .indent {
 
@@ -192,7 +215,7 @@ background:$site-background;
 
           form {
           margin-bottom:5px;
-          color:$site-font-form-color;
+          color:$site-font-color;
 
             :first-child {
             //empty
@@ -228,7 +251,7 @@ background:$site-background;
       position:fixed;
       bottom:2px;
       right:2px;
-      font-size:12px;
+      font-size:110%;
 
         #footer {
           //empty
@@ -254,3 +277,10 @@ border:none;
   }//h3
 
 }//form
+
+}//body
+  }//close mixin
+
+@include theme(data-swatch-theme-a, #000000, #ffffff, red, yellow);
+@include theme(data-swatch-theme-b, #ffffff, #000000, pink, purple);
+@include theme(data-swatch-theme-c, orange, red, blue, green);
