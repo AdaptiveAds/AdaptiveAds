@@ -1,5 +1,8 @@
 #!/bin/bash
-# REF = https://cymplecy.wordpress.com/2014/02/09/auto-install-x11vnc/
+# url = https://cymplecy.wordpress.com/2014/02/09/auto-install-x11vnc/
+# description: installs x11vnc so raspberry pi can be controlled
+# via remote desktop and does so on display :0 so remote control
+# can be viewed through HDMI port
 
 
 # A very crude script to setup X11VNC inspired by MrEngmans Realtek RTL8188CUS script and based upon my autosimplesamba
