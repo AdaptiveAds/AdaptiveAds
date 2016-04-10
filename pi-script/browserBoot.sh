@@ -1,5 +1,7 @@
 #!/bin/bash
 
+BASEPATH=$(dirname "$SCRIPT")
+
 echo 
 echo "This script will setup the raspberrypi as a browser only viwer"
 echo " "
@@ -7,10 +9,18 @@ echo "Developed for the AdaptiveAds platform to"
 echo "serve advertising in a plug and play manner"
 echo " "
 read -p "Press any key to continue..." -n1 -s
-echo
-echo
+clear
 
-BASEPATH=$(dirname "$SCRIPT")
+# Download config files
+echo "Getting content..."
+echo " "
+wget https://raw.githubusercontent.com/AdaptiveAds/AdaptiveAds/master/pi-script/autostart.browserBoot.chrome -O autostart.browserBoot.chrome
+wget https://raw.githubusercontent.com/AdaptiveAds/AdaptiveAds/master/pi-script/lightdm.conf.noSleep -O lightdm.conf.noSleep
+echo 
+clear
+
+
+# get config info from user
 
 	while true; do
 		echo
@@ -53,6 +63,13 @@ sudo sed -i.bak s/SCREEN_ID/$SCREENID/g ~/.config/lxsession/LXDE-pi/autostart
 echo "Enabling no sleep!"
 echo " "
 #sudo cp $BASEPATH/lightdm.conf.noSleep /etc/lightdm/lightdm.conf
+
+# Clean up
+echo
+echo 
+echo "Cleaning up files"
+rm autostart.browserBoot.chrome
+rm lightdm.conf.noSleep
 
 echo
 echo "Done! Will boot to browser!"
