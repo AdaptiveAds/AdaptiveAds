@@ -14,8 +14,8 @@ clear
 # Download config files
 echo "Getting content..."
 echo " "
-wget https://raw.githubusercontent.com/AdaptiveAds/AdaptiveAds/master/pi-script/autostart.browserBoot.chrome -O autostart.browserBoot.chrome
-wget https://raw.githubusercontent.com/AdaptiveAds/AdaptiveAds/master/pi-script/lightdm.conf.noSleep -O lightdm.conf.noSleep
+wget https://raw.githubusercontent.com/AdaptiveAds/AdaptiveAds/master/pi-script/configs/autostart.browserBoot.chrome -O autostart.browserBoot.chrome
+wget https://raw.githubusercontent.com/AdaptiveAds/AdaptiveAds/master/pi-script/configs/lightdm.conf.noSleep -O lightdm.conf.noSleep
 echo 
 clear
 
