@@ -121,7 +121,7 @@ autologin-user=pi
 #exit-on-failure=false
 
 #dont sleep the screen
-xserver-command=X 0s 0 dpms
+xserver-command=X -s 0 dpms
 
 #
 # Seat configuration

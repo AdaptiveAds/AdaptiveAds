@@ -1,10 +1,18 @@
 #!/bin/bash
+# author: Josh Preece
+# version: 1.0
+# description: Script to configure raspberry pi to boot to browser
+#			   and display adaptive ads content. Online version of the script
+#			   downloads config files from github
 
 BASEPATH=$(dirname "$SCRIPT")
 
-echo 
-echo "This script will setup the raspberrypi as a browser only viwer"
+# Display header
+clear
+echo
+echo "###### BROWSER BOOT SCRIPT ######"
 echo " "
+echo "Configures a target raspberry pi to boot to (chromium) browser in fullscreen (kiosk) mode"
 echo "Developed for the AdaptiveAds platform to"
 echo "serve advertising in a plug and play manner"
 echo " "
@@ -12,45 +20,47 @@ read -p "Press any key to continue..." -n1 -s
 clear
 
 # Download config files
-echo "Getting content..."
+# sourced from github for easy modification and updates
+echo "Downloading configuration files..."
 echo " "
 wget https://raw.githubusercontent.com/AdaptiveAds/AdaptiveAds/master/pi-script/configs/autostart.browserBoot.chrome -O autostart.browserBoot.chrome
 wget https://raw.githubusercontent.com/AdaptiveAds/AdaptiveAds/master/pi-script/configs/lightdm.conf.noSleep -O lightdm.conf.noSleep
 echo 
 clear
 
+# Ask the user for a hostname to point the browser to
+# this would generally be the server ip or domain name
+while true; do
+	echo
+	read -p "Please enter the host server running the adaptive ads platform - " SERVERHOST
+	echo
+	echo "You have set your host server to \"$SERVERHOST\", is that correct?"
+	echo
+	read -p "press Y to continue, any other key to re-enter the name. " -n1 RESPONSE
+	if [ "$RESPONSE" == "Y" ] || [ "$RESPONSE" == "y" ]; then
+		echo
+		break
+	fi
+	echo
+done
 
-# get config info from user
+# Ask the user to assign a screen ID to this pi
+# this id is used to pull the correct adverts from the AA system
+while true; do
+	echo
+	read -p "Please assign a screen ID to this device - " SCREENID
+	echo
+	echo "You have assigned the ID: \"$SCREENID\", is that correct?"
+	echo
+	read -p "press Y to continue, any other key to re-enter the ID. " -n1 RESPONSE
+	if [ "$RESPONSE" == "Y" ] || [ "$RESPONSE" == "y" ]; then
+		echo
+		break
+	fi
+	echo
+done
 
-	while true; do
-		echo
-		read -p "Please enter the host server running the adaptive ads platform - " SERVERHOST
-		echo
-		echo "You have set your host server to \"$SERVERHOST\", is that correct?"
-        echo
-		read -p "press Y to continue, any other key to re-enter the name. " -n1 RESPONSE
-		if [ "$RESPONSE" == "Y" ] || [ "$RESPONSE" == "y" ]; then
-			echo
-			break
-		fi
-		echo
-	done
-
-	while true; do
-		echo
-		read -p "Please assign a screen ID to this device to show the correct ads - " SCREENID
-		echo
-		echo "You have assigned the ID: \"$SCREENID\", is that correct?"
-        echo
-		read -p "press Y to continue, any other key to re-enter the ID. " -n1 RESPONSE
-		if [ "$RESPONSE" == "Y" ] || [ "$RESPONSE" == "y" ]; then
-			echo
-			break
-		fi
-		echo
-	done
-
-#Setup browser booting
+# Copy the autostart script to the config location
 echo "Enabling browser boot!!"
 echo " "
 sudo cp $BASEPATH/autostart.browserBoot.chrome ~/.config/lxsession/LXDE-pi/autostart
@@ -59,12 +69,12 @@ sudo cp $BASEPATH/autostart.browserBoot.chrome ~/.config/lxsession/LXDE-pi/autos
 sudo sed -i.bak s/HOST_NAME/$SERVERHOST/g ~/.config/lxsession/LXDE-pi/autostart
 sudo sed -i.bak s/SCREEN_ID/$SCREENID/g ~/.config/lxsession/LXDE-pi/autostart
 
-#Setup no sleep
+# Copy no sleep scrip to the config location
 echo "Enabling no sleep!"
 echo " "
-#sudo cp $BASEPATH/lightdm.conf.noSleep /etc/lightdm/lightdm.conf
+sudo cp $BASEPATH/lightdm.conf.noSleep /etc/lightdm/lightdm.conf
 
-# Clean up
+# Removed downloaded files
 echo
 echo 
 echo "Cleaning up files"
