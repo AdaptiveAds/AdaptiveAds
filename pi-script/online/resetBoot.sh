@@ -9,7 +9,9 @@ BASEPATH=$(dirname "$SCRIPT")
 
 # Display header
 clear
-echo 
+echo
+echo "###### RESET BOOT SCRIPT ######"
+echo " "
 echo "This script will setup the raspberrypi as a browser only viwer"
 echo " "
 echo "Developed for the AdaptiveAds platform to"
