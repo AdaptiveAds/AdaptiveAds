@@ -65,7 +65,7 @@ echo "Enabling browser boot!!"
 echo " "
 sudo cp $BASEPATH/autostart.browserBoot.chrome ~/.config/lxsession/LXDE-pi/autostart
 
-# Add hostname and screen id indo to start script
+# Add hostname and screen id into to start script
 sudo sed -i.bak s/HOST_NAME/$SERVERHOST/g ~/.config/lxsession/LXDE-pi/autostart
 sudo sed -i.bak s/SCREEN_ID/$SCREENID/g ~/.config/lxsession/LXDE-pi/autostart
 
