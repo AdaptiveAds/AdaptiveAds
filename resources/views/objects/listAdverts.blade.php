@@ -3,7 +3,7 @@
   @if($adverts->count() > 0)
     @foreach($adverts as $advert)
       <!-- Only display select if we're adding to a playlist -->
-      <li data-itemID="{{$advert->id}}">
+      <li data-itemID="{{$advert->id}}" class="listItem" name="{{ $advert->name }}">
         <a href="{{ URL::route('dashboard.advert.edit', $advert->id) }}">
 
           @if ($selectable == true)
@@ -33,7 +33,7 @@
       </li>
     @endforeach
   @else
-    <li name="itmNone">
+    <li name="itmNone" class="listItem">
       <h3>No adverts found.</h3>
     </li>
   @endif

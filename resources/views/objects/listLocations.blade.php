@@ -2,7 +2,7 @@
   @if (isset($locations))
     @if ($locations->count() > 0)
       @foreach($locations as $location)
-        <li>
+        <li class="listItem" name="{{ $location->name or 'Location name' }}">
           <a href="#">
             {{ $location->name or 'Location name' }}
           </a>
@@ -29,7 +29,7 @@
         </li>
       @endforeach
     @else
-      <li name="itmNone">
+      <li name="itmNone" class="listItem">
         <h3>No locations found</h3>
       </li>
     @endif

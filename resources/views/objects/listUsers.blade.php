@@ -2,7 +2,7 @@
   @if (isset($users))
     @if ($users->count() > 0)
       @foreach($users as $user)
-        <li data-userID="{{ $user->id }}">
+        <li data-userID="{{ $user->id }}" class="listItem" name="{{ $user->username }}">
           <a href="#">{{ $user->username }}</a>
 
           {{-- Only show edit options if in mode --}}
@@ -27,7 +27,7 @@
         </li>
       @endforeach
     @else
-      <li>
+      <li name="itmNone" class="listItem">
         <h3>No users found or un-authorised access</h3>
       </li>
     @endif

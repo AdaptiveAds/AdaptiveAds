@@ -2,7 +2,7 @@
   @if(isset($departments))
     @if($departments->count() > 0)
       @foreach($departments as $department)
-        <li>
+        <li class="listItem" name="{{ $department->name }}">
           <a href="#">
             {{ $department->name }}
           </a>
