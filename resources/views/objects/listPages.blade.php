@@ -2,7 +2,7 @@
 @if (isset($pages))
   @if($pages->count() > 0)
     @foreach($pages as $page)
-      <li data-itemID="{{$page->id}}">
+      <li data-itemID="{{$page->id}}" class="listItem" name="{{ $page->PageData->heading }}">
         <a href="{{ URL::route('dashboard.advert.{adID}.page.show', [ $advert->id, $page->id]) }}">
           @if ($selectable == true)
             <input type="checkbox" data-selectableItem="true" name="chkSelectPage_{{ $page->id }}"/>
@@ -12,7 +12,7 @@
       </li>
     @endforeach
   @else
-    <li name="itmNone">
+    <li name="itmNone" class="listItem">
       <h3>No pages found.</h3>
     </li>
   @endif

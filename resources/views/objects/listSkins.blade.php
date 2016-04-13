@@ -2,7 +2,7 @@
   @if(isset($skins))
     @if($skins->count() > 0)
       @foreach($skins as $skin)
-        <li>
+        <li class="listItem" name="{{ $skin->name }}">
           <a href="#">
             {{ $skin->name }}
           </a>
@@ -27,7 +27,7 @@
         </li>
       @endforeach
     @else
-      <li name="itmNone">
+      <li name="itmNone" class="listItem">
         <h3>No templates found.</h3>
       </li>
     @endif

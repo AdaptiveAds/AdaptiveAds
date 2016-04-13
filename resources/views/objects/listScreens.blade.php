@@ -2,7 +2,7 @@
   @if(isset($screens))
     @if($screens->count() > 0)
       @foreach($screens as $screen)
-        <li>
+        <li class="listItem" name="{{ $screen->id }}">
           <a href="#">
             {{ $screen->id }}
           </a>
@@ -29,7 +29,7 @@
         </li>
       @endforeach
     @else
-      <li>
+      <li name="itmNone" class="listItem">
         <h3>No screens found.</h3>
       </li>
     @endif

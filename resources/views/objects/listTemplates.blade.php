@@ -2,7 +2,7 @@
   @if(isset($templates))
     @if($templates->count() > 0)
       @foreach($templates as $template)
-        <li>
+        <li class="listItem" name="{{ $template->name }}">
           <a href="#">
             {{ $template->name }}
           </a>
@@ -27,7 +27,7 @@
         </li>
       @endforeach
     @else
-      <li name="itmNone">
+      <li name="itmNone" class="listItem">
         <h3>No templates found.</h3>
       </li>
     @endif
