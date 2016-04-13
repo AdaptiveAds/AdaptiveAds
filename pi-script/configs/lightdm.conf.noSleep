@@ -84,7 +84,7 @@
 #pam-service=lightdm
 #pam-autologin-service=lightdm-autologin
 #pam-greeter-service=lightdm-greeter
-#xserver-command=X
+xserver-command=X -s 0 dpms
 #xserver-layout=
 #xserver-config=
 #xserver-allow-tcp=false
@@ -119,9 +119,6 @@ autologin-user=pi
 #autologin-in-background=false
 #autologin-session=UNIMPLEMENTED
 #exit-on-failure=false
-
-#dont sleep the screen
-xserver-command=X -s 0 dpms
 
 #
 # Seat configuration
