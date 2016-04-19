@@ -463,7 +463,7 @@ var ModalManager = (function() {
     screens: screens,
     playlist: playlist,
     advert: advert,
-    skins, skins
+    skins: skins
   };
 
 } ());
