@@ -11,6 +11,7 @@ use Input;
 
 use App\Page as Page;
 use App\PageData as PageData;
+use App\Template as Template;
 
 /**
   * Defines the CRUD methods for the PageController
@@ -95,7 +96,7 @@ class PageController extends Controller
       $page->page_data_id = $pageData->id;
       $page->page_index = Page::where('advert_id', $adID)->count(); // Add to end
       $page->advert_id = $adID;
-      $page->template_id = 1;
+      $page->template_id = $request->input('txtTemplate');
       $page->save();
 
       $data = array(
@@ -118,11 +119,11 @@ class PageController extends Controller
       $page = Page::where($match)->first(); // one to one only return 1
       $pageData = $page->PageData->where('id', $page->page_data_id)->orderBy('heading', 'ASC')->first();
 
-      //dd($pageData);
-
       $data = array(
         'page' => $page,
-        'pageData' => $pageData
+        'pageData' => $pageData,
+        'activeTemplate' => $page->Template,
+        'templates' => Template::all()
       );
 
       return view('pages/pageeditor', $data);

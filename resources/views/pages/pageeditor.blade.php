@@ -20,12 +20,14 @@
 		</div>
 		<div class="pagecontainer">
 			<ul class="theme_select">
-				<li data-btnTemplate="true" data-template="template1" class="active"> <a href="#"><img src="/images/template1.png" alt="" title="" /></a></li>
-				<li data-btnTemplate="true" data-template="template2"> <a href="#"><img src="/images/template2.png" alt="" title="" /></a></li>
-				<li data-btnTemplate="true" data-template="template3"> <a href="#"><img src="/images/template3.png" alt="" title="" /></a></li>
-				<li data-btnTemplate="true" data-template="template4"> <a href="#"><img src="/images/template4.png" alt="" title="" /></a></li>
-				<li data-btnTemplate="true" data-template="template5"> <a href="#"><img src="/images/template5.png" alt="" title="" /></a></li>
-				<li data-btnTemplate="true" data-template="template6"> <a href="#"><img src="/images/template6.png" alt="" title="" /></a></li>
+				{{-- Add each template thumbnail to the DOM --}}
+				@foreach($templates as $template)
+					@if ($template == $activeTemplate)
+						<li data-btnTemplate="true" data-template="{{$template->class_name}}" class="active"> <a href="#"><img src="{{$template->thumbnail_path}}" alt="" title="{{$template->name}}" /></a></li>
+					@else
+						<li data-btnTemplate="true" data-template="{{$template->class_name}}"> <a href="#"><img src="{{$template->thumbnail_path}}" alt="" title="{{$template->name}}" /></a></li>
+					@endif
+				@endforeach
 			</ul>
 			<div class="clear"></div>
 		</div>
@@ -72,6 +74,9 @@
 				<textarea title="content" type="text" name="txtPageContent" placeholder="Enter Content...">{{ $pageData->content or '' }}
 				</textarea>
 			</li>
+
+			<input type="hidden" name="txtTemplate"/>
+
 			<li><button type="submit" class="submit" name="btnSavePage">Save</button></li>
 			{!! Form::close() !!}
 			{!! Form::open(['route' => ['dashboard.advert.{adID}.page.destroy', $page->advert_id, $page->id], 'method' => 'DELETE']) !!}
