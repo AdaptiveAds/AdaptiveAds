@@ -158,7 +158,7 @@ class PageController extends Controller
       ]);
 
       $page = Page::find($id);
-      $page->template_id = 1;
+      $page->template_id = $request->input('txtTemplate');
       $page->save();
 
       $pageData = $page->PageData;

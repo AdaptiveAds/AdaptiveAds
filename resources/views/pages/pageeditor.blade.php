@@ -23,9 +23,9 @@
 				{{-- Add each template thumbnail to the DOM --}}
 				@foreach($templates as $template)
 					@if ($template == $activeTemplate)
-						<li data-btnTemplate="true" data-template="{{$template->class_name}}" class="active"> <a href="#"><img src="{{$template->thumbnail_path}}" alt="" title="{{$template->name}}" /></a></li>
+						<li data-btnTemplate="true" data-template="{{$template->class_name}}" data-templateid="{{$template->id}}" class="active"> <a href="#"><img src="{{$template->thumbnail_path}}" alt="" title="{{$template->name}}" /></a></li>
 					@else
-						<li data-btnTemplate="true" data-template="{{$template->class_name}}"> <a href="#"><img src="{{$template->thumbnail_path}}" alt="" title="{{$template->name}}" /></a></li>
+						<li data-btnTemplate="true" data-template="{{$template->class_name}}" data-templateid="{{$template->id}}"> <a href="#"><img src="{{$template->thumbnail_path}}" alt="" title="{{$template->name}}" /></a></li>
 					@endif
 				@endforeach
 			</ul>
@@ -75,7 +75,7 @@
 				</textarea>
 			</li>
 
-			<input type="hidden" name="txtTemplate"/>
+			<input type="hidden" name="txtTemplate" value="0"/>
 
 			<li><button type="submit" class="submit" name="btnSavePage">Save</button></li>
 			{!! Form::close() !!}
