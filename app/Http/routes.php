@@ -45,6 +45,7 @@ Route::post('dashboard/advert/filter', ['as' => 'dashboard.advert.filter', 'uses
 
 // Page pages
 Route::resource('dashboard/advert/{adID}/page', 'PageController', ['except' => ['index', 'edit']]);
+Route::post('dashboard/advert/{advertID}/page/{pageID}/removeMedia', ['as' => 'dashboard.advert.page.removeMedia', 'uses' => 'PageController@removeMedia']);
 
 // Users routes
 Route::resource('dashboard/settings/users', 'UserController');

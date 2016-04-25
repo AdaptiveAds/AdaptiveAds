@@ -225,4 +225,26 @@ class PageController extends Controller
         return redirect()->route('dashboard.advert.edit', [$adID])
                          ->with('message', 'Page deleted successfully');
     }
+
+    public function removeMedia(Request $request, $adID, $id)
+    {
+      $mediaType = $request->input('mediaType');
+      $page = Page::find($id);
+
+      if ($page == null)
+        abort(404);
+
+      if ($mediaType == 'image') {
+        $page->PageData->image_path = "";
+      } else if ($mediaType == 'video') {
+        $page->PageData->video_path = "";
+      } else {
+        abort(401);
+      }
+
+      $page->PageData->save();
+
+      return redirect()->route('dashboard.advert.{adID}.page.show', [$adID, $id])
+                       ->with('message', 'Page updated successfully');
+    }
 }

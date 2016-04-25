@@ -80,6 +80,17 @@
 			{!! Form::open(['route' => ['dashboard.advert.{adID}.page.destroy', $page->advert_id, $page->id], 'method' => 'DELETE']) !!}
 			<li><button type="submit" class="submit" name="btnDeletePage">Delete</button></li>
 			{!! Form::close() !!}
+
+			{!! Form::open(['route' => ['dashboard.advert.page.removeMedia', $page->advert_id, $page->id], 'method' => 'POST']) !!}
+			<input type="hidden" name="pageID" value="{{$page->id}}"/>
+				<input type="hidden" name="mediaType" value="image"/>
+				<li><button type="submit" name="btnRemoveImage">Remove Image</button></li>
+			{!! Form::close() !!}
+
+			{!! Form::open(['route' => ['dashboard.advert.page.removeMedia', $page->advert_id, $page->id], 'method' => 'POST']) !!}
+				<input type="hidden" name="mediaType" value="video"/>
+				<li><button type="submit" name="btnRemoveVideo">Remove Video</button></li>
+			{!! Form::close() !!}
 			<!-- ensures form fills parent div w3c validation compliant -->
 			<div class="clear"></div>
 		</ul>
