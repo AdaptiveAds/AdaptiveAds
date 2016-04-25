@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Helpers\Images;
+use App\Helpers\Media;
 
 use Input;
 
@@ -82,11 +82,22 @@ class PageController extends Controller
       // Upload image 1
       $imageInput = Input::file('filPageImage');
       if ($imageInput != null) {
-        $imagePath = Images::processImage($imageInput, 'advert_images/');
+        $imagePath = Media::processMedia($imageInput, 'advert_images/');
 
         // If we have a valid image then set the path in the database
         if ($imagePath != null) {
           $pageData->image_path = $imagePath;
+        }
+      }
+
+      // Upload video 1
+      $videoInput = Input::file('filPageVideo');
+      if ($videoInput != null) {
+        $videoPath = Media::processMedia($videoInput, 'advert_video/');
+
+        // If we have a valid image then set the path in the database
+        if ($videoPath != null) {
+          $pageData->video_path = $videoPath;
         }
       }
 
@@ -168,11 +179,21 @@ class PageController extends Controller
       // Upload image 1
       $imageInput = Input::file('filPageImage');
       if ($imageInput != null) {
-        $imagePath = Images::processImage($imageInput, 'advert_images/');
+        $imagePath = Media::processMedia($imageInput, 'advert_images/');
 
         // If we have a valid image then set the path in the database
         if ($imagePath != null) {
           $pageData->image_path = $imagePath;
+        }
+      }
+
+      $videoInput = Input::file('filPageVideo');
+      if ($videoInput != null) {
+        $videoPath = Media::processMedia($videoInput, 'advert_video/');
+
+        // If we have a valid image then set the path in the database
+        if ($videoPath != null) {
+          $pageData->video_path = $videoPath;
         }
       }
 

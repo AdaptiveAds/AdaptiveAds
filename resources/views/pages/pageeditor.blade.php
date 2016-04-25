@@ -37,8 +37,6 @@
 
 <div id="right">
 
-	<!-- PHP Driven self updating ??
-	<form name="pageEditor" action="index_submit" method="get" accept-charset="utf-8"> -->
 		<ul>
 		@if (isset($pageData))
 			{!! Form::open(['route' => ['dashboard.advert.{adID}.page.update', $page->advert_id, $page->id],
@@ -75,7 +73,7 @@
 				</textarea>
 			</li>
 
-			<input type="hidden" name="txtTemplate" value="0"/>
+			<input type="hidden" name="txtTemplate" value="{{$activeTemplate->id}}"/>
 
 			<li><button type="submit" class="submit" name="btnSavePage">Save</button></li>
 			{!! Form::close() !!}
