@@ -226,6 +226,16 @@ class PageController extends Controller
                          ->with('message', 'Page deleted successfully');
     }
 
+    /**
+      * Removes media from a page by removing the path to the
+      * file. NOTE this does not delete physical files off disk
+      * this must be done by an external process
+      *
+      * @param \Illuminate\Http\Request $request
+      * @param int $adID  Advert ID to return to
+      * @param int $id  Page ID to update and remove media
+      * @return \Illuminate\Http\Response
+      */
     public function removeMedia(Request $request, $adID, $id)
     {
       $mediaType = $request->input('mediaType');
