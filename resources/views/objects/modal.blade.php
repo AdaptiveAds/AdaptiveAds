@@ -3,6 +3,7 @@
     $('document').ready(function() {
       $('.close').click(function() {
         $(this).trigger('modalClosed');
+        history.back(); // Remove the modal from history, Prevents re-opening on back button click
       });
     });
   </script>
