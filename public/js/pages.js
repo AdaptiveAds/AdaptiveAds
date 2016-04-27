@@ -185,11 +185,15 @@ var Serve = (function(Page) {
       }
 
       if (currentAdvert !== undefined && currentAdvert !== null) {
-        // Update the duration inverval for this page
-        updateDurationInterval(currentAdvert.pages[current_page_index].template.duration);
 
-        // Display page
-        current_page_index = showPage(currentAdvert, current_page_index);
+        if (currentAdvert.pages.length > 0) {
+          // Update the duration inverval for this page
+          updateDurationInterval(currentAdvert.pages[current_page_index].template.duration);
+
+          // Display page
+          current_page_index = showPage(currentAdvert, current_page_index);
+
+        }
 
       } else {
         showGlobal = 0;
