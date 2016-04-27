@@ -52,8 +52,12 @@ class PageController extends Controller
         $page = new Page;
         $page->advert_id = $adID;
 
+        $templates = Template::all();
+
         $data = array(
-          'page' => $page
+          'page' => $page,
+          'templates' => $templates,
+          'activeTemplate' => $templates[0]
         );
 
         return view('pages/pageeditor', $data);
@@ -76,7 +80,6 @@ class PageController extends Controller
       $pageData = new PageData;
 
       $pageData->heading = $request->input('txtPageName');
-      $pageData->video_path = $request->input('txtPageVideo');
       $pageData->content = $request->input('txtPageContent');
 
       // Upload image 1
