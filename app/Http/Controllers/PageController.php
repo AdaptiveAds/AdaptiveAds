@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Helpers\Images;
+use App\Helpers\Media;
 
 use Input;
 
 use App\Page as Page;
 use App\PageData as PageData;
+use App\Template as Template;
 
 /**
   * Defines the CRUD methods for the PageController
@@ -81,11 +82,22 @@ class PageController extends Controller
       // Upload image 1
       $imageInput = Input::file('filPageImage');
       if ($imageInput != null) {
-        $imagePath = Images::processImage($imageInput, 'advert_images/');
+        $imagePath = Media::processMedia($imageInput, 'advert_images/');
 
         // If we have a valid image then set the path in the database
         if ($imagePath != null) {
           $pageData->image_path = $imagePath;
+        }
+      }
+
+      // Upload video 1
+      $videoInput = Input::file('filPageVideo');
+      if ($videoInput != null) {
+        $videoPath = Media::processMedia($videoInput, 'advert_video/');
+
+        // If we have a valid image then set the path in the database
+        if ($videoPath != null) {
+          $pageData->video_path = $videoPath;
         }
       }
 
@@ -95,7 +107,7 @@ class PageController extends Controller
       $page->page_data_id = $pageData->id;
       $page->page_index = Page::where('advert_id', $adID)->count(); // Add to end
       $page->advert_id = $adID;
-      $page->template_id = 1;
+      $page->template_id = $request->input('txtTemplate');
       $page->save();
 
       $data = array(
@@ -118,11 +130,11 @@ class PageController extends Controller
       $page = Page::where($match)->first(); // one to one only return 1
       $pageData = $page->PageData->where('id', $page->page_data_id)->orderBy('heading', 'ASC')->first();
 
-      //dd($pageData);
-
       $data = array(
         'page' => $page,
-        'pageData' => $pageData
+        'pageData' => $pageData,
+        'activeTemplate' => $page->Template,
+        'templates' => Template::all()
       );
 
       return view('pages/pageeditor', $data);
@@ -157,7 +169,7 @@ class PageController extends Controller
       ]);
 
       $page = Page::find($id);
-      $page->template_id = 1;
+      $page->template_id = $request->input('txtTemplate');
       $page->save();
 
       $pageData = $page->PageData;
@@ -167,11 +179,21 @@ class PageController extends Controller
       // Upload image 1
       $imageInput = Input::file('filPageImage');
       if ($imageInput != null) {
-        $imagePath = Images::processImage($imageInput, 'advert_images/');
+        $imagePath = Media::processMedia($imageInput, 'advert_images/');
 
         // If we have a valid image then set the path in the database
         if ($imagePath != null) {
           $pageData->image_path = $imagePath;
+        }
+      }
+
+      $videoInput = Input::file('filPageVideo');
+      if ($videoInput != null) {
+        $videoPath = Media::processMedia($videoInput, 'advert_video/');
+
+        // If we have a valid image then set the path in the database
+        if ($videoPath != null) {
+          $pageData->video_path = $videoPath;
         }
       }
 
@@ -202,5 +224,37 @@ class PageController extends Controller
 
         return redirect()->route('dashboard.advert.edit', [$adID])
                          ->with('message', 'Page deleted successfully');
+    }
+
+    /**
+      * Removes media from a page by removing the path to the
+      * file. NOTE this does not delete physical files off disk
+      * this must be done by an external process
+      *
+      * @param \Illuminate\Http\Request $request
+      * @param int $adID  Advert ID to return to
+      * @param int $id  Page ID to update and remove media
+      * @return \Illuminate\Http\Response
+      */
+    public function removeMedia(Request $request, $adID, $id)
+    {
+      $mediaType = $request->input('mediaType');
+      $page = Page::find($id);
+
+      if ($page == null)
+        abort(404);
+
+      if ($mediaType == 'image') {
+        $page->PageData->image_path = "";
+      } else if ($mediaType == 'video') {
+        $page->PageData->video_path = "";
+      } else {
+        abort(401);
+      }
+
+      $page->PageData->save();
+
+      return redirect()->route('dashboard.advert.{adID}.page.show', [$adID, $id])
+                       ->with('message', 'Page updated successfully');
     }
 }
