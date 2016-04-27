@@ -1,6 +1,14 @@
 <div id="{{$object or 'object'}}Modal" class="modalDialog">
+  <script>
+    $('document').ready(function() {
+      $("#Close{{$object or 'object'}}Modal").click(function() {
+        $(this).trigger('modalClosed');
+        history.back(); // Remove the modal from history, Prevents re-opening on back button click
+      });
+    });
+  </script>
   <div>
-    <a href="#close" class="close">X</a>
+    <a id="Close{{$object or 'object'}}Modal" href="#close" class="close">X</a>
     <h4>Create new {{$object or 'object'}}</h4>
     {!! Form::open(['route' => $route, 'method' => 'POST']) !!}
       <div class="modalDialogLeft">
