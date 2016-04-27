@@ -62,12 +62,12 @@ done
 
 # Copy the autostart script to the config location
 echo "Enabling browser boot!!"
-echo " "
-sudo cp $BASEPATH/autostart.browserBoot.chrome ~/.config/lxsession/LXDE-pi/autostart
+#echo " "
+sudo cp $BASEPATH/autostart.browserBoot.chrome /home/pi/.config/lxsession/LXDE-pi/autostart
 
 # Add hostname and screen id into to start script
-sudo sed -i.bak s/HOST_NAME/$SERVERHOST/g ~/.config/lxsession/LXDE-pi/autostart
-sudo sed -i.bak s/SCREEN_ID/$SCREENID/g ~/.config/lxsession/LXDE-pi/autostart
+sudo sed -i.bak s/HOST_NAME/$SERVERHOST/g /home/pi/.config/lxsession/LXDE-pi/autostart
+sudo sed -i.bak s/SCREEN_ID/$SCREENID/g /home/pi/.config/lxsession/LXDE-pi/autostart
 
 # Copy no sleep scrip to the config location
 echo "Enabling no sleep!"
