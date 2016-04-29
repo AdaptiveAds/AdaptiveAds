@@ -28,10 +28,21 @@ echo
 clear
 
 # Copy original autostart to config location
-sudo cp $BASEPATH/autostart.original ~/.config/lxsession/LXDE-pi/autostart
+sudo cp $BASEPATH/autostart.original /home/pi/.config/lxsession/LXDE-pi/autostart
 
 # Copy original lightdm script to config location
 sudo cp $BASEPATH/lightdm.conf.original /etc/lightdm/lightdm.conf
+
+#Ask the user if they want to remove the splash screen
+echo
+read -p "Remove splash screen? (Y or N)" -n1 RESPONSE
+if [ "$RESPONSE" == "Y" ] || [ "$RESPONSE" == "y" ]; then
+	sudo rm /etc/AASplash.png
+	sudo rm /etc/init.d/AASplashscreen
+	echo
+	echo "Splash screen removed!"
+fi
+
 
 # Remove downloaded files
 echo

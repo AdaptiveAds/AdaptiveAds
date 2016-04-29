@@ -94,6 +94,7 @@ https://developers.google.com/recaptcha/docs/display -->
 			$(this).toggleClass('active'); // Toggle active
 
 			$('#serve_container').addClass($(this).data('template'));
+			$('input[name="txtTemplate"]').val($(this).data('templateid'));
 
 		});
 

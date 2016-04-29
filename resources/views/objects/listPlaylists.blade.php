@@ -2,7 +2,7 @@
 @if (isset($playlists))
   @if($playlists->count() > 0)
     @foreach($playlists as $playlist)
-      <li class="advertItem">
+      <li class="advertItem listItem" name="{{ $playlist->name }}">
         <a href="{{ URL::route('dashboard.playlist.edit', [$playlist->id])}}">{{ $playlist->name }}</a>
 
         {{-- Only show edit options if in mode --}}
@@ -30,7 +30,7 @@
       </li>
     @endforeach
   @else
-    <li name-"itmNone">
+    <li name-"itmNone" class="listItem">
       <h3>No playlists found.</h3>
     <li>
   @endif

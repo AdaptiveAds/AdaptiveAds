@@ -185,11 +185,15 @@ var Serve = (function(Page) {
       }
 
       if (currentAdvert !== undefined && currentAdvert !== null) {
-        // Update the duration inverval for this page
-        updateDurationInterval(currentAdvert.pages[current_page_index].template.duration);
 
-        // Display page
-        current_page_index = showPage(currentAdvert, current_page_index);
+        if (currentAdvert.pages.length > 0) {
+          // Update the duration inverval for this page
+          updateDurationInterval(currentAdvert.pages[current_page_index].template.duration);
+
+          // Display page
+          current_page_index = showPage(currentAdvert, current_page_index);
+
+        }
 
       } else {
         showGlobal = 0;
@@ -230,7 +234,15 @@ var Serve = (function(Page) {
     $('#serve_container').addClass(currentAdvert.pages[index].template.class_name);
     $('[name="pageName"]').html(currentAdvert.pages[index].page_data.heading);
     $('[name="pageContent"]').html(currentAdvert.pages[index].page_data.content);
-    $('#server_image').next().attr('src', '../advert_images/' + currentAdvert.pages[index].page_data.image_path);
+
+    // Check if we have an image to display
+    if (currentAdvert.pages[index].page_data.image_path !== "") {
+      // Insert image
+      $('#serve_image').children('img').attr('src', '../advert_images/' + currentAdvert.pages[index].page_data.image_path);
+    } else {
+      // Insert logo image
+      $('#serve_image').children('img').attr('src', '/images/image_placeholder.png' + currentAdvert.pages[index].page_data.image_path);
+    }
 
     return ++index;
 

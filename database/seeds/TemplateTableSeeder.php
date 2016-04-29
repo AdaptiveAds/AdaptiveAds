@@ -18,15 +18,45 @@ class TemplateTableSeeder extends Seeder
 
       //Populate table
       $table->insert([
-        'name' => 'firstTemplate',
-        'class_name' => 'something',
-        'duration' => 5
+        'name' => 'template1',
+        'class_name' => 'template1',
+        'duration' => 5,
+        '/thumbnails/template1.png'
       ]);
 
       $table->insert([
-        'name' => 'secondTemplate',
-        'class_name' => 'something',
-        'duration' => 2
+        'name' => 'template2',
+        'class_name' => 'template2',
+        'duration' => 5,
+        '/thumbnails/template2.png'
+      ]);
+
+      $table->insert([
+        'name' => 'template3',
+        'class_name' => 'template3',
+        'duration' => 5,
+        '/thumbnails/template3.png'
+      ]);
+
+      $table->insert([
+        'name' => 'template4',
+        'class_name' => 'template4',
+        'duration' => 5,
+        '/thumbnails/template4.png'
+      ]);
+
+      $table->insert([
+        'name' => 'template5',
+        'class_name' => 'template5',
+        'duration' => 2,
+        '/thumbnails/template5.png'
+      ]);
+
+      $table->insert([
+        'name' => 'template6',
+        'class_name' => 'template6',
+        'duration' => 4,
+        '/thumbnails/template6.png'
       ]);
     }
 }

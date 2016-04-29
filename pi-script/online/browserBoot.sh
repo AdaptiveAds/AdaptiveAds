@@ -25,7 +25,7 @@ echo "Downloading configuration files..."
 echo " "
 wget https://raw.githubusercontent.com/AdaptiveAds/AdaptiveAds/master/pi-script/configs/autostart.browserBoot.chrome -O autostart.browserBoot.chrome
 wget https://raw.githubusercontent.com/AdaptiveAds/AdaptiveAds/master/pi-script/configs/lightdm.conf.noSleep -O lightdm.conf.noSleep
-echo 
+echo
 clear
 
 # Ask the user for a hostname to point the browser to
@@ -62,21 +62,42 @@ done
 
 # Copy the autostart script to the config location
 echo "Enabling browser boot!!"
-echo " "
-sudo cp $BASEPATH/autostart.browserBoot.chrome ~/.config/lxsession/LXDE-pi/autostart
+#echo " "
+sudo cp $BASEPATH/autostart.browserBoot.chrome /home/pi/.config/lxsession/LXDE-pi/autostart
 
-# Add hostname and screen id indo to start script
-sudo sed -i.bak s/HOST_NAME/$SERVERHOST/g ~/.config/lxsession/LXDE-pi/autostart
-sudo sed -i.bak s/SCREEN_ID/$SCREENID/g ~/.config/lxsession/LXDE-pi/autostart
+# Add hostname and screen id into to start script
+sudo sed -i.bak s/HOST_NAME/$SERVERHOST/g /home/pi/.config/lxsession/LXDE-pi/autostart
+sudo sed -i.bak s/SCREEN_ID/$SCREENID/g /home/pi/.config/lxsession/LXDE-pi/autostart
 
 # Copy no sleep scrip to the config location
 echo "Enabling no sleep!"
 echo " "
 sudo cp $BASEPATH/lightdm.conf.noSleep /etc/lightdm/lightdm.conf
 
+# Ask the user if they want to update the splash screen?
+echo
+read -p "Update boot screen with AA logo? (Y or N) " -n1 RESPONSE
+if [ "$RESPONSE" == "Y" ] || [ "$RESPONSE" == "y" ]; then
+	echo
+	echo "Downloading splash screen"
+	echo
+	# Download required files
+	wget https://raw.githubusercontent.com/AdaptiveAds/AdaptiveAds/master/pi-script/configs/AASplashscreen -O /etc/init.d/AASplashscreen
+	wget https://raw.githubusercontent.com/AdaptiveAds/AdaptiveAds/master/pi-script/media/AASplash.png -O /etc/AASplash.png
+
+	# Install to boot
+	sudo chmod a+x /etc/init.d/AASplashscreen
+	sudo insserv /etc/init.d/AASplashscreen
+
+	echo "Splash screen added to boot!"
+	echo
+
+fi
+echo
+
 # Removed downloaded files
 echo
-echo 
+echo
 echo "Cleaning up files"
 rm autostart.browserBoot.chrome
 rm lightdm.conf.noSleep

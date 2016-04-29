@@ -2,7 +2,7 @@
   @if (isset($users))
     @if ($users->count() > 0)
       @foreach($users as $user)
-        <li data-itemID="{{ $user->id }}">
+        <li data-itemID="{{ $user->id }}" class="listItem" name="{{ $user->username }}">
           <a href="#">
 
             @if (isset($selectable))
@@ -29,7 +29,7 @@
         </li>
       @endforeach
     @else
-      <li>
+      <li name="itmNone" class="listItem">
         <h3>No users found or un-authorised access</h3>
       </li>
     @endif

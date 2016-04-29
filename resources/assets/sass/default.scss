@@ -1,19 +1,19 @@
 @charset 'UTF-8';
 
 // --defaultTheme
-@import 'website/defaultTheme/_config.scss';
+@import 'backend/website/defaultTheme/_config.scss';
 
 //Adverts
 // --advertTemplates
-@import 'adverts/advertTemplates/_advertTemplateLayouts.scss';
+@import 'backend/adverts/advertTemplates/_advertTemplateLayouts.scss';
 // --departmentSkins
-@import 'adverts/departmentSkins/_skins.scss';
+@import 'backend/adverts/departmentSkins/_skins.scss';
 
 // --defaultStructure
-@import 'website/defaultStructure/_defaultTheme.scss',
-        'website/defaultStructure/_defaultThemeExtends.scss',
-        'website/defaultStructure/_defaultWebsitePages.scss',
-        'website/defaultStructure/_objects.scss';
+@import 'backend/website/defaultStructure/_defaultTheme.scss',
+        'backend/website/defaultStructure/_defaultThemeExtends.scss',
+        'backend/website/defaultStructure/_defaultWebsitePages.scss',
+        'backend/website/defaultStructure/_objects.scss';
 
 //Website
 // --customThemes
