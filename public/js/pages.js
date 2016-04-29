@@ -235,10 +235,13 @@ var Serve = (function(Page) {
     $('[name="pageName"]').html(currentAdvert.pages[index].page_data.heading);
     $('[name="pageContent"]').html(currentAdvert.pages[index].page_data.content);
 
+    // Check if we have an image to display
     if (currentAdvert.pages[index].page_data.image_path !== "") {
+      // Insert image
       $('#serve_image').children('img').attr('src', '../advert_images/' + currentAdvert.pages[index].page_data.image_path);
     } else {
-      $('#serve_image').children('img').attr('src', '/images/logo.png' + currentAdvert.pages[index].page_data.image_path);
+      // Insert logo image
+      $('#serve_image').children('img').attr('src', '/images/image_placeholder.png' + currentAdvert.pages[index].page_data.image_path);
     }
 
     return ++index;
