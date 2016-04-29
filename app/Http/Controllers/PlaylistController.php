@@ -13,6 +13,8 @@ use DB;
 use App\Playlist as Playlist;
 use App\Advert as Advert;
 use App\Department as Department;
+use App\Schedule as Schedule;
+use App\AdvertSchedule as AdvertSchedule;
 
 /**
   * Defines the CRUD methods for the PlaylistController
@@ -218,9 +220,12 @@ class PlaylistController extends Controller
 
       Session::put('playlistID', $playlistID);
 
+      $schedules = Schedule::all();
+
       $data = array(
         'adverts' => $adverts,
-        'playlist' => $playlist
+        'playlist' => $playlist,
+        'schedules' => $schedules
       );
 
       return view('pages/adverts_addMode', $data);
@@ -293,6 +298,12 @@ class PlaylistController extends Controller
         $count = $playlist->Adverts()->count();
       }
 
+      $extraArgs = $request->input('extra');
+      $display_schedule_id = 1;
+      if ($extraArgs['key'] == 'schedule') {
+        $display_schedule_id = $extraArgs['data'];
+      }
+
       foreach ($adverts as $advertID) {
 
         // NOTE global is restricted to a MAX of 3 adverts
@@ -302,7 +313,15 @@ class PlaylistController extends Controller
         }
 
         // TODO advert inde and display timing (GUI??)
-        $playlist->Adverts()->attach($advertID, ['advert_index' => ++$currentIndex, 'display_schedule_id' => '1']);
+        $playlist->Adverts()->attach($advertID, ['advert_index' => ++$currentIndex]);
+
+        // Create a new schedule
+        $schedule = new AdvertSchedule();
+        $schedule->playlist_id = $playlist->id;
+        $schedule->advert_id = $advertID;
+        $schedule->schedule_id = $display_schedule_id;
+        $schedule->save();
+
         $count++;
       }
 
@@ -338,6 +357,9 @@ class PlaylistController extends Controller
 
       foreach($adverts as $advertID) {
         $playlist->Adverts()->detach($advertID);
+        $schedule = AdvertSchedule::where('playlist_id', $playlist->id)
+                            ->where('advert_id', $advertID)
+                            ->delete();
       }
 
       Session::flash('message', 'Advert(s) removed');

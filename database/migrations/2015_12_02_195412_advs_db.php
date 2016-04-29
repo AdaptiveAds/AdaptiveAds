@@ -35,8 +35,10 @@ class AdvsDb extends Migration
         Schema::create('display_schedule', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->DateTime('start_date');
-            $table->DateTime('end_date');
+            $table->string('name');
+            $table->Time('start_time');
+            $table->Time('end_time');
+            $table->boolean('anyTime');
           });
 
         Schema::create('skin', function (Blueprint $table) {
@@ -46,14 +48,6 @@ class AdvsDb extends Migration
             $table->string('class_name', 30);
           });
 
-        /*
-        Schema::create('privilage', function (Blueprint $table) {
-			       $table->engine = 'InnoDB';
-			       $table->increments('id');
-			       $table->integer('level');
-             $table->string('name', 20);
-          });*/
-
         Schema::create('user', function (Blueprint $table) {
 			       $table->engine = 'InnoDB';
              $table->increments('id');
@@ -61,18 +55,6 @@ class AdvsDb extends Migration
              $table->string('password', 60);
              $table->boolean('is_super_user');
              $table->rememberToken();
-          });
-
-        Schema::create('display_timing', function (Blueprint $table) {
-			      $table->engine = 'InnoDB';
-            $table->increments('id');
-            $table->time('display_time');
-            $table->integer('display_schedule_id')->unsigned();
-            $table->foreign('display_schedule_id')
-                	->references('id')
-                	->on('display_schedule')
-                	->onUpdate('cascade')
-                	->onDelete('cascade');
           });
 
         Schema::create('department', function (Blueprint $table) {
@@ -142,12 +124,34 @@ class AdvsDb extends Migration
               	  	->onDelete('cascade');
           });
 
+        Schema::create('advert_schedule', function (Blueprint $table) {
+          $table->engine = 'InnoDB';
+          $table->integer('playlist_id')->unsigned();
+          $table->integer('advert_id')->unsigned();
+          $table->primary(array('playlist_id','advert_id'));
+          $table->integer('schedule_id')->unsigned();
+          $table->foreign('playlist_id')
+                ->references('id')
+                ->on('playlist')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+          $table->foreign('advert_id')
+                ->references('id')
+                ->on('advert')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+          $table->foreign('schedule_id')
+                ->references('id')
+                ->on('display_schedule')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+        });
+
         Schema::create('advert_playlist', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
 			      $table->integer('playlist_id')->unsigned();
 			      $table->integer('advert_id')->unsigned();
             $table->primary(array('playlist_id','advert_id'));
-          	$table->integer('display_schedule_id')->unsigned();
             $table->integer('advert_index');
             $table->foreign('playlist_id')
             	  	->references('id')
@@ -158,11 +162,6 @@ class AdvsDb extends Migration
                 	->references('id')
                 	->on('advert')
                 	->onUpdate('cascade');
-            $table->foreign('display_schedule_id')
-                	->references('id')
-                	->on('display_schedule')
-                	->onUpdate('cascade')
-                	->onDelete('cascade');
           });
 
         Schema::create('page', function (Blueprint $table) {

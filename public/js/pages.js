@@ -30,6 +30,7 @@ var Page = (function() {
 var Serve = (function(Page) {
 
   var durationIntervalHandle;
+  var errorIntervalHandle;
 
   var syncInterval = 10000;
   var syncAction = "";
@@ -49,6 +50,7 @@ var Serve = (function(Page) {
     // Stop the durtaion inverval before proceeding
     // this can cause duplicates if we sync after a run
     IntervalManager.stop(this.durationIntervalHandle);
+    IntervalManager.stop(this.errorIntervalHandle);
 
     // Headers source: https://laravel.com/docs/master/routing#csrf-x-csrf-token
     // Required to prevent server 500 error
@@ -66,7 +68,8 @@ var Serve = (function(Page) {
         process_data(data);
       },
       error : function(xhr, textStatus, errorThrown) {
-        console.log(textStatus + " ------ " + errorThrown);
+        //console.log(textStatus + " ------ " + errorThrown);
+        startErrorWatch();
       }
     },"JSON");
   }
@@ -75,22 +78,33 @@ var Serve = (function(Page) {
   function process_data(data) {
     AppDebug.print("Processing data...");
 
+    if (data.playlist === undefined) {
+      startErrorWatch();
+      return;
+    }
+
+
     // Shorten vars for easy coding
-    var playlist = data.data.playlist;
+    var playlist = data.playlist;
+    var adverts = data.adverts;
     var globalPlaylist = data.global;
 
     var current_advert_index = 0;// data[0].adverts[0].pivot.advert_index;
     var current_page_index = 0;// data[0].adverts[0].page[0].page_index;
-    var max_advert_index = playlist.adverts.length - 1;
+    var max_advert_index = adverts.length - 1;
     var duration = 10;
 
-    if (playlist !== undefined && playlist !== null) {
-
+    if (playlist !== undefined && playlist !== null)
+    {
       if (max_advert_index >= 0) {
-        duration = playlist.adverts[0].pages[0].template.duration; // Update per advert
+        duration = adverts[0].pages[0].template.duration; // Update per advert
+
+        // Clear data
+        localStorage.clear();
 
         // Save data to session
         localStorage.setItem('playlist', JSON.stringify(playlist));
+        localStorage.setItem('adverts', JSON.stringify(adverts));
         localStorage.setItem('globalPlaylist', JSON.stringify(globalPlaylist));
         localStorage.setItem('current_advert_index', current_advert_index);
         localStorage.setItem('current_page_index', current_page_index);
@@ -98,11 +112,27 @@ var Serve = (function(Page) {
 
         // Update the page after processing
         update_page();
+      } else {
+        localStorage.setItem('globalPlaylist', JSON.stringify(globalPlaylist));
+        localStorage.setItem('showGlobal', 1);
+        localStorage.setItem('current_advert_index', 0);
+        localStorage.setItem('current_page_index', 0);
+        update_page();
       }
 
     }
 
     updateDurationInterval(duration);
+
+  }
+
+  function startErrorWatch() {
+
+    if (this.errorIntervalHandle !== undefined) {
+      IntervalManager.stop(this.errorIntervalHandle);
+    }
+
+    this.errorIntervalHandle = IntervalManager.add((4 * 1000), sync_with_server);
 
   }
 
@@ -175,16 +205,15 @@ var Serve = (function(Page) {
 
   function getCurrentAdvert(index, showGlobal) {
 
-    // Get playlists from storage
-    var playlist = JSON.parse(localStorage.getItem('playlist'));
+    // Get adverts from storage
+    var adverts = JSON.parse(localStorage.getItem('adverts'));
     var globalPlaylist = JSON.parse(localStorage.getItem('globalPlaylist'));
     var advert = null;
 
-    if (playlist !== undefined && playlist !== null) {
-
+    if (adverts !== undefined && adverts !== null) {
       // Show global or screen playlist?
       if (showGlobal == 0) {
-        advert = playlist.adverts[index];
+        advert = adverts[index];
       } else {
         advert =  globalPlaylist.adverts[index];
       }
@@ -197,9 +226,11 @@ var Serve = (function(Page) {
   function showPage(currentAdvert, index) {
 
     // Update page
-    $('h1').html(currentAdvert.pages[index].page_data.heading);
-    $('#page_content').html(currentAdvert.pages[index].page_data.content);
-    $('#page_image').attr('src', '../advert_images/' + currentAdvert.pages[index].page_data.image_path);
+    $('#serve_container').removeClass();
+    $('#serve_container').addClass(currentAdvert.pages[index].template.class_name);
+    $('[name="pageName"]').html(currentAdvert.pages[index].page_data.heading);
+    $('[name="pageContent"]').html(currentAdvert.pages[index].page_data.content);
+    $('#server_image').next().attr('src', '../advert_images/' + currentAdvert.pages[index].page_data.image_path);
 
     return ++index;
 

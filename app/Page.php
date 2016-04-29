@@ -25,12 +25,6 @@ class Page extends Model
   public $timestamps = false;
 
   /**
-   * The attributes that are mass assignable.
-   * @var array
-   */
-  protected $fillable = ['page_data_id', 'page_index', 'advert_id', 'verticle_id', 'horizontal_id'];
-
-  /**
     * Gets the pageData associated with the page. has one relationship
     * @return EloquentCollection
     */
