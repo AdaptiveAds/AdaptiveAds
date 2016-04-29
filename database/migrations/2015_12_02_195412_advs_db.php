@@ -18,6 +18,7 @@ class AdvsDb extends Migration
         		$table->string('name', 40);
         		$table->string('class_name', 50);
         		$table->integer('duration');
+            $table->string('thumbnail_path', 255);
         	});
 
         Schema::create('page_data', function (Blueprint $table) {
