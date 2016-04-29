@@ -13,7 +13,7 @@
 
 @endif
 
-<div id="serve_container" class="{{$activeTemplate->class_name}}">
+<div id="serve_container" class="{{$activeTemplate->class_name or 'template1'}}">
 	<div id="header"><h1 name="pageName">{{ $pageData->heading or 'New Page'}}</h1></div>
   <div class="row">
     	<div id="serve_image">

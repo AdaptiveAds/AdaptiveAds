@@ -78,6 +78,7 @@ class ServeController extends Controller
           'playlist' => $screen->playlist,
           'adverts' => $adverts,
           'global' => $this->getGlobal(),
+          'activeTemplate' => $adverts[0]->Pages[0]->Template,
           'serve' => true
         );
 
