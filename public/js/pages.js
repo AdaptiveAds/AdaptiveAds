@@ -234,7 +234,12 @@ var Serve = (function(Page) {
     $('#serve_container').addClass(currentAdvert.pages[index].template.class_name);
     $('[name="pageName"]').html(currentAdvert.pages[index].page_data.heading);
     $('[name="pageContent"]').html(currentAdvert.pages[index].page_data.content);
-    $('#server_image').next().attr('src', '../advert_images/' + currentAdvert.pages[index].page_data.image_path);
+
+    if (currentAdvert.pages[index].page_data.image_path !== "") {
+      $('#serve_image').children('img').attr('src', '../advert_images/' + currentAdvert.pages[index].page_data.image_path);
+    } else {
+      $('#serve_image').children('img').attr('src', '/images/logo.png' + currentAdvert.pages[index].page_data.image_path);
+    }
 
     return ++index;
 
