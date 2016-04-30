@@ -138,14 +138,18 @@ var Serve = (function(Page) {
 
   function updateDurationInterval(duration) {
 
-    // If we already have an insterval stop it first
-    if (this.durationIntervalHandle !== undefined) {
-      IntervalManager.stop(this.durationIntervalHandle);
-    }
+    stopDurationInterval();
 
     // Create a new duration interval
     this.durationIntervalHandle = IntervalManager.add((duration * 1000), update_page);
 
+  }
+
+  function stopDurationInterval() {
+    // If we already have an insterval stop it first
+    if (this.durationIntervalHandle !== undefined) {
+      IntervalManager.stop(this.durationIntervalHandle);
+    }
   }
 
   // Data received update content
@@ -187,11 +191,22 @@ var Serve = (function(Page) {
       if (currentAdvert !== undefined && currentAdvert !== null) {
 
         if (currentAdvert.pages.length > 0) {
-          // Update the duration inverval for this page
-          updateDurationInterval(currentAdvert.pages[current_page_index].template.duration);
 
-          // Display page
-          current_page_index = showPage(currentAdvert, current_page_index);
+          if (currentAdvert.pages[current_page_index].page_data !== undefined) {
+            if (currentAdvert.pages[current_page_index].page_data.video_path !== "") {
+
+              stopDurationInterval();
+
+              current_page_index = showPage(currentAdvert, current_page_index);
+
+            } else {
+              // Update the duration inverval for this page
+              updateDurationInterval(currentAdvert.pages[current_page_index].template.duration);
+
+              // Display page
+              current_page_index = showPage(currentAdvert, current_page_index);
+            }
+          }
 
         }
 
@@ -229,23 +244,52 @@ var Serve = (function(Page) {
 
   function showPage(currentAdvert, index) {
 
-    // Update page
-    $('#serve_container').removeClass();
-    $('#serve_container').addClass(currentAdvert.pages[index].template.class_name);
-    $('[name="pageName"]').html(currentAdvert.pages[index].page_data.heading);
-    $('[name="pageContent"]').html(currentAdvert.pages[index].page_data.content);
+    if (currentAdvert.pages[index].page_data !== undefined) {
 
-    // Check if we have an image to display
-    if (currentAdvert.pages[index].page_data.image_path !== "") {
-      // Insert image
-      $('#serve_image').children('img').attr('src', '../advert_images/' + currentAdvert.pages[index].page_data.image_path);
-    } else {
-      // Insert logo image
-      $('#serve_image').children('img').attr('src', '/images/image_placeholder.png' + currentAdvert.pages[index].page_data.image_path);
+      // Update page
+      $('#serve_container').removeClass();
+      $('#serve_container').addClass(currentAdvert.pages[index].template.class_name);
+      $('[name="pageName"]').html(currentAdvert.pages[index].page_data.heading);
+      $('[name="pageContent"]').html(currentAdvert.pages[index].page_data.content);
+
+      addImage();
+
+      // Check if we have an image to display
+      if (currentAdvert.pages[index].page_data.image_path !== "") {
+        // Insert image
+        $('#serve_image').children('img').attr('src', '../advert_images/' + currentAdvert.pages[index].page_data.image_path);
+      } else {
+
+        if (currentAdvert.pages[index].page_data.video_path !== "") {
+          addVideo();
+          $('#serve_image').children('source').attr('src', '../advert_videos/' + currentAdvert.pages[index].page_data.video_path);
+        } else {
+          // Insert logo image
+          $('#serve_image').children('img').attr('src', '/images/image_placeholder.png' + currentAdvert.pages[index].page_data.image_path);
+        }
+      }
     }
 
     return ++index;
 
+  }
+
+  function addVideo() {
+    $('#serve_image').children('img').replaceWith('<video autoplay>' +
+      '<source src="/advert_videos/video_placeholder.mp4" type="video/mp4">' +
+      '<source src="/advert_videos/video_placeholder.mp4" type="video/mp4">' +
+      'Your browser does not support the provided codec types.' +
+    '</video>');
+
+    $('video').on('ended',function() {
+      updateDurationInterval(2);
+    });
+  }
+
+  function addImage() {
+    if ($('#serve_image').children('video').length) {
+      $('#serve_image').children('video').replaceWith('<img src="/images/logo.png" title="" alt=""/>');
+    }
   }
 
   return Page;
