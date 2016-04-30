@@ -1,3 +1,25 @@
+// Global functions
+
+function addVideo(callback) {
+  console.log("ADD");
+  $('#serve_image').children('img').replaceWith('<video autoplay>' +
+    '<source src="/advert_videos/video_placeholder.mp4" type="video/mp4">' +
+    '<source src="/advert_videos/video_placeholder.mp4" type="video/mp4">' +
+    'Your browser does not support the provided codec types.' +
+  '</video>');
+
+  $('video').on('ended', function() {
+    callback(2);
+  });
+}
+
+function addImage() {
+  if ($('#serve_image').children('video').length) {
+    $('#serve_image').children('video').replaceWith('<img src="/images/logo.png" title="" alt=""/>');
+  }
+}
+
+
 var AppDebug = (function() {
 
   var debug = false;
