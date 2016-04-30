@@ -89,16 +89,6 @@ https://developers.google.com/recaptcha/docs/display -->
 		  });
 		});
 
-		$('li[data-btnTemplate="true"]').click(function() {
-			$( '#serve_container, li[data-btnTemplate="true"]' ).removeClass(); // Remove all classes
-			$(this).toggleClass('active'); // Toggle active
-
-			$('#serve_container').addClass($(this).data('template'));
-			$('input[name="txtTemplate"]').val($(this).data('templateid'));
-
-		});
-
-
 	});
 	</script>
 
