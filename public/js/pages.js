@@ -261,7 +261,7 @@ var Serve = (function(Page) {
       } else {
 
         if (currentAdvert.pages[index].page_data.video_path !== "") {
-          addVideo();
+          addVideo(updateDurationInterval);
           $('#serve_image').children('source').attr('src', '../advert_videos/' + currentAdvert.pages[index].page_data.video_path);
         } else {
           // Insert logo image
@@ -272,24 +272,6 @@ var Serve = (function(Page) {
 
     return ++index;
 
-  }
-
-  function addVideo() {
-    $('#serve_image').children('img').replaceWith('<video autoplay>' +
-      '<source src="/advert_videos/video_placeholder.mp4" type="video/mp4">' +
-      '<source src="/advert_videos/video_placeholder.mp4" type="video/mp4">' +
-      'Your browser does not support the provided codec types.' +
-    '</video>');
-
-    $('video').on('ended',function() {
-      updateDurationInterval(2);
-    });
-  }
-
-  function addImage() {
-    if ($('#serve_image').children('video').length) {
-      $('#serve_image').children('video').replaceWith('<img src="/images/logo.png" title="" alt=""/>');
-    }
   }
 
   return Page;
@@ -307,6 +289,35 @@ var PageEditor = (function() {
     $('[name$="txtPageContent"]').keyup(function() {
       $('[name$="pageContent"]').html($(this).val());
     });
+
+    $('[name=filPageImage]').on('change', function(evt) {
+      if (this.value == "") {
+        $('[name=filPageVideo]').prop('disabled', false);
+      } else {
+        console.log("S");
+        $('[name=filPageVideo]').prop('disabled', true);
+      }
+    });
+
+    $('[name=filPageVideo]').on('change', function(evt) {
+      if (this.value == "") {
+        $('[name=filPageImage]').prop('disabled', false);
+      } else {
+        console.log("S");
+        $('[name=filPageImage]').prop('disabled', true);
+      }
+    });
+
+    $('li[data-btnTemplate="true"]').click(function() {
+			$( '#serve_container, li[data-btnTemplate="true"]' ).removeClass(); // Remove all classes
+			$(this).toggleClass('active'); // Toggle active
+
+			var newTemplate = $(this).data('template');
+			$('#serve_container').addClass(newTemplate);
+			$('input[name="txtTemplate"]').val($(this).data('templateid'));
+
+		});
+
 
   }
 
