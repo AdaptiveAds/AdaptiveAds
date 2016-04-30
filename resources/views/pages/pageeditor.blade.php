@@ -81,16 +81,21 @@
 			<li><button type="submit" class="submit" name="btnDeletePage">Delete</button></li>
 			{!! Form::close() !!}
 
-			{!! Form::open(['route' => ['dashboard.advert.page.removeMedia', $page->advert_id, $page->id], 'method' => 'POST']) !!}
-			<input type="hidden" name="pageID" value="{{$page->id}}"/>
-				<input type="hidden" name="mediaType" value="image"/>
-				<li><button type="submit" name="btnRemoveImage">Remove Image</button></li>
-			{!! Form::close() !!}
+			@if ($pageData->image_path != "")
+				{!! Form::open(['route' => ['dashboard.advert.page.removeMedia', $page->advert_id, $page->id], 'method' => 'POST']) !!}
+				<input type="hidden" name="pageID" value="{{$page->id}}"/>
+					<input type="hidden" name="mediaType" value="image"/>
+					<li><button type="submit" name="btnRemoveImage">Remove Image</button></li>
+				{!! Form::close() !!}
+			@endif
 
-			{!! Form::open(['route' => ['dashboard.advert.page.removeMedia', $page->advert_id, $page->id], 'method' => 'POST']) !!}
-				<input type="hidden" name="mediaType" value="video"/>
-				<li><button type="submit" name="btnRemoveVideo">Remove Video</button></li>
-			{!! Form::close() !!}
+			@if ($pageData->video_path != "")
+				{!! Form::open(['route' => ['dashboard.advert.page.removeMedia', $page->advert_id, $page->id], 'method' => 'POST']) !!}
+					<input type="hidden" name="mediaType" value="video"/>
+					<li><button type="submit" name="btnRemoveVideo">Remove Video</button></li>
+				{!! Form::close() !!}
+			@endif
+
 			<!-- ensures form fills parent div w3c validation compliant -->
 			<div class="clear"></div>
 		</ul>
