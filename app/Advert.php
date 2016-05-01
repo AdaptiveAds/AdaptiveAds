@@ -51,4 +51,8 @@ class Advert extends Model
     return $this->belongsTo(AdvertSchedule::class, 'id', 'advert_id');
   }
 
+  public function AdvertSkin() {
+    return $this->belongsTo(AdvertSkin::class, 'advert_id', 'id');
+  }
+
 }
