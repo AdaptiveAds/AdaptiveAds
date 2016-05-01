@@ -1,7 +1,6 @@
 // Global functions
 
 function addVideo(callback) {
-  console.log("ADD");
   $('#serve_image').children('img').replaceWith('<video autoplay>' +
     '<source src="/advert_videos/video_placeholder.mp4" type="video/mp4">' +
     '<source src="/advert_videos/video_placeholder.mp4" type="video/mp4">' +
@@ -17,6 +16,10 @@ function addImage() {
   if ($('#serve_image').children('video').length) {
     $('#serve_image').children('video').replaceWith('<img src="/images/logo.png" title="" alt=""/>');
   }
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 
@@ -334,21 +337,19 @@ var ModalManager = (function() {
 
       var selected = $(this);
       var id = selected.attr('data-userID');
-      var object = selected.attr('data-modalObject').toLowerCase();
+      var object = selected.attr('data-modalObject');//.toLowerCase();
 
       // Search for our function def
-      var fn = window["ModalManager"][object];
+      var fn = window["ModalManager"][object.toLowerCase()];
 
       // If it is not a function cancel the process
       if (typeof fn !== "function")
         return;
 
-      // Go AJAX the data
-      getData(id, fn);
-
       //getData($(this).attr('data-userID'), $(this).attr('data-modalObject') + '();');
       $('[name="heading"]').html('Edit ' + object);
       var form = $('#' + object + 'Modal').find('form');
+
       form.attr('action', selected.attr('data-modalRoute'));
 
       if (selected.attr('data-modalMethod') == "PUT" || selected.attr('data-modalMethod') == "PATCH") {
@@ -357,6 +358,9 @@ var ModalManager = (function() {
       } else {
         form.attr('method', selected.attr('data-modalMethod') || 'POST');
       }
+
+      // Go AJAX the data
+      getData(id, fn);
     });
 
     $('[data-displayCreateModal="true"]').click(function() {
@@ -427,7 +431,9 @@ var ModalManager = (function() {
 
   function skins(data) {
     $('[name="txtSkinName"]').val(data.skin.name);
-    $('[name="txtSkinClass"]').val(data.skin.class_name);
+    $('[name="hexSkinColor"]').val(data.skin.hex_colour);
+    $('#colorSelector2 div').css('backgroundColor', '#' + data.skin.hex_colour);
+    $('#colorSelector2').ColorPickerSetColor(data.skin.hex_colour);
   }
 
   function getData(id, callback) {

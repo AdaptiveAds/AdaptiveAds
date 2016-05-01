@@ -26,8 +26,6 @@
 					<li>
 						<input type="text" name="txtSkinName" placeholder="Skin Name...."
 									 value="{{ $searchItem or '' }}"/>
-	          <input type="text" name="txtSkinClass" placeholder="Skin Class...."
-	                        value="{{ $searchItem or '' }}"/>
 
 						<a href="#SkinsModal" data-displayCreateModal="true"
 																	data-modalObject="Skins"

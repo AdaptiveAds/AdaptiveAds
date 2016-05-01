@@ -8,7 +8,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Skin as Skin;
+use App\Helpers\Media;
 use Session;
+use Input;
 
 /**
   * Defines the CRUD methods for the SkinController
@@ -64,11 +66,25 @@ class SkinController extends Controller
     public function store(Request $request)
     {
       $txtSkinName = $request->input('txtSkinName');
-      $txtSkinClass = $request->input('txtSkinClass');
+      $hexSkinColor = $request->input('hexSkinColor');
 
       $skin = new Skin();
       $skin->name = $txtSkinName;
-      $skin->class_name = $txtSkinClass;
+
+      // Upload image 1
+      $imageInput = Input::file('filSkinImage');
+      if ($imageInput != null) {
+        $imagePath = Media::processMedia($imageInput, 'advert_skins/');
+
+        // If we have a valid image then set the path in the database
+        if ($imagePath != null) {
+          $skin->image_path = $imagePath;
+        }
+      }
+
+      dd($hexSkinColor);
+      $skin->hex_colour = $hexSkinColor;
+
       $skin->save();
 
       return redirect()->route('dashboard.settings.skins.index')
@@ -120,10 +136,23 @@ class SkinController extends Controller
                          ->with('message', 'Error: Skin not found');
 
       $txtSkinName = $request->input('txtSkinName');
-      $txtSkinClass = $request->input('txtSkinClass');
+      $hexSkinColor = $request->input('hexSkinColor');
 
       $skin->name = $txtSkinName;
-      $skin->class_name = $txtSkinClass;
+
+      // Upload image 1
+      $imageInput = Input::file('filSkinImage');
+      if ($imageInput != null) {
+        $imagePath = Media::processMedia($imageInput, 'advert_skins/');
+
+        // If we have a valid image then set the path in the database
+        if ($imagePath != null) {
+          $skin->image_path = $imagePath;
+        }
+      }
+
+      $skin->hex_colour = $hexSkinColor;
+
       $skin->save();
 
       return redirect()->route('dashboard.settings.skins.index')
