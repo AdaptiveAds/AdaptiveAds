@@ -18,9 +18,15 @@ class SkinTableSeeder extends Seeder
 
       //Populate table
       $table->insert([
+        'name' => 'Global Skin',
+        'image_path' => '',
+        'hex_colour' => '0db596'
+      ]);
+
+      $table->insert([
         'name' => 'Library Skin',
         'image_path' => '',
-        'hex_colour' => '0000ff'
+        'hex_colour' => '5fd452'
       ]);
     }
 }
