@@ -17,6 +17,7 @@
     	@include('templates/templateStructure')
     	<div class="clear"></div>
 	    <!-- close content -->
-  	</div>
+  </div>
+</div>
 </body>
 </html>
