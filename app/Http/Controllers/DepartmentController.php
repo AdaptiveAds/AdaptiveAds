@@ -43,11 +43,9 @@ class DepartmentController extends Controller
       $match_departments = Session::get('match_departments');
 
       $departments = Department::whereIn('id', $match_departments)->get();
-      $skins = Skin::all(); // TODO restrict
 
       $data = array(
         'departments' => $departments,
-        'skins' => $skins,
         'user' => $user
       );
 
@@ -73,7 +71,6 @@ class DepartmentController extends Controller
     public function store(Request $request)
     {
       $txtDepartmentName = $request->input('txtDepartmentName');
-      $skinID = $request->input('drpSkins');
 
       if (isset($txtDepartmentName) == false)
         return redirect()->route('dashboard.settings.departments.index')
@@ -81,7 +78,6 @@ class DepartmentController extends Controller
 
       $department = new Department();
       $department->name = $txtDepartmentName;
-      $department->skin_id = $skinID;
       $department->save();
 
       return redirect()->route('dashboard.settings.departments.index')
@@ -135,10 +131,8 @@ class DepartmentController extends Controller
                          ->with('message', 'Error: Department not found');
 
       $txtDepartmentName = $request->input('txtDepartmentName');
-      $skinID = $request->input('drpSkins');
 
       $department->name = $txtDepartmentName;
-      $department->skin_id = $skinID;
       $department->save();
 
       return redirect()->route('dashboard.settings.departments.index')
@@ -194,7 +188,6 @@ class DepartmentController extends Controller
       $btnFindDepartment = $request->input('btnFindDepartment');
       $btnFindAll = $request->input('btnFindAll');
       $departmentName = $request->input('txtDepartmentName');
-      $skinID = $request->input('drpSkins');
 
       $match_departments = Session::get('match_departments');
       $departments = Department::whereIn('id', $match_departments)->get();
@@ -208,15 +201,6 @@ class DepartmentController extends Controller
         if ($departmentName != null) {
           $filtered = $departments->filter(function($item) use ($departmentName) {
             if (strpos($item->name, $departmentName) !== false) { // Get rough match
-              return true;
-            }
-          });
-        }
-
-        // Filter by skin id
-        if ($filtered->count() == 0) {
-          $filtered = $departments->filter(function($item) use ($skinID) {
-            if ($item->skin_id == $skinID) {
               return true;
             }
           });
@@ -236,7 +220,6 @@ class DepartmentController extends Controller
 
       $data = array(
         'departments' => $departments,
-        'skins' => Skin::all(),
         'departmentName' => $departmentName,
         'user' => $user
       );

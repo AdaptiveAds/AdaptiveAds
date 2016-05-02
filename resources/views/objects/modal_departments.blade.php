@@ -10,10 +10,6 @@
         <input type="text" name="txtDepartmentName" placeholder="Department Name...."/>
       </li>
       <li>
-        <label>Skin:</label>
-        @include('objects/dropdown_skins', array('skins' => $skins))
-      </li>
-      <li>
         <button type="submit" name="btnSave">Save</button>
       </li>
     </ul>
