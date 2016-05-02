@@ -22,6 +22,11 @@
         <br/>
         @include('objects/dropdown_departments', array('allowed_departments' => $allowed_departments))
       </div>
+      <div class="modalDialogLeft">
+        <label>Assign Skin</label>
+        <br/>
+        @include('objects/dropdown_skins', array('skins' => $skins))
+      </div>
       <div class="clear"></div>
       <button type="submit" name="btnAdd{{$object or 'object'}}">Create</button>
     {!! Form::close() !!}

@@ -13,6 +13,7 @@ use App\Advert as Advert;
 use App\Playlist as Playlist;
 use App\Department as Department;
 use App\Page as Page;
+use App\Skin as Skin;
 
 /**
   * Defines the CRUD methods for the AdvertController
@@ -48,7 +49,8 @@ class AdvertController extends Controller
         $data = array(
           'user' => $user,
           'adverts' => $adverts,
-          'allowed_departments' => $allowed_departments
+          'allowed_departments' => $allowed_departments,
+          'skins' => Skin::all()
         );
 
         return view('pages/adverts', $data);
@@ -75,10 +77,12 @@ class AdvertController extends Controller
     {
       $txtAdvertName = $request->input('txtAdvertName');
       $departmentID = $request->input('drpDepartments');
+      $skinID = $request->input('drpSkins');
 
       $advert = new Advert();
       $advert->name = $txtAdvertName;
       $advert->department_id = $departmentID;
+      $advert->skin_id = $skinID;
       $advert->save();
 
       return redirect()->route('dashboard.advert.index')
@@ -151,9 +155,11 @@ class AdvertController extends Controller
 
       $txtAdvertName = $request->input('txtAdvertName');
       $departmentID = $request->input('drpDepartments');
+      $skinID = $request->input('drpSkins');
 
       $advert->name = $txtAdvertName;
       $advert->department_id = $departmentID;
+      $advert->skin_id = $skinID;
       $advert->save();
 
       return redirect()->route('dashboard.advert.index')
@@ -262,7 +268,8 @@ class AdvertController extends Controller
       $data = array(
         'user' => $user,
         'adverts' => $adverts,
-        'allowed_departments' => $allowed_departments
+        'allowed_departments' => $allowed_departments,
+        'skins' => Skin::all()
       );
 
       return view('pages/adverts', $data);

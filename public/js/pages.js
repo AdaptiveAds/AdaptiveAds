@@ -32,7 +32,6 @@ var Serve = (function(Page) {
   var durationIntervalHandle;
   var errorIntervalHandle;
 
-  var syncInterval = 10000;
   var syncAction = "";
   var syncToken = "";
   var syncScreen = 1;
@@ -251,6 +250,14 @@ var Serve = (function(Page) {
       $('#serve_container').addClass(currentAdvert.pages[index].template.class_name);
       $('[name="pageName"]').html(currentAdvert.pages[index].page_data.heading);
       $('[name="pageContent"]').html(currentAdvert.pages[index].page_data.content);
+
+      //console.log(currentAdvert.skin);
+      if (currentAdvert.skin.image_path != "") {
+        $('body').css('background', 'url(../advert_skins/' + currentAdvert.skin.image_path + ')');
+        $('body').css('background-size', 'cover');
+      } else if (currentAdvert.skin.hex_colour != "") {
+        $('body').css('background', '#' + currentAdvert.skin.hex_colour);
+      }
 
       addImage();
 

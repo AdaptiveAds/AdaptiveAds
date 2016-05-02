@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Skin as Skin;
 
 Use Session;
 
@@ -30,6 +31,7 @@ class DashboardController extends Controller
 
       $data = array(
         'allowed_departments' => $allowed_departments,
+        'skins' => Skin::all(),
         'user' => $user
       );
 

@@ -427,6 +427,7 @@ var ModalManager = (function() {
   function advert(data) {
     $('[name="txtAdvertName"]').val(data.advert.name);
     $('[name="drpDepartments"]').val(data.advert.department_id);
+    $('[name="drpSkins"]').val(data.advert.skin_id);
   }
 
   function skins(data) {
