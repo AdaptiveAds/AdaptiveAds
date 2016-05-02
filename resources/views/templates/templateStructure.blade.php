@@ -1,12 +1,10 @@
 @if(isset($serve))
 
 	<script>
-		// Do sync and AJAX here.... TODO
 		$('document').ready(function() {
 			Serve.syncAction = '/serve/' + {{ $screen->id or '1' }};
 			Serve.syncToken = '{{ csrf_token() }}';
 			Serve.syncScreen = {{ $screen->id or '1' }};
-			Serve.syncInterval = 20000;
 			Serve.init();
 		});
 	</script>
