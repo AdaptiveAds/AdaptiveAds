@@ -3,45 +3,41 @@
     <head>
         <title>Be right back.</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
 
         <style>
-            html, body {
-                height: 100%;
-            }
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                color: #B0BEC5;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
+          body {
+            background: #20B4E6;
+            font-family: 'Lato';
+            color: #ffffff;
+          }
 
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
+          #content {
+            width: 100%;
+            height: 100%;
+            margin: auto;
+            text-align: center;
+          }
 
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
+          #content #title {
+            margin-top: 10%;
+            font-size: 6em;
+          }
 
-            .title {
-                font-size: 72px;
-                margin-bottom: 40px;
-            }
+          #content #main {
+            margin-top: 2%;
+            font-size: 2em;
+          }
+
+
         </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Be right back.</div>
-            </div>
+
+      </head>
+      <body>
+        <div id="content">
+          <p id="title">503.</p>
+          <p id="main">"Oops... we'll be back soon!"</p>
         </div>
-    </body>
-</html>
+      </body>
+      </html>
