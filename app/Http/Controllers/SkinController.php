@@ -82,7 +82,6 @@ class SkinController extends Controller
         }
       }
 
-      dd($hexSkinColor);
       $skin->hex_colour = $hexSkinColor;
 
       $skin->save();
