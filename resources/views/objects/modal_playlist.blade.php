@@ -17,7 +17,7 @@
         @if ($user->is_super_user)
           <li>
             <label for="chkIsGlobal">Is Global:</label>
-            <input type="checkbox" name="chkIsGlobal"/>
+            <input type="checkbox" name="chkIsGlobal" disabled/>
           </li>
         @endif
       @endif
