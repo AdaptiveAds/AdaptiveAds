@@ -36,7 +36,6 @@
 							<button type="submit" name="btnRemoveMode">Remove Mode</button>
 						{!! Form::close() !!}
 
-						<button type="button">Edit Timings</button>
 					@endif
 				</li>
 			</ul>
