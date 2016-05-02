@@ -19,7 +19,8 @@ class SkinTableSeeder extends Seeder
       //Populate table
       $table->insert([
         'name' => 'Library Skin',
-        'class_name' => 'skin_blue'
+        'image_path' => '',
+        'hex_colour' => '0000ff'
       ]);
     }
 }
