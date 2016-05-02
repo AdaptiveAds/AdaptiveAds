@@ -195,7 +195,6 @@ class SkinController extends Controller
       $btnFindSkin = $request->input('btnFindSkin');
       $btnFindAll = $request->input('btnFindAll');
       $skinName = $request->input('txtSkinName');
-      $skinClass = $request->input('txtSkinClass');
 
       $skins = Skin::all();
 
@@ -213,23 +212,11 @@ class SkinController extends Controller
           });
         }
 
-        // If no results found filter by class name
-        if ($skinClass != null) {
-          if ($filtered->count() == 0) {
-            $filtered = $skins->filter(function($item) use ($skinClass) {
-              if (strpos($item->class_name, $skinClass) !== false) { // Get rough match
-                return true;
-              }
-            });
-          }
-        }
-
         $skins = $filtered;
 
       } else if (isset($btnFindAll)) {
 
         $skinName = null;
-        $skinClass = null;
 
       } else {
         abort(401, 'Un-authorised');
