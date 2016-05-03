@@ -6,6 +6,9 @@
 																			'heading' => 'Create New User',
 																			'allowed_departments' => $allowed_departments))
 
+@include('objects/modal_delete', array('object' => 'Delete',
+																			'heading' => 'Delete User'))
+
 <script>
 	$('document').ready(function() {
 		ModalManager.token = "{{ csrf_token() }}";
@@ -19,7 +22,7 @@
 		{!! Form::open(['route' => 'dashboard.settings.users.filter', 'method' => 'POST']) !!}
 			<h3>Users</h3>
 			@if (Session::has('message'))
-				<h5>{{Session::pull('message')}}</h5>
+          <h5>{{Session::pull('message')}}</h5>
 			@else
 				<h5>Manage user accounts</h5>
 			@endif
@@ -37,7 +40,7 @@
 					<a href="#UsersModal" data-displayCreateModal="true"
 																data-modalObject="Users"
 																data-modalMethod="POST"
-																data-modalRoute="{{ URL::route('dashboard.settings.users.create') }}">
+																data-modalRoute="{{ URL::route('dashboard.settings.users.store') }}">
 						<button type="button" name="btnCreateUser">Create</button>
 					</a>
 
