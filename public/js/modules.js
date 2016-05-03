@@ -1,27 +1,3 @@
-// Global functions
-
-function addVideo(callback) {
-  $('#serve_image').children('img').replaceWith('<video autoplay>' +
-    '<source src="/advert_videos/video_placeholder.mp4" type="video/mp4">' +
-    '<source src="/advert_videos/video_placeholder.mp4" type="video/mp4">' +
-    'Your browser does not support the provided codec types.' +
-  '</video>');
-
-  $('video').on('ended', function() {
-    callback(2);
-  });
-}
-
-function addImage() {
-  if ($('#serve_image').children('video').length) {
-    $('#serve_image').children('video').replaceWith('<img src="/images/logo.png" title="" alt=""/>');
-  }
-}
-
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
 
 var AppDebug = (function() {
 
@@ -335,9 +311,10 @@ var ModalManager = (function() {
       showLoading();
       clearInput();
 
-      var selected = $(this);
-      var id = selected.attr('data-userID');
-      var object = selected.attr('data-modalObject');//.toLowerCase();
+      setup($(this), "Edit");
+
+      var id = $(this).attr('data-userID');
+      var object = $(this).attr('data-modalObject');
 
       // Search for our function def
       var fn = window["ModalManager"][object.toLowerCase()];
@@ -345,19 +322,6 @@ var ModalManager = (function() {
       // If it is not a function cancel the process
       if (typeof fn !== "function")
         return;
-
-      //getData($(this).attr('data-userID'), $(this).attr('data-modalObject') + '();');
-      $('[name="heading"]').html('Edit ' + object);
-      var form = $('#' + object + 'Modal').find('form');
-
-      form.attr('action', selected.attr('data-modalRoute'));
-
-      if (selected.attr('data-modalMethod') == "PUT" || selected.attr('data-modalMethod') == "PATCH") {
-        form.attr('method', 'POST');
-        form.prepend('<input name="_method" type="hidden" value="PUT"/>');
-      } else {
-        form.attr('method', selected.attr('data-modalMethod') || 'POST');
-      }
 
       // Go AJAX the data
       getData(id, fn);
@@ -378,6 +342,33 @@ var ModalManager = (function() {
       form.children('input[name="_method"]').remove();
     });
 
+
+    $('[data-displayDeleteModal="true"]').click(function() {
+
+      setup($(this), 'Delete');
+
+    });
+
+  }
+
+  function setup(selected, mode) {
+    var object = selected.attr('data-modalObject');//.toLowerCase();
+
+    //getData($(this).attr('data-userID'), $(this).attr('data-modalObject') + '();');
+    $('[name="heading"]').html(mode + ' ' + object);
+    var form = $('[name="' + object + 'ModalForm"]');
+
+    form.attr('action', selected.attr('data-modalRoute'));
+
+    if (selected.attr('data-modalMethod') == "PUT" || selected.attr('data-modalMethod') == "PATCH") {
+      form.attr('method', 'POST');
+      form.prepend('<input name="_method" type="hidden" value="PUT"/>');
+    } else if (selected.attr('data-modalMethod') == "DELETE") {
+      form.attr('method', 'POST');
+      form.prepend('<input name="_method" type="hidden" value="DELETE"/>');
+    } else {
+      form.attr('method', selected.attr('data-modalMethod') || 'POST');
+    }
   }
 
   function clearInput() {
@@ -386,7 +377,7 @@ var ModalManager = (function() {
   }
 
   function users(data) {
-    $('[name="txtUsername"]').val(data.user.username);
+    $('[name="username"]').val(data.user.username);
 
     if (data.user.is_super_user) {
       $('[name="chkIsSuper"]').prop('checked', true);
