@@ -8,7 +8,7 @@
     });
   </script>
   <div>
-    <a id="Close{{$object or 'object'}}Modal" href="#close" class="close">X</a>
+    <a id="Close{{$object or 'object'}}Modal" href="#close" class="close fa fa-times"></a>
     <h4>Create new {{$object or 'object'}}</h4>
     {!! Form::open(['route' => $route, 'method' => 'POST']) !!}
       <div class="modalDialogLeft">
