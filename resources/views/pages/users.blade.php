@@ -6,8 +6,7 @@
 																			'heading' => 'Create New User',
 																			'allowed_departments' => $allowed_departments))
 
-@include('objects/modal_delete', array('object' => 'Delete',
-																			'heading' => 'Delete User'))
+@include('objects/modal_delete', array('object' => 'Delete'))
 
 <script>
 	$('document').ready(function() {
