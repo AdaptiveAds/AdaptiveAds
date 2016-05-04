@@ -22,7 +22,7 @@
     });
   </script>
   <h4 name='heading'>{{$heading or 'Modal Purpose'}}</h4>
-  {!! Form::open(['url' => '', 'method' => 'POST', 'files' => 'true']) !!}
+  {!! Form::open(['url' => '', 'method' => 'POST', 'files' => 'true', 'name' => '$object + ModalForm']) !!}
     <ul>
       <li>
         <label>Skin Name:</label>

@@ -6,6 +6,8 @@
 																			'heading' => 'Create New Playlist',
 																			'allowed_departments' => $allowed_departments))
 
+@include('objects/modal_delete', array('object' => 'Delete'))
+
 <script>
 	$('document').ready(function() {
 		ModalManager.token = "{{ csrf_token() }}";

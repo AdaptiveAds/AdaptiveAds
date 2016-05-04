@@ -5,6 +5,8 @@
 @include('objects/modal_templates', array('object' => 'Templates',
 																			'heading' => 'Create New Template'))
 
+@include('objects/modal_delete', array('object' => 'Delete'))
+
 <script>
 	$('document').ready(function() {
 		ModalManager.token = "{{ csrf_token() }}";

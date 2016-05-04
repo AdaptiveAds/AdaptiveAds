@@ -24,7 +24,7 @@ class Skin extends Model
     */
   public $timestamps = false;
 
-  public function Departments() {
-    return $this->hasMany(Department::class);
+  public function Adverts() {
+    return $this->hasMany(Advert::class);
   }
 }

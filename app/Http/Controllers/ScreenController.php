@@ -156,7 +156,7 @@ class ScreenController extends Controller
     {
       $user = Session::get('user');
 
-      if ($user->is_super_user)
+      if ($user->is_super_user == false)
         abort(401, 'Unauthorized');
 
       $screen = Screen::find($id);

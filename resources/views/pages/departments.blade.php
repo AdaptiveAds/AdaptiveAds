@@ -5,6 +5,8 @@
 @include('objects/modal_departments', array('object' => 'Departments',
 																			'heading' => 'Create New Department'))
 
+@include('objects/modal_delete', array('object' => 'Delete'))
+
 <script>
 	$('document').ready(function() {
 		ModalManager.token = "{{ csrf_token() }}";

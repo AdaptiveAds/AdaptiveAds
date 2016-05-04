@@ -5,6 +5,8 @@
 @include('objects/modal_skins', array('object' => 'Skins',
 																			'heading' => 'Create New Skin'))
 
+@include('objects/modal_delete', array('object' => 'Delete'))
+
 <script>
 	$('document').ready(function() {
 		ModalManager.token = "{{ csrf_token() }}";

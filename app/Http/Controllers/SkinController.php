@@ -172,10 +172,10 @@ class SkinController extends Controller
         return redirect()->route('dashboard.settings.skins.index')
                          ->with('message', 'Error: Skin not found');
 
-      $count = $skin->Departments()->count();
+      $count = $skin->Adverts()->count();
       if ($count != 0)
         return redirect()->route('dashboard.settings.skins.index')
-                         ->with('message', 'Unable to delete ' . $skin->name . ', as one or more departments require it.');
+                         ->with('message', 'Unable to delete ' . $skin->name . ', as one or more adverts require it.');
 
       $skin->delete();
 
