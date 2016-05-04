@@ -17,12 +17,12 @@
               <button type="button" name="btnEdit">Edit</button>
             </a>
 
-            {{-- Show correct button to disable ot enable --}}
-            {!! Form::open(['route' => ['dashboard.settings.skins.destroy', $skin->id],
-                                        'method' => 'DELETE',
-                                        'onsubmit' => 'return ConfirmDelete()']) !!}
-              <button type="submit" name="btnDeleted">Delete</button>
-            {!! Form::close() !!}
+            <a href="#DeleteModal" data-displayDeleteModal="true"
+                      data-modalObject="Delete"
+                      data-modalMethod="DELETE"
+                      data-modalRoute="{{ URL::route('dashboard.settings.skins.destroy', $skin->id)}}">
+                      <button type="button" name="btnDeleted">Delete</button>
+            </a>
           @endif
         </li>
       @endforeach

@@ -18,12 +18,12 @@
             </a>
 
             @if ($user->is_super_user)
-              {{-- Show correct button to disable ot enable --}}
-              {!! Form::open(['route' => ['dashboard.settings.screens.destroy', $screen->id],
-                              'method' => 'DELETE',
-                              'onsubmit' => 'return ConfirmDelete()']) !!}
-                <button type="submit" name="btnDelete">Delete</button>
-              {!! Form::close() !!}
+              <a href="#DeleteModal" data-displayDeleteModal="true"
+                        data-modalObject="Delete"
+                        data-modalMethod="DELETE"
+                        data-modalRoute="{{ URL::route('dashboard.settings.screens.destroy', $screen->id)}}">
+                        <button type="button" name="btnDeleted">Delete</button>
+              </a>
             @endif
           @endif
         </li>

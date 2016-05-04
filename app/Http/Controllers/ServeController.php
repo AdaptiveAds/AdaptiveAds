@@ -9,8 +9,11 @@ use App\Http\Controllers\Controller;
 
 use App\Screen as Screen;
 use App\Playlist as Playlist;
+use App\Advert as Advert;
 
 use App\Events\DurationEvent;
+
+use View;
 
 /**
   * Defines the CRUD methods for the ServeController
@@ -68,8 +71,14 @@ class ServeController extends Controller
         $screen = $this->loadPlaylists($screen);
         //$collec = $info->playlist->adverts;
 
-        $time = date('H:i:s', Time());
         $adverts = $this->applySchedule($screen->playlist->adverts);
+
+        //dd($adverts->Skin);
+
+        $activeTemplate = "template1"; // assign default
+        if ($adverts->count() > 0) {
+          $activeTemplate = $adverts[0]->Pages[0]->Template;
+        }
 
         //dd($adverts);
 
@@ -78,7 +87,7 @@ class ServeController extends Controller
           'playlist' => $screen->playlist,
           'adverts' => $adverts,
           'global' => $this->getGlobal(),
-          'activeTemplate' => $adverts[0]->Pages[0]->Template,
+          'activeTemplate' => $activeTemplate,
           'serve' => true
         );
 
@@ -107,7 +116,7 @@ class ServeController extends Controller
     {
 
       return $screen->where('id', $screen->id)->with(array('playlist' => function($query) {
-          $query->with('adverts.department.skin');
+          $query->with('adverts.skin');
           $query->with('adverts.advertSchedule.schedule');
           $query->with(array('adverts.pages' => function($query) {
             $query->where('deleted', 0);
@@ -124,8 +133,8 @@ class ServeController extends Controller
     public function getGlobal()
     {
       return Playlist::where('isGlobal', true)
-                      ->with(array('adverts' => function($query) {
-                        }))
+                      ->with('adverts')
+                      ->with('adverts.skin')
                       ->with(array('adverts.pages' => function($query) {
                         $query->where('deleted', 0);
                         $query->with('pageData');

@@ -17,14 +17,14 @@
           </a>
 
           @if ($user->getAdmin())
-            {{-- Show correct button to disable ot enable --}}
-            {!! Form::open(['route' => ['dashboard.playlist.destroy', $playlist->id],
-                            'method' => 'DELETE',
-                            'onsubmit' => 'return ConfirmDelete()']) !!}
-              @if ($playlist->isGlobal == false)
-                <button type="submit" name="btnDelete">Delete</button>
-              @endif
-            {!! Form::close() !!}
+            @if ($playlist->isGlobal == false)
+              <a href="#DeleteModal" data-displayDeleteModal="true"
+                        data-modalObject="Delete"
+                        data-modalMethod="DELETE"
+                        data-modalRoute="{{ URL::route('dashboard.playlist.destroy', $playlist->id)}}">
+                        <button type="button" name="btnDeleted">Delete</button>
+              </a>
+            @endif
           @endif
         @endif
       </li>

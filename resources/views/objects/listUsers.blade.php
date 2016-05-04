@@ -12,16 +12,16 @@
                         data-modalMethod="PUT"
   											data-modalRoute="{{ URL::route('dashboard.settings.users.update', $user->id)}}"
                         data-userID="{{ $user->id }}">
-              <button type="button" name="btnEdit">Edit</button>
+                        <button type="button" name="btnEdit">Edit</button>
             </a>
 
             @if ($requestUser->is_super_user)
-              {{-- Show correct button to disable ot enable --}}
-              {!! Form::open(['route' => ['dashboard.settings.users.destroy', $user->id],
-                              'method' => 'DELETE',
-                              'onsubmit' => 'return ConfirmDelete()']) !!}
-                <button type="submit" name="btnDeleted">Delete</button>
-              {!! Form::close() !!}
+              <a href="#DeleteModal" data-displayDeleteModal="true"
+                        data-modalObject="Delete"
+                        data-modalMethod="DELETE"
+                        data-modalRoute="{{ URL::route('dashboard.settings.users.destroy', $user->id)}}">
+                        <button type="button" name="btnDeleted">Delete</button>
+              </a>
             @endif
           @endif
         </li>

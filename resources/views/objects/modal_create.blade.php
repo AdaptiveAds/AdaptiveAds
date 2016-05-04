@@ -8,7 +8,7 @@
     });
   </script>
   <div>
-    <a id="Close{{$object or 'object'}}Modal" href="#close" class="close">X</a>
+    <a id="Close{{$object or 'object'}}Modal" href="#close" class="close fa fa-times"></a>
     <h4>Create new {{$object or 'object'}}</h4>
     {!! Form::open(['route' => $route, 'method' => 'POST']) !!}
       <div class="modalDialogLeft">
@@ -22,6 +22,13 @@
         <br/>
         @include('objects/dropdown_departments', array('allowed_departments' => $allowed_departments))
       </div>
+      @if ($object == 'Advert')
+        <div class="modalDialogLeft">
+          <label>Assign Skin</label>
+          <br/>
+          @include('objects/dropdown_skins', array('skins' => $skins))
+        </div>
+      @endif
       <div class="clear"></div>
       <button type="submit" name="btnAdd{{$object or 'object'}}">Create</button>
     {!! Form::close() !!}

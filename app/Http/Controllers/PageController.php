@@ -96,7 +96,7 @@ class PageController extends Controller
       // Upload video 1
       $videoInput = Input::file('filPageVideo');
       if ($videoInput != null) {
-        $videoPath = Media::processMedia($videoInput, 'advert_video/');
+        $videoPath = Media::processMedia($videoInput, 'advert_videos/');
 
         // If we have a valid image then set the path in the database
         if ($videoPath != null) {
@@ -192,15 +192,13 @@ class PageController extends Controller
 
       $videoInput = Input::file('filPageVideo');
       if ($videoInput != null) {
-        $videoPath = Media::processMedia($videoInput, 'advert_video/');
+        $videoPath = Media::processMedia($videoInput, 'advert_videos/');
 
         // If we have a valid image then set the path in the database
         if ($videoPath != null) {
           $pageData->video_path = $videoPath;
         }
       }
-
-      $pageData->video_path = $request->input('txtPageVideo');
 
       $pageData->save();
 

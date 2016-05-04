@@ -3,7 +3,7 @@
 @section('modal_content')
 <div class="modal_content">
   <h4 name='heading'>{{$heading or 'Modal Purpose'}}</h4>
-  {!! Form::open(['url' => '', 'method' => 'POST']) !!}
+  {!! Form::open(['url' => '', 'method' => 'POST', 'name' => '$object + ModalForm']) !!}
     <ul>
       <li>
         <label>Playlist Name:</label>
@@ -17,7 +17,7 @@
         @if ($user->is_super_user)
           <li>
             <label for="chkIsGlobal">Is Global:</label>
-            <input type="checkbox" name="chkIsGlobal"/>
+            <input type="checkbox" name="chkIsGlobal" disabled/>
           </li>
         @endif
       @endif

@@ -8,7 +8,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Skin as Skin;
+use App\Helpers\Media;
 use Session;
+use Input;
 
 /**
   * Defines the CRUD methods for the SkinController
@@ -64,11 +66,24 @@ class SkinController extends Controller
     public function store(Request $request)
     {
       $txtSkinName = $request->input('txtSkinName');
-      $txtSkinClass = $request->input('txtSkinClass');
+      $hexSkinColor = $request->input('hexSkinColor');
 
       $skin = new Skin();
       $skin->name = $txtSkinName;
-      $skin->class_name = $txtSkinClass;
+
+      // Upload image 1
+      $imageInput = Input::file('filSkinImage');
+      if ($imageInput != null) {
+        $imagePath = Media::processMedia($imageInput, 'advert_skins/');
+
+        // If we have a valid image then set the path in the database
+        if ($imagePath != null) {
+          $skin->image_path = $imagePath;
+        }
+      }
+
+      $skin->hex_colour = $hexSkinColor;
+
       $skin->save();
 
       return redirect()->route('dashboard.settings.skins.index')
@@ -120,10 +135,23 @@ class SkinController extends Controller
                          ->with('message', 'Error: Skin not found');
 
       $txtSkinName = $request->input('txtSkinName');
-      $txtSkinClass = $request->input('txtSkinClass');
+      $hexSkinColor = $request->input('hexSkinColor');
 
       $skin->name = $txtSkinName;
-      $skin->class_name = $txtSkinClass;
+
+      // Upload image 1
+      $imageInput = Input::file('filSkinImage');
+      if ($imageInput != null) {
+        $imagePath = Media::processMedia($imageInput, 'advert_skins/');
+
+        // If we have a valid image then set the path in the database
+        if ($imagePath != null) {
+          $skin->image_path = $imagePath;
+        }
+      }
+
+      $skin->hex_colour = $hexSkinColor;
+
       $skin->save();
 
       return redirect()->route('dashboard.settings.skins.index')
@@ -144,10 +172,10 @@ class SkinController extends Controller
         return redirect()->route('dashboard.settings.skins.index')
                          ->with('message', 'Error: Skin not found');
 
-      $count = $skin->Departments()->count();
+      $count = $skin->Adverts()->count();
       if ($count != 0)
         return redirect()->route('dashboard.settings.skins.index')
-                         ->with('message', 'Unable to delete ' . $skin->name . ', as one or more departments require it.');
+                         ->with('message', 'Unable to delete ' . $skin->name . ', as one or more adverts require it.');
 
       $skin->delete();
 
@@ -167,7 +195,6 @@ class SkinController extends Controller
       $btnFindSkin = $request->input('btnFindSkin');
       $btnFindAll = $request->input('btnFindAll');
       $skinName = $request->input('txtSkinName');
-      $skinClass = $request->input('txtSkinClass');
 
       $skins = Skin::all();
 
@@ -185,23 +212,11 @@ class SkinController extends Controller
           });
         }
 
-        // If no results found filter by class name
-        if ($skinClass != null) {
-          if ($filtered->count() == 0) {
-            $filtered = $skins->filter(function($item) use ($skinClass) {
-              if (strpos($item->class_name, $skinClass) !== false) { // Get rough match
-                return true;
-              }
-            });
-          }
-        }
-
         $skins = $filtered;
 
       } else if (isset($btnFindAll)) {
 
         $skinName = null;
-        $skinClass = null;
 
       } else {
         abort(401, 'Un-authorised');

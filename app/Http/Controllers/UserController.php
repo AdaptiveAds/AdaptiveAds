@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Session;
+use Validator;
 
 use App\Department as Department;
 use App\User as User;
@@ -69,7 +70,37 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $data = $request->all();
+
+      $validator = Validator::make($data, [
+          'username' => 'required|max:255|unique:user',
+          'password' => 'required|confirmed|min:6',
+      ]);
+
+      // If we failed return the reason why
+      if ($validator->fails()) {
+        $message = 'Validation Error: Failed to create user';
+
+        if ($validator->errors()->count() > 0) {
+          foreach ($validator->errors()->all() as $valMessage) {
+            $message = $valMessage;
+          }
+        }
+
+        return redirect()->route('dashboard.settings.users.index')
+                         ->with('message', $message);
+      }
+
+      // Create user
+      User::create([
+          'username' => $data['username'],
+          'password' => bcrypt($data['password']),
+      ]);
+
+      // Success
+      return redirect()->route('dashboard.settings.users.index')
+                       ->with('message', 'User created successfully');
+
     }
 
     /**
@@ -99,7 +130,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -111,7 +142,31 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+
+        if ($user == null)
+          return redirect()->route('dashboard.settings.users.index')
+                           ->with('message', 'Error: User not found');
+
+        $data = $request->all();
+
+        $validator = Validator::make($data, [
+            'username' => 'required|max:255|unique:user',
+            'password' => 'required|confirmed|min:6',
+        ]);
+
+        if ($validator->fails()) {
+          return redirect()->route('dashboard.settings.users.index')
+                           ->with('message', 'Passwords did not match');
+        }
+
+        User::create([
+            'username' => $data['username'],
+            'password' => bcrypt($data['password']),
+        ]);
+
+        return redirect()->route('dashboard.settings.users.index')
+                         ->with('message', 'User created successfully');
     }
 
     /**
@@ -124,7 +179,7 @@ class UserController extends Controller
     {
       $requestUser = Session::get('user');
 
-      if ($requestUser->is_super_user)
+      if ($requestUser->is_super_user == false)
         abort(401, 'Unauthorized');
 
       $user = User::find($id);

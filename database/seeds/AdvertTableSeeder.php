@@ -19,22 +19,26 @@ class AdvertTableSeeder extends Seeder
       //Populate table
       $table->insert([
         'name' => 'Global',
-        'department_id' => 1 // Global
+        'department_id' => 1, // Global
+        'skin_id' => 1
       ]);
 
       $table->insert([
         'name' => 'Library Generic',
-        'department_id' => 2 // Library
+        'department_id' => 2, // Library
+        'skin_id' => 1
       ]);
 
       $table->insert([
         'name' => 'DegreePlus Generic',
-        'department_id' => 3 // DegreePlus
+        'department_id' => 3, // DegreePlus
+        'skin_id' => 1
       ]);
 
       $table->insert([
         'name' => 'Library Advert Two',
-        'department_id' => 2 // Library
+        'department_id' => 2, // Library
+        'skin_id' => 1
       ]);
     }
 }
