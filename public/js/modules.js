@@ -356,7 +356,8 @@ var ModalManager = (function() {
 
     //getData($(this).attr('data-userID'), $(this).attr('data-modalObject') + '();');
     $('[name="heading"]').html(mode + ' ' + object);
-    var form = $('[name="' + object + 'ModalForm"]');
+    //var form = $('[name="' + object + 'ModalForm"]');
+    var form = $('#' + object + 'Modal').find('form');
 
     form.attr('action', selected.attr('data-modalRoute'));
 
