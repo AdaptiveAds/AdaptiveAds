@@ -1,0 +1,34 @@
+@charset 'UTF-8';
+
+// --advertTemplates
+@import 'backend/adverts/advertTemplates/_advertTemplateLayouts.scss';
+
+@mixin maintain-ratio($ratio: 1 1) {
+  @if length($ratio) < 2 or length($ratio) > 2 {
+    @warn "$ratio must be a list with two values.";
+  }
+
+
+  $width: 100%;
+  $height: percentage(nth($ratio, 2) / nth($ratio, 1));
+
+  width: $width;
+  height: 0;
+  padding-bottom: $height;
+}
+
+body {
+    font-size:2em;
+    background-image: url("../images/bg.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    }
+
+body, #wrapper, #content {
+    padding:0;
+    margin:0;
+    }
+
+.clear {
+    clear:both;
+    }
