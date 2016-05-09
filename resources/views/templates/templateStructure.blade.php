@@ -43,8 +43,11 @@
 			</div>
 	</div>
   <div class="clear"></div>
-</div>
-<div id="footer">
-
-	<div class="clear"></div>
+	<div id="footer">
+		<ul>
+				<li>Term time hours: 8.30am – midnight</li>
+				<li>Term time weekends – Sat & Sun,  11am – 6pm</li>
+		</ul>
+		<div class="clear"></div>
+	</div>
 </div>
