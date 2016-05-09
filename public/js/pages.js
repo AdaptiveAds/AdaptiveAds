@@ -251,12 +251,12 @@ var Serve = (function(Page) {
       $('[name="pageName"]').html(currentAdvert.pages[index].page_data.heading);
       $('[name="pageContent"]').html(currentAdvert.pages[index].page_data.content);
 
-      //console.log(currentAdvert.skin);
-      if (currentAdvert.skin.image_path != "") {
-        $('body').css('background', 'url(../advert_skins/' + currentAdvert.skin.image_path + ')');
+      //console.log(currentAdvert.background);
+      if (currentAdvert.background.image_path != "") {
+        $('body').css('background', 'url(../advert_backgrounds/' + currentAdvert.background.image_path + ')');
         $('body').css('background-size', 'cover');
-      } else if (currentAdvert.skin.hex_colour != "") {
-        $('body').css('background', '#' + currentAdvert.skin.hex_colour);
+      } else if (currentAdvert.background.hex_colour != "") {
+        $('body').css('background', '#' + currentAdvert.background.hex_colour);
       }
 
       addImage();

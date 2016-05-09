@@ -90,14 +90,14 @@
 					<li name="liTemplates">
 						<a href="{{ URL::to('dashboard/settings/templates')}}">
 							<i class="fa fa-navicon">
-								<span>Templates</span>
+								<span>Page Templates</span>
 							</i>
 						</a>
 					</li>
-					<li name="liSkins">
-						<a href="{{ URL::to('dashboard/settings/skins')}}">
+					<li name="liBackgrounds">
+						<a href="{{ URL::to('dashboard/settings/backgrounds')}}">
 							<i class="fa fa-photo">
-								<span>Skins</span>
+								<span>Page Backgrounds</span>
 							</i>
 						</a>
 					</li>

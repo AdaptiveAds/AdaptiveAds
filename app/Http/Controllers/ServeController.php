@@ -73,7 +73,7 @@ class ServeController extends Controller
 
         $adverts = $this->applySchedule($screen->playlist->adverts);
 
-        //dd($adverts->Skin);
+        //dd($adverts->background);
 
         $activeTemplate = "template1"; // assign default
         if ($adverts->count() > 0) {
@@ -116,7 +116,7 @@ class ServeController extends Controller
     {
 
       return $screen->where('id', $screen->id)->with(array('playlist' => function($query) {
-          $query->with('adverts.skin');
+          $query->with('adverts.background');
           $query->with('adverts.advertSchedule.schedule');
           $query->with(array('adverts.pages' => function($query) {
             $query->where('deleted', 0);
@@ -134,7 +134,7 @@ class ServeController extends Controller
     {
       return Playlist::where('isGlobal', true)
                       ->with('adverts')
-                      ->with('adverts.skin')
+                      ->with('adverts.background')
                       ->with(array('adverts.pages' => function($query) {
                         $query->where('deleted', 0);
                         $query->with('pageData');

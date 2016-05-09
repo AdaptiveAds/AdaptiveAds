@@ -72,11 +72,11 @@ class Department extends Model
   }
 
   /**
-    * Gets the skin assigned to the department. Has one relationship
+    * Gets the background assigned to the department. Has one relationship
     * @return EloquentCollection
     */
-  public function Skin() {
-    return $this->hasOne(Skin::class, 'id', 'skin_id');
+  public function Background() {
+    return $this->hasOne(Background::class, 'id', 'background_id');
   }
 
   /**

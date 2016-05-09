@@ -24,9 +24,9 @@
       </div>
       @if ($object == 'Advert')
         <div class="modalDialogLeft">
-          <label>Assign Skin</label>
+          <label>Assign Background</label>
           <br/>
-          @include('objects/dropdown_skins', array('skins' => $skins))
+          @include('objects/dropdown_backgrounds', array('backgrounds' => $backgrounds))
         </div>
       @endif
       <div class="clear"></div>
