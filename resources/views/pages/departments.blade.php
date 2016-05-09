@@ -3,8 +3,9 @@
 @section('content')
 
 @include('objects/modal_departments', array('object' => 'Departments',
-																			'heading' => 'Create New Department',
-																			'skins' => $skins))
+																			'heading' => 'Create New Department'))
+
+@include('objects/modal_delete', array('object' => 'Delete'))
 
 <script>
 	$('document').ready(function() {
@@ -26,8 +27,6 @@
 			<ul>
 				<li>
 					<input type="name" name="txtDepartmentName" placeholder="Department Name..." value="{{ $departmentName or '' }}"/>
-					<label>Skins:</label>
-					@include('objects/dropdown_skins', array('skins' => $skins))
 
 					<!-- Only super suer can add departments -->
 					@if (isset($user))

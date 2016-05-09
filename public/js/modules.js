@@ -1,3 +1,4 @@
+
 var AppDebug = (function() {
 
   var debug = false;
@@ -310,12 +311,13 @@ var ModalManager = (function() {
       showLoading();
       clearInput();
 
-      var selected = $(this);
-      var id = selected.attr('data-userID');
-      var object = selected.attr('data-modalObject').toLowerCase();
+      setup($(this), "Edit");
+
+      var id = $(this).attr('data-userID');
+      var object = $(this).attr('data-modalObject');
 
       // Search for our function def
-      var fn = window["ModalManager"][object];
+      var fn = window["ModalManager"][object.toLowerCase()];
 
       // If it is not a function cancel the process
       if (typeof fn !== "function")
@@ -323,18 +325,6 @@ var ModalManager = (function() {
 
       // Go AJAX the data
       getData(id, fn);
-
-      //getData($(this).attr('data-userID'), $(this).attr('data-modalObject') + '();');
-      $('[name="heading"]').html('Edit ' + object);
-      var form = $('#' + object + 'Modal').find('form');
-      form.attr('action', selected.attr('data-modalRoute'));
-
-      if (selected.attr('data-modalMethod') == "PUT" || selected.attr('data-modalMethod') == "PATCH") {
-        form.attr('method', 'POST');
-        form.prepend('<input name="_method" type="hidden" value="PUT"/>');
-      } else {
-        form.attr('method', selected.attr('data-modalMethod') || 'POST');
-      }
     });
 
     $('[data-displayCreateModal="true"]').click(function() {
@@ -352,6 +342,34 @@ var ModalManager = (function() {
       form.children('input[name="_method"]').remove();
     });
 
+
+    $('[data-displayDeleteModal="true"]').click(function() {
+
+      setup($(this), 'Delete');
+
+    });
+
+  }
+
+  function setup(selected, mode) {
+    var object = selected.attr('data-modalObject');//.toLowerCase();
+
+    //getData($(this).attr('data-userID'), $(this).attr('data-modalObject') + '();');
+    $('[name="heading"]').html(mode + ' ' + object);
+    //var form = $('[name="' + object + 'ModalForm"]');
+    var form = $('#' + object + 'Modal').find('form');
+
+    form.attr('action', selected.attr('data-modalRoute'));
+
+    if (selected.attr('data-modalMethod') == "PUT" || selected.attr('data-modalMethod') == "PATCH") {
+      form.attr('method', 'POST');
+      form.prepend('<input name="_method" type="hidden" value="PUT"/>');
+    } else if (selected.attr('data-modalMethod') == "DELETE") {
+      form.attr('method', 'POST');
+      form.prepend('<input name="_method" type="hidden" value="DELETE"/>');
+    } else {
+      form.attr('method', selected.attr('data-modalMethod') || 'POST');
+    }
   }
 
   function clearInput() {
@@ -360,7 +378,7 @@ var ModalManager = (function() {
   }
 
   function users(data) {
-    $('[name="txtUsername"]').val(data.user.username);
+    $('[name="username"]').val(data.user.username);
 
     if (data.user.is_super_user) {
       $('[name="chkIsSuper"]').prop('checked', true);
@@ -401,11 +419,14 @@ var ModalManager = (function() {
   function advert(data) {
     $('[name="txtAdvertName"]').val(data.advert.name);
     $('[name="drpDepartments"]').val(data.advert.department_id);
+    $('[name="drpSkins"]').val(data.advert.skin_id);
   }
 
   function skins(data) {
     $('[name="txtSkinName"]').val(data.skin.name);
-    $('[name="txtSkinClass"]').val(data.skin.class_name);
+    $('[name="hexSkinColor"]').val(data.skin.hex_colour);
+    $('#colorSelector2 div').css('backgroundColor', '#' + data.skin.hex_colour);
+    $('#colorSelector2').ColorPickerSetColor(data.skin.hex_colour);
   }
 
   function getData(id, callback) {

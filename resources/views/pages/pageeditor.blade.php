@@ -81,16 +81,35 @@
 			<li><button type="submit" class="submit" name="btnDeletePage">Delete</button></li>
 			{!! Form::close() !!}
 
-			{!! Form::open(['route' => ['dashboard.advert.page.removeMedia', $page->advert_id, $page->id], 'method' => 'POST']) !!}
-			<input type="hidden" name="pageID" value="{{$page->id}}"/>
-				<input type="hidden" name="mediaType" value="image"/>
-				<li><button type="submit" name="btnRemoveImage">Remove Image</button></li>
-			{!! Form::close() !!}
+      <li>
+        <a href="{{ URL::route('dashboard.advert.{adID}.page.create', $page->advert_id) }}">
+          <button type="submit" name="btnNext">Next</button>
+        </a>
+      </li>
 
-			{!! Form::open(['route' => ['dashboard.advert.page.removeMedia', $page->advert_id, $page->id], 'method' => 'POST']) !!}
-				<input type="hidden" name="mediaType" value="video"/>
-				<li><button type="submit" name="btnRemoveVideo">Remove Video</button></li>
-			{!! Form::close() !!}
+      <li>
+        <a href="{{ URL::route('dashboard.advert.edit', $page->advert_id) }}">
+          <button type="submit" name="btnClose">Close</button>
+        </a>
+      </li>
+
+      @if (isset($pagedata))
+  			@if ($pageData->image_path != "")
+  				{!! Form::open(['route' => ['dashboard.advert.page.removeMedia', $page->advert_id, $page->id], 'method' => 'POST']) !!}
+  				<input type="hidden" name="pageID" value="{{$page->id}}"/>
+  					<input type="hidden" name="mediaType" value="image"/>
+  					<li><button type="submit" name="btnRemoveImage">Remove Image</button></li>
+  				{!! Form::close() !!}
+  			@endif
+
+  			@if ($pageData->video_path != "")
+  				{!! Form::open(['route' => ['dashboard.advert.page.removeMedia', $page->advert_id, $page->id], 'method' => 'POST']) !!}
+  					<input type="hidden" name="mediaType" value="video"/>
+  					<li><button type="submit" name="btnRemoveVideo">Remove Video</button></li>
+  				{!! Form::close() !!}
+  			@endif
+      @endif
+
 			<!-- ensures form fills parent div w3c validation compliant -->
 			<div class="clear"></div>
 		</ul>

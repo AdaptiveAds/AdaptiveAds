@@ -7,21 +7,7 @@
 		<ul>
 			<li>
 				<label>Username:</label>
-				<input title="username" type="username" name="txtUsername" placeholder="johnsmith" required>
-			</li>
-			<li class="twoinputs">
-				<label>Firstname:</label>
-				<input title="First Name" type="name" name="txtFirstname" placeholder="John" required>
-				<label class="smalllabel">Surname:</label>
-				<input title="Surname"  type="name" name="txtSurname" placeholder="Smith" required>
-			</li>
-			<li>
-				<label>Email:</label>
-				<input title="Enter Email" type="email" name="txtEmail" placeholder="johnsmith@domain.com" required>
-			</li>
-			<li>
-				<label>Re-type Emai:</label>
-				<input title="Confirm Email" type="email" name="txtEmailConfirm" placeholder="johnsmith@domain.com" required>
+				<input title="username" type="username" name="username" placeholder="johnsmith" required>
 			</li>
       @if (isset($user))
         @if ($user->is_super_user)
@@ -33,11 +19,11 @@
       @endif
 			<li>
 				<label>Password:</label>
-				<input title="Password"  type="name" name="txtPassword" placeholder="mypassword" required>
+				<input title="Password"  type="password" name="password" placeholder="Min 6 chars" required>
 			</li>
 			<li>
 				<label>Re-type Pass:</label>
-				<input title="Confirm Password"  type="password" name="txtPasswordConfirm" placeholder="mypassword" required>
+				<input title="Confirm Password"  type="password" name="password_confirmation" placeholder="Confirm" required>
 			</li>
 			<li>
 				<button type="submit" name="btnSave">Save</button>

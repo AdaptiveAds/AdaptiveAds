@@ -158,7 +158,7 @@ class LocationController extends Controller
       $count = $location->Screens->count();
       if ($count != 0)
         return redirect()->route('dashboard.settings.locations.index')
-                         ->with('message', 'Unable to delete ' . $location . ', as one or more screens depe');
+                         ->with('message', 'Unable to delete ' . $location . ', as one or more screens depend on it');
 
       $location->delete();
 

@@ -32,7 +32,6 @@ var Serve = (function(Page) {
   var durationIntervalHandle;
   var errorIntervalHandle;
 
-  var syncInterval = 10000;
   var syncAction = "";
   var syncToken = "";
   var syncScreen = 1;
@@ -138,14 +137,18 @@ var Serve = (function(Page) {
 
   function updateDurationInterval(duration) {
 
-    // If we already have an insterval stop it first
-    if (this.durationIntervalHandle !== undefined) {
-      IntervalManager.stop(this.durationIntervalHandle);
-    }
+    stopDurationInterval();
 
     // Create a new duration interval
     this.durationIntervalHandle = IntervalManager.add((duration * 1000), update_page);
 
+  }
+
+  function stopDurationInterval() {
+    // If we already have an insterval stop it first
+    if (this.durationIntervalHandle !== undefined) {
+      IntervalManager.stop(this.durationIntervalHandle);
+    }
   }
 
   // Data received update content
@@ -187,11 +190,22 @@ var Serve = (function(Page) {
       if (currentAdvert !== undefined && currentAdvert !== null) {
 
         if (currentAdvert.pages.length > 0) {
-          // Update the duration inverval for this page
-          updateDurationInterval(currentAdvert.pages[current_page_index].template.duration);
 
-          // Display page
-          current_page_index = showPage(currentAdvert, current_page_index);
+          if (currentAdvert.pages[current_page_index].page_data !== undefined) {
+            if (currentAdvert.pages[current_page_index].page_data.video_path !== "") {
+
+              stopDurationInterval();
+
+              current_page_index = showPage(currentAdvert, current_page_index);
+
+            } else {
+              // Update the duration inverval for this page
+              updateDurationInterval(currentAdvert.pages[current_page_index].template.duration);
+
+              // Display page
+              current_page_index = showPage(currentAdvert, current_page_index);
+            }
+          }
 
         }
 
@@ -229,19 +243,38 @@ var Serve = (function(Page) {
 
   function showPage(currentAdvert, index) {
 
-    // Update page
-    $('#serve_container').removeClass();
-    $('#serve_container').addClass(currentAdvert.pages[index].template.class_name);
-    $('[name="pageName"]').html(currentAdvert.pages[index].page_data.heading);
-    $('[name="pageContent"]').html(currentAdvert.pages[index].page_data.content);
+    if (currentAdvert.pages[index].page_data !== undefined) {
 
-    // Check if we have an image to display
-    if (currentAdvert.pages[index].page_data.image_path !== "") {
-      // Insert image
-      $('#serve_image').children('img').attr('src', '../advert_images/' + currentAdvert.pages[index].page_data.image_path);
-    } else {
-      // Insert logo image
-      $('#serve_image').children('img').attr('src', '/images/image_placeholder.png' + currentAdvert.pages[index].page_data.image_path);
+      // Update page
+      $('#serve_container').removeClass();
+      $('#serve_container').addClass(currentAdvert.pages[index].template.class_name);
+      $('[name="pageName"]').html(currentAdvert.pages[index].page_data.heading);
+      $('[name="pageContent"]').html(currentAdvert.pages[index].page_data.content);
+
+      //console.log(currentAdvert.skin);
+      if (currentAdvert.skin.image_path != "") {
+        $('body').css('background', 'url(../advert_skins/' + currentAdvert.skin.image_path + ')');
+        $('body').css('background-size', 'cover');
+      } else if (currentAdvert.skin.hex_colour != "") {
+        $('body').css('background', '#' + currentAdvert.skin.hex_colour);
+      }
+
+      addImage();
+
+      // Check if we have an image to display
+      if (currentAdvert.pages[index].page_data.image_path !== "") {
+        // Insert image
+        $('#serve_image').children('img').attr('src', '../advert_images/' + currentAdvert.pages[index].page_data.image_path);
+      } else {
+
+        if (currentAdvert.pages[index].page_data.video_path !== "") {
+          addVideo(updateDurationInterval);
+          $('#serve_image').children('source').attr('src', '../advert_videos/' + currentAdvert.pages[index].page_data.video_path);
+        } else {
+          // Insert logo image
+          $('#serve_image').children('img').attr('src', '/images/image_placeholder.png' + currentAdvert.pages[index].page_data.image_path);
+        }
+      }
     }
 
     return ++index;
@@ -263,6 +296,35 @@ var PageEditor = (function() {
     $('[name$="txtPageContent"]').keyup(function() {
       $('[name$="pageContent"]').html($(this).val());
     });
+
+    $('[name=filPageImage]').on('change', function(evt) {
+      if (this.value == "") {
+        $('[name=filPageVideo]').prop('disabled', false);
+      } else {
+        console.log("S");
+        $('[name=filPageVideo]').prop('disabled', true);
+      }
+    });
+
+    $('[name=filPageVideo]').on('change', function(evt) {
+      if (this.value == "") {
+        $('[name=filPageImage]').prop('disabled', false);
+      } else {
+        console.log("S");
+        $('[name=filPageImage]').prop('disabled', true);
+      }
+    });
+
+    $('li[data-btnTemplate="true"]').click(function() {
+			$( '#serve_container, li[data-btnTemplate="true"]' ).removeClass(); // Remove all classes
+			$(this).toggleClass('active'); // Toggle active
+
+			var newTemplate = $(this).data('template');
+			$('#serve_container').addClass(newTemplate);
+			$('input[name="txtTemplate"]').val($(this).data('templateid'));
+
+		});
+
 
   }
 

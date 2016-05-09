@@ -20,6 +20,8 @@
 
 <!-- preferred plan would be to compile the css from scss prior to uploading using propos -->
 	<link rel="stylesheet" 	href="{{ URL::asset('css/default.css') }}" type="text/css">
+	<link rel="stylesheet" 	href="{{ URL::asset('css/colorpicker.css') }}" type="text/css">
+	<link rel="stylesheet" 	href="{{ URL::asset('css/pickerlayout.css') }}" type="text/css">
 
 
 
@@ -27,6 +29,7 @@
 https://developers.google.com/recaptcha/docs/display -->
 	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 	<script src="{{ URL::asset('js/jquery-2.1.4.js') }}"></script>
+	<script src="{{ URL::asset('js/colorpicker.js') }}"></script>
 
 	<script type="text/javascript">
 	$('document').ready(function(){
@@ -88,16 +91,6 @@ https://developers.google.com/recaptcha/docs/display -->
 				}
 		  });
 		});
-
-		$('li[data-btnTemplate="true"]').click(function() {
-			$( '#serve_container, li[data-btnTemplate="true"]' ).removeClass(); // Remove all classes
-			$(this).toggleClass('active'); // Toggle active
-
-			$('#serve_container').addClass($(this).data('template'));
-			$('input[name="txtTemplate"]').val($(this).data('templateid'));
-
-		});
-
 
 	});
 	</script>

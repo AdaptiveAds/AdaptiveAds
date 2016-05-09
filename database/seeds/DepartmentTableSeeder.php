@@ -17,19 +17,16 @@ class DepartmentTableSeeder extends Seeder
       $table->delete();
 
       $table->insert([
-        'name' => 'Global_Marketing',
-        'skin_id' => 1
+        'name' => 'Global_Marketing'
       ]);
 
       //Populate table
       $table->insert([
-        'name' => 'Library Services',
-        'skin_id' => 1
+        'name' => 'Library Services'
       ]);
 
       $table->insert([
-        'name' => 'DegreePlus',
-        'skin_id' => 1
+        'name' => 'DegreePlus'
       ]);
     }
 }

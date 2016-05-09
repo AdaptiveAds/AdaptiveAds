@@ -46,7 +46,8 @@ class AdvsDb extends Migration
 			      $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name', 30);
-            $table->string('class_name', 30);
+            $table->string('image_path', 255);
+            $table->string('hex_colour', 6);
           });
 
         Schema::create('user', function (Blueprint $table) {
@@ -62,12 +63,6 @@ class AdvsDb extends Migration
 			      $table->engine = 'InnoDB';
             $table->increments('id');
           	$table->string('name', 40);
-            $table->integer('skin_id')->unsigned();
-            $table->foreign('skin_id')
-                	->references('id')
-                	->on('skin')
-                	->onUpdate('cascade')
-                	->onDelete('cascade');
           });
 
         Schema::create('location', function (Blueprint $table) {
@@ -93,6 +88,12 @@ class AdvsDb extends Migration
           			  ->on('department')
           		  	->onUpdate('cascade')
           		  	->onDelete('cascade');
+            $table->integer('skin_id')->unsigned();
+            $table->foreign('skin_id')
+                	->references('id')
+                	->on('skin')
+                	->onUpdate('cascade')
+                	->onDelete('cascade');
           });
 
         Schema::create('playlist', function (Blueprint $table) {

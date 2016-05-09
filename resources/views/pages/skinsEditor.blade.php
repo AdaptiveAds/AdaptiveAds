@@ -5,6 +5,8 @@
 @include('objects/modal_skins', array('object' => 'Skins',
 																			'heading' => 'Create New Skin'))
 
+@include('objects/modal_delete', array('object' => 'Delete'))
+
 <script>
 	$('document').ready(function() {
 		ModalManager.token = "{{ csrf_token() }}";
@@ -26,8 +28,6 @@
 					<li>
 						<input type="text" name="txtSkinName" placeholder="Skin Name...."
 									 value="{{ $searchItem or '' }}"/>
-	          <input type="text" name="txtSkinClass" placeholder="Skin Class...."
-	                        value="{{ $searchItem or '' }}"/>
 
 						<a href="#SkinsModal" data-displayCreateModal="true"
 																	data-modalObject="Skins"
