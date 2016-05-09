@@ -4,12 +4,15 @@
     @foreach($adverts as $advert)
       <!-- Only display select if we're adding to a playlist -->
       <li data-itemID="{{$advert->id}}" class="listItem" name="{{ $advert->name }}">
-        <a href="{{ URL::route('dashboard.advert.edit', $advert->id) }}">
+
 
           @if ($selectable == true)
             <input type="checkbox" data-selectableItem="true" name="chkSelectAdvert_{{ $advert->id }}"/>
           @endif
           <label for="chkSelectAdvert_">{{ $advert->name }}</label>
+
+        <a href="{{ URL::route('dashboard.advert.edit', $advert->id) }}">
+          <button type="button" name="btnConfig">Configure</button>
         </a>
 
         @if (isset($editMode))
