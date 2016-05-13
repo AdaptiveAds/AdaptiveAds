@@ -14,8 +14,8 @@
         @include('objects/dropdown_departments', array('allowed_departments' => $allowed_departments))
       </li>
       <li>
-        <label>Skin:</label>
-        @include('objects/dropdown_skins', array('skins' => $skins))
+        <label>Background:</label>
+        @include('objects/dropdown_backgrounds', array('backgrounds' => $backgrounds))
       </li>
       <li>
         <button type="submit" name="btnSave">Save</button>

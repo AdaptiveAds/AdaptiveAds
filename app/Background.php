@@ -5,18 +5,18 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 /**
-  * Defines the Skin model object
+  * Defines the Background model object
   * @author Josh Preece
   * @license REVIEW
   * @since 1.0
   */
-class Skin extends Model
+class Background extends Model
 {
   /**
    * The database table used by the model.
    * @var string
    */
-  protected $table = 'skin';
+  protected $table = 'background';
 
   /**
     * Flag to determine if timestamps should be used

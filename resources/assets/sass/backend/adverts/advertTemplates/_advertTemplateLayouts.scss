@@ -1,6 +1,6 @@
 @mixin template( 	$name,
-									$template-h1-backround-color,
-									$template-h1-color,
+									//$template-h1-backround-color,
+									//$template-h1-color,
 									$template-h1-display,
 
 									$template-img-float,
@@ -14,41 +14,51 @@
             )
   {
 
+
+
 #serve_container.#{$name} {
+content:#ffffff;
 width:100%;
-overflow:hidden;
 
 	#header {
 	width:100%;
 
 		h1 {
-		display:$template-h1-display;
-		background:$template-h1-backround-color;
-		color:$template-h1-color;}//h1
-		min-height:50px;
+		display:/*$template-h1-display*/ none;
+		margin:0; padding:0;
+		background:transparent;
+		padding:1%;
+		color:#ffffff;//h1
+		font-size:200%;
+		}
+
 	}//header
 
 	#serve_image {
 	display:$template-img-display;
 	float:$template-img-float;
 	width:$template-img-width;
+	text-align:center;
+	padding:5%;
 
-		img {width:100%}
+		img {width:100%;}
 	}
 
   #serve_text {
+	font-size:120%;
 	display:$template-text-display;
 	float:$template-text-float;
 	width:$template-text-width;
+	padding:5%;
 
 		p {text-align:	$template-text-p-align}
 	}
 
 }
- 	#footer {width:100%; background:#000000; display:block;  font-size:14px;
+ 	#footer {width:100%; background:#000000; display:block;  font-size:100%; position:fixed; bottom:0;
 
 		ul {margin:0; padding:0;
-			li {float:left; width:40%; text-align:left; padding:1%; color:#ffffff; font-weight:bold;
+			li {float:left; width:40%; text-align:left; padding:1%; color:#ffffff; font-weight:bold; list-style:none;
 
 				&:last-child {float:right; text-align:right;}
 			}
@@ -63,27 +73,27 @@ overflow:hidden;
 // TEXT: 							Float			| 	Width 			|			Align 		| 		Display
 
 @include template(	template1,
-										#000000, #ffffff, block,
-										left, 50%, initial,
-										right, 50%, justify, initial);
+										/*#000000, #ffffff,*/ block,
+										left, 20%, initial,
+										right, 60%, justify, initial);
 
 @include template(	template2,
-										#ffffff, #000000, block,
-										left, 100%, initial,
-										right, 50%, justify, none);
+										/*#ffffff, #000000,*/ block,
+										left, 90%, initial,
+										right, 40%, justify, none);
 
 @include template(	template3,
-										#000000, #ffffff, block,
-										right, 50%, initial,
-										left, 50%, justify, initial);
+										/*#000000, #ffffff,*/ block,
+										right, 40%, initial,
+										left, 40%, justify, initial);
 
 
 @include template(	template4,
-										#000000, #ffffff, block,
-										right, 50%, none,
-										left, 50%, justify, none);
+										/*#000000, #ffffff,*/ block,
+										right, 40%, none,
+										left, 40%, justify, none);
 
 @include template(	template5,
-										#ffffff, #000000, block,
+										/*#ffffff, #000000,*/ block,
 										left, 100%, initial,
 										right, 50%, justify, none);
