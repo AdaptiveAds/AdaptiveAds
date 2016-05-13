@@ -42,7 +42,7 @@ class AdvsDb extends Migration
             $table->boolean('anyTime');
           });
 
-        Schema::create('skin', function (Blueprint $table) {
+        Schema::create('background', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name', 30);
@@ -88,10 +88,10 @@ class AdvsDb extends Migration
           			  ->on('department')
           		  	->onUpdate('cascade')
           		  	->onDelete('cascade');
-            $table->integer('skin_id')->unsigned();
-            $table->foreign('skin_id')
+            $table->integer('background_id')->unsigned();
+            $table->foreign('background_id')
                 	->references('id')
-                	->on('skin')
+                	->on('background')
                 	->onUpdate('cascade')
                 	->onDelete('cascade');
           });
@@ -229,7 +229,7 @@ class AdvsDb extends Migration
                      'advert', 'location',
                      'department', 'display_timing',
                      'user',
-                     'skin', 'display_schedule',
+                     'background', 'display_schedule',
                      'page_data', 'template');
     }
 }

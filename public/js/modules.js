@@ -398,7 +398,7 @@ var ModalManager = (function() {
 
   function departments(data) {
     $('[name="txtDepartmentName"]').val(data.department.name);
-    $('[name="drpSkins"]').val(data.department.skin_id);
+    $('[name="drpBackgrounds"]').val(data.department.background_id);
   }
 
   function screens(data) {
@@ -419,14 +419,14 @@ var ModalManager = (function() {
   function advert(data) {
     $('[name="txtAdvertName"]').val(data.advert.name);
     $('[name="drpDepartments"]').val(data.advert.department_id);
-    $('[name="drpSkins"]').val(data.advert.skin_id);
+    $('[name="drpBackgrounds"]').val(data.advert.background_id);
   }
 
-  function skins(data) {
-    $('[name="txtSkinName"]').val(data.skin.name);
-    $('[name="hexSkinColor"]').val(data.skin.hex_colour);
-    $('#colorSelector2 div').css('backgroundColor', '#' + data.skin.hex_colour);
-    $('#colorSelector2').ColorPickerSetColor(data.skin.hex_colour);
+  function backgrounds(data) {
+    $('[name="txtBackgroundName"]').val(data.background.name);
+    $('[name="hexBackgroundColor"]').val(data.background.hex_colour);
+    $('#colorSelector2 div').css('backgroundColor', '#' + data.background.hex_colour);
+    $('#colorSelector2').ColorPickerSetColor(data.background.hex_colour);
   }
 
   function getData(id, callback) {
@@ -484,7 +484,7 @@ var ModalManager = (function() {
     screens: screens,
     playlist: playlist,
     advert: advert,
-    skins: skins
+    backgrounds: backgrounds
   };
 
 } ());

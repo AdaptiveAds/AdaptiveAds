@@ -65,9 +65,9 @@ Route::post('dashboard/settings/screens/filter', ['as' => 'dashboard.settings.sc
 Route::resource('dashboard/settings/templates', 'TemplateController');
 Route::post('dashboard/settings/templates/filter', ['as' => 'dashboard.settings.templates.filter', 'uses' => 'TemplateController@filter']);
 
-// Skins routes
-Route::resource('dashboard/settings/skins', 'SkinController');
-Route::post('dashboard/settings/skins/filter', ['as' => 'dashboard.settings.skins.filter', 'uses' => 'SkinController@filter']);
+// backgrounds routes
+Route::resource('dashboard/settings/backgrounds', 'BackgroundController');
+Route::post('dashboard/settings/backgrounds/filter', ['as' => 'dashboard.settings.backgrounds.filter', 'uses' => 'BackgroundController@filter']);
 
 // Privileges routes
 Route::resource('dashboard/settings/privileges', 'PrivilegeController');

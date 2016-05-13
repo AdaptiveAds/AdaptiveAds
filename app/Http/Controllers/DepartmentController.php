@@ -8,7 +8,6 @@ use Session;
 
 use App\Department as Department;
 use App\Playlist as Playlist;
-use App\Skin as Skin;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 

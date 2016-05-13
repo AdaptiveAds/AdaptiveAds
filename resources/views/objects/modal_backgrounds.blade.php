@@ -16,7 +16,7 @@
         },
         onChange: function (hsb, hex, rgb) {
         	$('#colorSelector2 div').css('backgroundColor', '#' + hex);
-        	$('input[name="hexSkinColor"]').val(hex);
+        	$('input[name="hexBackgroundColor"]').val(hex);
         }
       });
     });
@@ -25,16 +25,16 @@
   {!! Form::open(['url' => '', 'method' => 'POST', 'files' => 'true', 'name' => '$object + ModalForm']) !!}
     <ul>
       <li>
-        <label>Skin Name:</label>
-        <input type="text" name="txtSkinName" placeholder="Skin Name...."/>
+        <label>Background Name:</label>
+        <input type="text" name="txtBackgroundName" placeholder="Background Name...."/>
       </li>
       <li>
-        <label>Skin Image:</label>
-        <input type="file" name="filSkinImage" accept="image/*"/>
+        <label>Background Image:</label>
+        <input type="file" name="filBackgroundImage" accept="image/*"/>
       </li>
       <li>
-        <label>Skin Colour:</label>
-        <input type="hidden" name="hexSkinColor"/>
+        <label>Background Colour:</label>
+        <input type="hidden" name="hexBackgroundColor"/>
         <div id="colorSelector2">
           <div style="background-color: rgb(61, 61, 219);"></div>
         </div>
