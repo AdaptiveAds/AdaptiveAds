@@ -66,8 +66,8 @@ Route::resource('dashboard/settings/templates', 'TemplateController');
 Route::post('dashboard/settings/templates/filter', ['as' => 'dashboard.settings.templates.filter', 'uses' => 'TemplateController@filter']);
 
 // backgrounds routes
-Route::resource('dashboard/settings/backgrounds', 'backgroundController');
-Route::post('dashboard/settings/backgrounds/filter', ['as' => 'dashboard.settings.backgrounds.filter', 'uses' => 'backgroundController@filter']);
+Route::resource('dashboard/settings/backgrounds', 'BackgroundController');
+Route::post('dashboard/settings/backgrounds/filter', ['as' => 'dashboard.settings.backgrounds.filter', 'uses' => 'BackgroundController@filter']);
 
 // Privileges routes
 Route::resource('dashboard/settings/privileges', 'PrivilegeController');
