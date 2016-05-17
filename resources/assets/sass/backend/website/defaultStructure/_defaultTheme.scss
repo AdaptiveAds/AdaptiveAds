@@ -9,7 +9,9 @@
               $site-font-color,
               $site-background,
               $button-font-color,
-              $button-background-hover
+              $button-background-hover,
+              $button-font-color-hover,
+              $labelFontColor
             )
 
   {
@@ -22,38 +24,80 @@ body.font-theme-b {@extend %font-b;}
 body.font-theme-c {@extend %font-c;}
 
   body.#{$name} {
+    &.data-swatch-theme-b.font-theme-a div#wrapper div#content form#clientlogin ul li a:hover {color:#ffffff;}
+    &.data-swatch-theme-a #wrapper #top #swatches ul li.top-active i,
+    &.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active i {color:$site-font-color;}
     font-family:Helvetica, Arial, Sans-Serif;
     color:$site-font-color;
     background:$site-background;
     margin:0;
 
+    input, textarea, button, select {font-size:100%; color:#000000;}
+
   * {margin:0; padding:0; border:none; list-style:none; color:$site-font-color;}
+
+  ::-webkit-input-placeholder {color:#b3a69d;}
+  :-moz-placeholder {color:#b3a69d; opacity:0.6;}
+  ::-moz-placeholder {color:#b3a69d; opacity:0.6;}
+  :-ms-input-placeholder {color:#b3a69d;}
+
+  .clearable{
+    background: #fff url("../images/inputcross.png") no-repeat right -10px center;
+    border: 1px solid #999;
+    padding: 3px 18px 3px 4px;     /* Use the same right padding (18) in jQ! */
+    border-radius: 3px;
+    transition: background 0.4s;
+  }
+  .clearable.x  { background-position: right 5px center; } /* (jQ) Show icon */
+  .clearable.onX{ cursor: pointer; }              /* (jQ) hover cursor style */
+  .clearable::-ms-clear {display: none; width:0; height:0;} /* Remove IE default X */
+
 
   #wrapper {
   width:100%;
   margin:0 auto;
-  min-width:1325px;
   display:block;
 
+    label {
+    color:$labelFontColor;
+    }
+    input {
+  color: rgba(32, 78, 160, 1.0);
+    }
+
+    #clientlogin ul:last-child li a {display:block; color:$site-font-color;
+
+
+    &:hover { color:#2e92b1;}
+  }
+
     button {
-    box-shadow:none; border:1px solid $button-font-color; cursor:pointer;
+    box-shadow:none;
+    border:1px solid $button-font-color;
+    cursor:pointer;
+    color:$button-font-color;
 
       &:hover {
       background:$button-background-hover;
+      color:$button-font-color-hover;
+      border:1px solid $site-background;
       }//&hover
     }//button
 
     a, img, button, button:hover, div {
+      /*
     -o-transition:.5s;
     -ms-transition:.5s;
     -moz-transition:.5s;
     -webkit-transition:.5s;
     transition:.5s;
+    */
     }
 
       a {
       text-decoration:none; color:$button-font-color;
       cursor:pointer;
+      display:block;
 
           & img {opacity: 0.8; filter: alpha(opacity=80); /* For IE8 and earlier */
 
@@ -64,13 +108,12 @@ body.font-theme-c {@extend %font-c;}
       #top {
       width:100%;
       background:#1f6378;//dark blue;
-      color:#000000;
       display:block;
-
+      color:#ffffff;
         //used for swatches and font ID's
         %top-li {display:block; cursor:pointer; min-height:40px;
-          i {padding:20%;}
-          &.top-active {background:$site-background;}
+          i {padding:20%; color:#ffffff;}
+          &.top-active { background:$site-background;}
 
           &[data-theme="font-theme-a"] {font-size:16px;}
           &[data-theme="font-theme-b"] {font-size:20px;}
@@ -87,6 +130,10 @@ body.font-theme-c {@extend %font-c;}
             li {
             float:left;
             @extend %top-li;
+            color:#ffffff;
+
+            &.top-active {
+            }
 
             }
           }
@@ -119,8 +166,8 @@ body.font-theme-c {@extend %font-c;}
       float:left;
 
         img {
-        width:20%;
-        margin-left:5%;
+        width:80%;
+        margin-left:1%;
         }//img
 
         &:last-child {
@@ -128,27 +175,34 @@ body.font-theme-c {@extend %font-c;}
         padding-top:10px;
         }//last:child
 
-        nav {
-        width:auto;
-        float:right;
+      /*  nav {
+        width:100%;
+        float:left;
         padding:1%;
         font-size:100%;
         font-weight:bold;
+        text-align:center;
 
           ul {
           padding:0;
           margin:0;
 
-            li:first-child {
-              margin-left:10px;}
+            li:last-child {
+            margin-right:0;
+          }
 
             li {
               list-style:none;
               float:left;
+              margin-right:1%;
+              width:20%;
 
               a {
-              padding:2px 20px;
               text-decoration:none;
+              display:block;
+              padding:1%;
+
+              &:hover {background:orange;}
 
                 i {
                 .fa.fa-home {font-size:120%;}
@@ -161,6 +215,7 @@ body.font-theme-c {@extend %font-c;}
             }//close li
           }//close ul
         }//close nav
+        */
 
         #logo {
         text-align:left;
@@ -172,16 +227,16 @@ body.font-theme-c {@extend %font-c;}
         transition:none;
 
         & a {
-          & img {max-width:40%; padding:2%;}
+          & img {max-width:80%; padding:2%;}
           }
         }
       }//head
     }//close header
 
     #content {
-    min-width:1024px;
+    min-width:768px;
     width:98%;
-    margin:2% auto;
+    margin:0.5% auto;
     clear:both;
     display:block;
 
@@ -281,6 +336,17 @@ border:none;
 }//body
   }//close mixin
 
-@include theme(data-swatch-theme-a, #000000, #ffffff, red, yellow);
-@include theme(data-swatch-theme-b, #ffffff, #000000, pink, purple);
-@include theme(data-swatch-theme-c, orange, red, blue, green);
+//  $name,                      $site-font-color,          $site-background,    $button-font-color,
+//  $button-background-hover,   $button-font-color-hover,  $labelFontColor
+
+// Light
+@include theme(data-swatch-theme-a, #000000, #ffffff, #000000,
+              #000000, #ffffff, #000000);
+
+// Colour Blind
+@include theme(data-swatch-theme-b, #000000, #86a1aa , #000000,
+              #1f6378, #ffffff, #000000);
+
+// Black
+@include theme(data-swatch-theme-c, #ffffff, #000000, #000000,
+              #ffffff, #000000, #ffffff);

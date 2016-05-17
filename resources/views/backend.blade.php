@@ -8,6 +8,7 @@
 	<meta name="ICBM" 			content="51.8249770, -2.2693960" />
 	<meta name="viewport" 		content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
 
+
 	<link rel="icon" 		href="favicon.ico?v=2" type="image/x-icon" />
 	<link rel="home" 		href="/" />
 	<link rel="search" 		href="/component/search/" />
@@ -30,6 +31,8 @@ https://developers.google.com/recaptcha/docs/display -->
 	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 	<script src="{{ URL::asset('js/jquery-2.1.4.js') }}"></script>
 	<script src="{{ URL::asset('js/colorpicker.js') }}"></script>
+		<script src="{{ URL::asset('js/inputdelete.js') }}"></script>
+		<script src="{{ URL::asset('js/mobilemenu.js') }}"></script>
 
 	<script type="text/javascript">
 	$('document').ready(function(){
@@ -91,6 +94,10 @@ https://developers.google.com/recaptcha/docs/display -->
 				}
 		  });
 		});
+		$('.menu').on('click', function(e){
+		   $(this).toggleClass('active');
+		   $(this).siblings('.fullscreen-menu').toggleClass('active');
+		});
 
 	});
 	</script>
@@ -131,20 +138,38 @@ https://developers.google.com/recaptcha/docs/display -->
 				</div>
 			</div>
 			<div class="head">
-				<nav>
-					<ul>
-						<li><a href="{{ URL::to('dashboard')}}">Home</a></li>
-						<li><a href="{{ URL::to('team')}}">Team</a></li>
-						<li><a href="{{ URL::to('contact')}}">Contact</a></li>
-
-						<!-- Only show if user is logged in -->
-						@if (Auth::guest() == false)
-							<li><a name="lnkSignOut" href="{{ URL::to('logout') }}">Sign Out</a></li>
-						@else
-							<li><a name="lnkSignIn" href="{{ URL::to('login')}}">Sign In</a></li>
-						@endif
-					</ul>
-				</nav>
+				<div class="menu-container">
+					<div class="menu"></div>
+					<div class="fullscreen-menu">
+						<ul>
+							@if (Auth::guest() == false)
+								<li><a name="lnkHome" href="{{ URL::to('dashboard')}}">Home</a></li>
+							@else
+								<li><a name="lnkDashboard" href="{{ URL::to('home')}}">Home</a></li>
+							@endif
+							@if (Auth::guest() == false)
+								<li><a name="lnkFAQ" href="{{ URL::to('FAQ') }}">FAQ</a></li>
+							@else
+								<li><a name="lnkTeam" href="{{ URL::to('team')}}">Team</a></li>
+									<ul class="sub-nav">
+										<li><a name="lnkTeam" href="{{ URL::to('about')}}">About</a></li>
+									</ul>
+							@endif
+							<!-- Only show if user is logged in -->
+							@if (Auth::guest() == false)
+								<li><a name="lnkSupport" href="mailto:kanewhelan@glos.ac.uk?Subject=AdaptiveAds%20Support">Support</a></li>
+							@else
+								<li><a name="lnkContact" href="{{ URL::to('login')}}">Contact</a></li>
+							@endif
+							<!-- Only show if user is logged in -->
+							@if (Auth::guest() == false)
+								<li><a name="lnkSignOut" href="{{ URL::to('logout') }}">Sign Out</a></li>
+							@else
+								<li><a name="lnkSignIn" href="{{ URL::to('login')}}">Sign In</a></li>
+							@endif
+						</ul>
+					</div>
+				</div>
 			</div>
 		</header>
 
@@ -153,9 +178,10 @@ https://developers.google.com/recaptcha/docs/display -->
     <div class="clear"></div>
   <!-- close content -->
   </div>
-  <footer>
+<!--  <footer>
     &copy; <?php echo date('Y'); ?>. AdaptiveAds. All Rights Reserved.
   </footer>
+-->
 <!-- close wrapper -->
   </div>
 </body>
