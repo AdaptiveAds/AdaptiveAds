@@ -138,38 +138,35 @@ https://developers.google.com/recaptcha/docs/display -->
 				</div>
 			</div>
 			<div class="head">
-				<div class="menu-container">
-					<div class="menu"></div>
-					<div class="fullscreen-menu">
-						<ul>
-							@if (Auth::guest() == false)
-								<li><a name="lnkHome" href="{{ URL::to('dashboard')}}">Home</a></li>
-							@else
-								<li><a name="lnkDashboard" href="{{ URL::to('home')}}">Home</a></li>
-							@endif
-							@if (Auth::guest() == false)
-								<li><a name="lnkFAQ" href="{{ URL::to('FAQ') }}">FAQ</a></li>
-							@else
-								<li><a name="lnkTeam" href="{{ URL::to('team')}}">Team</a></li>
-									<ul class="sub-nav">
-										<li><a name="lnkTeam" href="{{ URL::to('about')}}">About</a></li>
-									</ul>
-							@endif
-							<!-- Only show if user is logged in -->
-							@if (Auth::guest() == false)
-								<li><a name="lnkSupport" href="mailto:kanewhelan@glos.ac.uk?Subject=AdaptiveAds%20Support">Support</a></li>
-							@else
-								<li><a name="lnkContact" href="{{ URL::to('login')}}">Contact</a></li>
-							@endif
-							<!-- Only show if user is logged in -->
-							@if (Auth::guest() == false)
-								<li><a name="lnkSignOut" href="{{ URL::to('logout') }}">Sign Out</a></li>
-							@else
-								<li><a name="lnkSignIn" href="{{ URL::to('login')}}">Sign In</a></li>
-							@endif
-						</ul>
-					</div>
-				</div>
+				<nav>
+					<ul>
+						@if (Auth::guest() == false)
+							<li><a name="lnkHome" href="{{ URL::to('dashboard')}}">Home</a></li>
+						@else
+							<li><a name="lnkDashboard" href="{{ URL::to('home')}}">Home</a></li>
+						@endif
+						@if (Auth::guest() == false)
+							<li><a name="lnkFAQ" href="{{ URL::to('FAQ') }}">FAQ</a></li>
+						@else
+							<li><a name="lnkTeam" href="{{ URL::to('team')}}">Team</a></li>
+								<ul class="sub-nav">
+									<li><a name="lnkTeam" href="{{ URL::to('about')}}">About</a></li>
+								</ul>
+						@endif
+						<!-- Only show if user is logged in -->
+						@if (Auth::guest() == false)
+							<li><a name="lnkSupport" href="mailto:kanewhelan@glos.ac.uk?Subject=AdaptiveAds%20Support">Support</a></li>
+						@else
+							<li><a name="lnkContact" href="{{ URL::to('login')}}">Contact</a></li>
+						@endif
+						<!-- Only show if user is logged in -->
+						@if (Auth::guest() == false)
+							<li><a name="lnkSignOut" href="{{ URL::to('logout') }}">Sign Out</a></li>
+						@else
+							<li><a name="lnkSignIn" href="{{ URL::to('login')}}">Sign In</a></li>
+						@endif
+					</ul>
+				</nav>
 			</div>
 		</header>
 
