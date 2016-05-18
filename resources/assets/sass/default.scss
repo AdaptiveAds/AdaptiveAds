@@ -1,13 +1,13 @@
 @charset 'UTF-8';
 
 // --defaultTheme
-@import 'backend/website/defaultTheme/_config.scss';
+@import 'backend/website/defaultTheme/_config.scss',
+        'backend/website/defaultTheme/_themeMenu.scss';
 
 //Adverts
 // --advertTemplates
 @import 'backend/adverts/advertTemplates/_advertTemplateLayouts.scss';
-// --departmentbackgrounds
-@import 'backend/adverts/departmentbackgrounds/_backgrounds.scss';
+
 
 // --defaultStructure
 @import 'backend/website/defaultStructure/_defaultTheme.scss',
