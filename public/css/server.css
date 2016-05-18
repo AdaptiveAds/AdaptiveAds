@@ -1,14 +1,14 @@
 @charset "UTF-8";
-/* line 19, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 20, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template1 {
   content: #ffffff;
   width: 100%;
 }
-/* line 23, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 24, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template1 #header {
   width: 100%;
 }
-/* line 26, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 27, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template1 #header h1 {
   display: none;
   margin: 0;
@@ -18,7 +18,7 @@
   color: #ffffff;
   font-size: 200%;
 }
-/* line 37, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 38, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template1 #serve_image {
   display: initial;
   float: left;
@@ -26,11 +26,11 @@
   text-align: center;
   padding: 5%;
 }
-/* line 44, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 45, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template1 #serve_image img {
   width: 100%;
 }
-/* line 47, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 48, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template1 #serve_text {
   font-size: 120%;
   display: initial;
@@ -38,12 +38,12 @@
   width: 60%;
   padding: 5%;
 }
-/* line 54, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 55, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template1 #serve_text p {
   text-align: justify;
 }
 
-/* line 58, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 59, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer {
   width: 100%;
   background: #000000;
@@ -52,12 +52,12 @@
   position: fixed;
   bottom: 0;
 }
-/* line 60, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 61, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer ul {
   margin: 0;
   padding: 0;
 }
-/* line 61, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 62, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer ul li {
   float: left;
   width: 40%;
@@ -67,22 +67,22 @@
   font-weight: bold;
   list-style: none;
 }
-/* line 63, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 64, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer ul li:last-child {
   float: right;
   text-align: right;
 }
 
-/* line 19, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 20, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template2 {
   content: #ffffff;
   width: 100%;
 }
-/* line 23, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 24, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template2 #header {
   width: 100%;
 }
-/* line 26, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 27, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template2 #header h1 {
   display: none;
   margin: 0;
@@ -92,7 +92,7 @@
   color: #ffffff;
   font-size: 200%;
 }
-/* line 37, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 38, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template2 #serve_image {
   display: initial;
   float: left;
@@ -100,11 +100,11 @@
   text-align: center;
   padding: 5%;
 }
-/* line 44, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 45, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template2 #serve_image img {
   width: 100%;
 }
-/* line 47, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 48, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template2 #serve_text {
   font-size: 120%;
   display: none;
@@ -112,12 +112,12 @@
   width: 40%;
   padding: 5%;
 }
-/* line 54, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 55, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template2 #serve_text p {
   text-align: justify;
 }
 
-/* line 58, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 59, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer {
   width: 100%;
   background: #000000;
@@ -126,12 +126,12 @@
   position: fixed;
   bottom: 0;
 }
-/* line 60, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 61, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer ul {
   margin: 0;
   padding: 0;
 }
-/* line 61, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 62, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer ul li {
   float: left;
   width: 40%;
@@ -141,22 +141,22 @@
   font-weight: bold;
   list-style: none;
 }
-/* line 63, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 64, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer ul li:last-child {
   float: right;
   text-align: right;
 }
 
-/* line 19, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 20, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template3 {
   content: #ffffff;
   width: 100%;
 }
-/* line 23, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 24, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template3 #header {
   width: 100%;
 }
-/* line 26, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 27, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template3 #header h1 {
   display: none;
   margin: 0;
@@ -166,7 +166,7 @@
   color: #ffffff;
   font-size: 200%;
 }
-/* line 37, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 38, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template3 #serve_image {
   display: initial;
   float: right;
@@ -174,11 +174,11 @@
   text-align: center;
   padding: 5%;
 }
-/* line 44, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 45, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template3 #serve_image img {
   width: 100%;
 }
-/* line 47, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 48, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template3 #serve_text {
   font-size: 120%;
   display: initial;
@@ -186,12 +186,12 @@
   width: 40%;
   padding: 5%;
 }
-/* line 54, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 55, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template3 #serve_text p {
   text-align: justify;
 }
 
-/* line 58, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 59, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer {
   width: 100%;
   background: #000000;
@@ -200,12 +200,12 @@
   position: fixed;
   bottom: 0;
 }
-/* line 60, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 61, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer ul {
   margin: 0;
   padding: 0;
 }
-/* line 61, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 62, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer ul li {
   float: left;
   width: 40%;
@@ -215,22 +215,22 @@
   font-weight: bold;
   list-style: none;
 }
-/* line 63, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 64, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer ul li:last-child {
   float: right;
   text-align: right;
 }
 
-/* line 19, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 20, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template4 {
   content: #ffffff;
   width: 100%;
 }
-/* line 23, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 24, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template4 #header {
   width: 100%;
 }
-/* line 26, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 27, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template4 #header h1 {
   display: none;
   margin: 0;
@@ -240,7 +240,7 @@
   color: #ffffff;
   font-size: 200%;
 }
-/* line 37, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 38, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template4 #serve_image {
   display: none;
   float: right;
@@ -248,11 +248,11 @@
   text-align: center;
   padding: 5%;
 }
-/* line 44, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 45, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template4 #serve_image img {
   width: 100%;
 }
-/* line 47, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 48, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template4 #serve_text {
   font-size: 120%;
   display: none;
@@ -260,12 +260,12 @@
   width: 40%;
   padding: 5%;
 }
-/* line 54, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 55, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template4 #serve_text p {
   text-align: justify;
 }
 
-/* line 58, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 59, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer {
   width: 100%;
   background: #000000;
@@ -274,12 +274,12 @@
   position: fixed;
   bottom: 0;
 }
-/* line 60, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 61, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer ul {
   margin: 0;
   padding: 0;
 }
-/* line 61, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 62, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer ul li {
   float: left;
   width: 40%;
@@ -289,22 +289,22 @@
   font-weight: bold;
   list-style: none;
 }
-/* line 63, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 64, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer ul li:last-child {
   float: right;
   text-align: right;
 }
 
-/* line 19, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 20, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template5 {
   content: #ffffff;
   width: 100%;
 }
-/* line 23, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 24, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template5 #header {
   width: 100%;
 }
-/* line 26, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 27, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template5 #header h1 {
   display: none;
   margin: 0;
@@ -314,7 +314,7 @@
   color: #ffffff;
   font-size: 200%;
 }
-/* line 37, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 38, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template5 #serve_image {
   display: initial;
   float: left;
@@ -322,11 +322,11 @@
   text-align: center;
   padding: 5%;
 }
-/* line 44, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 45, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template5 #serve_image img {
   width: 100%;
 }
-/* line 47, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 48, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template5 #serve_text {
   font-size: 120%;
   display: none;
@@ -334,12 +334,12 @@
   width: 50%;
   padding: 5%;
 }
-/* line 54, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 55, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template5 #serve_text p {
   text-align: justify;
 }
 
-/* line 58, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 59, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer {
   width: 100%;
   background: #000000;
@@ -348,12 +348,12 @@
   position: fixed;
   bottom: 0;
 }
-/* line 60, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 61, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer ul {
   margin: 0;
   padding: 0;
 }
-/* line 61, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 62, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer ul li {
   float: left;
   width: 40%;
@@ -363,7 +363,7 @@
   font-weight: bold;
   list-style: none;
 }
-/* line 63, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 64, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer ul li:last-child {
   float: right;
   text-align: right;

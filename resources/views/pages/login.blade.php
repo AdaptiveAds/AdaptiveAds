@@ -14,11 +14,11 @@
 		@endif
 		<li>
 			<label for="usermail">Username</label>
-			<input type="username" name="login" placeholder="Email or Username" required>
+			<input class="clearable" type="username" name="login" placeholder="s1208199" required>
 		</li>
 		<li>
 			<label for="password">Password</label>
-			<input type="password" name="password" placeholder="password" required>
+			<input  class="clearable" type="password" name="password" placeholder="password" required>
 		</li>
 		<button class="submit" type="submit">Login</button>
 	</ul>
