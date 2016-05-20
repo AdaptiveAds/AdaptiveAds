@@ -232,7 +232,7 @@ class AdvertController extends Controller
 
       $btnFindAdvert = $request->input('btnFindAdvert');
       $btnFindAll = $request->input('btnFindAll');
-      $advertName = $request->input('txtAdvertName');
+      $advertName = $request->input('txtAdvertSearch');
       $departmentID = $request->input('drpDepartments');
 
       $adverts = $this->getAllowedAdverts($user, $allowed_departments);

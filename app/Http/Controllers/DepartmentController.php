@@ -186,7 +186,7 @@ class DepartmentController extends Controller
       // Get all inputs from request
       $btnFindDepartment = $request->input('btnFindDepartment');
       $btnFindAll = $request->input('btnFindAll');
-      $departmentName = $request->input('txtDepartmentName');
+      $departmentName = $request->input('txtDepartmentSearch');
 
       $match_departments = Session::get('match_departments');
       $departments = Department::whereIn('id', $match_departments)->get();
