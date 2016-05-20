@@ -26,7 +26,7 @@
 			@endif
 			<ul>
 				<li>
-					<input type="name" name="txtDepartmentName" placeholder="Department Name..." value="{{ $departmentName or '' }}"/>
+					<input type="name" name="txtDepartmentSearch" placeholder="Department Name..." value="{{ $departmentName or '' }}"/>
 
 					<!-- Only super suer can add departments -->
 					@if (isset($user))
