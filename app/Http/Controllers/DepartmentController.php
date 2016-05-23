@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Session;
+use Validator;
 
 use App\Department as Department;
 use App\Playlist as Playlist;
+use App\Helpers\Helper as Helper;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -71,9 +73,14 @@ class DepartmentController extends Controller
     {
       $txtDepartmentName = $request->input('txtDepartmentName');
 
-      if (isset($txtDepartmentName) == false)
-        return redirect()->route('dashboard.settings.departments.index')
-                         ->with('message', 'Error: Please enter a department name');
+      $data = array(
+        'name' => $txtDepartmentName,
+      );
+
+      $reponse = $this->create_validator($data);
+      if (isset($reponse)) {
+        return $reponse;
+      }
 
       $department = new Department();
       $department->name = $txtDepartmentName;
@@ -130,6 +137,15 @@ class DepartmentController extends Controller
                          ->with('message', 'Error: Department not found');
 
       $txtDepartmentName = $request->input('txtDepartmentName');
+
+      $data = array(
+        'name' => $txtDepartmentName,
+      );
+
+      $reponse = $this->edit_validator($data);
+      if (isset($reponse)) {
+        return $reponse;
+      }
 
       $department->name = $txtDepartmentName;
       $department->save();
@@ -224,6 +240,36 @@ class DepartmentController extends Controller
       );
 
       return view('pages/departments', $data);
+
+    }
+
+    protected function create_validator(array $data) {
+
+      $validator = Validator::make($data, [
+        'name' => 'required|max:40|unique:department',
+      ]);
+
+      if ($validator->fails()) {
+        $message = Helper::getValidationErrors($validator);
+
+        return redirect()->route('dashboard.settings.departments.index')
+        ->with('message', $message);
+      }
+
+    }
+
+    protected function edit_validator(array $data) {
+
+      $validator = Validator::make($data, [
+        'name' => 'required|max:40'
+      ]);
+
+      if ($validator->fails()) {
+        $message = Helper::getValidationErrors($validator);
+
+        return redirect()->route('dashboard.settings.departments.index')
+        ->with('message', $message);
+      }
 
     }
 }

@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Session;
+use Validator;
 
 use App\Location as Location;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Helpers\Helper as Helper;
 
 /**
   * Defines the CRUD methods for the LocationController
@@ -77,12 +79,23 @@ class LocationController extends Controller
       $txtLocationName = $request->input('txtLocationName');
       $departmentID = $request->input('drpDepartments');
 
+      $data = array(
+        'name' => $txtLocationName,
+        'id' => $departmentID
+      );
+
+      $reponse = $this->create_validator($data);
+      if (isset($reponse)) {
+        return $reponse;
+      }
+
       $location = new Location();
       $location->name = $txtLocationName;
       $location->department_id = $departmentID;
       $location->save();
 
-      return redirect()->route('dashboard.settings.locations.index');
+      return redirect()->route('dashboard.settings.locations.index')
+                       ->with('message', 'Location created successfully');
     }
 
     /**
@@ -132,6 +145,16 @@ class LocationController extends Controller
 
       $txtLocationName = $request->input('txtLocationName');
       $departmentID = $request->input('drpDepartments');
+
+      $data = array(
+        'name' => $txtLocationName,
+        'id' => $departmentID
+      );
+
+      $reponse = $this->edit_validator($data);
+      if (isset($reponse)) {
+        return $reponse;
+      }
 
       $location->name = $txtLocationName;
       $location->department_id = $departmentID;
@@ -228,6 +251,38 @@ class LocationController extends Controller
       );
 
       return view('pages/locations', $data);
+
+    }
+
+    protected function create_validator(array $data) {
+
+      $validator = Validator::make($data, [
+        'name' => 'required|max:40|unique:location',
+        'id' => 'required|integer|exists:department'
+      ]);
+
+      if ($validator->fails()) {
+        $message = Helper::getValidationErrors($validator);
+
+        return redirect()->route('dashboard.settings.locations.index')
+        ->with('message', $message);
+      }
+
+    }
+
+    protected function edit_validator(array $data) {
+
+      $validator = Validator::make($data, [
+        'name' => 'required|max:40',
+        'id' => 'required|integer|exists:department'
+      ]);
+
+      if ($validator->fails()) {
+        $message = Helper::getValidationErrors($validator);
+
+        return redirect()->route('dashboard.settings.locations.index')
+        ->with('message', $message);
+      }
 
     }
 }

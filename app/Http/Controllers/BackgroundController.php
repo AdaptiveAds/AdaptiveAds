@@ -68,6 +68,15 @@ class BackgroundController extends Controller
       $txtbackgroundName = $request->input('txtBackgroundName');
       $hexbackgroundColor = $request->input('hexBackgroundColor');
 
+      $data = array(
+        'name' => $txtBackgroundName,
+      );
+
+      $reponse = $this->create_validator($data);
+      if (isset($reponse)) {
+        return $reponse;
+      }
+
       $background = new Background();
       $background->name = $txtbackgroundName;
 
@@ -136,6 +145,15 @@ class BackgroundController extends Controller
 
       $txtbackgroundName = $request->input('txtBackgroundName');
       $hexbackgroundColor = $request->input('hexBackgroundColor');
+
+      $data = array(
+        'name' => $txtBackgroundName,
+      );
+
+      $reponse = $this->edit_validator($data);
+      if (isset($reponse)) {
+        return $reponse;
+      }
 
       $background->name = $txtbackgroundName;
 
@@ -228,5 +246,35 @@ class BackgroundController extends Controller
       );
 
       return view('pages/backgroundsEditor', $data);
+    }
+
+    protected function create_validator(array $data) {
+
+      $validator = Validator::make($data, [
+        'name' => 'required|max:40|unique:background',
+      ]);
+
+      if ($validator->fails()) {
+        $message = Helper::getValidationErrors($validator);
+
+        return redirect()->route('dashboard.settings.backgrounds.index')
+        ->with('message', $message);
+      }
+
+    }
+
+    protected function edit_validator(array $data) {
+
+      $validator = Validator::make($data, [
+        'name' => 'required|max:40|unique:background'
+      ]);
+
+      if ($validator->fails()) {
+        $message = Helper::getValidationErrors($validator);
+
+        return redirect()->route('dashboard.settings.backgrounds.index')
+        ->with('message', $message);
+      }
+
     }
 }

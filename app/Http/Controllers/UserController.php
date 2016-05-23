@@ -9,6 +9,7 @@ use Validator;
 
 use App\Department as Department;
 use App\User as User;
+use App\Helpers\Helper as Helper;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -72,23 +73,9 @@ class UserController extends Controller
     {
       $data = $request->all();
 
-      $validator = Validator::make($data, [
-          'username' => 'required|max:255|unique:user',
-          'password' => 'required|confirmed|min:6',
-      ]);
-
-      // If we failed return the reason why
-      if ($validator->fails()) {
-        $message = 'Validation Error: Failed to create user';
-
-        if ($validator->errors()->count() > 0) {
-          foreach ($validator->errors()->all() as $valMessage) {
-            $message = $valMessage;
-          }
-        }
-
-        return redirect()->route('dashboard.settings.users.index')
-                         ->with('message', $message);
+      $reponse = $this->create_validator($data);
+      if (isset($reponse)) {
+        return $reponse;
       }
 
       // Create user
@@ -149,15 +136,11 @@ class UserController extends Controller
                            ->with('message', 'Error: User not found');
 
         $data = $request->all();
+        array_push($data, ['the_old_password' => $user->password]);
 
-        $validator = Validator::make($data, [
-            'username' => 'required|max:255|unique:user',
-            'password' => 'required|confirmed|min:6',
-        ]);
-
-        if ($validator->fails()) {
-          return redirect()->route('dashboard.settings.users.index')
-                           ->with('message', 'Passwords did not match');
+        $reponse = $this->edit_validator($data);
+        if (isset($reponse)) {
+          return $reponse;
         }
 
         User::create([
@@ -283,5 +266,37 @@ class UserController extends Controller
 
       // Only return unqiue users
       return $users->unique('id');
+    }
+
+    protected function create_validator(array $data) {
+
+      $validator = Validator::make($data, [
+        'username' => 'required|max:40|unique:user',
+        'password' => 'required|confirmed|min:6|max:60',
+      ]);
+
+      if ($validator->fails()) {
+        $message = Helper::getValidationErrors($validator);
+
+        return redirect()->route('dashboard.settings.users.index')
+        ->with('message', $message);
+      }
+
+    }
+
+    protected function edit_validator(array $data) {
+
+      $validator = Validator::make($data, [
+        'username' => 'required|max:40|unique:user',
+        'password' => 'confirmed|min:6|max:60',
+      ]);
+
+      if ($validator->fails()) {
+        $message = Helper::getValidationErrors($validator);
+
+        return redirect()->route('dashboard.settings.users.index')
+        ->with('message', $message);
+      }
+
     }
 }

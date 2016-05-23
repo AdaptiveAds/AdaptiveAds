@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 
 use Session;
 use Input;
+use Validator;
 
 use App\Template as Template;
+use App\Helpers\Helper as Helper;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -74,6 +76,17 @@ class TemplateController extends Controller
         $txtTemplateName = $request->input('txtTemplateName');
         $txtTemplateClass = $request->input('txtTemplateClass');
         $numTemplateDuration = $request->input('numTemplateDuration');
+
+        $data = array(
+          'name' => $txtTemplateName,
+          'class_name' => $txtTemplateClass,
+          'duration' => $numTemplateDuration,
+        );
+
+        $reponse = $this->create_validator($data);
+        if (isset($reponse)) {
+          return $reponse;
+        }
 
         $template = new Template();
         $template->name = $txtTemplateName;
@@ -145,6 +158,17 @@ class TemplateController extends Controller
         $txtTemplateName = $request->input('txtTemplateName');
         $txtTemplateClass = $request->input('txtTemplateClass');
         $numTemplateDuration = $request->input('numTemplateDuration');
+
+        $data = array(
+          'name' => $txtTemplateName,
+          'class_name' => $txtTemplateClass,
+          'duration' => $numTemplateDuration,
+        );
+
+        $reponse = $this->edit_validator($data);
+        if (isset($reponse)) {
+          return $reponse;
+        }
 
         $template->name = $txtTemplateName;
         $template->class_name = $txtTemplateClass;
@@ -267,7 +291,39 @@ class TemplateController extends Controller
 
     public function getAllowedTemplates($user, $allowed_departments) {
 
+    }
 
+    protected function create_validator(array $data) {
+
+      $validator = Validator::make($data, [
+        'name' => 'required|max:40|unique:template',
+        'class_name' => 'required|max:50|unique:template',
+        'duration' => 'required|integer|min:1',
+      ]);
+
+      if ($validator->fails()) {
+        $message = Helper::getValidationErrors($validator);
+
+        return redirect()->route('dashboard.settings.templates.index')
+        ->with('message', $message);
+      }
+
+    }
+
+    protected function edit_validator(array $data) {
+
+      $validator = Validator::make($data, [
+        'name' => 'required|max:40|unique:template',
+        'class_name' => 'required|max:50|unique:template',
+        'duration' => 'required|integer|min:1',
+      ]);
+
+      if ($validator->fails()) {
+        $message = Helper::getValidationErrors($validator);
+
+        return redirect()->route('dashboard.settings.templates.index')
+        ->with('message', $message);
+      }
 
     }
 }
