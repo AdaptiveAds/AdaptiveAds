@@ -20,7 +20,7 @@
 
 							<button type="submit" name="btnAddMode">Add Mode</button>
 
-							<button type="submit" name="btnFindAll">Find All</button>
+							<button type="submit" name="btnFindAll">Clear Filter</button>
 						{!! Form::close() !!}
 					</li>
 				</ul>

@@ -39,8 +39,8 @@
 						<button type="button" name="btnAddAdvert">Add</button>
 					</a>
 
-					<button name="btnFindAdvert" type="submit">Find</button>
-					<button name="btnFindAll" type="submit">Find All</button>
+					<button name="btnFindAdvert" type="submit">Filter</button>
+					<button name="btnFindAll" type="submit">Clear Filter</button>
 				</li>
 			</ul>
 		{!! Form::close() !!}

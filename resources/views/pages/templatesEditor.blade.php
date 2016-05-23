@@ -38,8 +38,8 @@
 																		data-modalRoute="{{ URL::route('dashboard.settings.templates.store') }}">
 							<button type="button" name="btnAddTemplate">Add</button>
 						</a>
-						<button type="submit" name="btnFindTemplate">Find</button>
-						<button type="submit" name="btnFindAll">Find All</button>
+						<button type="submit" name="btnFindTemplate">Filter</button>
+						<button type="submit" name="btnFindAll">Clear Filter</button>
 					</li>
 				</ul>
 			{!! Form::close() !!}
