@@ -20,48 +20,58 @@
 #serve_container.#{$name} {
 content:#ffffff;
 width:100%;
+height:100%;
 
 	#header {
 	width:100%;
+	min-height:150px;
 
 		h1 {
 		display:/*$template-h1-display*/ none;
 		margin:0; padding:0;
-		background:transparent;
-		padding:1%;
+		background:orange;
+		padding:0.5%;
 		color:#ffffff;//h1
-		font-size:200%;
+		font-size:110%;
 		}
 
 	}//header
+
+	.row {
+		height:80%;
+		padding:2%;
 
 	#serve_image {
 	display:$template-img-display;
 	float:$template-img-float;
 	width:$template-img-width;
 	text-align:center;
-	padding:5%;
 
-		img {width:100%;}
-	}
+
+		img {
+		max-width:100%;
+		max-height:auto;
+	  display: block;
+	  width: auto;
+	  height: auto;
+		}
+		}
 
   #serve_text {
-	font-size:120%;
+	font-size:90%;
 	display:$template-text-display;
 	float:$template-text-float;
 	width:$template-text-width;
-	padding:5%;
 
-		p {text-align:	$template-text-p-align}
+		p {text-align:	$template-text-p-align; margin:0;}
 	}
+}
 
 }
- 	#footer {width:100%; background:#000000; display:block;  font-size:100%; position:fixed; bottom:0;
+ 	#footer {width:100%; height:10%; background:#000000; display:block;  font-size:60%; position:fixed; bottom:0;
 
 		ul {margin:0; padding:0;
-			li {float:left; width:40%; text-align:left; padding:1%; color:#ffffff; font-weight:bold; list-style:none;
-
-				&:last-child {float:right; text-align:right;}
+			li {float:left; width:18%; text-align:left; padding:1%; color:#ffffff; font-weight:bold; list-style:none;
 			}
 		}
 	}//footer
@@ -75,8 +85,8 @@ width:100%;
 
 @include template(	template1,
 										/*#000000, #ffffff,*/ block,
-										left, 20%, initial,
-										right, 60%, justify, initial);
+										left, 23%, initial,
+										right, 75%, justify, initial);
 
 @include template(	template2,
 										/*#ffffff, #000000,*/ block,

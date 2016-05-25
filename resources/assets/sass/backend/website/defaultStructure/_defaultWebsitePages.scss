@@ -78,12 +78,24 @@ text-align:center; clear:both;
 /*      Page Editor        */
 /***************************/
 
+#identity {
+	.pagecontainer {
+		position:relative;
+		height:100%;
+		 #serve_container {
+			position:relative;
+			height:100%;
+			#footer {
+			position:absolute; bottom:0;}
+		 }
+	}
+}
 #left {
-float:left; width:70%; min-height:300px;
+float:left; width:70%;
 
 	/* Default Orientation - Landscape*/
 	.pagecontainer {
-	width:100%; min-height:400px; background:transparent; box-sizing:border-box;
+	width:100%; background:transparent; box-sizing:border-box;
 
 		ul.theme_select {
 
