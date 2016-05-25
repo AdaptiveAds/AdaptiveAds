@@ -4,6 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+  * Defines the AdvertSchedule model object
+  * @author Josh Preece
+  * @license REVIEW
+  * @since 1.0
+  */
 class AdvertSchedule extends Model
 {
   /**
