@@ -24,10 +24,10 @@ height:100%;
 
 	#header {
 	width:100%;
-	height:10%;
+	min-height:150px;
 
 		h1 {
-		display:$template-h1-display;
+		display:/*$template-h1-display*/ none;
 		margin:0; padding:0;
 		background:orange;
 		padding:0.5%;
@@ -39,25 +39,31 @@ height:100%;
 
 	.row {
 		height:80%;
+		padding:2%;
 
 	#serve_image {
 	display:$template-img-display;
 	float:$template-img-float;
 	width:$template-img-width;
 	text-align:center;
-	padding:0.5%;
 
-		img {width:100%;}
-	}
+
+		img {
+		max-width:100%;
+		max-height:auto;
+	  display: block;
+	  width: auto;
+	  height: auto;
+		}
+		}
 
   #serve_text {
 	font-size:90%;
 	display:$template-text-display;
 	float:$template-text-float;
 	width:$template-text-width;
-	padding:0.5% 1%;
 
-		p {text-align:	$template-text-p-align}
+		p {text-align:	$template-text-p-align; margin:0;}
 	}
 }
 
@@ -79,7 +85,7 @@ height:100%;
 
 @include template(	template1,
 										/*#000000, #ffffff,*/ block,
-										left, 20%, initial,
+										left, 23%, initial,
 										right, 75%, justify, initial);
 
 @include template(	template2,
