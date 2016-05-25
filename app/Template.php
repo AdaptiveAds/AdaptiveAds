@@ -24,6 +24,10 @@ class Template extends Model
       */
     public $timestamps = false;
 
+    /**
+      * Returns all pages that have this template assigned
+      * @returns EloquentCollection
+      */
     public function Pages() {
       return $this->hasMany(Page::class);
     }

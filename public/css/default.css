@@ -1,372 +1,535 @@
 @charset "UTF-8";
+/* Navigation Button
+-------------------------------------------------------- */
+/* line 5, ../../resources/assets/sass/backend/website/defaultTheme/_backThemeMenu.scss */
+.nav-button {
+  width: 50px;
+  height: 30px;
+  background: url("../images/menu-icon-large.png"), -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+  background: url("../images/menu-icon-large.png"), -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+  background: url("../images/menu-icon-large.png"), -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+  background: url("../images/menu-icon-large.png"), -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 21px, 100%;
+  cursor: pointer;
+  border: 0 none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.7) inset;
+  border-radius: 5px;
+  z-index: 999;
+  text-indent: -9999px;
+}
+
+/* line 23, ../../resources/assets/sass/backend/website/defaultTheme/_backThemeMenu.scss */
+.nav-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* line 26, ../../resources/assets/sass/backend/website/defaultTheme/_backThemeMenu.scss */
+.nav-button.open {
+  background: url("../images/close-icon-large.png"), -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+  background: url("../images/close-icon-large.png"), -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+  background: url("../images/close-icon-large.png"), -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+  background: url("../images/close-icon-large.png"), -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 21px, 100%;
+}
+
+/* Navigation Bar
+-------------------------------------------------------- */
+/* line 39, ../../resources/assets/sass/backend/website/defaultTheme/_backThemeMenu.scss */
+.primary-nav {
+  width: 100%;
+  float: none;
+  display: block;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  z-index: 998;
+  clear: both;
+}
+
+/* line 50, ../../resources/assets/sass/backend/website/defaultTheme/_backThemeMenu.scss */
+.primary-nav li {
+  float: left;
+  text-align: center;
+  display: none;
+  width: 25%;
+  font-family: Arial;
+  background: #1f6378;
+  color: #ffffff;
+}
+
+/* line 59, ../../resources/assets/sass/backend/website/defaultTheme/_backThemeMenu.scss */
+.primary-nav li a {
+  display: block;
+  width: 90%;
+  padding: 10px 5%;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* line 68, ../../resources/assets/sass/backend/website/defaultTheme/_backThemeMenu.scss */
+.primary-nav li a:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-top-color: transparent;
+}
+
+/* Toggle the navigation bar open  */
+/* line 77, ../../resources/assets/sass/backend/website/defaultTheme/_backThemeMenu.scss */
+.primary-nav.open {
+  height: auto;
+}
+
+/* line 80, ../../resources/assets/sass/backend/website/defaultTheme/_backThemeMenu.scss */
+.primary-nav.open li {
+  display: block;
+}
+
+/* Submenus – optional .parent class indicates dropdowns */
+/* line 86, ../../resources/assets/sass/backend/website/defaultTheme/_backThemeMenu.scss */
+.primary-nav > li:hover > a {
+  background: rgba(0, 0, 0, 0.5);
+  border-bottom-color: transparent;
+}
+
+/* line 90, ../../resources/assets/sass/backend/website/defaultTheme/_backThemeMenu.scss */
+.primary-nav li.parent > a:after {
+  content: "▼";
+  color: rgba(255, 255, 255, 0.5);
+  float: right;
+}
+
+/* line 95, ../../resources/assets/sass/backend/website/defaultTheme/_backThemeMenu.scss */
+.primary-nav li.parent > a:hover {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+/* line 98, ../../resources/assets/sass/backend/website/defaultTheme/_backThemeMenu.scss */
+.primary-nav li ul {
+  display: none;
+  background: rgba(0, 0, 0, 0.5);
+  border-top: 0 none;
+  padding: 0;
+}
+
+/* line 104, ../../resources/assets/sass/backend/website/defaultTheme/_backThemeMenu.scss */
+.primary-nav li ul a {
+  border: 0 none;
+  font-size: 12px;
+  padding: 10px 5%;
+  font-weight: normal;
+}
+
+/* line 110, ../../resources/assets/sass/backend/website/defaultTheme/_backThemeMenu.scss */
+.primary-nav li:hover ul {
+  display: block;
+  border-top: 0 none;
+}
+
 /* line 20, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template1 {
   content: #ffffff;
   width: 100%;
+  height: 100%;
 }
-/* line 24, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 25, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template1 #header {
   width: 100%;
+  min-height: 150px;
 }
-/* line 27, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 29, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template1 #header h1 {
   display: none;
   margin: 0;
   padding: 0;
-  background: transparent;
-  padding: 1%;
+  background: orange;
+  padding: 0.5%;
   color: #ffffff;
-  font-size: 200%;
+  font-size: 110%;
 }
-/* line 38, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
-#serve_container.template1 #serve_image {
+/* line 40, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+#serve_container.template1 .row {
+  height: 80%;
+  padding: 2%;
+}
+/* line 44, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+#serve_container.template1 .row #serve_image {
   display: initial;
   float: left;
-  width: 20%;
+  width: 23%;
   text-align: center;
-  padding: 5%;
 }
-/* line 45, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
-#serve_container.template1 #serve_image img {
-  width: 100%;
+/* line 51, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+#serve_container.template1 .row #serve_image img {
+  max-width: 100%;
+  max-height: auto;
+  display: block;
+  width: auto;
+  height: auto;
 }
-/* line 48, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
-#serve_container.template1 #serve_text {
-  font-size: 120%;
+/* line 60, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+#serve_container.template1 .row #serve_text {
+  font-size: 90%;
   display: initial;
   float: right;
-  width: 60%;
-  padding: 5%;
+  width: 75%;
 }
-/* line 55, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
-#serve_container.template1 #serve_text p {
+/* line 66, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+#serve_container.template1 .row #serve_text p {
   text-align: justify;
+  margin: 0;
 }
 
-/* line 59, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 71, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer {
   width: 100%;
+  height: 10%;
   background: #000000;
   display: block;
-  font-size: 100%;
+  font-size: 60%;
   position: fixed;
   bottom: 0;
 }
-/* line 61, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 73, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer ul {
   margin: 0;
   padding: 0;
 }
-/* line 62, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 74, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer ul li {
   float: left;
-  width: 40%;
+  width: 18%;
   text-align: left;
   padding: 1%;
   color: #ffffff;
   font-weight: bold;
   list-style: none;
-}
-/* line 64, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
-#footer ul li:last-child {
-  float: right;
-  text-align: right;
 }
 
 /* line 20, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template2 {
   content: #ffffff;
   width: 100%;
+  height: 100%;
 }
-/* line 24, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 25, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template2 #header {
   width: 100%;
+  min-height: 150px;
 }
-/* line 27, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 29, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template2 #header h1 {
   display: none;
   margin: 0;
   padding: 0;
-  background: transparent;
-  padding: 1%;
+  background: orange;
+  padding: 0.5%;
   color: #ffffff;
-  font-size: 200%;
+  font-size: 110%;
 }
-/* line 38, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
-#serve_container.template2 #serve_image {
+/* line 40, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+#serve_container.template2 .row {
+  height: 80%;
+  padding: 2%;
+}
+/* line 44, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+#serve_container.template2 .row #serve_image {
   display: initial;
   float: left;
   width: 90%;
   text-align: center;
-  padding: 5%;
 }
-/* line 45, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
-#serve_container.template2 #serve_image img {
-  width: 100%;
+/* line 51, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+#serve_container.template2 .row #serve_image img {
+  max-width: 100%;
+  max-height: auto;
+  display: block;
+  width: auto;
+  height: auto;
 }
-/* line 48, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
-#serve_container.template2 #serve_text {
-  font-size: 120%;
+/* line 60, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+#serve_container.template2 .row #serve_text {
+  font-size: 90%;
   display: none;
   float: right;
   width: 40%;
-  padding: 5%;
 }
-/* line 55, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
-#serve_container.template2 #serve_text p {
+/* line 66, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+#serve_container.template2 .row #serve_text p {
   text-align: justify;
+  margin: 0;
 }
 
-/* line 59, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 71, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer {
   width: 100%;
+  height: 10%;
   background: #000000;
   display: block;
-  font-size: 100%;
+  font-size: 60%;
   position: fixed;
   bottom: 0;
 }
-/* line 61, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 73, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer ul {
   margin: 0;
   padding: 0;
 }
-/* line 62, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 74, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer ul li {
   float: left;
-  width: 40%;
+  width: 18%;
   text-align: left;
   padding: 1%;
   color: #ffffff;
   font-weight: bold;
   list-style: none;
-}
-/* line 64, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
-#footer ul li:last-child {
-  float: right;
-  text-align: right;
 }
 
 /* line 20, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template3 {
   content: #ffffff;
   width: 100%;
+  height: 100%;
 }
-/* line 24, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 25, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template3 #header {
   width: 100%;
+  min-height: 150px;
 }
-/* line 27, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 29, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template3 #header h1 {
   display: none;
   margin: 0;
   padding: 0;
-  background: transparent;
-  padding: 1%;
+  background: orange;
+  padding: 0.5%;
   color: #ffffff;
-  font-size: 200%;
+  font-size: 110%;
 }
-/* line 38, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
-#serve_container.template3 #serve_image {
+/* line 40, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+#serve_container.template3 .row {
+  height: 80%;
+  padding: 2%;
+}
+/* line 44, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+#serve_container.template3 .row #serve_image {
   display: initial;
   float: right;
   width: 40%;
   text-align: center;
-  padding: 5%;
 }
-/* line 45, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
-#serve_container.template3 #serve_image img {
-  width: 100%;
+/* line 51, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+#serve_container.template3 .row #serve_image img {
+  max-width: 100%;
+  max-height: auto;
+  display: block;
+  width: auto;
+  height: auto;
 }
-/* line 48, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
-#serve_container.template3 #serve_text {
-  font-size: 120%;
+/* line 60, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+#serve_container.template3 .row #serve_text {
+  font-size: 90%;
   display: initial;
   float: left;
   width: 40%;
-  padding: 5%;
 }
-/* line 55, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
-#serve_container.template3 #serve_text p {
+/* line 66, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+#serve_container.template3 .row #serve_text p {
   text-align: justify;
+  margin: 0;
 }
 
-/* line 59, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 71, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer {
   width: 100%;
+  height: 10%;
   background: #000000;
   display: block;
-  font-size: 100%;
+  font-size: 60%;
   position: fixed;
   bottom: 0;
 }
-/* line 61, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 73, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer ul {
   margin: 0;
   padding: 0;
 }
-/* line 62, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 74, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer ul li {
   float: left;
-  width: 40%;
+  width: 18%;
   text-align: left;
   padding: 1%;
   color: #ffffff;
   font-weight: bold;
   list-style: none;
-}
-/* line 64, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
-#footer ul li:last-child {
-  float: right;
-  text-align: right;
 }
 
 /* line 20, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template4 {
   content: #ffffff;
   width: 100%;
+  height: 100%;
 }
-/* line 24, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 25, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template4 #header {
   width: 100%;
+  min-height: 150px;
 }
-/* line 27, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 29, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template4 #header h1 {
   display: none;
   margin: 0;
   padding: 0;
-  background: transparent;
-  padding: 1%;
+  background: orange;
+  padding: 0.5%;
   color: #ffffff;
-  font-size: 200%;
+  font-size: 110%;
 }
-/* line 38, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
-#serve_container.template4 #serve_image {
+/* line 40, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+#serve_container.template4 .row {
+  height: 80%;
+  padding: 2%;
+}
+/* line 44, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+#serve_container.template4 .row #serve_image {
   display: none;
   float: right;
   width: 40%;
   text-align: center;
-  padding: 5%;
 }
-/* line 45, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
-#serve_container.template4 #serve_image img {
-  width: 100%;
+/* line 51, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+#serve_container.template4 .row #serve_image img {
+  max-width: 100%;
+  max-height: auto;
+  display: block;
+  width: auto;
+  height: auto;
 }
-/* line 48, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
-#serve_container.template4 #serve_text {
-  font-size: 120%;
+/* line 60, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+#serve_container.template4 .row #serve_text {
+  font-size: 90%;
   display: none;
   float: left;
   width: 40%;
-  padding: 5%;
 }
-/* line 55, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
-#serve_container.template4 #serve_text p {
+/* line 66, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+#serve_container.template4 .row #serve_text p {
   text-align: justify;
+  margin: 0;
 }
 
-/* line 59, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 71, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer {
   width: 100%;
+  height: 10%;
   background: #000000;
   display: block;
-  font-size: 100%;
+  font-size: 60%;
   position: fixed;
   bottom: 0;
 }
-/* line 61, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 73, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer ul {
   margin: 0;
   padding: 0;
 }
-/* line 62, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 74, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer ul li {
   float: left;
-  width: 40%;
+  width: 18%;
   text-align: left;
   padding: 1%;
   color: #ffffff;
   font-weight: bold;
   list-style: none;
-}
-/* line 64, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
-#footer ul li:last-child {
-  float: right;
-  text-align: right;
 }
 
 /* line 20, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template5 {
   content: #ffffff;
   width: 100%;
+  height: 100%;
 }
-/* line 24, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 25, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template5 #header {
   width: 100%;
+  min-height: 150px;
 }
-/* line 27, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 29, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #serve_container.template5 #header h1 {
   display: none;
   margin: 0;
   padding: 0;
-  background: transparent;
-  padding: 1%;
+  background: orange;
+  padding: 0.5%;
   color: #ffffff;
-  font-size: 200%;
+  font-size: 110%;
 }
-/* line 38, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
-#serve_container.template5 #serve_image {
+/* line 40, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+#serve_container.template5 .row {
+  height: 80%;
+  padding: 2%;
+}
+/* line 44, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+#serve_container.template5 .row #serve_image {
   display: initial;
   float: left;
   width: 100%;
   text-align: center;
-  padding: 5%;
 }
-/* line 45, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
-#serve_container.template5 #serve_image img {
-  width: 100%;
+/* line 51, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+#serve_container.template5 .row #serve_image img {
+  max-width: 100%;
+  max-height: auto;
+  display: block;
+  width: auto;
+  height: auto;
 }
-/* line 48, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
-#serve_container.template5 #serve_text {
-  font-size: 120%;
+/* line 60, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+#serve_container.template5 .row #serve_text {
+  font-size: 90%;
   display: none;
   float: right;
   width: 50%;
-  padding: 5%;
 }
-/* line 55, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
-#serve_container.template5 #serve_text p {
+/* line 66, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+#serve_container.template5 .row #serve_text p {
   text-align: justify;
+  margin: 0;
 }
 
-/* line 59, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 71, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer {
   width: 100%;
+  height: 10%;
   background: #000000;
   display: block;
-  font-size: 100%;
+  font-size: 60%;
   position: fixed;
   bottom: 0;
 }
-/* line 61, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 73, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer ul {
   margin: 0;
   padding: 0;
 }
-/* line 62, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
+/* line 74, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
 #footer ul li {
   float: left;
-  width: 40%;
+  width: 18%;
   text-align: left;
   padding: 1%;
   color: #ffffff;
   font-weight: bold;
   list-style: none;
-}
-/* line 64, ../../resources/assets/sass/backend/adverts/advertTemplates/_advertTemplateLayouts.scss */
-#footer ul li:last-child {
-  float: right;
-  text-align: right;
 }
 
 /* classes */
@@ -413,7 +576,12 @@ body.font-theme-c {
   font-size: 140%;
 }
 
-/* line 26, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 22, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+html, body {
+  height: 100%;
+}
+
+/* line 28, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a {
   font-family: Helvetica, Arial, Sans-Serif;
   color: black;
@@ -424,20 +592,20 @@ body.data-swatch-theme-a {
   /* Remove IE default X */
   /* Generic */
 }
-/* line 27, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 29, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a.data-swatch-theme-b.font-theme-a div#wrapper div#content form#clientlogin ul li a:hover {
   color: #ffffff;
 }
-/* line 29, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 31, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a.data-swatch-theme-a #wrapper #top #swatches ul li.top-active i, body.data-swatch-theme-a.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active i {
   color: black;
 }
-/* line 35, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 37, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a input, body.data-swatch-theme-a textarea, body.data-swatch-theme-a button, body.data-swatch-theme-a select {
   font-size: 100%;
   color: #000000;
 }
-/* line 37, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 39, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a * {
   margin: 0;
   padding: 0;
@@ -445,25 +613,25 @@ body.data-swatch-theme-a * {
   list-style: none;
   color: black;
 }
-/* line 39, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 41, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a ::-webkit-input-placeholder {
   color: #b3a69d;
 }
-/* line 40, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 42, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a :-moz-placeholder {
   color: #b3a69d;
   opacity: 0.6;
 }
-/* line 41, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 43, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a ::-moz-placeholder {
   color: #b3a69d;
   opacity: 0.6;
 }
-/* line 42, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 44, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a :-ms-input-placeholder {
   color: #b3a69d;
 }
-/* line 44, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 46, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a .clearable {
   background: white url("../images/inputcross.png") no-repeat right -10px center;
   border: 1px solid #999;
@@ -472,57 +640,59 @@ body.data-swatch-theme-a .clearable {
   border-radius: 3px;
   transition: background 0.4s;
 }
-/* line 51, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 53, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a .clearable.x {
   background-position: right 5px center;
 }
-/* line 52, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 54, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a .clearable.onX {
   cursor: pointer;
 }
-/* line 53, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 55, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a .clearable::-ms-clear {
   display: none;
   width: 0;
   height: 0;
 }
-/* line 56, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 58, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper {
   width: 100%;
   margin: 0 auto;
   display: block;
+  background: url("../images/adaptiveBackground.png") no-repeat center center;
+  position: relative;
 }
-/* line 61, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 65, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper label {
   color: black;
 }
-/* line 64, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 68, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper input {
   color: #204ea0;
 }
-/* line 68, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 72, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper #clientlogin ul:last-child li a {
   display: block;
   color: black;
 }
-/* line 71, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 75, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper #clientlogin ul:last-child li a:hover {
   color: #2e92b1;
 }
-/* line 74, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 78, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper button {
   box-shadow: none;
   border: 1px solid black;
   cursor: pointer;
   color: black;
 }
-/* line 80, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 84, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper button:hover {
   background: black;
   color: white;
   border: 1px solid white;
 }
-/* line 87, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 91, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper a, body.data-swatch-theme-a #wrapper img, body.data-swatch-theme-a #wrapper button, body.data-swatch-theme-a #wrapper button:hover, body.data-swatch-theme-a #wrapper div {
   /*
 -o-transition:.5s;
@@ -532,160 +702,128 @@ body.data-swatch-theme-a #wrapper a, body.data-swatch-theme-a #wrapper img, body
 transition:.5s;
 */
 }
-/* line 97, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 101, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper a {
   text-decoration: none;
   color: black;
   cursor: pointer;
   display: block;
 }
-/* line 102, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 106, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper a img {
   opacity: 0.8;
   filter: alpha(opacity=80);
   /* For IE8 and earlier */
 }
-/* line 104, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 108, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper a img:hover {
   opacity: 1.0;
   filter: alpha(opacity=100);
   /* For IE8 and earlier */
 }
-/* line 108, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 112, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper #top {
   width: 100%;
-  background: #1f6378;
   display: block;
   color: #ffffff;
+  width: 100%;
+  background: #1d1f20;
 }
-/* line 114, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 119, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper #top #swatches ul li, body.data-swatch-theme-a #wrapper #top #fontsizing ul li, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li, body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li, body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li, body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li, body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li {
   display: block;
   cursor: pointer;
   min-height: 40px;
 }
-/* line 115, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 120, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper #top #swatches ul li i, body.data-swatch-theme-a #wrapper #top #fontsizing ul li i, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li i, body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li i, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li i, body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li i, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li i, body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li i, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li i, body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li i {
   padding: 20%;
   color: #ffffff;
 }
-/* line 116, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 121, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active {
   background: white;
 }
-/* line 118, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 123, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-a"] {
   font-size: 16px;
 }
-/* line 119, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 124, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-b"], body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-b"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-b"], body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-b"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-b"], body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-b"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-b"], body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-b"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-b"], body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-b"] {
   font-size: 20px;
 }
-/* line 120, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 125, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-c"], body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-c"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-c"], body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-c"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-c"], body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-c"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-c"], body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-c"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-c"], body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-c"] {
   font-size: 24px;
 }
-/* line 124, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 129, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper #top #swatches {
   float: left;
   width: 30%;
   font-size: 24px;
 }
-/* line 130, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 135, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper #top #swatches ul li {
   float: left;
   color: #ffffff;
 }
-/* line 144, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 149, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+body.data-swatch-theme-a #wrapper #top #mainmenu-btn {
+  margin: 0 auto;
+  display: table;
+  padding-top: 5px;
+}
+/* line 151, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+body.data-swatch-theme-a #wrapper #top #mainmenu-btn button {
+  border: none;
+}
+/* line 155, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+body.data-swatch-theme-a #wrapper #top #mainmenu-btn button:hover {
+  border: 1px solid transparent;
+  background: url("../images/menu-icon-large.png"), -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+  background: url("../images/menu-icon-large.png"), -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+  background: url("../images/menu-icon-large.png"), -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+  background: url("../images/menu-icon-large.png"), -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 21px, 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* line 167, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+body.data-swatch-theme-a #wrapper #top #mainmenu-btn a {
+  float: right;
+  padding: 0 10px;
+}
+/* line 170, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+body.data-swatch-theme-a #wrapper #top #mainmenu-btn a i {
+  color: #ffffff;
+  font-size: 28px;
+  border: 1px solid transparent;
+}
+/* line 173, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+body.data-swatch-theme-a #wrapper #top #mainmenu-btn a:hover {
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* line 180, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper #top #fontsizing {
   float: right;
   width: 30%;
 }
-/* line 150, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 186, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper #top #fontsizing ul li {
   line-height: 100%;
   float: right;
   color: #ffffff;
   overflow: hidden;
 }
-/* line 161, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 197, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper header#header {
   width: 100%;
   min-height: 45px;
   display: inline-block;
 }
-/* line 164, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
-body.data-swatch-theme-a #wrapper header#header .head {
-  width: 50%;
-  float: left;
-      /*  nav {
-        width:100%;
-        float:left;
-        padding:1%;
-        font-size:100%;
-        font-weight:bold;
-        text-align:center;
-
-          ul {
-          padding:0;
-          margin:0;
-
-            li:last-child {
-            margin-right:0;
-          }
-
-            li {
-              list-style:none;
-              float:left;
-              margin-right:1%;
-              width:20%;
-
-              a {
-              text-decoration:none;
-              display:block;
-              padding:1%;
-
-              &:hover {background:orange;}
-
-                i {
-                .fa.fa-home {font-size:120%;}
-                }// close i
-
-                img {
-                width:100%;
-                }//close img
-              }// close 'a'
-            }//close li
-          }//close ul
-        }//close nav
-        */
-}
-/* line 168, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
-body.data-swatch-theme-a #wrapper header#header .head img {
-  width: 80%;
-  margin-left: 1%;
-}
-/* line 173, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
-body.data-swatch-theme-a #wrapper header#header .head:last-child {
-  float: right;
-  padding-top: 10px;
-}
-/* line 220, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
-body.data-swatch-theme-a #wrapper header#header .head #logo {
-  text-align: left;
-  float: left;
-  display: block;
-  width: auto;
-  margin: 0 auto;
-  width: 40%;
-  transition: none;
-}
-/* line 230, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
-body.data-swatch-theme-a #wrapper header#header .head #logo a img {
-  max-width: 80%;
-  padding: 2%;
-}
-/* line 236, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 203, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper #content {
   min-width: 768px;
   width: 98%;
@@ -693,48 +831,48 @@ body.data-swatch-theme-a #wrapper #content {
   clear: both;
   display: block;
 }
-/* line 246, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 213, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper #content a #largeArea {
   width: 100%;
   height: 500px;
   margin: 0 auto;
   display: block;
 }
-/* line 255, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 223, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper .settings {
   width: 100%;
   margin: 0 auto;
   background: transparent;
 }
-/* line 260, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 228, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper .settings h4 {
   font-size: 110%;
 }
-/* line 268, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 236, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper .settings .row {
   width: 100%;
 }
-/* line 271, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 239, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper .settings .row form {
   margin-bottom: 5px;
   color: black;
 }
-/* line 281, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 249, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper .settings .row form :first-child ul li {
   border: none;
 }
-/* line 287, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 255, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper .settings .row form ul {
   padding: 0;
   margin: 0;
 }
-/* line 291, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 259, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper .settings .row form ul li {
   border: 1px solid #000000;
   list-style: outside none none;
   margin-bottom: 5px;
 }
-/* line 301, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 269, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a #wrapper footer {
   width: 100%;
   margin: 0 auto;
@@ -745,7 +883,7 @@ body.data-swatch-theme-a #wrapper footer {
   right: 2px;
   font-size: 110%;
 }
-/* line 318, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 286, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a input {
   border: none;
   box-shadow: none;
@@ -754,11 +892,11 @@ body.data-swatch-theme-a input {
   margin: 0;
   padding: 4px;
 }
-/* line 327, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 295, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a form {
   border: none;
 }
-/* line 330, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 298, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-a form h3 {
   padding-bottom: 8px;
 }
@@ -778,7 +916,12 @@ body.font-theme-c {
   font-size: 140%;
 }
 
-/* line 26, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 22, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+html, body {
+  height: 100%;
+}
+
+/* line 28, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b {
   font-family: Helvetica, Arial, Sans-Serif;
   color: black;
@@ -789,20 +932,20 @@ body.data-swatch-theme-b {
   /* Remove IE default X */
   /* Generic */
 }
-/* line 27, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 29, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b.data-swatch-theme-b.font-theme-a div#wrapper div#content form#clientlogin ul li a:hover {
   color: #ffffff;
 }
-/* line 29, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 31, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b.data-swatch-theme-a #wrapper #top #swatches ul li.top-active i, body.data-swatch-theme-b.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active i {
   color: black;
 }
-/* line 35, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 37, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b input, body.data-swatch-theme-b textarea, body.data-swatch-theme-b button, body.data-swatch-theme-b select {
   font-size: 100%;
   color: #000000;
 }
-/* line 37, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 39, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b * {
   margin: 0;
   padding: 0;
@@ -810,25 +953,25 @@ body.data-swatch-theme-b * {
   list-style: none;
   color: black;
 }
-/* line 39, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 41, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b ::-webkit-input-placeholder {
   color: #b3a69d;
 }
-/* line 40, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 42, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b :-moz-placeholder {
   color: #b3a69d;
   opacity: 0.6;
 }
-/* line 41, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 43, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b ::-moz-placeholder {
   color: #b3a69d;
   opacity: 0.6;
 }
-/* line 42, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 44, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b :-ms-input-placeholder {
   color: #b3a69d;
 }
-/* line 44, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 46, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b .clearable {
   background: white url("../images/inputcross.png") no-repeat right -10px center;
   border: 1px solid #999;
@@ -837,57 +980,59 @@ body.data-swatch-theme-b .clearable {
   border-radius: 3px;
   transition: background 0.4s;
 }
-/* line 51, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 53, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b .clearable.x {
   background-position: right 5px center;
 }
-/* line 52, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 54, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b .clearable.onX {
   cursor: pointer;
 }
-/* line 53, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 55, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b .clearable::-ms-clear {
   display: none;
   width: 0;
   height: 0;
 }
-/* line 56, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 58, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b #wrapper {
   width: 100%;
   margin: 0 auto;
   display: block;
+  background: url("../images/adaptiveBackground.png") no-repeat center center;
+  position: relative;
 }
-/* line 61, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 65, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b #wrapper label {
   color: black;
 }
-/* line 64, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 68, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b #wrapper input {
   color: #204ea0;
 }
-/* line 68, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 72, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b #wrapper #clientlogin ul:last-child li a {
   display: block;
   color: black;
 }
-/* line 71, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 75, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b #wrapper #clientlogin ul:last-child li a:hover {
   color: #2e92b1;
 }
-/* line 74, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 78, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b #wrapper button {
   box-shadow: none;
   border: 1px solid black;
   cursor: pointer;
   color: black;
 }
-/* line 80, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 84, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b #wrapper button:hover {
   background: #1f6378;
   color: white;
   border: 1px solid #86a1aa;
 }
-/* line 87, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 91, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b #wrapper a, body.data-swatch-theme-b #wrapper img, body.data-swatch-theme-b #wrapper button, body.data-swatch-theme-b #wrapper button:hover, body.data-swatch-theme-b #wrapper div {
   /*
 -o-transition:.5s;
@@ -897,160 +1042,128 @@ body.data-swatch-theme-b #wrapper a, body.data-swatch-theme-b #wrapper img, body
 transition:.5s;
 */
 }
-/* line 97, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 101, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b #wrapper a {
   text-decoration: none;
   color: black;
   cursor: pointer;
   display: block;
 }
-/* line 102, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 106, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b #wrapper a img {
   opacity: 0.8;
   filter: alpha(opacity=80);
   /* For IE8 and earlier */
 }
-/* line 104, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 108, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b #wrapper a img:hover {
   opacity: 1.0;
   filter: alpha(opacity=100);
   /* For IE8 and earlier */
 }
-/* line 108, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 112, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b #wrapper #top {
   width: 100%;
-  background: #1f6378;
   display: block;
   color: #ffffff;
+  width: 100%;
+  background: #1d1f20;
 }
-/* line 114, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 119, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li, body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li, body.data-swatch-theme-b #wrapper #top #swatches ul li, body.data-swatch-theme-b #wrapper #top #fontsizing ul li, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li {
   display: block;
   cursor: pointer;
   min-height: 40px;
 }
-/* line 115, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 120, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li i, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li i, body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li i, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li i, body.data-swatch-theme-b #wrapper #top #swatches ul li i, body.data-swatch-theme-b #wrapper #top #fontsizing ul li i, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li i, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li i, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li i, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li i {
   padding: 20%;
   color: #ffffff;
 }
-/* line 116, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 121, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-b #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-b #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li.top-active {
   background: #86a1aa;
 }
-/* line 118, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 123, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-a"] {
   font-size: 16px;
 }
-/* line 119, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 124, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-b"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-b"], body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-b"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-b"], body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-b"], body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-b"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-b"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-b"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-b"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-b"] {
   font-size: 20px;
 }
-/* line 120, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 125, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-c"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-c"], body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-c"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-c"], body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-c"], body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-c"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-c"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-c"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-c"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-c"] {
   font-size: 24px;
 }
-/* line 124, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 129, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b #wrapper #top #swatches {
   float: left;
   width: 30%;
   font-size: 24px;
 }
-/* line 130, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 135, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b #wrapper #top #swatches ul li {
   float: left;
   color: #ffffff;
 }
-/* line 144, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 149, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+body.data-swatch-theme-b #wrapper #top #mainmenu-btn {
+  margin: 0 auto;
+  display: table;
+  padding-top: 5px;
+}
+/* line 151, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+body.data-swatch-theme-b #wrapper #top #mainmenu-btn button {
+  border: none;
+}
+/* line 155, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+body.data-swatch-theme-b #wrapper #top #mainmenu-btn button:hover {
+  border: 1px solid transparent;
+  background: url("../images/menu-icon-large.png"), -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+  background: url("../images/menu-icon-large.png"), -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+  background: url("../images/menu-icon-large.png"), -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+  background: url("../images/menu-icon-large.png"), -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 21px, 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* line 167, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+body.data-swatch-theme-b #wrapper #top #mainmenu-btn a {
+  float: right;
+  padding: 0 10px;
+}
+/* line 170, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+body.data-swatch-theme-b #wrapper #top #mainmenu-btn a i {
+  color: #ffffff;
+  font-size: 28px;
+  border: 1px solid transparent;
+}
+/* line 173, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+body.data-swatch-theme-b #wrapper #top #mainmenu-btn a:hover {
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* line 180, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b #wrapper #top #fontsizing {
   float: right;
   width: 30%;
 }
-/* line 150, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 186, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b #wrapper #top #fontsizing ul li {
   line-height: 100%;
   float: right;
   color: #ffffff;
   overflow: hidden;
 }
-/* line 161, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 197, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b #wrapper header#header {
   width: 100%;
   min-height: 45px;
   display: inline-block;
 }
-/* line 164, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
-body.data-swatch-theme-b #wrapper header#header .head {
-  width: 50%;
-  float: left;
-      /*  nav {
-        width:100%;
-        float:left;
-        padding:1%;
-        font-size:100%;
-        font-weight:bold;
-        text-align:center;
-
-          ul {
-          padding:0;
-          margin:0;
-
-            li:last-child {
-            margin-right:0;
-          }
-
-            li {
-              list-style:none;
-              float:left;
-              margin-right:1%;
-              width:20%;
-
-              a {
-              text-decoration:none;
-              display:block;
-              padding:1%;
-
-              &:hover {background:orange;}
-
-                i {
-                .fa.fa-home {font-size:120%;}
-                }// close i
-
-                img {
-                width:100%;
-                }//close img
-              }// close 'a'
-            }//close li
-          }//close ul
-        }//close nav
-        */
-}
-/* line 168, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
-body.data-swatch-theme-b #wrapper header#header .head img {
-  width: 80%;
-  margin-left: 1%;
-}
-/* line 173, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
-body.data-swatch-theme-b #wrapper header#header .head:last-child {
-  float: right;
-  padding-top: 10px;
-}
-/* line 220, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
-body.data-swatch-theme-b #wrapper header#header .head #logo {
-  text-align: left;
-  float: left;
-  display: block;
-  width: auto;
-  margin: 0 auto;
-  width: 40%;
-  transition: none;
-}
-/* line 230, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
-body.data-swatch-theme-b #wrapper header#header .head #logo a img {
-  max-width: 80%;
-  padding: 2%;
-}
-/* line 236, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 203, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b #wrapper #content {
   min-width: 768px;
   width: 98%;
@@ -1058,48 +1171,48 @@ body.data-swatch-theme-b #wrapper #content {
   clear: both;
   display: block;
 }
-/* line 246, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 213, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b #wrapper #content a #largeArea {
   width: 100%;
   height: 500px;
   margin: 0 auto;
   display: block;
 }
-/* line 255, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 223, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b #wrapper .settings {
   width: 100%;
   margin: 0 auto;
   background: transparent;
 }
-/* line 260, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 228, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b #wrapper .settings h4 {
   font-size: 110%;
 }
-/* line 268, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 236, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b #wrapper .settings .row {
   width: 100%;
 }
-/* line 271, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 239, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b #wrapper .settings .row form {
   margin-bottom: 5px;
   color: black;
 }
-/* line 281, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 249, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b #wrapper .settings .row form :first-child ul li {
   border: none;
 }
-/* line 287, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 255, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b #wrapper .settings .row form ul {
   padding: 0;
   margin: 0;
 }
-/* line 291, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 259, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b #wrapper .settings .row form ul li {
   border: 1px solid #000000;
   list-style: outside none none;
   margin-bottom: 5px;
 }
-/* line 301, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 269, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b #wrapper footer {
   width: 100%;
   margin: 0 auto;
@@ -1110,7 +1223,7 @@ body.data-swatch-theme-b #wrapper footer {
   right: 2px;
   font-size: 110%;
 }
-/* line 318, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 286, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b input {
   border: none;
   box-shadow: none;
@@ -1119,11 +1232,11 @@ body.data-swatch-theme-b input {
   margin: 0;
   padding: 4px;
 }
-/* line 327, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 295, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b form {
   border: none;
 }
-/* line 330, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 298, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-b form h3 {
   padding-bottom: 8px;
 }
@@ -1143,7 +1256,12 @@ body.font-theme-c {
   font-size: 140%;
 }
 
-/* line 26, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 22, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+html, body {
+  height: 100%;
+}
+
+/* line 28, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c {
   font-family: Helvetica, Arial, Sans-Serif;
   color: white;
@@ -1154,20 +1272,20 @@ body.data-swatch-theme-c {
   /* Remove IE default X */
   /* Generic */
 }
-/* line 27, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 29, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c.data-swatch-theme-b.font-theme-a div#wrapper div#content form#clientlogin ul li a:hover {
   color: #ffffff;
 }
-/* line 29, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 31, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c.data-swatch-theme-a #wrapper #top #swatches ul li.top-active i, body.data-swatch-theme-c.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active i {
   color: white;
 }
-/* line 35, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 37, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c input, body.data-swatch-theme-c textarea, body.data-swatch-theme-c button, body.data-swatch-theme-c select {
   font-size: 100%;
   color: #000000;
 }
-/* line 37, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 39, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c * {
   margin: 0;
   padding: 0;
@@ -1175,25 +1293,25 @@ body.data-swatch-theme-c * {
   list-style: none;
   color: white;
 }
-/* line 39, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 41, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c ::-webkit-input-placeholder {
   color: #b3a69d;
 }
-/* line 40, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 42, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c :-moz-placeholder {
   color: #b3a69d;
   opacity: 0.6;
 }
-/* line 41, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 43, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c ::-moz-placeholder {
   color: #b3a69d;
   opacity: 0.6;
 }
-/* line 42, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 44, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c :-ms-input-placeholder {
   color: #b3a69d;
 }
-/* line 44, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 46, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c .clearable {
   background: white url("../images/inputcross.png") no-repeat right -10px center;
   border: 1px solid #999;
@@ -1202,57 +1320,59 @@ body.data-swatch-theme-c .clearable {
   border-radius: 3px;
   transition: background 0.4s;
 }
-/* line 51, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 53, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c .clearable.x {
   background-position: right 5px center;
 }
-/* line 52, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 54, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c .clearable.onX {
   cursor: pointer;
 }
-/* line 53, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 55, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c .clearable::-ms-clear {
   display: none;
   width: 0;
   height: 0;
 }
-/* line 56, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 58, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c #wrapper {
   width: 100%;
   margin: 0 auto;
   display: block;
+  background: url("../images/adaptiveBackground.png") no-repeat center center;
+  position: relative;
 }
-/* line 61, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 65, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c #wrapper label {
   color: white;
 }
-/* line 64, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 68, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c #wrapper input {
   color: #204ea0;
 }
-/* line 68, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 72, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c #wrapper #clientlogin ul:last-child li a {
   display: block;
   color: white;
 }
-/* line 71, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 75, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c #wrapper #clientlogin ul:last-child li a:hover {
   color: #2e92b1;
 }
-/* line 74, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 78, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c #wrapper button {
   box-shadow: none;
   border: 1px solid black;
   cursor: pointer;
   color: black;
 }
-/* line 80, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 84, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c #wrapper button:hover {
   background: white;
   color: black;
   border: 1px solid black;
 }
-/* line 87, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 91, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c #wrapper a, body.data-swatch-theme-c #wrapper img, body.data-swatch-theme-c #wrapper button, body.data-swatch-theme-c #wrapper button:hover, body.data-swatch-theme-c #wrapper div {
   /*
 -o-transition:.5s;
@@ -1262,160 +1382,128 @@ body.data-swatch-theme-c #wrapper a, body.data-swatch-theme-c #wrapper img, body
 transition:.5s;
 */
 }
-/* line 97, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 101, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c #wrapper a {
   text-decoration: none;
   color: black;
   cursor: pointer;
   display: block;
 }
-/* line 102, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 106, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c #wrapper a img {
   opacity: 0.8;
   filter: alpha(opacity=80);
   /* For IE8 and earlier */
 }
-/* line 104, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 108, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c #wrapper a img:hover {
   opacity: 1.0;
   filter: alpha(opacity=100);
   /* For IE8 and earlier */
 }
-/* line 108, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 112, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c #wrapper #top {
   width: 100%;
-  background: #1f6378;
   display: block;
   color: #ffffff;
+  width: 100%;
+  background: #1d1f20;
 }
-/* line 114, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 119, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li, body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li, body.data-swatch-theme-c #wrapper #top #swatches ul li, body.data-swatch-theme-c #wrapper #top #fontsizing ul li {
   display: block;
   cursor: pointer;
   min-height: 40px;
 }
-/* line 115, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 120, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li i, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li i, body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li i, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li i, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li i, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li i, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li i, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li i, body.data-swatch-theme-c #wrapper #top #swatches ul li i, body.data-swatch-theme-c #wrapper #top #fontsizing ul li i {
   padding: 20%;
   color: #ffffff;
 }
-/* line 116, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 121, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-c #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-c #wrapper #top #fontsizing ul li.top-active {
   background: black;
 }
-/* line 118, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 123, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-a"] {
   font-size: 16px;
 }
-/* line 119, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 124, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-b"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-b"], body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-b"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-b"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-b"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-b"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-b"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-b"], body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-b"], body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-b"] {
   font-size: 20px;
 }
-/* line 120, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 125, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-c"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-c"], body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-c"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-c"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-c"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-c"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-c"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-c"], body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-c"], body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-c"] {
   font-size: 24px;
 }
-/* line 124, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 129, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c #wrapper #top #swatches {
   float: left;
   width: 30%;
   font-size: 24px;
 }
-/* line 130, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 135, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c #wrapper #top #swatches ul li {
   float: left;
   color: #ffffff;
 }
-/* line 144, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 149, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+body.data-swatch-theme-c #wrapper #top #mainmenu-btn {
+  margin: 0 auto;
+  display: table;
+  padding-top: 5px;
+}
+/* line 151, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+body.data-swatch-theme-c #wrapper #top #mainmenu-btn button {
+  border: none;
+}
+/* line 155, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+body.data-swatch-theme-c #wrapper #top #mainmenu-btn button:hover {
+  border: 1px solid transparent;
+  background: url("../images/menu-icon-large.png"), -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+  background: url("../images/menu-icon-large.png"), -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+  background: url("../images/menu-icon-large.png"), -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+  background: url("../images/menu-icon-large.png"), -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 21px, 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* line 167, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+body.data-swatch-theme-c #wrapper #top #mainmenu-btn a {
+  float: right;
+  padding: 0 10px;
+}
+/* line 170, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+body.data-swatch-theme-c #wrapper #top #mainmenu-btn a i {
+  color: #ffffff;
+  font-size: 28px;
+  border: 1px solid transparent;
+}
+/* line 173, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+body.data-swatch-theme-c #wrapper #top #mainmenu-btn a:hover {
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* line 180, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c #wrapper #top #fontsizing {
   float: right;
   width: 30%;
 }
-/* line 150, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 186, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c #wrapper #top #fontsizing ul li {
   line-height: 100%;
   float: right;
   color: #ffffff;
   overflow: hidden;
 }
-/* line 161, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 197, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c #wrapper header#header {
   width: 100%;
   min-height: 45px;
   display: inline-block;
 }
-/* line 164, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
-body.data-swatch-theme-c #wrapper header#header .head {
-  width: 50%;
-  float: left;
-      /*  nav {
-        width:100%;
-        float:left;
-        padding:1%;
-        font-size:100%;
-        font-weight:bold;
-        text-align:center;
-
-          ul {
-          padding:0;
-          margin:0;
-
-            li:last-child {
-            margin-right:0;
-          }
-
-            li {
-              list-style:none;
-              float:left;
-              margin-right:1%;
-              width:20%;
-
-              a {
-              text-decoration:none;
-              display:block;
-              padding:1%;
-
-              &:hover {background:orange;}
-
-                i {
-                .fa.fa-home {font-size:120%;}
-                }// close i
-
-                img {
-                width:100%;
-                }//close img
-              }// close 'a'
-            }//close li
-          }//close ul
-        }//close nav
-        */
-}
-/* line 168, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
-body.data-swatch-theme-c #wrapper header#header .head img {
-  width: 80%;
-  margin-left: 1%;
-}
-/* line 173, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
-body.data-swatch-theme-c #wrapper header#header .head:last-child {
-  float: right;
-  padding-top: 10px;
-}
-/* line 220, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
-body.data-swatch-theme-c #wrapper header#header .head #logo {
-  text-align: left;
-  float: left;
-  display: block;
-  width: auto;
-  margin: 0 auto;
-  width: 40%;
-  transition: none;
-}
-/* line 230, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
-body.data-swatch-theme-c #wrapper header#header .head #logo a img {
-  max-width: 80%;
-  padding: 2%;
-}
-/* line 236, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 203, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c #wrapper #content {
   min-width: 768px;
   width: 98%;
@@ -1423,48 +1511,48 @@ body.data-swatch-theme-c #wrapper #content {
   clear: both;
   display: block;
 }
-/* line 246, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 213, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c #wrapper #content a #largeArea {
   width: 100%;
   height: 500px;
   margin: 0 auto;
   display: block;
 }
-/* line 255, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 223, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c #wrapper .settings {
   width: 100%;
   margin: 0 auto;
   background: transparent;
 }
-/* line 260, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 228, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c #wrapper .settings h4 {
   font-size: 110%;
 }
-/* line 268, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 236, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c #wrapper .settings .row {
   width: 100%;
 }
-/* line 271, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 239, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c #wrapper .settings .row form {
   margin-bottom: 5px;
   color: white;
 }
-/* line 281, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 249, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c #wrapper .settings .row form :first-child ul li {
   border: none;
 }
-/* line 287, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 255, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c #wrapper .settings .row form ul {
   padding: 0;
   margin: 0;
 }
-/* line 291, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 259, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c #wrapper .settings .row form ul li {
   border: 1px solid #000000;
   list-style: outside none none;
   margin-bottom: 5px;
 }
-/* line 301, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 269, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c #wrapper footer {
   width: 100%;
   margin: 0 auto;
@@ -1475,7 +1563,7 @@ body.data-swatch-theme-c #wrapper footer {
   right: 2px;
   font-size: 110%;
 }
-/* line 318, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 286, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c input {
   border: none;
   box-shadow: none;
@@ -1484,11 +1572,11 @@ body.data-swatch-theme-c input {
   margin: 0;
   padding: 4px;
 }
-/* line 327, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 295, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c form {
   border: none;
 }
-/* line 330, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
+/* line 298, ../../resources/assets/sass/backend/website/defaultStructure/_defaultTheme.scss */
 body.data-swatch-theme-c form h3 {
   padding-bottom: 8px;
 }
@@ -1580,35 +1668,49 @@ section article p {
 /***************************/
 /*      Page Editor        */
 /***************************/
-/* line 81, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 82, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+#identity .pagecontainer {
+  position: relative;
+  height: 100%;
+}
+/* line 85, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+#identity .pagecontainer #serve_container {
+  position: relative;
+  height: 100%;
+}
+/* line 88, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+#identity .pagecontainer #serve_container #footer {
+  position: absolute;
+  bottom: 0;
+}
+
+/* line 93, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 #left {
   float: left;
   width: 70%;
-  min-height: 300px;
   /* Default Orientation - Landscape*/
 }
-/* line 85, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 97, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 #left .pagecontainer {
   width: 100%;
-  min-height: 400px;
   background: transparent;
   box-sizing: border-box;
 }
-/* line 90, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 102, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 #left .pagecontainer ul.theme_select li {
   width: 15%;
   float: left;
   text-align: center;
 }
-/* line 93, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 105, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 #left .pagecontainer ul.theme_select li a {
   display: block;
 }
-/* line 96, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 108, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 #left .pagecontainer ul.theme_select li a img {
   width: 90%;
 }
-/* line 104, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 116, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 #left .pagecontainer:last-child {
   min-height: 100px;
   background: transparent;
@@ -1616,7 +1718,7 @@ section article p {
 }
 
 /* Portrait*/
-/* line 112, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 124, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 #left.portrait .pagecontainer {
   float: left;
   width: 75%;
@@ -1624,7 +1726,7 @@ section article p {
   border-radius: 2px;
   border: 2px;
 }
-/* line 115, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 127, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 #left.portrait .pagecontainer ul.theme_select {
   width: 100%;
   padding: 0;
@@ -1633,16 +1735,16 @@ section article p {
   text-align: center;
   display: block;
 }
-/* line 118, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 130, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 #left.portrait .pagecontainer ul.theme_select li {
   width: 100%;
 }
-/* line 122, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 134, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 #left.portrait .pagecontainer ul.theme_select li a img {
   width: 50%;
   text-align: center;
 }
-/* line 131, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 143, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 #left.portrait .pagecontainer:last-child {
   float: left;
   width: 23%;
@@ -1650,14 +1752,14 @@ section article p {
   margin-left: 10px;
 }
 
-/* line 136, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 148, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 #right {
   float: left;
   width: 30%;
   background: transparent;
   box-sizing: border-box;
 }
-/* line 142, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 154, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 #right ul {
   margin: 0 auto;
   background: transparent;
@@ -1665,11 +1767,11 @@ section article p {
   padding: 0;
   margin-left: 10px;
 }
-/* line 149, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 161, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 #right ul li:first-child {
   margin-top: 0;
 }
-/* line 153, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 165, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 #right ul li {
   display: block;
   background: transparent;
@@ -1678,33 +1780,33 @@ section article p {
   padding: 5px;
   border: 2px;
 }
-/* line 161, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 173, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 #right ul li textarea, #right ul li input {
   width: 90%;
   margin: 0 auto;
 }
-/* line 166, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 178, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 #right ul li label {
   display: block;
 }
-/* line 171, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 183, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 #right ul li#orientation {
   padding: 0;
   margin: 0;
 }
-/* line 174, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 186, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 #right ul li#orientation a {
   display: block;
 }
-/* line 178, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 190, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 #right ul li#orientation button:first-child {
   margin-left: 0px;
 }
-/* line 182, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 194, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 #right ul li#orientation button.active, #right ul li#orientation button.active:hover {
   background: orange;
 }
-/* line 186, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 198, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 #right ul li#orientation button {
   background: green;
   color: #000000;
@@ -1714,7 +1816,7 @@ section article p {
   padding: 0px 5px;
   overflow: hidden;
 }
-/* line 190, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 202, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 #right ul li#orientation button:hover {
   background: yellow;
   cursor: pointer;
@@ -1723,70 +1825,70 @@ section article p {
 /***************************/
 /*         Global          */
 /***************************/
-/* line 200, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 212, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 .global {
   width: 100%;
   margin: 0 auto;
   font-size: 120%;
 }
-/* line 205, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 217, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 .global .row {
   margin: 0 auto 1%;
 }
-/* line 210, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 222, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 .global .row ul li {
   margin-top: 0.5%;
 }
-/* line 214, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 226, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 .global .row ul li:first-child {
   min-height: 65px;
 }
-/* line 216, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 228, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 .global .row ul li a {
   cursor: pointer;
 }
-/* line 221, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 233, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 .global .row ul li input {
   font-size: 90%;
   padding-left: 1%;
 }
-/* line 226, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 238, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 .global .row ul li label {
   min-width: 40%;
 }
-/* line 230, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 242, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 .global .row ul li button {
   font-size: 90%;
   float: right;
   margin-left: 1%;
 }
-/* line 235, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 247, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 .global .row ul li button:hover {
   background: orange;
 }
-/* line 245, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 257, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 .global .row:last-child ul li {
   min-height: 30px;
 }
-/* line 248, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 260, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 .global .row:last-child ul li:nth-child(odd) {
   background: #96b3bc;
 }
-/* line 252, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 264, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 .global .row:last-child ul li:nth-child(even) {
   background: #aecfda;
 }
-/* line 256, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 268, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 .global .row:last-child ul li:hover {
   background: #c7edf9;
 }
-/* line 260, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 272, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 .global .row:last-child ul li a {
   padding: 0;
   display: inline;
   float: left;
 }
-/* line 271, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 283, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 .global .row:last-child ul li button:first-child {
   margin-left: 10px;
 }
@@ -1794,33 +1896,33 @@ section article p {
 /***************************/
 /*         Login           */
 /***************************/
-/* line 286, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 298, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 form#clientlogin, form#register {
   margin: 0 auto;
   width: 15%;
   text-align: left;
 }
-/* line 293, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 305, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 form#clientlogin ul button, form#register ul button {
   margin: 10% 0;
   width: 50%;
   display: block;
 }
-/* line 299, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 311, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 form#clientlogin ul li, form#register ul li {
   width: 100%;
 }
-/* line 302, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 314, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 form#clientlogin ul li label, form#clientlogin ul li input, form#register ul li label, form#register ul li input {
   width: 100%;
 }
-/* line 304, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 316, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 form#clientlogin ul li label, form#register ul li label {
   display: block;
   margin-top: 1%;
   padding: 1%;
 }
-/* line 310, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 322, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 form#clientlogin ul li input, form#register ul li input {
   display: block;
   margin-top: 0;
@@ -1828,23 +1930,23 @@ form#clientlogin ul li input, form#register ul li input {
   text-align: left;
   border: 2px solid black;
 }
-/* line 318, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 330, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 form#clientlogin ul li input:hover, form#register ul li input:hover {
   cursor: pointer;
 }
-/* line 325, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 337, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 form#clientlogin ul:last-child, form#register ul:last-child {
   margin-top: 1%;
 }
-/* line 328, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 340, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 form#clientlogin ul:last-child li, form#register ul:last-child li {
   text-align: left;
 }
-/* line 331, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 343, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 form#clientlogin ul:last-child li a, form#register ul:last-child li a {
   color: #000000;
 }
-/* line 335, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
+/* line 347, ../../resources/assets/sass/backend/website/defaultStructure/_defaultWebsitePages.scss */
 form#clientlogin ul:last-child li a:hover, form#register ul:last-child li a:hover {
   color: #000000;
 }

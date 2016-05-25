@@ -45,7 +45,8 @@ class DashboardController extends Controller
      */
     public function create()
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -56,7 +57,8 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -67,7 +69,8 @@ class DashboardController extends Controller
      */
     public function show($id)
     {
-
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -78,7 +81,8 @@ class DashboardController extends Controller
      */
     public function edit($id)
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -90,7 +94,8 @@ class DashboardController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -101,6 +106,7 @@ class DashboardController extends Controller
      */
     public function destroy($id)
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 }

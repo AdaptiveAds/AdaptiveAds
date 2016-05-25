@@ -101,6 +101,13 @@ https://developers.google.com/recaptcha/docs/display -->
 
 	});
 	</script>
+	<script>
+		$(document).ready(function(){
+			$(".nav-button").click(function () {
+			$(".nav-button,.primary-nav").toggleClass("open");
+			});
+		});
+	</script>
 
 	<script src="{{ URL::asset('js/helpers.js') }}"></script>
 	<script src="{{ URL::asset('js/modules.js') }}"></script>
@@ -120,6 +127,7 @@ https://developers.google.com/recaptcha/docs/display -->
 				</ul>
 				<div class="clear"></div>
 			</div>
+
 			<div id="swatches">
 				<ul>
 					<li data-btnSwatch="true" data-theme="data-swatch-theme-a" class="top-active"><i class="fa fa-circle-o-notch"></i></li>
@@ -128,18 +136,21 @@ https://developers.google.com/recaptcha/docs/display -->
 				</ul>
 				<div class="clear"></div>
 			</div>
-			 <div class="clear"></div>
-		</div>
-		<header id="header">
-
-			<div class="head">
-				<div id="logo">
-					<a href="{{ URL::to('dashboard')}}"><img src="{{ URL::asset('images/logo.png') }}" alt="php input" title="php input"></a>
-				</div>
+			<div id="mainmenu-btn">
+					@if (Auth::guest() == false)
+						<a name="lnkHome" href="{{ URL::to('dashboard')}}"><i class="fa fa-home" aria-hidden="true"></i></a>
+					@else
+						<a name="lnkDashboard" href="{{ URL::to('home')}}"><i class="fa fa-home" aria-hidden="true"></i></a>
+					@endif
+					<button name="mainmenu-btn" class="nav-button">Menu</button>
 			</div>
-			<div class="head">
-				<nav>
-					<ul>
+		  <div class="clear"></div>
+
+		</div>
+
+		<header id="header">
+			<nav>
+					<ul class="primary-nav">
 						@if (Auth::guest() == false)
 							<li><a name="lnkHome" href="{{ URL::to('dashboard')}}">Home</a></li>
 						@else
@@ -148,8 +159,8 @@ https://developers.google.com/recaptcha/docs/display -->
 						@if (Auth::guest() == false)
 							<li><a name="lnkFAQ" href="{{ URL::to('FAQ') }}">FAQ</a></li>
 						@else
-							<li><a name="lnkTeam" href="{{ URL::to('team')}}">Team</a></li>
-								<ul class="sub-nav">
+							<li class="parent"><a name="lnkTeam" href="{{ URL::to('team')}}">Team</a></li>
+								<ul>
 									<li><a name="lnkTeam" href="{{ URL::to('about')}}">About</a></li>
 								</ul>
 						@endif
@@ -167,8 +178,7 @@ https://developers.google.com/recaptcha/docs/display -->
 						@endif
 					</ul>
 				</nav>
-			</div>
-		</header>
+			</header>
 
 	<div id="content">
     @yield('content')

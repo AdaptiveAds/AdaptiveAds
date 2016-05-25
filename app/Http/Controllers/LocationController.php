@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Session;
+use Validator;
 
 use App\Location as Location;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Helpers\Helper as Helper;
 
 /**
   * Defines the CRUD methods for the LocationController
@@ -41,6 +43,7 @@ class LocationController extends Controller
       $allowed_departments = Session::get('allowed_departments');
       $match_departments = Session::get('match_departments');
 
+      // Return all locations or only the ones th user is assigned to
       if ($user->is_super_user) {
         $locations = Location::all();
       } else {
@@ -63,7 +66,8 @@ class LocationController extends Controller
      */
     public function create()
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -74,15 +78,29 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
+      // Get request inputs
       $txtLocationName = $request->input('txtLocationName');
       $departmentID = $request->input('drpDepartments');
 
+      $data = array(
+        'name' => $txtLocationName,
+        'id' => $departmentID
+      );
+
+      // Validate input
+      $reponse = $this->create_validator($data);
+      if (isset($reponse)) {
+        return $reponse;
+      }
+
+      // Create new location
       $location = new Location();
       $location->name = $txtLocationName;
       $location->department_id = $departmentID;
       $location->save();
 
-      return redirect()->route('dashboard.settings.locations.index');
+      return redirect()->route('dashboard.settings.locations.index')
+                       ->with('message', 'Location created successfully');
     }
 
     /**
@@ -97,6 +115,7 @@ class LocationController extends Controller
       if ($request->ajax() == false)
         abort(401, 'Unauthorized');
 
+      // find selected location
       $location = Location::find($id);
       if ($location == null)
         return array('error', 'Error: Location not found.');
@@ -112,7 +131,8 @@ class LocationController extends Controller
      */
     public function edit($id)
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -124,15 +144,29 @@ class LocationController extends Controller
      */
     public function update(Request $request, $id)
     {
+      // Get selected location
       $location = Location::find($id);
 
       if ($location == null)
         return redirect()->route('dashboard.settings.locations.index')
                          ->with('message', 'Error: Location not found');
 
+      // Request input
       $txtLocationName = $request->input('txtLocationName');
       $departmentID = $request->input('drpDepartments');
 
+      $data = array(
+        'name' => $txtLocationName,
+        'id' => $departmentID
+      );
+
+      // Validate input
+      $reponse = $this->edit_validator($data);
+      if (isset($reponse)) {
+        return $reponse;
+      }
+
+      // Update location
       $location->name = $txtLocationName;
       $location->department_id = $departmentID;
       $location->save();
@@ -149,17 +183,20 @@ class LocationController extends Controller
      */
     public function destroy($id)
     {
+      // Get selected location
       $location = Location::find($id);
 
       if ($location == null)
         return redirect()->route('dashboard.settings.locations.index')
                          ->with('message', 'Error: Location not found');
 
+      // Ensure no screens depend of the location
       $count = $location->Screens->count();
       if ($count != 0)
         return redirect()->route('dashboard.settings.locations.index')
                          ->with('message', 'Unable to delete ' . $location . ', as one or more screens depend on it');
 
+      // Delete
       $location->delete();
 
       return redirect()->route('dashboard.settings.locations.index')
@@ -228,6 +265,52 @@ class LocationController extends Controller
       );
 
       return view('pages/locations', $data);
+
+    }
+
+    /**
+      * Validates input before creating a selected object
+      * @param  array   $data array of fields to validate
+      * @return \Illuminate\Http\Response response if validation fails
+      */
+    protected function create_validator(array $data) {
+
+      $validator = Validator::make($data, [
+        'name' => 'required|max:40|unique:location',
+        'id' => 'required|integer|exists:department'
+      ]);
+
+      // If validator fails get the errors and warn the user
+      // this redirects to prevent further execution
+      if ($validator->fails()) {
+        $message = Helper::getValidationErrors($validator);
+
+        return redirect()->route('dashboard.settings.locations.index')
+        ->with('message', $message);
+      }
+
+    }
+
+    /**
+      * Validates input before editing a selected object
+      * @param  array   $data array of fields to validate
+      * @return \Illuminate\Http\Response response if validation fails
+      */
+    protected function edit_validator(array $data) {
+
+      $validator = Validator::make($data, [
+        'name' => 'required|max:40',
+        'id' => 'required|integer|exists:department'
+      ]);
+
+      // If validator fails get the errors and warn the user
+      // this redirects to prevent further execution
+      if ($validator->fails()) {
+        $message = Helper::getValidationErrors($validator);
+
+        return redirect()->route('dashboard.settings.locations.index')
+        ->with('message', $message);
+      }
 
     }
 }

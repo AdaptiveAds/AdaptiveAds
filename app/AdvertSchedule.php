@@ -4,6 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+  * Defines the AdvertSchedule model object
+  * @author Josh Preece
+  * @license REVIEW
+  * @since 1.0
+  */
 class AdvertSchedule extends Model
 {
   /**
@@ -18,6 +24,10 @@ class AdvertSchedule extends Model
     */
   public $timestamps = false;
 
+  /**
+    * Returns the advert schedule
+    * @returns EloquentCollection
+    */
   public function Schedule() {
     return $this->belongsTo(Schedule::class, 'schedule_id', 'id');
   }

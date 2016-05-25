@@ -3,11 +3,17 @@
 // Page master class (inherit from this 'class' for every page)
 var Page = (function() {
 
+  /**
+    * Called first, used to call the register_eventhandlers method
+    */
   function init() {
     register_eventhandlers();
     AppDebug.print("Page init...");
   }
 
+  /**
+    * Disposes the page, stopping all intervals on the page
+    */
   function dispose() {
     IntervalManager.stop_all();
     AppDebug.print("Page disposed...");
@@ -27,8 +33,12 @@ var Page = (function() {
 
 } (Page || {}));
 
+/**
+  * Defines the serve page
+  */
 var Serve = (function(Page) {
 
+  // Properties
   var durationIntervalHandle;
   var errorIntervalHandle;
 
@@ -125,8 +135,13 @@ var Serve = (function(Page) {
 
   }
 
+  /**
+    * If an error occurs attempt to recover
+    * by syncing with the server every now and then
+    */
   function startErrorWatch() {
 
+    // Clean up
     if (this.errorIntervalHandle !== undefined) {
       IntervalManager.stop(this.errorIntervalHandle);
     }
@@ -135,8 +150,13 @@ var Serve = (function(Page) {
 
   }
 
+  /**
+    * Update the duration interval between showing pages
+    * @param int duration length of interval
+    */
   function updateDurationInterval(duration) {
 
+    // Stop previous intervals
     stopDurationInterval();
 
     // Create a new duration interval
@@ -144,6 +164,9 @@ var Serve = (function(Page) {
 
   }
 
+  /**
+    * Stops the current interval
+    */
   function stopDurationInterval() {
     // If we already have an insterval stop it first
     if (this.durationIntervalHandle !== undefined) {
@@ -221,6 +244,11 @@ var Serve = (function(Page) {
     }
   }
 
+  /**
+    * Return the current advert
+    * @param int index current advert index to pull
+    * @param bool showGlobal, flag to determineif we should return a global advert
+    */
   function getCurrentAdvert(index, showGlobal) {
 
     // Get adverts from storage
@@ -241,8 +269,14 @@ var Serve = (function(Page) {
     return advert;
   }
 
+  /**
+    * Update the DOM with a new page
+    * @param object currentAdvert to show
+    * @param int index of the current page to show
+    */
   function showPage(currentAdvert, index) {
 
+    // If we have data show it
     if (currentAdvert.pages[index].page_data !== undefined) {
 
       // Update page
@@ -285,32 +319,42 @@ var Serve = (function(Page) {
 
 } (Page || {}));
 
+/**
+  * Define the page editor functions
+  */
 var PageEditor = (function() {
 
+  /**
+    * Register event handlers
+    */
   function register_eventhandlers() {
 
+    // Update the title as it is keyed in
     $('input[name$="txtPageName"]').keyup(function() {
       $('[name$="pageName"]').html($(this).val());
     });
 
+    // Update the content as it is keyed in
     $('[name$="txtPageContent"]').keyup(function() {
       $('[name$="pageContent"]').html($(this).val());
     });
 
+    // Disable video upload if an image is uploaded
     $('[name=filPageImage]').on('change', function(evt) {
       if (this.value == "") {
         $('[name=filPageVideo]').prop('disabled', false);
       } else {
-        console.log("S");
+        //console.log("S");
         $('[name=filPageVideo]').prop('disabled', true);
       }
     });
 
+    // Disable image upload if a video is uploaded
     $('[name=filPageVideo]').on('change', function(evt) {
       if (this.value == "") {
         $('[name=filPageImage]').prop('disabled', false);
       } else {
-        console.log("S");
+        //console.log("S");
         $('[name=filPageImage]').prop('disabled', true);
       }
     });

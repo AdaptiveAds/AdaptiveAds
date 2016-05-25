@@ -53,7 +53,8 @@ class PrivilegeController extends Controller
      */
     public function create()
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -64,7 +65,8 @@ class PrivilegeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -75,7 +77,8 @@ class PrivilegeController extends Controller
      */
     public function show($id)
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -86,7 +89,8 @@ class PrivilegeController extends Controller
      */
     public function edit($id)
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -98,7 +102,8 @@ class PrivilegeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -109,7 +114,8 @@ class PrivilegeController extends Controller
      */
     public function destroy($id)
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -128,11 +134,13 @@ class PrivilegeController extends Controller
         return redirect()->route('dashboard.settings.privileges.index')
                          ->with('message', 'Please select a department to work with');
 
+      // Get selected department
       $department = Department::find($departmentID);
 
       if ($department == null)
         return redirect()->route('dashboard.settings.privileges.index')
                          ->with('message', 'Error: Department not found');
+
 
       $depUsers = $department->Users()->get();
       $allUsers = User::all();
@@ -169,12 +177,14 @@ class PrivilegeController extends Controller
         return redirect()->route('dashboard.settings.privileges.index')
                          ->with('message', 'Please select a department to work with');
 
+      // Load selected department
       $department = Department::find($departmentID);
 
       if ($department == null)
         return redirect()->route('dashboard.settings.privileges.index')
                          ->with('message', 'Error: Department not found');
 
+      // Get users associated with the department
       $users = $department->Users()->get();
 
       if ($users->count() == 0)
@@ -193,7 +203,7 @@ class PrivilegeController extends Controller
     }
 
     /**
-      * (AJAX) Adds selected users to a selected department
+      * Adds selected users to a selected department
       * @param \Illuminate\Http\Request $request
       * @return array   Contains redirect url to process after request
       */
@@ -204,6 +214,7 @@ class PrivilegeController extends Controller
         return array('redirect' => '/dashboard/settings/privileges');
       }
 
+      // Find the selected session
       $department = Department::find(Session::pull('departmentID'));
 
       if ($department == null) {
@@ -211,6 +222,7 @@ class PrivilegeController extends Controller
         return array('redirect' => '/dashboard/settings/privileges');
       }
 
+      // Get the selected user ids from the request
       $users = $request->input('arrObjects');
 
       if (count($users) == 0) {
@@ -218,6 +230,7 @@ class PrivilegeController extends Controller
         return array('redirect' => '/dashboard/settings/privileges');
       }
 
+      // Assign given users to the selected department
       foreach ($users as $userID) {
         $department->Users()->attach($userID);
       }
@@ -229,17 +242,19 @@ class PrivilegeController extends Controller
     }
 
     /**
-      * (AJAX) Removes selected users from a selected department
+      * Removes selected users from a selected department
       * @param \Illuminate\Http\Request $request
       * @return array   Contains the redirect url to process after request
       */
     public function removeUser(Request $request)
     {
+
       if (Session::has('departmentID') == false) {
         Session::flash('message', 'Please select a department to proceed');
         return array('redirect' => '/dashboard/settings/privileges');
       }
 
+      // Find selected department
       $department = Department::find(Session::pull('departmentID'));
 
       if ($department == null) {
@@ -247,6 +262,7 @@ class PrivilegeController extends Controller
         return array('redirect' => '/dashboard/settings/privileges');
       }
 
+      // Get user is from the request
       $users = $request->input('arrObjects');
 
       if (count($users) == 0) {
@@ -254,6 +270,7 @@ class PrivilegeController extends Controller
         return array('redirect' => '/dashboard/settings/privileges');
       }
 
+      // Remove selected users from the department
       foreach ($users as $userID) {
         $department->Users()->detach($userID);
       }
@@ -278,12 +295,14 @@ class PrivilegeController extends Controller
         return redirect()->route('dashboard.settings.privileges.index')
                          ->with('message', 'Please select a department');
 
+      // Load the sepecifed department
       $department = Department::find($drpDepartment);
 
       if ($department == null)
         return redirect()->route('dashboard.settings.privileges.index')
                          ->with('message', 'Error: Department not found');
 
+      // Get users associated with this department
       $users = $department->Users()->get();
       Session::put('departmentID', $drpDepartment);
 
@@ -308,13 +327,14 @@ class PrivilegeController extends Controller
       */
     public function process(Request $request)
     {
-      //$request->session()->flush();
+      // Get inputs from request
       $btnFindAll = $request->input('btnFindAll');
       $btnAddMode = $request->input('btnAddMode');
       $btnRemoveMode = $request->input('btnRemoveMode');
       $btnToggle = $request->input('btnToggle');
       $mode = $request->input('mode');
 
+      // Determine which mode to use
       if (isset($mode)) {
         if ($mode == 'add') {
           return $this->addUser($request);
@@ -323,20 +343,25 @@ class PrivilegeController extends Controller
         }
       }
 
+      // Determine operation
       if (isset($btnFindAll)) {
 
+        // Filter users
         return $this->filter($request);
 
       } else if (isset($btnAddMode)) {
 
+        // Add users to a department
         return $this->addMode($request);
 
       } else if (isset($btnRemoveMode)) {
 
+        // Remove users from a department
         return $this->removeMode($request);
 
       } else if (isset($btnToggle)) {
 
+        // Toggle a users permission
         return $this->togglePermission($request);
 
       } else {
@@ -359,6 +384,7 @@ class PrivilegeController extends Controller
       $departmentID = Session::get('departmentID');
       $userID = $request->input('userID');
 
+      // Load theselected user and department
       $user = User::find($userID);
       $department = Department::find($departmentID);
 
@@ -366,12 +392,14 @@ class PrivilegeController extends Controller
         return redirect()->route('dashboard.settings.privileges.index')
                          ->with('message', 'Error: User or Department not found');
 
+      // Toggle based on current privileges
       if ($user->isAdmin($departmentID))
         $user->Departments()->updateExistingPivot($departmentID, array('is_admin' => 0));
       else {
         $user->Departments()->updateExistingPivot($departmentID, array('is_admin' => 1));
       }
 
+      // Update info
       $users = $department->Users()->get();
       $allowed_departments = Session::get('allowed_departments');
 

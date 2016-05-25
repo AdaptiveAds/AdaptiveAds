@@ -19,6 +19,8 @@
 %font-b {font-size:100%;}
 %font-c {font-size:140%;}
 
+html, body {height:100%;}
+
 body.font-theme-a {@extend %font-a;}
 body.font-theme-b {@extend %font-b;}
 body.font-theme-c {@extend %font-c;}
@@ -57,6 +59,8 @@ body.font-theme-c {@extend %font-c;}
   width:100%;
   margin:0 auto;
   display:block;
+  background:url("../images/adaptiveBackground.png") no-repeat center center;
+  position:relative;
 
     label {
     color:$labelFontColor;
@@ -107,10 +111,11 @@ body.font-theme-c {@extend %font-c;}
 
       #top {
       width:100%;
-      background:#1f6378;//dark blue;
       display:block;
       color:#ffffff;
-        //used for swatches and font ID's
+      width:100%;
+      background:#1d1f20;
+              //used for swatches and font ID's
         %top-li {display:block; cursor:pointer; min-height:40px;
           i {padding:20%; color:#ffffff;}
           &.top-active { background:$site-background;}
@@ -141,6 +146,37 @@ body.font-theme-c {@extend %font-c;}
 
         }//swatches
 
+        #mainmenu-btn {margin:0 auto; display:table; padding-top:5px;
+
+          button {
+          border:none;
+
+
+            &:hover {
+            border:1px solid transparent;
+            background: url('../images/menu-icon-large.png'), -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,.2));
+        		background: url('../images/menu-icon-large.png'),    -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,.2));
+        		background: url('../images/menu-icon-large.png'),     -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,.2));
+        		background: url('../images/menu-icon-large.png'),      -o-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,.2));
+        		background-position: center center;
+        		background-repeat: no-repeat;
+        		background-size: 21px, 100%;
+          background-color: rgba(0,0,0,.5); }
+          }
+
+          a {
+          float:right;
+          padding:0 10px;
+            i {
+            color:#ffffff; font-size:28px;border: 1px solid transparent;
+            }
+            &:hover {border-radius:5px;
+        		background-color: rgba(0,0,0,.5);
+
+            }
+          }
+        }
+
         #fontsizing {
         float:right;
         width:30%;
@@ -159,78 +195,9 @@ body.font-theme-c {@extend %font-c;}
       }//top
 
     header#header {
-    width:100%; min-height:45px; display:inline-block;
-
-      .head {
-      width:50%;
-      float:left;
-
-        img {
-        width:80%;
-        margin-left:1%;
-        }//img
-
-        &:last-child {
-        float:right;
-        padding-top:10px;
-        }//last:child
-
-      /*  nav {
-        width:100%;
-        float:left;
-        padding:1%;
-        font-size:100%;
-        font-weight:bold;
-        text-align:center;
-
-          ul {
-          padding:0;
-          margin:0;
-
-            li:last-child {
-            margin-right:0;
-          }
-
-            li {
-              list-style:none;
-              float:left;
-              margin-right:1%;
-              width:20%;
-
-              a {
-              text-decoration:none;
-              display:block;
-              padding:1%;
-
-              &:hover {background:orange;}
-
-                i {
-                .fa.fa-home {font-size:120%;}
-                }// close i
-
-                img {
-                width:100%;
-                }//close img
-              }// close 'a'
-            }//close li
-          }//close ul
-        }//close nav
-        */
-
-        #logo {
-        text-align:left;
-        float:left;
-        display:block;
-        width:auto;
-        margin:0 auto;
-        width:40%;
-        transition:none;
-
-        & a {
-          & img {max-width:80%; padding:2%;}
-          }
-        }
-      }//head
+    width:100%;
+    min-height:45px;
+    display:inline-block;
     }//close header
 
     #content {
@@ -251,6 +218,7 @@ body.font-theme-c {@extend %font-c;}
         }// close largeArea
       }// close 'a'
     }//close content
+
 
     .settings {
     width:100%;
