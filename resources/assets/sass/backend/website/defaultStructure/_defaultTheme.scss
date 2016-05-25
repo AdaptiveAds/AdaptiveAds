@@ -19,6 +19,8 @@
 %font-b {font-size:100%;}
 %font-c {font-size:140%;}
 
+html, body {height:100%;}
+
 body.font-theme-a {@extend %font-a;}
 body.font-theme-b {@extend %font-b;}
 body.font-theme-c {@extend %font-c;}
