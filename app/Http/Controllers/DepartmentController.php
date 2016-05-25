@@ -43,6 +43,7 @@ class DepartmentController extends Controller
       $user = Session::get('user');
       $match_departments = Session::get('match_departments');
 
+      // Return all departments the user can access
       $departments = Department::whereIn('id', $match_departments)->get();
 
       $data = array(
@@ -60,7 +61,8 @@ class DepartmentController extends Controller
      */
     public function create()
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -71,17 +73,20 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
+      // Get request inputs
       $txtDepartmentName = $request->input('txtDepartmentName');
 
       $data = array(
         'name' => $txtDepartmentName,
       );
 
+      // Validate input
       $reponse = $this->create_validator($data);
       if (isset($reponse)) {
         return $reponse;
       }
 
+      // Create a new department
       $department = new Department();
       $department->name = $txtDepartmentName;
       $department->save();
@@ -102,6 +107,7 @@ class DepartmentController extends Controller
       if ($request->ajax() == false)
         abort(401, 'Unauthorized');
 
+      // Get selected department
       $department = Department::find($id);
 
       if ($department == null)
@@ -118,7 +124,8 @@ class DepartmentController extends Controller
      */
     public function edit($id)
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -130,23 +137,28 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
+      // Get selected department
       $department = Department::find($id);
 
+      // Only continue if one was found
       if ($department == null)
         return redirect()->route('dashboard.settings.departments.index')
                          ->with('message', 'Error: Department not found');
 
+      // Get request inputs
       $txtDepartmentName = $request->input('txtDepartmentName');
 
       $data = array(
         'name' => $txtDepartmentName,
       );
 
+      // Validate input
       $reponse = $this->edit_validator($data);
       if (isset($reponse)) {
         return $reponse;
       }
 
+      // Update department
       $department->name = $txtDepartmentName;
       $department->save();
 
@@ -164,15 +176,19 @@ class DepartmentController extends Controller
     {
       $user = Session::get('user');
 
+      // Only super user can delete departments
       if ($user->is_super_user == false)
         abort(401, 'Unauthorized');
 
+      // Find selected department
       $department = Department::find($id);
 
       if ($department == null)
         return redirect()->route('dashboard.settings.departments.index')
                          ->with('message', 'Error: Department not found');
 
+      // No adverts or playlists should depend on the department
+      // in order to delete it
       $adCount = $department->Adverts()->count();
       $plCount = $department->Playlists()->count();
 
@@ -180,7 +196,7 @@ class DepartmentController extends Controller
         return redirect()->route('dashboard.settings.departments.index')
                          ->with('message', 'Unable to delete ' . $department->name
                                             . ', one or more adverts and playlists depend on it');
-
+      // Delete department
       $department->delete();
 
       return redirect()->route('dashboard.settings.departments.index')
@@ -243,12 +259,19 @@ class DepartmentController extends Controller
 
     }
 
+    /**
+      * Validates input befire creating a selected object
+      * @param  array   $data array of fields to validate
+      * @return \Illuminate\Http\Response response if validation fails
+      */
     protected function create_validator(array $data) {
 
       $validator = Validator::make($data, [
         'name' => 'required|max:40|unique:department',
       ]);
 
+      // If validator fails get the errors and warn the user
+      // this redirects to prevent further execution
       if ($validator->fails()) {
         $message = Helper::getValidationErrors($validator);
 
@@ -258,12 +281,19 @@ class DepartmentController extends Controller
 
     }
 
+    /**
+      * Validates input befire creating a selected object
+      * @param  array   $data array of fields to validate
+      * @return \Illuminate\Http\Response response if validation fails
+      */
     protected function edit_validator(array $data) {
 
       $validator = Validator::make($data, [
         'name' => 'required|max:40'
       ]);
 
+      // If validator fails get the errors and warn the user
+      // this redirects to prevent further execution
       if ($validator->fails()) {
         $message = Helper::getValidationErrors($validator);
 

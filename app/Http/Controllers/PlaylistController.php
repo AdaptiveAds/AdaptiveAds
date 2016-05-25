@@ -45,6 +45,7 @@ class PlaylistController extends Controller
       $allowed_departments = Session::get('allowed_departments');
       $match_departments = Session::get('match_departments');
 
+      // Return all playlists the user is allowed to see
       $playlists = Playlist::whereIn('department_id', $match_departments)->orderBy('name', 'ASC')->get();
 
       $data = array(
@@ -75,6 +76,8 @@ class PlaylistController extends Controller
      */
     public function store(Request $request)
     {
+
+      
 
       $playlist = new Playlist;
       $playlist->name = $request->input('txtPlaylistName');

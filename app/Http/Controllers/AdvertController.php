@@ -44,6 +44,7 @@ class AdvertController extends Controller
         $allowed_departments = Session::get('allowed_departments');
         $match_departments = Session::get('match_departments');
 
+        // Get all adverts of the departments the user is assigned
         $adverts = Advert::whereIn('department_id', $match_departments)->get();
 
         $data = array(
@@ -75,15 +76,17 @@ class AdvertController extends Controller
      */
     public function store(Request $request)
     {
+      // Get post input
       $txtAdvertName = $request->input('txtAdvertName');
       $departmentID = $request->input('drpDepartments');
       $backgroundID = $request->input('drpBackgrounds');
 
+      // Create new advert and assign values
       $advert = new Advert();
       $advert->name = $txtAdvertName;
       $advert->department_id = $departmentID;
       $advert->background_id = $backgroundID;
-      $advert->save();
+      $advert->save(); // Save to db
 
       return redirect()->route('dashboard.advert.index')
                        ->with('message', 'Advert saved successfully');
@@ -101,6 +104,7 @@ class AdvertController extends Controller
       if ($request->ajax() == false)
         abort(401, 'Unauthorized');
 
+      // Get the selected advert
       $advert = Advert::find($id);
 
       if ($advert == null)
@@ -117,9 +121,11 @@ class AdvertController extends Controller
      */
     public function edit($id)
     {
+      // Get request inputs
       $allowed_departments = Session::get('allowed_departments');
       $match_departments = Session::get('match_departments');
 
+      // Get avert that maches the id, must be in a department the user can access
       $advert = Advert::whereIn('department_id', $match_departments)->where('id', $id)->get();
 
       if ($advert->isEmpty()) {
@@ -128,6 +134,7 @@ class AdvertController extends Controller
         $advert = $advert->first();
       }
 
+      // Return all pages that have not been deleted
       $pages = $advert->Pages->where('deleted', 0); // Ordered by page index
 
       $data = array(
@@ -147,20 +154,23 @@ class AdvertController extends Controller
      */
     public function update(Request $request, $id)
     {
+      // Get selected advert
       $advert = Advert::find($id);
 
       if ($advert == null)
         return redirect()->route('dashboard.advert.index')
                          ->with('message', 'Error: Could not find advert to update');
 
+      // Get request inputs
       $txtAdvertName = $request->input('txtAdvertName');
       $departmentID = $request->input('drpDepartments');
       $backgroundID = $request->input('drpBackgrounds');
 
+      // Update selected advert object
       $advert->name = $txtAdvertName;
       $advert->department_id = $departmentID;
       $advert->background_id = $backgroundID;
-      $advert->save();
+      $advert->save(); // Update
 
       return redirect()->route('dashboard.advert.index')
                        ->with('message', 'Advert: '.$advert->name.' updated successfully');
@@ -174,12 +184,14 @@ class AdvertController extends Controller
      */
     public function destroy($id)
     {
+      // Find selected advert
       $advert = Advert::find($id);
 
       if ($advert == null)
         return redirect()->route('dashboard.advert.index')
                          ->with('message', 'Error: Could not find advert to delete');
 
+      // Deleted
       $advert->delete();
 
       return redirect()->route('dashboard.advert.index')
@@ -226,22 +238,25 @@ class AdvertController extends Controller
       */
     public function filter(Request $request)
     {
-
+      // Get user details
       $user = Session::get('user');
       $allowed_departments = Session::get('allowed_departments');
 
+      // Get request inputs
       $btnFindAdvert = $request->input('btnFindAdvert');
       $btnFindAll = $request->input('btnFindAll');
       $advertName = $request->input('txtAdvertSearch');
       $departmentID = $request->input('drpDepartments');
 
+      // Get all adverts this user can view
       $adverts = $this->getAllowedAdverts($user, $allowed_departments);
 
+      // Determine operation
       if (isset($btnFindAdvert)) {
 
         // Search by name
         $filtered = $adverts->filter(function($item) use ($advertName) {
-          if ($item->name == $advertName) {
+          if (strpos($item->name, $advertName) != false) { // Match name?
             return true;
           }
         });
@@ -249,7 +264,7 @@ class AdvertController extends Controller
         // Search by department
         if ($filtered->count() == 0) {
           $filtered = $adverts->filter(function($item) use ($departmentID) {
-            if ($item->department_id == $departmentID) {
+            if ($item->department_id == $departmentID) { // Match ID
               return true;
             }
           });
@@ -259,6 +274,7 @@ class AdvertController extends Controller
 
       } else if (isset($btnFindAll)) {
 
+        // Reset search input box
         $advertName = null;
 
       } else {

@@ -38,6 +38,7 @@ class BackgroundController extends Controller
      */
     public function index()
     {
+      //Get all backgrounds
       $backgrounds = Background::all();
 
       $data = array(
@@ -54,7 +55,8 @@ class BackgroundController extends Controller
      */
     public function create()
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -65,6 +67,7 @@ class BackgroundController extends Controller
      */
     public function store(Request $request)
     {
+      // Get request inputs
       $txtbackgroundName = $request->input('txtBackgroundName');
       $hexbackgroundColor = $request->input('hexBackgroundColor');
 
@@ -72,11 +75,13 @@ class BackgroundController extends Controller
         'name' => $txtBackgroundName,
       );
 
+      // Validate inputs
       $reponse = $this->create_validator($data);
       if (isset($reponse)) {
         return $reponse;
       }
 
+      // Create new background
       $background = new Background();
       $background->name = $txtbackgroundName;
 
@@ -93,7 +98,7 @@ class BackgroundController extends Controller
 
       $background->hex_colour = $hexbackgroundColor;
 
-      $background->save();
+      $background->save(); // Update
 
       return redirect()->route('dashboard.settings.backgrounds.index')
                        ->with('message', 'Background created successfully');
@@ -107,9 +112,11 @@ class BackgroundController extends Controller
      */
     public function show(Request $request, $id)
     {
+      // Must be an ajax request
       if ($request->ajax() == false)
         abort(401, 'Unauthorized');
 
+      // Get selected background
       $background = Background::find($id);
       if ($background == null)
         return array('error' => 'Error: Background not found.');
@@ -125,7 +132,8 @@ class BackgroundController extends Controller
      */
     public function edit($id)
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -137,12 +145,14 @@ class BackgroundController extends Controller
      */
     public function update(Request $request, $id)
     {
+      // Get selected background
       $background = Background::find($id);
 
       if ($background == null)
         return redirect()->route('dashboard.settings.backgrounds.index')
                          ->with('message', 'Error: Background not found');
 
+      // Get request inputs
       $txtbackgroundName = $request->input('txtBackgroundName');
       $hexbackgroundColor = $request->input('hexBackgroundColor');
 
@@ -150,6 +160,7 @@ class BackgroundController extends Controller
         'name' => $txtBackgroundName,
       );
 
+      // Validator
       $reponse = $this->edit_validator($data);
       if (isset($reponse)) {
         return $reponse;
@@ -170,7 +181,7 @@ class BackgroundController extends Controller
 
       $background->hex_colour = $hexbackgroundColor;
 
-      $background->save();
+      $background->save(); // Update
 
       return redirect()->route('dashboard.settings.backgrounds.index')
                        ->with('message', 'Background updated successfully');
@@ -184,18 +195,20 @@ class BackgroundController extends Controller
      */
     public function destroy($id)
     {
+      // Get selected Background
       $background = Background::find($id);
 
       if ($background == null)
         return redirect()->route('dashboard.settings.backgrounds.index')
                          ->with('message', 'Error: Background not found');
 
+      // Ensure this background is not assigned to an advert
       $count = $background->Adverts()->count();
       if ($count != 0)
         return redirect()->route('dashboard.settings.backgrounds.index')
                          ->with('message', 'Unable to delete ' . $background->name . ', as one or more adverts require it.');
 
-      $background->delete();
+      $background->delete(); // Delete
 
       return redirect()->route('dashboard.settings.backgrounds.index')
                        ->with('message', 'Background deleted successfully');
@@ -210,10 +223,12 @@ class BackgroundController extends Controller
     {
       $user = Session::get('user');
 
+      // Get request inputs
       $btnFindbackground = $request->input('btnFindBackground');
       $btnFindAll = $request->input('btnFindAll');
       $backgroundName = $request->input('txtBackgroundName');
 
+      // Get all backgrounds
       $backgrounds = Background::all();
 
       // Check which action to perform
@@ -234,6 +249,7 @@ class BackgroundController extends Controller
 
       } else if (isset($btnFindAll)) {
 
+        // Reset search input box
         $backgroundName = null;
 
       } else {
@@ -248,12 +264,20 @@ class BackgroundController extends Controller
       return view('pages/backgroundsEditor', $data);
     }
 
+    /**
+      * Validates input before creating a selected object
+      * @param  array   $data array of fields to validate
+      * @return \Illuminate\Http\Response response if validation fails
+      */
     protected function create_validator(array $data) {
 
+      // Validate
       $validator = Validator::make($data, [
         'name' => 'required|max:40|unique:background',
       ]);
 
+      // If validator fails get the errors and warn the user
+      // this redirects to prevent further execution
       if ($validator->fails()) {
         $message = Helper::getValidationErrors($validator);
 
@@ -263,12 +287,20 @@ class BackgroundController extends Controller
 
     }
 
+    /**
+      * Validates input before creating a selected object
+      * @param  array   $data array of fields to validate
+      * @return \Illuminate\Http\Response response if validation fails
+      */
     protected function edit_validator(array $data) {
 
+      // Valitate
       $validator = Validator::make($data, [
         'name' => 'required|max:40|unique:background'
       ]);
 
+      // If validator fails get the errors and warn the user
+      // this redirects to prevent further execution
       if ($validator->fails()) {
         $message = Helper::getValidationErrors($validator);
 

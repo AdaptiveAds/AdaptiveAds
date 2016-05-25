@@ -12,6 +12,11 @@ use Validator;
   */
 class Helper {
 
+  /**
+    * Outputs error messages from a message bag into a string
+    * @param  $validator  Illuminate\Support\MessageBag
+    * @return string message with error
+    */
   public static function getValidationErrors($validator) {
 
     if ($validator->errors()->count() > 0) {

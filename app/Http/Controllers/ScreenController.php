@@ -41,13 +41,12 @@ class ScreenController extends Controller
         $allowed_departments = Session::get('allowed_departments');
         $user = Session::get('user');
 
+        // Return locations and playlits the user can access
         $locations = Location::whereIn('department_id', $match_departments)->get();
         $playlists = Playlist::whereIn('department_id', $match_departments)->get();
 
         // Get screens that the user has access to
         $screens = $this->getAllowedScreens($user, $allowed_departments);
-
-        //dd($allowed_screens);
 
         $data = array(
           'screens' => $screens,
@@ -66,7 +65,8 @@ class ScreenController extends Controller
      */
     public function create()
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -77,9 +77,11 @@ class ScreenController extends Controller
      */
     public function store(Request $request)
     {
+      // Get request inputs
       $locationID = $request->input('drpLocations');
       $playlistID = $request->input('drpPlaylists');
 
+      // Create a new screen
       $screen = new Screen();
       $screen->location_id = $locationID;
       $screen->playlist_id = empty($playlistID)? 1 : $playlistID;
@@ -101,6 +103,7 @@ class ScreenController extends Controller
       if ($request->ajax() == false)
         abort(401, 'Unauthorized');
 
+      // Load selected screen
       $screen = Screen::find($id);
 
       if ($screen == null)
@@ -117,7 +120,8 @@ class ScreenController extends Controller
      */
     public function edit($id)
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -135,6 +139,7 @@ class ScreenController extends Controller
         return redirect()->route('dashboard.settings.screens.index')
                          ->with('message', 'Error: Screen not found');
 
+      
       $locationID = $request->input('drpLocations');
       $playlistID = $request->input('drpPlaylists');
 
