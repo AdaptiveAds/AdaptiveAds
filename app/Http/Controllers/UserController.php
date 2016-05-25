@@ -42,6 +42,7 @@ class UserController extends Controller
       $user = Session::get('user');
       $allowed_departments = Session::get('allowed_departments');
 
+      // Return all users assigned to departments that the requester can see
       $users = $this->GetAllowedUsers($user, $allowed_departments);
 
       $data = array(
@@ -60,7 +61,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -71,8 +73,10 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+      // Get all request inputs
       $data = $request->all();
 
+      // Validate
       $reponse = $this->create_validator($data);
       if (isset($reponse)) {
         return $reponse;
@@ -102,6 +106,7 @@ class UserController extends Controller
       if ($request->ajax() == false)
         abort(401, 'Unauthorized');
 
+      // Get selected user
       $user = User::find($id);
       if ($user == null)
         return array('error' => 'Error: User not found.');
@@ -117,7 +122,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -129,20 +135,24 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // Get selected user
         $user = User::find($id);
 
         if ($user == null)
           return redirect()->route('dashboard.settings.users.index')
                            ->with('message', 'Error: User not found');
 
+        // Get all request inputs
         $data = $request->all();
         array_push($data, ['the_old_password' => $user->password]);
 
+        // Validate
         $reponse = $this->edit_validator($data);
         if (isset($reponse)) {
           return $reponse;
         }
 
+        // Update
         User::create([
             'username' => $data['username'],
             'password' => bcrypt($data['password']),
@@ -160,17 +170,20 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+      // Load selected user
       $requestUser = Session::get('user');
 
       if ($requestUser->is_super_user == false)
         abort(401, 'Unauthorized');
 
+      // Load user
       $user = User::find($id);
 
       if ($user == null)
         return redirect()->route('dashboard.settings.users.index')
                          ->with('message', 'Error: User not found');
 
+      // Delete
       $user->delete();
 
       return redirect()->route('dashboard.settings.users.index')
@@ -268,6 +281,11 @@ class UserController extends Controller
       return $users->unique('id');
     }
 
+    /**
+      * Validates input before creating a selected object
+      * @param  array   $data array of fields to validate
+      * @return \Illuminate\Http\Response response if validation fails
+      */
     protected function create_validator(array $data) {
 
       $validator = Validator::make($data, [
@@ -275,6 +293,8 @@ class UserController extends Controller
         'password' => 'required|confirmed|min:6|max:60',
       ]);
 
+      // If validator fails get the errors and warn the user
+      // this redirects to prevent further execution
       if ($validator->fails()) {
         $message = Helper::getValidationErrors($validator);
 
@@ -284,6 +304,11 @@ class UserController extends Controller
 
     }
 
+    /**
+      * Validates input before creating a selected object
+      * @param  array   $data array of fields to validate
+      * @return \Illuminate\Http\Response response if validation fails
+      */
     protected function edit_validator(array $data) {
 
       $validator = Validator::make($data, [
@@ -291,6 +316,8 @@ class UserController extends Controller
         'password' => 'confirmed|min:6|max:60',
       ]);
 
+      // If validator fails get the errors and warn the user
+      // this redirects to prevent further execution
       if ($validator->fails()) {
         $message = Helper::getValidationErrors($validator);
 

@@ -133,16 +133,18 @@ class ScreenController extends Controller
      */
     public function update(Request $request, $id)
     {
+      // Load selected screen
       $screen = Screen::find($id);
 
       if ($screen == null)
         return redirect()->route('dashboard.settings.screens.index')
                          ->with('message', 'Error: Screen not found');
 
-      
+      // Get request input
       $locationID = $request->input('drpLocations');
       $playlistID = $request->input('drpPlaylists');
 
+      // Update screen
       $screen->location_id = $locationID;
       $screen->playlist_id = empty($playlistID)? 1 : $playlistID;
       $screen->save();
@@ -161,15 +163,18 @@ class ScreenController extends Controller
     {
       $user = Session::get('user');
 
+      // Only supoer users are allowed to delete screens
       if ($user->is_super_user == false)
         abort(401, 'Unauthorized');
 
+      // Load selected screen
       $screen = Screen::find($id);
 
       if ($screen == null)
         return redirect()->route('dashboard.settings.screens.index')
                          ->with('message', 'Error: Screen not found');
 
+      // Delete
       $screen->delete();
 
       return redirect()->route('dashboard.settings.screens.index')
@@ -249,10 +254,14 @@ class ScreenController extends Controller
       * @return EloquentCollection
       */
     public function getAllowedScreens($user, $allowed_departments) {
+
+      // Return all if a suprer user
       if ($user->is_super_user) {
         return Screen::all();
       } else {
 
+        // If the screens assigned department matches
+        // one in the users allowed list then display it
         $screens = collect([]);
         foreach ($allowed_departments as $department) {
           $departmentScreens = $department->Screens()->get();

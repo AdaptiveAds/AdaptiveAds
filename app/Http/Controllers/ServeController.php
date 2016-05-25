@@ -30,7 +30,8 @@ class ServeController extends Controller
      */
     public function index()
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -40,7 +41,8 @@ class ServeController extends Controller
      */
     public function create()
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -51,7 +53,8 @@ class ServeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -62,19 +65,19 @@ class ServeController extends Controller
      */
     public function show($id)
     {
+        // Load specified screen
         $screen = Screen::find($id);
-        //$screen_playlists = $screen->with('department.playlists.adverts')->get();
 
         if (isset($screen) == false)
           abort(404, 'Not found');
 
+        // Eager load playlist
         $screen = $this->loadPlaylists($screen);
-        //$collec = $info->playlist->adverts;
 
+        // Filter out adverts that can't be shown during this time
         $adverts = $this->applySchedule($screen->playlist->adverts);
 
-        //dd($adverts->background);
-
+        // Get the active template to load first
         $activeTemplate = "template1"; // assign default
         if ($adverts->count() > 0) {
           $activeTemplate = $adverts[0]->Pages[0]->Template;
@@ -94,6 +97,12 @@ class ServeController extends Controller
         return view('templateDefault', $data);
     }
 
+    /**
+      * Only returns playlists that have a schedule allowing
+      * them to display at thie current time
+      * @param collection $adverts  Adverts to filter
+      * @param collection of process adverts allow to display now
+      */
     public function applySchedule($adverts) {
       $time = date('H:i:s', Time());
       $processed = $adverts->filter(function($item) use ($time) {
@@ -149,13 +158,18 @@ class ServeController extends Controller
       */
     public function sync($id)
     {
+      // Must be an ajax request
+      if ($request->ajax() == false)
+        abort(401, 'Unauthorized');
+
+        // Load the selected screen
         $screen = Screen::find($id);
-        //$playlist = $screen->Location->Playlist;
 
         if (isset($screen) == false) {
           return response('Not found', 404);
         }
 
+        // Eager load playlists
         $data = $this->loadPlaylists($screen);
         $adverts = $this->applySchedule($data->playlist->adverts);
 
@@ -165,8 +179,6 @@ class ServeController extends Controller
           'adverts' => $adverts,
           'global' => $this->getGlobal()
         );
-
-        //dd($data);
 
         return $data;
     }
@@ -179,7 +191,8 @@ class ServeController extends Controller
      */
     public function edit($id)
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -191,7 +204,8 @@ class ServeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -202,7 +216,8 @@ class ServeController extends Controller
      */
     public function destroy($id)
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
 
