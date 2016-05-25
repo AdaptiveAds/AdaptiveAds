@@ -13,9 +13,6 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
   */
 class DepartmentUser extends Pivot
 {
-
-  // Source https://laracasts.com/discuss/channels/eloquent/eloquent-model-many-to-manypivot-with-additional-attributes-as-foreign-key
-
   /**
     * Get the user associated to the parent. Belongs to replationship
     * @return EloquentCollection

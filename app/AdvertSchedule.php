@@ -18,6 +18,10 @@ class AdvertSchedule extends Model
     */
   public $timestamps = false;
 
+  /**
+    * Returns the advert schedule
+    * @returns EloquentCollection
+    */
   public function Schedule() {
     return $this->belongsTo(Schedule::class, 'schedule_id', 'id');
   }

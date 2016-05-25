@@ -32,6 +32,10 @@ class Location extends Model
     return $this->belongsTo(Department::class);
   }
 
+  /**
+    * Returns the screens assigned to this location
+    * @returns EloquentCollection
+    */
   public function Screens() {
     return $this->hasMany(Screen::class);
   }
