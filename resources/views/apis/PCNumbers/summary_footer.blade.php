@@ -16,7 +16,7 @@
       jsonpCallback: 'callback',
       type: 'GET',
       success: function (data) {
-        console.log(data)
+        //console.log(data)
         for (var key in data) {
             for (key2 in data[key]) {
 

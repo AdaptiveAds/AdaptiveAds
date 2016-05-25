@@ -4,6 +4,9 @@ function ConfirmDelete() {
 
 }
 
+/**
+  *
+  */
 function addVideo(callback) {
   $('#serve_image').children('img').replaceWith('<video autoplay>' +
     '<source src="/advert_videos/video_placeholder.mp4" type="video/mp4">' +

@@ -158,29 +158,25 @@ class ServeController extends Controller
       */
     public function sync($id)
     {
-      // Must be an ajax request
-      if ($request->ajax() == false)
-        abort(401, 'Unauthorized');
+      // Load the selected screen
+      $screen = Screen::find($id);
 
-        // Load the selected screen
-        $screen = Screen::find($id);
+      if (isset($screen) == false) {
+        return response('Not found', 404);
+      }
 
-        if (isset($screen) == false) {
-          return response('Not found', 404);
-        }
+      // Eager load playlists
+      $data = $this->loadPlaylists($screen);
+      $adverts = $this->applySchedule($data->playlist->adverts);
 
-        // Eager load playlists
-        $data = $this->loadPlaylists($screen);
-        $adverts = $this->applySchedule($data->playlist->adverts);
+      $data = array(
+        'screen' => $screen,
+        'playlist' => $data->playlist,
+        'adverts' => $adverts,
+        'global' => $this->getGlobal()
+      );
 
-        $data = array(
-          'screen' => $screen,
-          'playlist' => $data->playlist,
-          'adverts' => $adverts,
-          'global' => $this->getGlobal()
-        );
-
-        return $data;
+      return $data;
     }
 
     /**
