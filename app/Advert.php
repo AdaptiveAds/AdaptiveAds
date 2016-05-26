@@ -47,10 +47,18 @@ class Advert extends Model
     return $this->hasOne(Department::class, 'id', 'department_id');
   }
 
+  /**
+    * Gets the display schedule of the advert
+    * @returns EloquentCollection
+    */
   public function AdvertSchedule() {
     return $this->belongsTo(AdvertSchedule::class, 'id', 'advert_id');
   }
 
+  /**
+    * Gets the background assigned to the advert
+    * @returns EloquentCollection
+    */
   public function background() {
     return $this->hasOne(Background::class, 'id', 'background_id');
   }

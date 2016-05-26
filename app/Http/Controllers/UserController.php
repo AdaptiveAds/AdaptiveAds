@@ -9,6 +9,7 @@ use Validator;
 
 use App\Department as Department;
 use App\User as User;
+use App\Helpers\Helper as Helper;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -41,6 +42,7 @@ class UserController extends Controller
       $user = Session::get('user');
       $allowed_departments = Session::get('allowed_departments');
 
+      // Return all users assigned to departments that the requester can see
       $users = $this->GetAllowedUsers($user, $allowed_departments);
 
       $data = array(
@@ -59,7 +61,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -70,25 +73,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+      // Get all request inputs
       $data = $request->all();
 
-      $validator = Validator::make($data, [
-          'username' => 'required|max:255|unique:user',
-          'password' => 'required|confirmed|min:6',
-      ]);
-
-      // If we failed return the reason why
-      if ($validator->fails()) {
-        $message = 'Validation Error: Failed to create user';
-
-        if ($validator->errors()->count() > 0) {
-          foreach ($validator->errors()->all() as $valMessage) {
-            $message = $valMessage;
-          }
-        }
-
-        return redirect()->route('dashboard.settings.users.index')
-                         ->with('message', $message);
+      // Validate
+      $reponse = $this->create_validator($data);
+      if (isset($reponse)) {
+        return $reponse;
       }
 
       // Create user
@@ -115,6 +106,7 @@ class UserController extends Controller
       if ($request->ajax() == false)
         abort(401, 'Unauthorized');
 
+      // Get selected user
       $user = User::find($id);
       if ($user == null)
         return array('error' => 'Error: User not found.');
@@ -130,7 +122,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -142,24 +135,24 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // Get selected user
         $user = User::find($id);
 
         if ($user == null)
           return redirect()->route('dashboard.settings.users.index')
                            ->with('message', 'Error: User not found');
 
+        // Get all request inputs
         $data = $request->all();
+        array_push($data, ['the_old_password' => $user->password]);
 
-        $validator = Validator::make($data, [
-            'username' => 'required|max:255|unique:user',
-            'password' => 'required|confirmed|min:6',
-        ]);
-
-        if ($validator->fails()) {
-          return redirect()->route('dashboard.settings.users.index')
-                           ->with('message', 'Passwords did not match');
+        // Validate
+        $reponse = $this->edit_validator($data);
+        if (isset($reponse)) {
+          return $reponse;
         }
 
+        // Update
         User::create([
             'username' => $data['username'],
             'password' => bcrypt($data['password']),
@@ -177,17 +170,20 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+      // Load selected user
       $requestUser = Session::get('user');
 
       if ($requestUser->is_super_user == false)
         abort(401, 'Unauthorized');
 
+      // Load user
       $user = User::find($id);
 
       if ($user == null)
         return redirect()->route('dashboard.settings.users.index')
                          ->with('message', 'Error: User not found');
 
+      // Delete
       $user->delete();
 
       return redirect()->route('dashboard.settings.users.index')
@@ -283,5 +279,51 @@ class UserController extends Controller
 
       // Only return unqiue users
       return $users->unique('id');
+    }
+
+    /**
+      * Validates input before creating a selected object
+      * @param  array   $data array of fields to validate
+      * @return \Illuminate\Http\Response response if validation fails
+      */
+    protected function create_validator(array $data) {
+
+      $validator = Validator::make($data, [
+        'username' => 'required|max:40|unique:user',
+        'password' => 'required|confirmed|min:6|max:60',
+      ]);
+
+      // If validator fails get the errors and warn the user
+      // this redirects to prevent further execution
+      if ($validator->fails()) {
+        $message = Helper::getValidationErrors($validator);
+
+        return redirect()->route('dashboard.settings.users.index')
+        ->with('message', $message);
+      }
+
+    }
+
+    /**
+      * Validates input before creating a selected object
+      * @param  array   $data array of fields to validate
+      * @return \Illuminate\Http\Response response if validation fails
+      */
+    protected function edit_validator(array $data) {
+
+      $validator = Validator::make($data, [
+        'username' => 'required|max:40|unique:user',
+        'password' => 'confirmed|min:6|max:60',
+      ]);
+
+      // If validator fails get the errors and warn the user
+      // this redirects to prevent further execution
+      if ($validator->fails()) {
+        $message = Helper::getValidationErrors($validator);
+
+        return redirect()->route('dashboard.settings.users.index')
+        ->with('message', $message);
+      }
+
     }
 }

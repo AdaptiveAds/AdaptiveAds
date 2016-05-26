@@ -42,8 +42,8 @@
 								</a>
 							@endif
 						@endif
-						<button type="submit" name="btnFindLocation">Find</button>
-						<button type="submit" name="btnFindAll">Find all</button>
+						<button type="submit" name="btnFindLocation">Filter</button>
+						<button type="submit" name="btnFindAll">Clear Filter</button>
 					</li>
 				</ul>
 		{!! Form::close() !!}

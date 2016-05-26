@@ -19,11 +19,11 @@
       @endif
 			<li>
 				<label>Password:</label>
-				<input title="Password"  type="password" name="password" placeholder="Min 6 chars" required>
+				<input title="Password"  type="password" name="password" placeholder="Min 6 chars">
 			</li>
 			<li>
 				<label>Re-type Pass:</label>
-				<input title="Confirm Password"  type="password" name="password_confirmation" placeholder="Confirm" required>
+				<input title="Confirm Password"  type="password" name="password_confirmation" placeholder="Confirm">
 			</li>
 			<li>
 				<button type="submit" name="btnSave">Save</button>

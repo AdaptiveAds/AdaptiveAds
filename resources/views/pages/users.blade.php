@@ -32,10 +32,10 @@
 					@include('objects/dropdown_departments', array('allowed_departments' => $allowed_departments))
 					@if (isset($user))
 						@if ($user->is_super_user)
-							<button type="submit" name="btnFindUser">Find</button>
+							<button type="submit" name="btnFindUser">Filter</button>
 						@endif
 					@endif
-					<button type="submit" name="btnFindAll">Find All</button>
+					<button type="submit" name="btnFindAll">Clear Filter</button>
 					<a href="#UsersModal" data-displayCreateModal="true"
 																data-modalObject="Users"
 																data-modalMethod="POST"

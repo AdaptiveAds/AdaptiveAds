@@ -1,2 +1,0 @@
-homestead up
-pause

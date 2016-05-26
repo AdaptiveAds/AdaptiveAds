@@ -52,6 +52,7 @@ class PageController extends Controller
         $page = new Page;
         $page->advert_id = $adID;
 
+        // Returns all possible templates to assign to the page
         $templates = Template::all();
 
         $data = array(

@@ -35,6 +35,10 @@ class Playlist extends Model
                 ->orderBy('advert_index', 'ASC');
   }
 
+  /**
+    * Returns all screens that have this playlist assigned
+    * @returns EloquentCollection
+    */
   public function Screens() {
     return $this->hasMany(Screen::class);
   }

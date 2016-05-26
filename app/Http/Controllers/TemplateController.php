@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 
 use Session;
 use Input;
+use Validator;
 
 use App\Template as Template;
+use App\Helpers\Helper as Helper;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -39,11 +41,8 @@ class TemplateController extends Controller
     {
       $user = Session::get('user');
 
-      // Get templates that the user has access to
-      //$templates = $this->getAllowedScreens($user, $allowed_departments);
+      // Return all templates
       $templates = Template::all();
-
-      //dd($allowed_screens);
 
       $data = array(
         'templates' => $templates,
@@ -60,7 +59,8 @@ class TemplateController extends Controller
      */
     public function create()
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -71,10 +71,24 @@ class TemplateController extends Controller
      */
     public function store(Request $request)
     {
+        // Get request inputs
         $txtTemplateName = $request->input('txtTemplateName');
         $txtTemplateClass = $request->input('txtTemplateClass');
         $numTemplateDuration = $request->input('numTemplateDuration');
 
+        $data = array(
+          'name' => $txtTemplateName,
+          'class_name' => $txtTemplateClass,
+          'duration' => $numTemplateDuration,
+        );
+
+        // Validate
+        $reponse = $this->create_validator($data);
+        if (isset($reponse)) {
+          return $reponse;
+        }
+
+        // Create new template
         $template = new Template();
         $template->name = $txtTemplateName;
         $template->class_name = $txtTemplateClass;
@@ -91,6 +105,7 @@ class TemplateController extends Controller
           }
         }
 
+        // Save!
         $template->save();
 
         return redirect()->route('dashboard.settings.templates.index')
@@ -109,6 +124,7 @@ class TemplateController extends Controller
       if ($request->ajax() == false)
         abort(401, 'Unauthorized');
 
+      // Load the selected template
       $template = Template::find($id);
       if ($template == null)
         return array('error' => 'Error: Template not found.');
@@ -124,7 +140,8 @@ class TemplateController extends Controller
      */
     public function edit($id)
     {
-        //
+      // NOTE not used
+      return Response('Not found', 404);
     }
 
     /**
@@ -136,16 +153,31 @@ class TemplateController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // Load selected templates
         $template = Template::find($id);
 
         if ($template == null)
           return redirect()->route('dashboard.settings.templates.index')
                            ->with('message', 'Error: Template not found');
 
+        // Get request inputs
         $txtTemplateName = $request->input('txtTemplateName');
         $txtTemplateClass = $request->input('txtTemplateClass');
         $numTemplateDuration = $request->input('numTemplateDuration');
 
+        $data = array(
+          'name' => $txtTemplateName,
+          'class_name' => $txtTemplateClass,
+          'duration' => $numTemplateDuration,
+        );
+
+        // Validate
+        $reponse = $this->edit_validator($data);
+        if (isset($reponse)) {
+          return $reponse;
+        }
+
+        // Update
         $template->name = $txtTemplateName;
         $template->class_name = $txtTemplateClass;
         $template->duration = $numTemplateDuration;
@@ -161,6 +193,7 @@ class TemplateController extends Controller
           }
         }
 
+        // Update!
         $template->save();
 
         return redirect()->route('dashboard.settings.templates.index')
@@ -175,12 +208,14 @@ class TemplateController extends Controller
      */
     public function destroy($id)
     {
+      // Load selected template
       $template = Template::find($id);
 
       if ($template == null)
         return redirect()->route('dashboard.settings.templates.index')
                          ->with('message', 'Error: Template not found');
 
+      // Check if any pages are hve this template assigned?
       $pagesCount = $template->Pages()->count();
 
       // Don't delete if template is referenced
@@ -188,6 +223,7 @@ class TemplateController extends Controller
         return redirect()->route('dashboard.settings.templates.index')
                          ->with('message', 'Unable to delete ' . $template->name .', as one or more pages require it.');
 
+      // Delete
       $template->delete();
 
       return redirect()->route('dashboard.settings.templates.index')
@@ -203,6 +239,7 @@ class TemplateController extends Controller
     {
       $user = Session::get('user');
 
+      // Get request inputs
       $btnFindTemplate = $request->input('btnFindTemplate');
       $btnFindAll = $request->input('btnFindAll');
       $templateName = $request->input('txtTemplateName');
@@ -249,6 +286,7 @@ class TemplateController extends Controller
 
       } else if (isset($btnFindAll)) {
 
+        // Reset search fields
         $templateName = null;
         $templateClass = null;
         $templateDuration = null;
@@ -265,9 +303,53 @@ class TemplateController extends Controller
       return view('pages/templatesEditor', $data);
     }
 
-    public function getAllowedTemplates($user, $allowed_departments) {
+    /**
+      * Validates input before creating a selected object
+      * @param  array   $data array of fields to validate
+      * @return \Illuminate\Http\Response response if validation fails
+      */
+    protected function create_validator(array $data) {
 
+      // Validate
+      $validator = Validator::make($data, [
+        'name' => 'required|max:40|unique:template',
+        'class_name' => 'required|max:50|unique:template',
+        'duration' => 'required|integer|min:1',
+      ]);
 
+      // If validator fails get the errors and warn the user
+      // this redirects to prevent further execution
+      if ($validator->fails()) {
+        $message = Helper::getValidationErrors($validator);
+
+        return redirect()->route('dashboard.settings.templates.index')
+        ->with('message', $message);
+      }
+
+    }
+
+    /**
+      * Validates input before creating a selected object
+      * @param  array   $data array of fields to validate
+      * @return \Illuminate\Http\Response response if validation fails
+      */
+    protected function edit_validator(array $data) {
+
+      // Validate
+      $validator = Validator::make($data, [
+        'name' => 'required|max:40|unique:template',
+        'class_name' => 'required|max:50|unique:template',
+        'duration' => 'required|integer|min:1',
+      ]);
+
+      // If validator fails get the errors and warn the user
+      // this redirects to prevent further execution
+      if ($validator->fails()) {
+        $message = Helper::getValidationErrors($validator);
+
+        return redirect()->route('dashboard.settings.templates.index')
+        ->with('message', $message);
+      }
 
     }
 }

@@ -63,15 +63,6 @@ class Department extends Model
   }
 
   /**
-    * REVIEW !!!!!! REMOVE?
-    * Gets all screens associated with the department. Has many relationship
-    * @return EloquentCollection
-    */
-  public function Screen() {
-    return $this->hasMany(Screen::class);
-  }
-
-  /**
     * Gets the background assigned to the department. Has one relationship
     * @return EloquentCollection
     */

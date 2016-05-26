@@ -24,6 +24,10 @@ class Background extends Model
     */
   public $timestamps = false;
 
+  /**
+    * Returns all adverts that has this background assigned
+    * @returns EloquentCollection
+    */
   public function Adverts() {
     return $this->hasMany(Advert::class);
   }

@@ -27,7 +27,7 @@
 			@endif
 			<ul>
 				<li>
-					<input name="txtAdvertName" type="text" placeholder="Advert name...."
+					<input name="txtAdvertSearch" type="text" placeholder="Advert name...."
 								 value="{{ $searchItem or '' }}"/>
 					<label name="lblDepartment">Department:</label>
  					@include('objects/dropdown_departments', array('allowed_departments' => $allowed_departments))
@@ -39,8 +39,8 @@
 						<button type="button" name="btnAddAdvert">Add</button>
 					</a>
 
-					<button name="btnFindAdvert" type="submit">Find</button>
-					<button name="btnFindAll" type="submit">Find All</button>
+					<button name="btnFindAdvert" type="submit">Filter</button>
+					<button name="btnFindAll" type="submit">Clear Filter</button>
 				</li>
 			</ul>
 		{!! Form::close() !!}
