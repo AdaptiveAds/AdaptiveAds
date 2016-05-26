@@ -10,8 +10,12 @@
 </script>
 
 <h3>Page Editor</h3>
-<h3 name="pageName">Title: {{ $pageData->heading or 'New Page'}}</h3>
-
+<!--<h3 name="pageName">Title: {{ $pageData->heading or 'New Page'}}</h3>-->
+@if (Session::has('message'))
+	<h5>{{Session::pull('message')}}</h5>
+@else
+	<h5>Ready to design</h5>
+@endif
 
 <div id="left" class="landscape">
 	<div id="identity">
