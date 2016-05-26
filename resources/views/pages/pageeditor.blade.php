@@ -72,6 +72,12 @@
 				<textarea title="content" type="text" name="txtPageContent" placeholder="Enter Content...">{{ $pageData->content or '' }}
 				</textarea>
 			</li>
+			<li>
+				<label>Transition:</label>
+				@include('objects/dropdown_transitions')
+				<label>Direction:</label>
+				@include('objects/dropdown_transition_direction')
+			</li>
 
 			<input type="hidden" name="txtTemplate" value="{{$activeTemplate->id}}"/>
 
