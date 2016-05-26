@@ -121,28 +121,35 @@ https://developers.google.com/recaptcha/docs/display -->
 		<div id="top">
 			<div id="fontsizing">
 				<ul>
-					<li data-btnFont="true" data-theme="font-theme-a" onclick="TextSize.a();"><i class="fa fa-font"></i></li>
-					<li data-btnFont="true" data-theme="font-theme-b" onclick="TextSize.b();" class="top-active"><i class="fa fa-font"></i></li>
-					<li data-btnFont="true" data-theme="font-theme-c" onclick="TextSize.c();"><i class="fa fa-font"></i></li>
+					<li title="Small Fonts"  data-btnFont="true" data-theme="font-theme-a" onclick="TextSize.a();"><i class="fa fa-font"></i></li>
+					<li title="Medium Fonts"  data-btnFont="true" data-theme="font-theme-b" onclick="TextSize.b();" class="top-active"><i class="fa fa-font"></i></li>
+					<li title="Large Fonts" data-btnFont="true" data-theme="font-theme-c" onclick="TextSize.c();"><i class="fa fa-font"></i></li>
 				</ul>
 				<div class="clear"></div>
 			</div>
 
 			<div id="swatches">
 				<ul>
-					<li data-btnSwatch="true" data-theme="data-swatch-theme-a" class="top-active"><i class="fa fa-circle-o-notch"></i></li>
-					<li data-btnSwatch="true" data-theme="data-swatch-theme-b"><i class="fa fa-circle-o-notch"></i></li>
-					<li data-btnSwatch="true" data-theme="data-swatch-theme-c"><i class="fa fa-circle-o-notch"></i></li>
+					<li title="Light Theme" data-btnSwatch="true" data-theme="data-swatch-theme-a" class="top-active"><i class="fa fa-circle-o-notch"></i></li>
+					<li title="Neutral Theme"  data-btnSwatch="true" data-theme="data-swatch-theme-b"><i class="fa fa-circle-o-notch"></i></li>
+					<li title="Dark Theme"  data-btnSwatch="true" data-theme="data-swatch-theme-c"><i class="fa fa-circle-o-notch"></i></li>
 				</ul>
 				<div class="clear"></div>
 			</div>
 			<div id="mainmenu-btn">
-					@if (Auth::guest() == false)
-						<a name="lnkHome" href="{{ URL::to('dashboard')}}"><i class="fa fa-home" aria-hidden="true"></i></a>
-					@else
-						<a name="lnkDashboard" href="{{ URL::to('home')}}"><i class="fa fa-home" aria-hidden="true"></i></a>
-					@endif
-					<button name="mainmenu-btn" class="nav-button">Menu</button>
+				@if (Auth::guest() == false)
+					<a title="Logout" name="lnkSignOut" href="{{ URL::to('logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+				@else
+					<a title="Login" name="lnkSignIn" href="{{ URL::to('login')}}"><i class="fa fa-sign-in" aria-hidden="true"></i></a>
+				@endif
+
+				@if (Auth::guest() == false)
+					<a  title="Return Home" name="lnkHome" href="{{ URL::to('dashboard')}}"><i class="fa fa-home" aria-hidden="true"></i></a>
+				@else
+					<a  title="Return Home" name="lnkDashboard" href="{{ URL::to('home')}}"><i class="fa fa-home" aria-hidden="true"></i></a>
+				@endif
+				<button  title="Menu"  name="mainmenu-btn" class="nav-button">Menu</button>
+
 			</div>
 		  <div class="clear"></div>
 

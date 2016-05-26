@@ -21,6 +21,7 @@ text-align:center; clear:both;
 /*        dashboard        */
 /***************************/
 .dashboard {
+width:100%;
 
 	.row {
 	width:100%;
@@ -28,22 +29,28 @@ text-align:center; clear:both;
 	.options {
 	background:transparent;
 	text-align:center;
+	width:50%;
+	float:left;
 
 		h4 {
 		text-align:left;
 		}//h4
 
 		ul {
-		text-decoration:none; list-style:none; padding:0; margin:0;
-
-			li:last-child {
-			margin-right:0;
-			}//li:first-child
+		text-decoration:none; list-style:none; padding:0;
+		width:100%; margin:0 auto;
 
 			li {
 			float:left;
-			margin:1%;
-			width:18%;
+			margin:2%;
+			width:20%;
+			//After 4 li items, the 5th and 10th move onto another line.
+				&:nth-child(5), &:nth-child(10),  {
+	    	clear:left;
+				margin-left:0px;
+				}
+
+				&:first-child {margin-left:0;}
 
 				a {
 				display:block;
@@ -51,6 +58,7 @@ text-align:center; clear:both;
 				border-radius:$site-border-radius;
 				border:$site-border-hidden;
 				color:#ffffff;
+				width:100%;
 
 
 					&:hover {
@@ -67,7 +75,6 @@ text-align:center; clear:both;
 						}//span
 					}//i
 				}//a
-
 			}//li
 		}//ul
 	}//options
@@ -214,80 +221,42 @@ width:100%;
 margin:0 auto;
 font-size:120%;
 
-	.row {
-	margin:0 auto 1%;
-
-		ul {
-
-			li {
-			margin-top:0.5%;
-
-				//Temporary height? - Changing to icons should resolve spacing issue
-				&:first-child {min-height:65px;}
-
-				a {
-				cursor:pointer;
-				//padding: 1% 1% 1% 0;
+	.row {margin:0 auto 1%;
+		&:first-child {background:#465f6c none repeat scroll 0 0;padding:1%;
+			h3 {width:auto; float:left;}
+			h5 {width:auto; float:left; margin-left:10px; padding:6px;}
+			ul {clear:both;	margin:0 auto;
+				li{
+					input {width:240px;}
+					label {width:180px; margin-left:10px; float:none;}
+					select {width:230px; margin-left:10px;}
+					a {float:right;}
+					button {float:right; margin-right:1%;
+						&:last-child {
+						margin-left:0%;
+						}
+					}
 				}
-
-				input {
-				font-size:90%;
-				padding-left:1%;
-				}//input
-
-				label {
-				min-width:40%;
-				}//label
-
-				button {
-				font-size:90%;
-				float:right;
-				margin-left:1%;
-
-					&:hover {background:orange;}
-			}//button
-			}//li
-		}//ul
+			}
+		}
 	}//row
 
 	.row:last-child {
-
-				ul {
-
-					li {
-					min-height:30px;
-
-						&:nth-child(odd) {
-						background:$li-background;
-					}//li:nth
-
-					&:nth-child(even) {
-					background:$li-background-lighter;
-				}//li:nth
-
-						&:hover {
-						background:$li-background-hover;
-						}
-
-						a {
-						padding:0;
-						display:inline;
-						float:left;
-						}
-
-						label {
-						}//label
-
-						button {
-
-							&:first-child {
-							margin-left:10px;
-							}//button:first-child
-
-						}//button
-					}//li
-
-				}//ul
+		ul {
+			li {display:flex;
+			margin-top:0.5%;
+				&:nth-child(odd) {background:$li-background;}//li:nth
+				&:nth-child(even) {background:$li-background-lighter;}//li:nth
+				&:hover {background:$li-background-hover;}
+				a {cursor:pointer; padding:0;	display:inline; float:left;}
+				input {font-size:90%; padding-left:1%; }//input
+				label {float:left; min-width:75%; padding:2%;}//label
+				button {font-size:90%; float:right; margin-left:1%;
+					&:first-child {margin-left:10px;}//
+					&:hover {background:orange;}
+				}//button
+			}//li
+		}//ul
 	}//row:last-child
 }//global
 
@@ -352,3 +321,30 @@ text-align:left;
 
 
 }//clientlogin | register
+
+/*************************/
+// Modal Content
+//
+
+.modal_content, .modalDialogLeft {
+	h4 {background:transparent;}
+	form {background:transparent;padding:2%;
+
+		ul{		}
+			li{
+				&:first-child{
+				input {width:65%; border:1px solid #000000;}
+				}
+				&:nth-child(even){margin-top:2%; margin-bottom:2%; }
+				&:last-child{background:transparent;}
+				}
+				label {width:auto; background:$li-background; padding:1%;}
+				input {border:1px solid #000000;}
+				select {border:1px solid #000000;
+					option{}
+				}
+				button{
+					&:nth-child(even){}
+				}
+	}
+	}
