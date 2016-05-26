@@ -28,10 +28,10 @@
 			<ul name="listUsersControls">
 				<li>
 					<input type="name" name="txtUsername" placeholder="Name" value="{{ $username or '' }}"/>
-					<label>Department:</label>
-					@include('objects/dropdown_departments', array('allowed_departments' => $allowed_departments))
-					@if (isset($user))
-						@if ($user->is_super_user)
+					{{--<label>Department:</label>
+					@include('objects/dropdown_departments', array('allowed_departments' => $allowed_departments))--}}
+					@if (isset($requestUser))
+						@if ($requestUser->is_super_user)
 							<button type="submit" name="btnFindUser">Filter</button>
 						@endif
 					@endif

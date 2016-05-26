@@ -30,7 +30,7 @@ Route::get('register', 'Auth\AuthController@getRegister');
 Route::post('register', 'Auth\AuthController@postRegister');
 
 // Landing page
-Route::get('dashboard', ['middleware' => 'auth', 'uses' => 'DashboardController@index']);
+Route::get('dashboard', ['as' => 'dashboard', 'middleware' => 'auth', 'uses' => 'DashboardController@index']);
 
 // Playlist pages
 Route::resource('dashboard/playlist', 'PlaylistController', ['except' => ['create']]);

@@ -269,6 +269,13 @@ var Serve = (function(Page) {
     return advert;
   }
 
+  function reset($elem) {
+    $elem.before($elem.clone(true));
+    var $newElem = $elem.prev();
+    $elem.remove();
+    return $newElem;
+} // end reset()
+
   /**
     * Update the DOM with a new page
     * @param object currentAdvert to show
@@ -305,9 +312,11 @@ var Serve = (function(Page) {
           addVideo(updateDurationInterval);
           $('#serve_image').children('source').attr('src', '../advert_videos/' + currentAdvert.pages[index].page_data.video_path);
         } else {
+          $('#serve_container').animateCss(currentAdvert.pages[index].transition);
           // Insert logo image
           $('#serve_image').children('img').attr('src', '/images/image_placeholder.png' + currentAdvert.pages[index].page_data.image_path);
         }
+
       }
     }
 
@@ -372,6 +381,16 @@ var PageEditor = (function() {
 
   }
 
+  function updateTransitions(transition) {
+
+    var trans = transition.substring(0, transition.indexOf('I') + 2);
+    var dir = transition.substring(transition.indexOf('I') + 2, transition.length);
+
+    $('[name="drpTransitions"]').val(trans);
+    $('[name="drpTransitionDirection"]').val(dir);
+
+  }
+
   function init() {
     register_eventhandlers();
   }
@@ -383,7 +402,8 @@ var PageEditor = (function() {
   return {
     init: init,
     dispose: dispose,
-    register_eventhandlers: register_eventhandlers
+    register_eventhandlers: register_eventhandlers,
+    updateTransitions: updateTransitions
   };
 
 }());
