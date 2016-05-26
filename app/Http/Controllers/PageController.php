@@ -112,6 +112,10 @@ class PageController extends Controller
       $page->page_index = Page::where('advert_id', $adID)->count(); // Add to end
       $page->advert_id = $adID;
       $page->template_id = $request->input('txtTemplate');
+
+      $transition = $request->input('drpTransitions') + $request->input('drpTransitionDirection');
+      dd($transition);
+      $page->transition = $transition;
       $page->save();
 
       $data = array(
@@ -174,6 +178,9 @@ class PageController extends Controller
 
       $page = Page::find($id);
       $page->template_id = $request->input('txtTemplate');
+      $transition = $request->input('drpTransitions') . $request->input('drpTransitionDirection');
+      $page->transition = $transition;
+
       $page->save();
 
       $pageData = $page->PageData;

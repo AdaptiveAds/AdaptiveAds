@@ -38,5 +38,5 @@
 			</div>
 	</div>
   <div class="clear"></div>
-	@include('apis/PCNumbers/summary_footer')
 </div>
+@include('apis/PCNumbers/summary_footer')
