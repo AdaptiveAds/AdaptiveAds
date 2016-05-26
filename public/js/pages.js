@@ -381,6 +381,16 @@ var PageEditor = (function() {
 
   }
 
+  function updateTransitions(transition) {
+
+    var trans = transition.substring(0, transition.indexOf('I') + 2);
+    var dir = transition.substring(transition.indexOf('I') + 2, transition.length);
+
+    $('[name="drpTransitions"]').val(trans);
+    $('[name="drpTransitionDirection"]').val(dir);
+
+  }
+
   function init() {
     register_eventhandlers();
   }
@@ -392,7 +402,8 @@ var PageEditor = (function() {
   return {
     init: init,
     dispose: dispose,
-    register_eventhandlers: register_eventhandlers
+    register_eventhandlers: register_eventhandlers,
+    updateTransitions: updateTransitions
   };
 
 }());

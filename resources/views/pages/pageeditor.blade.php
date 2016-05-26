@@ -6,6 +6,7 @@
 	// Do sync and AJAX here.... TODO
 	$('document').ready(function() {
 		PageEditor.init();
+		PageEditor.updateTransitions('{{$page->transition or "noneIn"}}');
 	});
 </script>
 
