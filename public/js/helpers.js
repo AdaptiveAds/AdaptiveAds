@@ -29,6 +29,10 @@ function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+/**
+  * Extends jQuert to add an animateCss method to apply animations to elements
+  * source: https://github.com/daneden/animate.css
+  */
 $.fn.extend({
     animateCss: function (animationName) {
         var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
