@@ -12,6 +12,7 @@
 		BackgroundUpdater.token = '{{ csrf_token() }}';
 		BackgroundUpdater.action = '/dashboard/advert/{{$advert->id}}/updateBackground';
 		BackgroundUpdater.register_eventhandlers();
+		BackgroundUpdater.updateDropdown('{{$advert->background_id or 1}}');
 	});
 </script>
 
@@ -27,7 +28,7 @@
 				<li>
  					@if (isset($advert))
 					  <label>Advert background:</label>
-						@include('objects\dropdown_backgrounds')
+						@include('objects/dropdown_backgrounds')
 						<button name="btnUp" id="btnUp" type="button" disabled>Up</button>
 	 					<button name="btnDown" id="btnDown" type="button" disabled>Down</button>
 						<button name="btnNewPage" type="button"  onclick="location.href='{{ URL::route('dashboard.advert.{adID}.page.create', $advert->id) }}';">+ New Page</button>
