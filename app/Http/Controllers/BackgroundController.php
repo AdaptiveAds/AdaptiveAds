@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 use App\Background as Background;
 use App\Helpers\Media;
+use App\Helpers\Helper;
 use Session;
 use Input;
 
@@ -68,22 +69,26 @@ class BackgroundController extends Controller
     public function store(Request $request)
     {
       // Get request inputs
-      $txtbackgroundName = $request->input('txtBackgroundName');
-      $hexbackgroundColor = $request->input('hexBackgroundColor');
+      $txtBackgroundName = $request->input('txtBackgroundName');
+      $hexBackgroundColor = $request->input('hexBackgroundColor');
 
       $data = array(
-        'name' => $txtBackgroundName,
+        'txtBackgroundName' => $txtBackgroundName
+      );
+
+      $rules = array(
+        'txtBackgroundName' => 'required|min:1|max:40|unique:background,name',
       );
 
       // Validate inputs
-      $reponse = $this->create_validator($data);
+      $reponse = Helper::validator($data, $rules, 'dashboard.settings.backgrounds.index');
       if (isset($reponse)) {
         return $reponse;
       }
 
       // Create new background
       $background = new Background();
-      $background->name = $txtbackgroundName;
+      $background->name = $txtBackgroundName;
 
       // Upload image 1
       $imageInput = Input::file('filBackgroundImage');
@@ -96,7 +101,7 @@ class BackgroundController extends Controller
         }
       }
 
-      $background->hex_colour = $hexbackgroundColor;
+      $background->hex_colour = $hexBackgroundColor;
 
       $background->save(); // Update
 
@@ -153,20 +158,24 @@ class BackgroundController extends Controller
                          ->with('message', 'Error: Background not found');
 
       // Get request inputs
-      $txtbackgroundName = $request->input('txtBackgroundName');
-      $hexbackgroundColor = $request->input('hexBackgroundColor');
+      $txtBackgroundName = $request->input('txtBackgroundName');
+      $hexBackgroundColor = $request->input('hexBackgroundColor');
 
+      // Validation
       $data = array(
-        'name' => $txtBackgroundName,
+        'txtBackgroundName' => $txtBackgroundName
+      );
+      $rules = array(
+        'txtBackgroundName' => 'required|min:1|max:40|unique:background,name,'$txtBackgroundName,
       );
 
-      // Validator
-      $reponse = $this->edit_validator($data);
+      // Validate inputs
+      $reponse = Helper::validator($data, $rules, 'dashboard.settings.backgrounds.index');
       if (isset($reponse)) {
         return $reponse;
       }
 
-      $background->name = $txtbackgroundName;
+      $background->name = $txtBackgroundName;
 
       // Upload image 1
       $imageInput = Input::file('filBackgroundImage');
@@ -179,7 +188,7 @@ class BackgroundController extends Controller
         }
       }
 
-      $background->hex_colour = $hexbackgroundColor;
+      $background->hex_colour = $hexBackgroundColor;
 
       $background->save(); // Update
 
@@ -262,51 +271,5 @@ class BackgroundController extends Controller
       );
 
       return view('pages/backgroundsEditor', $data);
-    }
-
-    /**
-      * Validates input before creating a selected object
-      * @param  array   $data array of fields to validate
-      * @return \Illuminate\Http\Response response if validation fails
-      */
-    protected function create_validator(array $data) {
-
-      // Validate
-      $validator = Validator::make($data, [
-        'name' => 'required|max:40|unique:background',
-      ]);
-
-      // If validator fails get the errors and warn the user
-      // this redirects to prevent further execution
-      if ($validator->fails()) {
-        $message = Helper::getValidationErrors($validator);
-
-        return redirect()->route('dashboard.settings.backgrounds.index')
-        ->with('message', $message);
-      }
-
-    }
-
-    /**
-      * Validates input before creating a selected object
-      * @param  array   $data array of fields to validate
-      * @return \Illuminate\Http\Response response if validation fails
-      */
-    protected function edit_validator(array $data) {
-
-      // Valitate
-      $validator = Validator::make($data, [
-        'name' => 'required|max:40|unique:background'
-      ]);
-
-      // If validator fails get the errors and warn the user
-      // this redirects to prevent further execution
-      if ($validator->fails()) {
-        $message = Helper::getValidationErrors($validator);
-
-        return redirect()->route('dashboard.settings.backgrounds.index')
-        ->with('message', $message);
-      }
-
     }
 }

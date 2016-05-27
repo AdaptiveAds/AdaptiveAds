@@ -15,6 +15,7 @@ use App\Advert as Advert;
 use App\Department as Department;
 use App\Schedule as Schedule;
 use App\AdvertSchedule as AdvertSchedule;
+use App\Helpers\Helper as Helper;
 
 /**
   * Defines the CRUD methods for the PlaylistController
@@ -76,12 +77,28 @@ class PlaylistController extends Controller
      */
     public function store(Request $request)
     {
+      $txtPlaylistName = $request->input('txtPlaylistName');
+      $departmentID = $request->input('drpDepartments');
 
-      
+      $data = array(
+        'txtPlaylistName' => $txtPlaylistName,
+        'drpDepartments' => $departmentID,
+      );
+
+      $rules = array(
+        'txtPlaylistName' => 'required|min:1|max:40|unique:playlist,name',
+        'drpDepartments' => 'required|exists:department,id'
+      );
+
+      // Validate
+      $reponse = Helper::validator($data, $rules, 'dashboard.playlist.index');
+      if (isset($reponse)) {
+        return $reponse;
+      }
 
       $playlist = new Playlist;
-      $playlist->name = $request->input('txtPlaylistName');
-      $playlist->department_id = $request->input('drpDepartments');
+      $playlist->name = $txtPlaylistName;
+      $playlist->department_id = $departmentID;
       $playlist->save();
 
       return redirect()->route('dashboard.playlist.index')
@@ -150,6 +167,22 @@ class PlaylistController extends Controller
 
       $txtPlaylistName = $request->input('txtPlaylistName');
       $departmentID = $request->input('drpDepartments');
+
+      $data = array(
+        'txtPlaylistName' => $txtPlaylistName,
+        'drpDepartments' => $departmentID,
+      );
+
+      $rules = array(
+        'txtPlaylistName' => 'required|min:1|max:40|unique:playlist,name,'.$txtPlaylistName,
+        'drpDepartments' => 'required|exists:department,id'
+      );
+
+      // Validate
+      $reponse = Helper::validator($data, $rules, 'dashboard.playlist.index');
+      if (isset($reponse)) {
+        return $reponse;
+      }
 
       $playlist->name = $txtPlaylistName;
       $playlist->department_id = $departmentID;
