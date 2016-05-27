@@ -24,7 +24,7 @@ class AdvsDb extends Migration
         Schema::create('page_data', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->text('heading', 20);
+            $table->text('heading');
             $table->text('content');
             $table->text('image_path');
             $table->text('image_meta');
@@ -45,7 +45,7 @@ class AdvsDb extends Migration
         Schema::create('background', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('name', 30);
+            $table->string('name', 40);
             $table->string('image_path', 255);
             $table->string('hex_colour', 6);
           });
@@ -81,7 +81,6 @@ class AdvsDb extends Migration
 			      $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name', 40);
-            $table->integer('index');
             $table->integer('department_id')->unsigned();
             $table->foreign('department_id')
           	      ->references('id')
