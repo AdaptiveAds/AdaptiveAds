@@ -30,7 +30,7 @@ Route::get('register', 'Auth\AuthController@getRegister');
 Route::post('register', 'Auth\AuthController@postRegister');
 
 // Landing page
-Route::get('dashboard', ['as' => 'dashboard', 'middleware' => 'auth', 'uses' => 'DashboardController@index']);
+Route::get('dashboard', ['middleware' => 'auth', 'uses' => 'DashboardController@index']);
 
 // Playlist pages
 Route::resource('dashboard/playlist', 'PlaylistController', ['except' => ['create']]);
@@ -42,7 +42,6 @@ Route::post('dashboard/playlist/process', ['as' => 'dashboard.playlist.process',
 Route::resource('dashboard/advert', 'AdvertController');
 Route::post('dashboard/advert/{advertID}/updateIndexes', ['as' => 'dashboard.advert.updateIndexes', 'uses' => 'AdvertController@updateIndexes']);
 Route::post('dashboard/advert/filter', ['as' => 'dashboard.advert.filter', 'uses' => 'AdvertController@filter']);
-Route::post('dashboard/advert/{advertID}/updateBackground', ['as' => 'dashboard.advert.updateIndexes', 'uses' => 'AdvertController@updateBackground']);
 
 // Page pages
 Route::resource('dashboard/advert/{adID}/page', 'PageController', ['except' => ['index', 'edit']]);

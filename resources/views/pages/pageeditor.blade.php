@@ -6,17 +6,12 @@
 	// Do sync and AJAX here.... TODO
 	$('document').ready(function() {
 		PageEditor.init();
-		PageEditor.updateTransitions('{{$page->transition or "noneIn"}}');
 	});
 </script>
 
 <h3>Page Editor</h3>
-<!--<h3 name="pageName">Title: {{ $pageData->heading or 'New Page'}}</h3>-->
-@if (Session::has('message'))
-	<h5>{{Session::pull('message')}}</h5>
-@else
-	<h5>Ready to design</h5>
-@endif
+<h3 name="pageName">Title: {{ $pageData->heading or 'New Page'}}</h3>
+
 
 <div id="left" class="landscape">
 	<div id="identity">
@@ -76,12 +71,6 @@
 				<label>Content:</label>
 				<textarea title="content" type="text" name="txtPageContent" placeholder="Enter Content...">{{ $pageData->content or '' }}
 				</textarea>
-			</li>
-			<li>
-				<label>Transition:</label>
-				@include('objects/dropdown_transitions')
-				<label>Direction:</label>
-				@include('objects/dropdown_transition_direction')
 			</li>
 
 			<input type="hidden" name="txtTemplate" value="{{$activeTemplate->id}}"/>

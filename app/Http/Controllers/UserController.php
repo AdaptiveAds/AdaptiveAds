@@ -223,14 +223,14 @@ class UserController extends Controller
           });
         }
 
-        // // Filter by department id
-        // if ($filtered->count() == 0) {
-        //   $filtered = $users->filter(function($item) use ($departmentID) {
-        //     if ($item->department_id == $departmentID) {
-        //       return true;
-        //     }
-        //   });
-        // }
+        // Filter by department id
+        if ($filtered->count() == 0) {
+          $filtered = $users->filter(function($item) use ($departmentID) {
+            if ($item->department_id == $departmentID) {
+              return true;
+            }
+          });
+        }
 
         $users = $filtered;
 

@@ -173,7 +173,6 @@ class AdvsDb extends Migration
 			      $table->integer('advert_id')->unsigned();
             $table->integer('template_id')->unsigned();
             $table->integer('page_index');
-            $table->string('transition', 13);
             $table->boolean('deleted');
             $table->foreign('page_data_id')
           	      ->references('id')
