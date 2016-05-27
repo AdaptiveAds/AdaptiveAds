@@ -26,7 +26,13 @@
               }
 
               if (available != 0) {
-                var $div = $('<li>' + capitalizeFirstLetter(key.toLowerCase()) + ' - Available ' + key2 + 's: ' +
+                var name = key;
+
+                if (key.length > 3) {
+                  name = capitalizeFirstLetter(key.toLowerCase())
+                }
+
+                var $div = $('<li>' + name + ' - Available ' + key2 + 's: ' +
                   available
                  + '</span></li>');
                 $('#footer ul').append($div);
