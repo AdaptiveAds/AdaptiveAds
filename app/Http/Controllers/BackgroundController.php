@@ -166,7 +166,7 @@ class BackgroundController extends Controller
         'txtBackgroundName' => $txtBackgroundName
       );
       $rules = array(
-        'txtBackgroundName' => 'required|min:1|max:40|unique:background,name,'$txtBackgroundName,
+        'txtBackgroundName' => 'required|min:1|max:40|unique:background,name,'.$txtBackgroundName,
       );
 
       // Validate inputs
