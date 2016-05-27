@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:300);
+
 /* classes */
 .hidden {display:none; }
 .shown {display:block;}
@@ -19,7 +21,7 @@
 %font-b {font-size:100%;}
 %font-c {font-size:140%;}
 
-html, body {height:100%;}
+html, body {height:100%; width:100%;}
 
 body.font-theme-a {@extend %font-a;}
 body.font-theme-b {@extend %font-b;}
@@ -29,14 +31,15 @@ body.font-theme-c {@extend %font-c;}
     &.data-swatch-theme-b.font-theme-a div#wrapper div#content form#clientlogin ul li a:hover {color:#ffffff;}
     &.data-swatch-theme-a #wrapper #top #swatches ul li.top-active i,
     &.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active i {color:$site-font-color;}
-    font-family:Helvetica, Arial, Sans-Serif;
+
     color:$site-font-color;
     background:$site-background;
     margin:0;
 
     input, textarea, button, select {font-size:100%; color:#000000;}
 
-  * {margin:0; padding:0; border:none; list-style:none; color:$site-font-color;}
+    i, .fa {font-family: FontAwesome;}
+  * {margin:0; padding:0; border:none; list-style:none; color:$site-font-color; font-family: 'Ubuntu', sans-serif; }
 
   ::-webkit-input-placeholder {color:#b3a69d;}
   :-moz-placeholder {color:#b3a69d; opacity:0.6;}
@@ -56,10 +59,12 @@ body.font-theme-c {@extend %font-c;}
 
 
   #wrapper {
+  height:100%;
   width:100%;
   margin:0 auto;
   display:block;
   background:url("../images/adaptiveBackground.png") no-repeat center center;
+  background-size:cover;
   position:relative;
 
     label {
@@ -202,7 +207,7 @@ body.font-theme-c {@extend %font-c;}
 
     #content {
     min-width:768px;
-    width:98%;
+    width:90%;
     margin:0.5% auto;
     clear:both;
     display:block;
