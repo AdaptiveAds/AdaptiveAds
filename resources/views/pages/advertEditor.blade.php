@@ -7,6 +7,7 @@
 		IndexUpdater.token = '{{ csrf_token() }}';
 		IndexUpdater.action = '/dashboard/advert/{{$advert->id}}/updateIndexes';
 		SelectManager.register_eventhandlers();
+		SelectManager.multi = false;
 		IndexUpdater.register_eventhandlers();
 
 		BackgroundUpdater.token = '{{ csrf_token() }}';
