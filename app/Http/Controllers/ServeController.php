@@ -83,13 +83,14 @@ class ServeController extends Controller
           $activeTemplate = $adverts[0]->Pages[0]->Template;
         }
 
-        //dd($adverts);
+        $global = $this->getGlobal();
 
         $data = array(
           'screen' => $screen,
           'playlist' => $screen->playlist,
           'adverts' => $adverts,
-          'global' => $this->getGlobal(),
+          'pageData' => $global->adverts[0]->pages[0]->pageData,
+          'global' => $global,
           'activeTemplate' => $activeTemplate,
           'serve' => true
         );
