@@ -139,7 +139,8 @@ class AdvertController extends Controller
 
       $data = array(
         'advert' => $advert,
-        'pages' => $pages
+        'pages' => $pages,
+        'backgrounds' => Background::all()
       );
 
       return view('pages/advertEditor', $data);
@@ -227,6 +228,28 @@ class AdvertController extends Controller
       // Save!
       $selectedPage->save();
       $effectedPage->save();
+
+      return response('Success', 200);
+    }
+
+    /**
+      * Updates an advert with a new background selected via the user
+      * @param \Illuminate\Http\Request $request
+      * @param int $advertID  ID of the advert to update its index
+      * @return \Illuminate\Http\Response
+      */
+    public function updateBackground(Request $request, $advertID) {
+
+      $backgroundID = $request->input('drpBackgrounds');
+
+      $advert = Advert::find($advertID);
+
+      if ($advert == null)
+        abort(404);
+
+      $advert->background_id = $backgroundID;
+      //dd($advert);
+      $advert->save();
 
       return response('Success', 200);
     }
