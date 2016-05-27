@@ -59,28 +59,25 @@
 				<div class="clear"></div>
 			</li>
 			<li>
-				<label>Title</label>
+				<label><b>Title:</b></label>
 				<input type="text" placeholder="Page Name...." name="txtPageName" value="{{ $pageData->heading or '' }}" required>
 			</li>
 			<li>
-				<label>Image:</label>
+				<label><b>Content:</b></label>
+				<textarea title="content" type="text" name="txtPageContent" placeholder="Enter Content...">{{ $pageData->content or '' }}</textarea>
+			</li>
+			<li>
+				<label><b>Image:</b></label>
 				<input type="file" name="filPageImage" accept="image/*"/><br>
 			</li>
-			<li><textarea title="content" type="text" name="txtMeta" placeholder="Example: Rabit on Chair...">{{ $pageData->image_meta or '' }}</textarea></li>
 			<li>
-				<label>Video:</label>
+				<label><b>Video:</b></label>
 				<input type="file" name="filPageVideo" accept="video/*"/><br>
 			</li>
-			<li><textarea title="content" type="text" name="txtVideoMeta" placeholder="Example: Rabit and Dog playing music...">{{ $pageData->video_meta or '' }}</textarea></li>
 			<li>
-				<label>Content:</label>
-				<textarea title="content" type="text" name="txtPageContent" placeholder="Enter Content...">{{ $pageData->content or '' }}
-				</textarea>
-			</li>
-			<li>
-				<label>Transition:</label>
+				<label><b>TransitionL</b></label>
 				@include('objects/dropdown_transitions')
-				<label>Direction:</label>
+				<label><b>Direction:</b></label>
 				@include('objects/dropdown_transition_direction')
 			</li>
 
@@ -104,22 +101,20 @@
         </a>
       </li>
 
-      @if (isset($pagedata))
-  			@if ($pageData->image_path != "")
-  				{!! Form::open(['route' => ['dashboard.advert.page.removeMedia', $page->advert_id, $page->id], 'method' => 'POST']) !!}
-  				<input type="hidden" name="pageID" value="{{$page->id}}"/>
-  					<input type="hidden" name="mediaType" value="image"/>
-  					<li><button type="submit" name="btnRemoveImage">Remove Image</button></li>
-  				{!! Form::close() !!}
-  			@endif
+			@if (isset($pageData->image_path) AND $pageData->image_path != "")
+				{!! Form::open(['route' => ['dashboard.advert.page.removeMedia', $page->advert_id, $page->id], 'method' => 'POST']) !!}
+				<input type="hidden" name="pageID" value="{{$page->id}}"/>
+					<input type="hidden" name="mediaType" value="image"/>
+					<li><button type="submit" name="btnRemoveImage">Remove Image</button></li>
+				{!! Form::close() !!}
+			@endif
 
-  			@if ($pageData->video_path != "")
-  				{!! Form::open(['route' => ['dashboard.advert.page.removeMedia', $page->advert_id, $page->id], 'method' => 'POST']) !!}
-  					<input type="hidden" name="mediaType" value="video"/>
-  					<li><button type="submit" name="btnRemoveVideo">Remove Video</button></li>
-  				{!! Form::close() !!}
-  			@endif
-      @endif
+			@if (isset($pageData->video_path) AND $pageData->video_path != "")
+				{!! Form::open(['route' => ['dashboard.advert.page.removeMedia', $page->advert_id, $page->id], 'method' => 'POST']) !!}
+					<input type="hidden" name="mediaType" value="video"/>
+					<li><button type="submit" name="btnRemoveVideo">Remove Video</button></li>
+				{!! Form::close() !!}
+			@endif
 
 			<!-- ensures form fills parent div w3c validation compliant -->
 			<div class="clear"></div>

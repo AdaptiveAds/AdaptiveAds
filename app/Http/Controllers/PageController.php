@@ -86,8 +86,8 @@ class PageController extends Controller
       );
 
       $rules = array(
-        'txtPageName' => 'max:40',
-        'txtContent' => 'max:60',
+        'txtPageName' => 'max:255',
+        'txtContent' => 'max:255',
         'templateID' => 'required|exists:template,id',
       );
 
@@ -150,6 +150,11 @@ class PageController extends Controller
     {
       $match = ['id' => $id, 'deleted' => 0];
       $page = Page::where($match)->first(); // one to one only return 1
+
+      if ($page == null)
+        return redirect()->route('dashboard.advert.index')
+                         ->with('message', 'Error: Could not find page');
+
       $pageData = $page->PageData->where('id', $page->page_data_id)->orderBy('heading', 'ASC')->first();
 
       $data = array(
@@ -184,7 +189,6 @@ class PageController extends Controller
      */
     public function update(Request $request, $adID, $id)
     {
-
       $txtHeading = $request->input('txtPageName');
       $txtContent = $request->input('txtPageContent');
       $templateID = $request->input('txtTemplate');
@@ -194,13 +198,13 @@ class PageController extends Controller
       $data = array(
         'txtPageName' => $txtHeading,
         'txtContent' => $txtContent,
-        'templateID' => $templateID
+        'txtTemplate' => $templateID
       );
 
       $rules = array(
-        'txtPageName' => 'max:40',
-        'txtContent' => 'max:60',
-        'templateID' => 'required|exists:template,id',
+        'txtPageName' => 'max:255',
+        'txtContent' => 'max:255',
+        'txtTemplate' => 'required|exists:template,id',
       );
 
       // Validate input

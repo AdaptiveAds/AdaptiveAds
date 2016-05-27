@@ -16,21 +16,18 @@
   <div class="row">
     	<div id="serve_image">
           @if (isset($pageData))
-	          @if (isset($pageData->image_path) AND $pageData->image_path != '')
+	          @if (isset($pageData->image_path) AND $pageData->image_path != "")
 	  						<img src="/advert_images/{{ $pageData->image_path }}" title="" alt=""/>
 	  				@else
-	  						@if (isset($pageData->video_path) AND $pageData->video_path != '')
-	  							<video autoplay loop>
-	  								<source src="/advert_videos/{{$pageData->video_path}}" type="video/mp4">
-	  								<source src="/advert_videos/{{$pageData->video_path}}" type="video/ogg">
-	  								Your browser does not support the provided codec types.
-	  							</video>
-	  						@endif
+  							<video autoplay loop>
+  								<source src="/advert_videos/{{$pageData->video_path}}" type="video/mp4">
+  								<source src="/advert_videos/{{$pageData->video_path}}" type="video/ogg">
+  								Your browser does not support the provided codec types.
+  							</video>
 	  				@endif
 					@else
             <img src="/advert_images/image_placeholder.png" title="" alt=""/>
           @endif
-
 			</div>
 
 			<div id="serve_text">

@@ -30,7 +30,7 @@
         </li>
       @endforeach
     @else
-      <li name="itmNone">
+      <li name="itmNone" class="listItem">
         <h3>No departments found.</h3>
       </li>
     @endif
