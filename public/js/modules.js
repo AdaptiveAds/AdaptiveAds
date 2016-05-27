@@ -661,10 +661,10 @@ var BackgroundUpdater = (function() {
     $.ajax({
       type: "POST",
       url : BackgroundUpdater.action,
-      data : {'backgroundID': id},
+      data : {'background_id': id},
       success : function(data){
         // Redirect if available
-        if (data.redirect !== undefiend || data.redirect !== null) {
+        if (data.redirect !== undefind || data.redirect !== null) {
           window.location.href = data.redirect;
         }
       },
