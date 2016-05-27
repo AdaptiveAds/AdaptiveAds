@@ -149,7 +149,7 @@ class UserController extends Controller
         // Get all request inputs
         $data = $request->all();
         $rules = array(
-          'username' => 'min:1|max:40|unique:user,username,'.$data['username'],
+          'username' => 'min:1|max:40|unique:user,username,'.$id,
           'password' => 'confirmed|min:6|max:60',
         );
 

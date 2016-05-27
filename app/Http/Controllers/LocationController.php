@@ -165,7 +165,7 @@ class LocationController extends Controller
       );
 
       $rules = array(
-        'txtLocationName' => 'required|max:40|unique:location,name,'.$txtLocationName,
+        'txtLocationName' => 'required|max:40|unique:location,name,'.$id,
         'drpDepartments' => 'required|exists:department,id'
       );
 

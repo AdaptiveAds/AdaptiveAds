@@ -177,8 +177,8 @@ class TemplateController extends Controller
         );
 
         $rules = array(
-          'txtTemplateName' => 'required|max:40|unique:template,name,'.$txtTemplateName,
-          'txtTemplateClass' => 'required|max:50|unique:template,class_name,'.$txtTemplateClass,
+          'txtTemplateName' => 'required|max:40|unique:template,name,'.$id,
+          'txtTemplateClass' => 'required|max:50|unique:template,class_name,'.$id,
           'numTemplateDuration' => 'required|integer|min:1',
         );
 

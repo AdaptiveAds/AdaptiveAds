@@ -174,7 +174,7 @@ class PlaylistController extends Controller
       );
 
       $rules = array(
-        'txtPlaylistName' => 'required|min:1|max:40|unique:playlist,name,'.$txtPlaylistName,
+        'txtPlaylistName' => 'required|min:1|max:40|unique:playlist,name,'.$id,
         'drpDepartments' => 'required|exists:department,id'
       );
 
