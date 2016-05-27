@@ -420,7 +420,7 @@ class PlaylistController extends Controller
 
       $btnFindPlaylist = $request->input('btnFindPlaylist');
       $btnFindAll = $request->input('btnFindAll');
-      $playlistName = $request->input('txtPlaylistName');
+      $playlistName = $request->input('txtPlaylistSearch');
       $departmentID = $request->input('drpDepartments');
 
       $playlists = $this->getAllowedPlaylists($user, $allowed_departments);
