@@ -319,7 +319,7 @@ var IndexUpdater = (function() {
       data : {'itemID': itemID, 'effectedID': effectedID, 'newIndex': newIndex, 'effectedIndex': effectedIndex},
       success : function(data){
         // Redirect if available
-        if (data.redirect !== undefiend || data.redirect !== null) {
+        if (data.redirect !== undefined || data.redirect !== null) {
           window.location.href = data.redirect;
         }
       },
@@ -664,7 +664,7 @@ var BackgroundUpdater = (function() {
       data : {'background_id': id},
       success : function(data){
         // Redirect if available
-        if (data.redirect !== undefind || data.redirect !== null) {
+        if (data.redirect !== undefined || data.redirect !== null) {
           window.location.href = data.redirect;
         }
       },
