@@ -3,7 +3,10 @@
   @if($playlists->count() > 0)
     @foreach($playlists as $playlist)
       <li class="advertItem listItem" name="{{ $playlist->name }}">
-        <a href="{{ URL::route('dashboard.playlist.edit', [$playlist->id])}}">{{ $playlist->name }}</a>
+        {{ $playlist->name }}
+        <a href="{{ URL::route('dashboard.playlist.edit', [$playlist->id])}}">
+          <button type="button" name="">Design</button>
+        </a>
 
         {{-- Only show edit options if in mode --}}
         @if (isset($editMode))
