@@ -24,12 +24,10 @@ class AdvsDb extends Migration
         Schema::create('page_data', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->text('heading', 20);
-            $table->text('content');
+            $table->text('heading', 40);
+            $table->text('content', 255);
             $table->text('image_path');
-            $table->text('image_meta');
             $table->text('video_path');
-            $table->text('video_meta');
             $table->boolean('deleted');
           });
 
