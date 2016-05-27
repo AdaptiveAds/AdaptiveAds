@@ -156,7 +156,7 @@ class DepartmentController extends Controller
       );
 
       $rules = array(
-        'txtDepartmentName' => 'required|min:1|max:40|unique:department,name,'.$txtDepartmentName,
+        'txtDepartmentName' => 'required|min:1|max:40|unique:department,name,'.$id,
       );
 
       // Validate input
