@@ -122,7 +122,7 @@ body.font-theme-c {@extend %font-c;}
       background:#1d1f20;
               //used for swatches and font ID's
         %top-li {display:block; cursor:pointer; min-height:40px;
-          i {padding:20%; color:#ffffff;}
+          i {padding:8px; color:#ffffff;}
           &.top-active { background:$site-background;}
 
           &[data-theme="font-theme-a"] {font-size:16px;}
@@ -317,8 +317,8 @@ border:none;
               #000000, #ffffff, #000000);
 
 // Colour Blind
-@include theme(data-swatch-theme-b, #000000, #86a1aa , #000000,
-              #1f6378, #ffffff, #000000);
+@include theme(data-swatch-theme-b, #000000, #ffe800 , #3d6ab3,
+              #1f6378, #ffe800, #000000);
 
 // Black
 @include theme(data-swatch-theme-c, #ffffff, #000000, #000000,
