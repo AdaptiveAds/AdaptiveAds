@@ -27,7 +27,7 @@
 			@endif
 			<ul>
 				<li>
-					<input type="text" name="txtPlaylistName" placeholder="Playlist name...."
+					<input type="text" name="txtPlaylistSearch" placeholder="Playlist name...."
 								 value="{{ $searchItem or '' }}"/>
 					<label>Department:</label>
  					@include('objects/dropdown_departments', array('allowed_departments' => $allowed_departments))

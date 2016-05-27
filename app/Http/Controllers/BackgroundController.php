@@ -235,7 +235,7 @@ class BackgroundController extends Controller
       // Get request inputs
       $btnFindbackground = $request->input('btnFindBackground');
       $btnFindAll = $request->input('btnFindAll');
-      $backgroundName = $request->input('txtBackgroundName');
+      $backgroundName = $request->input('txtBackgroundSearch');
 
       // Get all backgrounds
       $backgrounds = Background::all();

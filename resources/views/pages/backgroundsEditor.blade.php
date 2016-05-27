@@ -26,7 +26,7 @@
 				@endif
 				<ul name="lstBackgroundControls">
 					<li>
-						<input type="text" name="txtBackgroundName" placeholder="Background Name...."
+						<input type="text" name="txtBackgroundSearch" placeholder="Background Name...."
 									 value="{{ $searchItem or '' }}"/>
 
 						<a href="#BackgroundsModal" data-displayCreateModal="true"
