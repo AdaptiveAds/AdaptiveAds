@@ -28,7 +28,7 @@
       @endforeach
     @else
       <li name="itmNone" class="listItem">
-        <h3>No templates found.</h3>
+        <h3>No backgrounds found.</h3>
       </li>
     @endif
   @endif
