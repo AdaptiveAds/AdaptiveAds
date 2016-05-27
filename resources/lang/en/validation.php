@@ -104,6 +104,24 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+      'drpDepartments' => 'department',
+      'drpBackgrounds' => 'background',
+      'drpLocations' => 'location',
+      'drpPlaylists' => 'playlist',
+      'drpPrivileges' => 'privilege',
+      'drpSchedules' => 'schedule',
+      'drpTransitions' => 'transition',
+      'drpTransitionDirection' => 'transition direction',
+      'txtBackgroundName' => 'background name',
+      'txtDepartmentName' => 'department name',
+      'txtLocationName' => 'location name',
+      'txtPageName' => 'page name',
+      'txtPageContent' => 'page content',
+      'txtPlaylistName' => 'playlist name',
+      'txtTemplateName' => 'template name',
+      'txtTemplateClass' => 'template class name',
+      'numTemplateDuration' => 'template duration'
+    ],
 
 ];

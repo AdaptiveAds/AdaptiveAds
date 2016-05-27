@@ -9,7 +9,6 @@ use App\Helpers\Media;
 use App\Helpers\Helper as Helper;
 
 use Input;
-use Validator;
 
 use App\Page as Page;
 use App\PageData as PageData;
@@ -81,13 +80,19 @@ class PageController extends Controller
       $txtDirection = $request->input('drpTransitionDirection');
 
       $data = array(
-        'heading' => $txtHeading,
-        'content' => $txtContent,
-        'template_id' => $templateID
+        'txtPageName' => $txtHeading,
+        'txtContent' => $txtContent,
+        'templateID' => $templateID
+      );
+
+      $rules = array(
+        'txtPageName' => 'max:40',
+        'txtContent' => 'max:60',
+        'templateID' => 'required|exists:template,id',
       );
 
       // Validate input
-      $this->create_validator($data);
+      $reponse = Helper::validator($data,$rules,'dashboard.advert.{adID}.edit', [$adID]);
       if (isset($reponse)) {
         return $reponse;
       }
@@ -187,13 +192,19 @@ class PageController extends Controller
       $txtDirection = $request->input('drpTransitionDirection');
 
       $data = array(
-        'heading' => $txtHeading,
-        'content' => $txtContent,
-        'id' => $templateID
+        'txtPageName' => $txtHeading,
+        'txtContent' => $txtContent,
+        'templateID' => $templateID
+      );
+
+      $rules = array(
+        'txtPageName' => 'max:40',
+        'txtContent' => 'max:60',
+        'templateID' => 'required|exists:template,id',
       );
 
       // Validate input
-      $this->edit_validator($data);
+      $reponse = Helper::validator($data,$rules,'dashboard.advert.{adID}.page.show', [$adID, $id]);
       if (isset($reponse)) {
         return $reponse;
       }
@@ -285,55 +296,5 @@ class PageController extends Controller
 
       return redirect()->route('dashboard.advert.{adID}.page.show', [$adID, $id])
                        ->with('message', 'Page updated successfully');
-    }
-
-    /**
-      * Validates input before creating a selected object
-      * @param  array   $data array of fields to validate
-      * @return \Illuminate\Http\Response response if validation fails
-      */
-    protected function create_validator(array $data) {
-
-      // Validate
-      $validator = Validator::make($data, [
-        'heading' => 'max:40',
-        'content' => 'max:60',
-        'template_id' => 'required|exists:template',
-      ]);
-
-      // If validator fails get the errors and warn the user
-      // this redirects to prevent further execution
-      if ($validator->fails()) {
-        $message = Helper::getValidationErrors($validator);
-
-        return redirect()->route('dashboard.settings.backgrounds.index')
-        ->with('message', $message);
-      }
-
-    }
-
-    /**
-      * Validates input before creating a selected object
-      * @param  array   $data array of fields to validate
-      * @return \Illuminate\Http\Response response if validation fails
-      */
-    protected function edit_validator(array $data) {
-
-      // Valitate
-      $validator = Validator::make($data, [
-        'heading' => 'max:40',
-        'content' => 'max:60',
-        'id' => 'required|exists:template',
-      ]);
-
-      // If validator fails get the errors and warn the user
-      // this redirects to prevent further execution
-      if ($validator->fails()) {
-        $message = Helper::getValidationErrors($validator);
-
-        return redirect()->route('dashboard.settings.backgrounds.index')
-        ->with('message', $message);
-      }
-
     }
 }

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Session;
-use Validator;
 
 use App\Department as Department;
 use App\User as User;
@@ -76,8 +75,13 @@ class UserController extends Controller
       // Get all request inputs
       $data = $request->all();
 
+      $rules = array(
+        'username' => 'required|max:40|unique:user',
+        'password' => 'required|confirmed|min:6|max:60',
+      );
+
       // Validate
-      $reponse = $this->create_validator($data);
+      $reponse = Helper::validator($data,$rules,'dashboard.settings.users.index');
       if (isset($reponse)) {
         return $reponse;
       }
@@ -144,19 +148,25 @@ class UserController extends Controller
 
         // Get all request inputs
         $data = $request->all();
-        array_push($data, ['the_old_password' => $user->password]);
+        $rules = array(
+          'username' => 'min:1|max:40|unique:user,username,'.$data['username'],
+          'password' => 'confirmed|min:6|max:60',
+        );
 
         // Validate
-        $reponse = $this->edit_validator($data);
+        $reponse = Helper::validator($data,$rules,'dashboard.settings.users.index');
         if (isset($reponse)) {
           return $reponse;
         }
 
         // Update
-        User::create([
-            'username' => $data['username'],
-            'password' => bcrypt($data['password']),
-        ]);
+        $user->username = $data['username'];
+
+        if (isset($data['password'])) {
+          $user->password = bcrypt($data['password']);
+        }
+
+        $user->save();
 
         return redirect()->route('dashboard.settings.users.index')
                          ->with('message', 'User created successfully');
@@ -279,51 +289,5 @@ class UserController extends Controller
 
       // Only return unqiue users
       return $users->unique('id');
-    }
-
-    /**
-      * Validates input before creating a selected object
-      * @param  array   $data array of fields to validate
-      * @return \Illuminate\Http\Response response if validation fails
-      */
-    protected function create_validator(array $data) {
-
-      $validator = Validator::make($data, [
-        'username' => 'required|max:40|unique:user',
-        'password' => 'required|confirmed|min:6|max:60',
-      ]);
-
-      // If validator fails get the errors and warn the user
-      // this redirects to prevent further execution
-      if ($validator->fails()) {
-        $message = Helper::getValidationErrors($validator);
-
-        return redirect()->route('dashboard.settings.users.index')
-        ->with('message', $message);
-      }
-
-    }
-
-    /**
-      * Validates input before creating a selected object
-      * @param  array   $data array of fields to validate
-      * @return \Illuminate\Http\Response response if validation fails
-      */
-    protected function edit_validator(array $data) {
-
-      $validator = Validator::make($data, [
-        'username' => 'required|max:40|unique:user',
-        'password' => 'confirmed|min:6|max:60',
-      ]);
-
-      // If validator fails get the errors and warn the user
-      // this redirects to prevent further execution
-      if ($validator->fails()) {
-        $message = Helper::getValidationErrors($validator);
-
-        return redirect()->route('dashboard.settings.users.index')
-        ->with('message', $message);
-      }
-
     }
 }

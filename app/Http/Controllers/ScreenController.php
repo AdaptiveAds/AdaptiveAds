@@ -11,6 +11,7 @@ use App\Location as Location;
 use App\Playlist as Playlist;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Helpers\Helper as Helper;
 
 /**
   * Defines the CRUD methods for the ScreenController
@@ -81,6 +82,22 @@ class ScreenController extends Controller
       $locationID = $request->input('drpLocations');
       $playlistID = $request->input('drpPlaylists');
 
+      $data = array(
+        'drpLocations' => $locationID,
+        'drpPlaylists' => $playlistID
+      );
+
+      $rules = array(
+        'drpLocations' => 'required|exists:location,id',
+        'drpPlaylists' => 'required|exists:playlist,id'
+      );
+
+      // Validate
+      $reponse = Helper::validator($data, $rules, 'dashboard.settings.screens.index');
+      if (isset($reponse)) {
+        return $reponse;
+      }
+
       // Create a new screen
       $screen = new Screen();
       $screen->location_id = $locationID;
@@ -143,6 +160,22 @@ class ScreenController extends Controller
       // Get request input
       $locationID = $request->input('drpLocations');
       $playlistID = $request->input('drpPlaylists');
+
+      $data = array(
+        'drpLocations' => $locationID,
+        'drpPlaylists' => $playlistID
+      );
+
+      $rules = array(
+        'drpLocations' => 'required|exists:location,id',
+        'drpPlaylists' => 'required|exists:playlist,id'
+      );
+
+      // Validate
+      $reponse = Helper::validator($data, $rules, 'dashboard.settings.screens.index');
+      if (isset($reponse)) {
+        return $reponse;
+      }
 
       // Update screen
       $screen->location_id = $locationID;

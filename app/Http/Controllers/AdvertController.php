@@ -8,12 +8,14 @@ use App\Http\Controllers\Controller;
 
 use Session;
 use DB;
+use Validator;
 
 use App\Advert as Advert;
 use App\Playlist as Playlist;
 use App\Department as Department;
 use App\Page as Page;
 use App\Background as Background;
+use App\Helpers\Helper as Helper;
 
 /**
   * Defines the CRUD methods for the AdvertController
@@ -80,6 +82,24 @@ class AdvertController extends Controller
       $txtAdvertName = $request->input('txtAdvertName');
       $departmentID = $request->input('drpDepartments');
       $backgroundID = $request->input('drpBackgrounds');
+
+      // Validate
+      $rules = Array(
+        'txtAdvertName' => 'required|max:40',
+        'drpDepartments' => 'required|exists:department,id',
+        'drpBackgrounds' => 'required|exists:background,id'
+      );
+
+      $data = Array(
+        'txtAdvertName' => $txtAdvertName,
+        'drpDepartments' => $departmentID,
+        'drpBackgrounds' => $backgroundID
+      );
+
+      $reponse = Helper::validator($data, $rules, 'dashboard.advert.index');
+      if (isset($reponse)) {
+        return $reponse;
+      }
 
       // Create new advert and assign values
       $advert = new Advert();
@@ -167,6 +187,24 @@ class AdvertController extends Controller
       $departmentID = $request->input('drpDepartments');
       $backgroundID = $request->input('drpBackgrounds');
 
+      // Validate input
+      $rules = Array(
+        'txtAdvertName' => 'required|max:40',
+        'drpDepartments' => 'required|exists:department,id',
+        'drpBackgrounds' => 'required|exists:background,id'
+      );
+
+      $data = Array(
+        'txtAdvertName' => $txtAdvertName,
+        'drpDepartments' => $departmentID,
+        'drpBackgrounds' => $backgroundID
+      );
+
+      $reponse = Helper::validator($data, $rules, 'dashboard.advert.index');
+      if (isset($reponse)) {
+        return $reponse;
+      }
+
       // Update selected advert object
       $advert->name = $txtAdvertName;
       $advert->department_id = $departmentID;
@@ -240,7 +278,7 @@ class AdvertController extends Controller
       */
     public function updateBackground(Request $request, $advertID) {
 
-      $backgroundID = $request->input('drpBackgrounds');
+      $backgroundID = $request->input('background_id');
 
       $advert = Advert::find($advertID);
 
@@ -248,7 +286,6 @@ class AdvertController extends Controller
         abort(404);
 
       $advert->background_id = $backgroundID;
-      //dd($advert);
       $advert->save();
 
       return response('Success', 200);
@@ -279,8 +316,10 @@ class AdvertController extends Controller
 
         // Search by name
         $filtered = $adverts->filter(function($item) use ($advertName) {
-          if (strpos($item->name, $advertName) != false) { // Match name?
-            return true;
+          if (strlen($item->name) > 0 && strlen($advertName > 0)) {
+            if (strpos($item->name, $advertName) != false) { // Match name?
+              return true;
+            }
           }
         });
 
@@ -343,4 +382,5 @@ class AdvertController extends Controller
       // Only return unqiue users
       return $adverts->unique('id');
     }
+
 }

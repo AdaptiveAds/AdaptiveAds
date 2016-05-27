@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Session;
-use Validator;
 
 use App\Location as Location;
 use App\Http\Requests;
@@ -83,12 +82,17 @@ class LocationController extends Controller
       $departmentID = $request->input('drpDepartments');
 
       $data = array(
-        'name' => $txtLocationName,
-        'id' => $departmentID
+        'txtLocationName' => $txtLocationName,
+        'drpDepartments' => $departmentID
+      );
+
+      $rules = array(
+        'txtLocationName' => 'required|max:40|unique:location,name',
+        'drpDepartments' => 'required|exists:department,id'
       );
 
       // Validate input
-      $reponse = $this->create_validator($data);
+      $reponse = Helper::validator($data,$rules,'dashboard.settings.locations.index');
       if (isset($reponse)) {
         return $reponse;
       }
@@ -156,12 +160,17 @@ class LocationController extends Controller
       $departmentID = $request->input('drpDepartments');
 
       $data = array(
-        'name' => $txtLocationName,
-        'id' => $departmentID
+        'txtLocationName' => $txtLocationName,
+        'drpDepartments' => $departmentID
+      );
+
+      $rules = array(
+        'txtLocationName' => 'required|max:40|unique:location,name,'.$txtLocationName,
+        'drpDepartments' => 'required|exists:department,id'
       );
 
       // Validate input
-      $reponse = $this->edit_validator($data);
+      $reponse = Helper::validator($data,$rules,'dashboard.settings.locations.index');
       if (isset($reponse)) {
         return $reponse;
       }
@@ -265,52 +274,6 @@ class LocationController extends Controller
       );
 
       return view('pages/locations', $data);
-
-    }
-
-    /**
-      * Validates input before creating a selected object
-      * @param  array   $data array of fields to validate
-      * @return \Illuminate\Http\Response response if validation fails
-      */
-    protected function create_validator(array $data) {
-
-      $validator = Validator::make($data, [
-        'name' => 'required|max:40|unique:location',
-        'id' => 'required|integer|exists:department'
-      ]);
-
-      // If validator fails get the errors and warn the user
-      // this redirects to prevent further execution
-      if ($validator->fails()) {
-        $message = Helper::getValidationErrors($validator);
-
-        return redirect()->route('dashboard.settings.locations.index')
-        ->with('message', $message);
-      }
-
-    }
-
-    /**
-      * Validates input before editing a selected object
-      * @param  array   $data array of fields to validate
-      * @return \Illuminate\Http\Response response if validation fails
-      */
-    protected function edit_validator(array $data) {
-
-      $validator = Validator::make($data, [
-        'name' => 'required|max:40',
-        'id' => 'required|integer|exists:department'
-      ]);
-
-      // If validator fails get the errors and warn the user
-      // this redirects to prevent further execution
-      if ($validator->fails()) {
-        $message = Helper::getValidationErrors($validator);
-
-        return redirect()->route('dashboard.settings.locations.index')
-        ->with('message', $message);
-      }
 
     }
 }
