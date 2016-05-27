@@ -27,4 +27,26 @@ class Helper {
 
     return $message;
   }
+
+  /**
+    * Validates input before processing user requests
+    * @param  Array   $data array of fields to validate
+    * @param  Array   $rules array of rules to apply
+    * @return \Illuminate\Http\Response response if validation fails
+    */
+  public static function validator(Array $data, Array $rules, $redirectRoute) {
+
+    // Validate
+    $validator = Validator::make($data, $rules);
+
+    // If validator fails get the errors and warn the user
+    // this redirects to prevent further execution
+    if ($validator->fails()) {
+      $message = Helper::getValidationErrors($validator);
+
+      return redirect()->route($redirectRoute)
+      ->with('message', $message);
+    }
+
+  }
 }
