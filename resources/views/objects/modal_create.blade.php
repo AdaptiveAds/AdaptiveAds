@@ -13,19 +13,19 @@
     {!! Form::open(['route' => $route, 'method' => 'POST']) !!}
       <div class="modalDialogLeft">
         <label>{{$object or 'object'}} Name</label>
-        <br/>
+        <!--<br/> KW Removed 26.05.16-->
         <input type="text" name="txt{{$object or 'object'}}Name" placeholder="Name..."/>
       </div>
 
       <div class="modalDialogLeft">
         <label>Assign Department</label>
-        <br/>
+        <!--<br/> KW Removed 26.05.16-->
         @include('objects/dropdown_departments', array('allowed_departments' => $allowed_departments))
       </div>
       @if ($object == 'Advert')
         <div class="modalDialogLeft">
           <label>Assign Background</label>
-          <br/>
+          <!--<br/> KW Removed 26.05.16-->
           @include('objects/dropdown_backgrounds', array('backgrounds' => $backgrounds))
         </div>
       @endif

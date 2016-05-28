@@ -1,3 +1,6 @@
+// Author: Kane Whelan
+// No other entries by team members
+
 /***************************/
 /*   Section | Article     */
 /***************************/
@@ -64,6 +67,7 @@ width:100%;
 					&:hover {
 					background:#1f6378;
 					border:$site-border-show;
+					@extend %glow;
 					}
 
 					i {
@@ -216,11 +220,7 @@ box-sizing:border-box;
 /***************************/
 /*         Global          */
 /***************************/
-.global {
-width:100%;
-margin:0 auto;
-font-size:120%;
-
+.global {width:100%;margin:0 auto;font-size:120%;
 	.row {margin:0 auto 1%;
 		&:first-child {background:#465f6c none repeat scroll 0 0;padding:1%;
 			h3 {width:auto; float:left;}
@@ -229,7 +229,7 @@ font-size:120%;
 				li{
 					input {width:240px;}
 					label {width:180px; margin-left:10px; float:none;}
-					select {width:230px; margin-left:10px;}
+					select {width:300px; margin-left:10px;}
 					a {float:right;}
 					button {float:right; margin-right:1%;
 						&:last-child {
@@ -239,112 +239,57 @@ font-size:120%;
 				}
 			}
 		}
+		&:last-child {
+			ul {
+				li {display:flex;
+				margin-top:0.5%;
+					&:nth-child(odd) {background:$li-background;}//li:nth
+					&:nth-child(even) {background:$li-background-lighter;}//li:nth
+					&:hover {background:$li-background-hover;}
+					a {cursor:pointer; padding:0;	display:inline; float:left;}
+					input {font-size:90%; padding-left:1%; }//input
+					label {float:left; min-width:75%; padding:2%;}//label
+					button {font-size:90%; float:right; margin-left:1%;
+						&:first-child {margin-left:10px;}//
+						&:hover {background:orange;}
+					}//button
+				}//li
+			}//ul
+		}//row:last-child
 	}//row
-
-	.row:last-child {
-		ul {
-			li {display:flex;
-			margin-top:0.5%;
-				&:nth-child(odd) {background:$li-background;}//li:nth
-				&:nth-child(even) {background:$li-background-lighter;}//li:nth
-				&:hover {background:$li-background-hover;}
-				a {cursor:pointer; padding:0;	display:inline; float:left;}
-				input {font-size:90%; padding-left:1%; }//input
-				label {float:left; min-width:75%; padding:2%;}//label
-				button {font-size:90%; float:right; margin-left:1%;
-					&:first-child {margin-left:10px;}//
-					&:hover {background:orange;}
-				}//button
-			}//li
-		}//ul
-	}//row:last-child
 }//global
 
 
 /***************************/
 /*         Login           */
 /***************************/
-form#clientlogin, form#register {
-margin:0 auto;
-width:15%;
-text-align:left;
+// Login page delete text css - using cross as icon
+  .clearable{
+    background: #fff url("../images/inputcross.png") no-repeat right -10px center;
+    border: 1px solid #999;
+    padding: 3px 18px 3px 4px;     /* Use the same right padding (18) in jQ! */
+    border-radius: 3px;
+    transition: background 0.4s;
+  }
+  .clearable.x  { background-position: right 5px center; } /* (jQ) Show icon */
+  .clearable.onX{ cursor: pointer; }              /* (jQ) hover cursor style */
+  .clearable::-ms-clear {display: none; width:0; height:0;} /* Remove IE default X */
 
+form#clientlogin, form#register {margin:0 auto;width:15%;text-align:left;
 	ul {
-
-		button {
-		margin:10% 0;
-		width:50%;
-		display:block;
-		}//input
-
-		li {
-		width:100%;
-
+		button {margin:10% 0;	width:50%;	display:block;}//input
+		li {width:100%;
 			label, input {width:100%;}
-
-			label {
-			display:block;
-			margin-top:1%;
-			padding:1%;
-			}//label
-
-			input {
-			display:block;
-			margin-top:0;
-			width:94%;
-			text-align:left;
-			border:2px solid black;
-			}//input
-
-			input:hover {
-			cursor:pointer;
-			}//li:hover
-
+			label {display:block;	margin-top:1%;padding:1%;}//label
+			input {display:block;	margin-top:0;	width:94%;text-align:left;border:2px solid black;}//input
+			input:hover {cursor:pointer;}//li:hover
 		}//li
+
+		&:last-child{margin-top:1%;
+			li {text-align:left;
+				a {color:#000000;}//a
+				a:hover {color:#000000;}//a:hover
+			}//li
+		}//ul:last-child
 	}//ul
-
-	ul:last-child{
-	margin-top:1%;
-
-		li {
-		text-align:left;
-
-			a {
-			color:#000000;
-			}//a
-
-			a:hover {
-			color:#000000;
-			}//a:hover
-		}//li
-	}//ul:last-child
-
-
 }//clientlogin | register
-
-/*************************/
-// Modal Content
-//
-
-.modal_content, .modalDialogLeft {
-	h4 {background:transparent;}
-	form {background:transparent;padding:2%;
-
-		ul{		}
-			li{
-				&:first-child{
-				input {width:65%; border:1px solid #000000;}
-				}
-				&:nth-child(even){margin-top:2%; margin-bottom:2%; }
-				&:last-child{background:transparent;}
-				}
-				label {width:auto; background:$li-background; padding:1%;}
-				input {border:1px solid #000000;}
-				select {border:1px solid #000000;
-					option{}
-				}
-				button{
-					&:nth-child(even){}
-				}
-	}
-	}

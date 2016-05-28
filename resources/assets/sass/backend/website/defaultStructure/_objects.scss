@@ -90,3 +90,59 @@
 }
 
 .close:hover { background: #00d9ff; }
+
+/***************************/
+/*    Modal Content        */
+/***************************/
+
+
+.modalDialog {
+	h4 {background:transparent;}
+	div {
+		&.modalDialogLeft {margin-top:10px;}
+		button {margin-top:10px;}
+
+		form {background:transparent;padding:2%;
+			ul{} // deliberate closing UL so that elements outside of UL are also targeted within .modalDialog
+			li{
+				&:first-child{
+					input {width:65%; border:1px solid #000000;}
+				}
+				// Lastest browser support only for css3 nth-child
+				&:nth-child(even){margin-top:2%; margin-bottom:2%;}
+				&:last-child{background:transparent;}
+				}
+				label {width:auto; padding:1%;font-weight:bold; padding:5px;}
+				input {border:1px solid #000000; width:65%; }
+				select {border:1px solid #000000;
+					option{}
+				}
+				button{
+					&:nth-child(even){}
+				}
+			}
+		}//div
+	}
+.modalDialogLeft {margin-bottom:4px;}
+.modal_content, .modalDialogLeft{
+	h4 {background:transparent;}
+	form {background:transparent;padding:2%;
+
+		ul{		}
+			li{
+				&:first-child{
+				input {width:65%; border:1px solid #000000;}
+				}
+				&:nth-child(even){margin-top:2%; margin-bottom:2%; }
+				&:last-child{background:transparent;}
+				}
+				label {width:auto; background:$li-background; padding:1%;}
+				input {border:1px solid #000000;}
+				select {border:1px solid #000000;
+					option{}
+				}
+				button{
+					&:nth-child(even){}
+				}
+	}
+	}
