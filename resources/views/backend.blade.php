@@ -187,6 +187,7 @@ https://developers.google.com/recaptcha/docs/display -->
 				</nav>
 			</header>
 
+
 	<div id="content">
     @yield('content')
     <div class="clear"></div>
@@ -197,6 +198,7 @@ https://developers.google.com/recaptcha/docs/display -->
   </footer>
 -->
 <!-- close wrapper -->
+<div class="clear"></div>
   </div>
 </body>
 </html>

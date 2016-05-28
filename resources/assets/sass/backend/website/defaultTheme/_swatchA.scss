@@ -1,0 +1,28 @@
+body {
+  &.data-swatch-theme-a
+
+  #wrapper #content {
+
+    .global {
+
+      .row {
+
+        &:last-child{
+
+        ul {
+
+          li{
+            &:nth-child(odd) {background:#C0D9D9;}//li:nth
+  					&:nth-child(even) {background:#D1EEEE;}//li:nth
+  					&:hover {background:#79CDCD;}
+            &.advertItem {
+
+            label{}
+            }
+          }
+        }
+      }
+    }//row
+  }//global
+}
+}

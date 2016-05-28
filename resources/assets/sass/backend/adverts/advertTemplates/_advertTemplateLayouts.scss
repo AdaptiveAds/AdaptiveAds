@@ -1,7 +1,25 @@
 
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
 @mixin template( 	$name,
 									//$template-h1-backround-color,
 									//$template-h1-color,
+									$header-height,
 									$template-h1-display,
 
 									$template-img-float,
@@ -12,10 +30,9 @@
 									$template-text-width,
 									$template-text-p-align,
 									$template-text-display
+
             )
   {
-
-
 
 #serve_container.#{$name} {
 content:#ffffff;
@@ -24,7 +41,7 @@ height:100%;
 
 	#header {
 	width:100%;
-	min-height:150px;
+	min-height:$header-height;
 
 		h1 {
 		display:/*$template-h1-display*/ none;
@@ -45,16 +62,24 @@ height:100%;
 	display:$template-img-display;
 	float:$template-img-float;
 	width:$template-img-width;
+
 	text-align:center;
 
 
 		img {
-		max-width:100%;
-		max-height:auto;
+		max-width:1280px;
+		max-height: 720px;
 	  display: block;
 	  width: auto;
 	  height: auto;
+		width:100%;
 		}
+
+		video {
+		max-width:1280px;
+		max-height: 720px;
+		width:auto;
+		height:auto;}
 		}
 
   #serve_text {
@@ -78,33 +103,37 @@ height:100%;
 }
 
 //Note: Left to right per row
-// 										name			|
+// 										name			| header height
 // HEADING:   				BG Color 	| 	Font Color 	| 		Display
 // IMAGE:  						Float   	|   width  			|    	Display
 // TEXT: 							Float			| 	Width 			|			Align 		| 		Display
 
-@include template(	template1,
+// image left, text right
+@include template(	template1, 150px,
 										/*#000000, #ffffff,*/ block,
 										left, 23%, initial,
 										right, 75%, justify, initial);
 
-@include template(	template2,
+// fullsize image
+@include template(	template2, 0px,
 										/*#ffffff, #000000,*/ block,
-										left, 90%, initial,
+										left, 100%, initial,
 										right, 40%, justify, none);
 
-@include template(	template3,
+// text left, image right
+@include template(	template3, 150px,
 										/*#000000, #ffffff,*/ block,
 										right, 40%, initial,
 										left, 40%, justify, initial);
 
-
-@include template(	template4,
+// fullsize background image
+@include template(	template4, 0px,
 										/*#000000, #ffffff,*/ block,
-										right, 40%, none,
+										right, 100%, none,
 										left, 40%, justify, none);
 
-@include template(	template5,
+// fullsize video
+@include template(	template5, 0px,
 										/*#ffffff, #000000,*/ block,
 										left, 100%, initial,
 										right, 50%, justify, none);

@@ -48,6 +48,7 @@ body.font-theme-c {@extend %font-c;}
     margin:0;
 
     input, textarea, button, select {font-size:100%; color:#000000;}
+    button {}
 
     i, .fa {font-family: FontAwesome;}
   * {margin:0; padding:0; border:none; list-style:none; color:$site-font-color; font-family: 'Ubuntu', sans-serif; }
@@ -107,7 +108,6 @@ body.font-theme-c {@extend %font-c;}
       a {
       text-decoration:none; color:$button-font-color;
       cursor:pointer;
-      display:block;
 
           & img {opacity: 0.8; filter: alpha(opacity=80); /* For IE8 and earlier */
 
@@ -294,9 +294,9 @@ input {
 border:none;
 box-shadow:none;
 font-weight:bold;
-padding:0px;
+padding:5px;
 margin:0;
-padding:4px;
+
 }//input
 
 form {
@@ -323,5 +323,5 @@ border:none;
               #1f6378, #ffe800, #000000);
 
 // Black
-@include theme(data-swatch-theme-c, #ffffff, #000000, #000000,
-              #ffffff, #000000, #ffffff);
+@include theme(data-swatch-theme-c, #000000, #000000, #000000,
+              #000000, #ffffff, #000000);

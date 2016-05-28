@@ -54,52 +54,58 @@
 		@endif
 			<!-- ADDED class=landscape as backend for SCSS targeting:: This will enable active button formatting -->
 			<li id="orientation">
-				<button class="btn-orientationHor active" type="button">Landscape</button>
-				<button class="btn-orientationVert" type="button">Portrait</button>
+				<label>Orientation:</label>
+				<button class="btn-orientationHor active" type="button"><i class="fa fa-tablet landscape" aria-hidden="true"></i></button>
+				<button class="btn-orientationVert" type="button"><i class="fa fa-tablet" aria-hidden="true"></i></button>
 				<div class="clear"></div>
 			</li>
 			<li>
-				<label><b>Title:</b></label>
-				<input type="text" placeholder="Page Name...." name="txtPageName" value="{{ $pageData->heading or '' }}" required>
+				<label>Title:</label>
+				<input maxlength="30" type="text" placeholder="Page Name...." name="txtPageName" value="{{ $pageData->heading or '' }}" required>
 			</li>
 			<li>
-				<label><b>Content:</b></label>
+				<label>Content:</label>
 				<textarea title="content" type="text" name="txtPageContent" placeholder="Enter Content...">{{ $pageData->content or '' }}</textarea>
 			</li>
-			<li>
-				<label><b>Image:</b></label>
+			<li class="oneLine">
+				<label>Image:</label>
 				<input type="file" name="filPageImage" accept="image/*"/><br>
 			</li>
-			<li>
-				<label><b>Video:</b></label>
+			<li class="oneLine">
+				<label>Video:</label>
 				<input type="file" name="filPageVideo" accept="video/*"/><br>
 			</li>
-			<li>
-				<label><b>Transition:</b></label>
+			<li class="transition">
+				<div>
+				<label>Transition:</label>
 				@include('objects/dropdown_transitions')
-				<label><b>Direction:</b></label>
+				</div>
+				<div>
+				<label>Direction:</label>
 				@include('objects/dropdown_transition_direction')
+				</div>
 			</li>
 
 			<input type="hidden" name="txtTemplate" value="{{$activeTemplate->id}}"/>
-
-			<li><button type="submit" class="submit" name="btnSavePage">Save</button></li>
+			<div class="buttons-PageEditor">
+			<li><button type="submit" class="submit save" name="btnSavePage">Save</button></li>
 			{!! Form::close() !!}
 			{!! Form::open(['route' => ['dashboard.advert.{adID}.page.destroy', $page->advert_id, $page->id], 'method' => 'DELETE']) !!}
-			<li><button type="submit" class="submit" name="btnDeletePage">Delete</button></li>
+			<li><button type="submit" class="submit delete" name="btnDeletePage">Delete</button></li>
 			{!! Form::close() !!}
 
       <li>
         <a href="{{ URL::route('dashboard.advert.{adID}.page.create', $page->advert_id) }}">
-          <button type="submit" name="btnNext">Next</button>
+          <button title="Did you save?" type="submit" name="btnNext">New</button>
         </a>
       </li>
 
       <li>
         <a href="{{ URL::route('dashboard.advert.edit', $page->advert_id) }}">
-          <button type="submit" name="btnClose">Close</button>
+          <button title="Save and Close" type="submit" name="btnClose">Save & Close</button>
         </a>
       </li>
+		</div>
 
 			@if (isset($pageData->image_path) AND $pageData->image_path != "")
 				{!! Form::open(['route' => ['dashboard.advert.page.removeMedia', $page->advert_id, $page->id], 'method' => 'POST']) !!}

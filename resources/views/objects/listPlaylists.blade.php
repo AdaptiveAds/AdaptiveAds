@@ -3,7 +3,7 @@
   @if($playlists->count() > 0)
     @foreach($playlists as $playlist)
       <li class="advertItem listItem" name="{{ $playlist->name }}">
-        {{ $playlist->name }}
+        <label>{{ $playlist->name }}</label>
         <a href="{{ URL::route('dashboard.playlist.edit', [$playlist->id])}}">
           <button type="button" name="">Design</button>
         </a>

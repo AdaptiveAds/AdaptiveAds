@@ -1,7 +1,7 @@
 /*
 Syntax error: File to import not found or unreadable: _themeMenu.scss.
               Load paths:
-                C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass
+                C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass
                 C:/Users/Typical/Documents/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets
                 C:/Users/Typical/Documents/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets
                 C:/Users/Typical/Documents/Scout/vendor/gems/gems/compass-960-plugin-0.10.4/stylesheets
@@ -9,12 +9,12 @@ Syntax error: File to import not found or unreadable: _themeMenu.scss.
                 C:/Users/Typical/Documents/Scout/vendor/gems/gems/compass-h5bp-0.0.5/stylesheets
                 C:/Users/Typical/Documents/Scout/vendor/gems/gems/zen-grids-1.2/stylesheets
                 Compass::SpriteImporter
-        on line 2 of C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/frontend/frontEnd.scss
+        on line 2 of C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/frontend/frontEnd.scss
 
-1: C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/frontend/frontEnd.scss
+1: C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/frontend/frontEnd.scss
 
 Backtrace:
-C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/frontend/frontEnd.scss:2
+C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/frontend/frontEnd.scss:2
 C:/Users/Typical/Documents/Scout/vendor/gems/gems/sass-3.2.1/lib/sass/../sass/tree/import_node.rb:64:in `import'
 C:/Users/Typical/Documents/Scout/vendor/gems/gems/sass-3.2.1/lib/sass/../sass/tree/import_node.rb:62:in `import'
 C:/Users/Typical/Documents/Scout/vendor/gems/gems/sass-3.2.1/lib/sass/../sass/tree/import_node.rb:25:in `imported_file'
@@ -78,4 +78,4 @@ C:\Users\Typical\Documents\Scout\bin\compass:12:in `(root)'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: File to import not found or unreadable: _themeMenu.scss.\A               Load paths:\A                 C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass\A                 C:/Users/Typical/Documents/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets\A                 C:/Users/Typical/Documents/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets\A                 C:/Users/Typical/Documents/Scout/vendor/gems/gems/compass-960-plugin-0.10.4/stylesheets\A                 C:/Users/Typical/Documents/Scout/vendor/gems/gems/yui-compass-plugin-0.3/stylesheets\A                 C:/Users/Typical/Documents/Scout/vendor/gems/gems/compass-h5bp-0.0.5/stylesheets\A                 C:/Users/Typical/Documents/Scout/vendor/gems/gems/zen-grids-1.2/stylesheets\A                 Compass::SpriteImporter\A         on line 2 of C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/frontend/frontEnd.scss\A \A 1: C:/xampp/htdocs/university/AdaptiveAds/resources/assets/sass/frontend/frontEnd.scss"; }
+  content: "Syntax error: File to import not found or unreadable: _themeMenu.scss.\A               Load paths:\A                 C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass\A                 C:/Users/Typical/Documents/Scout/vendor/gems/gems/compass-0.12.2/frameworks/blueprint/stylesheets\A                 C:/Users/Typical/Documents/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets\A                 C:/Users/Typical/Documents/Scout/vendor/gems/gems/compass-960-plugin-0.10.4/stylesheets\A                 C:/Users/Typical/Documents/Scout/vendor/gems/gems/yui-compass-plugin-0.3/stylesheets\A                 C:/Users/Typical/Documents/Scout/vendor/gems/gems/compass-h5bp-0.0.5/stylesheets\A                 C:/Users/Typical/Documents/Scout/vendor/gems/gems/zen-grids-1.2/stylesheets\A                 Compass::SpriteImporter\A         on line 2 of C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/frontend/frontEnd.scss\A \A 1: C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/frontend/frontEnd.scss"; }

@@ -18,6 +18,7 @@
 
 <div class="global">
 	<div class="row">
+			<div class="titles">
 		{!! Form::open(['route' => 'dashboard.playlist.filter', 'method' => 'POST']) !!}
 			<h3>Playlists</h3>
 			@if (Session::has('message'))
@@ -25,6 +26,7 @@
 			@else
 				<h5>Create and manage playlists</h5>
 			@endif
+			</div>
 			<ul>
 				<li>
 					<input type="text" name="txtPlaylistSearch" placeholder="Playlist name...."

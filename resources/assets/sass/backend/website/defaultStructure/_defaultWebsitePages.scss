@@ -4,79 +4,29 @@
 /***************************/
 /*   Section | Article     */
 /***************************/
-section {
-text-align:center; clear:both;
-
-	article {
-	float:left; width:22%; padding:1%;
-
-		img {
-		width:50%; border-radius:10px;
-		}//img
-
-		p {
-		text-align:justify;
-		}//p
+section {text-align:center; clear:both;
+	article {float:left; width:22%; padding:1%;
+		img {width:50%; border-radius:10px;}//img
+		p {text-align:justify;}//p
 	}//article
 }//section
 
 /***************************/
 /*        dashboard        */
 /***************************/
-.dashboard {
-width:100%;
-
-	.row {
-	width:100%;
-
-	.options {
-	background:transparent;
-	text-align:center;
-	width:50%;
-	float:left;
-
-		h4 {
-		text-align:left;
-		}//h4
-
-		ul {
-		text-decoration:none; list-style:none; padding:0;
-		width:100%; margin:0 auto;
-
-			li {
-			float:left;
-			margin:2%;
-			width:20%;
-			//After 4 li items, the 5th and 10th move onto another line.
-				&:nth-child(5), &:nth-child(10),  {
-	    	clear:left;
-				margin-left:0px;
-				}
-
+.dashboard {width:100%;
+	.row {width:100%;
+	.options {background:transparent;text-align:center;	width:50%;	float:left;
+		h4 {text-align:left;}//h4
+		ul {text-decoration:none; list-style:none; padding:0;	width:100%; margin:0 auto;
+			li {float:left;	margin:2%;width:20%;
+				//After 4 li items, the 5th and 10th move onto another line.
+				&:nth-child(5), &:nth-child(10),  {clear:left;margin-left:0px;}
 				&:first-child {margin-left:0;}
-
-				a {
-				display:block;
-				background:#1f6378;
-				border-radius:$site-border-radius;
-				border:$site-border-hidden;
-				color:#ffffff;
-				width:100%;
-
-
-					&:hover {
-					background:#1f6378;
-					border:$site-border-show;
-					@extend %glow;
-					}
-
-					i {
-					font-size:350%;
-					color:#ffffff;
-
-						span {
-						font-size:30%; padding:1%; margin:0; margin-top:4px; display:block;
-						}//span
+				a {display:block;	background:#1f6378;	border-radius:$site-border-radius;border:$site-border-hidden;	color:#ffffff;width:100%;
+					&:hover {background:#1f6378;	border:$site-border-show;	@extend %glow;}
+					i {font-size:350%;color:#ffffff;
+						span {font-size:30%; padding:1%; margin:0; margin-top:4px; display:block;}//span
 					}//i
 				}//a
 			}//li
@@ -88,168 +38,150 @@ width:100%;
 /***************************/
 /*      Page Editor        */
 /***************************/
-
+.rightBorder {
+	 border:1px solid #3f6572;
+ }
 #identity {
-	.pagecontainer {
-		position:relative;
-		height:100%;
-		 #serve_container {
-			position:relative;
-			height:100%;
-			#footer {
-			position:absolute; bottom:0;}
+	.pagecontainer {position:relative;height:100%;
+		 #serve_container {position:relative;	height:100%; background:url("../images/sampleBG.png") no-repeat center center;
+	   background-size:cover;
 		 }
+		#footer {position:absolute; bottom:0; display:none;}
 	}
 }
-#left {
-float:left; width:70%;
-
+#left {float:left; width:70%; @extend .rightBorder;
 	/* Default Orientation - Landscape*/
-	.pagecontainer {
-	width:100%; background:transparent; box-sizing:border-box;
-
+	.pagecontainer {width:100%; background:transparent; box-sizing:border-box;
 		ul.theme_select {
-
-				li {
-				width:15%; float:left; text-align:center;
-
-					a {
-					display:block;
-
-						img {
-						width:90%;
+				li {width:15%; float:left; text-align:center;
+					a {display:block;
+						img {width:90%;
 						}//img
 					}//a
 				}//li
 		}//ul.theme_select
 	}//pagecontainer
-
-	.pagecontainer:last-child {
-	min-height:100px; background:transparent; margin-top:5px;
+	.pagecontainer:last-child {min-height:100px; background:transparent; margin-top:5px;
 	}//last-child
 }//left
 
 /* Portrait*/
 #left.portrait {
-
-		.pagecontainer {
-		float:left; width:75%;  box-sizing:border-box; border-radius:$site-border-radius; border:$site-border;
-
-			ul.theme_select {
-			width:100%; padding:0; margin:0; display:flex; text-align:center; display:block;
-
-					li {
-					width:100%;
+	box-sizing:border-box;
+		.pagecontainer {float:left; width:75%;  box-sizing:border-box; border-radius:$site-border-radius; border:$site-border;
+			ul.theme_select {width:100%; padding:0; margin:0; display:flex; text-align:center; display:block;
+					li {width:100%;
 						a {
-
-							img {
-							width:50%;
-							text-align:center;
+							img {width:50%;	text-align:center;
 							}//img
 						}//a
 					}//li
 			}//ul.theme_select
 		}//pagecontainer
-
-		.pagecontainer:last-child {
-		float:left; width:23%;  background:orange; margin-left:10px;
+		.pagecontainer:last-child {float:left; width:23%;  background:orange; margin-left:10px;
 		}//last-child
 	}//portrait
 
-#right {
-float:left;
-width:30%;
-background:transparent;
-box-sizing:border-box;
-
-	ul {
-	margin:0 auto;
-	background:transparent;
-	display:block;
-	padding:0;
-	margin-left:10px;
-
-		li:first-child {
-		margin-top:0;
-		}//li:first-child
-
-		li {
-		display:block;
-		background:transparent;
-		margin:5px auto;
-		border-radius:$site-border-radius;
-		padding:5px;
-		border:$site-border;
-
-			textarea, input {
-			width:90%;
-			margin:0 auto;
-			}//textarea, input
-
-			label {
-			display:block;
-			}//label
-		}//li
-
-		li#orientation {
-			padding:0; margin:0;
-
-				a {
-				display:block;
-				}//a
-
-				button:first-child {
-				margin-left:0px;
+#right {float:left;width:30%;background:#fafafa;box-sizing:border-box; @extend .rightBorder;
+	ul {margin:0 auto; 	padding:0; background:transparent;	display:block;	margin-left:10px;
+		li:first-child {margin-top:0;}//li:first-child
+		li {background:transparent;border-radius:$site-border-radius;border:$site-border;  margin-bottom:5px; float:left; clear:both; width:100%;
+			label {width:100px; float:left; font-weight:bold; padding:1%; }//label
+			input {float:left; @extend .rightBorder;}
+			input, textarea {max-width:100%; margin:0 auto;}//textarea, input
+			textarea {resize: vertical; height:auto; width:94%; padding:1%; min-height:150px;  @extend .rightBorder;}
+			&#orientation {padding:0; width:97%;
+					label {display:block; width:97%;}
+					a {	display:block;}//a
+					input {border: none;}
+					button {
+						&:first-child {margin-left:0px;}
+					}
+					i {font-size:500%; display:block; padding: 8px 25px;
+						&.landscape {
+						-ms-transform: rotate(90deg); /* IE 9 */
+						-webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+						transform: rotate(90deg);}
+					}
+					button.active, button.active:hover {background:$button-background-active; border:2px solid transparent; cursor:initial;}//button.active
+					button {background:$button-background; color:#000000; width:50%; border:2px solid transparent; float:left; padding:0px 5px; overflow:hidden;}//button
+					button:hover {cursor:pointer; border:2px solid #ffffff;background:#74bad3; }//2 elements -- active hover
+				}//orientation
+				&.oneLine {
+					label {float:left;}
+					input{float:left; width:94%;}
 				}
-
-				button.active, button.active:hover {
-				background:$button-background-active;
-				}//button.active
-
-				button {
-				background:$button-background; color:#000000; width:50%; border:$site-border; float:left; padding:0px 5px; overflow:hidden;
-				}//button
-
-				button:hover {
-				background:$button-background-hover; cursor:pointer;
-				}//2 elements -- active hover
-			}//orientation
+				&.transition {
+					width:100%;
+					div {width:30%; float:left;
+						&:first-child{margin-right:4%;}
+						label {padding:2%;}
+						select {width:100%; border:2px solid #3f6572;}
+					}
+				}//transition
+		}//li
+		div.buttons-PageEditor {
+			li {
+			float:left; width:97%;
+				button{width:100%; padding:2%}
+				a {display:block;
+					button {}
+				}
+			}
+			form {float:left; width:100%;}
+		}
 	}//ul
 }//right
+
+// SAVE DELETE buttons
+
+.delete {background:#ffb347;}
+.save {background:#BDECB6;}
 
 /***************************/
 /*         Global          */
 /***************************/
 .global {width:100%;margin:0 auto;font-size:120%;
 	.row {margin:0 auto 1%;
-		&:first-child {background:#465f6c none repeat scroll 0 0;padding:1%;
-			h3 {width:auto; float:left;}
-			h5 {width:auto; float:left; margin-left:10px; padding:6px;}
-			ul {clear:both;	margin:0 auto;
-				li{
-					input {width:240px;}
-					label {width:180px; margin-left:10px; float:none;}
-					select {width:300px; margin-left:10px;}
-					a {float:right;}
-					button {float:right; margin-right:1%;
-						&:last-child {
-						margin-left:0%;
-						}
-					}
-				}
+			li {
+				input {display:block; clear:left; margin-bottom:3px;}
+				label {display:block;}
+				a {}
+				button { margin-right:5px;  padding:5px;}
 			}
-		}
-		&:last-child {
+		&:first-child {background:#465f6c none repeat scroll 0 0;padding:1%;
+			.titles {
+			width:50%; float:left;
+				h3 {}
+				h5 {}
+				ul {float:right; width:48%; margin-top:5px;
+					li{
+						input {width:240px; float:left;}
+						label {width:180px; margin-left:10px; float:left; }
+						select {width:300px; margin-left:10px;}
+						a {float:left; width:48%;}
+						button {float:left; margin-right:1%; width:auto;
+							&:last-child {
+							margin-left:0%;
+							}
+						}
+					}//li
+				}//ul
+			}//titles
+		}//first-child
+		&:last-child {clear:both;
 			ul {
-				li {display:flex;
-				margin-top:0.5%;
+				.advertItem {
+					a {float:left;}
+					}
+				li {display:flex; line-height:180%; margin-top:0.5%;
 					&:nth-child(odd) {background:$li-background;}//li:nth
 					&:nth-child(even) {background:$li-background-lighter;}//li:nth
 					&:hover {background:$li-background-hover;}
-					a {cursor:pointer; padding:0;	display:inline; float:left;}
+					a {cursor:pointer; padding:0;	width:auto; float:left;}
 					input {font-size:90%; padding-left:1%; }//input
-					label {float:left; min-width:75%; padding:2%;}//label
-					button {font-size:90%; float:right; margin-left:1%;
+					label, a:first-child{float:left; min-width:75%; padding:0% 0.5%;}//label
+					button {font-size:90%; float:right; margin-left:1%; padding:5px;
 						&:first-child {margin-left:10px;}//
 						&:hover {background:orange;}
 					}//button

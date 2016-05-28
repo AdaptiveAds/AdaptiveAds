@@ -1,9 +1,9 @@
 // Author: Kane Whelan
 // No other entries by team members
 //
-$li-background: rgba( 255, 255, 255, 0.2 );
-$li-background-lighter:rgba(247,247,247, 0.2);
-$li-background-hover: rgba(0,0,0, 0.2);
+$li-background: rgba( 255, 255, 255, 0.4 );
+$li-background-lighter:rgba(255, 255, 255, 0.8);
+$li-background-hover: rgba(255, 255, 255, 1.0);
 
 //objects
 $objects-selected-background:#add8e6; //light blue
@@ -39,6 +39,6 @@ $site-font-form-color: $site-font-color;
 
 //buttons
 $button-font-color:$site-top-background;
-$button-background:green;
-$button-background-active:orange;
-$button-background-hover:yellow;
+$button-background:rgba(29,31,32, 0.9);
+$button-background-active:#5e97ab;
+$button-background-hover:rgba(29,31,32, 1.0);
