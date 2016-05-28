@@ -190,15 +190,23 @@ https://developers.google.com/recaptcha/docs/display -->
 
 	<div id="content">
     @yield('content')
-    <div class="clear"></div>
+
   <!-- close content -->
+	<div class="clear"></div>
   </div>
-<!--  <footer>
-    &copy; <?php echo date('Y'); ?>. AdaptiveAds. All Rights Reserved.
+	<footer>
+		<!-- if logged in -->
+		@if (Auth::guest() == false)
+			&copy; <?php echo date('Y'); ?>. <a href="http://www.glos.ac.uk/" target="_window">University of Gloucestershire</a>. All Rights Reserved.
+		@else
+		<!-- if logged out -->
+			&copy; <?php echo date('Y'); ?>. <a href="http://www.adaptiveads.uk">AdaptiveAds</a>. All Rights Reserved.
+		@endif
+
   </footer>
--->
+
 <!-- close wrapper -->
 <div class="clear"></div>
-  </div>
+</div>
 </body>
 </html>

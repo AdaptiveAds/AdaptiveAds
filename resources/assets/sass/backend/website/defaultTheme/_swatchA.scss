@@ -1,28 +1,50 @@
+//Author: KW
+// all content in this document carried out by ABOVE author
 body {
-  &.data-swatch-theme-a
-
+  &.data-swatch-theme-a {
   #wrapper #content {
-
+    h5 {color:#ffffff;}
     .global {
-
       .row {
-
         &:last-child{
-
         ul {
-
           li{
             &:nth-child(odd) {background:#C0D9D9;}//li:nth
   					&:nth-child(even) {background:#D1EEEE;}//li:nth
   					&:hover {background:#79CDCD;}
             &.advertItem {
-
-            label{}
+              label{}
+            }
+          }
+        }
+        }
+      }//row
+    }//global
+  }
+}
+//KW 28.05 Assigning colour blind theme font-color
+  &.data-swatch-theme-b {
+    #wrapper #content {
+      //violet
+      h5 {color:#EED2EE;}
+    }
+  }
+  &.data-swatch-theme-c {
+    #wrapper #content {
+      h5 {color:#ffffff;}
+      options {
+        .dashboard {
+          .row{
+            .options {
+              li {
+                a {color:#000000;
+                  span {}
+                }
+              }
             }
           }
         }
       }
-    }//row
-  }//global
-}
+    }
+  }
 }

@@ -16,34 +16,26 @@
 				<ul>
 					<li name="liPlaylistModal">
 						<a href="#PlaylistModal">
-							<i class="fa fa-list-ul">
-							<!-- temp name ofc -->
+							<img src="../images/icons/dashboardPlaylistAdd.png" title="Create Playlist" alt="Create Playlist">
 								<span>Create Playlist</span>
-							</i>
 						</a>
 					</li>
 					<li name="liPlaylist">
 						<a href="{{ URL::to('dashboard/playlist')}}">
-							<i class="fa fa-list-ul">
-							<!-- temp name ofc -->
+							<img src="../images/icons/dashboardPlaylist.png" title="List Playlists" alt="List Playlists">
 								<span>Playlists</span>
-							</i>
 						</a>
 					</li>
 					<li name="liModal">
 						<a href="#AdvertModal">
-							<i class="fa fa-list-ul">
-							<!-- temp name ofc -->
+							<img src="../images/icons/dashboardAdvertAdd.png" title="Create Advert" alt="Create Advert">
 								<span>Create Advert</span>
-							</i>
 						</a>
 					</li>
 					<li name="liAdvert">
 						<a href="{{ URL::to('dashboard/advert')}}">
-							<i class="fa fa-list-ul">
-							<!-- temp name ofc -->
+							<img src="../images/icons/dashboardAdvert.png" title="List Adverts" alt="List Adverts">
 								<span>Adverts</span>
-							</i>
 						</a>
 					</li>
 				</ul>
@@ -59,52 +51,45 @@
 				<ul>
 					<li name="liUsers">
 						<a href="{{ URL::to('dashboard/settings/users')}}">
-							<i class="fa fa-users">
+							<img src="../images/icons/dashboardUsers.png" title="List Users" alt="Users">
 								<span>Users</span>
-							</i>
 						</a>
 					</li>
 					<li name="liPrivileges">
 						<a href="{{ URL::to('dashboard/settings/privileges')}}">
-							<i class="fa fa-key">
+							<img src="../images/icons/dashboardPrivileges.png" title="User Privileges" alt="User Privileges">
 								<span>Privileges</span>
-							</i>
 						</a>
 					</li>
 					<li name="liDepartments">
 						<a href="{{ URL::to('dashboard/settings/departments/')}}">
-							<i class="fa fa-university">
+							<img src="../images/icons/dashboardDepartments.png" title="Departments" alt="Departments">
 								<span>Departments</span>
-							</i>
 						</a>
 					</li>
 					<li name="liLocations">
 						<a href="{{ URL::to('dashboard/settings/locations/')}}">
-							<i class="fa fa-map-marker">
+							<img src="../images/icons/dashboardLocations.png" title="Locations" alt="Locations">
 								<span>Locations</span>
-							</i>
 						</a>
 					</li>
 
 					<li name="liScreens">
 						<a href="{{ URL::to('dashboard/settings/screens')}}">
-							<i class="fa fa-desktop">
+							<img src="../images/icons/dashboardScreens.png" title="Screens" alt="Screens">
 								<span>Screens</span>
-							</i>
 						</a>
 					</li>
 					<li name="liBackgrounds">
 						<a href="{{ URL::to('dashboard/settings/backgrounds')}}">
-							<i class="fa fa-photo">
+							<img src="../images/icons/dashboardPageBackgrounds.png" title="Page Backgrounds" alt="Page Backgrounds">
 								<span>Page Backgrounds</span>
-							</i>
 						</a>
 					</li>
 					<li name="liTemplates">
 						<a href="{{ URL::to('dashboard/settings/templates')}}">
-							<i class="fa fa-navicon">
+							<img src="../images/icons/dashboardPageTemplates.png" title="Page Templates" alt="Page Templates">
 								<span>Page Templates</span>
-							</i>
 						</a>
 					</li>
 				</ul>

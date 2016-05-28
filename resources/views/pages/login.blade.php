@@ -14,7 +14,7 @@
 		@endif
 		<li>
 			<label for="usermail">Username</label>
-			<input class="clearable" type="username" name="login" placeholder="s1208199" required>
+			<input class="clearable" type="username" name="login" placeholder="username" required>
 		</li>
 		<li>
 			<label for="password">Password</label>
@@ -23,8 +23,11 @@
 		<button class="submit" type="submit">Login</button>
 	</ul>
 	<ul>
+		<!-- KW. 10.01.16
+		No longer required as client will manage this internally.
+		Code not deleted to show it was considered.
 		<li><a href="{{ URL::to('auth/register') }}">Register</a></li>
-		<li><a href="*RunScript for reset">Forgot Password</a></li>
+		<li><a href="*RunScript for reset">Forgot Password</a></li>-->
 	</ul>
 {!! Form::close() !!}
 @endsection

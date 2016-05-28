@@ -24,6 +24,7 @@
 						{!! Form::close() !!}
 					</li>
 				</ul>
+				<div class="clear"></div>
 	</div>
 
 	<div class="row">

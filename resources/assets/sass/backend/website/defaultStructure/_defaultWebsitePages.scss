@@ -1,5 +1,5 @@
-// Author: Kane Whelan
-// No other entries by team members
+//Author: KW
+// all content in this document carried out by ABOVE author
 
 /***************************/
 /*   Section | Article     */
@@ -23,11 +23,10 @@ section {text-align:center; clear:both;
 				//After 4 li items, the 5th and 10th move onto another line.
 				&:nth-child(5), &:nth-child(10),  {clear:left;margin-left:0px;}
 				&:first-child {margin-left:0;}
-				a {display:block;	background:#1f6378;	border-radius:$site-border-radius;border:$site-border-hidden;	color:#ffffff;width:100%;
-					&:hover {background:#1f6378;	border:$site-border-show;	@extend %glow;}
-					i {font-size:350%;color:#ffffff;
-						span {font-size:30%; padding:1%; margin:0; margin-top:4px; display:block;}//span
-					}//i
+				a {display:block;	background: rgba(255, 255, 255, 0.8);	border-radius:$site-border-radius;border:$site-border-hidden;	color:#ffffff;width:100%;
+					&:hover {background: rgba(255, 255, 255, 1.0);	border:$site-border-show;	@extend %glow;}
+					img {width:100%; height:auto;}
+					span {font-size:85%; padding:1%; margin:0; margin-top:4px; display:block;}//span
 				}//a
 			}//li
 		}//ul
@@ -41,6 +40,7 @@ section {text-align:center; clear:both;
 .rightBorder {
 	 border:1px solid #3f6572;
  }
+
 #identity {
 	.pagecontainer {position:relative;height:100%;
 		 #serve_container {position:relative;	height:100%; background:url("../images/sampleBG.png") no-repeat center center;
@@ -49,7 +49,7 @@ section {text-align:center; clear:both;
 		#footer {position:absolute; bottom:0; display:none;}
 	}
 }
-#left {float:left; width:70%; @extend .rightBorder;
+#left {float:left; width:70%; @extend .rightBorder; margin-top:7px; border-right:1px solid transparent;
 	/* Default Orientation - Landscape*/
 	.pagecontainer {width:100%; background:transparent; box-sizing:border-box;
 		ul.theme_select {
@@ -61,7 +61,7 @@ section {text-align:center; clear:both;
 				}//li
 		}//ul.theme_select
 	}//pagecontainer
-	.pagecontainer:last-child {min-height:100px; background:transparent; margin-top:5px;
+	.pagecontainer:last-child {min-height:100px; background:transparent; @extend .rightBorder; border-right:1px solid transparent; border-bottom:1px solid transparent; border-left:1px solid transparent;
 	}//last-child
 }//left
 
@@ -78,7 +78,7 @@ section {text-align:center; clear:both;
 					}//li
 			}//ul.theme_select
 		}//pagecontainer
-		.pagecontainer:last-child {float:left; width:23%;  background:orange; margin-left:10px;
+		.pagecontainer:last-child {float:left; width:23%;  background:orange; margin-left:10px; @extend .rightBorder; border-top:1px solid transparent; border-right:1px solid transparent; border-bottom:1px solid transparent;
 		}//last-child
 	}//portrait
 
@@ -144,6 +144,8 @@ section {text-align:center; clear:both;
 .global {width:100%;margin:0 auto;font-size:120%;
 	.row {margin:0 auto 1%;
 			li {
+				form {width:auto; float:left;}
+				input[type='checkbox'] {margin:12px 5px 0 10px;}
 				input {display:block; clear:left; margin-bottom:3px;}
 				label {display:block;}
 				a {}

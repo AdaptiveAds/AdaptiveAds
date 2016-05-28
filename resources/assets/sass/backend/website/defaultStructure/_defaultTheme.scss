@@ -1,5 +1,5 @@
-// Author: Kane Whelan
-// No other entries by team members
+//Author: KW
+// all content in this document carried out by ABOVE author
 
 @import url(https://fonts.googleapis.com/css?family=Ubuntu:300);
 
@@ -272,22 +272,24 @@ body.font-theme-c {@extend %font-c;}
           }//close form
         }//close row
     }//close settings
+  }//end wrapper
 
+    
     footer {
       width:100%;
-      margin:0 auto;
-      text-align:right;
-      clear:both;
       position:fixed;
-      bottom:2px;
-      right:2px;
-      font-size:110%;
+      bottom:0;
+      margin:0 auto;
+      text-align:center;
+      clear:both;
+      font-size:12px;
 
         #footer {
+        clear:both;
           //empty
         }
     }//close footer
-  }//end wrapper
+
 
 /* Generic */
 input {
@@ -319,9 +321,9 @@ border:none;
               #000000, #ffffff, #000000);
 
 // Colour Blind
-@include theme(data-swatch-theme-b, #000000, #ffe800 , #3d6ab3,
+@include theme(data-swatch-theme-b, #000000, #fcfc4b , #3d6ab3,
               #1f6378, #ffe800, #000000);
 
 // Black
-@include theme(data-swatch-theme-c, #000000, #000000, #000000,
+@include theme(data-swatch-theme-c, #ffffff, #000000, #000000,
               #000000, #ffffff, #000000);

@@ -37,6 +37,7 @@
 			<div id="serve_text">
 	    		<p name="pageContent">{{ $pageData->content or '' }}</p>
 			</div>
+			<div class="clear"></div>
 	</div>
   <div class="clear"></div>
 </div>
