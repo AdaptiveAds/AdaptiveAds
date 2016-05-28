@@ -106,7 +106,7 @@ var SelectManager = (function() {
        if (SelectManager.multi == false) {
 
          // Remove selected from all links
-         $('ul[data-selectableList="true"] li a').removeClass('selected');
+         $('ul[data-selectableList="true"] li').removeClass('selected');
 
          // Un-check all checkboxes except this one
          $('input:checkbox').not(this).removeAttr('checked');
@@ -115,17 +115,13 @@ var SelectManager = (function() {
        if ($(this).is(':checked')) {
 
          // Apply selected to inner link
-         if ($(this).parent().is('li')) {
-           $(this).children('a').toggleClass('selected');
-         } else {
-           $(this).parent('a').toggleClass('selected');
-         }
+          $(this).parent('li').toggleClass('selected');
 
          $(this).trigger('selected');
 
        } else {
 
-         $(this).parent('a').removeClass('selected');
+         $(this).parent('li').removeClass('selected');
          $(this).trigger('deselected');
        }
     });
@@ -270,7 +266,7 @@ var IndexUpdater = (function() {
     });
 
     $('#btnUp').click(function() {
-        var parentLi = $('.selected').parent();
+        var parentLi = $('.selected');
         parentLi.insertBefore(parentLi.prev('li'));
 
         // Collect index info
@@ -284,7 +280,7 @@ var IndexUpdater = (function() {
     });
 
     $('#btnDown').click(function() {
-        var parentLi = $('.selected').parent();
+        var parentLi = $('.selected');
         parentLi.insertAfter(parentLi.next('li'));
 
         // Collect index info
@@ -319,7 +315,7 @@ var IndexUpdater = (function() {
       data : {'itemID': itemID, 'effectedID': effectedID, 'newIndex': newIndex, 'effectedIndex': effectedIndex},
       success : function(data){
         // Redirect if available
-        if (data.redirect !== undefiend || data.redirect !== null) {
+        if (data.redirect !== undefined) {
           window.location.href = data.redirect;
         }
       },
@@ -664,7 +660,7 @@ var BackgroundUpdater = (function() {
       data : {'background_id': id},
       success : function(data){
         // Redirect if available
-        if (data.redirect !== undefind || data.redirect !== null) {
+        if (data.redirect !== undefined) {
           window.location.href = data.redirect;
         }
       },

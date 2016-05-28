@@ -75,7 +75,7 @@
 				<input type="file" name="filPageVideo" accept="video/*"/><br>
 			</li>
 			<li>
-				<label><b>TransitionL</b></label>
+				<label><b>Transition:</b></label>
 				@include('objects/dropdown_transitions')
 				<label><b>Direction:</b></label>
 				@include('objects/dropdown_transition_direction')

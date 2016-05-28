@@ -38,6 +38,7 @@
         <div id="colorSelector2">
           <div style="background-color: rgb(61, 61, 219);"></div>
         </div>
+        <button type="submit" name="btnRemoveColour">Remove Background Colour</button>
       </li>
         <button type="submit" name="btnSave">Save</button>
       </li>

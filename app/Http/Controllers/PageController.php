@@ -13,6 +13,7 @@ use Input;
 use App\Page as Page;
 use App\PageData as PageData;
 use App\Template as Template;
+use App\Advert as Advert;
 
 /**
   * Defines the CRUD methods for the PageController
@@ -52,6 +53,16 @@ class PageController extends Controller
     {
         $page = new Page;
         $page->advert_id = $adID;
+
+        $advert = Advert::find($adID);
+        if ($advert == null)
+          return redirect()->route('dashboard.advert.index')
+                           ->with('message', 'Could not find selected advert');
+
+        $count = $advert->Pages->count();
+        if ($count >= 4)
+          return redirect()->route('dashboard.advert.index')
+                           ->with('message', 'Maximum number of pages reached');
 
         // Returns all possible templates to assign to the page
         $templates = Template::all();

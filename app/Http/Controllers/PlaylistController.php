@@ -86,7 +86,7 @@ class PlaylistController extends Controller
       );
 
       $rules = array(
-        'txtPlaylistName' => 'required|min:1|max:40|unique:playlist,name',
+        'txtPlaylistName' => 'required|min:1|max:60|unique:playlist,name',
         'drpDepartments' => 'required|exists:department,id'
       );
 
@@ -174,7 +174,7 @@ class PlaylistController extends Controller
       );
 
       $rules = array(
-        'txtPlaylistName' => 'required|min:1|max:40|unique:playlist,name,'.$id,
+        'txtPlaylistName' => 'required|min:1|max:60|unique:playlist,name,'.$id,
         'drpDepartments' => 'required|exists:department,id'
       );
 
@@ -329,10 +329,7 @@ class PlaylistController extends Controller
       $currentIndex = DB::table('advert_playlist')->where('playlist_id', $playlistID)->max('advert_index');
       $count = 0;
 
-      // Apply global restrictions
-      if ($playlist->isGlobal == true) {
-        $count = $playlist->Adverts()->count();
-      }
+      $count = $playlist->Adverts()->count();
 
       $extraArgs = $request->input('extra');
       $display_schedule_id = 1;
@@ -343,9 +340,12 @@ class PlaylistController extends Controller
       foreach ($adverts as $advertID) {
 
         // NOTE global is restricted to a MAX of 3 adverts
-        if ($count >= 3) {
+        if ($playlist->isGlobal == true AND $count >= 3) {
             Session::flash('message', 'Global playlist has reached the maxiumum assigned');
             return array('redirect' => '/dashboard/playlist/'.$playlistID.'/edit');
+        } else if ($count >= 4) {
+          Session::flash('message', 'Playlist has reached the maxiumum assigned');
+          return array('redirect' => '/dashboard/playlist/'.$playlistID.'/edit');
         }
 
         // TODO advert inde and display timing (GUI??)

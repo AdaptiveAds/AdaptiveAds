@@ -157,6 +157,16 @@ class BackgroundController extends Controller
         return redirect()->route('dashboard.settings.backgrounds.index')
                          ->with('message', 'Error: Background not found');
 
+      $btnRemoveColour = $request->input('btnRemoveColour');
+
+      // Check if the user wants to just remove the background colour.
+      if (isset($btnRemoveColour)) {
+        $background->hex_colour = "";
+        $background->save();
+        return redirect()->route('dashboard.settings.backgrounds.index')
+                         ->with('message', 'Background colour removed!');
+      }
+
       // Get request inputs
       $txtBackgroundName = $request->input('txtBackgroundName');
       $hexBackgroundColor = $request->input('hexBackgroundColor');
