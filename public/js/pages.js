@@ -298,6 +298,9 @@ var Serve = (function(Page) {
         $('body').css('background-size', 'cover');
       } else if (currentAdvert.background.hex_colour != "") {
         $('body').css('background', '#' + currentAdvert.background.hex_colour);
+      } else {
+        $('body').css('background', 'url(../advert_backgrounds/background_placeholder.png)');
+        $('body').css('background-size', 'cover');
       }
 
       addImage();
