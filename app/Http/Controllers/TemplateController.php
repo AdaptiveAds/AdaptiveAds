@@ -82,7 +82,7 @@ class TemplateController extends Controller
         );
 
         $rules = array(
-          'txtTemplateName' => 'required|max:40|unique:template,name',
+          'txtTemplateName' => 'required|max:60|unique:template,name',
           'txtTemplateClass' => 'required|max:50|unique:template,class_name',
           'numTemplateDuration' => 'required|integer|min:1',
         );
@@ -177,7 +177,7 @@ class TemplateController extends Controller
         );
 
         $rules = array(
-          'txtTemplateName' => 'required|max:40|unique:template,name,'.$id,
+          'txtTemplateName' => 'required|max:60|unique:template,name,'.$id,
           'txtTemplateClass' => 'required|max:50|unique:template,class_name,'.$id,
           'numTemplateDuration' => 'required|integer|min:1',
         );

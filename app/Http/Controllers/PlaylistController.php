@@ -86,7 +86,7 @@ class PlaylistController extends Controller
       );
 
       $rules = array(
-        'txtPlaylistName' => 'required|min:1|max:40|unique:playlist,name',
+        'txtPlaylistName' => 'required|min:1|max:60|unique:playlist,name',
         'drpDepartments' => 'required|exists:department,id'
       );
 
@@ -174,7 +174,7 @@ class PlaylistController extends Controller
       );
 
       $rules = array(
-        'txtPlaylistName' => 'required|min:1|max:40|unique:playlist,name,'.$id,
+        'txtPlaylistName' => 'required|min:1|max:60|unique:playlist,name,'.$id,
         'drpDepartments' => 'required|exists:department,id'
       );
 

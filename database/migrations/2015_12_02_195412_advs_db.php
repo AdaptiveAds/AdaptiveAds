@@ -15,7 +15,7 @@ class AdvsDb extends Migration
         Schema::create('template', function (Blueprint $table) {
 				    $table->engine = 'InnoDB';
         		$table->increments('id');
-        		$table->string('name', 40);
+        		$table->string('name', 60);
         		$table->string('class_name', 50);
         		$table->integer('duration');
             $table->string('thumbnail_path', 255);
@@ -24,7 +24,7 @@ class AdvsDb extends Migration
         Schema::create('page_data', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->text('heading', 40);
+            $table->text('heading', 255);
             $table->text('content', 255);
             $table->text('image_path');
             $table->text('video_path');
@@ -96,7 +96,7 @@ class AdvsDb extends Migration
         Schema::create('playlist', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('name');
+            $table->string('name',60);
             $table->boolean('isGlobal');
             $table->integer('department_id')->unsigned();
             $table->foreign('department_id')
