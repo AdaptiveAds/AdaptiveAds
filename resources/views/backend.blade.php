@@ -1,5 +1,9 @@
+<!--<<<<<<< HEAD-->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
+<!--=======
+@include('pages/header')
+>>>>>>> origin/master-->
 
 <head>
 	<title>AdaptiveAds</title>
