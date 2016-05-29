@@ -9,7 +9,9 @@ AdaptiveAds is an open source advertising platform developed for the University 
 
 ## Official Documentation
 
-....
+See Wiki pages for user guide.
+
+For code documentation see /public/docs folder for interactive documentation.
 
 ### License
 
