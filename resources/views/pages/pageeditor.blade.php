@@ -117,9 +117,7 @@
       </li>
 
       <li>
-        <a href="{{ URL::route('dashboard.advert.edit', $page->advert_id) }}">
-          <button title="Save and Close" type="submit" name="btnClose">Save & Close</button>
-        </a>
+        <button title="Save and Close" type="submit" name="btnSaveClose">Save & Close</button>
       </li>
 		</div>
 

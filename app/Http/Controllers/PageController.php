@@ -148,6 +148,12 @@ class PageController extends Controller
       $page->transition = $txtTransition . $txtDirection;
       $page->save();
 
+      $btnSaveClose = $request->input('btnSaveClose');
+
+      if(isset($btnSaveClose))
+        return redirect()->route('dashboard.advert.index')
+                         ->with('message', 'Page saved!');
+
       return redirect()->route('dashboard.advert.{adID}.page.show', [$adID, $page->id])
                        ->with('message', 'Page created successfully');
     }
@@ -269,6 +275,11 @@ class PageController extends Controller
       }
 
       $pageData->save();
+
+      $btnSaveClose = $request->input('btnSaveClose');
+      if(isset($btnSaveClose))
+        return redirect()->route('dashboard.advert.index')
+                         ->with('message', 'Page saved!');
 
       return redirect()->route('dashboard.advert.{adID}.page.show', [$adID, $page->id])
                        ->with('message', 'Page updated successfully');
