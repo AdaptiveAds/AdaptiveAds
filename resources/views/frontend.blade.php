@@ -1,4 +1,4 @@
-@include('pages\header')
+@include('pages/header')
 
 <body class="data-swatch-theme-a font-theme-b">
 <div id="wrapper">
