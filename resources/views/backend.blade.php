@@ -24,7 +24,7 @@
 
 <body class="data-swatch-theme-a font-theme-b">
 <div id="wrapper">
-@include('pages\header')
+@include('pages/header')
 
 
 	<div id="content">

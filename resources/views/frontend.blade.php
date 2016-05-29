@@ -12,14 +12,14 @@
 	<script src="{{ URL::asset('js/jquery-2.1.4.js') }}"></script>
 	<script src="{{ URL::asset('js/mobilemenu.js') }}"></script>
 
-@include('pages\headJavascript')
+@include('pages/headJavascript')
 
 </head>
 
 <body class="data-swatch-theme-a font-theme-b">
 <div id="wrapper">
 
-@include('pages\header')
+@include('pages/header')
 
 			<!-- ************************** -->
 		  <!--          ROW | ONE         -->
