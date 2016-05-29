@@ -11,10 +11,8 @@
 |
 */
 
-// Landing page TODO change
-Route::get('/', function () {
-    return view('frontend');
-});
+// Landing page 
+Route::get('/', 'Frontend@index');
 
 // Team and contact routes
 Route::get('contact', 'ContactController@index');
