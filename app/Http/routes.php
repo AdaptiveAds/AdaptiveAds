@@ -13,7 +13,7 @@
 
 // Landing page TODO change
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend');
 });
 
 // Team and contact routes

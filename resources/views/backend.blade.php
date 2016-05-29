@@ -126,7 +126,7 @@
 				@if (Auth::guest() == false)
 					<a  title="Return Home" name="lnkHome" href="{{ URL::to('dashboard')}}"><i class="fa fa-home" aria-hidden="true"></i></a>
 				@else
-					<a  title="Return Home" name="lnkDashboard" href="{{ URL::to('home')}}"><i class="fa fa-home" aria-hidden="true"></i></a>
+					<a  title="Return Home" name="lnkDashboard" href="{{ URL::to('/')}}"><i class="fa fa-home" aria-hidden="true"></i></a>
 				@endif
 				<button  title="Menu"  name="mainmenu-btn" class="nav-button">Menu</button>
 
@@ -141,7 +141,7 @@
 						@if (Auth::guest() == false)
 							<li><a name="lnkHome" href="{{ URL::to('dashboard')}}">Home</a></li>
 						@else
-							<li><a name="lnkDashboard" href="{{ URL::to('home')}}">Home</a></li>
+							<li><a name="lnkDashboard" href="{{ URL::to('/')}}">Home</a></li>
 						@endif
 						@if (Auth::guest() == false)
 							<li><a name="lnkFAQ" href="{{ URL::to('FAQ') }}">FAQ</a></li>
