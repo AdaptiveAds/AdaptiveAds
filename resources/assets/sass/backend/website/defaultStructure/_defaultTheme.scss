@@ -51,7 +51,6 @@ body.font-theme-c {@extend %font-c;}
     button {}
 
     i, .fa {font-family: FontAwesome;}
-  * {margin:0; padding:0; border:none; list-style:none; color:$site-font-color; font-family: 'Ubuntu', sans-serif; }
 
   ::-webkit-input-placeholder {color:#b3a69d;}
   :-moz-placeholder {color:#b3a69d; opacity:0.6;}
@@ -116,6 +115,9 @@ body.font-theme-c {@extend %font-c;}
       }//end 'a'
 
       #top {
+      margin:0;
+      padding:0;
+      ul, li, i, a, button {margin:0; padding:0;}
       width:100%;
       display:block;
       color:#ffffff;
@@ -206,6 +208,7 @@ body.font-theme-c {@extend %font-c;}
     width:100%;
     min-height:45px;
     display:inline-block;
+    position:absolute;
     }//close header
 
     #content {
@@ -274,7 +277,7 @@ body.font-theme-c {@extend %font-c;}
     }//close settings
   }//end wrapper
 
-    
+
     footer {
       width:100%;
       position:fixed;

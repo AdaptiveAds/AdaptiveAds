@@ -27,9 +27,8 @@
 			<!-- *THIS WILL BE THE BANNER* -->
 		  <div class="row one">
 		    <div class="wrapper">
-		      <div id="bannerText">
-		        <div id="right">
-		        </div>
+		      <div id="teaser">
+						<iframe src="https://www.youtube.com/embed/ubZASS3uPrs" frameborder="0" allowfullscreen></iframe>
 		        <div class="clear"></div>
 		      </div>
 		    </div>
@@ -42,25 +41,23 @@
 					<div id="content">
 				    @yield('content')
 
-						<div id="featured">
-							<div class="trio">
-								<div class="icon"><img src="{{ URL::asset('images/logo.png') }}" alt="#" title="#"></div>
-								<div class="icon-text"><span>Title</span></div>
-							</div>
-							<div class="trio">
-								<div class="icon"><img src="{{ URL::asset('images/logo.png') }}" alt="#" title="#"></div>
-								<div class="icon-text"><span>Title</span></div>
-							</div>
-							<div class="trio">
-								<div class="icon"><img src="{{ URL::asset('images/logo.png') }}" alt="#" title="#"></div>
-								<div class="icon-text"><span>Title</span></div>
-							</div>
-						</div>
+						<ul>
+							<li>
+								<img src="{{ URL::asset('images/logo.png') }}" alt="#" title="#">
+								<span>Title</span>
+							</li>
+							<li>
+								<img src="{{ URL::asset('images/logo.png') }}" alt="#" title="#">
+								<span>Title</span>
+							</li>
+							<li>
+								<img src="{{ URL::asset('images/logo.png') }}" alt="#" title="#">
+								<span>Title</span>
+							</li>
 
 				  <!-- close content -->
 					<div class="clear"></div>
 				  </div>
-		    <div class="clear"></div>
 		  </div>
 
 
@@ -71,8 +68,7 @@
   <div class="row three">
     <div class="wrapper">
     <div class="left">
-			<div class="newsflash">
-				<h3 class="newsflash-title">Video Blurb</h3>
+				<h3>Promo Trailer</h3>
 				<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
 			</div>
     </div>
@@ -81,7 +77,6 @@
     </div>
     <div class="clear"></div>
   </div>
-</div>
 <!-- ************************** -->
 <!--         ROW | FOUR         -->
 <!-- ************************** -->
@@ -89,26 +84,26 @@
 <div class="row four">
   <div class="wrapper">
 		<div id="servicesIntro">
-			<h2>Services</h2>
+			<h2>Why AdaptiveAds?</h2>
 			<p>Centered text which will provide an overview of the services / classes that meta physique will offer its clients.</p>
 		</div>
 			<div id="servicesMain">
-				<div class="service"><img title="placeholder" src="images/placeholder.png" alt="placeholder" />
+				<div class="service"><img title="placeholder" src="{{ URL::asset('images/logo.png') }}" alt="placeholder" />
 					<h3>This is a title</h3>
 					<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
 
 				</div>
-				<div class="service"><img title="placeholder" src="images/placeholder.png" alt="placeholder" />
+				<div class="service"><img title="placeholder" src="{{ URL::asset('images/logo.png') }}" alt="placeholder" />
 					<h3>This is a title</h3>
 					<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
 				</div>
 
-				<div class="service"><img title="placeholder" src="images/placeholder.png" alt="placeholder" />
+				<div class="service"><img title="placeholder" src="{{ URL::asset('images/logo.png') }}" alt="placeholder" />
 					<h3>This is a title</h3>
 					<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
 
 				</div>
-				<div class="service"><img title="placeholder" src="images/placeholder.png" alt="placeholder" />
+				<div class="service"><img title="placeholder" src="{{ URL::asset('images/logo.png') }}" alt="placeholder" />
 					<h3>This is a title</h3>
 					<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
 
@@ -151,6 +146,8 @@
     <div class="clear"></div>
   </div>
 </div>-->
+<div class="clear"></div>
+</div>
 	<footer>
 		<!-- if logged in -->
 		@if (Auth::guest() == false)

@@ -52,7 +52,7 @@
 				@if (Auth::guest() == false)
 					<li><a name="lnkSupport" href="mailto:kanewhelan@glos.ac.uk?Subject=AdaptiveAds%20Support">Support</a></li>
 				@else
-					<li><a name="lnkContact" href="{{ URL::to('login')}}">Contact</a></li>
+					<li><a name="lnkContact" href="{{ URL::to('contact')}}">Contact</a></li>
 				@endif
 				<!-- Only show if user is logged in -->
 				@if (Auth::guest() == false)

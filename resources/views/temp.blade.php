@@ -61,6 +61,63 @@
       </div>
     </div>
   </div>
-  
+  <!-- ************************** -->
+  <!--          ROW | TWO         -->
+  <!-- ************************** -->
+  <div class="row two">
+    <jdoc:include type="modules" name="featured"/>
+    <div class="clear"></div>
+  </div>
+  <!-- ************************** -->
+  <!--         ROW | THREE        -->
+  <!-- ************************** -->
+  <div class="row three">
+    <div class="wrapper">
+    <div class="left">
+      <jdoc:include type="modules" name="video-content"/>
+    </div>
+    <div class="right">
+      <jdoc:include type="modules" name="video"/>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<!-- ************************** -->
+<!--         ROW | FOUR         -->
+<!-- ************************** -->
+<div class="row four">
+  <div class="wrapper">
+    <jdoc:include type="modules" name="classes"/>
+    <div class="clear"></div>
+  </div>
+</div>
+<!-- ************************** -->
+<!--         ROW | FIVE         -->
+<!-- ************************** -->
+<div class="row five">
+  <div class="wrapper">
+    <div class="left">
+      <jdoc:include type="modules" name="social-gallery"/>
+    </div>
+    <div class="right">
+      <jdoc:include type="modules" name="newsletter"/>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<!-- ************************** -->
+<!--         ROW | SIX          -->
+<!-- ************************** -->
+<div class="row six">
+  <div id="footer">
+    <div class="column"></div>
+    <div class="column extend"></div>
+    <div class="column"></div>
+  </div>
+  &copy; Copyright #### <?php echo date('Y'); ?>. All Rights Reserved.
+  <a href="index.php?option=com_content&amp;view=article&amp;id=1:privacy-policy&amp;catid=2:uncategorised" title="Privacy Policy" rel="privacy">Privacy Policy</a>.
+  <a href="http://www.openglobal.co.uk" title="E-commerce web design in Gloucestershire">E-commerce web design</a> by OpenGlobal E-commerce.
+  <div class="clear"></div>
+</div>
 </body>
 </html>
