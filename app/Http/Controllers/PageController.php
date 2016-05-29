@@ -14,6 +14,7 @@ use App\Page as Page;
 use App\PageData as PageData;
 use App\Template as Template;
 use App\Advert as Advert;
+use App\Background as Background;
 
 /**
   * Defines the CRUD methods for the PageController
@@ -168,11 +169,24 @@ class PageController extends Controller
 
       $pageData = $page->PageData->where('id', $page->page_data_id)->orderBy('heading', 'ASC')->first();
 
+      $advert = Advert::find($adID);
+
+      if ($advert == null)
+        return redirect()->route('dashboard.advert.index')
+                         ->with('message', 'Error: Advert removed before update');
+
+      $background = Background::find($advert->background_id);
+
+      if ($background == null)
+        return redirect()->route('dashboard.advert.index')
+                         ->with('message', 'Error: Background removed before update');
+
       $data = array(
         'page' => $page,
         'pageData' => $pageData,
         'activeTemplate' => $page->Template,
-        'templates' => Template::all()
+        'templates' => Template::all(),
+        'advertBackground' => $background
       );
 
       return view('pages/pageeditor', $data);

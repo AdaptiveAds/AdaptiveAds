@@ -19,7 +19,23 @@
 @endif
 
 <div id="left" class="landscape">
-	<div id="identity">
+		@if (isset($advertBackground))
+			@if (strlen($advertBackground->image_path) > 0)
+				<style>
+					#identity {
+						background: url('../../../../advert_backgrounds/{{$advertBackground->image_path}}');
+						background-size: cover;
+					}
+				</style>
+			@elseif (strlen($advertBackground->hex_colour) > 0)
+				<style>
+					#identity {
+						background: #{{$advertBackground->hex_colour}};
+					}
+				</style>
+			@endif
+		@endif
+		<div id="identity">
 		<div class="pagecontainer">
 			@include('templates/templateStructure')
 		</div>
