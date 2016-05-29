@@ -2,8 +2,9 @@
 // all content in this document carried out by ABOVE author
 body {
   &.data-swatch-theme-a {
+  .three {background:#d8f4fd;}
   #wrapper #content {
-    h5 {color:#ffffff;}
+    h5 {color:#407b8d;}
     .global {
       .row {
         &:last-child{
@@ -24,14 +25,17 @@ body {
 }
 //KW 28.05 Assigning colour blind theme font-color
   &.data-swatch-theme-b {
+    .three {background:rgba(255,255,255,0.4);}
     #wrapper #content {
       //violet
-      h5 {color:#EED2EE;}
+      h5 {color:#407b8d;}
     }
   }
   &.data-swatch-theme-c {
+    .three {background:#070e10;}
     #wrapper #content {
-      h5 {color:#ffffff;}
+      #identity {color:#000000;}
+      h5 {color:#79CDCD;}
       options {
         .dashboard {
           .row{
@@ -45,6 +49,7 @@ body {
           }
         }
       }
+
     }
   }
 }

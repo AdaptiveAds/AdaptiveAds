@@ -28,7 +28,10 @@
 		  <div class="row one">
 		    <div class="wrapper">
 		      <div id="teaser">
-						<iframe src="https://www.youtube.com/embed/ubZASS3uPrs" frameborder="0" allowfullscreen></iframe>
+						<video controls preload="none">
+						   <source src="{{ URL::asset('video/teaser.mp4') }}" type="video/mp4">
+						   Your browser does not support the video tag.
+						</video>
 		        <div class="clear"></div>
 		      </div>
 		    </div>
@@ -85,7 +88,7 @@
   <div class="wrapper">
 		<div id="servicesIntro">
 			<h2>Why AdaptiveAds?</h2>
-			<p>Centered text which will provide an overview of the services / classes that meta physique will offer its clients.</p>
+			<p>The AdaptiveAds team are regular guys offering their services to better improve your business advertising for FREE. Need we say more? Okay, if you want more - check out below!</p>
 		</div>
 			<div id="servicesMain">
 				<div class="service"><img title="placeholder" src="{{ URL::asset('images/logo.png') }}" alt="placeholder" />

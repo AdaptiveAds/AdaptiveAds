@@ -6,10 +6,9 @@ a, button, input {cursor:pointer;}
 #wrapper {width:100%;}
 .wrapper {background:transparent; margin:0 auto; width:100%; }
 .row {clear:both; }
-.two, .three, .four, .five {padding:2% 0; width:100%;}
+.two, .three, .four, .five {padding:2% 0; width:100%; }
 
-  .one {
-  background:transparent; padding:0;
+  .one { padding:0;
     #teaser {
     width:100%;
     display:block;
@@ -19,7 +18,6 @@ a, button, input {cursor:pointer;}
   }//one
 
   .two {
-  background:transparent;
     ul {
       li {
       width:33%;
@@ -33,7 +31,6 @@ a, button, input {cursor:pointer;}
   }
 
   .three {
-  background:transparent;
     //partly up top
     .left {
     width:45%; float:left; margin-left:2%;
@@ -52,7 +49,6 @@ a, button, input {cursor:pointer;}
 
 
   .four {
-  background:transparent;
     #servicesIntro{
     width:80%;
     margin:0 auto;
@@ -75,7 +71,6 @@ a, button, input {cursor:pointer;}
   }
 
   .five {
-    background:yellow;
     .left {
     text-align:center;
       img{width:80%;}

@@ -132,31 +132,47 @@
   border-top: 0 none;
 }
 
-/* line 6, ../../resources/assets/sass/backend/website/defaultTheme/_swatchA.scss */
-body.data-swatch-theme-a #wrapper #content h5 {
-  color: #ffffff;
+/* line 5, ../../resources/assets/sass/backend/website/defaultTheme/_swatchA.scss */
+body.data-swatch-theme-a .three {
+  background: #d8f4fd;
 }
-/* line 12, ../../resources/assets/sass/backend/website/defaultTheme/_swatchA.scss */
+/* line 7, ../../resources/assets/sass/backend/website/defaultTheme/_swatchA.scss */
+body.data-swatch-theme-a #wrapper #content h5 {
+  color: #407b8d;
+}
+/* line 13, ../../resources/assets/sass/backend/website/defaultTheme/_swatchA.scss */
 body.data-swatch-theme-a #wrapper #content .global .row:last-child ul li:nth-child(odd) {
   background: #C0D9D9;
 }
-/* line 13, ../../resources/assets/sass/backend/website/defaultTheme/_swatchA.scss */
+/* line 14, ../../resources/assets/sass/backend/website/defaultTheme/_swatchA.scss */
 body.data-swatch-theme-a #wrapper #content .global .row:last-child ul li:nth-child(even) {
   background: #D1EEEE;
 }
-/* line 14, ../../resources/assets/sass/backend/website/defaultTheme/_swatchA.scss */
+/* line 15, ../../resources/assets/sass/backend/website/defaultTheme/_swatchA.scss */
 body.data-swatch-theme-a #wrapper #content .global .row:last-child ul li:hover {
   background: #79CDCD;
 }
-/* line 29, ../../resources/assets/sass/backend/website/defaultTheme/_swatchA.scss */
+/* line 28, ../../resources/assets/sass/backend/website/defaultTheme/_swatchA.scss */
+body.data-swatch-theme-b .three {
+  background: rgba(255, 255, 255, 0.4);
+}
+/* line 31, ../../resources/assets/sass/backend/website/defaultTheme/_swatchA.scss */
 body.data-swatch-theme-b #wrapper #content h5 {
-  color: #EED2EE;
+  color: #407b8d;
 }
-/* line 34, ../../resources/assets/sass/backend/website/defaultTheme/_swatchA.scss */
+/* line 35, ../../resources/assets/sass/backend/website/defaultTheme/_swatchA.scss */
+body.data-swatch-theme-c .three {
+  background: #070e10;
+}
+/* line 37, ../../resources/assets/sass/backend/website/defaultTheme/_swatchA.scss */
+body.data-swatch-theme-c #wrapper #content #identity {
+  color: #000000;
+}
+/* line 38, ../../resources/assets/sass/backend/website/defaultTheme/_swatchA.scss */
 body.data-swatch-theme-c #wrapper #content h5 {
-  color: #ffffff;
+  color: #79CDCD;
 }
-/* line 40, ../../resources/assets/sass/backend/website/defaultTheme/_swatchA.scss */
+/* line 44, ../../resources/assets/sass/backend/website/defaultTheme/_swatchA.scss */
 body.data-swatch-theme-c #wrapper #content options .dashboard .row .options li a {
   color: #000000;
 }
@@ -2550,7 +2566,7 @@ form#clientlogin ul:last-child li a:hover, form#register ul:last-child li a:hove
   padding: 0;
   border: none;
   list-style: none;
-  color: #333333;
+  /*color:$site-font-color;*/
   font-family: 'Ubuntu', sans-serif;
 }
 
