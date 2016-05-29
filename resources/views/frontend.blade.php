@@ -4,14 +4,32 @@
 <head>
 	<title>AdaptiveAds</title>
 
-	<link rel="stylesheet" 	href="{{ URL::asset('fonts/font-awesome-4.5.0/css/font-awesome.min.css') }}">
+	<meta name="geo.region" 	content="GB" />
+	<meta name="geo.placename" 	content="Quedgeley" />
+	<meta name="geo.position" 	content="51.8249770;-2.2693960" />
+	<meta name="ICBM" 			content="51.8249770, -2.2693960" />
+	<meta name="viewport" 		content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
+
+
+	<link rel="icon" 		href="favicon.ico?v=2" type="image/x-icon" />
+	<link rel="home" 		href="/" />
+	<link rel="search" 		href="/component/search/" />
+	<link rel="help" 		href="/contact-us.htm" />
+	<link rel="privacy" 	href="/privacy-policy.htm" />
+	<link rel="copyright" 	href="index.php?action=copyright" />
+	<link rel="author" 		href="https://plus.google.com/1159196980071151217" />
+	<link rel="publisher" 	href="https://plus.google.com/115919698007115121732" />
+	<link rel="stylesheet" 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 <!-- preferred plan would be to compile the css from scss prior to uploading using propos -->
-	<link rel="stylesheet" 	href="{{ URL::asset('css/default.css') }}" type="text/css">
+	<link rel="stylesheet" 	href="{{ URL::asset('css/frontend.css') }}" type="text/css">
+
+  <!-- KW 1.01.16 requires testing in conjunction with contact form
+  https://developers.google.com/recaptcha/docs/display
+  	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+   -->
 
 	<script src="{{ URL::asset('js/jquery-2.1.4.js') }}"></script>
-	<script src="{{ URL::asset('js/colorpicker.js') }}"></script>
-	<script src="{{ URL::asset('js/inputdelete.js') }}"></script>
 	<script src="{{ URL::asset('js/mobilemenu.js') }}"></script>
 
 	<script type="text/javascript">
@@ -41,20 +59,6 @@
 				}
 			});
 		}
-
-		$('.btn-orientationHor').click(function() {
-			// Writing the code like this will allow SCSS to be added to the button to show which is active
-			$('#left').removeClass('portrait');
-			$('#left').addClass('landscape');
-			$('.btn-orientationHor').addClass('active');
-			$('.btn-orientationVert').removeClass('active');
-		});
-		$('.btn-orientationVert').click(function() {
-			$('#left').removeClass('landscape');
-			$('#left').addClass('portrait');
-			$('.btn-orientationHor').removeClass('active');
-			$('.btn-orientationVert').addClass('active');
-		});
 
 		$('li[data-btnSwatch="true"], li[data-btnFont="true"]').click(function() {
 			$( 'body' ).removeClass(); // Remove all classes
