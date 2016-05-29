@@ -230,6 +230,12 @@ class AdvertController extends Controller
         return redirect()->route('dashboard.advert.index')
                          ->with('message', 'Error: Could not find advert to delete');
 
+      // Does a playlist depend on this advert?
+      $count = $advert->Playlists()->count();
+      if ($count != 0)
+        return redirect()->route('dashboard.advert.index')
+                         ->with('message', 'Could not delete one or more playlists depend on it');
+
       // Deleted
       $advert->delete();
 

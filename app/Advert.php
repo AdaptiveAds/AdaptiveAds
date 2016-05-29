@@ -63,4 +63,8 @@ class Advert extends Model
     return $this->hasOne(Background::class, 'id', 'background_id');
   }
 
+  public function Playlists() {
+    return $this->belongsToMany(Playlist::class)->withPivot('playlist_id', 'advert_id', 'advert_index');
+  }
+
 }
