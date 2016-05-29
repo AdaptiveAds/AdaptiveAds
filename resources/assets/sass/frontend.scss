@@ -1,1 +1,6 @@
 @import 'backend/website/defaultStructure/_defaultTheme.scss',
+        'backend/website/defaultStructure/backThemeMenu.scss';
+
+@import 'frontend/_variables.scss',
+        'frontend/_mixin.scss',
+        'frontend/_frontendDefault.scss';

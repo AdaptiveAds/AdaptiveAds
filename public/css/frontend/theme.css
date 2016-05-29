@@ -1,0 +1,283 @@
+/* line 13, ../../../resources/assets/sass/frontend/_variables.scss */
+button {
+  background: #87d52a;
+  border: transparent;
+  font-weight: bold;
+  padding: 8px 4px;
+  border-radius: 10%;
+}
+/* line 14, ../../../resources/assets/sass/frontend/_variables.scss */
+button:hover {
+  background: #b205b0;
+}
+
+/* line 16, ../../../resources/assets/sass/frontend/_variables.scss */
+button.btn-submit {
+  background: #b205b0;
+}
+/* line 17, ../../../resources/assets/sass/frontend/_variables.scss */
+button.btn-submit:hover {
+  background: #87d52a;
+}
+
+/* line 20, ../../../resources/assets/sass/frontend/_variables.scss */
+.one.row {
+  background: transparent url(../images/manbg.png) center top/60% auto no-repeat;
+  -webkit-background-size: 60% auto;
+  -moz-background-size: 60% auto;
+  -o-background-size: 60% auto;
+  background-size: 60% auto;
+}
+
+/* line 21, ../../../resources/assets/sass/frontend/_variables.scss */
+.five .right form {
+  background: transparent url(../images/parial_logo.png) center top/60% auto no-repeat;
+  -webkit-background-size: 60% auto;
+  -moz-background-size: 60% auto;
+  -o-background-size: 60% auto;
+  background-size: 60% auto;
+}
+
+/* line 22, ../../../resources/assets/sass/frontend/_variables.scss */
+.two.row {
+  background: #87d52a;
+}
+
+/* line 24, ../../../resources/assets/sass/frontend/_variables.scss */
+.four.row, .six.row {
+  background: #1a011a;
+}
+
+/* line 25, ../../../resources/assets/sass/frontend/_variables.scss */
+.three.row, .five.row {
+  background: transparent;
+}
+
+/* line 29, ../../../resources/assets/sass/frontend/_variables.scss */
+.one.row {
+  padding: 0;
+  height: 440px;
+}
+
+/* line 3, ../../../resources/assets/sass/frontend/theme.scss */
+body {
+  background: #1d232f;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  margin: 0 auto;
+  color: white;
+  font-size: 16px;
+}
+
+/* line 5, ../../../resources/assets/sass/frontend/theme.scss */
+h3, h4, h5 {
+  margin: "0px";
+  padding: "0px";
+}
+
+/* line 6, ../../../resources/assets/sass/frontend/theme.scss */
+.clear {
+  clear: both;
+}
+
+/* line 13, ../../../resources/assets/sass/frontend/theme.scss */
+a, button, input {
+  cursor: pointer;
+}
+
+/* line 14, ../../../resources/assets/sass/frontend/theme.scss */
+.wrapper {
+  background: transparent;
+  margin: 0 auto;
+  width: 90%;
+}
+
+/* line 15, ../../../resources/assets/sass/frontend/theme.scss */
+.row {
+  width: 100%;
+  padding: 2% 0;
+  clear: both;
+}
+
+/* line 16, ../../../resources/assets/sass/frontend/theme.scss */
+.buffer {
+  padding: 2%;
+}
+
+/* line 18, ../../../resources/assets/sass/frontend/theme.scss */
+.left {
+  width: 50%;
+  float: left;
+}
+
+/* line 19, ../../../resources/assets/sass/frontend/theme.scss */
+.right {
+  width: 50%;
+  float: right;
+}
+
+/* line 22, ../../../resources/assets/sass/frontend/theme.scss */
+.one #header {
+  min-height: 35px;
+}
+/* line 24, ../../../resources/assets/sass/frontend/theme.scss */
+.one #header #logo {
+  float: left;
+  width: 50%;
+}
+/* line 28, ../../../resources/assets/sass/frontend/theme.scss */
+.one #header #logo img {
+  width: 30%;
+}
+/* line 30, ../../../resources/assets/sass/frontend/theme.scss */
+.one #header #nav {
+  float: right;
+  width: 50%;
+}
+/* line 34, ../../../resources/assets/sass/frontend/theme.scss */
+.one #header #nav ul {
+  margin-left: 0;
+}
+/* line 36, ../../../resources/assets/sass/frontend/theme.scss */
+.one #header #nav ul li {
+  list-style: none;
+  float: left;
+  text-align: center;
+}
+/* line 40, ../../../resources/assets/sass/frontend/theme.scss */
+.one #header #nav ul li a {
+  text-decoration: none;
+  display: block;
+}
+/* line 49, ../../../resources/assets/sass/frontend/theme.scss */
+.one #bannerText {
+  clear: both;
+  text-align: center;
+}
+/* line 53, ../../../resources/assets/sass/frontend/theme.scss */
+.one #bannerText h2 {
+  padding-top: 5%;
+  font-size: 250%;
+  width: 50%;
+  margin: 0 auto;
+}
+/* line 56, ../../../resources/assets/sass/frontend/theme.scss */
+.one #bannerText #right {
+  float: right;
+  width: 25%;
+  text-align: left;
+}
+/* line 60, ../../../resources/assets/sass/frontend/theme.scss */
+.one #bannerText #right h2 {
+  margin: "0px";
+  padding: "0px";
+  font-size: 120%;
+  width: auto;
+  margin: auto;
+}
+/* line 61, ../../../resources/assets/sass/frontend/theme.scss */
+.one #bannerText #right p {
+  margin: "0px";
+  padding: "0px";
+}
+
+/* line 68, ../../../resources/assets/sass/frontend/theme.scss */
+.two ul li {
+  width: 33%;
+  list-style: none;
+  float: left;
+  text-align: center;
+}
+/* line 73, ../../../resources/assets/sass/frontend/theme.scss */
+.two ul li img {
+  width: 60%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */
+  background: black;
+}
+/* line 74, ../../../resources/assets/sass/frontend/theme.scss */
+.two ul li span {
+  display: block;
+  text-align: center;
+  color: #000000;
+  font-size: 190%;
+}
+
+/* line 81, ../../../resources/assets/sass/frontend/theme.scss */
+.three .left {
+  width: 45%;
+}
+/* line 83, ../../../resources/assets/sass/frontend/theme.scss */
+.three .left h3 {
+  margin: "0px";
+  padding: "0px";
+}
+/* line 84, ../../../resources/assets/sass/frontend/theme.scss */
+.three .left p {
+  margin: "0px";
+  padding: "0px";
+}
+/* line 88, ../../../resources/assets/sass/frontend/theme.scss */
+.three iframe, .three form {
+  width: 100%;
+  margin: 0 auto;
+  height: auto;
+  min-height: 300px;
+}
+
+/* line 95, ../../../resources/assets/sass/frontend/theme.scss */
+.four #servicesIntro {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+/* line 104, ../../../resources/assets/sass/frontend/theme.scss */
+.four #servicesMain .service {
+  float: left;
+  width: 25%;
+  text-align: center;
+}
+/* line 108, ../../../resources/assets/sass/frontend/theme.scss */
+.four #servicesMain .service img {
+  width: 80%;
+  border: 2px solid black;
+  background: #ffffff;
+}
+/* line 110, ../../../resources/assets/sass/frontend/theme.scss */
+.four #servicesMain .service p {
+  width: 80%;
+  text-align: justify;
+  margin: 0 auto;
+}
+/* line 111, ../../../resources/assets/sass/frontend/theme.scss */
+.four #servicesMain .service button {
+  margin-top: 10%;
+}
+
+/* line 117, ../../../resources/assets/sass/frontend/theme.scss */
+.five .left {
+  text-align: center;
+}
+/* line 119, ../../../resources/assets/sass/frontend/theme.scss */
+.five .left img {
+  width: 80%;
+}
+
+/* line 141, ../../../resources/assets/sass/frontend/theme.scss */
+.six #footer {
+  width: 90%;
+  margin: 0 auto;
+}
+/* line 145, ../../../resources/assets/sass/frontend/theme.scss */
+.six #footer .column {
+  float: left;
+  width: 25%;
+  background: yellow;
+}
+/* line 150, ../../../resources/assets/sass/frontend/theme.scss */
+.six #footer .column.extend {
+  width: 50%;
+}

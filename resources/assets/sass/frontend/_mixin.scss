@@ -1,0 +1,24 @@
+$imagedir:'../images/'; // define the base path before the mixin
+
+@mixin marginpadding($zero) {
+  margin:$zero;
+  padding:$zero;
+}
+
+@mixin background($filename, $color:transparent, $size:60% auto) {
+    background: $color url(#{$imagedir}#{$filename}) center top/$size no-repeat;
+    -webkit-background-size: $size;
+    -moz-background-size: $size;
+    -o-background-size: $size;
+    background-size: $size;
+}
+
+@mixin border-radius($radius) {
+-webkit-border-radius: $radius;
+border-radius: $radius;
+background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+}
+
+@mixin btn-theme($btn-color) {
+   @extend %btn;
+}

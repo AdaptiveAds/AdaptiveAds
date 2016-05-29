@@ -1,0 +1,35 @@
+@import '_mixin.scss';
+
+$background-blue: #1d232f;
+$background-purple:#1a011a;
+$background-theme-color: #87d52a ; // logo lime green
+
+$btn-color: $background-theme-color;
+$btn-background-hover:yellow;
+$btn-newsletter: #b205b0; // Logo purple
+
+$featuredBgColour: #000000;
+
+%btn {background:$btn-color; border:transparent; font-weight:bold; padding:8px 4px; border-radius:10%;
+  &:hover {background:$btn-newsletter;}
+}
+%submit {background:$btn-newsletter;
+  &:hover {background:$btn-color;}
+}
+//%readmore {}
+%background-image-banner {@include background('manbg.png')}
+%background-image-logo { @include background('parial_logo.png');}
+%background-color-green {background:$background-theme-color;}
+%background-color-blue {background:$background-blue;}
+%background-color-purple {background:$background-purple;}
+%background-transparent {background:transparent}
+
+
+%backgrounds {
+  &.one {@extend %background-image-banner; padding:0; height:440px;}
+  &.two {@extend %background-color-green;}
+  &.three {@extend %background-transparent;}
+  &.four {@extend %background-color-purple;}
+  &.five {@extend %background-transparent;}
+  &.six {@extend %background-color-purple;}
+}
