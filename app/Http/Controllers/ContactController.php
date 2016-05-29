@@ -22,8 +22,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-      // NOTE not used
-      return Response('Not found', 404);
+      return view('pages/contact');
     }
 
     /**
