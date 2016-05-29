@@ -320,14 +320,17 @@ class AdvertController extends Controller
       // Determine operation
       if (isset($btnFindAdvert)) {
 
-        // Search by name
-        $filtered = $adverts->filter(function($item) use ($advertName) {
-          if (strlen($item->name) > 0 && strlen($advertName > 0)) {
+        $filtered = collect([]);
+
+        if ($advertName != null) {
+          // Search by name
+          $filtered = $adverts->filter(function($item) use ($advertName) {
             if (strpos($item->name, $advertName) != false) { // Match name?
               return true;
             }
-          }
-        });
+          });
+        }
+
 
         // Search by department
         if ($filtered->count() == 0) {
