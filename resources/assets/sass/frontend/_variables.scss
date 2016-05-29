@@ -17,7 +17,7 @@ $featuredBgColour: #000000;
   &:hover {background:$btn-color;}
 }
 //%readmore {}
-%background-image-banner {@include background('manbg.png')}
+%background-image-banner {@include background('placeholder.jpg'); background-position: center top;}
 %background-image-logo { @include background('parial_logo.png');}
 %background-color-green {background:$background-theme-color;}
 %background-color-blue {background:$background-blue;}

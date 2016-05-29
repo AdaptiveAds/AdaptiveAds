@@ -1,80 +1,30 @@
-@include('pages\header')
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>AdaptiveAds</title>
+
+	<link rel="stylesheet" 	href="{{ URL::asset('fonts/font-awesome-4.5.0/css/font-awesome.min.css') }}">
+
+<!-- preferred plan would be to compile the css from scss prior to uploading using propos -->
+	<link rel="stylesheet" 	href="{{ URL::asset('css/frontend.css') }}" type="text/css">
+
+	<script src="{{ URL::asset('js/jquery-2.1.4.js') }}"></script>
+	<script src="{{ URL::asset('js/mobilemenu.js') }}"></script>
+
+@include('pages\headJavascript')
+
+</head>
 
 <body class="data-swatch-theme-a font-theme-b">
 <div id="wrapper">
 
-		<div id="top">
-			<div id="fontsizing">
-				<ul>
-					<li title="Small Fonts"  data-btnFont="true" data-theme="font-theme-a" onclick="TextSize.a();"><i class="fa fa-font"></i></li>
-					<li title="Medium Fonts"  data-btnFont="true" data-theme="font-theme-b" onclick="TextSize.b();" class="top-active"><i class="fa fa-font"></i></li>
-					<li title="Large Fonts" data-btnFont="true" data-theme="font-theme-c" onclick="TextSize.c();"><i class="fa fa-font"></i></li>
-				</ul>
-				<div class="clear"></div>
-			</div>
-
-			<div id="swatches">
-				<ul>
-					<li title="Light Theme" data-btnSwatch="true" data-theme="data-swatch-theme-a" class="top-active"><i class="fa fa-circle-o-notch"></i></li>
-					<li title="Neutral Theme"  data-btnSwatch="true" data-theme="data-swatch-theme-b"><i class="fa fa-circle-o-notch"></i></li>
-					<li title="Dark Theme"  data-btnSwatch="true" data-theme="data-swatch-theme-c"><i class="fa fa-circle-o-notch"></i></li>
-				</ul>
-				<div class="clear"></div>
-			</div>
-			<div id="mainmenu-btn">
-				@if (Auth::guest() == false)
-					<a title="Logout" name="lnkSignOut" href="{{ URL::to('logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
-				@else
-					<a title="Login" name="lnkSignIn" href="{{ URL::to('login')}}"><i class="fa fa-sign-in" aria-hidden="true"></i></a>
-				@endif
-
-				@if (Auth::guest() == false)
-					<a  title="Return Home" name="lnkDashboard" href="{{ URL::to('dashboard')}}"><i class="fa fa-home" aria-hidden="true"></i></a>
-				@else
-					<a  title="Return Home" name="lnkHome" href="{{ URL::to('/')}}"><i class="fa fa-home" aria-hidden="true"></i></a>
-				@endif
-				<button  title="Menu"  name="mainmenu-btn" class="nav-button">Menu</button>
-
-			</div>
-		  <div class="clear"></div>
-
-		</div>
-
-		<header id="header">
-			<nav>
-					<ul class="primary-nav">
-						@if (Auth::guest() == false)
-							<li><a name="lnkHome" href="{{ URL::to('dashboard')}}">Home</a></li>
-						@else
-							<li><a name="lnkDashboard" href="{{ URL::to('home')}}">Home</a></li>
-						@endif
-						@if (Auth::guest() == false)
-							<li><a name="lnkFAQ" href="{{ URL::to('FAQ') }}">FAQ</a></li>
-						@else
-							<li class="parent"><a name="lnkTeam" href="{{ URL::to('team')}}">Team</a></li>
-								<ul>
-									<li><a name="lnkTeam" href="{{ URL::to('about')}}">About</a></li>
-								</ul>
-						@endif
-						<!-- Only show if user is logged in -->
-						@if (Auth::guest() == false)
-							<li><a name="lnkSupport" href="mailto:kanewhelan@glos.ac.uk?Subject=AdaptiveAds%20Support">Support</a></li>
-						@else
-							<li><a name="lnkContact" href="{{ URL::to('login')}}">Contact</a></li>
-						@endif
-						<!-- Only show if user is logged in -->
-						@if (Auth::guest() == false)
-							<li><a name="lnkSignOut" href="{{ URL::to('logout') }}">Sign Out</a></li>
-						@else
-							<li><a name="lnkSignIn" href="{{ URL::to('login')}}">Sign In</a></li>
-						@endif
-					</ul>
-				</nav>
-			</header>
+@include('pages\header')
 
 			<!-- ************************** -->
 		  <!--          ROW | ONE         -->
 		  <!-- ************************** -->
+			<!-- *THIS WILL BE THE BANNER* -->
 		  <div class="row one">
 		    <div class="wrapper">
 		      <div id="bannerText">
@@ -87,17 +37,120 @@
 		  <!-- ************************** -->
 		  <!--          ROW | TWO         -->
 		  <!-- ************************** -->
+			<!-- *THIS WILL BE THE CONTENT* -->
 		  <div class="row two">
+					<div id="content">
+				    @yield('content')
+
+						<div id="featured">
+							<div class="trio">
+								<div class="icon"><img src="{{ URL::asset('images/logo.png') }}" alt="#" title="#"></div>
+								<div class="icon-text"><span>Title</span></div>
+							</div>
+							<div class="trio">
+								<div class="icon"><img src="{{ URL::asset('images/logo.png') }}" alt="#" title="#"></div>
+								<div class="icon-text"><span>Title</span></div>
+							</div>
+							<div class="trio">
+								<div class="icon"><img src="{{ URL::asset('images/logo.png') }}" alt="#" title="#"></div>
+								<div class="icon-text"><span>Title</span></div>
+							</div>
+						</div>
+
+				  <!-- close content -->
+					<div class="clear"></div>
+				  </div>
 		    <div class="clear"></div>
 		  </div>
 
 
-	<div id="content">
-    @yield('content')
-
-  <!-- close content -->
-	<div class="clear"></div>
+	<!-- ************************** -->
+  <!--         ROW | THREE        -->
+  <!-- ************************** -->
+	<!-- THIS WILL BE THE VIDEO -->
+  <div class="row three">
+    <div class="wrapper">
+    <div class="left">
+			<div class="newsflash">
+				<h3 class="newsflash-title">Video Blurb</h3>
+				<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+			</div>
+    </div>
+    <div class="right">
+      <iframe src="https://www.youtube.com/embed/ubZASS3uPrs?rel=0" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+    </div>
+    <div class="clear"></div>
   </div>
+</div>
+<!-- ************************** -->
+<!--         ROW | FOUR         -->
+<!-- ************************** -->
+<!-- THIS WILL BE THE OVERVIEW -->
+<div class="row four">
+  <div class="wrapper">
+		<div id="servicesIntro">
+			<h2>Services</h2>
+			<p>Centered text which will provide an overview of the services / classes that meta physique will offer its clients.</p>
+		</div>
+			<div id="servicesMain">
+				<div class="service"><img title="placeholder" src="images/placeholder.png" alt="placeholder" />
+					<h3>This is a title</h3>
+					<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+
+				</div>
+				<div class="service"><img title="placeholder" src="images/placeholder.png" alt="placeholder" />
+					<h3>This is a title</h3>
+					<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+				</div>
+
+				<div class="service"><img title="placeholder" src="images/placeholder.png" alt="placeholder" />
+					<h3>This is a title</h3>
+					<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+
+				</div>
+				<div class="service"><img title="placeholder" src="images/placeholder.png" alt="placeholder" />
+					<h3>This is a title</h3>
+					<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+
+				</div>
+			</div>
+    <div class="clear"></div>
+  </div>
+</div>
+<!-- ************************** -->
+<!--         ROW | FIVE         -->
+<!-- ************************** -->
+<!-- THIS WILL BE THE GALLERY + UPDATES SIGNUP
+<div class="row five">
+  <div class="wrapper">
+    <div class="left">
+      <jdoc:include type="modules" name="social-gallery"/>
+    </div>
+    <div class="right">
+			<form>
+					<h3>Newsletter Signup</h3>
+					<p>short explanation as to why clients should sign up. short explanation as to why clients should sign up.</p>
+					<ul>
+						<li>Up to date Nutrician Advice</li>
+						<li>The latest fitness techniques</li>
+						<li>Seasonable offers</li>
+						<li>Up to date Nutrician Advice</li>
+						<li>The latest fitness techniques</li>
+						<li>Seasonable offers</li>
+						<li>Up to date Nutrician Advice</li>
+						<li>The latest fitness techniques</li>
+						<li>Seasonable offers</li>
+					</ul>
+					<label>Name</label>
+					<input></input>
+					<label>Email</label>
+					<input></input>
+					<button class="btn-submit">Submit</button>
+				</form>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>-->
 	<footer>
 		<!-- if logged in -->
 		@if (Auth::guest() == false)
