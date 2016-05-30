@@ -1,22 +1,3 @@
-//Author: KW
-// all content in this document carried out by ABOVE author
-
-@mixin aspect-ratio($width, $height) {
-  position: relative;
-  &:before {
-    display: block;
-    content: "";
-    width: 100%;
-    padding-top: (($height - 10%) / $width) * 100%;
-  }
-  > .content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-}
 
 @mixin template( 	$name,
 									//$template-h1-backround-color,

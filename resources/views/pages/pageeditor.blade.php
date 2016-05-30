@@ -44,9 +44,13 @@
 				{{-- Add each template thumbnail to the DOM --}}
 				@foreach($templates as $template)
 					@if ($template == $activeTemplate)
-						<li data-btnTemplate="true" data-template="{{$template->class_name}}" data-templateid="{{$template->id}}" class="active"> <a href="#"><img src="{{$template->thumbnail_path}}" alt="" title="{{$template->name}}" /></a></li>
+						<li data-btnTemplate="true" data-template="{{$template->class_name}}" data-templateid="{{$template->id}}" class="active">
+							<a href="#"><img src="{{$template->thumbnail_path}}" alt="" title="{{$template->name}}" /></a>
+						</li>
 					@else
-						<li data-btnTemplate="true" data-template="{{$template->class_name}}" data-templateid="{{$template->id}}"> <a href="#"><img src="{{$template->thumbnail_path}}" alt="" title="{{$template->name}}" /></a></li>
+						<li data-btnTemplate="true" data-template="{{$template->class_name}}" data-templateid="{{$template->id}}">
+							<a href="#"><img src="{{$template->thumbnail_path}}" alt="" title="{{$template->name}}" /></a>
+						</li>
 					@endif
 				@endforeach
 			</ul>
