@@ -202,7 +202,7 @@
 </span><span id="19" class="l"><a href="#19"> 19 </a><span class="php-comment">/**
 </span></span><span id="20" class="l"><a href="#20"> 20 </a><span class="php-comment">  * Defines the CRUD methods for the PageController
 </span></span><span id="21" class="l"><a href="#21"> 21 </a><span class="php-comment">  * @author Josh Preece
-</span></span><span id="22" class="l"><a href="#22"> 22 </a><span class="php-comment">  * @license REVIEW
+</span></span><span id="22" class="l"><a href="#22"> 22 </a><span class="php-comment">  * @license MIT
 </span></span><span id="23" class="l"><a href="#23"> 23 </a><span class="php-comment">  * @since 1.0
 </span></span><span id="24" class="l"><a href="#24"> 24 </a><span class="php-comment">  */</span>
 </span><span id="25" class="l"><a href="#25"> 25 </a><span class="php-keyword1">class</span> PageController <span class="php-keyword1">extends</span> Controller
@@ -287,7 +287,7 @@
 </span><span id="104" class="l"><a href="#104">104 </a>      );
 </span><span id="105" class="l"><a href="#105">105 </a>
 </span><span id="106" class="l"><a href="#106">106 </a>      <span class="php-comment">// Validate input</span>
-</span><span id="107" class="l"><a href="#107">107 </a>      <span class="php-var">$reponse</span> = Helper::validator(<span class="php-var">$data</span>,<span class="php-var">$rules</span>,<span class="php-quote">'dashboard.advert.{adID}.edit'</span>, [<span class="php-var">$adID</span>]);
+</span><span id="107" class="l"><a href="#107">107 </a>      <span class="php-var">$reponse</span> = Helper::validator(<span class="php-var">$data</span>,<span class="php-var">$rules</span>,<span class="php-quote">'dashboard.advert.index'</span>, [<span class="php-var">$adID</span>]);
 </span><span id="108" class="l"><a href="#108">108 </a>      <span class="php-keyword1">if</span> (<span class="php-keyword1">isset</span>(<span class="php-var">$reponse</span>)) {
 </span><span id="109" class="l"><a href="#109">109 </a>        <span class="php-keyword1">return</span> <span class="php-var">$reponse</span>;
 </span><span id="110" class="l"><a href="#110">110 </a>      }
@@ -334,7 +334,7 @@
 </span><span id="151" class="l"><a href="#151">151 </a>      <span class="php-var">$btnSaveClose</span> = <span class="php-var">$request</span>-&gt;input(<span class="php-quote">'btnSaveClose'</span>);
 </span><span id="152" class="l"><a href="#152">152 </a>
 </span><span id="153" class="l"><a href="#153">153 </a>      <span class="php-keyword1">if</span>(<span class="php-keyword1">isset</span>(<span class="php-var">$btnSaveClose</span>))
-</span><span id="154" class="l"><a href="#154">154 </a>        <span class="php-keyword1">return</span> redirect()-&gt;route(<span class="php-quote">'dashboard.advert.index'</span>)
+</span><span id="154" class="l"><a href="#154">154 </a>        <span class="php-keyword1">return</span> redirect()-&gt;route(<span class="php-quote">'dashboard.advert.index'</span>, [<span class="php-var">$adID</span>, <span class="php-var">$page</span>-&gt;id])
 </span><span id="155" class="l"><a href="#155">155 </a>                         -&gt;with(<span class="php-quote">'message'</span>, <span class="php-quote">'Page saved!'</span>);
 </span><span id="156" class="l"><a href="#156">156 </a>
 </span><span id="157" class="l"><a href="#157">157 </a>      <span class="php-keyword1">return</span> redirect()-&gt;route(<span class="php-quote">'dashboard.advert.{adID}.page.show'</span>, [<span class="php-var">$adID</span>, <span class="php-var">$page</span>-&gt;id])
@@ -422,9 +422,9 @@
 </span><span id="239" class="l"><a href="#239">239 </a>      );
 </span><span id="240" class="l"><a href="#240">240 </a>
 </span><span id="241" class="l"><a href="#241">241 </a>      <span class="php-comment">// Validate input</span>
-</span><span id="242" class="l"><a href="#242">242 </a>      <span class="php-var">$reponse</span> = Helper::validator(<span class="php-var">$data</span>,<span class="php-var">$rules</span>,<span class="php-quote">'dashboard.advert.{adID}.page.show'</span>, [<span class="php-var">$adID</span>, <span class="php-var">$id</span>]);
-</span><span id="243" class="l"><a href="#243">243 </a>      <span class="php-keyword1">if</span> (<span class="php-keyword1">isset</span>(<span class="php-var">$reponse</span>)) {
-</span><span id="244" class="l"><a href="#244">244 </a>        <span class="php-keyword1">return</span> <span class="php-var">$reponse</span>;
+</span><span id="242" class="l"><a href="#242">242 </a>      <span class="php-var">$response</span> = Helper::validator(<span class="php-var">$data</span>,<span class="php-var">$rules</span>,<span class="php-quote">'dashboard.advert.index'</span>);
+</span><span id="243" class="l"><a href="#243">243 </a>      <span class="php-keyword1">if</span> (<span class="php-keyword1">isset</span>(<span class="php-var">$response</span>)) {
+</span><span id="244" class="l"><a href="#244">244 </a>        <span class="php-keyword1">return</span> <span class="php-var">$response</span>;
 </span><span id="245" class="l"><a href="#245">245 </a>      }
 </span><span id="246" class="l"><a href="#246">246 </a>
 </span><span id="247" class="l"><a href="#247">247 </a>      <span class="php-var">$page</span> = Page::find(<span class="php-var">$id</span>);
@@ -461,7 +461,7 @@
 </span><span id="278" class="l"><a href="#278">278 </a>
 </span><span id="279" class="l"><a href="#279">279 </a>      <span class="php-var">$btnSaveClose</span> = <span class="php-var">$request</span>-&gt;input(<span class="php-quote">'btnSaveClose'</span>);
 </span><span id="280" class="l"><a href="#280">280 </a>      <span class="php-keyword1">if</span>(<span class="php-keyword1">isset</span>(<span class="php-var">$btnSaveClose</span>))
-</span><span id="281" class="l"><a href="#281">281 </a>        <span class="php-keyword1">return</span> redirect()-&gt;route(<span class="php-quote">'dashboard.advert.index'</span>)
+</span><span id="281" class="l"><a href="#281">281 </a>        <span class="php-keyword1">return</span> redirect()-&gt;route(<span class="php-quote">'dashboard.advert.index'</span>, [<span class="php-var">$adID</span>, <span class="php-var">$page</span>-&gt;id])
 </span><span id="282" class="l"><a href="#282">282 </a>                         -&gt;with(<span class="php-quote">'message'</span>, <span class="php-quote">'Page saved!'</span>);
 </span><span id="283" class="l"><a href="#283">283 </a>
 </span><span id="284" class="l"><a href="#284">284 </a>      <span class="php-keyword1">return</span> redirect()-&gt;route(<span class="php-quote">'dashboard.advert.{adID}.page.show'</span>, [<span class="php-var">$adID</span>, <span class="php-var">$page</span>-&gt;id])
