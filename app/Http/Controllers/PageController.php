@@ -104,7 +104,7 @@ class PageController extends Controller
       );
 
       // Validate input
-      $reponse = Helper::validator($data,$rules,'dashboard.advert.{adID}.edit', [$adID]);
+      $reponse = Helper::validator($data,$rules,'dashboard.advert.index', [$adID]);
       if (isset($reponse)) {
         return $reponse;
       }
@@ -151,7 +151,7 @@ class PageController extends Controller
       $btnSaveClose = $request->input('btnSaveClose');
 
       if(isset($btnSaveClose))
-        return redirect()->route('dashboard.advert.index')
+        return redirect()->route('dashboard.advert.index', [$adID, $page->id])
                          ->with('message', 'Page saved!');
 
       return redirect()->route('dashboard.advert.{adID}.page.show', [$adID, $page->id])
@@ -239,9 +239,9 @@ class PageController extends Controller
       );
 
       // Validate input
-      $reponse = Helper::validator($data,$rules,'dashboard.advert.{adID}.page.show', [$adID, $id]);
-      if (isset($reponse)) {
-        return $reponse;
+      $response = Helper::validator($data,$rules,'dashboard.advert.index');
+      if (isset($response)) {
+        return $response;
       }
 
       $page = Page::find($id);
@@ -278,7 +278,7 @@ class PageController extends Controller
 
       $btnSaveClose = $request->input('btnSaveClose');
       if(isset($btnSaveClose))
-        return redirect()->route('dashboard.advert.index')
+        return redirect()->route('dashboard.advert.index', [$adID, $page->id])
                          ->with('message', 'Page saved!');
 
       return redirect()->route('dashboard.advert.{adID}.page.show', [$adID, $page->id])
