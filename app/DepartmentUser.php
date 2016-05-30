@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 /**
   * Defines the DepartmentUser model object
   * @author Josh Preece
-  * @license REVIEW
+  * @license MIT
   * @since 1.0
   */
 class DepartmentUser extends Pivot

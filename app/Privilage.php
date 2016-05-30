@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
   * Defines the Privilege model object
   * @author Josh Preece
-  * @license REVIEW
+  * @license MIT
   * @since 1.0
   */
 class Privilage extends Model

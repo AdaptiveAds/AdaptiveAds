@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
   * Defines the Advert model object
   * @author Josh Preece
-  * @license REVIEW
+  * @license MIT
   * @since 1.0
   */
 class Advert extends Model
@@ -63,6 +63,10 @@ class Advert extends Model
     return $this->hasOne(Background::class, 'id', 'background_id');
   }
 
+  /**
+    * Gets the playlists this advert is assigned to
+    * @returns EloquentCollection
+    */
   public function Playlists() {
     return $this->belongsToMany(Playlist::class)->withPivot('playlist_id', 'advert_id', 'advert_index');
   }

@@ -16,7 +16,7 @@ use App\Helpers\Helper as Helper;
 /**
   * Defines the CRUD methods for the ScreenController
   * @author Josh Preece
-  * @license REVIEW
+  * @license MIT
   * @since 1.0
   */
 class ScreenController extends Controller

@@ -16,7 +16,7 @@ use Input;
 /**
   * Defines the CRUD methods for the BackgroundController
   * @author Josh Preece
-  * @license REVIEW
+  * @license MIT
   * @since 1.0
   */
 class BackgroundController extends Controller

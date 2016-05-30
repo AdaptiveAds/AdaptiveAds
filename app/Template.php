@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
   * Defines the Template model object
   * @author Josh Preece
-  * @license REVIEW
+  * @license MIT
   * @since 1.0
   */
 class Template extends Model

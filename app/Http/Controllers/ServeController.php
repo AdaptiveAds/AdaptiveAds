@@ -18,7 +18,7 @@ use View;
 /**
   * Defines the CRUD methods for the ServeController
   * @author Josh Preece
-  * @license REVIEW
+  * @license MIT
   * @since 1.0
   */
 class ServeController extends Controller

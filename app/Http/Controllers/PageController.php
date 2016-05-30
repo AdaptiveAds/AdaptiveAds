@@ -19,7 +19,7 @@ use App\Background as Background;
 /**
   * Defines the CRUD methods for the PageController
   * @author Josh Preece
-  * @license REVIEW
+  * @license MIT
   * @since 1.0
   */
 class PageController extends Controller

@@ -14,7 +14,7 @@ use App\User as User;
 /**
   * Defines the CRUD methods for the PrivilegeController
   * @author Josh Preece
-  * @license REVIEW
+  * @license MIT
   * @since 1.0
   */
 class PrivilegeController extends Controller

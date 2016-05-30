@@ -14,7 +14,7 @@ use App\Helpers\Helper as Helper;
 /**
   * Defines the CRUD methods for the LocationController
   * @author Josh Preece
-  * @license REVIEW
+  * @license MIT
   * @since 1.0
   */
 class LocationController extends Controller

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
   * Defines the Playlist model object
   * @author Josh Preece
-  * @license REVIEW
+  * @license MIT
   * @since 1.0
   */
 class Playlist extends Model

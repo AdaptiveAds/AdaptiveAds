@@ -15,7 +15,7 @@ use App\Http\Controllers\Controller;
 /**
   * Defines the CRUD methods for the UserController
   * @author Josh Preece
-  * @license REVIEW
+  * @license MIT
   * @since 1.0
   */
 class UserController extends Controller

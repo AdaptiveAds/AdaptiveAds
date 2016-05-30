@@ -15,7 +15,7 @@ use App\Http\Controllers\Controller;
 /**
   * Defines the CRUD methods for the TemplateController
   * @author Josh Preece
-  * @license REVIEW
+  * @license MIT
   * @since 1.0
   */
 class TemplateController extends Controller

@@ -12,7 +12,7 @@ use App\Http\Controllers\Controller;
 /**
   * Defines the CRUD methods for the Frontend
   * @author Josh Preece
-  * @license REVIEW
+  * @license MIT
   * @since 1.0
   */
 class Frontend extends Controller

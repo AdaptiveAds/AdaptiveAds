@@ -5,7 +5,7 @@ namespace App\Helpers;
 /**
   * Holds generic functions related to media
   * @author Josh Preece
-  * @license REVIEW
+  * @license MIT
   * @since 1.0
   */
 class Media extends Helper {

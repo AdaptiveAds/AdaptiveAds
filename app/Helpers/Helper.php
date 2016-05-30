@@ -7,7 +7,7 @@ use Validator;
 /**
   * Main helper class that holds repeated code can be extended from
   * @author Josh Preece
-  * @license REVIEW
+  * @license MIT
   * @since 1.0
   */
 class Helper {
