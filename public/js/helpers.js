@@ -7,10 +7,10 @@ function ConfirmDelete() {
 /**
   *
   */
-function addVideo(callback) {
+function addVideo(callback, videoName) {
   $('#serve_image').children('img').replaceWith('<video autoplay>' +
-    '<source src="/advert_videos/video_placeholder.mp4" type="video/mp4">' +
-    '<source src="/advert_videos/video_placeholder.mp4" type="video/mp4">' +
+    '<source src="/advert_videos/'+ videoName +'" type="video/mp4">' +
+    '<source src="/advert_videos/'+ videoName +'" type="video/ogg">' +
     'Your browser does not support the provided codec types.' +
   '</video>');
 

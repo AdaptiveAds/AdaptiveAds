@@ -312,8 +312,7 @@ var Serve = (function(Page) {
       } else {
 
         if (currentAdvert.pages[index].page_data.video_path !== "") {
-          addVideo(updateDurationInterval);
-          $('#serve_image').children('source').attr('src', '../advert_videos/' + currentAdvert.pages[index].page_data.video_path);
+          addVideo(updateDurationInterval, currentAdvert.pages[index].page_data.video_path);
         } else {
           $('#serve_container').animateCss(currentAdvert.pages[index].transition);
           // Insert logo image
