@@ -1,17 +1,18 @@
 @charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Ubuntu:300);
-/* line 39, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 39, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template1 {
   content: #ffffff;
   width: 100%;
   height: 100%;
+  font-size: 3em;
 }
-/* line 44, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 45, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template1 #header {
   width: 100%;
   min-height: 150px;
 }
-/* line 48, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 49, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template1 #header h1 {
   display: none;
   margin: 0;
@@ -21,18 +22,18 @@
   color: #ffffff;
   font-size: 110%;
 }
-/* line 59, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 60, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template1 .row {
   height: 80%;
 }
-/* line 62, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 63, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template1 .row #serve_image {
   display: initial;
   float: left;
   width: 23%;
   text-align: center;
 }
-/* line 70, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 71, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template1 .row #serve_image img {
   max-width: 1280px;
   max-height: 720px;
@@ -41,43 +42,43 @@
   height: auto;
   width: 100%;
 }
-/* line 79, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 80, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template1 .row #serve_image video {
   max-width: 1280px;
   max-height: 720px;
   width: auto;
   height: auto;
 }
-/* line 86, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 87, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template1 .row #serve_text {
   font-size: 90%;
   display: initial;
   float: right;
   width: 75%;
 }
-/* line 92, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 93, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template1 .row #serve_text p {
   text-align: justify;
   margin: 0;
   width: 94%;
 }
 
-/* line 97, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 98, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #footer {
   width: 100%;
   height: 10%;
   background: #000000;
   display: block;
-  font-size: 0.84em;
+  font-size: 1em;
   position: fixed;
   bottom: 0;
 }
-/* line 99, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 100, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #footer ul {
   margin: 0;
   padding: 0;
 }
-/* line 100, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 101, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #footer ul li {
   float: left;
   width: 18%;
@@ -88,18 +89,19 @@
   list-style: none;
 }
 
-/* line 39, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 39, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template2 {
   content: #ffffff;
   width: 100%;
   height: 100%;
+  font-size: 3em;
 }
-/* line 44, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 45, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template2 #header {
   width: 100%;
   min-height: 0px;
 }
-/* line 48, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 49, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template2 #header h1 {
   display: none;
   margin: 0;
@@ -109,18 +111,18 @@
   color: #ffffff;
   font-size: 110%;
 }
-/* line 59, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 60, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template2 .row {
   height: 80%;
 }
-/* line 62, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 63, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template2 .row #serve_image {
   display: initial;
   float: left;
   width: 100%;
   text-align: center;
 }
-/* line 70, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 71, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template2 .row #serve_image img {
   max-width: 1280px;
   max-height: 720px;
@@ -129,43 +131,43 @@
   height: auto;
   width: 100%;
 }
-/* line 79, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 80, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template2 .row #serve_image video {
   max-width: 1280px;
   max-height: 720px;
   width: auto;
   height: auto;
 }
-/* line 86, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 87, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template2 .row #serve_text {
   font-size: 90%;
   display: none;
   float: right;
   width: 40%;
 }
-/* line 92, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 93, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template2 .row #serve_text p {
   text-align: justify;
   margin: 0;
   width: 94%;
 }
 
-/* line 97, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 98, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #footer {
   width: 100%;
   height: 10%;
   background: #000000;
   display: block;
-  font-size: 0.84em;
+  font-size: 1em;
   position: fixed;
   bottom: 0;
 }
-/* line 99, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 100, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #footer ul {
   margin: 0;
   padding: 0;
 }
-/* line 100, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 101, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #footer ul li {
   float: left;
   width: 18%;
@@ -176,18 +178,19 @@
   list-style: none;
 }
 
-/* line 39, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 39, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template3 {
   content: #ffffff;
   width: 100%;
   height: 100%;
+  font-size: 3em;
 }
-/* line 44, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 45, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template3 #header {
   width: 100%;
   min-height: 150px;
 }
-/* line 48, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 49, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template3 #header h1 {
   display: none;
   margin: 0;
@@ -197,18 +200,18 @@
   color: #ffffff;
   font-size: 110%;
 }
-/* line 59, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 60, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template3 .row {
   height: 80%;
 }
-/* line 62, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 63, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template3 .row #serve_image {
   display: initial;
   float: right;
   width: 40%;
   text-align: center;
 }
-/* line 70, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 71, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template3 .row #serve_image img {
   max-width: 1280px;
   max-height: 720px;
@@ -217,43 +220,43 @@
   height: auto;
   width: 100%;
 }
-/* line 79, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 80, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template3 .row #serve_image video {
   max-width: 1280px;
   max-height: 720px;
   width: auto;
   height: auto;
 }
-/* line 86, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 87, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template3 .row #serve_text {
   font-size: 90%;
   display: initial;
   float: left;
   width: 40%;
 }
-/* line 92, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 93, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template3 .row #serve_text p {
   text-align: justify;
   margin: 0;
   width: 94%;
 }
 
-/* line 97, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 98, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #footer {
   width: 100%;
   height: 10%;
   background: #000000;
   display: block;
-  font-size: 0.84em;
+  font-size: 1em;
   position: fixed;
   bottom: 0;
 }
-/* line 99, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 100, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #footer ul {
   margin: 0;
   padding: 0;
 }
-/* line 100, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 101, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #footer ul li {
   float: left;
   width: 18%;
@@ -264,18 +267,19 @@
   list-style: none;
 }
 
-/* line 39, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 39, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template4 {
   content: #ffffff;
   width: 100%;
   height: 100%;
+  font-size: 3em;
 }
-/* line 44, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 45, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template4 #header {
   width: 100%;
   min-height: 0px;
 }
-/* line 48, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 49, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template4 #header h1 {
   display: none;
   margin: 0;
@@ -285,18 +289,18 @@
   color: #ffffff;
   font-size: 110%;
 }
-/* line 59, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 60, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template4 .row {
   height: 80%;
 }
-/* line 62, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 63, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template4 .row #serve_image {
   display: none;
   float: right;
   width: 100%;
   text-align: center;
 }
-/* line 70, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 71, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template4 .row #serve_image img {
   max-width: 1280px;
   max-height: 720px;
@@ -305,43 +309,43 @@
   height: auto;
   width: 100%;
 }
-/* line 79, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 80, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template4 .row #serve_image video {
   max-width: 1280px;
   max-height: 720px;
   width: auto;
   height: auto;
 }
-/* line 86, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 87, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template4 .row #serve_text {
   font-size: 90%;
   display: none;
   float: left;
   width: 40%;
 }
-/* line 92, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 93, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template4 .row #serve_text p {
   text-align: justify;
   margin: 0;
   width: 94%;
 }
 
-/* line 97, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 98, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #footer {
   width: 100%;
   height: 10%;
   background: #000000;
   display: block;
-  font-size: 0.84em;
+  font-size: 1em;
   position: fixed;
   bottom: 0;
 }
-/* line 99, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 100, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #footer ul {
   margin: 0;
   padding: 0;
 }
-/* line 100, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 101, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #footer ul li {
   float: left;
   width: 18%;
@@ -352,18 +356,19 @@
   list-style: none;
 }
 
-/* line 39, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 39, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template5 {
   content: #ffffff;
   width: 100%;
   height: 100%;
+  font-size: 3em;
 }
-/* line 44, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 45, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template5 #header {
   width: 100%;
   min-height: 0px;
 }
-/* line 48, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 49, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template5 #header h1 {
   display: none;
   margin: 0;
@@ -373,18 +378,18 @@
   color: #ffffff;
   font-size: 110%;
 }
-/* line 59, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 60, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template5 .row {
   height: 80%;
 }
-/* line 62, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 63, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template5 .row #serve_image {
   display: initial;
   float: left;
   width: 100%;
   text-align: center;
 }
-/* line 70, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 71, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template5 .row #serve_image img {
   max-width: 1280px;
   max-height: 720px;
@@ -393,43 +398,43 @@
   height: auto;
   width: 100%;
 }
-/* line 79, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 80, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template5 .row #serve_image video {
   max-width: 1280px;
   max-height: 720px;
   width: auto;
   height: auto;
 }
-/* line 86, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 87, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template5 .row #serve_text {
   font-size: 90%;
   display: none;
   float: right;
   width: 50%;
 }
-/* line 92, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 93, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #serve_container.template5 .row #serve_text p {
   text-align: justify;
   margin: 0;
   width: 94%;
 }
 
-/* line 97, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 98, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #footer {
   width: 100%;
   height: 10%;
   background: #000000;
   display: block;
-  font-size: 0.84em;
+  font-size: 1em;
   position: fixed;
   bottom: 0;
 }
-/* line 99, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 100, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #footer ul {
   margin: 0;
   padding: 0;
 }
-/* line 100, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
+/* line 101, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
 #footer ul li {
   float: left;
   width: 18%;
@@ -448,7 +453,7 @@
  * Copyright (c) 2016 Daniel Eden
  */
 /* author: JP */
-/* line 10, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 10, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
@@ -456,19 +461,19 @@
   animation-fill-mode: both;
 }
 
-/* line 17, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 17, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .animated.infinite {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
 
-/* line 22, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 22, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .animated.hinge {
   -webkit-animation-duration: 2s;
   animation-duration: 2s;
 }
 
-/* line 30, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 30, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .animated.flipOutX,
 .animated.flipOutY,
 .animated.bounceIn,
@@ -478,7 +483,7 @@
 }
 
 @-webkit-keyframes bounce {
-  /* line 36, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 36, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from, 20%, 53%, 80%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -486,7 +491,7 @@
     transform: translate3d(0, 0, 0);
   }
 
-  /* line 43, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 43, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   40%, 43% {
     -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
     animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
@@ -494,7 +499,7 @@
     transform: translate3d(0, -30px, 0);
   }
 
-  /* line 50, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 50, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   70% {
     -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
     animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
@@ -502,7 +507,7 @@
     transform: translate3d(0, -15px, 0);
   }
 
-  /* line 57, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 57, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   90% {
     -webkit-transform: translate3d(0, -4px, 0);
     transform: translate3d(0, -4px, 0);
@@ -510,7 +515,7 @@
 }
 
 @keyframes bounce {
-  /* line 64, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 64, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from, 20%, 53%, 80%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -518,7 +523,7 @@
     transform: translate3d(0, 0, 0);
   }
 
-  /* line 71, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 71, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   40%, 43% {
     -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
     animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
@@ -526,7 +531,7 @@
     transform: translate3d(0, -30px, 0);
   }
 
-  /* line 78, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 78, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   70% {
     -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
     animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
@@ -534,14 +539,14 @@
     transform: translate3d(0, -15px, 0);
   }
 
-  /* line 85, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 85, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   90% {
     -webkit-transform: translate3d(0, -4px, 0);
     transform: translate3d(0, -4px, 0);
   }
 }
 
-/* line 91, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 91, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .bounce {
   -webkit-animation-name: bounce;
   animation-name: bounce;
@@ -550,30 +555,30 @@
 }
 
 @-webkit-keyframes flash {
-  /* line 99, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 99, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from, 50%, to {
     opacity: 1;
   }
 
-  /* line 103, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 103, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   25%, 75% {
     opacity: 0;
   }
 }
 
 @keyframes flash {
-  /* line 109, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 109, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from, 50%, to {
     opacity: 1;
   }
 
-  /* line 113, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 113, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   25%, 75% {
     opacity: 0;
   }
 }
 
-/* line 118, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 118, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .flash {
   -webkit-animation-name: flash;
   animation-name: flash;
@@ -581,19 +586,19 @@
 
 /* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
 @-webkit-keyframes pulse {
-  /* line 126, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 126, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
   }
 
-  /* line 131, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 131, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   50% {
     -webkit-transform: scale3d(1.05, 1.05, 1.05);
     transform: scale3d(1.05, 1.05, 1.05);
   }
 
-  /* line 136, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 136, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
@@ -601,69 +606,69 @@
 }
 
 @keyframes pulse {
-  /* line 143, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 143, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
   }
 
-  /* line 148, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 148, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   50% {
     -webkit-transform: scale3d(1.05, 1.05, 1.05);
     transform: scale3d(1.05, 1.05, 1.05);
   }
 
-  /* line 153, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 153, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
   }
 }
 
-/* line 159, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 159, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .pulse {
   -webkit-animation-name: pulse;
   animation-name: pulse;
 }
 
 @-webkit-keyframes rubberBand {
-  /* line 165, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 165, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
   }
 
-  /* line 170, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 170, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   30% {
     -webkit-transform: scale3d(1.25, 0.75, 1);
     transform: scale3d(1.25, 0.75, 1);
   }
 
-  /* line 175, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 175, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   40% {
     -webkit-transform: scale3d(0.75, 1.25, 1);
     transform: scale3d(0.75, 1.25, 1);
   }
 
-  /* line 180, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 180, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   50% {
     -webkit-transform: scale3d(1.15, 0.85, 1);
     transform: scale3d(1.15, 0.85, 1);
   }
 
-  /* line 185, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 185, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   65% {
     -webkit-transform: scale3d(0.95, 1.05, 1);
     transform: scale3d(0.95, 1.05, 1);
   }
 
-  /* line 190, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 190, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   75% {
     -webkit-transform: scale3d(1.05, 0.95, 1);
     transform: scale3d(1.05, 0.95, 1);
   }
 
-  /* line 195, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 195, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
@@ -671,69 +676,69 @@
 }
 
 @keyframes rubberBand {
-  /* line 202, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 202, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
   }
 
-  /* line 207, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 207, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   30% {
     -webkit-transform: scale3d(1.25, 0.75, 1);
     transform: scale3d(1.25, 0.75, 1);
   }
 
-  /* line 212, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 212, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   40% {
     -webkit-transform: scale3d(0.75, 1.25, 1);
     transform: scale3d(0.75, 1.25, 1);
   }
 
-  /* line 217, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 217, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   50% {
     -webkit-transform: scale3d(1.15, 0.85, 1);
     transform: scale3d(1.15, 0.85, 1);
   }
 
-  /* line 222, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 222, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   65% {
     -webkit-transform: scale3d(0.95, 1.05, 1);
     transform: scale3d(0.95, 1.05, 1);
   }
 
-  /* line 227, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 227, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   75% {
     -webkit-transform: scale3d(1.05, 0.95, 1);
     transform: scale3d(1.05, 0.95, 1);
   }
 
-  /* line 232, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 232, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
   }
 }
 
-/* line 238, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 238, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .rubberBand {
   -webkit-animation-name: rubberBand;
   animation-name: rubberBand;
 }
 
 @-webkit-keyframes shake {
-  /* line 244, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 244, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from, to {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 
-  /* line 249, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 249, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   10%, 30%, 50%, 70%, 90% {
     -webkit-transform: translate3d(-10px, 0, 0);
     transform: translate3d(-10px, 0, 0);
   }
 
-  /* line 254, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 254, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   20%, 40%, 60%, 80% {
     -webkit-transform: translate3d(10px, 0, 0);
     transform: translate3d(10px, 0, 0);
@@ -741,63 +746,63 @@
 }
 
 @keyframes shake {
-  /* line 261, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 261, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from, to {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 
-  /* line 266, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 266, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   10%, 30%, 50%, 70%, 90% {
     -webkit-transform: translate3d(-10px, 0, 0);
     transform: translate3d(-10px, 0, 0);
   }
 
-  /* line 271, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 271, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   20%, 40%, 60%, 80% {
     -webkit-transform: translate3d(10px, 0, 0);
     transform: translate3d(10px, 0, 0);
   }
 }
 
-/* line 277, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 277, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .shake {
   -webkit-animation-name: shake;
   animation-name: shake;
 }
 
 @-webkit-keyframes headShake {
-  /* line 283, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 283, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   0% {
     -webkit-transform: translateX(0);
     transform: translateX(0);
   }
 
-  /* line 288, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 288, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   6.5% {
     -webkit-transform: translateX(-6px) rotateY(-9deg);
     transform: translateX(-6px) rotateY(-9deg);
   }
 
-  /* line 293, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 293, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   18.5% {
     -webkit-transform: translateX(5px) rotateY(7deg);
     transform: translateX(5px) rotateY(7deg);
   }
 
-  /* line 298, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 298, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   31.5% {
     -webkit-transform: translateX(-3px) rotateY(-5deg);
     transform: translateX(-3px) rotateY(-5deg);
   }
 
-  /* line 303, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 303, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   43.5% {
     -webkit-transform: translateX(2px) rotateY(3deg);
     transform: translateX(2px) rotateY(3deg);
   }
 
-  /* line 308, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 308, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   50% {
     -webkit-transform: translateX(0);
     transform: translateX(0);
@@ -805,44 +810,44 @@
 }
 
 @keyframes headShake {
-  /* line 315, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 315, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   0% {
     -webkit-transform: translateX(0);
     transform: translateX(0);
   }
 
-  /* line 320, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 320, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   6.5% {
     -webkit-transform: translateX(-6px) rotateY(-9deg);
     transform: translateX(-6px) rotateY(-9deg);
   }
 
-  /* line 325, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 325, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   18.5% {
     -webkit-transform: translateX(5px) rotateY(7deg);
     transform: translateX(5px) rotateY(7deg);
   }
 
-  /* line 330, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 330, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   31.5% {
     -webkit-transform: translateX(-3px) rotateY(-5deg);
     transform: translateX(-3px) rotateY(-5deg);
   }
 
-  /* line 335, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 335, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   43.5% {
     -webkit-transform: translateX(2px) rotateY(3deg);
     transform: translateX(2px) rotateY(3deg);
   }
 
-  /* line 340, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 340, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   50% {
     -webkit-transform: translateX(0);
     transform: translateX(0);
   }
 }
 
-/* line 346, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 346, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .headShake {
   -webkit-animation-timing-function: ease-in-out;
   animation-timing-function: ease-in-out;
@@ -851,31 +856,31 @@
 }
 
 @-webkit-keyframes swing {
-  /* line 354, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 354, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   20% {
     -webkit-transform: rotate3d(0, 0, 1, 15deg);
     transform: rotate3d(0, 0, 1, 15deg);
   }
 
-  /* line 359, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 359, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   40% {
     -webkit-transform: rotate3d(0, 0, 1, -10deg);
     transform: rotate3d(0, 0, 1, -10deg);
   }
 
-  /* line 364, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 364, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   60% {
     -webkit-transform: rotate3d(0, 0, 1, 5deg);
     transform: rotate3d(0, 0, 1, 5deg);
   }
 
-  /* line 369, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 369, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   80% {
     -webkit-transform: rotate3d(0, 0, 1, -5deg);
     transform: rotate3d(0, 0, 1, -5deg);
   }
 
-  /* line 374, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 374, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: rotate3d(0, 0, 1, 0deg);
     transform: rotate3d(0, 0, 1, 0deg);
@@ -883,38 +888,38 @@
 }
 
 @keyframes swing {
-  /* line 381, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 381, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   20% {
     -webkit-transform: rotate3d(0, 0, 1, 15deg);
     transform: rotate3d(0, 0, 1, 15deg);
   }
 
-  /* line 386, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 386, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   40% {
     -webkit-transform: rotate3d(0, 0, 1, -10deg);
     transform: rotate3d(0, 0, 1, -10deg);
   }
 
-  /* line 391, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 391, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   60% {
     -webkit-transform: rotate3d(0, 0, 1, 5deg);
     transform: rotate3d(0, 0, 1, 5deg);
   }
 
-  /* line 396, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 396, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   80% {
     -webkit-transform: rotate3d(0, 0, 1, -5deg);
     transform: rotate3d(0, 0, 1, -5deg);
   }
 
-  /* line 401, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 401, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: rotate3d(0, 0, 1, 0deg);
     transform: rotate3d(0, 0, 1, 0deg);
   }
 }
 
-/* line 407, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 407, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .swing {
   -webkit-transform-origin: top center;
   transform-origin: top center;
@@ -923,31 +928,31 @@
 }
 
 @-webkit-keyframes tada {
-  /* line 415, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 415, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
   }
 
-  /* line 420, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 420, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   10%, 20% {
     -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
     transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
   }
 
-  /* line 425, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 425, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   30%, 50%, 70%, 90% {
     -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
     transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
   }
 
-  /* line 430, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 430, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   40%, 60%, 80% {
     -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
     transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
   }
 
-  /* line 435, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 435, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
@@ -955,38 +960,38 @@
 }
 
 @keyframes tada {
-  /* line 442, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 442, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
   }
 
-  /* line 447, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 447, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   10%, 20% {
     -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
     transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
   }
 
-  /* line 452, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 452, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   30%, 50%, 70%, 90% {
     -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
     transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
   }
 
-  /* line 457, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 457, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   40%, 60%, 80% {
     -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
     transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
   }
 
-  /* line 462, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 462, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
   }
 }
 
-/* line 468, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 468, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .tada {
   -webkit-animation-name: tada;
   animation-name: tada;
@@ -994,43 +999,43 @@
 
 /* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
 @-webkit-keyframes wobble {
-  /* line 476, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 476, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: none;
     transform: none;
   }
 
-  /* line 481, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 481, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   15% {
     -webkit-transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
     transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
   }
 
-  /* line 486, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 486, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   30% {
     -webkit-transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
     transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
   }
 
-  /* line 491, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 491, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   45% {
     -webkit-transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
     transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
   }
 
-  /* line 496, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 496, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   60% {
     -webkit-transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
     transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
   }
 
-  /* line 501, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 501, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   75% {
     -webkit-transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
     transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
   }
 
-  /* line 506, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 506, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: none;
     transform: none;
@@ -1038,99 +1043,99 @@
 }
 
 @keyframes wobble {
-  /* line 513, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 513, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: none;
     transform: none;
   }
 
-  /* line 518, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 518, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   15% {
     -webkit-transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
     transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
   }
 
-  /* line 523, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 523, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   30% {
     -webkit-transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
     transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
   }
 
-  /* line 528, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 528, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   45% {
     -webkit-transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
     transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
   }
 
-  /* line 533, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 533, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   60% {
     -webkit-transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
     transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
   }
 
-  /* line 538, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 538, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   75% {
     -webkit-transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
     transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
   }
 
-  /* line 543, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 543, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: none;
     transform: none;
   }
 }
 
-/* line 549, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 549, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .wobble {
   -webkit-animation-name: wobble;
   animation-name: wobble;
 }
 
 @-webkit-keyframes jello {
-  /* line 555, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 555, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from, 11.1%, to {
     -webkit-transform: none;
     transform: none;
   }
 
-  /* line 560, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 560, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   22.2% {
     -webkit-transform: skewX(-12.5deg) skewY(-12.5deg);
     transform: skewX(-12.5deg) skewY(-12.5deg);
   }
 
-  /* line 565, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 565, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   33.3% {
     -webkit-transform: skewX(6.25deg) skewY(6.25deg);
     transform: skewX(6.25deg) skewY(6.25deg);
   }
 
-  /* line 570, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 570, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   44.4% {
     -webkit-transform: skewX(-3.125deg) skewY(-3.125deg);
     transform: skewX(-3.125deg) skewY(-3.125deg);
   }
 
-  /* line 575, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 575, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   55.5% {
     -webkit-transform: skewX(1.5625deg) skewY(1.5625deg);
     transform: skewX(1.5625deg) skewY(1.5625deg);
   }
 
-  /* line 580, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 580, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   66.6% {
     -webkit-transform: skewX(-0.78125deg) skewY(-0.78125deg);
     transform: skewX(-0.78125deg) skewY(-0.78125deg);
   }
 
-  /* line 585, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 585, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   77.7% {
     -webkit-transform: skewX(0.39063deg) skewY(0.39063deg);
     transform: skewX(0.39063deg) skewY(0.39063deg);
   }
 
-  /* line 590, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 590, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   88.8% {
     -webkit-transform: skewX(-0.19531deg) skewY(-0.19531deg);
     transform: skewX(-0.19531deg) skewY(-0.19531deg);
@@ -1138,56 +1143,56 @@
 }
 
 @keyframes jello {
-  /* line 597, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 597, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from, 11.1%, to {
     -webkit-transform: none;
     transform: none;
   }
 
-  /* line 602, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 602, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   22.2% {
     -webkit-transform: skewX(-12.5deg) skewY(-12.5deg);
     transform: skewX(-12.5deg) skewY(-12.5deg);
   }
 
-  /* line 607, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 607, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   33.3% {
     -webkit-transform: skewX(6.25deg) skewY(6.25deg);
     transform: skewX(6.25deg) skewY(6.25deg);
   }
 
-  /* line 612, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 612, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   44.4% {
     -webkit-transform: skewX(-3.125deg) skewY(-3.125deg);
     transform: skewX(-3.125deg) skewY(-3.125deg);
   }
 
-  /* line 617, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 617, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   55.5% {
     -webkit-transform: skewX(1.5625deg) skewY(1.5625deg);
     transform: skewX(1.5625deg) skewY(1.5625deg);
   }
 
-  /* line 622, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 622, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   66.6% {
     -webkit-transform: skewX(-0.78125deg) skewY(-0.78125deg);
     transform: skewX(-0.78125deg) skewY(-0.78125deg);
   }
 
-  /* line 627, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 627, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   77.7% {
     -webkit-transform: skewX(0.39063deg) skewY(0.39063deg);
     transform: skewX(0.39063deg) skewY(0.39063deg);
   }
 
-  /* line 632, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 632, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   88.8% {
     -webkit-transform: skewX(-0.19531deg) skewY(-0.19531deg);
     transform: skewX(-0.19531deg) skewY(-0.19531deg);
   }
 }
 
-/* line 638, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 638, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .jello {
   -webkit-animation-name: jello;
   animation-name: jello;
@@ -1196,45 +1201,45 @@
 }
 
 @-webkit-keyframes bounceIn {
-  /* line 646, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 646, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from, 20%, 40%, 60%, 80%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 
-  /* line 651, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 651, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   0% {
     opacity: 0;
     -webkit-transform: scale3d(0.3, 0.3, 0.3);
     transform: scale3d(0.3, 0.3, 0.3);
   }
 
-  /* line 657, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 657, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   20% {
     -webkit-transform: scale3d(1.1, 1.1, 1.1);
     transform: scale3d(1.1, 1.1, 1.1);
   }
 
-  /* line 662, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 662, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   40% {
     -webkit-transform: scale3d(0.9, 0.9, 0.9);
     transform: scale3d(0.9, 0.9, 0.9);
   }
 
-  /* line 667, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 667, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   60% {
     opacity: 1;
     -webkit-transform: scale3d(1.03, 1.03, 1.03);
     transform: scale3d(1.03, 1.03, 1.03);
   }
 
-  /* line 673, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 673, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   80% {
     -webkit-transform: scale3d(0.97, 0.97, 0.97);
     transform: scale3d(0.97, 0.97, 0.97);
   }
 
-  /* line 678, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 678, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 1;
     -webkit-transform: scale3d(1, 1, 1);
@@ -1243,45 +1248,45 @@
 }
 
 @keyframes bounceIn {
-  /* line 686, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 686, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from, 20%, 40%, 60%, 80%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 
-  /* line 691, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 691, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   0% {
     opacity: 0;
     -webkit-transform: scale3d(0.3, 0.3, 0.3);
     transform: scale3d(0.3, 0.3, 0.3);
   }
 
-  /* line 697, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 697, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   20% {
     -webkit-transform: scale3d(1.1, 1.1, 1.1);
     transform: scale3d(1.1, 1.1, 1.1);
   }
 
-  /* line 702, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 702, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   40% {
     -webkit-transform: scale3d(0.9, 0.9, 0.9);
     transform: scale3d(0.9, 0.9, 0.9);
   }
 
-  /* line 707, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 707, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   60% {
     opacity: 1;
     -webkit-transform: scale3d(1.03, 1.03, 1.03);
     transform: scale3d(1.03, 1.03, 1.03);
   }
 
-  /* line 713, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 713, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   80% {
     -webkit-transform: scale3d(0.97, 0.97, 0.97);
     transform: scale3d(0.97, 0.97, 0.97);
   }
 
-  /* line 718, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 718, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 1;
     -webkit-transform: scale3d(1, 1, 1);
@@ -1289,46 +1294,46 @@
   }
 }
 
-/* line 725, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 725, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .bounceIn {
   -webkit-animation-name: bounceIn;
   animation-name: bounceIn;
 }
 
 @-webkit-keyframes bounceInDown {
-  /* line 731, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 731, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from, 60%, 75%, 90%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 
-  /* line 736, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 736, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   0% {
     opacity: 0;
     -webkit-transform: translate3d(0, -3000px, 0);
     transform: translate3d(0, -3000px, 0);
   }
 
-  /* line 742, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 742, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   60% {
     opacity: 1;
     -webkit-transform: translate3d(0, 25px, 0);
     transform: translate3d(0, 25px, 0);
   }
 
-  /* line 748, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 748, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   75% {
     -webkit-transform: translate3d(0, -10px, 0);
     transform: translate3d(0, -10px, 0);
   }
 
-  /* line 753, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 753, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   90% {
     -webkit-transform: translate3d(0, 5px, 0);
     transform: translate3d(0, 5px, 0);
   }
 
-  /* line 758, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 758, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: none;
     transform: none;
@@ -1336,85 +1341,85 @@
 }
 
 @keyframes bounceInDown {
-  /* line 765, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 765, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from, 60%, 75%, 90%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 
-  /* line 770, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 770, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   0% {
     opacity: 0;
     -webkit-transform: translate3d(0, -3000px, 0);
     transform: translate3d(0, -3000px, 0);
   }
 
-  /* line 776, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 776, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   60% {
     opacity: 1;
     -webkit-transform: translate3d(0, 25px, 0);
     transform: translate3d(0, 25px, 0);
   }
 
-  /* line 782, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 782, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   75% {
     -webkit-transform: translate3d(0, -10px, 0);
     transform: translate3d(0, -10px, 0);
   }
 
-  /* line 787, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 787, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   90% {
     -webkit-transform: translate3d(0, 5px, 0);
     transform: translate3d(0, 5px, 0);
   }
 
-  /* line 792, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 792, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: none;
     transform: none;
   }
 }
 
-/* line 798, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 798, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .bounceInDown {
   -webkit-animation-name: bounceInDown;
   animation-name: bounceInDown;
 }
 
 @-webkit-keyframes bounceInLeft {
-  /* line 804, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 804, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from, 60%, 75%, 90%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 
-  /* line 809, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 809, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   0% {
     opacity: 0;
     -webkit-transform: translate3d(-3000px, 0, 0);
     transform: translate3d(-3000px, 0, 0);
   }
 
-  /* line 815, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 815, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   60% {
     opacity: 1;
     -webkit-transform: translate3d(25px, 0, 0);
     transform: translate3d(25px, 0, 0);
   }
 
-  /* line 821, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 821, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   75% {
     -webkit-transform: translate3d(-10px, 0, 0);
     transform: translate3d(-10px, 0, 0);
   }
 
-  /* line 826, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 826, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   90% {
     -webkit-transform: translate3d(5px, 0, 0);
     transform: translate3d(5px, 0, 0);
   }
 
-  /* line 831, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 831, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: none;
     transform: none;
@@ -1422,85 +1427,85 @@
 }
 
 @keyframes bounceInLeft {
-  /* line 838, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 838, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from, 60%, 75%, 90%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 
-  /* line 843, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 843, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   0% {
     opacity: 0;
     -webkit-transform: translate3d(-3000px, 0, 0);
     transform: translate3d(-3000px, 0, 0);
   }
 
-  /* line 849, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 849, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   60% {
     opacity: 1;
     -webkit-transform: translate3d(25px, 0, 0);
     transform: translate3d(25px, 0, 0);
   }
 
-  /* line 855, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 855, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   75% {
     -webkit-transform: translate3d(-10px, 0, 0);
     transform: translate3d(-10px, 0, 0);
   }
 
-  /* line 860, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 860, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   90% {
     -webkit-transform: translate3d(5px, 0, 0);
     transform: translate3d(5px, 0, 0);
   }
 
-  /* line 865, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 865, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: none;
     transform: none;
   }
 }
 
-/* line 871, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 871, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .bounceInLeft {
   -webkit-animation-name: bounceInLeft;
   animation-name: bounceInLeft;
 }
 
 @-webkit-keyframes bounceInRight {
-  /* line 877, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 877, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from, 60%, 75%, 90%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 
-  /* line 882, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 882, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: translate3d(3000px, 0, 0);
     transform: translate3d(3000px, 0, 0);
   }
 
-  /* line 888, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 888, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   60% {
     opacity: 1;
     -webkit-transform: translate3d(-25px, 0, 0);
     transform: translate3d(-25px, 0, 0);
   }
 
-  /* line 894, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 894, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   75% {
     -webkit-transform: translate3d(10px, 0, 0);
     transform: translate3d(10px, 0, 0);
   }
 
-  /* line 899, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 899, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   90% {
     -webkit-transform: translate3d(-5px, 0, 0);
     transform: translate3d(-5px, 0, 0);
   }
 
-  /* line 904, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 904, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: none;
     transform: none;
@@ -1508,85 +1513,85 @@
 }
 
 @keyframes bounceInRight {
-  /* line 911, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 911, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from, 60%, 75%, 90%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 
-  /* line 916, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 916, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: translate3d(3000px, 0, 0);
     transform: translate3d(3000px, 0, 0);
   }
 
-  /* line 922, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 922, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   60% {
     opacity: 1;
     -webkit-transform: translate3d(-25px, 0, 0);
     transform: translate3d(-25px, 0, 0);
   }
 
-  /* line 928, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 928, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   75% {
     -webkit-transform: translate3d(10px, 0, 0);
     transform: translate3d(10px, 0, 0);
   }
 
-  /* line 933, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 933, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   90% {
     -webkit-transform: translate3d(-5px, 0, 0);
     transform: translate3d(-5px, 0, 0);
   }
 
-  /* line 938, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 938, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: none;
     transform: none;
   }
 }
 
-/* line 944, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 944, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .bounceInRight {
   -webkit-animation-name: bounceInRight;
   animation-name: bounceInRight;
 }
 
 @-webkit-keyframes bounceInUp {
-  /* line 950, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 950, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from, 60%, 75%, 90%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 
-  /* line 955, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 955, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: translate3d(0, 3000px, 0);
     transform: translate3d(0, 3000px, 0);
   }
 
-  /* line 961, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 961, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   60% {
     opacity: 1;
     -webkit-transform: translate3d(0, -20px, 0);
     transform: translate3d(0, -20px, 0);
   }
 
-  /* line 967, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 967, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   75% {
     -webkit-transform: translate3d(0, 10px, 0);
     transform: translate3d(0, 10px, 0);
   }
 
-  /* line 972, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 972, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   90% {
     -webkit-transform: translate3d(0, -5px, 0);
     transform: translate3d(0, -5px, 0);
   }
 
-  /* line 977, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 977, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
@@ -1594,66 +1599,66 @@
 }
 
 @keyframes bounceInUp {
-  /* line 984, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 984, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from, 60%, 75%, 90%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 
-  /* line 989, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 989, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: translate3d(0, 3000px, 0);
     transform: translate3d(0, 3000px, 0);
   }
 
-  /* line 995, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 995, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   60% {
     opacity: 1;
     -webkit-transform: translate3d(0, -20px, 0);
     transform: translate3d(0, -20px, 0);
   }
 
-  /* line 1001, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1001, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   75% {
     -webkit-transform: translate3d(0, 10px, 0);
     transform: translate3d(0, 10px, 0);
   }
 
-  /* line 1006, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1006, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   90% {
     -webkit-transform: translate3d(0, -5px, 0);
     transform: translate3d(0, -5px, 0);
   }
 
-  /* line 1011, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1011, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 }
 
-/* line 1017, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 1017, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .bounceInUp {
   -webkit-animation-name: bounceInUp;
   animation-name: bounceInUp;
 }
 
 @-webkit-keyframes bounceOut {
-  /* line 1023, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1023, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   20% {
     -webkit-transform: scale3d(0.9, 0.9, 0.9);
     transform: scale3d(0.9, 0.9, 0.9);
   }
 
-  /* line 1028, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1028, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   50%, 55% {
     opacity: 1;
     -webkit-transform: scale3d(1.1, 1.1, 1.1);
     transform: scale3d(1.1, 1.1, 1.1);
   }
 
-  /* line 1034, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1034, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: scale3d(0.3, 0.3, 0.3);
@@ -1662,20 +1667,20 @@
 }
 
 @keyframes bounceOut {
-  /* line 1042, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1042, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   20% {
     -webkit-transform: scale3d(0.9, 0.9, 0.9);
     transform: scale3d(0.9, 0.9, 0.9);
   }
 
-  /* line 1047, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1047, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   50%, 55% {
     opacity: 1;
     -webkit-transform: scale3d(1.1, 1.1, 1.1);
     transform: scale3d(1.1, 1.1, 1.1);
   }
 
-  /* line 1053, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1053, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: scale3d(0.3, 0.3, 0.3);
@@ -1683,27 +1688,27 @@
   }
 }
 
-/* line 1060, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 1060, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .bounceOut {
   -webkit-animation-name: bounceOut;
   animation-name: bounceOut;
 }
 
 @-webkit-keyframes bounceOutDown {
-  /* line 1066, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1066, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   20% {
     -webkit-transform: translate3d(0, 10px, 0);
     transform: translate3d(0, 10px, 0);
   }
 
-  /* line 1071, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1071, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   40%, 45% {
     opacity: 1;
     -webkit-transform: translate3d(0, -20px, 0);
     transform: translate3d(0, -20px, 0);
   }
 
-  /* line 1077, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1077, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: translate3d(0, 2000px, 0);
@@ -1712,20 +1717,20 @@
 }
 
 @keyframes bounceOutDown {
-  /* line 1085, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1085, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   20% {
     -webkit-transform: translate3d(0, 10px, 0);
     transform: translate3d(0, 10px, 0);
   }
 
-  /* line 1090, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1090, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   40%, 45% {
     opacity: 1;
     -webkit-transform: translate3d(0, -20px, 0);
     transform: translate3d(0, -20px, 0);
   }
 
-  /* line 1096, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1096, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: translate3d(0, 2000px, 0);
@@ -1733,21 +1738,21 @@
   }
 }
 
-/* line 1103, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 1103, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .bounceOutDown {
   -webkit-animation-name: bounceOutDown;
   animation-name: bounceOutDown;
 }
 
 @-webkit-keyframes bounceOutLeft {
-  /* line 1109, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1109, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   20% {
     opacity: 1;
     -webkit-transform: translate3d(20px, 0, 0);
     transform: translate3d(20px, 0, 0);
   }
 
-  /* line 1115, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1115, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: translate3d(-2000px, 0, 0);
@@ -1756,14 +1761,14 @@
 }
 
 @keyframes bounceOutLeft {
-  /* line 1123, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1123, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   20% {
     opacity: 1;
     -webkit-transform: translate3d(20px, 0, 0);
     transform: translate3d(20px, 0, 0);
   }
 
-  /* line 1129, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1129, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: translate3d(-2000px, 0, 0);
@@ -1771,21 +1776,21 @@
   }
 }
 
-/* line 1136, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 1136, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .bounceOutLeft {
   -webkit-animation-name: bounceOutLeft;
   animation-name: bounceOutLeft;
 }
 
 @-webkit-keyframes bounceOutRight {
-  /* line 1142, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1142, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   20% {
     opacity: 1;
     -webkit-transform: translate3d(-20px, 0, 0);
     transform: translate3d(-20px, 0, 0);
   }
 
-  /* line 1148, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1148, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: translate3d(2000px, 0, 0);
@@ -1794,14 +1799,14 @@
 }
 
 @keyframes bounceOutRight {
-  /* line 1156, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1156, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   20% {
     opacity: 1;
     -webkit-transform: translate3d(-20px, 0, 0);
     transform: translate3d(-20px, 0, 0);
   }
 
-  /* line 1162, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1162, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: translate3d(2000px, 0, 0);
@@ -1809,27 +1814,27 @@
   }
 }
 
-/* line 1169, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 1169, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .bounceOutRight {
   -webkit-animation-name: bounceOutRight;
   animation-name: bounceOutRight;
 }
 
 @-webkit-keyframes bounceOutUp {
-  /* line 1175, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1175, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   20% {
     -webkit-transform: translate3d(0, -10px, 0);
     transform: translate3d(0, -10px, 0);
   }
 
-  /* line 1180, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1180, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   40%, 45% {
     opacity: 1;
     -webkit-transform: translate3d(0, 20px, 0);
     transform: translate3d(0, 20px, 0);
   }
 
-  /* line 1186, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1186, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: translate3d(0, -2000px, 0);
@@ -1838,20 +1843,20 @@
 }
 
 @keyframes bounceOutUp {
-  /* line 1194, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1194, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   20% {
     -webkit-transform: translate3d(0, -10px, 0);
     transform: translate3d(0, -10px, 0);
   }
 
-  /* line 1199, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1199, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   40%, 45% {
     opacity: 1;
     -webkit-transform: translate3d(0, 20px, 0);
     transform: translate3d(0, 20px, 0);
   }
 
-  /* line 1205, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1205, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: translate3d(0, -2000px, 0);
@@ -1859,51 +1864,51 @@
   }
 }
 
-/* line 1212, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 1212, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .bounceOutUp {
   -webkit-animation-name: bounceOutUp;
   animation-name: bounceOutUp;
 }
 
 @-webkit-keyframes fadeIn {
-  /* line 1218, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1218, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
   }
 
-  /* line 1222, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1222, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 1;
   }
 }
 
 @keyframes fadeIn {
-  /* line 1228, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1228, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
   }
 
-  /* line 1232, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1232, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 1;
   }
 }
 
-/* line 1237, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 1237, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .fadeIn {
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
 }
 
 @-webkit-keyframes fadeInDown {
-  /* line 1243, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1243, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: translate3d(0, -100%, 0);
     transform: translate3d(0, -100%, 0);
   }
 
-  /* line 1249, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1249, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 1;
     -webkit-transform: none;
@@ -1912,14 +1917,14 @@
 }
 
 @keyframes fadeInDown {
-  /* line 1257, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1257, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: translate3d(0, -100%, 0);
     transform: translate3d(0, -100%, 0);
   }
 
-  /* line 1263, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1263, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 1;
     -webkit-transform: none;
@@ -1927,21 +1932,21 @@
   }
 }
 
-/* line 1270, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 1270, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .fadeInDown {
   -webkit-animation-name: fadeInDown;
   animation-name: fadeInDown;
 }
 
 @-webkit-keyframes fadeInDownBig {
-  /* line 1276, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1276, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: translate3d(0, -2000px, 0);
     transform: translate3d(0, -2000px, 0);
   }
 
-  /* line 1282, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1282, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 1;
     -webkit-transform: none;
@@ -1950,14 +1955,14 @@
 }
 
 @keyframes fadeInDownBig {
-  /* line 1290, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1290, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: translate3d(0, -2000px, 0);
     transform: translate3d(0, -2000px, 0);
   }
 
-  /* line 1296, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1296, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 1;
     -webkit-transform: none;
@@ -1965,21 +1970,21 @@
   }
 }
 
-/* line 1303, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 1303, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .fadeInDownBig {
   -webkit-animation-name: fadeInDownBig;
   animation-name: fadeInDownBig;
 }
 
 @-webkit-keyframes fadeInLeft {
-  /* line 1309, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1309, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: translate3d(-100%, 0, 0);
     transform: translate3d(-100%, 0, 0);
   }
 
-  /* line 1315, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1315, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 1;
     -webkit-transform: none;
@@ -1988,14 +1993,14 @@
 }
 
 @keyframes fadeInLeft {
-  /* line 1323, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1323, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: translate3d(-100%, 0, 0);
     transform: translate3d(-100%, 0, 0);
   }
 
-  /* line 1329, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1329, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 1;
     -webkit-transform: none;
@@ -2003,21 +2008,21 @@
   }
 }
 
-/* line 1336, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 1336, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .fadeInLeft {
   -webkit-animation-name: fadeInLeft;
   animation-name: fadeInLeft;
 }
 
 @-webkit-keyframes fadeInLeftBig {
-  /* line 1342, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1342, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: translate3d(-2000px, 0, 0);
     transform: translate3d(-2000px, 0, 0);
   }
 
-  /* line 1348, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1348, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 1;
     -webkit-transform: none;
@@ -2026,14 +2031,14 @@
 }
 
 @keyframes fadeInLeftBig {
-  /* line 1356, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1356, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: translate3d(-2000px, 0, 0);
     transform: translate3d(-2000px, 0, 0);
   }
 
-  /* line 1362, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1362, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 1;
     -webkit-transform: none;
@@ -2041,21 +2046,21 @@
   }
 }
 
-/* line 1369, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 1369, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .fadeInLeftBig {
   -webkit-animation-name: fadeInLeftBig;
   animation-name: fadeInLeftBig;
 }
 
 @-webkit-keyframes fadeInRight {
-  /* line 1375, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1375, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: translate3d(100%, 0, 0);
     transform: translate3d(100%, 0, 0);
   }
 
-  /* line 1381, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1381, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 1;
     -webkit-transform: none;
@@ -2064,14 +2069,14 @@
 }
 
 @keyframes fadeInRight {
-  /* line 1389, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1389, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: translate3d(100%, 0, 0);
     transform: translate3d(100%, 0, 0);
   }
 
-  /* line 1395, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1395, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 1;
     -webkit-transform: none;
@@ -2079,21 +2084,21 @@
   }
 }
 
-/* line 1402, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 1402, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .fadeInRight {
   -webkit-animation-name: fadeInRight;
   animation-name: fadeInRight;
 }
 
 @-webkit-keyframes fadeInRightBig {
-  /* line 1408, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1408, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: translate3d(2000px, 0, 0);
     transform: translate3d(2000px, 0, 0);
   }
 
-  /* line 1414, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1414, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 1;
     -webkit-transform: none;
@@ -2102,14 +2107,14 @@
 }
 
 @keyframes fadeInRightBig {
-  /* line 1422, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1422, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: translate3d(2000px, 0, 0);
     transform: translate3d(2000px, 0, 0);
   }
 
-  /* line 1428, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1428, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 1;
     -webkit-transform: none;
@@ -2117,21 +2122,21 @@
   }
 }
 
-/* line 1435, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 1435, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .fadeInRightBig {
   -webkit-animation-name: fadeInRightBig;
   animation-name: fadeInRightBig;
 }
 
 @-webkit-keyframes fadeInUp {
-  /* line 1441, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1441, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0);
   }
 
-  /* line 1447, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1447, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 1;
     -webkit-transform: none;
@@ -2140,14 +2145,14 @@
 }
 
 @keyframes fadeInUp {
-  /* line 1455, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1455, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0);
   }
 
-  /* line 1461, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1461, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 1;
     -webkit-transform: none;
@@ -2155,21 +2160,21 @@
   }
 }
 
-/* line 1468, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 1468, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .fadeInUp {
   -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp;
 }
 
 @-webkit-keyframes fadeInUpBig {
-  /* line 1474, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1474, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: translate3d(0, 2000px, 0);
     transform: translate3d(0, 2000px, 0);
   }
 
-  /* line 1480, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1480, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 1;
     -webkit-transform: none;
@@ -2178,14 +2183,14 @@
 }
 
 @keyframes fadeInUpBig {
-  /* line 1488, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1488, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: translate3d(0, 2000px, 0);
     transform: translate3d(0, 2000px, 0);
   }
 
-  /* line 1494, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1494, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 1;
     -webkit-transform: none;
@@ -2193,49 +2198,49 @@
   }
 }
 
-/* line 1501, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 1501, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .fadeInUpBig {
   -webkit-animation-name: fadeInUpBig;
   animation-name: fadeInUpBig;
 }
 
 @-webkit-keyframes fadeOut {
-  /* line 1507, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1507, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 1;
   }
 
-  /* line 1511, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1511, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
   }
 }
 
 @keyframes fadeOut {
-  /* line 1517, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1517, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 1;
   }
 
-  /* line 1521, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1521, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
   }
 }
 
-/* line 1526, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 1526, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .fadeOut {
   -webkit-animation-name: fadeOut;
   animation-name: fadeOut;
 }
 
 @-webkit-keyframes fadeOutDown {
-  /* line 1532, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1532, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 1;
   }
 
-  /* line 1536, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1536, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: translate3d(0, 100%, 0);
@@ -2244,12 +2249,12 @@
 }
 
 @keyframes fadeOutDown {
-  /* line 1544, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1544, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 1;
   }
 
-  /* line 1548, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1548, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: translate3d(0, 100%, 0);
@@ -2257,19 +2262,19 @@
   }
 }
 
-/* line 1555, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 1555, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .fadeOutDown {
   -webkit-animation-name: fadeOutDown;
   animation-name: fadeOutDown;
 }
 
 @-webkit-keyframes fadeOutDownBig {
-  /* line 1561, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1561, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 1;
   }
 
-  /* line 1565, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1565, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: translate3d(0, 2000px, 0);
@@ -2278,12 +2283,12 @@
 }
 
 @keyframes fadeOutDownBig {
-  /* line 1573, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1573, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 1;
   }
 
-  /* line 1577, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1577, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: translate3d(0, 2000px, 0);
@@ -2291,19 +2296,19 @@
   }
 }
 
-/* line 1584, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 1584, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .fadeOutDownBig {
   -webkit-animation-name: fadeOutDownBig;
   animation-name: fadeOutDownBig;
 }
 
 @-webkit-keyframes fadeOutLeft {
-  /* line 1590, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1590, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 1;
   }
 
-  /* line 1594, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1594, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: translate3d(-100%, 0, 0);
@@ -2312,12 +2317,12 @@
 }
 
 @keyframes fadeOutLeft {
-  /* line 1602, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1602, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 1;
   }
 
-  /* line 1606, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1606, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: translate3d(-100%, 0, 0);
@@ -2325,19 +2330,19 @@
   }
 }
 
-/* line 1613, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 1613, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .fadeOutLeft {
   -webkit-animation-name: fadeOutLeft;
   animation-name: fadeOutLeft;
 }
 
 @-webkit-keyframes fadeOutLeftBig {
-  /* line 1619, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1619, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 1;
   }
 
-  /* line 1623, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1623, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: translate3d(-2000px, 0, 0);
@@ -2346,12 +2351,12 @@
 }
 
 @keyframes fadeOutLeftBig {
-  /* line 1631, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1631, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 1;
   }
 
-  /* line 1635, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1635, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: translate3d(-2000px, 0, 0);
@@ -2359,19 +2364,19 @@
   }
 }
 
-/* line 1642, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 1642, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .fadeOutLeftBig {
   -webkit-animation-name: fadeOutLeftBig;
   animation-name: fadeOutLeftBig;
 }
 
 @-webkit-keyframes fadeOutRight {
-  /* line 1648, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1648, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 1;
   }
 
-  /* line 1652, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1652, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: translate3d(100%, 0, 0);
@@ -2380,12 +2385,12 @@
 }
 
 @keyframes fadeOutRight {
-  /* line 1660, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1660, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 1;
   }
 
-  /* line 1664, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1664, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: translate3d(100%, 0, 0);
@@ -2393,19 +2398,19 @@
   }
 }
 
-/* line 1671, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 1671, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .fadeOutRight {
   -webkit-animation-name: fadeOutRight;
   animation-name: fadeOutRight;
 }
 
 @-webkit-keyframes fadeOutRightBig {
-  /* line 1677, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1677, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 1;
   }
 
-  /* line 1681, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1681, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: translate3d(2000px, 0, 0);
@@ -2414,12 +2419,12 @@
 }
 
 @keyframes fadeOutRightBig {
-  /* line 1689, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1689, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 1;
   }
 
-  /* line 1693, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1693, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: translate3d(2000px, 0, 0);
@@ -2427,19 +2432,19 @@
   }
 }
 
-/* line 1700, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 1700, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .fadeOutRightBig {
   -webkit-animation-name: fadeOutRightBig;
   animation-name: fadeOutRightBig;
 }
 
 @-webkit-keyframes fadeOutUp {
-  /* line 1706, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1706, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 1;
   }
 
-  /* line 1710, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1710, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: translate3d(0, -100%, 0);
@@ -2448,12 +2453,12 @@
 }
 
 @keyframes fadeOutUp {
-  /* line 1718, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1718, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 1;
   }
 
-  /* line 1722, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1722, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: translate3d(0, -100%, 0);
@@ -2461,19 +2466,19 @@
   }
 }
 
-/* line 1729, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 1729, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .fadeOutUp {
   -webkit-animation-name: fadeOutUp;
   animation-name: fadeOutUp;
 }
 
 @-webkit-keyframes fadeOutUpBig {
-  /* line 1735, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1735, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 1;
   }
 
-  /* line 1739, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1739, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: translate3d(0, -2000px, 0);
@@ -2482,12 +2487,12 @@
 }
 
 @keyframes fadeOutUpBig {
-  /* line 1747, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1747, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 1;
   }
 
-  /* line 1751, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1751, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: translate3d(0, -2000px, 0);
@@ -2495,14 +2500,14 @@
   }
 }
 
-/* line 1758, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 1758, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .fadeOutUpBig {
   -webkit-animation-name: fadeOutUpBig;
   animation-name: fadeOutUpBig;
 }
 
 @-webkit-keyframes flip {
-  /* line 1764, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1764, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -360deg);
     transform: perspective(400px) rotate3d(0, 1, 0, -360deg);
@@ -2510,7 +2515,7 @@
     animation-timing-function: ease-out;
   }
 
-  /* line 1771, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1771, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   40% {
     -webkit-transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -190deg);
     transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -190deg);
@@ -2518,7 +2523,7 @@
     animation-timing-function: ease-out;
   }
 
-  /* line 1778, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1778, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   50% {
     -webkit-transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -170deg);
     transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -170deg);
@@ -2526,7 +2531,7 @@
     animation-timing-function: ease-in;
   }
 
-  /* line 1785, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1785, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   80% {
     -webkit-transform: perspective(400px) scale3d(0.95, 0.95, 0.95);
     transform: perspective(400px) scale3d(0.95, 0.95, 0.95);
@@ -2534,7 +2539,7 @@
     animation-timing-function: ease-in;
   }
 
-  /* line 1792, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1792, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: perspective(400px);
     transform: perspective(400px);
@@ -2544,7 +2549,7 @@
 }
 
 @keyframes flip {
-  /* line 1801, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1801, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -360deg);
     transform: perspective(400px) rotate3d(0, 1, 0, -360deg);
@@ -2552,7 +2557,7 @@
     animation-timing-function: ease-out;
   }
 
-  /* line 1808, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1808, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   40% {
     -webkit-transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -190deg);
     transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -190deg);
@@ -2560,7 +2565,7 @@
     animation-timing-function: ease-out;
   }
 
-  /* line 1815, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1815, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   50% {
     -webkit-transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -170deg);
     transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -170deg);
@@ -2568,7 +2573,7 @@
     animation-timing-function: ease-in;
   }
 
-  /* line 1822, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1822, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   80% {
     -webkit-transform: perspective(400px) scale3d(0.95, 0.95, 0.95);
     transform: perspective(400px) scale3d(0.95, 0.95, 0.95);
@@ -2576,7 +2581,7 @@
     animation-timing-function: ease-in;
   }
 
-  /* line 1829, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1829, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: perspective(400px);
     transform: perspective(400px);
@@ -2585,7 +2590,7 @@
   }
 }
 
-/* line 1837, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 1837, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .animated.flip {
   -webkit-backface-visibility: visible;
   backface-visibility: visible;
@@ -2594,7 +2599,7 @@
 }
 
 @-webkit-keyframes flipInX {
-  /* line 1845, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1845, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
     transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
@@ -2603,7 +2608,7 @@
     opacity: 0;
   }
 
-  /* line 1853, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1853, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   40% {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
     transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
@@ -2611,20 +2616,20 @@
     animation-timing-function: ease-in;
   }
 
-  /* line 1860, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1860, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   60% {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
     transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
     opacity: 1;
   }
 
-  /* line 1866, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1866, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   80% {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
     transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
   }
 
-  /* line 1871, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1871, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: perspective(400px);
     transform: perspective(400px);
@@ -2632,7 +2637,7 @@
 }
 
 @keyframes flipInX {
-  /* line 1878, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1878, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
     transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
@@ -2641,7 +2646,7 @@
     opacity: 0;
   }
 
-  /* line 1886, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1886, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   40% {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
     transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
@@ -2649,27 +2654,27 @@
     animation-timing-function: ease-in;
   }
 
-  /* line 1893, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1893, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   60% {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
     transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
     opacity: 1;
   }
 
-  /* line 1899, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1899, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   80% {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
     transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
   }
 
-  /* line 1904, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1904, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: perspective(400px);
     transform: perspective(400px);
   }
 }
 
-/* line 1910, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 1910, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .flipInX {
   -webkit-backface-visibility: visible !important;
   backface-visibility: visible !important;
@@ -2678,7 +2683,7 @@
 }
 
 @-webkit-keyframes flipInY {
-  /* line 1918, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1918, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
     transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
@@ -2687,7 +2692,7 @@
     opacity: 0;
   }
 
-  /* line 1926, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1926, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   40% {
     -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
     transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
@@ -2695,20 +2700,20 @@
     animation-timing-function: ease-in;
   }
 
-  /* line 1933, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1933, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   60% {
     -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
     transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
     opacity: 1;
   }
 
-  /* line 1939, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1939, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   80% {
     -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
     transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
   }
 
-  /* line 1944, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1944, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: perspective(400px);
     transform: perspective(400px);
@@ -2716,7 +2721,7 @@
 }
 
 @keyframes flipInY {
-  /* line 1951, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1951, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
     transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
@@ -2725,7 +2730,7 @@
     opacity: 0;
   }
 
-  /* line 1959, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1959, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   40% {
     -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
     transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
@@ -2733,27 +2738,27 @@
     animation-timing-function: ease-in;
   }
 
-  /* line 1966, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1966, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   60% {
     -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
     transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
     opacity: 1;
   }
 
-  /* line 1972, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1972, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   80% {
     -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
     transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
   }
 
-  /* line 1977, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1977, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: perspective(400px);
     transform: perspective(400px);
   }
 }
 
-/* line 1983, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 1983, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .flipInY {
   -webkit-backface-visibility: visible !important;
   backface-visibility: visible !important;
@@ -2762,20 +2767,20 @@
 }
 
 @-webkit-keyframes flipOutX {
-  /* line 1991, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1991, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: perspective(400px);
     transform: perspective(400px);
   }
 
-  /* line 1996, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 1996, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   30% {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
     transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
     opacity: 1;
   }
 
-  /* line 2002, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2002, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
     transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
@@ -2784,20 +2789,20 @@
 }
 
 @keyframes flipOutX {
-  /* line 2010, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2010, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: perspective(400px);
     transform: perspective(400px);
   }
 
-  /* line 2015, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2015, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   30% {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
     transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
     opacity: 1;
   }
 
-  /* line 2021, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2021, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
     transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
@@ -2805,7 +2810,7 @@
   }
 }
 
-/* line 2028, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 2028, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .flipOutX {
   -webkit-animation-name: flipOutX;
   animation-name: flipOutX;
@@ -2814,20 +2819,20 @@
 }
 
 @-webkit-keyframes flipOutY {
-  /* line 2036, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2036, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: perspective(400px);
     transform: perspective(400px);
   }
 
-  /* line 2041, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2041, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   30% {
     -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -15deg);
     transform: perspective(400px) rotate3d(0, 1, 0, -15deg);
     opacity: 1;
   }
 
-  /* line 2047, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2047, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
     transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
@@ -2836,20 +2841,20 @@
 }
 
 @keyframes flipOutY {
-  /* line 2055, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2055, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: perspective(400px);
     transform: perspective(400px);
   }
 
-  /* line 2060, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2060, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   30% {
     -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -15deg);
     transform: perspective(400px) rotate3d(0, 1, 0, -15deg);
     opacity: 1;
   }
 
-  /* line 2066, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2066, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
     transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
@@ -2857,7 +2862,7 @@
   }
 }
 
-/* line 2073, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 2073, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .flipOutY {
   -webkit-backface-visibility: visible !important;
   backface-visibility: visible !important;
@@ -2866,28 +2871,28 @@
 }
 
 @-webkit-keyframes lightSpeedIn {
-  /* line 2081, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2081, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: translate3d(100%, 0, 0) skewX(-30deg);
     transform: translate3d(100%, 0, 0) skewX(-30deg);
     opacity: 0;
   }
 
-  /* line 2087, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2087, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   60% {
     -webkit-transform: skewX(20deg);
     transform: skewX(20deg);
     opacity: 1;
   }
 
-  /* line 2093, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2093, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   80% {
     -webkit-transform: skewX(-5deg);
     transform: skewX(-5deg);
     opacity: 1;
   }
 
-  /* line 2099, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2099, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: none;
     transform: none;
@@ -2896,28 +2901,28 @@
 }
 
 @keyframes lightSpeedIn {
-  /* line 2107, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2107, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: translate3d(100%, 0, 0) skewX(-30deg);
     transform: translate3d(100%, 0, 0) skewX(-30deg);
     opacity: 0;
   }
 
-  /* line 2113, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2113, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   60% {
     -webkit-transform: skewX(20deg);
     transform: skewX(20deg);
     opacity: 1;
   }
 
-  /* line 2119, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2119, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   80% {
     -webkit-transform: skewX(-5deg);
     transform: skewX(-5deg);
     opacity: 1;
   }
 
-  /* line 2125, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2125, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: none;
     transform: none;
@@ -2925,7 +2930,7 @@
   }
 }
 
-/* line 2132, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 2132, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .lightSpeedIn {
   -webkit-animation-name: lightSpeedIn;
   animation-name: lightSpeedIn;
@@ -2934,12 +2939,12 @@
 }
 
 @-webkit-keyframes lightSpeedOut {
-  /* line 2140, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2140, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 1;
   }
 
-  /* line 2144, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2144, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: translate3d(100%, 0, 0) skewX(30deg);
     transform: translate3d(100%, 0, 0) skewX(30deg);
@@ -2948,12 +2953,12 @@
 }
 
 @keyframes lightSpeedOut {
-  /* line 2152, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2152, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 1;
   }
 
-  /* line 2156, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2156, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: translate3d(100%, 0, 0) skewX(30deg);
     transform: translate3d(100%, 0, 0) skewX(30deg);
@@ -2961,7 +2966,7 @@
   }
 }
 
-/* line 2163, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 2163, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .lightSpeedOut {
   -webkit-animation-name: lightSpeedOut;
   animation-name: lightSpeedOut;
@@ -2970,7 +2975,7 @@
 }
 
 @-webkit-keyframes rotateIn {
-  /* line 2171, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2171, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform-origin: center;
     transform-origin: center;
@@ -2979,7 +2984,7 @@
     opacity: 0;
   }
 
-  /* line 2179, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2179, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform-origin: center;
     transform-origin: center;
@@ -2990,7 +2995,7 @@
 }
 
 @keyframes rotateIn {
-  /* line 2189, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2189, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform-origin: center;
     transform-origin: center;
@@ -2999,7 +3004,7 @@
     opacity: 0;
   }
 
-  /* line 2197, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2197, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform-origin: center;
     transform-origin: center;
@@ -3009,14 +3014,14 @@
   }
 }
 
-/* line 2206, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 2206, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .rotateIn {
   -webkit-animation-name: rotateIn;
   animation-name: rotateIn;
 }
 
 @-webkit-keyframes rotateInDownLeft {
-  /* line 2212, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2212, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform-origin: left bottom;
     transform-origin: left bottom;
@@ -3025,7 +3030,7 @@
     opacity: 0;
   }
 
-  /* line 2220, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2220, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform-origin: left bottom;
     transform-origin: left bottom;
@@ -3036,7 +3041,7 @@
 }
 
 @keyframes rotateInDownLeft {
-  /* line 2230, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2230, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform-origin: left bottom;
     transform-origin: left bottom;
@@ -3045,7 +3050,7 @@
     opacity: 0;
   }
 
-  /* line 2238, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2238, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform-origin: left bottom;
     transform-origin: left bottom;
@@ -3055,14 +3060,14 @@
   }
 }
 
-/* line 2247, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 2247, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .rotateInDownLeft {
   -webkit-animation-name: rotateInDownLeft;
   animation-name: rotateInDownLeft;
 }
 
 @-webkit-keyframes rotateInDownRight {
-  /* line 2253, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2253, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform-origin: right bottom;
     transform-origin: right bottom;
@@ -3071,7 +3076,7 @@
     opacity: 0;
   }
 
-  /* line 2261, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2261, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform-origin: right bottom;
     transform-origin: right bottom;
@@ -3082,7 +3087,7 @@
 }
 
 @keyframes rotateInDownRight {
-  /* line 2271, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2271, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform-origin: right bottom;
     transform-origin: right bottom;
@@ -3091,7 +3096,7 @@
     opacity: 0;
   }
 
-  /* line 2279, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2279, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform-origin: right bottom;
     transform-origin: right bottom;
@@ -3101,14 +3106,14 @@
   }
 }
 
-/* line 2288, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 2288, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .rotateInDownRight {
   -webkit-animation-name: rotateInDownRight;
   animation-name: rotateInDownRight;
 }
 
 @-webkit-keyframes rotateInUpLeft {
-  /* line 2294, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2294, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform-origin: left bottom;
     transform-origin: left bottom;
@@ -3117,7 +3122,7 @@
     opacity: 0;
   }
 
-  /* line 2302, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2302, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform-origin: left bottom;
     transform-origin: left bottom;
@@ -3128,7 +3133,7 @@
 }
 
 @keyframes rotateInUpLeft {
-  /* line 2312, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2312, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform-origin: left bottom;
     transform-origin: left bottom;
@@ -3137,7 +3142,7 @@
     opacity: 0;
   }
 
-  /* line 2320, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2320, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform-origin: left bottom;
     transform-origin: left bottom;
@@ -3147,14 +3152,14 @@
   }
 }
 
-/* line 2329, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 2329, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .rotateInUpLeft {
   -webkit-animation-name: rotateInUpLeft;
   animation-name: rotateInUpLeft;
 }
 
 @-webkit-keyframes rotateInUpRight {
-  /* line 2335, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2335, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform-origin: right bottom;
     transform-origin: right bottom;
@@ -3163,7 +3168,7 @@
     opacity: 0;
   }
 
-  /* line 2343, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2343, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform-origin: right bottom;
     transform-origin: right bottom;
@@ -3174,7 +3179,7 @@
 }
 
 @keyframes rotateInUpRight {
-  /* line 2353, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2353, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform-origin: right bottom;
     transform-origin: right bottom;
@@ -3183,7 +3188,7 @@
     opacity: 0;
   }
 
-  /* line 2361, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2361, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform-origin: right bottom;
     transform-origin: right bottom;
@@ -3193,21 +3198,21 @@
   }
 }
 
-/* line 2370, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 2370, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .rotateInUpRight {
   -webkit-animation-name: rotateInUpRight;
   animation-name: rotateInUpRight;
 }
 
 @-webkit-keyframes rotateOut {
-  /* line 2376, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2376, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform-origin: center;
     transform-origin: center;
     opacity: 1;
   }
 
-  /* line 2382, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2382, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform-origin: center;
     transform-origin: center;
@@ -3218,14 +3223,14 @@
 }
 
 @keyframes rotateOut {
-  /* line 2392, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2392, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform-origin: center;
     transform-origin: center;
     opacity: 1;
   }
 
-  /* line 2398, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2398, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform-origin: center;
     transform-origin: center;
@@ -3235,21 +3240,21 @@
   }
 }
 
-/* line 2407, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 2407, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .rotateOut {
   -webkit-animation-name: rotateOut;
   animation-name: rotateOut;
 }
 
 @-webkit-keyframes rotateOutDownLeft {
-  /* line 2413, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2413, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform-origin: left bottom;
     transform-origin: left bottom;
     opacity: 1;
   }
 
-  /* line 2419, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2419, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform-origin: left bottom;
     transform-origin: left bottom;
@@ -3260,14 +3265,14 @@
 }
 
 @keyframes rotateOutDownLeft {
-  /* line 2429, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2429, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform-origin: left bottom;
     transform-origin: left bottom;
     opacity: 1;
   }
 
-  /* line 2435, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2435, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform-origin: left bottom;
     transform-origin: left bottom;
@@ -3277,21 +3282,21 @@
   }
 }
 
-/* line 2444, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 2444, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .rotateOutDownLeft {
   -webkit-animation-name: rotateOutDownLeft;
   animation-name: rotateOutDownLeft;
 }
 
 @-webkit-keyframes rotateOutDownRight {
-  /* line 2450, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2450, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform-origin: right bottom;
     transform-origin: right bottom;
     opacity: 1;
   }
 
-  /* line 2456, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2456, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform-origin: right bottom;
     transform-origin: right bottom;
@@ -3302,14 +3307,14 @@
 }
 
 @keyframes rotateOutDownRight {
-  /* line 2466, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2466, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform-origin: right bottom;
     transform-origin: right bottom;
     opacity: 1;
   }
 
-  /* line 2472, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2472, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform-origin: right bottom;
     transform-origin: right bottom;
@@ -3319,21 +3324,21 @@
   }
 }
 
-/* line 2481, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 2481, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .rotateOutDownRight {
   -webkit-animation-name: rotateOutDownRight;
   animation-name: rotateOutDownRight;
 }
 
 @-webkit-keyframes rotateOutUpLeft {
-  /* line 2487, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2487, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform-origin: left bottom;
     transform-origin: left bottom;
     opacity: 1;
   }
 
-  /* line 2493, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2493, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform-origin: left bottom;
     transform-origin: left bottom;
@@ -3344,14 +3349,14 @@
 }
 
 @keyframes rotateOutUpLeft {
-  /* line 2503, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2503, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform-origin: left bottom;
     transform-origin: left bottom;
     opacity: 1;
   }
 
-  /* line 2509, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2509, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform-origin: left bottom;
     transform-origin: left bottom;
@@ -3361,21 +3366,21 @@
   }
 }
 
-/* line 2518, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 2518, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .rotateOutUpLeft {
   -webkit-animation-name: rotateOutUpLeft;
   animation-name: rotateOutUpLeft;
 }
 
 @-webkit-keyframes rotateOutUpRight {
-  /* line 2524, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2524, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform-origin: right bottom;
     transform-origin: right bottom;
     opacity: 1;
   }
 
-  /* line 2530, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2530, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform-origin: right bottom;
     transform-origin: right bottom;
@@ -3386,14 +3391,14 @@
 }
 
 @keyframes rotateOutUpRight {
-  /* line 2540, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2540, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform-origin: right bottom;
     transform-origin: right bottom;
     opacity: 1;
   }
 
-  /* line 2546, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2546, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform-origin: right bottom;
     transform-origin: right bottom;
@@ -3403,14 +3408,14 @@
   }
 }
 
-/* line 2555, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 2555, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .rotateOutUpRight {
   -webkit-animation-name: rotateOutUpRight;
   animation-name: rotateOutUpRight;
 }
 
 @-webkit-keyframes hinge {
-  /* line 2561, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2561, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   0% {
     -webkit-transform-origin: top left;
     transform-origin: top left;
@@ -3418,7 +3423,7 @@
     animation-timing-function: ease-in-out;
   }
 
-  /* line 2568, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2568, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   20%, 60% {
     -webkit-transform: rotate3d(0, 0, 1, 80deg);
     transform: rotate3d(0, 0, 1, 80deg);
@@ -3428,7 +3433,7 @@
     animation-timing-function: ease-in-out;
   }
 
-  /* line 2577, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2577, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   40%, 80% {
     -webkit-transform: rotate3d(0, 0, 1, 60deg);
     transform: rotate3d(0, 0, 1, 60deg);
@@ -3439,7 +3444,7 @@
     opacity: 1;
   }
 
-  /* line 2587, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2587, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: translate3d(0, 700px, 0);
     transform: translate3d(0, 700px, 0);
@@ -3448,7 +3453,7 @@
 }
 
 @keyframes hinge {
-  /* line 2595, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2595, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   0% {
     -webkit-transform-origin: top left;
     transform-origin: top left;
@@ -3456,7 +3461,7 @@
     animation-timing-function: ease-in-out;
   }
 
-  /* line 2602, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2602, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   20%, 60% {
     -webkit-transform: rotate3d(0, 0, 1, 80deg);
     transform: rotate3d(0, 0, 1, 80deg);
@@ -3466,7 +3471,7 @@
     animation-timing-function: ease-in-out;
   }
 
-  /* line 2611, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2611, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   40%, 80% {
     -webkit-transform: rotate3d(0, 0, 1, 60deg);
     transform: rotate3d(0, 0, 1, 60deg);
@@ -3477,7 +3482,7 @@
     opacity: 1;
   }
 
-  /* line 2621, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2621, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: translate3d(0, 700px, 0);
     transform: translate3d(0, 700px, 0);
@@ -3485,7 +3490,7 @@
   }
 }
 
-/* line 2628, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 2628, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .hinge {
   -webkit-animation-name: hinge;
   animation-name: hinge;
@@ -3493,14 +3498,14 @@
 
 /* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
 @-webkit-keyframes rollIn {
-  /* line 2636, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2636, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);
     transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);
   }
 
-  /* line 2642, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2642, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 1;
     -webkit-transform: none;
@@ -3509,14 +3514,14 @@
 }
 
 @keyframes rollIn {
-  /* line 2650, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2650, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);
     transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);
   }
 
-  /* line 2656, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2656, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 1;
     -webkit-transform: none;
@@ -3524,7 +3529,7 @@
   }
 }
 
-/* line 2663, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 2663, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .rollIn {
   -webkit-animation-name: rollIn;
   animation-name: rollIn;
@@ -3532,12 +3537,12 @@
 
 /* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
 @-webkit-keyframes rollOut {
-  /* line 2671, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2671, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 1;
   }
 
-  /* line 2675, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2675, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg);
@@ -3546,12 +3551,12 @@
 }
 
 @keyframes rollOut {
-  /* line 2683, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2683, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 1;
   }
 
-  /* line 2687, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2687, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg);
@@ -3559,48 +3564,48 @@
   }
 }
 
-/* line 2694, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 2694, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .rollOut {
   -webkit-animation-name: rollOut;
   animation-name: rollOut;
 }
 
 @-webkit-keyframes zoomIn {
-  /* line 2700, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2700, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: scale3d(0.3, 0.3, 0.3);
     transform: scale3d(0.3, 0.3, 0.3);
   }
 
-  /* line 2706, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2706, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   50% {
     opacity: 1;
   }
 }
 
 @keyframes zoomIn {
-  /* line 2712, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2712, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: scale3d(0.3, 0.3, 0.3);
     transform: scale3d(0.3, 0.3, 0.3);
   }
 
-  /* line 2718, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2718, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   50% {
     opacity: 1;
   }
 }
 
-/* line 2723, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 2723, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .zoomIn {
   -webkit-animation-name: zoomIn;
   animation-name: zoomIn;
 }
 
 @-webkit-keyframes zoomInDown {
-  /* line 2729, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2729, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(0, -1000px, 0);
@@ -3609,7 +3614,7 @@
     animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
   }
 
-  /* line 2737, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2737, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   60% {
     opacity: 1;
     -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(0, 60px, 0);
@@ -3620,7 +3625,7 @@
 }
 
 @keyframes zoomInDown {
-  /* line 2747, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2747, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(0, -1000px, 0);
@@ -3629,7 +3634,7 @@
     animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
   }
 
-  /* line 2755, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2755, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   60% {
     opacity: 1;
     -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(0, 60px, 0);
@@ -3639,14 +3644,14 @@
   }
 }
 
-/* line 2764, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 2764, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .zoomInDown {
   -webkit-animation-name: zoomInDown;
   animation-name: zoomInDown;
 }
 
 @-webkit-keyframes zoomInLeft {
-  /* line 2770, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2770, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(-1000px, 0, 0);
@@ -3655,7 +3660,7 @@
     animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
   }
 
-  /* line 2778, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2778, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   60% {
     opacity: 1;
     -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(10px, 0, 0);
@@ -3666,7 +3671,7 @@
 }
 
 @keyframes zoomInLeft {
-  /* line 2788, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2788, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(-1000px, 0, 0);
@@ -3675,7 +3680,7 @@
     animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
   }
 
-  /* line 2796, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2796, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   60% {
     opacity: 1;
     -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(10px, 0, 0);
@@ -3685,14 +3690,14 @@
   }
 }
 
-/* line 2805, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 2805, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .zoomInLeft {
   -webkit-animation-name: zoomInLeft;
   animation-name: zoomInLeft;
 }
 
 @-webkit-keyframes zoomInRight {
-  /* line 2811, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2811, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(1000px, 0, 0);
@@ -3701,7 +3706,7 @@
     animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
   }
 
-  /* line 2819, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2819, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   60% {
     opacity: 1;
     -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(-10px, 0, 0);
@@ -3712,7 +3717,7 @@
 }
 
 @keyframes zoomInRight {
-  /* line 2829, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2829, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(1000px, 0, 0);
@@ -3721,7 +3726,7 @@
     animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
   }
 
-  /* line 2837, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2837, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   60% {
     opacity: 1;
     -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(-10px, 0, 0);
@@ -3731,14 +3736,14 @@
   }
 }
 
-/* line 2846, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 2846, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .zoomInRight {
   -webkit-animation-name: zoomInRight;
   animation-name: zoomInRight;
 }
 
 @-webkit-keyframes zoomInUp {
-  /* line 2852, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2852, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(0, 1000px, 0);
@@ -3747,7 +3752,7 @@
     animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
   }
 
-  /* line 2860, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2860, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   60% {
     opacity: 1;
     -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0);
@@ -3758,7 +3763,7 @@
 }
 
 @keyframes zoomInUp {
-  /* line 2870, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2870, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 0;
     -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(0, 1000px, 0);
@@ -3767,7 +3772,7 @@
     animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
   }
 
-  /* line 2878, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2878, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   60% {
     opacity: 1;
     -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0);
@@ -3777,58 +3782,58 @@
   }
 }
 
-/* line 2887, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 2887, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .zoomInUp {
   -webkit-animation-name: zoomInUp;
   animation-name: zoomInUp;
 }
 
 @-webkit-keyframes zoomOut {
-  /* line 2893, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2893, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 1;
   }
 
-  /* line 2897, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2897, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   50% {
     opacity: 0;
     -webkit-transform: scale3d(0.3, 0.3, 0.3);
     transform: scale3d(0.3, 0.3, 0.3);
   }
 
-  /* line 2903, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2903, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
   }
 }
 
 @keyframes zoomOut {
-  /* line 2909, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2909, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     opacity: 1;
   }
 
-  /* line 2913, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2913, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   50% {
     opacity: 0;
     -webkit-transform: scale3d(0.3, 0.3, 0.3);
     transform: scale3d(0.3, 0.3, 0.3);
   }
 
-  /* line 2919, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2919, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
   }
 }
 
-/* line 2924, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 2924, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .zoomOut {
   -webkit-animation-name: zoomOut;
   animation-name: zoomOut;
 }
 
 @-webkit-keyframes zoomOutDown {
-  /* line 2930, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2930, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   40% {
     opacity: 1;
     -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0);
@@ -3837,7 +3842,7 @@
     animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
   }
 
-  /* line 2938, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2938, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(0, 2000px, 0);
@@ -3850,7 +3855,7 @@
 }
 
 @keyframes zoomOutDown {
-  /* line 2950, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2950, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   40% {
     opacity: 1;
     -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0);
@@ -3859,7 +3864,7 @@
     animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
   }
 
-  /* line 2958, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2958, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(0, 2000px, 0);
@@ -3871,21 +3876,21 @@
   }
 }
 
-/* line 2969, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 2969, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .zoomOutDown {
   -webkit-animation-name: zoomOutDown;
   animation-name: zoomOutDown;
 }
 
 @-webkit-keyframes zoomOutLeft {
-  /* line 2975, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2975, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   40% {
     opacity: 1;
     -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(42px, 0, 0);
     transform: scale3d(0.475, 0.475, 0.475) translate3d(42px, 0, 0);
   }
 
-  /* line 2981, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2981, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: scale(0.1) translate3d(-2000px, 0, 0);
@@ -3896,14 +3901,14 @@
 }
 
 @keyframes zoomOutLeft {
-  /* line 2991, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2991, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   40% {
     opacity: 1;
     -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(42px, 0, 0);
     transform: scale3d(0.475, 0.475, 0.475) translate3d(42px, 0, 0);
   }
 
-  /* line 2997, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 2997, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: scale(0.1) translate3d(-2000px, 0, 0);
@@ -3913,21 +3918,21 @@
   }
 }
 
-/* line 3006, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 3006, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .zoomOutLeft {
   -webkit-animation-name: zoomOutLeft;
   animation-name: zoomOutLeft;
 }
 
 @-webkit-keyframes zoomOutRight {
-  /* line 3012, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3012, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   40% {
     opacity: 1;
     -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(-42px, 0, 0);
     transform: scale3d(0.475, 0.475, 0.475) translate3d(-42px, 0, 0);
   }
 
-  /* line 3018, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3018, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: scale(0.1) translate3d(2000px, 0, 0);
@@ -3938,14 +3943,14 @@
 }
 
 @keyframes zoomOutRight {
-  /* line 3028, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3028, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   40% {
     opacity: 1;
     -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(-42px, 0, 0);
     transform: scale3d(0.475, 0.475, 0.475) translate3d(-42px, 0, 0);
   }
 
-  /* line 3034, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3034, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: scale(0.1) translate3d(2000px, 0, 0);
@@ -3955,14 +3960,14 @@
   }
 }
 
-/* line 3043, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 3043, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .zoomOutRight {
   -webkit-animation-name: zoomOutRight;
   animation-name: zoomOutRight;
 }
 
 @-webkit-keyframes zoomOutUp {
-  /* line 3049, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3049, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   40% {
     opacity: 1;
     -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(0, 60px, 0);
@@ -3971,7 +3976,7 @@
     animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
   }
 
-  /* line 3057, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3057, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(0, -2000px, 0);
@@ -3984,7 +3989,7 @@
 }
 
 @keyframes zoomOutUp {
-  /* line 3069, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3069, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   40% {
     opacity: 1;
     -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(0, 60px, 0);
@@ -3993,7 +3998,7 @@
     animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
   }
 
-  /* line 3077, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3077, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     opacity: 0;
     -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(0, -2000px, 0);
@@ -4005,21 +4010,21 @@
   }
 }
 
-/* line 3088, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 3088, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .zoomOutUp {
   -webkit-animation-name: zoomOutUp;
   animation-name: zoomOutUp;
 }
 
 @-webkit-keyframes slideInDown {
-  /* line 3094, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3094, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: translate3d(0, -100%, 0);
     transform: translate3d(0, -100%, 0);
     visibility: visible;
   }
 
-  /* line 3100, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3100, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
@@ -4027,35 +4032,35 @@
 }
 
 @keyframes slideInDown {
-  /* line 3107, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3107, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: translate3d(0, -100%, 0);
     transform: translate3d(0, -100%, 0);
     visibility: visible;
   }
 
-  /* line 3113, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3113, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 }
 
-/* line 3119, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 3119, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .slideInDown {
   -webkit-animation-name: slideInDown;
   animation-name: slideInDown;
 }
 
 @-webkit-keyframes slideInLeft {
-  /* line 3125, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3125, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: translate3d(-100%, 0, 0);
     transform: translate3d(-100%, 0, 0);
     visibility: visible;
   }
 
-  /* line 3131, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3131, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
@@ -4063,35 +4068,35 @@
 }
 
 @keyframes slideInLeft {
-  /* line 3138, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3138, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: translate3d(-100%, 0, 0);
     transform: translate3d(-100%, 0, 0);
     visibility: visible;
   }
 
-  /* line 3144, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3144, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 }
 
-/* line 3150, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 3150, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .slideInLeft {
   -webkit-animation-name: slideInLeft;
   animation-name: slideInLeft;
 }
 
 @-webkit-keyframes slideInRight {
-  /* line 3156, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3156, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: translate3d(100%, 0, 0);
     transform: translate3d(100%, 0, 0);
     visibility: visible;
   }
 
-  /* line 3162, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3162, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
@@ -4099,35 +4104,35 @@
 }
 
 @keyframes slideInRight {
-  /* line 3169, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3169, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: translate3d(100%, 0, 0);
     transform: translate3d(100%, 0, 0);
     visibility: visible;
   }
 
-  /* line 3175, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3175, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 }
 
-/* line 3181, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 3181, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .slideInRight {
   -webkit-animation-name: slideInRight;
   animation-name: slideInRight;
 }
 
 @-webkit-keyframes slideInUp {
-  /* line 3187, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3187, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0);
     visibility: visible;
   }
 
-  /* line 3193, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3193, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
@@ -4135,34 +4140,34 @@
 }
 
 @keyframes slideInUp {
-  /* line 3200, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3200, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0);
     visibility: visible;
   }
 
-  /* line 3206, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3206, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 }
 
-/* line 3212, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 3212, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .slideInUp {
   -webkit-animation-name: slideInUp;
   animation-name: slideInUp;
 }
 
 @-webkit-keyframes slideOutDown {
-  /* line 3218, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3218, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 
-  /* line 3223, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3223, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     visibility: hidden;
     -webkit-transform: translate3d(0, 100%, 0);
@@ -4171,13 +4176,13 @@
 }
 
 @keyframes slideOutDown {
-  /* line 3231, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3231, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 
-  /* line 3236, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3236, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     visibility: hidden;
     -webkit-transform: translate3d(0, 100%, 0);
@@ -4185,20 +4190,20 @@
   }
 }
 
-/* line 3243, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 3243, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .slideOutDown {
   -webkit-animation-name: slideOutDown;
   animation-name: slideOutDown;
 }
 
 @-webkit-keyframes slideOutLeft {
-  /* line 3249, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3249, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 
-  /* line 3254, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3254, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     visibility: hidden;
     -webkit-transform: translate3d(-100%, 0, 0);
@@ -4207,13 +4212,13 @@
 }
 
 @keyframes slideOutLeft {
-  /* line 3262, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3262, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 
-  /* line 3267, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3267, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     visibility: hidden;
     -webkit-transform: translate3d(-100%, 0, 0);
@@ -4221,20 +4226,20 @@
   }
 }
 
-/* line 3274, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 3274, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .slideOutLeft {
   -webkit-animation-name: slideOutLeft;
   animation-name: slideOutLeft;
 }
 
 @-webkit-keyframes slideOutRight {
-  /* line 3280, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3280, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 
-  /* line 3285, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3285, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     visibility: hidden;
     -webkit-transform: translate3d(100%, 0, 0);
@@ -4243,13 +4248,13 @@
 }
 
 @keyframes slideOutRight {
-  /* line 3293, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3293, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 
-  /* line 3298, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3298, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     visibility: hidden;
     -webkit-transform: translate3d(100%, 0, 0);
@@ -4257,20 +4262,20 @@
   }
 }
 
-/* line 3305, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 3305, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .slideOutRight {
   -webkit-animation-name: slideOutRight;
   animation-name: slideOutRight;
 }
 
 @-webkit-keyframes slideOutUp {
-  /* line 3311, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3311, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 
-  /* line 3316, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3316, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     visibility: hidden;
     -webkit-transform: translate3d(0, -100%, 0);
@@ -4279,13 +4284,13 @@
 }
 
 @keyframes slideOutUp {
-  /* line 3324, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3324, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   from {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 
-  /* line 3329, ../../resources/assets/sass/backend/adverts/_animate.scss */
+  /* line 3329, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
   to {
     visibility: hidden;
     -webkit-transform: translate3d(0, -100%, 0);
@@ -4293,13 +4298,13 @@
   }
 }
 
-/* line 3336, ../../resources/assets/sass/backend/adverts/_animate.scss */
+/* line 3336, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_animate.scss */
 .slideOutUp {
   -webkit-animation-name: slideOutUp;
   animation-name: slideOutUp;
 }
 
-/* line 1, ../../resources/assets/sass/backend/adverts/_serveText.scss */
+/* line 1, C:/xampp/htdocs/University/AdaptiveAds/resources/assets/sass/backend/adverts/_serveText.scss */
 * {
   margin: 0;
   padding: 0;
@@ -4311,19 +4316,18 @@
 /* line 20, ../../resources/assets/sass/server.scss */
 body {
   font-family: 'Ubuntu', sans-serif;
-  font-size: 2.00em;
   background-image: url("../images/bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-/* line 28, ../../resources/assets/sass/server.scss */
+/* line 27, ../../resources/assets/sass/server.scss */
 body, #wrapper, #content {
   padding: 0;
   margin: 0;
 }
 
-/* line 29, ../../resources/assets/sass/server.scss */
+/* line 28, ../../resources/assets/sass/server.scss */
 .clear {
   clear: both;
 }
