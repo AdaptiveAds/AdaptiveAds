@@ -48,7 +48,7 @@ height:100%;
 		h1 {
 		display:/*$template-h1-display*/ none;
 		margin:0; padding:0;
-		background:orange;
+		background:/*orange*/transparent;
 		padding:0.5%;
 		color:#ffffff;//h1
 		font-size:110%;
@@ -89,7 +89,7 @@ height:100%;
 	float:$template-text-float;
 	width:$template-text-width;
 
-		p {text-align:	$template-text-p-align; margin:0;}
+		p {text-align:	$template-text-p-align; margin:0; width:94%;}
 	}
 }
 

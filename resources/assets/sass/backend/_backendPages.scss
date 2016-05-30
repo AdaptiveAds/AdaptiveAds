@@ -43,9 +43,7 @@ section {text-align:center; clear:both;
 
 #identity {
 	.pagecontainer {position:relative;height:100%;
-		 #serve_container {position:relative;	height:100%; background:url("../images/sampleBG.png") no-repeat center center;
-	   background-size:cover;
-		 }
+	 	#serve_container {position:relative;	height:100%; background-size:cover;}
 		#footer {position:absolute; bottom:0; display:none;}
 	}
 }
@@ -78,7 +76,7 @@ section {text-align:center; clear:both;
 					}//li
 			}//ul.theme_select
 		}//pagecontainer
-		.pagecontainer:last-child {float:left; width:23%;  background:orange; margin-left:10px; @extend .rightBorder; border-top:1px solid transparent; border-right:1px solid transparent; border-bottom:1px solid transparent;
+		.pagecontainer:last-child {float:left; width:23%;  background:transparent; margin-left:10px; @extend .rightBorder; border-top:1px solid transparent; border-right:1px solid transparent; border-bottom:1px solid transparent;
 		}//last-child
 	}//portrait
 

@@ -2,7 +2,8 @@
 
 // --advertTemplates
 @import 'backend/adverts/_advertTemplateLayouts.scss',
-        'backend/adverts/_animate.scss';
+        'backend/adverts/_animate.scss',
+        'backend/adverts/_serveText.scss';
 
 @mixin maintain-ratio($ratio: 1 1) {
   @if length($ratio) < 2 or length($ratio) > 2 {

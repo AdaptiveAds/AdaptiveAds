@@ -16,7 +16,7 @@
   display: none;
   margin: 0;
   padding: 0;
-  background: orange;
+  background: transparent;
   padding: 0.5%;
   color: #ffffff;
   font-size: 110%;
@@ -59,6 +59,7 @@
 #serve_container.template1 .row #serve_text p {
   text-align: justify;
   margin: 0;
+  width: 94%;
 }
 
 /* line 97, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
@@ -103,7 +104,7 @@
   display: none;
   margin: 0;
   padding: 0;
-  background: orange;
+  background: transparent;
   padding: 0.5%;
   color: #ffffff;
   font-size: 110%;
@@ -146,6 +147,7 @@
 #serve_container.template2 .row #serve_text p {
   text-align: justify;
   margin: 0;
+  width: 94%;
 }
 
 /* line 97, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
@@ -190,7 +192,7 @@
   display: none;
   margin: 0;
   padding: 0;
-  background: orange;
+  background: transparent;
   padding: 0.5%;
   color: #ffffff;
   font-size: 110%;
@@ -233,6 +235,7 @@
 #serve_container.template3 .row #serve_text p {
   text-align: justify;
   margin: 0;
+  width: 94%;
 }
 
 /* line 97, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
@@ -277,7 +280,7 @@
   display: none;
   margin: 0;
   padding: 0;
-  background: orange;
+  background: transparent;
   padding: 0.5%;
   color: #ffffff;
   font-size: 110%;
@@ -320,6 +323,7 @@
 #serve_container.template4 .row #serve_text p {
   text-align: justify;
   margin: 0;
+  width: 94%;
 }
 
 /* line 97, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
@@ -364,7 +368,7 @@
   display: none;
   margin: 0;
   padding: 0;
-  background: orange;
+  background: transparent;
   padding: 0.5%;
   color: #ffffff;
   font-size: 110%;
@@ -407,6 +411,7 @@
 #serve_container.template5 .row #serve_text p {
   text-align: justify;
   margin: 0;
+  width: 94%;
 }
 
 /* line 97, ../../resources/assets/sass/backend/adverts/_advertTemplateLayouts.scss */
@@ -4294,7 +4299,17 @@
   animation-name: slideOutUp;
 }
 
-/* line 19, ../../resources/assets/sass/server.scss */
+/* line 1, ../../resources/assets/sass/backend/adverts/_serveText.scss */
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  list-style: none;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 2em;
+}
+
+/* line 20, ../../resources/assets/sass/server.scss */
 body {
   font-family: 'Ubuntu', sans-serif;
   font-size: 2em;
@@ -4303,13 +4318,13 @@ body {
   background-size: cover;
 }
 
-/* line 27, ../../resources/assets/sass/server.scss */
+/* line 28, ../../resources/assets/sass/server.scss */
 body, #wrapper, #content {
   padding: 0;
   margin: 0;
 }
 
-/* line 28, ../../resources/assets/sass/server.scss */
+/* line 29, ../../resources/assets/sass/server.scss */
 .clear {
   clear: both;
 }
