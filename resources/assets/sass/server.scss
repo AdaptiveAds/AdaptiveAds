@@ -1,9 +1,10 @@
 @charset 'UTF-8';
+
 // --advertTemplates
-@import 'backend/adverts/_animate.scss',
+@import 'backend/adverts/_advertTemplateLayouts.scss',
+        'backend/adverts/_animate.scss',
         'backend/adverts/_serveText.scss';
 
-// Aspect-ratio Mixin
 @mixin maintain-ratio($ratio: 1 1) {
   @if length($ratio) < 2 or length($ratio) > 2 {
     @warn "$ratio must be a list with two values.";
@@ -25,23 +26,3 @@ body {
 
 body, #wrapper, #content {padding:0;margin:0;}
 .clear {clear:both;}
-
-//Author: KW
-// all content in this document carried out by ABOVE author
-
-@mixin aspect-ratio($width, $height) {
-  position: relative;
-  &:before {
-    display: block;
-    content: "";
-    width: 100%;
-    padding-top: ($height / ($width - 10%)) * 100%;
-  }
-  > .content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-}
