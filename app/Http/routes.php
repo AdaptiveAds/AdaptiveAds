@@ -11,12 +11,13 @@
 |
 */
 
-// Landing page 
+// Landing page
 Route::get('/', 'Frontend@index');
 
 // Team and contact routes
 Route::get('contact', 'ContactController@index');
 Route::get('team', 'TeamController@index');
+Route::get('faq', 'FAQController@index');
 
 // Authentication routes...
 Route::get('login', 'Auth\AuthController@getLogin');
