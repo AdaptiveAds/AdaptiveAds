@@ -7,7 +7,7 @@
 	<link rel="stylesheet" 	href="{{ URL::asset('fonts/font-awesome-4.5.0/css/font-awesome.min.css') }}">
 
 <!-- preferred plan would be to compile the css from scss prior to uploading using propos -->
-	<link rel="stylesheet" 	href="{{ URL::asset('css/default.css') }}" type="text/css">
+	<link rel="stylesheet" 	href="{{ URL::asset('css/backend.css') }}" type="text/css">
 
 	<script src="{{ URL::asset('js/jquery-2.1.4.js') }}"></script>
 	<script src="{{ URL::asset('js/colorpicker.js') }}"></script>

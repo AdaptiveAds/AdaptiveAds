@@ -1,39 +1,51 @@
 //Author: KW
 // all content in this document carried out by ABOVE author
 body {
+  %primary-nav-color {color:#ffffff;}
   &.data-swatch-theme-a {
   .three {background:#d8f4fd;}
-  #wrapper #content {
+  #wrapper {
+  .primary-nav li a {@extend %primary-nav-color;}
+
+    #content{
     h5 {color:#407b8d;}
     .global {
       .row {
         &:last-child{
-        ul {
-          li{
-            &:nth-child(odd) {background:#C0D9D9;}//li:nth
-  					&:nth-child(even) {background:#D1EEEE;}//li:nth
-  					&:hover {background:#79CDCD;}
-            &.advertItem {
-              label{}
+          ul {
+            li{
+              &:nth-child(odd) {background:#C0D9D9;}//li:nth
+    					&:nth-child(even) {background:#D1EEEE;}//li:nth
+    					&:hover {background:#79CDCD;}
+              &.advertItem {
+                label{}
+              }
             }
           }
         }
-        }
       }//row
     }//global
+    }
   }
-}
+  }
 //KW 28.05 Assigning colour blind theme font-color
   &.data-swatch-theme-b {
     .three {background:rgba(255,255,255,0.4);}
-    #wrapper #content {
+    #wrapper {
+    .primary-nav li a {@extend %primary-nav-color;}
+
+      #content {
       //violet
       h5 {color:#407b8d;}
     }
   }
+}
   &.data-swatch-theme-c {
     .three {background:#070e10;}
-    #wrapper #content {
+    #wrapper {
+    .primary-nav li a {@extend %primary-nav-color;}
+
+      #content {
       #identity {color:#000000;}
       h5 {color:#79CDCD;}
       options {
@@ -52,4 +64,5 @@ body {
 
     }
   }
+}
 }

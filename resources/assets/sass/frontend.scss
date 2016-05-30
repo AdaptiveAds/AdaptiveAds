@@ -1,8 +1,13 @@
-@import 'backend/website/defaultStructure/_defaultTheme.scss',
-        'backend/website/defaultTheme/_themeMenu.scss',
-        'backend/website/defaultTheme/_config.scss',
-        'backend/website/defaultTheme/_swatchA.scss';
+@charset 'UTF-8';
 
+// Site Wide
+@import 'sitewide/_config.scss',
+        'sitewide/_themes.scss',
+        'sitewide/_themeMenu.scss',
+        'sitewide/_swatchEdits.scss',
+        'sitewide/_objects.scss';
+
+// Frontend Specific
 @import 'frontend/_variables.scss',
         'frontend/_mixin.scss',
         'frontend/_frontendDefault.scss',

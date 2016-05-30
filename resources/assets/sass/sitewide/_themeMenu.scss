@@ -51,14 +51,16 @@
 		z-index: 998;
 		clear: both;
 	}
-	.primary-nav li {
+ 	body .primary-nav li {
     float:left;
     text-align:center;
 		display: none;
 		width: 25%;
 		font-family: Arial;
-    background: #1f6378;
-    color:#ffffff;
+    background: #1d1f20;
+		color:#ffffff;
+
+		&:hover {background:#1d1f20; color:#ffffff;}
 	}
 	.primary-nav li a {
 		display: block;
@@ -66,8 +68,8 @@
 		padding: 10px 5%;
 		font-size: 14px;
 		font-weight: bold;
-		color: #ffffff;
 		text-decoration: none;
+		color:#ffffff;
 	}
 	.primary-nav li a:hover {
 		background-color: rgba(0,0,0,.5);
