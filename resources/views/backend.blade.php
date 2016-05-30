@@ -14,7 +14,7 @@
 	<script src="{{ URL::asset('js/inputdelete.js') }}"></script>
 	<script src="{{ URL::asset('js/mobilemenu.js') }}"></script>
 
-@include('pages\headJavascript')
+@include('pages/headJavascript')
 	<script src="{{ URL::asset('js/helpers.js') }}"></script>
 	<script src="{{ URL::asset('js/modules.js') }}"></script>
 	<script src="{{ URL::asset('js/pages.js') }}"></script>
