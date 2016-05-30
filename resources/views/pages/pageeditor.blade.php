@@ -22,14 +22,14 @@
 		@if (isset($advertBackground))
 			@if (strlen($advertBackground->image_path) > 0)
 				<style>
-					#identity {
+					#serve_container {
 						background: url('../../../../advert_backgrounds/{{$advertBackground->image_path}}');
 						background-size: cover;
 					}
 				</style>
 			@elseif (strlen($advertBackground->hex_colour) > 0)
 				<style>
-					#identity {
+					#serve_container {
 						background: #{{$advertBackground->hex_colour}};
 					}
 				</style>
