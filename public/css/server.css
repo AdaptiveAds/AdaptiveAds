@@ -68,7 +68,7 @@
   height: 10%;
   background: #000000;
   display: block;
-  font-size: 60%;
+  font-size: 0.84em;
   position: fixed;
   bottom: 0;
 }
@@ -156,7 +156,7 @@
   height: 10%;
   background: #000000;
   display: block;
-  font-size: 60%;
+  font-size: 0.84em;
   position: fixed;
   bottom: 0;
 }
@@ -244,7 +244,7 @@
   height: 10%;
   background: #000000;
   display: block;
-  font-size: 60%;
+  font-size: 0.84em;
   position: fixed;
   bottom: 0;
 }
@@ -332,7 +332,7 @@
   height: 10%;
   background: #000000;
   display: block;
-  font-size: 60%;
+  font-size: 0.84em;
   position: fixed;
   bottom: 0;
 }
@@ -420,7 +420,7 @@
   height: 10%;
   background: #000000;
   display: block;
-  font-size: 60%;
+  font-size: 0.84em;
   position: fixed;
   bottom: 0;
 }
@@ -4306,13 +4306,12 @@
   border: none;
   list-style: none;
   font-family: 'Ubuntu', sans-serif;
-  font-size: 1.5em;
 }
 
 /* line 20, ../../resources/assets/sass/server.scss */
 body {
   font-family: 'Ubuntu', sans-serif;
-  font-size: 2em;
+  font-size: 1.05em;
   background-image: url("../images/bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
