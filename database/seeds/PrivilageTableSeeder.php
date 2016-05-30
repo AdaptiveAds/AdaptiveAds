@@ -16,15 +16,5 @@ class PrivilageTableSeeder extends Seeder
       //Empty table
       $table->delete();
 
-      //Populate table
-      $table->insert([
-        'name' => 'Admin',
-        'level' => 0
-      ]);
-
-      $table->insert([
-        'name' => 'User',
-        'level' => 1
-      ]);
     }
 }

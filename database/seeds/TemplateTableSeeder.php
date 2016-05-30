@@ -51,12 +51,5 @@ class TemplateTableSeeder extends Seeder
         'duration' => 2,
         'thumbnail_path' => '/thumbnails/template5.png'
       ]);
-
-      $table->insert([
-        'name' => 'template6',
-        'class_name' => 'template6',
-        'duration' => 4,
-        'thumbnail_path' => '/thumbnails/template6.png'
-      ]);
     }
 }

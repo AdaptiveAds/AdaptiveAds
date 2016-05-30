@@ -19,12 +19,7 @@ class ScreenTableSeeder extends Seeder
       //Populate table
       $table->insert([
         'location_id' => 1,
-        'playlist_id' => 2
-      ]);
-
-      $table->insert([
-        'location_id' => 2,
-        'playlist_id' => 3
+        'playlist_id' => 1 // Global
       ]);
     }
 }

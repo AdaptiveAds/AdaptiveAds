@@ -19,14 +19,5 @@ class DepartmentTableSeeder extends Seeder
       $table->insert([
         'name' => 'Global_Marketing'
       ]);
-
-      //Populate table
-      $table->insert([
-        'name' => 'Library Services'
-      ]);
-
-      $table->insert([
-        'name' => 'DegreePlus'
-      ]);
     }
 }

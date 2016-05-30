@@ -22,24 +22,5 @@ class AdvertPlaylistTableSeeder extends Seeder
         'advert_id' => 1,
         'advert_index' => 0
       ]);
-
-      $table->insert([
-        'playlist_id' => 2, // Library
-        'advert_id' => 2,
-        'advert_index' => 0
-      ]);
-
-      $table->insert([
-        'playlist_id' => 2, // Library
-        'advert_id' => 4,
-        'advert_index' => 0
-      ]);
-
-      $table->insert([
-        'playlist_id' => 3, // DegreePlus
-        'advert_id' => 3,
-        'advert_index' => 0
-      ]);
-
     }
 }

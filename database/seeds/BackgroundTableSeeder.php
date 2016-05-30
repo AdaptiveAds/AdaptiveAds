@@ -22,11 +22,5 @@ class BackgroundTableSeeder extends Seeder
         'image_path' => '',
         'hex_colour' => '0db596'
       ]);
-
-      $table->insert([
-        'name' => 'Library background',
-        'image_path' => '',
-        'hex_colour' => '5fd452'
-      ]);
     }
 }
