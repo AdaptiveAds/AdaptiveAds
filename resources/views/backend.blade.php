@@ -25,6 +25,7 @@
 <body class="data-swatch-theme-a font-theme-b">
 <div id="wrapper">
 @include('pages/header')
+<div class="spacing"></div>
 
 
 	<div id="content">
@@ -36,7 +37,7 @@
 	<footer>
 		<!-- if logged in -->
 		@if (Auth::guest() == false)
-			&copy; <?php echo date('Y'); ?>. <a href="http://www.glos.ac.uk/" target="_window">University of Gloucestershire</a>. All Rights Reserved.
+			&copy; <?php echo date('Y'); ?>. <a href="http://www.glos.ac.uk/" target="_window">The Park Library</a>. All Rights Reserved.
 		@else
 		<!-- if logged out -->
 			&copy; <?php echo date('Y'); ?>. <a href="http://www.adaptiveads.uk">AdaptiveAds</a>. All Rights Reserved.

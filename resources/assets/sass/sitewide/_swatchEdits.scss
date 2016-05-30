@@ -1,6 +1,7 @@
 //Author: KW
 // all content in this document carried out by ABOVE author
-body {
+html {
+  body {
   %primary-nav-color {color:#ffffff;}
   &.data-swatch-theme-a {
   .three {background:#d8f4fd;}
@@ -46,23 +47,29 @@ body {
     .primary-nav li a {@extend %primary-nav-color;}
 
       #content {
-      #identity {color:#000000;}
-      h5 {color:#79CDCD;}
-      options {
-        .dashboard {
+        .global {
           .row{
-            .options {
-              li {
-                a {color:#000000;
-                  span {}
+            &:first-child{background:#519ab1}
+          }
+        }
+        #identity {color:#000000;}
+        h3 {color:#000000;}
+        h5 {color:#ffffff;}
+        options {
+          .dashboard {
+            .row{
+              .options {
+                li {
+                  a {color:#000000;
+                    span {}
+                  }
                 }
               }
             }
           }
         }
       }
-
-    }
+    }//wrapper
   }
 }
 }

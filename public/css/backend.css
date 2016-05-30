@@ -29,7 +29,12 @@
   text-align: center;
 }
 
-/* line 24, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 12, ../../resources/assets/sass/sitewide/_themes.scss */
+.spacing {
+  padding: 20px;
+}
+
+/* line 25, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #top #swatches ul li:hover, body.data-swatch-theme-a #wrapper #top #mainmenu-btn a:hover, body.data-swatch-theme-a #wrapper #top #fontsizing ul li:hover, body.data-swatch-theme-b #wrapper #top #swatches ul li:hover, body.data-swatch-theme-b #wrapper #top #mainmenu-btn a:hover, body.data-swatch-theme-b #wrapper #top #fontsizing ul li:hover, body.data-swatch-theme-c #wrapper #top #swatches ul li:hover, body.data-swatch-theme-c #wrapper #top #mainmenu-btn a:hover, body.data-swatch-theme-c #wrapper #top #fontsizing ul li:hover, .dashboard .row .options ul li a:hover {
   -webkit-stroke-width: 5.3px;
   -webkit-stroke-color: #FFFFFF;
@@ -37,70 +42,70 @@ body.data-swatch-theme-a #wrapper #top #swatches ul li:hover, body.data-swatch-t
   text-shadow: 1px 0px 20px yellow;
 }
 
-/* line 31, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 32, ../../resources/assets/sass/sitewide/_themes.scss */
 body.font-theme-a {
   font-size: 80%;
 }
 
-/* line 32, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 33, ../../resources/assets/sass/sitewide/_themes.scss */
 body.font-theme-b {
   font-size: 100%;
 }
 
-/* line 33, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 34, ../../resources/assets/sass/sitewide/_themes.scss */
 body.font-theme-c {
   font-size: 140%;
 }
 
-/* line 35, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 36, ../../resources/assets/sass/sitewide/_themes.scss */
 html, body {
   height: 100%;
   width: 100%;
 }
 
-/* line 41, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 42, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a {
   color: black;
   background: white;
   margin: 0;
   /* Generic */
 }
-/* line 42, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 43, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a.data-swatch-theme-b.font-theme-a div#wrapper div#content form#clientlogin ul li a:hover {
   color: #ffffff;
 }
-/* line 44, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 45, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a.data-swatch-theme-a #wrapper #top #swatches ul li.top-active i, body.data-swatch-theme-a.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active i {
   color: black;
 }
-/* line 50, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 51, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a input, body.data-swatch-theme-a textarea, body.data-swatch-theme-a button, body.data-swatch-theme-a select {
   font-size: 100%;
   color: #000000;
 }
-/* line 53, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 54, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a i, body.data-swatch-theme-a .fa {
   font-family: FontAwesome;
 }
-/* line 55, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 56, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a ::-webkit-input-placeholder {
   color: #b3a69d;
 }
-/* line 56, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 57, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a :-moz-placeholder {
   color: #b3a69d;
   opacity: 0.6;
 }
-/* line 57, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 58, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a ::-moz-placeholder {
   color: #b3a69d;
   opacity: 0.6;
 }
-/* line 58, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 59, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a :-ms-input-placeholder {
   color: #b3a69d;
 }
-/* line 62, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 63, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper {
   height: 100%;
   width: 100%;
@@ -110,37 +115,37 @@ body.data-swatch-theme-a #wrapper {
   background-size: cover;
   position: relative;
 }
-/* line 71, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 72, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper label {
   color: black;
 }
-/* line 74, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 75, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper input {
   color: #204ea0;
 }
-/* line 78, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 79, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #clientlogin ul:last-child li a {
   display: block;
   color: black;
 }
-/* line 81, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 82, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #clientlogin ul:last-child li a:hover {
   color: #2e92b1;
 }
-/* line 84, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 85, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper button {
   box-shadow: none;
   border: 1px solid black;
   cursor: pointer;
   color: black;
 }
-/* line 90, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 91, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper button:hover {
   background: black;
   color: white;
   border: 1px solid white;
 }
-/* line 97, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 98, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper a, body.data-swatch-theme-a #wrapper img, body.data-swatch-theme-a #wrapper button, body.data-swatch-theme-a #wrapper button:hover, body.data-swatch-theme-a #wrapper div {
   /*
 -o-transition:.5s;
@@ -150,25 +155,25 @@ body.data-swatch-theme-a #wrapper a, body.data-swatch-theme-a #wrapper img, body
 transition:.5s;
 */
 }
-/* line 107, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 108, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper a {
   text-decoration: none;
   color: black;
   cursor: pointer;
 }
-/* line 111, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 112, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper a img {
   opacity: 0.8;
   filter: alpha(opacity=80);
   /* For IE8 and earlier */
 }
-/* line 113, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 114, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper a img:hover {
   opacity: 1.0;
   filter: alpha(opacity=100);
   /* For IE8 and earlier */
 }
-/* line 117, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 118, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #top {
   margin: 0;
   padding: 0;
@@ -178,60 +183,60 @@ body.data-swatch-theme-a #wrapper #top {
   width: 100%;
   background: #1d1f20;
 }
-/* line 120, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 121, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #top ul, body.data-swatch-theme-a #wrapper #top li, body.data-swatch-theme-a #wrapper #top i, body.data-swatch-theme-a #wrapper #top a, body.data-swatch-theme-a #wrapper #top button {
   margin: 0;
   padding: 0;
 }
-/* line 127, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 128, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #top #swatches ul li, body.data-swatch-theme-a #wrapper #top #fontsizing ul li, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li, body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li, body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li, body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li, body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li {
   display: block;
   cursor: pointer;
   min-height: 40px;
 }
-/* line 128, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 129, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #top #swatches ul li i, body.data-swatch-theme-a #wrapper #top #fontsizing ul li i, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li i, body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li i, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li i, body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li i, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li i, body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li i, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li i, body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li i {
   padding: 8px;
   color: #ffffff;
 }
-/* line 129, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 130, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active {
   background: white;
 }
-/* line 131, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 132, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-a"] {
   font-size: 16px;
 }
-/* line 132, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 133, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-b"], body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-b"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-b"], body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-b"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-b"], body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-b"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-b"], body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-b"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-b"], body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-b"] {
   font-size: 20px;
 }
-/* line 133, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 134, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-c"], body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-c"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-c"], body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-c"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-c"], body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-c"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-c"], body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-c"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-c"], body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-c"] {
   font-size: 24px;
 }
-/* line 137, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 138, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #top #swatches {
   float: left;
   width: 30%;
   font-size: 24px;
 }
-/* line 143, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 144, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #top #swatches ul li {
   float: left;
   color: #ffffff;
 }
-/* line 158, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 159, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #top #mainmenu-btn {
   margin: 0 auto;
   display: table;
   padding-top: 5px;
 }
-/* line 160, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 161, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #top #mainmenu-btn button {
   border: none;
 }
-/* line 162, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 163, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #top #mainmenu-btn button:hover {
   border: 1px solid transparent;
   background: url("../images/menu-icon-large.png"), -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
@@ -243,94 +248,93 @@ body.data-swatch-theme-a #wrapper #top #mainmenu-btn button:hover {
   background-size: 21px, 100%;
   background-color: rgba(0, 0, 0, 0.5);
 }
-/* line 174, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 175, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #top #mainmenu-btn a {
   float: right;
   padding: 0 10px;
 }
-/* line 177, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 178, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #top #mainmenu-btn a i {
   color: #ffffff;
   font-size: 28px;
   border: 1px solid transparent;
 }
-/* line 180, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 181, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #top #mainmenu-btn a:hover {
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.5);
 }
-/* line 188, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 189, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #top #fontsizing {
   float: right;
   width: 30%;
 }
-/* line 194, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 195, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #top #fontsizing ul li {
   line-height: 100%;
   float: right;
   color: #ffffff;
   overflow: hidden;
 }
-/* line 207, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 208, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper header#header {
   width: 100%;
   min-height: 45px;
   display: inline-block;
   position: absolute;
 }
-/* line 214, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 215, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #content {
   width: 90%;
-  margin: 4% auto;
+  margin: 0 auto;
   clear: both;
   display: block;
 }
-/* line 223, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 224, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #content a #largeArea {
   width: 100%;
   height: 500px;
   margin: 0 auto;
   display: block;
 }
-/* line 233, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 234, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper .settings {
   width: 100%;
   margin: 0 auto;
   background: transparent;
 }
-/* line 238, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 239, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper .settings h4 {
   font-size: 110%;
 }
-/* line 246, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 247, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper .settings .row {
   width: 100%;
 }
-/* line 249, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 250, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper .settings .row form {
   margin-bottom: 5px;
   color: black;
 }
-/* line 259, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 260, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper .settings .row form :first-child ul li {
   border: none;
 }
-/* line 265, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 266, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper .settings .row form ul {
   padding: 0;
   margin: 0;
 }
-/* line 269, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 270, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper .settings .row form ul li {
   border: 1px solid #000000;
   list-style: outside none none;
   margin-bottom: 5px;
 }
-/* line 281, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 282, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a footer {
   width: 100%;
-  position: fixed;
-  bottom: 0;
+  clear: both;
   margin: 0 auto;
   text-align: center;
   clear: both;
@@ -357,7 +361,7 @@ body.data-swatch-theme-a form h3 {
   padding-bottom: 8px;
 }
 
-/* line 24, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 25, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #top #swatches ul li:hover, body.data-swatch-theme-a #wrapper #top #mainmenu-btn a:hover, body.data-swatch-theme-a #wrapper #top #fontsizing ul li:hover, body.data-swatch-theme-b #wrapper #top #swatches ul li:hover, body.data-swatch-theme-b #wrapper #top #mainmenu-btn a:hover, body.data-swatch-theme-b #wrapper #top #fontsizing ul li:hover, body.data-swatch-theme-c #wrapper #top #swatches ul li:hover, body.data-swatch-theme-c #wrapper #top #mainmenu-btn a:hover, body.data-swatch-theme-c #wrapper #top #fontsizing ul li:hover, .dashboard .row .options ul li a:hover {
   -webkit-stroke-width: 5.3px;
   -webkit-stroke-color: #FFFFFF;
@@ -365,70 +369,70 @@ body.data-swatch-theme-a #wrapper #top #swatches ul li:hover, body.data-swatch-t
   text-shadow: 1px 0px 20px yellow;
 }
 
-/* line 31, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 32, ../../resources/assets/sass/sitewide/_themes.scss */
 body.font-theme-a {
   font-size: 80%;
 }
 
-/* line 32, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 33, ../../resources/assets/sass/sitewide/_themes.scss */
 body.font-theme-b {
   font-size: 100%;
 }
 
-/* line 33, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 34, ../../resources/assets/sass/sitewide/_themes.scss */
 body.font-theme-c {
   font-size: 140%;
 }
 
-/* line 35, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 36, ../../resources/assets/sass/sitewide/_themes.scss */
 html, body {
   height: 100%;
   width: 100%;
 }
 
-/* line 41, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 42, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b {
   color: black;
   background: #fcfc4b;
   margin: 0;
   /* Generic */
 }
-/* line 42, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 43, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b.data-swatch-theme-b.font-theme-a div#wrapper div#content form#clientlogin ul li a:hover {
   color: #ffffff;
 }
-/* line 44, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 45, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b.data-swatch-theme-a #wrapper #top #swatches ul li.top-active i, body.data-swatch-theme-b.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active i {
   color: black;
 }
-/* line 50, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 51, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b input, body.data-swatch-theme-b textarea, body.data-swatch-theme-b button, body.data-swatch-theme-b select {
   font-size: 100%;
   color: #000000;
 }
-/* line 53, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 54, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b i, body.data-swatch-theme-b .fa {
   font-family: FontAwesome;
 }
-/* line 55, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 56, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b ::-webkit-input-placeholder {
   color: #b3a69d;
 }
-/* line 56, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 57, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b :-moz-placeholder {
   color: #b3a69d;
   opacity: 0.6;
 }
-/* line 57, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 58, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b ::-moz-placeholder {
   color: #b3a69d;
   opacity: 0.6;
 }
-/* line 58, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 59, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b :-ms-input-placeholder {
   color: #b3a69d;
 }
-/* line 62, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 63, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper {
   height: 100%;
   width: 100%;
@@ -438,37 +442,37 @@ body.data-swatch-theme-b #wrapper {
   background-size: cover;
   position: relative;
 }
-/* line 71, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 72, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper label {
   color: black;
 }
-/* line 74, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 75, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper input {
   color: #204ea0;
 }
-/* line 78, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 79, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper #clientlogin ul:last-child li a {
   display: block;
   color: black;
 }
-/* line 81, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 82, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper #clientlogin ul:last-child li a:hover {
   color: #2e92b1;
 }
-/* line 84, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 85, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper button {
   box-shadow: none;
   border: 1px solid #3d6ab3;
   cursor: pointer;
   color: #3d6ab3;
 }
-/* line 90, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 91, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper button:hover {
   background: #1f6378;
   color: #ffe800;
   border: 1px solid #fcfc4b;
 }
-/* line 97, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 98, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper a, body.data-swatch-theme-b #wrapper img, body.data-swatch-theme-b #wrapper button, body.data-swatch-theme-b #wrapper button:hover, body.data-swatch-theme-b #wrapper div {
   /*
 -o-transition:.5s;
@@ -478,25 +482,25 @@ body.data-swatch-theme-b #wrapper a, body.data-swatch-theme-b #wrapper img, body
 transition:.5s;
 */
 }
-/* line 107, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 108, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper a {
   text-decoration: none;
   color: #3d6ab3;
   cursor: pointer;
 }
-/* line 111, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 112, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper a img {
   opacity: 0.8;
   filter: alpha(opacity=80);
   /* For IE8 and earlier */
 }
-/* line 113, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 114, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper a img:hover {
   opacity: 1.0;
   filter: alpha(opacity=100);
   /* For IE8 and earlier */
 }
-/* line 117, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 118, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper #top {
   margin: 0;
   padding: 0;
@@ -506,60 +510,60 @@ body.data-swatch-theme-b #wrapper #top {
   width: 100%;
   background: #1d1f20;
 }
-/* line 120, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 121, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper #top ul, body.data-swatch-theme-b #wrapper #top li, body.data-swatch-theme-b #wrapper #top i, body.data-swatch-theme-b #wrapper #top a, body.data-swatch-theme-b #wrapper #top button {
   margin: 0;
   padding: 0;
 }
-/* line 127, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 128, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li, body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li, body.data-swatch-theme-b #wrapper #top #swatches ul li, body.data-swatch-theme-b #wrapper #top #fontsizing ul li, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li {
   display: block;
   cursor: pointer;
   min-height: 40px;
 }
-/* line 128, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 129, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li i, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li i, body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li i, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li i, body.data-swatch-theme-b #wrapper #top #swatches ul li i, body.data-swatch-theme-b #wrapper #top #fontsizing ul li i, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li i, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li i, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li i, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li i {
   padding: 8px;
   color: #ffffff;
 }
-/* line 129, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 130, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-b #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-b #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li.top-active {
   background: #fcfc4b;
 }
-/* line 131, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 132, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-a"] {
   font-size: 16px;
 }
-/* line 132, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 133, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-b"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-b"], body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-b"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-b"], body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-b"], body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-b"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-b"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-b"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-b"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-b"] {
   font-size: 20px;
 }
-/* line 133, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 134, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-c"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-c"], body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-c"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-c"], body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-c"], body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-c"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-c"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-c"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-c"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-c"] {
   font-size: 24px;
 }
-/* line 137, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 138, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper #top #swatches {
   float: left;
   width: 30%;
   font-size: 24px;
 }
-/* line 143, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 144, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper #top #swatches ul li {
   float: left;
   color: #ffffff;
 }
-/* line 158, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 159, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper #top #mainmenu-btn {
   margin: 0 auto;
   display: table;
   padding-top: 5px;
 }
-/* line 160, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 161, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper #top #mainmenu-btn button {
   border: none;
 }
-/* line 162, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 163, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper #top #mainmenu-btn button:hover {
   border: 1px solid transparent;
   background: url("../images/menu-icon-large.png"), -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
@@ -571,94 +575,93 @@ body.data-swatch-theme-b #wrapper #top #mainmenu-btn button:hover {
   background-size: 21px, 100%;
   background-color: rgba(0, 0, 0, 0.5);
 }
-/* line 174, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 175, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper #top #mainmenu-btn a {
   float: right;
   padding: 0 10px;
 }
-/* line 177, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 178, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper #top #mainmenu-btn a i {
   color: #ffffff;
   font-size: 28px;
   border: 1px solid transparent;
 }
-/* line 180, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 181, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper #top #mainmenu-btn a:hover {
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.5);
 }
-/* line 188, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 189, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper #top #fontsizing {
   float: right;
   width: 30%;
 }
-/* line 194, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 195, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper #top #fontsizing ul li {
   line-height: 100%;
   float: right;
   color: #ffffff;
   overflow: hidden;
 }
-/* line 207, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 208, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper header#header {
   width: 100%;
   min-height: 45px;
   display: inline-block;
   position: absolute;
 }
-/* line 214, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 215, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper #content {
   width: 90%;
-  margin: 4% auto;
+  margin: 0 auto;
   clear: both;
   display: block;
 }
-/* line 223, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 224, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper #content a #largeArea {
   width: 100%;
   height: 500px;
   margin: 0 auto;
   display: block;
 }
-/* line 233, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 234, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper .settings {
   width: 100%;
   margin: 0 auto;
   background: transparent;
 }
-/* line 238, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 239, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper .settings h4 {
   font-size: 110%;
 }
-/* line 246, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 247, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper .settings .row {
   width: 100%;
 }
-/* line 249, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 250, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper .settings .row form {
   margin-bottom: 5px;
   color: black;
 }
-/* line 259, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 260, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper .settings .row form :first-child ul li {
   border: none;
 }
-/* line 265, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 266, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper .settings .row form ul {
   padding: 0;
   margin: 0;
 }
-/* line 269, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 270, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper .settings .row form ul li {
   border: 1px solid #000000;
   list-style: outside none none;
   margin-bottom: 5px;
 }
-/* line 281, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 282, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b footer {
   width: 100%;
-  position: fixed;
-  bottom: 0;
+  clear: both;
   margin: 0 auto;
   text-align: center;
   clear: both;
@@ -685,7 +688,7 @@ body.data-swatch-theme-b form h3 {
   padding-bottom: 8px;
 }
 
-/* line 24, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 25, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #top #swatches ul li:hover, body.data-swatch-theme-a #wrapper #top #mainmenu-btn a:hover, body.data-swatch-theme-a #wrapper #top #fontsizing ul li:hover, body.data-swatch-theme-b #wrapper #top #swatches ul li:hover, body.data-swatch-theme-b #wrapper #top #mainmenu-btn a:hover, body.data-swatch-theme-b #wrapper #top #fontsizing ul li:hover, body.data-swatch-theme-c #wrapper #top #swatches ul li:hover, body.data-swatch-theme-c #wrapper #top #mainmenu-btn a:hover, body.data-swatch-theme-c #wrapper #top #fontsizing ul li:hover, .dashboard .row .options ul li a:hover {
   -webkit-stroke-width: 5.3px;
   -webkit-stroke-color: #FFFFFF;
@@ -693,70 +696,70 @@ body.data-swatch-theme-a #wrapper #top #swatches ul li:hover, body.data-swatch-t
   text-shadow: 1px 0px 20px yellow;
 }
 
-/* line 31, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 32, ../../resources/assets/sass/sitewide/_themes.scss */
 body.font-theme-a {
   font-size: 80%;
 }
 
-/* line 32, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 33, ../../resources/assets/sass/sitewide/_themes.scss */
 body.font-theme-b {
   font-size: 100%;
 }
 
-/* line 33, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 34, ../../resources/assets/sass/sitewide/_themes.scss */
 body.font-theme-c {
   font-size: 140%;
 }
 
-/* line 35, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 36, ../../resources/assets/sass/sitewide/_themes.scss */
 html, body {
   height: 100%;
   width: 100%;
 }
 
-/* line 41, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 42, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c {
   color: white;
   background: black;
   margin: 0;
   /* Generic */
 }
-/* line 42, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 43, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c.data-swatch-theme-b.font-theme-a div#wrapper div#content form#clientlogin ul li a:hover {
   color: #ffffff;
 }
-/* line 44, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 45, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c.data-swatch-theme-a #wrapper #top #swatches ul li.top-active i, body.data-swatch-theme-c.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active i {
   color: white;
 }
-/* line 50, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 51, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c input, body.data-swatch-theme-c textarea, body.data-swatch-theme-c button, body.data-swatch-theme-c select {
   font-size: 100%;
   color: #000000;
 }
-/* line 53, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 54, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c i, body.data-swatch-theme-c .fa {
   font-family: FontAwesome;
 }
-/* line 55, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 56, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c ::-webkit-input-placeholder {
   color: #b3a69d;
 }
-/* line 56, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 57, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c :-moz-placeholder {
   color: #b3a69d;
   opacity: 0.6;
 }
-/* line 57, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 58, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c ::-moz-placeholder {
   color: #b3a69d;
   opacity: 0.6;
 }
-/* line 58, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 59, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c :-ms-input-placeholder {
   color: #b3a69d;
 }
-/* line 62, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 63, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper {
   height: 100%;
   width: 100%;
@@ -766,37 +769,37 @@ body.data-swatch-theme-c #wrapper {
   background-size: cover;
   position: relative;
 }
-/* line 71, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 72, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper label {
   color: black;
 }
-/* line 74, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 75, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper input {
   color: #204ea0;
 }
-/* line 78, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 79, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper #clientlogin ul:last-child li a {
   display: block;
   color: white;
 }
-/* line 81, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 82, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper #clientlogin ul:last-child li a:hover {
   color: #2e92b1;
 }
-/* line 84, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 85, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper button {
   box-shadow: none;
   border: 1px solid black;
   cursor: pointer;
   color: black;
 }
-/* line 90, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 91, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper button:hover {
   background: black;
   color: white;
   border: 1px solid black;
 }
-/* line 97, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 98, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper a, body.data-swatch-theme-c #wrapper img, body.data-swatch-theme-c #wrapper button, body.data-swatch-theme-c #wrapper button:hover, body.data-swatch-theme-c #wrapper div {
   /*
 -o-transition:.5s;
@@ -806,25 +809,25 @@ body.data-swatch-theme-c #wrapper a, body.data-swatch-theme-c #wrapper img, body
 transition:.5s;
 */
 }
-/* line 107, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 108, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper a {
   text-decoration: none;
   color: black;
   cursor: pointer;
 }
-/* line 111, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 112, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper a img {
   opacity: 0.8;
   filter: alpha(opacity=80);
   /* For IE8 and earlier */
 }
-/* line 113, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 114, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper a img:hover {
   opacity: 1.0;
   filter: alpha(opacity=100);
   /* For IE8 and earlier */
 }
-/* line 117, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 118, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper #top {
   margin: 0;
   padding: 0;
@@ -834,60 +837,60 @@ body.data-swatch-theme-c #wrapper #top {
   width: 100%;
   background: #1d1f20;
 }
-/* line 120, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 121, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper #top ul, body.data-swatch-theme-c #wrapper #top li, body.data-swatch-theme-c #wrapper #top i, body.data-swatch-theme-c #wrapper #top a, body.data-swatch-theme-c #wrapper #top button {
   margin: 0;
   padding: 0;
 }
-/* line 127, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 128, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li, body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li, body.data-swatch-theme-c #wrapper #top #swatches ul li, body.data-swatch-theme-c #wrapper #top #fontsizing ul li {
   display: block;
   cursor: pointer;
   min-height: 40px;
 }
-/* line 128, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 129, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li i, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li i, body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li i, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li i, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li i, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li i, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li i, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li i, body.data-swatch-theme-c #wrapper #top #swatches ul li i, body.data-swatch-theme-c #wrapper #top #fontsizing ul li i {
   padding: 8px;
   color: #ffffff;
 }
-/* line 129, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 130, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-c #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-c #wrapper #top #fontsizing ul li.top-active {
   background: black;
 }
-/* line 131, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 132, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-a"] {
   font-size: 16px;
 }
-/* line 132, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 133, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-b"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-b"], body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-b"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-b"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-b"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-b"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-b"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-b"], body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-b"], body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-b"] {
   font-size: 20px;
 }
-/* line 133, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 134, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-c"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-c"], body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-c"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-c"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-c"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-c"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-c"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-c"], body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-c"], body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-c"] {
   font-size: 24px;
 }
-/* line 137, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 138, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper #top #swatches {
   float: left;
   width: 30%;
   font-size: 24px;
 }
-/* line 143, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 144, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper #top #swatches ul li {
   float: left;
   color: #ffffff;
 }
-/* line 158, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 159, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper #top #mainmenu-btn {
   margin: 0 auto;
   display: table;
   padding-top: 5px;
 }
-/* line 160, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 161, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper #top #mainmenu-btn button {
   border: none;
 }
-/* line 162, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 163, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper #top #mainmenu-btn button:hover {
   border: 1px solid transparent;
   background: url("../images/menu-icon-large.png"), -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
@@ -899,94 +902,93 @@ body.data-swatch-theme-c #wrapper #top #mainmenu-btn button:hover {
   background-size: 21px, 100%;
   background-color: rgba(0, 0, 0, 0.5);
 }
-/* line 174, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 175, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper #top #mainmenu-btn a {
   float: right;
   padding: 0 10px;
 }
-/* line 177, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 178, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper #top #mainmenu-btn a i {
   color: #ffffff;
   font-size: 28px;
   border: 1px solid transparent;
 }
-/* line 180, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 181, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper #top #mainmenu-btn a:hover {
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.5);
 }
-/* line 188, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 189, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper #top #fontsizing {
   float: right;
   width: 30%;
 }
-/* line 194, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 195, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper #top #fontsizing ul li {
   line-height: 100%;
   float: right;
   color: #ffffff;
   overflow: hidden;
 }
-/* line 207, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 208, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper header#header {
   width: 100%;
   min-height: 45px;
   display: inline-block;
   position: absolute;
 }
-/* line 214, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 215, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper #content {
   width: 90%;
-  margin: 4% auto;
+  margin: 0 auto;
   clear: both;
   display: block;
 }
-/* line 223, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 224, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper #content a #largeArea {
   width: 100%;
   height: 500px;
   margin: 0 auto;
   display: block;
 }
-/* line 233, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 234, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper .settings {
   width: 100%;
   margin: 0 auto;
   background: transparent;
 }
-/* line 238, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 239, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper .settings h4 {
   font-size: 110%;
 }
-/* line 246, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 247, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper .settings .row {
   width: 100%;
 }
-/* line 249, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 250, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper .settings .row form {
   margin-bottom: 5px;
   color: white;
 }
-/* line 259, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 260, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper .settings .row form :first-child ul li {
   border: none;
 }
-/* line 265, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 266, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper .settings .row form ul {
   padding: 0;
   margin: 0;
 }
-/* line 269, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 270, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper .settings .row form ul li {
   border: 1px solid #000000;
   list-style: outside none none;
   margin-bottom: 5px;
 }
-/* line 281, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 282, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c footer {
   width: 100%;
-  position: fixed;
-  bottom: 0;
+  clear: both;
   margin: 0 auto;
   text-align: center;
   clear: both;
@@ -1150,52 +1152,60 @@ body .primary-nav li:hover {
   border-top: 0 none;
 }
 
-/* line 4, ../../resources/assets/sass/sitewide/_swatchEdits.scss */
-body.data-swatch-theme-a #wrapper .primary-nav li a, body.data-swatch-theme-b #wrapper .primary-nav li a, body.data-swatch-theme-c #wrapper .primary-nav li a {
+/* line 5, ../../resources/assets/sass/sitewide/_swatchEdits.scss */
+html body.data-swatch-theme-a #wrapper .primary-nav li a, html body.data-swatch-theme-b #wrapper .primary-nav li a, html body.data-swatch-theme-c #wrapper .primary-nav li a {
   color: #ffffff;
 }
-/* line 6, ../../resources/assets/sass/sitewide/_swatchEdits.scss */
-body.data-swatch-theme-a .three {
+/* line 7, ../../resources/assets/sass/sitewide/_swatchEdits.scss */
+html body.data-swatch-theme-a .three {
   background: #d8f4fd;
 }
-/* line 11, ../../resources/assets/sass/sitewide/_swatchEdits.scss */
-body.data-swatch-theme-a #wrapper #content h5 {
+/* line 12, ../../resources/assets/sass/sitewide/_swatchEdits.scss */
+html body.data-swatch-theme-a #wrapper #content h5 {
   color: #407b8d;
-}
-/* line 17, ../../resources/assets/sass/sitewide/_swatchEdits.scss */
-body.data-swatch-theme-a #wrapper #content .global .row:last-child ul li:nth-child(odd) {
-  background: #C0D9D9;
 }
 /* line 18, ../../resources/assets/sass/sitewide/_swatchEdits.scss */
-body.data-swatch-theme-a #wrapper #content .global .row:last-child ul li:nth-child(even) {
-  background: #D1EEEE;
+html body.data-swatch-theme-a #wrapper #content .global .row:last-child ul li:nth-child(odd) {
+  background: #C0D9D9;
 }
 /* line 19, ../../resources/assets/sass/sitewide/_swatchEdits.scss */
-body.data-swatch-theme-a #wrapper #content .global .row:last-child ul li:hover {
+html body.data-swatch-theme-a #wrapper #content .global .row:last-child ul li:nth-child(even) {
+  background: #D1EEEE;
+}
+/* line 20, ../../resources/assets/sass/sitewide/_swatchEdits.scss */
+html body.data-swatch-theme-a #wrapper #content .global .row:last-child ul li:hover {
   background: #79CDCD;
 }
-/* line 33, ../../resources/assets/sass/sitewide/_swatchEdits.scss */
-body.data-swatch-theme-b .three {
+/* line 34, ../../resources/assets/sass/sitewide/_swatchEdits.scss */
+html body.data-swatch-theme-b .three {
   background: rgba(255, 255, 255, 0.4);
 }
-/* line 39, ../../resources/assets/sass/sitewide/_swatchEdits.scss */
-body.data-swatch-theme-b #wrapper #content h5 {
+/* line 40, ../../resources/assets/sass/sitewide/_swatchEdits.scss */
+html body.data-swatch-theme-b #wrapper #content h5 {
   color: #407b8d;
 }
-/* line 44, ../../resources/assets/sass/sitewide/_swatchEdits.scss */
-body.data-swatch-theme-c .three {
+/* line 45, ../../resources/assets/sass/sitewide/_swatchEdits.scss */
+html body.data-swatch-theme-c .three {
   background: #070e10;
 }
-/* line 49, ../../resources/assets/sass/sitewide/_swatchEdits.scss */
-body.data-swatch-theme-c #wrapper #content #identity {
+/* line 52, ../../resources/assets/sass/sitewide/_swatchEdits.scss */
+html body.data-swatch-theme-c #wrapper #content .global .row:first-child {
+  background: #519ab1;
+}
+/* line 55, ../../resources/assets/sass/sitewide/_swatchEdits.scss */
+html body.data-swatch-theme-c #wrapper #content #identity {
   color: #000000;
 }
-/* line 50, ../../resources/assets/sass/sitewide/_swatchEdits.scss */
-body.data-swatch-theme-c #wrapper #content h5 {
-  color: #79CDCD;
-}
 /* line 56, ../../resources/assets/sass/sitewide/_swatchEdits.scss */
-body.data-swatch-theme-c #wrapper #content options .dashboard .row .options li a {
+html body.data-swatch-theme-c #wrapper #content h3 {
+  color: #000000;
+}
+/* line 57, ../../resources/assets/sass/sitewide/_swatchEdits.scss */
+html body.data-swatch-theme-c #wrapper #content h5 {
+  color: #ffffff;
+}
+/* line 63, ../../resources/assets/sass/sitewide/_swatchEdits.scss */
+html body.data-swatch-theme-c #wrapper #content options .dashboard .row .options li a {
   color: #000000;
 }
 
@@ -5821,7 +5831,6 @@ section article p {
 #left {
   float: left;
   width: 70%;
-  margin-top: 7px;
   border-right: 1px solid transparent;
   /* Default Orientation - Landscape*/
 }
@@ -5927,14 +5936,13 @@ section article p {
 }
 /* line 89, ../../resources/assets/sass/backend/_backendPages.scss */
 #right ul li label {
-  width: 100px;
-  float: left;
+  width: 100%;
   font-weight: bold;
   padding: 1%;
 }
 /* line 90, ../../resources/assets/sass/backend/_backendPages.scss */
 #right ul li input {
-  float: left;
+  width: 94%;
 }
 /* line 91, ../../resources/assets/sass/backend/_backendPages.scss */
 #right ul li input, #right ul li textarea {
@@ -6095,119 +6103,124 @@ section article p {
   display: block;
   clear: left;
   margin-bottom: 3px;
+  border: 1px solid #000000;
 }
 /* line 150, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row li label {
   display: block;
 }
-/* line 152, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 151, ../../resources/assets/sass/backend/_backendPages.scss */
+.global .row li select {
+  border: 1px solid #000000;
+}
+/* line 153, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row li button {
   margin-right: 5px;
   padding: 5px;
 }
-/* line 154, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 155, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:first-child {
-  background: #465f6c none repeat scroll 0 0;
+  background: transparent;
   padding: 1%;
 }
-/* line 155, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 156, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:first-child .titles {
   width: 50%;
   float: left;
 }
-/* line 159, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 160, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:first-child .titles ul {
   float: right;
   width: 48%;
   margin-top: 5px;
 }
-/* line 161, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 162, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:first-child .titles ul li input {
   width: 240px;
   float: left;
 }
-/* line 162, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 163, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:first-child .titles ul li label {
   width: 180px;
   margin-left: 10px;
   float: left;
 }
-/* line 163, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 164, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:first-child .titles ul li select {
   width: 300px;
   margin-left: 10px;
 }
-/* line 164, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 165, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:first-child .titles ul li a {
   float: left;
   width: 48%;
 }
-/* line 165, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 166, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:first-child .titles ul li button {
   float: left;
   margin-right: 1%;
   width: auto;
 }
-/* line 166, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 167, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:first-child .titles ul li button:last-child {
   margin-left: 0%;
 }
-/* line 174, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 175, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:last-child {
   clear: both;
 }
-/* line 177, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 178, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:last-child ul .advertItem a {
   float: left;
 }
-/* line 179, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 180, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:last-child ul li {
   display: flex;
   line-height: 180%;
   margin-top: 0.5%;
 }
-/* line 180, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 181, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:last-child ul li:nth-child(odd) {
   background: rgba(255, 255, 255, 0.4);
 }
-/* line 181, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 182, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:last-child ul li:nth-child(even) {
   background: rgba(255, 255, 255, 0.8);
 }
-/* line 182, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 183, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:last-child ul li:hover {
   background: white;
 }
-/* line 183, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 184, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:last-child ul li a {
   cursor: pointer;
   padding: 0;
   width: auto;
   float: left;
 }
-/* line 184, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 185, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:last-child ul li input {
   font-size: 90%;
   padding-left: 1%;
 }
-/* line 185, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 186, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:last-child ul li label, .global .row:last-child ul li a:first-child {
   float: left;
   min-width: 75%;
   padding: 0% 0.5%;
 }
-/* line 186, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 187, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:last-child ul li button {
   font-size: 90%;
   float: right;
   margin-left: 1%;
   padding: 5px;
 }
-/* line 187, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 188, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:last-child ul li button:first-child {
   margin-left: 10px;
 }
-/* line 188, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 189, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:last-child ul li button:hover {
   background: orange;
 }
@@ -6215,7 +6228,7 @@ section article p {
 /***************************/
 /*         Login           */
 /***************************/
-/* line 201, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 202, ../../resources/assets/sass/backend/_backendPages.scss */
 .clearable {
   background: white url("../images/inputcross.png") no-repeat right -10px center;
   border: 1px solid #999;
@@ -6225,19 +6238,19 @@ section article p {
   transition: background 0.4s;
 }
 
-/* line 208, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 209, ../../resources/assets/sass/backend/_backendPages.scss */
 .clearable.x {
   background-position: right 5px center;
 }
 
 /* (jQ) Show icon */
-/* line 209, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 210, ../../resources/assets/sass/backend/_backendPages.scss */
 .clearable.onX {
   cursor: pointer;
 }
 
 /* (jQ) hover cursor style */
-/* line 210, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 211, ../../resources/assets/sass/backend/_backendPages.scss */
 .clearable::-ms-clear {
   display: none;
   width: 0;
@@ -6245,33 +6258,33 @@ section article p {
 }
 
 /* Remove IE default X */
-/* line 212, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 213, ../../resources/assets/sass/backend/_backendPages.scss */
 form#clientlogin, form#register {
   margin: 0 auto;
   width: 15%;
   text-align: left;
 }
-/* line 214, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 215, ../../resources/assets/sass/backend/_backendPages.scss */
 form#clientlogin ul button, form#register ul button {
   margin: 10% 0;
   width: 50%;
   display: block;
 }
-/* line 215, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 216, ../../resources/assets/sass/backend/_backendPages.scss */
 form#clientlogin ul li, form#register ul li {
   width: 100%;
 }
-/* line 216, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 217, ../../resources/assets/sass/backend/_backendPages.scss */
 form#clientlogin ul li label, form#clientlogin ul li input, form#register ul li label, form#register ul li input {
   width: 100%;
 }
-/* line 217, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 218, ../../resources/assets/sass/backend/_backendPages.scss */
 form#clientlogin ul li label, form#register ul li label {
   display: block;
   margin-top: 1%;
   padding: 1%;
 }
-/* line 218, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 219, ../../resources/assets/sass/backend/_backendPages.scss */
 form#clientlogin ul li input, form#register ul li input {
   display: block;
   margin-top: 0;
@@ -6279,23 +6292,23 @@ form#clientlogin ul li input, form#register ul li input {
   text-align: left;
   border: 2px solid black;
 }
-/* line 219, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 220, ../../resources/assets/sass/backend/_backendPages.scss */
 form#clientlogin ul li input:hover, form#register ul li input:hover {
   cursor: pointer;
 }
-/* line 222, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 223, ../../resources/assets/sass/backend/_backendPages.scss */
 form#clientlogin ul:last-child, form#register ul:last-child {
   margin-top: 1%;
 }
-/* line 223, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 224, ../../resources/assets/sass/backend/_backendPages.scss */
 form#clientlogin ul:last-child li, form#register ul:last-child li {
   text-align: left;
 }
-/* line 224, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 225, ../../resources/assets/sass/backend/_backendPages.scss */
 form#clientlogin ul:last-child li a, form#register ul:last-child li a {
   color: #000000;
 }
-/* line 225, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 226, ../../resources/assets/sass/backend/_backendPages.scss */
 form#clientlogin ul:last-child li a:hover, form#register ul:last-child li a:hover {
   color: #000000;
 }

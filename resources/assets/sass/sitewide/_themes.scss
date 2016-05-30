@@ -9,6 +9,7 @@
 .clear {clear:both;}
 .right {float:right;}
 .alert-danger {color:red; font-size:20px; font-weight:bold; text-align:center;}
+.spacing {padding:20px;}
 
 @mixin theme( $name,
               $site-font-color,
@@ -213,7 +214,7 @@ body.font-theme-c {@extend %font-c;}
 
     #content {
     width:90%;
-    margin:4% auto;
+    margin:0 auto;
     clear:both;
     display:block;
 
@@ -280,8 +281,7 @@ body.font-theme-c {@extend %font-c;}
 
     footer {
       width:100%;
-      position:fixed;
-      bottom:0;
+      clear:both;
       margin:0 auto;
       text-align:center;
       clear:both;

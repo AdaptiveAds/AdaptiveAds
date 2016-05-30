@@ -49,7 +49,7 @@ section {text-align:center; clear:both;
 		#footer {position:absolute; bottom:0; display:none;}
 	}
 }
-#left {float:left; width:70%; @extend .rightBorder; margin-top:7px; border-right:1px solid transparent;
+#left {float:left; width:70%; @extend .rightBorder;  border-right:1px solid transparent;
 	/* Default Orientation - Landscape*/
 	.pagecontainer {width:100%; background:transparent; box-sizing:border-box;
 		ul.theme_select {
@@ -86,8 +86,8 @@ section {text-align:center; clear:both;
 	ul {margin:0 auto; 	padding:0; background:transparent;	display:block;	margin-left:10px;
 		li:first-child {margin-top:0;}//li:first-child
 		li {background:transparent;border-radius:$site-border-radius;border:$site-border;  margin-bottom:5px; float:left; clear:both; width:100%;
-			label {width:100px; float:left; font-weight:bold; padding:1%; }//label
-			input {float:left; @extend .rightBorder;}
+			label {width:100%; font-weight:bold; padding:1%; }//label
+			input {width:94%; @extend .rightBorder;}
 			input, textarea {max-width:100%; margin:0 auto;}//textarea, input
 			textarea {resize: vertical; height:auto; width:94%; padding:1%; min-height:150px;  @extend .rightBorder;}
 			&#orientation {padding:0; width:97%;
@@ -146,18 +146,19 @@ section {text-align:center; clear:both;
 			li {
 				form {width:auto; float:left;}
 				input[type='checkbox'] {margin:12px 5px 0 10px;}
-				input {display:block; clear:left; margin-bottom:3px;}
+				input {display:block; clear:left; margin-bottom:3px; border:1px solid #000000;}
 				label {display:block;}
+				select { border:1px solid #000000;}
 				a {}
 				button { margin-right:5px;  padding:5px;}
 			}
-		&:first-child {background:#465f6c none repeat scroll 0 0;padding:1%;
+			&:first-child {background:transparent;padding:1%;
 			.titles {
 			width:50%; float:left;
 				h3 {}
 				h5 {}
 				ul {float:right; width:48%; margin-top:5px;
-					li{
+					li{input {}
 						input {width:240px; float:left;}
 						label {width:180px; margin-left:10px; float:left; }
 						select {width:300px; margin-left:10px;}
