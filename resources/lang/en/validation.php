@@ -121,7 +121,8 @@ return [
       'txtPlaylistName' => 'playlist name',
       'txtTemplateName' => 'template name',
       'txtTemplateClass' => 'template class name',
-      'numTemplateDuration' => 'template duration'
+      'numTemplateDuration' => 'template duration',
+      'txtContent' => 'page content'
     ],
 
 ];
