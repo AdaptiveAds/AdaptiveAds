@@ -70,10 +70,8 @@ font-size:3em;
 
 		img {
 	  display: block;
-	  width: auto;
-	  height: auto;
 		width:100%;
-    padding:2%;
+	  height: auto;
 		}
 
 		video {
@@ -83,7 +81,7 @@ font-size:3em;
 		}
 
   #serve_text {
-	font-size:90%;
+	font-size:1.5vw;
 	display:$template-text-display;
 	float:$template-text-float;
 	width:$template-text-width;
