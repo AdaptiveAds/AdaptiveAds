@@ -43,4 +43,7 @@
 	</div>
   <div class="clear"></div>
 </div>
-@include('apis/PCNumbers/summary_footer')
+{{-- Removes the footer on full screen templates image/video --}}
+@if ($activeTemplate->class_name != 'template5' AND $activeTemplate->class_name != 'template2')
+	@include('apis/PCNumbers/summary_footer')
+@endif
