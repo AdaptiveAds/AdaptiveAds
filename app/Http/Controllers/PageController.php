@@ -71,7 +71,8 @@ class PageController extends Controller
         $data = array(
           'page' => $page,
           'templates' => $templates,
-          'activeTemplate' => $templates[0]
+          'activeTemplate' => $templates[0],
+          'create' => true
         );
 
         return view('pages/pageeditor', $data);

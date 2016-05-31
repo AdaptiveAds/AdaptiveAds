@@ -110,9 +110,13 @@
 			<div class="buttons-PageEditor">
 			<li><button type="submit" class="submit save" name="btnSavePage">Save</button></li>
 			{!! Form::close() !!}
-			{!! Form::open(['route' => ['dashboard.advert.{adID}.page.destroy', $page->advert_id, $page->id], 'method' => 'DELETE']) !!}
-			<li><button type="submit" class="submit delete" name="btnDeletePage">Delete</button></li>
-			{!! Form::close() !!}
+
+			{{-- Do not show the delete button if we're creating a page and has not been saved. --}}
+			@if (isset($create) == false)
+				{!! Form::open(['route' => ['dashboard.advert.{adID}.page.destroy', $page->advert_id, $page->id], 'method' => 'DELETE']) !!}
+				<li><button type="submit" class="submit delete" name="btnDeletePage">Delete</button></li>
+				{!! Form::close() !!}
+			@endif
 
       <li>
         <button title="Did you save?" type="submit" name="btnNext">New</button>
