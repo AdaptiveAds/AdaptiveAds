@@ -60,7 +60,7 @@ class PageController extends Controller
           return redirect()->route('dashboard.advert.index')
                            ->with('message', 'Could not find selected advert');
 
-        $count = $advert->Pages->count();
+        $count = $advert->Pages->where('deleted', '=', 0)->count();
         if ($count >= 4)
           return redirect()->route('dashboard.advert.index')
                            ->with('message', 'Maximum number of pages reached');
@@ -104,7 +104,7 @@ class PageController extends Controller
       );
 
       // Validate input
-      $reponse = Helper::validator($data,$rules,'dashboard.advert.index', [$adID]);
+      $reponse = Helper::validator($data,$rules,'dashboard.advert.edit', [$adID]);
       if (isset($reponse)) {
         return $reponse;
       }
@@ -149,10 +149,15 @@ class PageController extends Controller
       $page->save();
 
       $btnSaveClose = $request->input('btnSaveClose');
+      $btnNext = $request->input('btnNext');
 
       if(isset($btnSaveClose))
-        return redirect()->route('dashboard.advert.index', [$adID, $page->id])
+        return redirect()->route('dashboard.advert.edit', [$adID])
                          ->with('message', 'Page saved!');
+
+      if (isset($btnNext))
+        return redirect()->route('dashboard.advert.{adID}.page.create', [$adID])
+                         ->with('message', 'Page saved! And new page created!');
 
       return redirect()->route('dashboard.advert.{adID}.page.show', [$adID, $page->id])
                        ->with('message', 'Page created successfully');
@@ -170,7 +175,7 @@ class PageController extends Controller
       $page = Page::where($match)->first(); // one to one only return 1
 
       if ($page == null)
-        return redirect()->route('dashboard.advert.index')
+        return redirect()->route('dashboard.advert.edit', [$adID])
                          ->with('message', 'Error: Could not find page');
 
       $pageData = $page->PageData->where('id', $page->page_data_id)->orderBy('heading', 'ASC')->first();
@@ -178,13 +183,13 @@ class PageController extends Controller
       $advert = Advert::find($adID);
 
       if ($advert == null)
-        return redirect()->route('dashboard.advert.index')
+        return redirect()->route('dashboard.advert.edit', [$adID])
                          ->with('message', 'Error: Advert removed before update');
 
       $background = Background::find($advert->background_id);
 
       if ($background == null)
-        return redirect()->route('dashboard.advert.index')
+        return redirect()->route('dashboard.advert.edit', [$adID])
                          ->with('message', 'Error: Background removed before update');
 
       $data = array(
@@ -239,7 +244,7 @@ class PageController extends Controller
       );
 
       // Validate input
-      $response = Helper::validator($data,$rules,'dashboard.advert.index');
+      $response = Helper::validator($data,$rules,'dashboard.advert.edit', [$adID]);
       if (isset($response)) {
         return $response;
       }
@@ -277,12 +282,18 @@ class PageController extends Controller
       $pageData->save();
 
       $btnSaveClose = $request->input('btnSaveClose');
+      $btnNext = $request->input('btnNext');
+
       if(isset($btnSaveClose))
-        return redirect()->route('dashboard.advert.index', [$adID, $page->id])
+        return redirect()->route('dashboard.advert.edit', [$adID])
                          ->with('message', 'Page saved!');
 
+      if (isset($btnNext))
+        return redirect()->route('dashboard.advert.{adID}.page.create', [$adID])
+                         ->with('message', 'Page saved! And new page created!');
+
       return redirect()->route('dashboard.advert.{adID}.page.show', [$adID, $page->id])
-                       ->with('message', 'Page updated successfully');
+                       ->with('message', 'Page created successfully');
     }
 
     /**
