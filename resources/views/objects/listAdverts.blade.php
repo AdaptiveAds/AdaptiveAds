@@ -11,11 +11,10 @@
           @endif
           <label for="chkSelectAdvert_">{{ $advert->name }}</label>
 
-        <a href="{{ URL::route('dashboard.advert.edit', $advert->id) }}">
-          <button type="button" name="btnDesign">Design</button>
-        </a>
-
         @if (isset($editMode))
+          <a href="{{ URL::route('dashboard.advert.edit', $advert->id) }}">
+            <button type="button" name="btnDesign">Design</button>
+          </a>
 
           <a href="#AdvertModal" data-displayEditModal="true"
                                  data-modalObject="Advert"
