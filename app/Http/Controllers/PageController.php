@@ -60,7 +60,7 @@ class PageController extends Controller
           return redirect()->route('dashboard.advert.index')
                            ->with('message', 'Could not find selected advert');
 
-        $count = $advert->Pages->count();
+        $count = $advert->Pages->where('deleted', '=', 0)->count();
         if ($count >= 4)
           return redirect()->route('dashboard.advert.index')
                            ->with('message', 'Maximum number of pages reached');
