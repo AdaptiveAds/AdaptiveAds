@@ -8,7 +8,7 @@
           <button type="button" name="">Design</button>
         </a>
 
-        {{-- Only show edit options if in mode --}}
+        {{-- Only show edit options if in edit mode --}}
         @if (isset($editMode))
 
           <a href="#PlaylistModal" data-displayEditModal="true"
