@@ -115,9 +115,7 @@
 			{!! Form::close() !!}
 
       <li>
-        <a href="{{ URL::route('dashboard.advert.{adID}.page.create', $page->advert_id) }}">
-          <button title="Did you save?" type="submit" name="btnNext">New</button>
-        </a>
+        <button title="Did you save?" type="submit" name="btnNext">New</button>
       </li>
 
       <li>
