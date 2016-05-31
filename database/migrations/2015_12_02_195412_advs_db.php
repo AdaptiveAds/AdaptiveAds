@@ -3,6 +3,12 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/**
+  * Build the database using the SQL code defined in this file
+  * purely creates the structure and relations.
+  * @author: Josh Preece
+  * @version: 1.0
+  */
 class AdvsDb extends Migration
 {
     /**
