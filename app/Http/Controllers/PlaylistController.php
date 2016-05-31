@@ -326,42 +326,49 @@ class PlaylistController extends Controller
 
       $adverts = $request->input('arrObjects');
 
-      $currentIndex = DB::table('advert_playlist')->where('playlist_id', $playlistID)->max('advert_index');
-      $count = 0;
+      // If the user did not select anything then skip
+      if (count($advert) > 0) {
 
-      $count = $playlist->Adverts()->count();
+        $currentIndex = DB::table('advert_playlist')->where('playlist_id', $playlistID)->max('advert_index');
+        $count = 0;
 
-      $extraArgs = $request->input('extra');
-      $display_schedule_id = 1;
-      if ($extraArgs['key'] == 'schedule') {
-        $display_schedule_id = $extraArgs['data'];
-      }
+        $count = $playlist->Adverts()->count();
 
-      foreach ($adverts as $advertID) {
-
-        // NOTE global is restricted to a MAX of 3 adverts
-        if ($playlist->isGlobal == true AND $count >= 3) {
-            Session::flash('message', 'Global playlist has reached the maxiumum assigned');
-            return array('redirect' => '/dashboard/playlist/'.$playlistID.'/edit');
-        } else if ($count >= 4) {
-          Session::flash('message', 'Playlist has reached the maxiumum assigned');
-          return array('redirect' => '/dashboard/playlist/'.$playlistID.'/edit');
+        $extraArgs = $request->input('extra');
+        $display_schedule_id = 1; // Apply default
+        if ($extraArgs['key'] == 'schedule') {
+          $display_schedule_id = $extraArgs['data'];
         }
 
-        // TODO advert inde and display timing (GUI??)
-        $playlist->Adverts()->attach($advertID, ['advert_index' => ++$currentIndex]);
+        foreach ($adverts as $advertID) {
 
-        // Create a new schedule
-        $schedule = new AdvertSchedule();
-        $schedule->playlist_id = $playlist->id;
-        $schedule->advert_id = $advertID;
-        $schedule->schedule_id = $display_schedule_id;
-        $schedule->save();
+          // NOTE global is restricted to a MAX of 3 adverts
+          if ($playlist->isGlobal == true AND $count >= 3) {
+              Session::flash('message', 'Global playlist has reached the maxiumum assigned');
+              return array('redirect' => '/dashboard/playlist/'.$playlistID.'/edit');
+          } else if ($count >= 4) {
+            Session::flash('message', 'Playlist has reached the maxiumum assigned');
+            return array('redirect' => '/dashboard/playlist/'.$playlistID.'/edit');
+          }
 
-        $count++;
+          // TODO advert inde and display timing (GUI??)
+          $playlist->Adverts()->attach($advertID, ['advert_index' => ++$currentIndex]);
+
+          // Create a new schedule
+          $schedule = new AdvertSchedule();
+          $schedule->playlist_id = $playlist->id;
+          $schedule->advert_id = $advertID;
+          $schedule->schedule_id = $display_schedule_id;
+          $schedule->save();
+
+          $count++;
+        }
+        Session::flash('message', 'Advert(s) added');
+      } else {
+        Session::flash('message', 'Nothing added');
       }
 
-      Session::flash('message', 'Advert(s) added');
+
       return array('redirect' => '/dashboard/playlist/'.$playlistID.'/edit');
     }
 
@@ -391,14 +398,20 @@ class PlaylistController extends Controller
 
       $adverts = $request->input('arrObjects');
 
-      foreach($adverts as $advertID) {
-        $playlist->Adverts()->detach($advertID);
-        $schedule = AdvertSchedule::where('playlist_id', $playlist->id)
-                            ->where('advert_id', $advertID)
-                            ->delete();
+      if (count($adverts) > 0) {
+
+        foreach($adverts as $advertID) {
+          $playlist->Adverts()->detach($advertID);
+          $schedule = AdvertSchedule::where('playlist_id', $playlist->id)
+                              ->where('advert_id', $advertID)
+                              ->delete();
+        }
+
+        Session::flash('message', 'Advert(s) removed');
+      } else {
+        Session::flash('message', 'Nothing removed');
       }
 
-      Session::flash('message', 'Advert(s) removed');
       return array('redirect' => '/dashboard/playlist/'.$playlistID.'/edit');
     }
 
