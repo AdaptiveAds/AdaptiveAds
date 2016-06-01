@@ -4,7 +4,7 @@
 var AppDebug = (function() {
 
   // Set to true to enable logging
-  var debug = false;
+  var debug = true;
 
   // Print a message to the console if we are debugging
   function print(message) {

@@ -49,6 +49,11 @@ var Serve = (function(Page) {
   // Override init
   Page.init = function () {
     Page.register_eventhandlers(); // register required handlers
+
+    // $('video').on('ended', function() {
+    //   updateDurationInterval(2);
+    // });
+
     sync_with_server(); // Sync!
   }
 
@@ -120,13 +125,13 @@ var Serve = (function(Page) {
         localStorage.setItem('showGlobal', 0);
 
         // Update the page after processing
-        update_page();
+        //update_page();
       } else {
         localStorage.setItem('globalPlaylist', JSON.stringify(globalPlaylist));
         localStorage.setItem('showGlobal', 1);
         localStorage.setItem('current_advert_index', 0);
         localStorage.setItem('current_page_index', 0);
-        update_page();
+        //update_page();
       }
 
     }
@@ -303,10 +308,9 @@ var Serve = (function(Page) {
         $('body').css('background-size', 'cover');
       }
 
-      addImage();
-
       // Check if we have an image to display
       if (currentAdvert.pages[index].page_data.image_path !== "") {
+        addImage();
         // Insert image
         $('#serve_image').children('img').attr('src', '../advert_images/' + currentAdvert.pages[index].page_data.image_path);
       } else {
@@ -314,6 +318,7 @@ var Serve = (function(Page) {
         if (currentAdvert.pages[index].page_data.video_path !== "") {
           addVideo(updateDurationInterval, currentAdvert.pages[index].page_data.video_path);
         } else {
+          addImage();
           $('#serve_container').animateCss(currentAdvert.pages[index].transition);
           // Insert logo image
           $('#serve_image').children('img').attr('src', '/images/image_placeholder.png' + currentAdvert.pages[index].page_data.image_path);

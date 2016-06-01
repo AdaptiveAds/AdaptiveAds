@@ -22,7 +22,11 @@
 	  						<img src="/advert_images/{{ $pageData->image_path or 'image_placeholder.png' }}" title="" alt=""/>
 	  				@else
 							@if (isset($pageData->video_path) AND $pageData->video_path != "")
-  							<video autoplay loop>
+								@if(isset($serve))
+									<video autoplay>
+								@else
+  								<video autoplay loop>
+								@endif
   								<source src="/advert_videos/{{$pageData->video_path}}" type="video/mp4">
   								<source src="/advert_videos/{{$pageData->video_path}}" type="video/ogg">
   								Your browser does not support the provided codec types.
