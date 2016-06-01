@@ -144,7 +144,9 @@ class PlaylistController extends Controller
 
       $data = array(
         'playlist' => $playlist,
-        'adverts' => $adverts
+        'adverts' => $adverts,
+        'editMode' => true,
+        'playlistEdit' => true
       );
 
       return view('pages/playlistEditor', $data);

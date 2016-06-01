@@ -15,7 +15,7 @@
           <a href="{{ URL::route('dashboard.advert.edit', $advert->id) }}">
             <button type="button" name="btnDesign">Design</button>
           </a>
-
+        @if (isset($playlistEdit) == false)
           <a href="#AdvertModal" data-displayEditModal="true"
                                  data-modalObject="Advert"
                                  data-modalMethod="PUT"
@@ -30,6 +30,7 @@
                     data-modalRoute="{{ URL::route('dashboard.advert.destroy', $advert->id)}}">
                     <button type="button" name="btnDeleted">Delete</button>
           </a>
+          @endif
         @endif
       </li>
     @endforeach
