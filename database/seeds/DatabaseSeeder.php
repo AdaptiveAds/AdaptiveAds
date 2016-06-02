@@ -21,9 +21,9 @@ class DatabaseSeeder extends Seeder
         //$this->call(PrivilageTableSeeder::class);
         $this->call(UserTableSeeder::class);
         $this->call(DepartmentTableSeeder::class);
-        $this->call(LocationTableSeeder::class);
         $this->call(AdvertTableSeeder::class);
         $this->call(PlaylistTableSeeder::class);
+        $this->call(LocationTableSeeder::class);
         $this->call(ScreenTableSeeder::class);
         $this->call(PageTableSeeder::class);
         $this->call(AdvertPlaylistTableSeeder::class);

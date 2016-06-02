@@ -19,7 +19,8 @@ class LocationTableSeeder extends Seeder
       //Populate table
       $table->insert([
         'name' => 'Marketing',
-        'department_id' => 1
+        'department_id' => 1,
+        'playlist_id' => 1 
       ]);
     }
 }

@@ -31,12 +31,4 @@ class Screen extends Model
   public function Location() {
     return $this->belongsTo(Location::class, 'location_id');
   }
-
-  /**
-    * Gets the playlist associated with the screen. has one relationship
-    * @return EloquentCollection
-    */
-  public function Playlist() {
-    return $this->belongsTo(Playlist::class, 'playlist_id');
-  }
 }

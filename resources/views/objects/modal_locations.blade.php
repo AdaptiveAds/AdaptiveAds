@@ -14,6 +14,10 @@
         @include('objects/dropdown_departments', array('allowed_departments' => $allowed_departments))
       </li>
       <li>
+        <label>Playlist:</label>
+        @include('objects/dropdown_playlists', array('playlists' => $playlists))
+      </li>
+      <li>
         <button type="submit" name="btnSave">Save</button>
       </li>
     </ul>

@@ -19,12 +19,14 @@ class LocationTableSeeder extends Seeder
       //Populate table
       $table->insert([
         'name' => 'Park Library',
-        'department_id' => 2
+        'department_id' => 2,
+        'playlist_id' => 2
       ]);
 
       $table->insert([
         'name' => 'Park Reception',
-        'department_id' => 3
+        'department_id' => 3,
+        'playlist_id' => 3
       ]);
     }
 }

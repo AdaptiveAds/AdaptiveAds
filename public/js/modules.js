@@ -4,7 +4,7 @@
 var AppDebug = (function() {
 
   // Set to true to enable logging
-  var debug = true;
+  var debug = false;
 
   // Print a message to the console if we are debugging
   function print(message) {
@@ -494,6 +494,7 @@ var ModalManager = (function() {
   function locations(data) {
     $('[name="txtLocationName"]').val(data.location.name);
     $('[name="drpDepartments"]').val(data.location.department_id);
+    $('[name="drpPlaylists"]').val(data.location.playlist_id);
   }
 
   /**
@@ -512,7 +513,6 @@ var ModalManager = (function() {
   function screens(data) {
     $('[name="txtScreenID"]').val(data.screen.id);
     $('[name="drpLocations"]').val(data.screen.location_id);
-    $('[name="drpPlaylists"]').val(data.screen.playlist_id);
   }
 
   /**

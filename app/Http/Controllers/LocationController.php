@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use Session;
 
+use App\playlist as Playlist;
 use App\Location as Location;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -42,6 +43,8 @@ class LocationController extends Controller
       $allowed_departments = Session::get('allowed_departments');
       $match_departments = Session::get('match_departments');
 
+      $playlists = Playlist::whereIn('department_id', $match_departments)->get();
+
       // Return all locations or only the ones th user is assigned to
       if ($user->is_super_user) {
         $locations = Location::all();
@@ -52,7 +55,8 @@ class LocationController extends Controller
       $data = array(
         'locations' => $locations,
         'allowed_departments' => $allowed_departments,
-        'user' => $user
+        'user' => $user,
+        'playlists' => $playlists
       );
 
       return view('pages/locations', $data);
@@ -80,15 +84,18 @@ class LocationController extends Controller
       // Get request inputs
       $txtLocationName = $request->input('txtLocationName');
       $departmentID = $request->input('drpDepartments');
+      $playlistID = $request->input('drpPlaylists');
 
       $data = array(
         'txtLocationName' => $txtLocationName,
-        'drpDepartments' => $departmentID
+        'drpDepartments' => $departmentID,
+        'drpPlaylists' => $playlistID
       );
 
       $rules = array(
         'txtLocationName' => 'required|max:40|unique:location,name',
-        'drpDepartments' => 'required|exists:department,id'
+        'drpDepartments' => 'required|exists:department,id',
+        'drpPlaylists' => 'required|exists:playlist,id'
       );
 
       // Validate input
@@ -101,6 +108,7 @@ class LocationController extends Controller
       $location = new Location();
       $location->name = $txtLocationName;
       $location->department_id = $departmentID;
+      $location->playlist_id = $playlistID;
       $location->save();
 
       return redirect()->route('dashboard.settings.locations.index')
@@ -158,15 +166,18 @@ class LocationController extends Controller
       // Request input
       $txtLocationName = $request->input('txtLocationName');
       $departmentID = $request->input('drpDepartments');
+      $playlistID = $request->input('drpPlaylists');
 
       $data = array(
         'txtLocationName' => $txtLocationName,
-        'drpDepartments' => $departmentID
+        'drpDepartments' => $departmentID,
+        'drpPlaylists' => $playlistID
       );
 
       $rules = array(
         'txtLocationName' => 'required|max:40|unique:location,name,'.$id,
-        'drpDepartments' => 'required|exists:department,id'
+        'drpDepartments' => 'required|exists:department,id',
+        'drpPlaylists' => 'required|exists:playlist,id'
       );
 
       // Validate input
@@ -178,6 +189,7 @@ class LocationController extends Controller
       // Update location
       $location->name = $txtLocationName;
       $location->department_id = $departmentID;
+      $location->playlist_id = $playlistID;
       $location->save();
 
       return redirect()->route('dashboard.settings.locations.index')
@@ -203,7 +215,7 @@ class LocationController extends Controller
       $count = $location->Screens->count();
       if ($count != 0)
         return redirect()->route('dashboard.settings.locations.index')
-                         ->with('message', 'Unable to delete ' . $location . ', as one or more screens depend on it');
+                         ->with('message', 'Unable to delete location as one or more screens depend on it');
 
       // Delete
       $location->delete();
