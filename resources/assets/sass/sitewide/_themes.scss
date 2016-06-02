@@ -320,7 +320,7 @@ border:none;
 //  $button-background-hover,   $button-font-color-hover,  $labelFontColor
 
 // Light
-@include theme(data-swatch-theme-a, #000000, #ffffff, #000000,
+@include theme(data-swatch-theme-a, #000000, url("../images/multicolour_bg.png") no-repeat center top, #000000,
               #000000, #ffffff, #000000);
 
 // Colour Blind
@@ -328,5 +328,5 @@ border:none;
               #1f6378, #ffe800, #000000);
 
 // Black
-@include theme(data-swatch-theme-c, #ffffff, #000000, #000000,
+@include theme(data-swatch-theme-c, #ffffff, url("../images/background_brandColours.png") no-repeat center top, #000000,
               #000000, #ffffff, #000000);

@@ -23,7 +23,7 @@
 				@else
 					<h5>Add user(s) to {{$department->name or 'a department'}}</h5>
 				@endif
-				<ul name="lstPrivilegeControls">
+				<ul name="lstPrivilegeControls" class="checkAll">
 					<li>
 						<button type="button" name="btnAdd">Add</button>
 					</li>

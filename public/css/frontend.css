@@ -66,7 +66,7 @@ html, body {
 /* line 42, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a {
   color: black;
-  background: white;
+  background: url("../images/multicolour_bg.png") no-repeat center top;
   margin: 0;
   /* Generic */
 }
@@ -143,7 +143,7 @@ body.data-swatch-theme-a #wrapper button {
 body.data-swatch-theme-a #wrapper button:hover {
   background: black;
   color: white;
-  border: 1px solid white;
+  border: 1px solid url("../images/multicolour_bg.png") no-repeat center top;
 }
 /* line 98, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper a, body.data-swatch-theme-a #wrapper img, body.data-swatch-theme-a #wrapper button, body.data-swatch-theme-a #wrapper button:hover, body.data-swatch-theme-a #wrapper div {
@@ -201,7 +201,7 @@ body.data-swatch-theme-a #wrapper #top #swatches ul li i, body.data-swatch-theme
 }
 /* line 130, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active {
-  background: white;
+  background: url("../images/multicolour_bg.png") no-repeat center top;
 }
 /* line 132, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-a"] {
@@ -720,7 +720,7 @@ html, body {
 /* line 42, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c {
   color: white;
-  background: black;
+  background: url("../images/background_brandColours.png") no-repeat center top;
   margin: 0;
   /* Generic */
 }
@@ -797,7 +797,7 @@ body.data-swatch-theme-c #wrapper button {
 body.data-swatch-theme-c #wrapper button:hover {
   background: black;
   color: white;
-  border: 1px solid black;
+  border: 1px solid url("../images/background_brandColours.png") no-repeat center top;
 }
 /* line 98, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper a, body.data-swatch-theme-c #wrapper img, body.data-swatch-theme-c #wrapper button, body.data-swatch-theme-c #wrapper button:hover, body.data-swatch-theme-c #wrapper div {
@@ -855,7 +855,7 @@ body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li 
 }
 /* line 130, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-c #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-c #wrapper #top #fontsizing ul li.top-active {
-  background: black;
+  background: url("../images/background_brandColours.png") no-repeat center top;
 }
 /* line 132, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-a"] {

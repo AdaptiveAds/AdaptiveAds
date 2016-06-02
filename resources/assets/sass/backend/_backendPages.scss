@@ -156,7 +156,16 @@ section {text-align:center; clear:both;
 				h3 {}
 				h5 {}
 				ul {float:right; width:48%; margin-top:5px;
-					li{input {}
+					&.checkAll {
+						li {
+							&:last-child {
+								input {float:left;}
+								label {float:left;}
+							}
+						}
+						}
+					li{
+
 						input {width:240px; float:left;}
 						label {width:180px; margin-left:10px; float:left; }
 						select {width:300px; margin-left:10px;}

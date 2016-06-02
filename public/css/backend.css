@@ -66,7 +66,7 @@ html, body {
 /* line 42, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a {
   color: black;
-  background: white;
+  background: url("../images/multicolour_bg.png") no-repeat center top;
   margin: 0;
   /* Generic */
 }
@@ -143,7 +143,7 @@ body.data-swatch-theme-a #wrapper button {
 body.data-swatch-theme-a #wrapper button:hover {
   background: black;
   color: white;
-  border: 1px solid white;
+  border: 1px solid url("../images/multicolour_bg.png") no-repeat center top;
 }
 /* line 98, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper a, body.data-swatch-theme-a #wrapper img, body.data-swatch-theme-a #wrapper button, body.data-swatch-theme-a #wrapper button:hover, body.data-swatch-theme-a #wrapper div {
@@ -201,7 +201,7 @@ body.data-swatch-theme-a #wrapper #top #swatches ul li i, body.data-swatch-theme
 }
 /* line 130, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active {
-  background: white;
+  background: url("../images/multicolour_bg.png") no-repeat center top;
 }
 /* line 132, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-a"] {
@@ -720,7 +720,7 @@ html, body {
 /* line 42, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c {
   color: white;
-  background: black;
+  background: url("../images/background_brandColours.png") no-repeat center top;
   margin: 0;
   /* Generic */
 }
@@ -797,7 +797,7 @@ body.data-swatch-theme-c #wrapper button {
 body.data-swatch-theme-c #wrapper button:hover {
   background: black;
   color: white;
-  border: 1px solid black;
+  border: 1px solid url("../images/background_brandColours.png") no-repeat center top;
 }
 /* line 98, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper a, body.data-swatch-theme-c #wrapper img, body.data-swatch-theme-c #wrapper button, body.data-swatch-theme-c #wrapper button:hover, body.data-swatch-theme-c #wrapper div {
@@ -855,7 +855,7 @@ body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li 
 }
 /* line 130, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-c #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-c #wrapper #top #fontsizing ul li.top-active {
-  background: black;
+  background: url("../images/background_brandColours.png") no-repeat center top;
 }
 /* line 132, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-a"] {
@@ -6118,93 +6118,101 @@ section article p {
   width: 48%;
   margin-top: 5px;
 }
-/* line 160, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 162, ../../resources/assets/sass/backend/_backendPages.scss */
+.global .row:first-child .titles ul.checkAll li:last-child input {
+  float: left;
+}
+/* line 163, ../../resources/assets/sass/backend/_backendPages.scss */
+.global .row:first-child .titles ul.checkAll li:last-child label {
+  float: left;
+}
+/* line 169, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:first-child .titles ul li input {
   width: 240px;
   float: left;
 }
-/* line 161, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 170, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:first-child .titles ul li label {
   width: 180px;
   margin-left: 10px;
   float: left;
 }
-/* line 162, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 171, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:first-child .titles ul li select {
   width: 300px;
   margin-left: 10px;
 }
-/* line 163, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 172, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:first-child .titles ul li a {
   float: left;
   width: 48%;
 }
-/* line 164, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 173, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:first-child .titles ul li button {
   float: left;
   margin-right: 1%;
   width: auto;
 }
-/* line 165, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 174, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:first-child .titles ul li button:last-child {
   margin-left: 0%;
 }
-/* line 173, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 182, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:last-child {
   clear: both;
 }
-/* line 176, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 185, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:last-child ul .advertItem a {
   float: left;
 }
-/* line 178, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 187, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:last-child ul li {
   display: flex;
   line-height: 180%;
   margin-top: 0.5%;
 }
-/* line 179, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 188, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:last-child ul li:nth-child(odd) {
   background: rgba(255, 255, 255, 0.4);
 }
-/* line 180, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 189, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:last-child ul li:nth-child(even) {
   background: rgba(255, 255, 255, 0.8);
 }
-/* line 181, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 190, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:last-child ul li:hover {
   background: white;
 }
-/* line 182, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 191, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:last-child ul li a {
   cursor: pointer;
   padding: 0;
   width: auto;
   float: left;
 }
-/* line 183, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 192, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:last-child ul li input {
   font-size: 90%;
   padding-left: 1%;
 }
-/* line 184, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 193, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:last-child ul li label, .global .row:last-child ul li a:first-child {
   float: left;
   min-width: 75%;
   padding: 0% 0.5%;
 }
-/* line 185, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 194, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:last-child ul li button {
   font-size: 90%;
   float: right;
   margin-left: 1%;
   padding: 5px;
 }
-/* line 186, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 195, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:last-child ul li button:first-child {
   margin-left: 10px;
 }
-/* line 187, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 196, ../../resources/assets/sass/backend/_backendPages.scss */
 .global .row:last-child ul li button:hover {
   background: orange;
 }
@@ -6212,7 +6220,7 @@ section article p {
 /***************************/
 /*         Login           */
 /***************************/
-/* line 200, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 209, ../../resources/assets/sass/backend/_backendPages.scss */
 .clearable {
   background: white url("../images/inputcross.png") no-repeat right -10px center;
   border: 1px solid #999;
@@ -6222,19 +6230,19 @@ section article p {
   transition: background 0.4s;
 }
 
-/* line 207, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 216, ../../resources/assets/sass/backend/_backendPages.scss */
 .clearable.x {
   background-position: right 5px center;
 }
 
 /* (jQ) Show icon */
-/* line 208, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 217, ../../resources/assets/sass/backend/_backendPages.scss */
 .clearable.onX {
   cursor: pointer;
 }
 
 /* (jQ) hover cursor style */
-/* line 209, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 218, ../../resources/assets/sass/backend/_backendPages.scss */
 .clearable::-ms-clear {
   display: none;
   width: 0;
@@ -6242,33 +6250,33 @@ section article p {
 }
 
 /* Remove IE default X */
-/* line 211, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 220, ../../resources/assets/sass/backend/_backendPages.scss */
 form#clientlogin, form#register {
   margin: 0 auto;
   width: 15%;
   text-align: left;
 }
-/* line 213, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 222, ../../resources/assets/sass/backend/_backendPages.scss */
 form#clientlogin ul button, form#register ul button {
   margin: 10% 0;
   width: 50%;
   display: block;
 }
-/* line 214, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 223, ../../resources/assets/sass/backend/_backendPages.scss */
 form#clientlogin ul li, form#register ul li {
   width: 100%;
 }
-/* line 215, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 224, ../../resources/assets/sass/backend/_backendPages.scss */
 form#clientlogin ul li label, form#clientlogin ul li input, form#register ul li label, form#register ul li input {
   width: 100%;
 }
-/* line 216, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 225, ../../resources/assets/sass/backend/_backendPages.scss */
 form#clientlogin ul li label, form#register ul li label {
   display: block;
   margin-top: 1%;
   padding: 1%;
 }
-/* line 217, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 226, ../../resources/assets/sass/backend/_backendPages.scss */
 form#clientlogin ul li input, form#register ul li input {
   display: block;
   margin-top: 0;
@@ -6276,23 +6284,23 @@ form#clientlogin ul li input, form#register ul li input {
   text-align: left;
   border: 2px solid black;
 }
-/* line 218, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 227, ../../resources/assets/sass/backend/_backendPages.scss */
 form#clientlogin ul li input:hover, form#register ul li input:hover {
   cursor: pointer;
 }
-/* line 221, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 230, ../../resources/assets/sass/backend/_backendPages.scss */
 form#clientlogin ul:last-child, form#register ul:last-child {
   margin-top: 1%;
 }
-/* line 222, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 231, ../../resources/assets/sass/backend/_backendPages.scss */
 form#clientlogin ul:last-child li, form#register ul:last-child li {
   text-align: left;
 }
-/* line 223, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 232, ../../resources/assets/sass/backend/_backendPages.scss */
 form#clientlogin ul:last-child li a, form#register ul:last-child li a {
   color: #000000;
 }
-/* line 224, ../../resources/assets/sass/backend/_backendPages.scss */
+/* line 233, ../../resources/assets/sass/backend/_backendPages.scss */
 form#clientlogin ul:last-child li a:hover, form#register ul:last-child li a:hover {
   color: #000000;
 }
