@@ -4,7 +4,8 @@
 
 @include('objects/modal_playlist', array('object' => 'Playlist',
 																			'heading' => 'Create New Playlist',
-																			'allowed_departments' => $allowed_departments))
+																			'allowed_departments' => $allowed_departments,
+																			'playlists' => $playlists))
 
 @include('objects/modal_delete', array('object' => 'Delete'))
 

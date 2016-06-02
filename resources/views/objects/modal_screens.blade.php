@@ -14,10 +14,6 @@
         @include('objects/dropdown_locations', array('locations' => $locations))
       </li>
       <li>
-        <label>Playlist:</label>
-        @include('objects/dropdown_playlists', array('playlists' => $playlists))
-      </li>
-      <li>
         <button type="submit" name="btnSave">Save</button>
       </li>
     </ul>

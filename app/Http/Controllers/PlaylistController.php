@@ -313,23 +313,18 @@ class PlaylistController extends Controller
       if ($request->ajax() == false)
         abort(401, 'Unauthorized');
 
-      if (Session::has('playlistID') == false) {
-        Session::flash('message', 'Error: playlist id not found');
-        return array('redirect' => '/dashboard/playlist');
-      }
-
       $playlistID = Session::pull('playlistID');
       $playlist = Playlist::find($playlistID);
 
       if ($playlist == null) {
-        Session::flash('message', 'Error: playlist id not found');
+        Session::flash('message', 'Error: playlist not found');
         return array('redirect' => '/dashboard/playlist');
       }
 
       $adverts = $request->input('arrObjects');
 
       // If the user did not select anything then skip
-      if (count($advert) > 0) {
+      if (count($adverts) > 0) {
 
         $currentIndex = DB::table('advert_playlist')->where('playlist_id', $playlistID)->max('advert_index');
         $count = 0;

@@ -44,7 +44,7 @@ class ScreenController extends Controller
 
         // Return locations and playlits the user can access
         $locations = Location::whereIn('department_id', $match_departments)->get();
-        $playlists = Playlist::whereIn('department_id', $match_departments)->get();
+        //$playlists = Playlist::whereIn('department_id', $match_departments)->get();
 
         // Get screens that the user has access to
         $screens = $this->getAllowedScreens($user, $allowed_departments);
@@ -53,7 +53,7 @@ class ScreenController extends Controller
           'screens' => $screens,
           'locations' => $locations,
           'user' => $user,
-          'playlists' => $playlists
+          //'playlists' => $playlists
         );
 
         return view('pages/screens', $data);
@@ -80,16 +80,16 @@ class ScreenController extends Controller
     {
       // Get request inputs
       $locationID = $request->input('drpLocations');
-      $playlistID = $request->input('drpPlaylists');
+      //$playlistID = $request->input('drpPlaylists');
 
       $data = array(
         'drpLocations' => $locationID,
-        'drpPlaylists' => $playlistID
+        //'drpPlaylists' => $playlistID
       );
 
       $rules = array(
         'drpLocations' => 'required|exists:location,id',
-        'drpPlaylists' => 'required|exists:playlist,id'
+        //'drpPlaylists' => 'required|exists:playlist,id'
       );
 
       // Validate
@@ -101,7 +101,7 @@ class ScreenController extends Controller
       // Create a new screen
       $screen = new Screen();
       $screen->location_id = $locationID;
-      $screen->playlist_id = empty($playlistID)? 1 : $playlistID;
+      //$screen->playlist_id = empty($playlistID)? 1 : $playlistID;
       $screen->save();
 
       return redirect()->route('dashboard.settings.screens.index')
@@ -159,16 +159,16 @@ class ScreenController extends Controller
 
       // Get request input
       $locationID = $request->input('drpLocations');
-      $playlistID = $request->input('drpPlaylists');
+      //$playlistID = $request->input('drpPlaylists');
 
       $data = array(
         'drpLocations' => $locationID,
-        'drpPlaylists' => $playlistID
+        //'drpPlaylists' => $playlistID
       );
 
       $rules = array(
         'drpLocations' => 'required|exists:location,id',
-        'drpPlaylists' => 'required|exists:playlist,id'
+        //'drpPlaylists' => 'required|exists:playlist,id'
       );
 
       // Validate
@@ -179,7 +179,7 @@ class ScreenController extends Controller
 
       // Update screen
       $screen->location_id = $locationID;
-      $screen->playlist_id = empty($playlistID)? 1 : $playlistID;
+      //$screen->playlist_id = empty($playlistID)? 1 : $playlistID;
       $screen->save();
 
       return redirect()->route('dashboard.settings.screens.index')
@@ -229,7 +229,7 @@ class ScreenController extends Controller
       $btnFindScreen = $request->input('btnFindScreen');
       $btnFindAll = $request->input('btnFindAll');
       $locationID = $request->input('drpLocations');
-      $playlistID = $request->input('drpPlaylists');
+      //$playlistID = $request->input('drpPlaylists');
       $screenID = $request->input('txtScreenID');
 
       // Check which action to perform
@@ -266,12 +266,12 @@ class ScreenController extends Controller
       $playlists = Playlist::whereIn('department_id', $match_departments)->get();
 
       // Pass back so we can re-populate the locations list
-      $locations = Location::whereIn('department_id', $match_departments)->get();
+      //$locations = Location::whereIn('department_id', $match_departments)->get();
 
       $data = array(
         'screens' => $screens,
         'screenID' => $screenID,
-        'locations' => $locations,
+        //'locations' => $locations,
         'playlists' => $playlists,
         'user' => $user
       );

@@ -4,8 +4,7 @@
 
 @include('objects/modal_screens', array('object' => 'Screens',
 																			'heading' => 'Create New Screen',
-																			'locations' => $locations,
-																			'playlists' => $playlists))
+																			'locations' => $locations))
 
 @include('objects/modal_delete', array('object' => 'Delete'))
 

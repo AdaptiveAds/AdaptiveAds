@@ -69,18 +69,6 @@ class AdvsDb extends Migration
           	$table->string('name', 40);
           });
 
-        Schema::create('location', function (Blueprint $table) {
-			      $table->engine = 'InnoDB';
-            $table->increments('id');
-            $table->string('name', 40);
-            $table->integer('department_id')->unsigned();
-            $table->foreign('department_id')
-                	->references('id')
-                	->on('department')
-                	->onUpdate('cascade')
-                	->onDelete('cascade');
-          });
-
         Schema::create('advert', function (Blueprint $table) {
 			      $table->engine = 'InnoDB';
             $table->increments('id');
@@ -112,19 +100,31 @@ class AdvsDb extends Migration
           		  	->onDelete('cascade');
           });
 
+        Schema::create('location', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->string('name', 40);
+            $table->integer('department_id')->unsigned();
+            $table->integer('playlist_id')->unsigned();
+            $table->foreign('department_id')
+                  ->references('id')
+                  ->on('department')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
+            $table->foreign('playlist_id')
+                  ->references('id')
+                  ->on('playlist')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
+          });
+
         Schema::create('screen', function (Blueprint $table) {
 			        $table->engine = 'InnoDB';
               $table->increments('id');
               $table->integer('location_id')->unsigned();
-              $table->integer('playlist_id')->unsigned();
               $table->foreign('location_id')
                   	->references('id')
               			->on('location')
-              	  	->onUpdate('cascade')
-              	  	->onDelete('cascade');
-              $table->foreign('playlist_id')
-                  	->references('id')
-              			->on('playlist')
               	  	->onUpdate('cascade')
               	  	->onDelete('cascade');
           });
@@ -212,12 +212,6 @@ class AdvsDb extends Migration
           				->onUpdate('cascade')
           				->onDelete('cascade');
           });
-
-        Schema::create('password_resets', function(Blueprint $table) {
-            $table->string('email')->index();
-            $table->string('token')->index();
-            $table->timestamp('created_at');
-        });
     }
 
     /**
@@ -227,7 +221,7 @@ class AdvsDb extends Migration
      */
     public function down()
     {
-        Schema::drop('password_resets', 'department_user',
+        Schema::drop('department_user',
                      'page', 'advert_playlist',
                      'screen', 'playlist',
                      'advert', 'location',

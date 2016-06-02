@@ -18,10 +18,10 @@
   <div class="row">
     	<div id="serve_image">
           @if (isset($pageData))
-	          @if (isset($pageData->image_path) AND $pageData->image_path != "")
+	          @if ($pageData->image_path != "")
 	  						<img src="/advert_images/{{ $pageData->image_path or 'image_placeholder.png' }}" title="" alt=""/>
 	  				@else
-							@if (isset($pageData->video_path) AND $pageData->video_path != "")
+							@if ($pageData->video_path != "")
 								@if(isset($serve))
 									<video autoplay>
 								@else
@@ -47,7 +47,10 @@
 	</div>
   <div class="clear"></div>
 </div>
-{{-- Removes the footer on full screen templates image/video --}}
-@if ($activeTemplate->class_name != 'template5' AND $activeTemplate->class_name != 'template2')
-	@include('apis/PCNumbers/summary_footer')
+
+@if (isset($activeTemplate->class_name))
+	{{-- Removes the footer on full screen templates image/video --}}
+	@if ($activeTemplate->class_name != 'template5' AND $activeTemplate->class_name != 'template2')
+		@include('apis/PCNumbers/summary_footer')
+	@endif
 @endif

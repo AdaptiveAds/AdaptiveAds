@@ -73,11 +73,16 @@ class ServeController extends Controller
 
         // Eager load playlist
         $screen = $this->loadPlaylists($screen);
-
+        //dd($screen);
         // Filter out adverts that can't be shown during this time
-        $adverts = $this->applySchedule($screen->playlist->adverts);
+        $adverts = $this->applySchedule($screen->location->playlist->adverts);
 
-        // Get the active template to load first
+        // Get the active Background to load first
+        $advertBackground = null;
+        if ($adverts->count() > 0) {
+          $advertBackground = $adverts[0]->Background;
+        }
+
         $activeTemplate = "template1"; // assign default
         if ($adverts->count() > 0) {
           $activeTemplate = $adverts[0]->Pages[0]->Template;
@@ -85,13 +90,19 @@ class ServeController extends Controller
 
         $global = $this->getGlobal();
 
+        $defaultPageData = $global->adverts[0]->pages[0]->pageData;
+        if ($adverts->count() > 0) {
+          $defaultPageData = $adverts[0]->pages[0]->pageData;
+        }
+
         $data = array(
           'screen' => $screen,
-          'playlist' => $screen->playlist,
+          'playlist' => $screen->location->playlist,
           'adverts' => $adverts,
-          'pageData' => $global->adverts[0]->pages[0]->pageData,
+          'pageData' => $defaultPageData,
           'global' => $global,
           'activeTemplate' => $activeTemplate,
+          'advertBackground' => $advertBackground,
           'serve' => true
         );
 
@@ -125,7 +136,7 @@ class ServeController extends Controller
     public function loadPlaylists($screen)
     {
 
-      return $screen->where('id', $screen->id)->with(array('playlist' => function($query) {
+      return $screen->where('id', $screen->id)->with(array('location.playlist' => function($query) {
           $query->with('adverts.background');
           $query->with('adverts.advertSchedule.schedule');
           $query->with(array('adverts.pages' => function($query) {
@@ -168,11 +179,11 @@ class ServeController extends Controller
 
       // Eager load playlists
       $data = $this->loadPlaylists($screen);
-      $adverts = $this->applySchedule($data->playlist->adverts);
+      $adverts = $this->applySchedule($data->location->playlist->adverts);
 
       $data = array(
         'screen' => $screen,
-        'playlist' => $data->playlist,
+        'playlist' => $data->location->playlist,
         'adverts' => $adverts,
         'global' => $this->getGlobal()
       );
