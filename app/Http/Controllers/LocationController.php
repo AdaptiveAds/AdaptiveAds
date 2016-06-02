@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use Session;
 
-use App\playlist as Playlist;
+use App\Playlist as Playlist;
 use App\Location as Location;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
