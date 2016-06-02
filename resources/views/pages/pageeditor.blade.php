@@ -23,7 +23,7 @@
 			@if (strlen($advertBackground->image_path) > 0)
 				<style>
 					#serve_container {
-						background: url('../../../../advert_backgrounds/{{$advertBackground->image_path}}');
+						background: url({{ url('advert_backgrounds/' . $advertBackground->image_path) }});
 						background-size: cover;
 					}
 				</style>
