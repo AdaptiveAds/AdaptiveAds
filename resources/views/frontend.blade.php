@@ -28,8 +28,9 @@
 		  <div class="row one">
 		    <div class="wrapper">
 		      <div id="teaser">
-						<video controls preload="none">
-						   <source src="{{ URL::asset('advert_videos/adaptive.mp4') }}" type="video/mp4">
+						<video  controls autoplay muted>
+							<source src="{{ URL::asset('advert_videos/adaptive.mp4') }}" type="video/mp4">
+							<source src="{{ URL::asset('advert_videos/adaptive.ogg') }}" type="video/ogg">
 						   Your browser does not support the video tag.
 						</video>
 		        <div class="clear"></div>
@@ -77,7 +78,8 @@
     </div>
     <div class="right">
 			<video controls preload="none">
-				 <source src="{{ URL::asset('advert_videos/computing.mp4') }}" type="video/mp4">
+				<source src="{{ URL::asset('advert_videos/computing.mp4') }}" type="video/mp4">
+				<source src="{{ URL::asset('advert_videos/computing.ogg') }}" type="video/ogg">
 				 Your browser does not support the video tag.
 			</video>
     </div>
