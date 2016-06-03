@@ -126,7 +126,8 @@
         <button title="Save and Close" type="submit" name="btnSaveClose">Save & Close</button>
       </li>
 		</div>
-
+		<!-- KW 03.06.2016: class wrap to format removeImg and Video-->
+		<div class="buttons-PageEditor">
 			@if (isset($pageData->image_path) AND $pageData->image_path != "")
 				{!! Form::open(['route' => ['dashboard.advert.page.removeMedia', $page->advert_id, $page->id], 'method' => 'POST']) !!}
 				<input type="hidden" name="pageID" value="{{$page->id}}"/>
@@ -141,6 +142,7 @@
 					<li><button type="submit" name="btnRemoveVideo">Remove Video</button></li>
 				{!! Form::close() !!}
 			@endif
+		</div>
 
 			<!-- ensures form fills parent div w3c validation compliant -->
 			<div class="clear"></div>

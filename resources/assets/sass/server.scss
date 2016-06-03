@@ -17,29 +17,26 @@
 }
 
 @import url(https://fonts.googleapis.com/css?family=Ubuntu:300);
-
-body, #wrapper, #content {padding:0;margin:0;}
-.clear {clear:both;}
 body {
     font-family: 'Ubuntu', sans-serif;
     background-image: url("../images/bg.jpg");
     background-repeat: no-repeat;
     background-size:cover;
+    font-size:1.2vw;
+    }
 
-    #wrapper {
-      #content {
-        #serve {
-          #serve_container {
-          font-size:0em;
-            .template5 {
-            padding:0;
-            margin:0;
-              .row {
-                #serve_image {position:absolute; top:0; left:0;}
-              }
-            }
-          }
-        }
+body, #wrapper, #content {padding:0;margin:0;}
+.clear {clear:both;}
+
+#serve {
+  #serve_container {
+  overflow:hidden;
+    #header {display:none;}
+    .row {
+      #serve_image {
+        video {position:absolute; top:0; left: 0; margin:0; padding;}
+        img {position:absolute; top:0; left: 0; margin:0; padding:0;}
       }
     }
-    }
+  }
+}
