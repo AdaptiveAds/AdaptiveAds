@@ -214,12 +214,7 @@ class PlaylistController extends Controller
         abort(401, 'Unauthorized');
 
       $adCount = $playlist->Adverts()->count();
-      $scCount = $playlist->Screens()->count();
-
-      if ($scCount != 0)
-        return redirect()->route('dashboard.playlist.index')
-                         ->with('message', 'Unable to delete ' . $playlist->name
-                                            . ', one or more screens depends on it');
+      //$scCount = $playlist->Screens()->count();
 
       $playlist->delete();
 
