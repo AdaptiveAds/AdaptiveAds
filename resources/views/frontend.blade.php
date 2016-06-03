@@ -29,7 +29,7 @@
 		    <div class="wrapper">
 		      <div id="teaser">
 						<video controls preload="none">
-						   <source src="{{ URL::asset('video/teaser.mp4') }}" type="video/mp4">
+						   <source src="{{ URL::asset('advert_videos/adaptive.mp4') }}" type="video/mp4">
 						   Your browser does not support the video tag.
 						</video>
 		        <div class="clear"></div>
@@ -46,16 +46,16 @@
 
 						<ul>
 							<li>
-								<img src="{{ URL::asset('images/logo.png') }}" alt="#" title="#">
-								<span>Title</span>
+								<img src="{{ URL::asset('images/icons/dashboardAdvertAdd.png') }}" alt="Desgin Adverts" title="Design Adverts">
+								<span>Design Adverts</span>
 							</li>
 							<li>
-								<img src="{{ URL::asset('images/logo.png') }}" alt="#" title="#">
-								<span>Title</span>
+								<img src="{{ URL::asset('images/icons/dashboardScreens.png') }}" alt="Multiple Screens" title="Multiple Screens">
+								<span>Manage Screens</span>
 							</li>
 							<li>
-								<img src="{{ URL::asset('images/logo.png') }}" alt="#" title="#">
-								<span>Title</span>
+								<img src="{{ URL::asset('images/icons/dashboardLocations.png') }}" alt="Manage Locations" title="Manage Locations">
+								<span>Multiple Locations</span>
 							</li>
 
 				  <!-- close content -->
@@ -71,12 +71,15 @@
   <div class="row three">
     <div class="wrapper">
     <div class="left">
-				<h3>Promo Trailer</h3>
-				<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+				<h3>University of Gloucestershire - School of Computing</h3>
+				<p>Many of our students do work placements within industry. Some of our recent students have worked with top names such as Accenture, Hewlett Packard, Fujitsu, GE Capital and Renishaw. Placements give you the chance to become familiar with professional industry processes and build contacts for the future..</p>
 			</div>
     </div>
     <div class="right">
-      <iframe src="https://www.youtube.com/embed/ubZASS3uPrs?rel=0" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+			<video controls preload="none">
+				 <source src="{{ URL::asset('advert_videos/computing.mp4') }}" type="video/mp4">
+				 Your browser does not support the video tag.
+			</video>
     </div>
     <div class="clear"></div>
   </div>
@@ -91,25 +94,37 @@
 			<p>The AdaptiveAds team are regular guys offering their services to better improve your business advertising for FREE. Need we say more? Okay, if you want more - check out below!</p>
 		</div>
 			<div id="servicesMain">
-				<div class="service"><img title="placeholder" src="{{ URL::asset('images/logo.png') }}" alt="placeholder" />
-					<h3>This is a title</h3>
-					<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-
+				<div class="service">
+					<a name="lnkTeam" href="{{ URL::to('team')}}">
+						<img title="placeholder" src="{{ URL::asset('images/frontend/open-source.png') }}" alt="Open Source" title="Open Source System"/>
+						<h3>What do you mean FREE?</h3>
+						<p>The open-source MIT license permits both personal and commercial use provided you include a copy of the MIT License terms and the copyright notice.
+						</p>
+					</a>
 				</div>
-				<div class="service"><img title="placeholder" src="{{ URL::asset('images/logo.png') }}" alt="placeholder" />
-					<h3>This is a title</h3>
-					<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+
+				<div class="service">
+					<a name="lnkTeam" href="{{ URL::to('team')}}">
+						<img title="placeholder" src="{{ URL::asset('images/frontend/team.png') }}" alt="Team" title="Team" />
+						<h3>Development Team</h3>
+						<p>Technology creates opportunity, it is our choice to seize these opportunities...</p>
+					</a>
 				</div>
 
-				<div class="service"><img title="placeholder" src="{{ URL::asset('images/logo.png') }}" alt="placeholder" />
-					<h3>This is a title</h3>
-					<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-
+				<div class="service">
+					<a name="lnkTeam" href="{{ URL::to('team')}}">
+						<img title="placeholder" src="{{ URL::asset('images/frontend/placeholder.png') }}" alt="placeholder" />
+						<h3>Development Team</h3>
+						<p></p>
+					</a>
 				</div>
-				<div class="service"><img title="placeholder" src="{{ URL::asset('images/logo.png') }}" alt="placeholder" />
-					<h3>This is a title</h3>
-					<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
 
+				<div class="service">
+					<a name="lnkTeam" href="{{ URL::to('team')}}">
+						<img title="placeholder" src="{{ URL::asset('images/frontend/Awareness.png') }}" alt="Build Brand Awareness" />
+						<h3>Brand Awareness</h3>
+						<p></p>
+					</a>
 				</div>
 			</div>
     <div class="clear"></div>

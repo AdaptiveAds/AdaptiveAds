@@ -126,16 +126,16 @@ body.font-theme-c {@extend %font-c;}
       #top {
       margin:0;
       padding:0;
-      ul, li, i, a, button {margin:0; padding:0;}
       width:100%;
       display:block;
       color:#ffffff;
       width:100%;
       background:#1d1f20;
+      ul, li, i, a, button {margin:0; padding:0;}
               //used for swatches and font ID's
         %top-li {display:block; cursor:pointer; min-height:40px;
           i {padding:8px; color:#ffffff;}
-          &.top-active { background:$site-background;}
+          &.top-active { background:$site-background; color:#ffffff;}
 
           &[data-theme="font-theme-a"] {font-size:16px;}
           &[data-theme="font-theme-b"] {font-size:20px;}

@@ -1,13 +1,17 @@
+
 //Author: KW
 // all content in this document carried out by ABOVE author
 
 /***************************/
 /*   Section | Article     */
 /***************************/
-section {text-align:center; clear:both;
-	article {float:left; width:22%; padding:1%;
-		img {width:50%; border-radius:10px;}//img
-		p {text-align:justify;}//p
+section {text-align:left; clear:both;
+	article {float:left; width:25%; padding:1%;
+		i{color:blue;}
+		.fail {color:red}
+		img {width:30%; border-radius:10px;}//img
+		p {text-align:left;}//p
+
 	}//article
 }//section
 

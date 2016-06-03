@@ -191,7 +191,7 @@ body.data-swatch-theme-a #wrapper #top {
   width: 100%;
   background: #1d1f20;
 }
-/* line 129, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 134, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #top ul, body.data-swatch-theme-a #wrapper #top li, body.data-swatch-theme-a #wrapper #top i, body.data-swatch-theme-a #wrapper #top a, body.data-swatch-theme-a #wrapper #top button {
   margin: 0;
   padding: 0;
@@ -210,6 +210,7 @@ body.data-swatch-theme-a #wrapper #top #swatches ul li i, body.data-swatch-theme
 /* line 138, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active {
   background: url("../images/multicolour_bg.png") no-repeat center top;
+  color: #ffffff;
 }
 /* line 140, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-a"] {
@@ -526,7 +527,7 @@ body.data-swatch-theme-b #wrapper #top {
   width: 100%;
   background: #1d1f20;
 }
-/* line 129, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 134, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b #wrapper #top ul, body.data-swatch-theme-b #wrapper #top li, body.data-swatch-theme-b #wrapper #top i, body.data-swatch-theme-b #wrapper #top a, body.data-swatch-theme-b #wrapper #top button {
   margin: 0;
   padding: 0;
@@ -545,6 +546,7 @@ body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li 
 /* line 138, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-b #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-b #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li.top-active {
   background: #fcfc4b;
+  color: #ffffff;
 }
 /* line 140, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-b body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-a"] {
@@ -861,7 +863,7 @@ body.data-swatch-theme-c #wrapper #top {
   width: 100%;
   background: #1d1f20;
 }
-/* line 129, ../../resources/assets/sass/sitewide/_themes.scss */
+/* line 134, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c #wrapper #top ul, body.data-swatch-theme-c #wrapper #top li, body.data-swatch-theme-c #wrapper #top i, body.data-swatch-theme-c #wrapper #top a, body.data-swatch-theme-c #wrapper #top button {
   margin: 0;
   padding: 0;
@@ -880,6 +882,7 @@ body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li 
 /* line 138, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li.top-active, body.data-swatch-theme-c #wrapper #top #swatches ul li.top-active, body.data-swatch-theme-c #wrapper #top #fontsizing ul li.top-active {
   background: url("../images/background_brandColours.png") no-repeat center top;
+  color: #ffffff;
 }
 /* line 140, ../../resources/assets/sass/sitewide/_themes.scss */
 body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-a #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-a body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-c body.data-swatch-theme-b #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-b body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-a"], body.data-swatch-theme-c #wrapper #top #swatches ul li[data-theme="font-theme-a"], body.data-swatch-theme-c #wrapper #top #fontsizing ul li[data-theme="font-theme-a"] {
@@ -1501,8 +1504,8 @@ a, button, input {
 .two ul li img {
   width: 60%;
   height: auto;
-  border-radius: 50%;
-  background: yellow;
+  border-radius: 20%;
+  background: rgba(255, 255, 255, 0.5);
 }
 /* line 28, ../../resources/assets/sass/frontend/_frontendDefault.scss */
 .two ul li span {
@@ -1523,7 +1526,7 @@ a, button, input {
   margin-right: 2%;
 }
 /* line 44, ../../resources/assets/sass/frontend/_frontendDefault.scss */
-.three .right iframe, .three .right form {
+.three .right video, .three .right form {
   width: 100%;
   margin: 0 auto;
   height: auto;
@@ -1556,7 +1559,7 @@ a, button, input {
 /* line 67, ../../resources/assets/sass/frontend/_frontendDefault.scss */
 .four #servicesMain .service p {
   width: 80%;
-  text-align: justify;
+  text-align: left;
   margin: 0 auto;
 }
 /* line 68, ../../resources/assets/sass/frontend/_frontendDefault.scss */
