@@ -30,6 +30,9 @@ section {text-align:center; clear:both;
 				}//a
 			}//li
 		}//ul
+		a {
+			&:hover {}
+		}
 	}//options
 }//row
 } //dashboard

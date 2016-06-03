@@ -4,14 +4,15 @@ html {
   body {
   %primary-nav-color {color:#ffffff;}
   &.data-swatch-theme-a {
-  .three {background:#d8f4fd;}
+  .three {background:rgba(216,244,253, 0.8);}
   #wrapper {
   .primary-nav li a {@extend %primary-nav-color;}
 
     #content{
-    h5 {color:#407b8d;}
+    h5 {color:#ffffff;}
     .global {
       .row {
+        &:first-child{background:rgba(81,154,177, 0.8);}
         &:last-child{
           ul {
             li{
@@ -42,20 +43,29 @@ html {
   }
 }
   &.data-swatch-theme-c {
-    .three {background:#070e10;}
+    .three {background:rgba(10,21,24, 0.2);}
     #wrapper {
     .primary-nav li a {@extend %primary-nav-color;}
 
       #content {
         .global {
           .row{
-            &:first-child{background:#519ab1}
+            &:first-child {
+            background:rgba(81,154,177, 0.8);
+
+              .wrapper {
+                .left {
+                  color:#ffffff;
+                }
+              }
+            }
           }
         }
+      }
         #identity {color:#000000;}
         h3 {color:#000000;}
         h5 {color:#ffffff;}
-        options {
+        .options {
           .dashboard {
             .row{
               .options {
@@ -71,5 +81,4 @@ html {
       }
     }//wrapper
   }
-}
 }

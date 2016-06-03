@@ -26,7 +26,15 @@
 -webkit-stroke-width: 5.3px;
 -webkit-stroke-color: #FFFFFF;
 -webkit-fill-color: #FFFFFF;
-text-shadow: 1px 0px 20px yellow;
+text-shadow: 1px 0px 20px #ffffff;
+-webkit-transition: background-color 0.5s ease-in;
+-moz-transition: background-color 0.5s ease-in;
+-o-transition: background-color 0.5s ease-in;
+transition: background-color 0.5s ease-in;
+-webkit-transition: background-color 0.5s ease-out;
+-moz-transition: background-color 0.5s ease-out;
+-o-transition: background-color 0.5s ease-out;
+transition: background-color 0.5s ease-out;
 }
 
 %font-a {font-size:80%;}
@@ -146,8 +154,7 @@ body.font-theme-c {@extend %font-c;}
             @extend %top-li;
             color:#ffffff;
 
-            &.top-active {
-            }
+            &.top-active {}
             &:hover {@extend %glow;}
 
             }
@@ -321,12 +328,12 @@ border:none;
 
 // Light
 @include theme(data-swatch-theme-a, #000000, url("../images/multicolour_bg.png") no-repeat center top, #000000,
-              #000000, #ffffff, #000000);
+              #25aae1, #000000, #000000);
 
 // Colour Blind
 @include theme(data-swatch-theme-b, #000000, #fcfc4b , #3d6ab3,
               #1f6378, #ffe800, #000000);
 
 // Black
-@include theme(data-swatch-theme-c, #ffffff, url("../images/background_brandColours.png") no-repeat center top, #000000,
-              #000000, #ffffff, #000000);
+@include theme(data-swatch-theme-c, #000000, url("../images/background_brandColours.png") no-repeat center top, #000000,
+              #25aae1, #000000, #000000);
